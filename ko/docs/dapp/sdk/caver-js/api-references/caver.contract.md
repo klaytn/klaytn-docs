@@ -51,7 +51,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | 이름            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
 | jsonInterface | 객체     | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
-| 주소            | string | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| address       | string | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
 | options       | 객체     | (선택 사항) 컨트랙트 옵션. 자세한 내용은 아래 표를 참조하세요.                                                     |
 
 옵션 개체에는 다음이 포함됩니다:
@@ -91,7 +91,7 @@ myContract.options
 
 | 이름            | 타입      | 설명                                                                                                                                                                           |
 | ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소            | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                |
+| address       | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                |
 | jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                            |
 | from          | string  | 컨트랙트 배포/실행 트랜잭션을 전송하는 기본 주소입니다. 트랜잭션 생성시 `from` 주소가 정의되어 있지 않다면, 트랜잭션 생성시 항상 `myContract.options.from`가 사용됩니다.                                                               |
 | 가스 가격         | string  | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                     |
@@ -139,9 +139,9 @@ myContract.options.address
 
 **속성**
 
-| 이름 | 타입                   | 설명                                      |
-| -- | -------------------- | --------------------------------------- |
-| 주소 | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
+| 이름      | 타입                   | 설명                                      |
+| ------- | -------------------- | --------------------------------------- |
+| address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
 **예시**
 
@@ -1687,7 +1687,7 @@ The structure of the returned event `object` looks as follows:
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                 |
 | signature        | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
-| 주소               | string               | 이 이벤트가 발생한 주소.                                                                                          |
+| address          | string               | 이 이벤트가 발생한 주소.                                                                                          |
 | returnValues     | 객체                   | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                      |
 | logIndex         | number               | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                   |
 | transactionIndex | number               | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                             |
@@ -1779,7 +1779,7 @@ An event object can contain the following:
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                                                                                                                       |
 | signature        | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
-| 주소               | string               | Address this event originated from.                                                                                                                                                                           |
+| address          | string               | Address this event originated from.                                                                                                                                                                           |
 | returnValues     | 객체                   | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
 | logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
 | transactionIndex | number               | The transaction’s index position the event was created in.                                                                                                                                                    |
