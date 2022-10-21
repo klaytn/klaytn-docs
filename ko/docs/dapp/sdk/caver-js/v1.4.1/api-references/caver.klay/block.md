@@ -434,7 +434,7 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 
 | 이름           | 타입                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | 스토리지를 얻고 싶은 주소입니다.                                                                                                          |
+| address      | String               | 스토리지를 얻고 싶은 주소입니다.                                                                                                          |
 | position     | Number               | 스토리지 인덱스 위치입니다.                                                                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
