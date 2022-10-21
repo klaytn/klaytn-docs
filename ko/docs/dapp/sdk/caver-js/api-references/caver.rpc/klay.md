@@ -14,7 +14,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | 네트워크에 존재하는지 확인하고 싶은 계정 주소입니다.                                                                   |
+| address     | string               | 네트워크에 존재하는지 확인하고 싶은 계정 주소입니다.                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -47,7 +47,7 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | 계정 정보를 알고 싶은 계정 주소입니다.                                                                          |
+| address     | string               | 계정 정보를 알고 싶은 계정 주소입니다.                                                                          |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -104,7 +104,7 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | Klaytn 계정 주소입니다. 이 메서드를 실행하면 이 계정 주소의 AccountKey 정보가 담긴 객체를 얻습니다.                               |
+| address     | string               | Klaytn 계정 주소입니다. 이 메서드를 실행하면 이 계정 주소의 AccountKey 정보가 담긴 객체를 얻습니다.                               |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -424,7 +424,7 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | 잔액을 확인할 계정 주소입니다.                                                                               |
+| address     | string               | 잔액을 확인할 계정 주소입니다.                                                                               |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -455,7 +455,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | 코드를 알고 싶은 주소입니다.                                                                                |
+| address     | string               | 코드를 알고 싶은 주소입니다.                                                                                |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -486,7 +486,7 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                                                                                                                                                                 |
 | ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소          | string               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                                            |
+| address     | string               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                                            |
 | blockNumber | number &#124; string | (선택 사항) 블록 번호, 보류 중인 논스의 경우 `pending` 문자열, 또는 [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter)에 정의된 바와 같은 `earliest`, `latest` 같은 문자열입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |[]                                                                                                                                                           |
 
@@ -517,7 +517,7 @@ caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | string               | isContractAccount로 확인할 주소입니다.                                                                   |
+| address     | string               | isContractAccount로 확인할 주소입니다.                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -553,7 +553,7 @@ Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platfo
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 주소          | String               | 메시지에 서명할 불러온 계정 주소입니다.                                                                          |
+| address     | String               | 메시지에 서명할 불러온 계정 주소입니다.                                                                          |
 | 메시지         | String               | 서명하려는 메시지입니다.                                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
@@ -1413,7 +1413,7 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 | 이름          | 타입                   | 설명                                                                                                                                      |
 | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소          | string               | 스토리지를 얻고 싶은 주소입니다.                                                                                                                      |
+| address     | string               | 스토리지를 얻고 싶은 주소입니다.                                                                                                                      |
 | position    | number               | 스토리지 인덱스 위치입니다. 인덱스 위치 계산에 관한 자세한 내용은 [klay_getStorageAt](../../../../json-rpc/api-references/klay/block.md#klay_getstorageat)를 확인하십시오. |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다.                                         |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                    |
@@ -2811,7 +2811,7 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 | transactionHash  | string | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                    |
 | blockHash        | string | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                      |
 | blockNumber      | string | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                       |
-| 주소               | string | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
+| address          | string | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
 | 데이터              | string | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                     |
 | topics           | Array  | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
 
@@ -2894,7 +2894,7 @@ caver.rpc.klay.getLogs(options [, callback])
 | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) 기본값은 `"latest"`입니다.                                                 |
 | toBlock   | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미합니다.). 기본값은 `"latest"`입니다.                                                               |
-| 주소        | string &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
+| address   | string &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
 | topics    | Array                | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `[null, '0x12...']`에서와 같이 `null`을 사용하십시오. 각 토픽에 대해 `[null, ['option1', 'option2']]`와 같이  토픽 옵션을 배열로 넣을 수도 있습니다. |
 
 **리턴값**
@@ -2980,7 +2980,7 @@ For detailed information about the topics in the filter object, please see [Klay
 | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) 기본값은 `"latest"`입니다.                                                 |
 | toBlock   | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미합니다.). 기본값은 `"latest"`입니다.                                                               |
-| 주소        | string &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
+| address   | string &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
 | topics    | Array                | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `[null, '0x12...']`에서와 같이 `null`을 사용하십시오. 각 토픽에 대해 `[null, ['option1', 'option2']]`와 같이  토픽 옵션을 배열로 넣을 수도 있습니다. |
 
 **리턴값**
