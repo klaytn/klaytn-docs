@@ -28,7 +28,7 @@ caver.klay.accounts.create([entropy])
 
 | 이름                               | 타입       | 설명                                                                             |
 | -------------------------------- | -------- | ------------------------------------------------------------------------------ |
-| 주소                               | String   | 계정 주소.                                                                         |
+| address                          | String   | 계정 주소.                                                                         |
 | privateKey                       | String   | 계정 개인키. 로컬 스토리지에 암호화되지 않은 상태로 공유하거나 저장해서는 안 됩니다! 또한 사용 후에는 메모리를 null로 설정하세요.   |
 | signTransaction(tx [, callback]) | Function | 트랜잭션에 서명하는 함수. [caver.klay.accounts.signTransaction](#signtransaction)를 참조하세요. |
 | sign(data)                       | Function | 트랜잭션에 서명하는 함수. See [caver.klay.accounts.sign](#sign).                          |
@@ -81,7 +81,7 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소         | String                            | 계정 주소.                                                                                                                                                |
+| address    | String                            | 계정 주소.                                                                                                                                                |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체)를 포함하는 데이터 구조체. |
 
 
@@ -91,7 +91,7 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 | 이름                               | 타입                                | 설명                                                                                                                                                                                                   |
 | -------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소                               | String                            | 계정 주소.                                                                                                                                                                                               |
+| address                          | String                            | 계정 주소.                                                                                                                                                                                               |
 | privateKey                       | String                            | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
 | accountKeyType                   | String                            | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
 | accountKey                       | Object                            | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
@@ -161,7 +161,7 @@ AccountKeyPublic을 가지는 Account 인스턴스를 생성합니다.
 
 | 이름         | 타입                   | 설명                                                    |
 | ---------- | -------------------- | ----------------------------------------------------- |
-| 주소         | String               | 계정 주소.                                                |
+| address    | String               | 계정 주소.                                                |
 | accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string. |
 
 
@@ -197,7 +197,7 @@ AccountKeyMultiSig를 가지는 Account 인스턴스를 생성합니다.
 
 | 이름         | 타입                   | 설명                                                                 |
 | ---------- | -------------------- | ------------------------------------------------------------------ |
-| 주소         | String               | 계정 주소.                                                             |
+| address    | String               | 계정 주소.                                                             |
 | accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings. |
 
 
@@ -233,7 +233,7 @@ AccountKeyRoleBased를 가지는 Account 인스턴스를 생성합니다.
 
 | 이름         | 타입                   | 설명                                                                               |
 | ---------- | -------------------- | -------------------------------------------------------------------------------- |
-| 주소         | String               | 계정 주소.                                                                           |
+| address    | String               | 계정 주소.                                                                           |
 | accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
 
 
@@ -574,7 +574,7 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 | 이름         | 타입                                | 설명                                                                                                                                                                                                                                                                                            |
 | ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소         | String                            | 계정 주소.                                                                                                                                                                                                                                                                                        |
+| address    | String                            | 계정 주소.                                                                                                                                                                                                                                                                                        |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 상응하는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체). accountKey가 AccountKey 인스턴스가 아닌 경우 이 메서드는 내부적으로 [caver.klay.accounts.createAccountKey](#createaccountkey)를 호출하여 주어진 키 정보로 AccountKey 인스턴스를 만듭니다. |
 | options    | Object                            | 임계값과 가중치를 포함하는 객체로 선택적 매개변수. 이 값은 AccountKeyMultiSig를 사용할 때 필요합니다. 사용법은 아래 예에 나와 있습니다.                                                                                                                                                                                                        |
 
@@ -584,7 +584,7 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 | 이름           | 타입     | 설명                                      |
 | ------------ | ------ | --------------------------------------- |
-| 주소           | String | 업데이트 할 계정의 주소.                          |
+| address      | String | 업데이트 할 계정의 주소.                          |
 | keyForUpdate | Object | 주어진 accountKey에서 도출한, 새로운 공개키를 포함하는 객체. |
 
 
@@ -677,7 +677,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 
 | 이름           | 타입                                | 설명                                                                                                                                                                   |
 | ------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String                            | 계정 주소.                                                                                                                                                               |
+| address      | String                            | 계정 주소.                                                                                                                                                               |
 | keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. 이 값은 키가 AccountKeyPublic인 경우에는 단일 공개키 문자열, AccountKeyMultiSig인 경우 공개키 문자열의 배열, 키가 AccountKeyRoleBased인 경우는 객체입니다.           |
 | options      | Object                            | 임계값과 가중치를 포함하는 객체로 선택적 매개변수. 이 값은 AccountKeyMultiSig를 사용할 때 필요합니다. AccountKeyRoleBased의 키 중 하나로 AccountKeyMultiSig를 사용하는 경우 임계값과 가중치에 역할을 지정하세요. 사용법은 아래 예에 나와 있습니다. |
 
@@ -762,9 +762,9 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명     |
-| -- | ------ | ------ |
-| 주소 | String | 계정 주소. |
+| 이름      | 타입     | 설명     |
+| ------- | ------ | ------ |
+| address | String | 계정 주소. |
 
 **리턴값**
 
@@ -795,9 +795,9 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명     |
-| -- | ------ | ------ |
-| 주소 | String | 계정 주소. |
+| 이름      | 타입     | 설명     |
+| ------- | ------ | ------ |
+| address | String | 계정 주소. |
 
 **리턴값**
 
@@ -2056,10 +2056,10 @@ caver.klay.accounts.isDecoupled(key, address)
 
 **Parameters**
 
-| 이름  | 타입     | 설명                                                                                                                                      |
-| --- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| key | String | 주소에서 분리되었는지 확인하고자 하는 키입니다. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
-| 주소  | String | (선택 사항) 분리 여부를 확인하는 데 사용되는 주소입니다. 주소가 주어지지 않으면, 주소는 키에서 파생됩니다.                                                                          |
+| 이름      | 타입     | 설명                                                                                                                                      |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| key     | String | 주소에서 분리되었는지 확인하고자 하는 키입니다. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| address | String | (선택 사항) 분리 여부를 확인하는 데 사용되는 주소입니다. 주소가 주어지지 않으면, 주소는 키에서 파생됩니다.                                                                          |
 
 
 **리턴값**
@@ -2618,7 +2618,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 | 이름         | 타입     | 설명                    |
 | ---------- | ------ | --------------------- |
 | privateKey | String | 업데이트에 사용될 새로운 개인키입니다. |
-| 주소         | String | 지갑의 계좌 주소입니다.         |
+| address    | String | 지갑의 계좌 주소입니다.         |
 
 
 **리턴값**
@@ -2661,7 +2661,7 @@ caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소         | String                            | 지갑의 계좌 주소입니다.                                                                                                                                         |
+| address    | String                            | 지갑의 계좌 주소입니다.                                                                                                                                         |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체)를 포함하는 데이터 구조체. |
 
 
