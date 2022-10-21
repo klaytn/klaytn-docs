@@ -21,7 +21,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | 이름            | 타입     | 설명                                                                                                                        |
 |:------------- |:------ |:------------------------------------------------------------------------------------------------------------------------- |
 | jsonInterface | Object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                                                               |
-| 주소            | String | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| address       | String | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
 | options       | Object | \(optional\) The options of the contract.  자세한 내용은 아래 표를 참조하세요.                                                         |
 
 옵션 개체에는 다음이 포함됩니다:
@@ -65,7 +65,7 @@ myContract.options
 
 | 이름            | 타입     | 설명                                                                           |
 |:------------- |:------ |:---------------------------------------------------------------------------- |
-| 주소            | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
+| address       | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
 | jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.  Also see [options.jsonInterface](#options-jsoninterface). |
 | 데이터           | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                             |
 | from          | String | 트랜잭션이 만들어진 송신자 주소.                                                           |
@@ -99,9 +99,9 @@ myContract.options.address
 
 **속성**
 
-| 이름 | 타입        | 설명                                                                     |
-|:-- |:--------- |:---------------------------------------------------------------------- |
-| 주소 | String \ | `null` | The address for this contract or `null` if it is not yet set. |
+| 이름      | 타입        | 설명                                                                     |
+|:------- |:--------- |:---------------------------------------------------------------------- |
+| address | String \ | `null` | The address for this contract or `null` if it is not yet set. |
 
 **예시**
 
@@ -671,7 +671,7 @@ myContract.events.MyEvent([options][, callback])
 |:---------------- |:-------------- |:------------------------------------------------------------------------------------------------------------------------------- |
 | event            | String         | 이벤트 이름.                                                                                                                         |
 | signature        | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                               |
-| 주소               | String         | 이 이벤트가 발생한 주소.                                                                                                                  |
+| address          | String         | 이 이벤트가 발생한 주소.                                                                                                                  |
 | returnValues     | Object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                              |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                                           |
 | transactionIndex | Number         | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                                                     |
