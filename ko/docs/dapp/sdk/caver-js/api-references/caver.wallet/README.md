@@ -71,10 +71,10 @@ caver.wallet.newKeyring(address, key)
 
 **Parameters**
 
-| 이름  | 타입                  | 설명                                                             |
-| --- | ------------------- | -------------------------------------------------------------- |
-| 주소  | string              | 주소 문자열입니다.                                                     |
-| key | string &#124; Array | 개인키 문자열, 개인키들의 배열, 또는 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
+| 이름      | 타입                  | 설명                                                             |
+| ------- | ------------------- | -------------------------------------------------------------- |
+| address | string              | 주소 문자열입니다.                                                     |
+| key     | string &#124; Array | 개인키 문자열, 개인키들의 배열, 또는 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
 **리턴값**
 
@@ -168,9 +168,9 @@ caver.wallet.getKeyring(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명             |
-| -- | ------ | -------------- |
-| 주소 | string | 조회할 키링의 주소입니다. |
+| 이름      | 타입     | 설명             |
+| ------- | ------ | -------------- |
+| address | string | 조회할 키링의 주소입니다. |
 
 **리턴값**
 
@@ -198,9 +198,9 @@ Returns `true` if there is a keyring matching the address.
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                         |
-| -- | ------ | ------------------------------------------ |
-| 주소 | string | The address of keyring to check existence. |
+| 이름      | 타입     | 설명                                         |
+| ------- | ------ | ------------------------------------------ |
+| address | string | The address of keyring to check existence. |
 
 **리턴값**
 
@@ -255,9 +255,9 @@ Deletes the keyring from `caver.wallet` whose address matches the address of the
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                                         |
-| -- | ------ | ---------------------------------------------------------- |
-| 주소 | string | An address of the keyring to be deleted in `caver.wallet`. |
+| 이름      | 타입     | 설명                                                         |
+| ------- | ------ | ---------------------------------------------------------- |
+| address | string | An address of the keyring to be deleted in `caver.wallet`. |
 
 **리턴값**
 
@@ -288,12 +288,12 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **Parameters**
 
-| 이름    | 타입     | 설명                                                                                                            |
-| ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| 주소    | string | 사용될 키링의 주소입니다.                                                                                                |
-| 메시지   | string | 서명할 메시지입니다.                                                                                                   |
-| role  | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
-| index | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
+| 이름      | 타입     | 설명                                                                                                            |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| address | string | 사용될 키링의 주소입니다.                                                                                                |
+| 메시지     | string | 서명할 메시지입니다.                                                                                                   |
+| role    | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
+| index   | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
 
 **리턴값**
 
@@ -346,12 +346,12 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 
 **Parameters**
 
-| 이름     | 타입       | 설명                                                                                                                                                                                                                                                                                                                                                            |
-| ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소     | string   | 사용될 키링의 주소입니다.                                                                                                                                                                                                                                                                                                                                                |
-| 트랜잭션   | 객체       | An instance of [Transaction][].                                                                                                                                                                                                                                                                                                                               |
-| index  | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                                                                                                 |
-| hasher | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
+| 이름      | 타입       | 설명                                                                                                                                                                                                                                                                                                                                                            |
+| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string   | 사용될 키링의 주소입니다.                                                                                                                                                                                                                                                                                                                                                |
+| 트랜잭션    | 객체       | An instance of [Transaction][].                                                                                                                                                                                                                                                                                                                               |
+| index   | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                                                                                                 |
+| hasher  | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **리턴값**
 
@@ -458,12 +458,12 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 **Parameters**
 
-| 이름     | 타입       | 설명                                                                                                                                                                                |
-| ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소     | string   | 사용될 키링의 주소입니다.                                                                                                                                                                    |
-| 트랜잭션   | 객체       | An instance of [FeeDelegatedTransaction][].                                                                                                                                       |
-| index  | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                     |
-| hasher | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js. |
+| 이름      | 타입       | 설명                                                                                                                                                                                |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string   | 사용될 키링의 주소입니다.                                                                                                                                                                    |
+| 트랜잭션    | 객체       | An instance of [FeeDelegatedTransaction][].                                                                                                                                       |
+| index   | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                     |
+| hasher  | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js. |
 
 **리턴값**
 
