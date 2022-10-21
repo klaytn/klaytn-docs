@@ -344,9 +344,9 @@ caver.utils.isAddress(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명      |
-| -- | ------ | ------- |
-| 주소 | string | 주소 문자열. |
+| 이름      | 타입     | 설명      |
+| ------- | ------ | ------- |
+| address | string | 주소 문자열. |
 
 **리턴값**
 
@@ -383,9 +383,9 @@ caver.utils.toChecksumAddress(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명      |
-| -- | ------ | ------- |
-| 주소 | string | 주소 문자열. |
+| 이름      | 타입     | 설명      |
+| ------- | ------ | ------- |
+| address | string | 주소 문자열. |
 
 **리턴값**
 
@@ -413,9 +413,9 @@ caver.utils.checkAddressChecksum(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명      |
-| -- | ------ | ------- |
-| 주소 | string | 주소 문자열. |
+| 이름      | 타입     | 설명      |
+| ------- | ------ | ------- |
+| address | string | 주소 문자열. |
 
 **리턴값**
 
