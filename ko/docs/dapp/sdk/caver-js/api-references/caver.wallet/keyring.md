@@ -496,7 +496,7 @@ caver.wallet.keyring.decrypt(keystore, password)
 
 | 이름       | 타입     | 설명                     |
 | -------- | ------ | ---------------------- |
-| 키스토어     | 객체     | 복호화할 키스토어 v3 또는 v4입니다. |
+| keystore | 객체     | 복호화할 키스토어 v3 또는 v4입니다. |
 | password | string | 암호화에 사용되는 비밀번호.        |
 
 **리턴값**
