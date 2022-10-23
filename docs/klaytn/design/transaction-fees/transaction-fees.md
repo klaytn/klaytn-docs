@@ -1,39 +1,45 @@
 # Transaction Fees <a id="transaction-fees"></a>
-
-The transaction fee for the current Klaytn virtual machine \(KLVM\) is computed as follows:
+The transaction fee for the current Klaytn virtual machine \(KLVM\) is calculated as follows:
 
 ```text
-Transaction fee := (total gas used) x (unit price)
+(Transaction Fee) := (Gas Used) * (Base Fee)
 ```
 
-* The `total gas used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
-* `unit price` is the price of gas defined in Klaytn.
+* The `Gas Used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
+* `Base Fee` is the actual gas price used for the transaction. It has the same meaning as the `Effective Gas Price`.
 
-This calculated transaction fee is subtracted from the sender's or enterprise account's balance, depending on the transaction.
+This calculated transaction fee is subtracted from the sender's or fee payer's account balance, depending on the transaction.
 
-## Gas and Unit Price Overview <a id="gas-and-unit-price-overview"></a>
-
+## Gas and Base Fee Overview <a id="gas-and-base-fee-overview"></a>
 ### Gas <a id="gas"></a>
-
-Every action that changes the state of the blockchain requires gas. When a node processes user's transaction such as sending KLAY, using ERC-20 tokens, or executing a contract, the user has to pay for the computation and storage usage. The amount of payment is decided by the amount of `gas` required.
+Every action that changes the state of the blockchain requires gas. When a node processes a user's transaction, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
 `Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
 
-### Unit Price <a id="unit-price"></a>
+### Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
+Since Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`.
 
-`Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It is currently set to 250 ston \(_i.e._, 250 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
+1. Previous base fee: Base fee of the previous block
+2. Gas used for the previous block: Gas used to process all transactions of the previous block
+3. Base gas: The gas amount that determines the increase/decrease of the base fee (30 million at the moment)
+4. Maximum gas: The maximum gas amount used to calculate the base fee (60 million at the moment)
+5. Adjustment value for fee range: Adjustment value for a fee range of base fee (20 at the moment)
+6. Maximum base fee: The maximum value for the base fee (750 ston at the moment)
+7. Minimum base fee: The minimum value for the base fee (25 ston at the moment)
 
-In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
+### Base Fee <a id="base-fee"></a>
+The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
 
-To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
+```text
+(Base fee change rate) = (Gas used for the previous block - Base gas)
+(Adjusted base fee change rate) = (Base fee change rate) / (Base gas) / (Adjustment value for fee range)
+(Base fee change range) = (Previous base fee) * (Adjusted base fee change rate)
+(Base fee) = (Previous base fee) + (Base fee change range)
+```
 
-#### Transaction Validation against Unit Price <a id="transaction-validation-against-unit-price"></a>
+The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only the transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned.
 
-Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
-
-#### Unit Price Error <a id="unit-price-error"></a>
-
-The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
+> NOTE : An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
 
 ### Transaction Replacement <a id="transaction-replacement"></a>
 
