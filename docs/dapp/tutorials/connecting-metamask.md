@@ -26,9 +26,11 @@
 ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
 
 
-## Step 3. Connect to Klaytn Network <a id="connect-to-klaytn-network"></a>
+## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a id="connect-to-klaytn-cypress-network-mainnet"></a>
 
-* Click on the Network tab, which is on Ethereum Mainnet as default and select [Custom RPC].
+> Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
+
+* Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select [Add network].
 
 * Enter the Endpoint Node (EN) data of the Klaytn chain.
 
@@ -37,14 +39,7 @@
     * New RPC URL: (Default: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
     * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
     * Chain ID: 8217
-  * Baobab
-    * Network Name: Klaytn Baobab
-    * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
-    * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-    * Chain ID: 1001
-  * Common
     * Currency Symbol: KLAY
-
 
 * Click [Save] to add Klaytn Cypress Network.
 
@@ -52,56 +47,54 @@
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
 
-## Step 4. Set Gas Price and Send KLAY <a id="send-klay"></a>
+## Step 4. Send KLAY <a id="send-klay"></a>
 **Note:** The following steps require KLAY.
 
 * Click [Send] on the main page and enter the recipient address and the amount of KLAY.
 
 ![Send KLAY 1](./img/metamask-send-klay-1.png)
 
-* Klaytn has a fixed gas fee, so it's important to set the right amount.
-* Click on `Turn on Enhanced Gas Fee UI in Settings` to set gas fee.
-* Set the `Enable Enhanced Gas Fee UI` toggle to ON and exit Settings.
-
-![Send KLAY 2](./img/metamask-send-klay-2.png)
-
-* Return to the `SENDING KLAY` window and set a fixed gas fee instead of using the market price.
-* Click [Market] and then select [Advanced] in the `Edit gas fee`window.
-* Enter fixed gas fee for Max base fee and Priority Fee.
-   * Baobab gas fee: 250, Cypress gas fee: 250
-* And check `Always use these values and advanced setting as default` to not repeat this process next time.
-
-![Send KLAY 3](./img/metamask-send-klay-3.png)
-![Send KLAY 4](./img/metamask-send-klay-4.png)
-
 **NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+
+* Since Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
+* So you don't have to set the fixed gas fee manually.
 
 * Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
 * Click [Activity] on the main page to confirm the transaction history.
 
-![Send KLAY 5](./img/metamask-send-klay-5.png)
+![Send KLAY 2](./img/metamask-send-klay-2.png)
 
 
-## Klaytn Baobab Network - Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
+## Connect to Klaytn Baobab Network (Testnet) <a id="connect-to-klaytn-baobab-network-testnet"></a>
+### Obtain KLAY to make a transaction
 > **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
+
+> Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
+
+
+* Baobab
+  * Network Name: Klaytn Baobab
+  * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
+  * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+  * Chain ID: 1001
+  * Currency Symbol: KLAY
 
 * Click [Save] to add Klaytn Baobab Network.
 
-![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
+![Network Setup](./img/connect-testnet-1.png)
 
 * To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
 * Click on the kebab menu (three dots) in the upper right corner and select [Account details].
 * Click [Export Private Key] to obtain your private key.
 
-![Export Private Key](./img/metamask-obtain-private-key.png)
+![Export Private Key](./img/connect-testnet-2.png)
 
 * When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 * Enter your private key on Klaytn Wallet and log in by clicking [Access]. (Attach 0x in front of the private key.)
-* Click [Run Faucet]. 5 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
+* Click [Run Faucet]. 150 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
 
-![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
+![Obtain KLAY from Faucet](./img/connect-testnet-3.png)
 
 * Come back to MetaMask and confirm the KLAY that you received.
-* You can follow step 4 for the Klaytn Baobab Network.
 
-![Balance](./img/metamask-klay-received.png)
+![Check your balance](./img/connect-testnet-4.png)
