@@ -955,7 +955,7 @@ console.log(rawTransaction)
 
 Sample projects for development of dApps \(Decentralized Applications\) using caver-js can be found below:
 
-* [Count BApp 개발하기](../../../tutorials/count-bapp/README.md)
+* [Count DApp](../../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
 
 ## 링크 <a id="links"></a>
