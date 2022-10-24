@@ -20,28 +20,30 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **HTTPS**
 
-| Service Provider                                 | Endpoints                                          | Namespaces         | Type    |
-| ------------------------------------------------ | -------------------------------------------------- | ------------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/) | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net,debug | Full    |
-| Fantrie                                          | `https://klaytn01.fandom.finance/`                 | klay,eth,net,debug | Full    |
-|                                                  | `https://klaytn02.fandom.finance/`                 | klay,eth,net,debug | Full    |
-|                                                  | `https://klaytn03.fandom.finance/`                 | klay,eth,net,debug | Full    |
-|                                                  | `https://klaytn04.fandom.finance/`                 | klay,eth,net,debug | Full    |
-|                                                  | `https://klaytn05.fandom.finance/`                 | klay,eth,net,debug | Full    |
-|                                                  | `https://cypress.fandom.finance/archive`           | klay,eth,net,debug | Archive |
-| [All That Node](www.allthatnode.com)             | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net       | Full    |
+| Service Provider                                   | Endpoints                                          | Namespaces         | Type    |
+| -------------------------------------------------- | -------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net,debug | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net,debug | Full    |
+| Fantrie                                            | `https://klaytn01.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                    | `https://klaytn02.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                    | `https://klaytn03.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                    | `https://klaytn04.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                    | `https://klaytn05.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                    | `https://cypress.fandom.finance/archive`           | klay,eth,net,debug | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net       | Full    |
 
 **WebSocket**
 
-| Service Provider                                 | Endpoints                                           | Namespaces         | Type    |
-| ------------------------------------------------ | --------------------------------------------------- | ------------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/) | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net,debug | Full    |
-| Fantrie                                          | `wss://klaytn01.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
-|                                                  | `wss://klaytn02.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
-|                                                  | `wss://klaytn03.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
-|                                                  | `wss://klaytn04.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
-|                                                  | `wss://klaytn05.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
-|                                                  | `wss://cypress.fandom.finance/archive/ws`           | klay,eth,net,debug | Archive |
+| Service Provider                                   | Endpoints                                           | Namespaces         | Type    |
+| -------------------------------------------------- | --------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net,debug | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net,debug | Full    |
+| Fantrie                                            | `wss://klaytn01.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                    | `wss://klaytn02.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                    | `wss://klaytn03.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                    | `wss://klaytn04.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                    | `wss://klaytn05.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                    | `wss://cypress.fandom.finance/archive/ws`           | klay,eth,net,debug | Archive |
 
 
 ## Testnet (Baobab) Public JSON-RPC Endpoints
