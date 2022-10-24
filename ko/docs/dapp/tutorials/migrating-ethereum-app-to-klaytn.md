@@ -39,7 +39,7 @@ Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리�
 
 ## 3. 이더리움에서 Klaytn으로 노드 연결 변경 <a id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다.
+우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다. (FYI. [The Ropsten testnet in ethereum will be shut down in Q4 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
 - 이더리움
   - `web3` 라이브러리는 이더리움 노드에 연결하고 통신합니다.
