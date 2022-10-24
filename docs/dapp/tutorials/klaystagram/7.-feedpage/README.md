@@ -31,7 +31,7 @@ const FeedPage = () => (
 
             // ...
             {
-              userAddress === currentOwner && (
+              userAddress.toUpperCase() === currentOwner.toUpperCase() && (
                 <TransferOwnershipButton   // 7-4. TransferOwnership
                   className="FeedPhoto__transferOwnership"
                   id={id}
