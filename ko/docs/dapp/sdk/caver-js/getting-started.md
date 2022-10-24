@@ -1796,9 +1796,9 @@ $ node ./test.js
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
-caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
+The DApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* [Count BApp 개발하기](../../tutorials/count-bapp/README.md)
+* [Count DApp](../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
 
 ## 문제 해결 <a id="troubleshooting"></a>
