@@ -5,10 +5,12 @@
 
 Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
 
+> Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
+
 ## Setup EVM version <a id="setup-EVM-version"></a>
 Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
 
-* Click **solidity compiler**, and then choose **London** EVM version.
+* Click **solidity compiler**, and then choose **London** EVM version in 'Advanced Configurations'.
 
 ![Solidity Complier](./img/remix-solidity-compiler.png)
 
@@ -29,10 +31,13 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 ## Setting up the Deployment Environment <a id="setting-up-the-deployment-environment"></a>
 
 * Click on the [Klaytn] tab.
-* Select the appropriate [Environment].  You can select **Baobab**, **Cypress**, or **Caver provider**.
+* Select the appropriate [Environment].
+* You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
   * **[Baobab]**: Connects to the Baobab network
   * **[Cypress]**: Connects to the Cypress network
+  * **[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
   * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
+  * **[Injected Web3]**: Connects to injected web3(e.g., Metamask)
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
 
@@ -56,21 +61,30 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 * Select [Caver Provider] in the Environment menu.
 
-![Caver Provider](./img/remix-klaytn-environment.png)
+![Caver Provider](./img/env-caver-provider.png)
 
 * Enter the RPC address of the EN in the Caver Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
 * Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
-![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
+![Injected Web3](./img/env-injected-web3.png)
 
-* When you see the MetaMask pop-up, select the connected account and click [Next].
-* Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account].
+* When you see the MetaMask pop-up, select the account by clicking it.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+
+## Connecting Klaytn - Remix using Kaikas <a id="connecting-klaytn-remix-using-kaikas"></a>
+
+* Select [Injected Caver] on the Remix Environment menu.
+
+![Injected Caver](./img/env-injected-caver.png)
+
+* When you see the Kaikas pop-up, click [Connect].
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
 
@@ -81,6 +95,7 @@ We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-co
 ![Add KlaytnGreeter](./img/remix-add-klaytngreeter.png)
 
 * On the Solidity Compile tab, select [Compile KlaytnGreeter.sol] to compile the contract code.
+> It is better to turn on the 'Auto compile' option.
 * In the Deploy & Run Transactions tab, click [Deploy] to deploy the compiled contract.
 
 ![Deploy the Contract](./img/remix-deploy-run-tx.png)
