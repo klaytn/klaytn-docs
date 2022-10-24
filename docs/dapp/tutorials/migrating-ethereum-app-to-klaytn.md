@@ -15,7 +15,7 @@
 
 This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.  
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn dApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
+We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn dApp, Please refer to [CountDApp Tutorial](count-dapp/README.md).
 
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
@@ -26,7 +26,7 @@ We will focus only on the code modifications required to migrate an Ethereum App
 * Basic knowledge and experience in Blockchain app is required, but no previous Klaytn experience is needed.
 
 #### Testing Environment <a id="testing-environment"></a>
-CountBApp is tested in the following environment.
+CountDApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
@@ -70,7 +70,7 @@ export default caver
 
 
 ## 4. Interact with Klaytn node: `BlockNumber` component <a id="4-interact-with-klaytn-node-blocknumber-component"></a>
-![blocknumber component](./count-bapp/images/blocknumber-component.gif)  
+![blocknumber component](./count-dapp/images/blocknumber-component.gif)  
 
 BlockNumber component gets the current block number every 1 second (1000ms).  
 
@@ -97,15 +97,15 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
+For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknumber Component](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
 ## 5. Interact with the contract: `Count` component <a id="5-interact-with-the-contract-count-component"></a>
 
-![count component](./count-bapp/images/count-component.gif)
+![count component](./count-dapp/images/count-component.gif)
 
 To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.  
 
-Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
+Let's learn step by step how to migrate `CountDApp` from Ethereum to Klaytn!
 
 - 5-1. Deploy `Count` contract on Klaytn
 - 5-2. Create a contract instance
@@ -159,7 +159,7 @@ module.exports = {
 }
 ```
 
-For more details about deploying contracts, See [CountBapp tutorial - Deploy Contract](count-bapp/6.-deploy-contract.md).
+For more details about deploying contracts, See [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
 
 ### 5-2. Create a contract instance <a id="5-2-create-a-contract-instance"></a>
 

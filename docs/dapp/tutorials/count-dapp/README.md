@@ -1,9 +1,9 @@
-# Count BApp <a id="count-bapp"></a>
+# Count DApp <a id="count-dapp"></a>
 
 ## Table of Contents <a id="table-of-contents"></a>
 
 * [1. Environment Setup](1.-environment-setup.md)
-* [2. Clone Count BApp](2.-clone-count-bapp.md)
+* [2. Clone Count DApp](2.-clone-count-dapp.md)
 * [3. Directory Structure](3.-directory-structure.md)
 * [4. Write Smart Contract](4.-write-smart-contract.md)
 * [5. Frontend Code Overview](5.-frontend-code-overview/README.md)
@@ -12,6 +12,15 @@
   * [5-3. Count Component](5.-frontend-code-overview/5-3.-count-component.md)
 * [6. Deploy Contract](6.-deploy-contract.md)
 * [7. Run App](7.-run-app.md)
+
+## Testing Environment <a id="testing-environment"></a>
+
+Count DApp is tested in the following environment.
+
+* MacOS Mojave 10.14.5
+* Node 10.16.0 \(LTS\)
+* npm 6.9.0
+* Python 2.7.10
 
 ## Introduction <a id="introduction"></a>
 
@@ -29,13 +38,4 @@ Anyone who wants to learn how to build a Blockchain Application on Klaytn. We wi
 
 * We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in Solidity development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
-
-## Testing Environment <a id="testing-environment"></a>
-
-Count BApp is tested in the following environment.
-
-* MacOS Mojave 10.14.5
-* Node 10.16.0 \(LTS\)
-* npm 6.9.0
-* Python 2.7.10
 
