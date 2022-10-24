@@ -5,10 +5,12 @@
 
 Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 리믹스와 클레이튼의 연동에 대해서만 다루고 있습니다. 리믹스에 대한 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 리믹스에서 파생된 [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide) 사용법을 참고하시기 바랍니다.
 
+> Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
+
 ## EVM 버전 설정하기 <a id="setup-EVM-version"></a>
 클레이튼은 솔리디티로 작성된 컨트랙트를 지원하며, EVM의 **London** 버전과 호환됩니다. 클레이튼은 솔리디티 버전 0.8.x 이하를 지원합니다. 클레이튼에 컨트랙트를 배포하기 위해서는 컨트랙트가  **London** EVM 버전으로 컴파일되어야 합니다.
 
-* **solidity compiler**를 클릭한 후 **London** EVM 버전을 선택해주세요.
+* Click **solidity compiler**, and then choose **London** EVM version in 'Advanced Configurations'.
 
 ![Solidity Complier](./img/remix-solidity-compiler.png)
 
@@ -29,10 +31,13 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 ## 배포 환경 설정하기<a id="setting-up-the-deployment-environment"></a>
 
 * [Klaytn] 탭을 클릭하세요.
-* 적절한 [Environment]을 선택하세요.  **Baobab**, **Cypress** 또는 **Caver Provider** 중에서 선택할 수 있습니다.
-  * **[Baobab]**: Baobab 네트워크에 연결합니다.
-  * **[Cypress]**: Cypress 네트워크에 연결합니다.
-  * **[Caver Provider]**: RPC를 지원하는 클레이튼 노드에 직접 연결합니다.
+* Select the appropriate [Environment].
+* You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
+  * **[Baobab]**: Connects to the Baobab network
+  * **[Cypress]**: Connects to the Cypress network
+  * **[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
+  * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
+  * **[Injected Web3]**: Connects to injected web3(e.g., Metamask)
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
 
@@ -56,35 +61,45 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 * 환경 설정에서 [Caver Provider]를 선택합니다.
 
-![Caver Provider](./img/remix-klaytn-environment.png)
+![Caver Provider](./img/env-caver-provider.png)
 
 * Caver Provider Endpoint에 위에서 띄운 EN의 RPC 주소를 입력합니다. Local EN(default): [http://localhost:8551](http://localhost:8551/)
 
-* 네트워크에 연결되면 Chain ID가 아래와 같이 표시됩니다. 앞에서 생성한 계정 목록을 Account에서 확인할 수 있습니다.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## 메타마스크를 사용하여 클레이튼 - 리믹스 연동하기<a id="connecting-klaytn-remix-using-metamask"></a>
 
 * Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
 * Remix 환경 설정에서 [Injected Web3]를 선택합니다.
 
-![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
+![Injected Web3](./img/env-injected-web3.png)
 
-* 메타마스크에 연결이 뜨면 연동된 Account를 선택 후 [Next]를 클릭합니다.
-* Network(예제에서는 Baobab 테스트넷)에 연결되면 Chain ID가 아래와 같이 표시됩니다. MetaMask 지갑과의 연결 상태를 [Account]에서 확인할 수 있습니다.
+* When you see the MetaMask pop-up, select the account by clicking it.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## 튜토리얼: KlaytnGreeter 컨트랙트 <a id="tutorial-KlaytnGreeter-contract"></a>
+## Connecting Klaytn - Remix using Kaikas <a id="connecting-klaytn-remix-using-kaikas"></a>
+
+* Select [Injected Caver] on the Remix Environment menu.
+
+![Injected Caver](./img/env-injected-caver.png)
+
+* When you see the Kaikas pop-up, click [Connect].
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+
+## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
 
 We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
-* KlaytnGreeter.sol 파일을 추가하고 테스트할 코드를 작성합니다.
+* Add KlaytnGreeter.sol and write the testing code.
 
 ![Add KlaytnGreeter](./img/remix-add-klaytngreeter.png)
 
-* Solidity Compile 탭에서 [Compile KlaytnGreeter.sol]을 클릭해 작성한 컨트랙트 코드를 컴파일합니다.
-* Deploy & Run Transactions 탭에서 [Deploy]를 클릭해 컴파일된 컨트랙트를 배포합니다.
+* On the Solidity Compile tab, select [Compile KlaytnGreeter.sol] to compile the contract code.
+> It is better to turn on the 'Auto compile' option.
+* In the Deploy & Run Transactions tab, click [Deploy] to deploy the compiled contract.
 
 ![Deploy the Contract](./img/remix-deploy-run-tx.png)
 
-* 배포된 컨트랙트를 확인합니다. 테스트하거나 디버깅할 수 있습니다.
+* You can view the deployed contract. You can test or debug it.
 
 ![Check the Contract](./img/remix-test-or-debug.png)
