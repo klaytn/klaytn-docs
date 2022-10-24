@@ -15,7 +15,7 @@
 
 본 튜토리얼은 이더리움 애플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 애플리케이션을 통해 어떻게 이더리움 애플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
-여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. If you need details on creating a Klaytn dApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
+여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. If you need details on creating a Klaytn dApp, Please refer to [CountDApp Tutorial](count-dapp/README.md).
 
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
@@ -26,7 +26,7 @@
 * 블록체인 애플리케이션에 대한 기본적인 지식과 경험이 필요하지만 Klaytn에 대한 사용 경험은 필요치 않습니다.
 
 #### 테스트 환경 <a id="testing-environment"></a>
-CountBApp은 다음의 환경에서 테스트 되었습니다.
+CountDApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
@@ -69,7 +69,7 @@ export default caver
 
 
 ## 4. Klaytn 노드와의 상호작용: `BlockNumber` 컴포넌트 <a id="4-interact-with-klaytn-node-blocknumber-component"></a>
-![blocknumber 컴포넌트](./count-bapp/images/blocknumber-component.gif)
+![blocknumber 컴포넌트](./count-dapp/images/blocknumber-component.gif)
 
 BlockNumber 컴포넌트는 1초(1000ms)마다 현재 블록 번호를 가져옵니다.
 
@@ -95,15 +95,15 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-`BlockNumber` 컴포넌트에 대한 자세한 내용은 [CountBApp 튜토리얼 - Blocknumber 컴포넌트](count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md)를 참고하세요.
+For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknumber Component](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
 ## 5. 컨트랙트와의 상호작용: `Count` 컴포넌트 <a id="5-interact-with-the-contract-count-component"></a>
 
-![count 컴포넌트](./count-bapp/images/count-component.gif)
+![count 컴포넌트](./count-dapp/images/count-component.gif)
 
 스마트 컨트랙트와 상호작용하기 위해서는 배포된 컨트랙트의 인스턴스를 생성해야 합니다. 생성한 인스턴스를 통해 컨트랙트의 데이터를 읽어오거나 컨트랙트에 데이터를 쓸 수 있습니다.
 
-이제 `CountBApp`을 이더리움에서 Klaytn으로 이전하는 방법을 단계별로 살펴보겠습니다.
+Let's learn step by step how to migrate `CountDApp` from Ethereum to Klaytn!
 
 - 5-1. Klaytn에 `Count` 컨트랙트 배포
 - 5-2. 컨트랙트 인스턴스 생성
@@ -157,7 +157,7 @@ module.exports = {
 }
 ```
 
-컨트랙트 배포에 대한 자세한 내용은 [CountBapp 튜토리얼 - 컨트랙트 배포](count-bapp/6.-deploy-contract.md)를 참고하세요.
+For more details about deploying contracts, See [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
 
 ### 5-2. 컨트랙트 인스턴스 생성 <a id="5-2-create-a-contract-instance"></a>
 
