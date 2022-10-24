@@ -39,7 +39,7 @@ Klaytn runtime environment is compatible with Ethereum Virtual Machine and execu
 
 ## 3. Change node connection from Ethereum to Klaytn <a id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'.
+First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. (FYI. [The Ropsten testnet in ethereum will be shut down in Q4 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
 - Ethereum
   - `web3` library connects to and communicates with Ethereum node.
