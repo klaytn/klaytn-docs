@@ -17,29 +17,29 @@ Every action that changes the state of the blockchain requires gas. When a node 
 `Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
 
 ### Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
-Since Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`.
+Since the Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
 
-1. Previous base fee: Base fee of the previous block
-2. Gas used for the previous block: Gas used to process all transactions of the previous block
-3. Base gas: The gas amount that determines the increase/decrease of the base fee (30 million at the moment)
-4. Maximum gas: The maximum gas amount used to calculate the base fee (60 million at the moment)
-5. Adjustment value for fee range: Adjustment value for a fee range of base fee (20 at the moment)
-6. Maximum base fee: The maximum value for the base fee (750 ston at the moment)
-7. Minimum base fee: The minimum value for the base fee (25 ston at the moment)
+1. PREVIOUS_BASE_FEE: Base fee of the previous block
+2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
+3. GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
+4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment)
+5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
+6. UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
+7. LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
 
 ### Base Fee <a id="base-fee"></a>
 The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
 
 ```text
-(Base fee change rate) = (Gas used for the previous block - Base gas)
-(Adjusted base fee change rate) = (Base fee change rate) / (Base gas) / (Adjustment value for fee range)
-(Base fee change range) = (Previous base fee) * (Adjusted base fee change rate)
-(Base fee) = (Previous base fee) + (Base fee change range)
+(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
+(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
+(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
+(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
 ```
 
-The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only the transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned.
+The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
 
-> NOTE : An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
+> NOTE: An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
 
 ### Transaction Replacement <a id="transaction-replacement"></a>
 
