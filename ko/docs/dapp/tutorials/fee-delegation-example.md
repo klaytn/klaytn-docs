@@ -21,7 +21,7 @@
 
 ## 2. 트랜잭션 수수료 위임 작동 방식 <a id="2-how-fee-delegation-works"></a>
 
-트랜잭션 수수료 위임이 어떻게 이루어지는지 살펴보겠습니다.
+Let's skim through how fee delegation works.
 
 ### 2.1 트랜잭션 발신자에 의한 서명 <a id="2-1-transaction-signing-by-the-sender"></a>
 
@@ -132,7 +132,7 @@ sendFeeDelegateTx = async() => {
 sendFeeDelegateTx();
 ```
 
-위 코드에서는 `senderPrivateKey`를 통해 트랜잭션 수수료가 위임된 송금 트랜잭션을 서명한 후 IP 주소 `127.0.0.1`\(로컬호스트\)의 `1337`번 포트에 있는 트랜잭션 수수료 납부자의 서버로 서명된 `senderRawTranscation`를 전송하고 있습니다.
+The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderRawTransaction` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
 
 ### 3.2 트랜잭션 수수료 납부자의 서버 <a id="3-2-fee-payer-s-server"></a>
 
@@ -209,7 +209,7 @@ Fee delegate service started ...
 ```text
 $ node sender_client.js
 Signed a fee delegated value transfer transaction.
-Sending a signed transcation to fee delegated service.
+Sending a signed transaction to fee delegated service.
 Connected to fee delegated service
 Received data from server: This is fee delegating service
 Received data from server: Fee payer is 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410
