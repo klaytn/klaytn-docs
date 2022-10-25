@@ -1,39 +1,45 @@
 # 트랜잭션 수수료 <a id="transaction-fees"></a>
-
-현재 Klaytn 가상머신\(KLVM\)의 트랜잭션 수수료는 다음과 같이 계산됩니다.
+The transaction fee for the current Klaytn virtual machine \(KLVM\) is calculated as follows:
 
 ```text
-트랜잭션 수수료 : = (총 가스 사용량) x (가스 단가)
+(Transaction Fee) := (Gas Used) * (Base Fee)
 ```
 
-* `총 가스 사용량`은 opcode의 가스 비용과 intrinsic gas cost을 기준으로 KLVM이 계산합니다.
-* `unit price`는 Klaytn에서 정한 가스 가격입니다.
+* The `Gas Used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
+* `Base Fee` is the actual gas price used for the transaction. It has the same meaning as the `Effective Gas Price`.
 
-이 계산된 트랜잭션 수수료는 트랜잭션에 따라 발신자 또는 기업 계좌 잔액에서 차감됩니다.
+This calculated transaction fee is subtracted from the sender's or fee payer's account balance, depending on the transaction.
 
-## 가스 및 단가 개요 <a id="gas-and-unit-price-overview"></a>
-
+## Gas and Base Fee Overview <a id="gas-and-base-fee-overview"></a>
 ### 가스 <a id="gas"></a>
-
-블록체인 상태를 변경하는 모든 행동에는 가스가 필요합니다. 노드가 KLAY 전송, ERC-20 토큰 사용 또는 컨트랙트 실행과 같은 사용자의 트랜잭션을 처리할 때 사용자는 연산 및 스토리지 사용 비용을 지불해야 합니다. 지불 금액은 필요한 `가스`양으로 정합니다.
+블록체인 상태를 변경하는 모든 행동에는 가스가 필요합니다. When a node processes a user's transaction, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
 `가스`는 사용자의 트랜잭션을 처리하는 데 어느 정도의 연산이 필요한지를 나타내는 측정 단위입니다.
 
-### 단가(Unit Price)<a id="unit-price"></a>
+### Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
+Since the Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
 
-`단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. 현재는 가스당 250 Gpeb\(_즉_, 250 x 10^9 peb\)로 설정되어있으며, 사용자에 의해 바뀔 수 없습니다. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
+1. PREVIOUS_BASE_FEE: Base fee of the previous block
+2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
+3. GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
+4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment)
+5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
+6. UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
+7. LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
 
-이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 채굴자들은 보상을 극대화하기 위해 특정 트랜잭션을 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 효과가 있습니다. 하지만, 트랜잭션 수수료의 변동이 심하고 실행을 보장할 수 없을 정도로 수수료가 너무 비싸지는 경우가 잦습니다.
+### Base Fee <a id="base-fee"></a>
+The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
 
-이 문제를 해결하기 위해 Klaytn은 고정된 단가를 사용하고 있으며 가격은 governance council에서 조정할 수 있습니다. 이 정책은 모든 트랜잭션이 동일하게 처리되고 실행되도록 보장합니다. 따라서, 사용자는 적절한 단가를 결정하기 위해 애쓸 필요가 없습니다.
+```text
+(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
+(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
+(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
+(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
+```
 
-#### 단가에 대한 트랜잭션 검증 <a id="transaction-validation-against-unit-price"></a>
+The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
 
-Klaytn은 유저가 Klaytn의 단가와 같도록 설정한 가스비를 포함한 트랜잭션만 받습니다. Klaytn의 단가와 다른 가스 가격의 트랜잭션은 거부됩니다.
-
-#### 단가 오류(Unit Price Error)<a id="unit-price-error"></a>
-
-트랜잭션의 가스 가격이 Klaytn의 단가(Unit price)와 같지 않을 때, 에러 메시지인 `invalid unit price`가 반환됩니다.
+> NOTE: An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
 
 ### 트랜잭션 교체 <a id="transaction-replacement"></a>
 
@@ -41,10 +47,10 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 ## Klaytn의 가스표  <a id="klaytns-gas-table"></a>
 
-기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
+기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. But there are some features unique to Klaytn that require several new constants.
 
 {% hint style="success" %}
-NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". 이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요.
+NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
 `IstanbulEVM` protocol upgrade block number is as follows.
 * Baobab Testnet: `#75373312`
