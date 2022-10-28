@@ -146,7 +146,7 @@ testFunction()
 Let's run the code that we've just written:
 
 ```
-node testcaver.js
+node test.js
 ```
 
 You will see 
