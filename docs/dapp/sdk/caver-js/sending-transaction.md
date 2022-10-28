@@ -13,7 +13,7 @@ You will need KLAY to send a transaction. You can get test KLAY for the Baobab t
 
 ### 2. Download caver-js <a id="2.-download-caver-js"></a>
 
-First, let's create a folder for our project. We will simply call it   `test`. Navigate to your command line and type:
+First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
 
 ```
 mkdir test
@@ -116,7 +116,9 @@ async function testFunction() {
 
 We will now create a trasaction to transfer some KLAY. This type of transaction is called a "value transfer transaction". Let's break down each parameter.
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`, 
+The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`, you need to put the maximum fee that the transaction is allowed to use. A value transfer transaction costs 21000 gas, but we will put down just 25000 for good measure.
+
+And then we have to sign and send the transaction, and through `console.log(receipt)` you will see the result of the transaction.
 
 ```
 	
@@ -138,3 +140,13 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 
 testFunction()
 ```
+
+### 8. Run the code <a id="8.-run-the-code"></a>
+
+Let's run the code that we've just written:
+
+```
+node testcaver.js
+```
+
+You will see 
