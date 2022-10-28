@@ -124,7 +124,7 @@ If you are running an EN, you can connect it to your own node by changing the ho
 
 ```javascript
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 ```
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
