@@ -3,6 +3,14 @@
 Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Klaytn node, as well as creating a transaction - all of this using caver-js!
 
 Don't worry if this is your first time using caver-js. Just follow the simple steps below.
+
+### Prerequisites
+
+First install the following packages.
+* [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+* [npm](https://www.npmjs.com/get-npm)
+* [nvm](https://github.com/nvm-sh/nvm)\)
+* [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
  
 ### 1. Create an account and download keystore <a id="1.-create-an-account-and-download-keystore"></a>
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://klaytn.github.io/klaytn-online-toolkit/misc/generateKeystore).
