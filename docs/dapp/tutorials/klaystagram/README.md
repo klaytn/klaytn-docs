@@ -3,7 +3,7 @@
 ## Table of Contents <a id="table-of-contents"></a>
 
 * [1. Environment Setup](1.-environment-setup.md)
-* [2. Clone Klaystagram BApp](2.-clone-klaystagram-bapp.md)
+* [2. Clone Klaystagram DApp](2.-clone-klaystagram-dapp.md)
 * [3. Directory Structure](3.-directory-structure.md)
 * [4. Write Klaystagram Smart Contract](4.-write-klaystagram-smart-contract.md)
 * [5. Deploy Contract](5.-deploy-contract.md)
@@ -17,7 +17,7 @@
 
 ## Testing Environment <a id="testing-environment"></a>
 
-Klaystagram BApp is tested in the following environment.
+Klaystagram DApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
