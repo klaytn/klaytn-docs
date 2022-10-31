@@ -23,28 +23,28 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/cypress`|klay,eth,net,debug|Full|
-|[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-cypress.klaytn.net`|klay,eth,net,debug|Full|
-|Fantrie|`https://klaytn01.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://klaytn02.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://klaytn03.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://klaytn04.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://klaytn05.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://cypress.fandom.finance/archive`|klay,eth,net,debug|Archive|
+|[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/cypress`|klay,eth,net|Full|
+|[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-cypress.klaytn.net`|klay,eth,net|Full|
+|Fantrie|`https://klaytn01.fandom.finance/`|klay,eth,net|Full|
+||`https://klaytn02.fandom.finance/`|klay,eth,net|Full|
+||`https://klaytn03.fandom.finance/`|klay,eth,net|Full|
+||`https://klaytn04.fandom.finance/`|klay,eth,net|Full|
+||`https://klaytn05.fandom.finance/`|klay,eth,net|Full|
+||`https://cypress.fandom.finance/archive`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 
 **WebSocket** 
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/cypress/ws`|klay,eth,net,debug|Full|
-|[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net,debug|Full|
-|Fantrie|`wss://klaytn01.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://klaytn02.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://klaytn03.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://klaytn04.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://klaytn05.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://cypress.fandom.finance/archive/ws`|klay,eth,net,debug|Archive|
+|[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/cypress/ws`|klay,eth,net|Full|
+|[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
+|Fantrie|`wss://klaytn01.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://klaytn02.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://klaytn03.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://klaytn04.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://klaytn05.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://cypress.fandom.finance/archive/ws`|klay,eth,net|Archive|
 
 
 ## Testnet (Baobab) Public JSON-RPC Endpoints
@@ -53,22 +53,22 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/baobab`|klay,eth,net,debug|Full|
+|[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/baobab`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://api.baobab.klaytn.net:8651`|klay,eth,net|Full|
-|Fantrie|`https://baobab01.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://baobab02.fandom.finance/`|klay,eth,net,debug|Full|
-||`https://baobab.fandom.finance/archive`|klay,eth,net,debug|Archive|
+|Fantrie|`https://baobab01.fandom.finance/`|klay,eth,net|Full|
+||`https://baobab02.fandom.finance/`|klay,eth,net|Full|
+||`https://baobab.fandom.finance/archive`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-baobab-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 
 **WebSocket** 
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/baobab/ws`|klay,eth,net,debug|Full|
+|[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/baobab/ws`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://api.baobab.klaytn.net:8652`|klay,eth,net|Full|
-|Fantrie|`wss://baobab01.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://baobab02.fandom.finance/ws/`|klay,eth,net,debug|Full|
-||`wss://baobab.fandom.finance/archive/ws`|klay,eth,net,debug|Archive|
+|Fantrie|`wss://baobab01.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://baobab02.fandom.finance/ws/`|klay,eth,net|Full|
+||`wss://baobab.fandom.finance/archive/ws`|klay,eth,net|Archive|
 
 ## Useful Resources 
 
