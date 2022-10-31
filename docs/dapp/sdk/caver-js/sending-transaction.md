@@ -9,8 +9,10 @@ Don't worry if this is your first time using caver-js. Just follow the simple st
 First install the following packages.
 * [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 * [npm](https://www.npmjs.com/get-npm)
-* [nvm](https://github.com/nvm-sh/nvm)\)
+* [nvm](https://github.com/nvm-sh/nvm)\) (We need this to shift `node.js` versions)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+
+*Note:* If you get an `nmv: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
  
 ### 1. Create an account and download keystore <a id="1.-create-an-account-and-download-keystore"></a>
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://klaytn.github.io/klaytn-online-toolkit/misc/generateKeystore).
@@ -33,7 +35,7 @@ Now let's navigate to our folder.
 cd test
 ```
 
-We are in our folder, so let's download caver-js. If you don't have npm and node.js already installed, download the prerequisites [here](). Make sure to use node.js version 12 or 14. And then type:
+We are in our folder, so let's download caver-js. Make sure to use node.js version 12 or 14. Here, we will use version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)).
 
 ```
 npm install caver-js
@@ -86,7 +88,7 @@ Let's create a test file named `testcaver.js`.
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction for transfering KLAY.
+We will be writing our code in this file to send a transaction to transfer KLAY.
 
 
 ### 5. Connect to Klaytn Node <a id="5.-connect-to-klaytn-node"></a> 
