@@ -9,7 +9,7 @@ Don't worry if this is your first time using caver-js. Just follow the simple st
 First install the following packages.
 * [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 * [npm](https://www.npmjs.com/get-npm)
-* [nvm](https://github.com/nvm-sh/nvm)\) (We need this to shift `node.js` versions)
+* [nvm](https://github.com/nvm-sh/nvm)\)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 *Note:* If you get an `nmv: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
@@ -35,7 +35,18 @@ Now let's navigate to our folder.
 cd test
 ```
 
-We are in our folder, so let's download caver-js. Make sure to use node.js version 12 or 14. Here, we will use version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)).
+We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14. 
+
+You can check the version like this:
+
+```
+node --version
+```
+
+![img](../images/node_version.png)
+
+Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `install node version 14.16.0`
+
 
 ```
 npm install caver-js
