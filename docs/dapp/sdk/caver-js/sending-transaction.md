@@ -19,11 +19,13 @@ The most simple way to create an account is using the [Klaytn Online Toolkit](ht
 
 ![](../images/keystore.png)
 
-You will need KLAY to send a transaction. You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
+
+**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ### 2. Download caver-js <a id="2.-download-caver-js"></a>
 
-First, let's create a folder for our project. We will simply call it   `test`. Navigate to your command line and type:
+First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
 
 ```
 mkdir test
@@ -45,7 +47,9 @@ node --version
 
 ![img](../images/node_version.png)
 
-Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `install node version 14.16.0`
+Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
+
+And then we are ready to install caver-js.
 
 
 ```
@@ -54,7 +58,7 @@ npm install caver-js
 
 ### 3. Initialize project <a id="3.-initialize-project"></a>
 
-After your are done, let's initialize our project:
+Now let's initialize our project:
 
 ```
 npm init
@@ -93,7 +97,7 @@ Is this OK? (yes)
 
 ### 4. Create test file <a id="4.-create-test-file"></a>
 
-Let's create a test file named `testcaver.js`.
+Let's create a test file named `testcaver.js` like so:
 
 ``` 
 touch testcaver.js
@@ -115,7 +119,7 @@ const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 ### 6. Add Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a> 
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore, which you need to provide along with the password. It will be decrypted, and then stored as `keyring`.
+You need an account to make transactions on the blockchain. That account information is included in the keystore, **which you need to provide along with the password**. It will be decrypted, and then stored as `keyring`.
 
 After that, the `keyring` will be stored in the wallet. Add the lines below:
 
@@ -123,7 +127,7 @@ After that, the `keyring` will be stored in the wallet. Add the lines below:
 async function testFunction() {
     // Read keystore json file
     const fs = require('fs')
-	const keystore = fs.readFileSync('{keystore.json}', 'utf8')
+	const keystore = fs.readFileSync('./keystore.json', 'utf8')
 
 	// Decrypt keystore and create
 	const keyring = caver.wallet.keyring.decrypt(keystore, '{password}')
@@ -131,6 +135,8 @@ async function testFunction() {
 
     // Add to caver.wallet
 	caver.wallet.add(keyring)
+
+	}
 ```
 
 ### 7. Send Transaction <a id="7.-send-transaction"></a> 
@@ -144,7 +150,7 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	// Create value transfer transaction
 	const vt = caver.transaction.valueTransfer.create({
 		from: keyring.address,
-		to: '{0x8084fed6b1847448c24692470fc3b2ed87f9eb47}',
+		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
 		value: caver.utils.toPeb(10, 'KLAY'),
 		gas: 25000,
 	})
@@ -164,7 +170,47 @@ testFunction()
 Let's run the code that we've just written:
 
 ```
-node test.js
+node testcaver.js
 ```
 
-You will see the following result.
+The result will look something like this:
+
+```
+terri.k@Terri test % node testcaver.js
+SingleKeyring {
+  _address: '0xe9731bc09dae6e8351e1df63ad5b92300545c6bb',
+  _key: PrivateKey {
+    _privateKey: '0xfe6a95a9ae82e2a087c0947e505c4750d020cf90ae612fff6fdb7f309116b244'
+  }
+}
+{
+  blockHash: '0xedae255190fdfca0671bbc2ea9049e24f47c54db9551e341c42bdfcd81942cdf',
+  blockNumber: '0x64bc24e',
+  contractAddress: null,
+  effectiveGasPrice: '0x5d21dba00',
+  from: '0xe9731bc09dae6e8351e1df63ad5b92300545c6bb',
+  gas: '0x61a8',
+  gasPrice: '0xba43b7400',
+  gasUsed: '0x5208',
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  nonce: '0x0',
+  senderTxHash: '0x6c6ba0a3a2a885b5ca1f065e1a67da044dbd53f4eef0ea1b38366f51f38e3c84',
+  signatures: [
+    {
+      V: '0x7f5',
+      R: '0xe961a3a811b8702cc94a714e0f0514c4bbf2ccd0ff9f04189ed4594b0c30cfaa',
+      S: '0x344e6706468e3d3d6e2e72b3374820822af9677e82f92be1f6c09da0ae01b97b'
+    }
+  ],
+  status: '0x1',
+  to: '0x7f1d6235b79688169fd6e15c4e8f540d6799dc75',
+  transactionHash: '0x6c6ba0a3a2a885b5ca1f065e1a67da044dbd53f4eef0ea1b38366f51f38e3c84',
+  transactionIndex: '0x0',
+  type: 'TxTypeValueTransfer',
+  typeInt: 8,
+  value: '0x8ac7230489e80000'
+}
+```
+
+You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
