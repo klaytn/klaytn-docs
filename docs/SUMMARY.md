@@ -215,6 +215,7 @@
   * [Klaytn SDKs](dapp/sdk/README.md)
     * [caver-js](dapp/sdk/caver-js/README.md)
       * [Getting Started](dapp/sdk/caver-js/getting-started.md)
+      * [Sending a sample transaction](dapp/sdk/caver-js/sending-transaction.md)
       * [API references](dapp/sdk/caver-js/api-references/README.md)
         * [caver.account](dapp/sdk/caver-js/api-references/caver.account.md)
         * [caver.wallet](dapp/sdk/caver-js/api-references/caver.wallet/README.md)
