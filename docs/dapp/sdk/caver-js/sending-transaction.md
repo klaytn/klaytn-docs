@@ -17,7 +17,7 @@ First install the following packages.
 ### 1. Create an account and download keystore <a id="1.-create-an-account-and-download-keystore"></a>
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://klaytn.github.io/klaytn-online-toolkit/misc/generateKeystore).
 
-![](../images/keystore.png)
+![Klaytn Online Toolkit](../images/keystore.png)
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
@@ -45,7 +45,7 @@ You can check the version like this:
 node --version
 ```
 
-![img](../images/node_version.png)
+![Checking node version](../images/node_version.png)
 
 Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
 
