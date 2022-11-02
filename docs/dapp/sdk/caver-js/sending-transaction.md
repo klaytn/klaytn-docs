@@ -14,7 +14,7 @@ First install the following packages.
 
 *Note:* If you get an `nmv: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
  
-### 1. Create an account and download keystore <a id="1.-create-an-account-and-download-keystore"></a>
+### 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://klaytn.github.io/klaytn-online-toolkit/misc/generateKeystore).
 
 ![Klaytn Online Toolkit](../images/keystore.png)
@@ -60,7 +60,7 @@ Also, add the below module because we need it
 npm i read
 ```
 
-### 3. Initialize project <a id="3.-initialize-project"></a>
+### 3. Initialize Project <a id="3.-initialize-project"></a>
 
 Now let's initialize our project:
 
@@ -99,7 +99,7 @@ About to write to /Users/terri.k/test/package.json:
 Is this OK? (yes)
 ```
 
-### 4. Create test file <a id="4.-create-test-file"></a>
+### 4. Create Test File <a id="4.-create-test-file"></a>
 
 Let's create a test file named `testcaver.js` like so:
 
@@ -169,7 +169,7 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	console.log(receipt)
 }
 ```
-### 8. Load password <a id="8.-load-password"></a> 
+### 8. Load Password <a id="8.-load-password"></a> 
 
 Add the below function, and you will be prompted to type your password on terminal. It will then be saved as `password`, which we have declared in step 6. 
 
@@ -195,7 +195,7 @@ Don't forget to add in the end:
 testFunction()
 ```
 
-### 9. Run the code <a id="8.-run-the-code"></a> 
+### 9. Run the Code <a id="8.-run-the-code"></a> 
 
 Let's run the code that we've just written:
 
@@ -246,3 +246,5 @@ SingleKeyring {
 ```
 
 You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
+
+I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Klaytn Forum](https://forum.klaytn.foundation/) for help.
