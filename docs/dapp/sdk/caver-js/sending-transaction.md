@@ -9,7 +9,7 @@ Don't worry if this is your first time using caver-js. Just follow the simple st
 First install the following packages.
 * [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 * [npm](https://www.npmjs.com/get-npm)
-* [nvm](https://github.com/nvm-sh/nvm)\)
+* [nvm](https://github.com/nvm-sh/nvm)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 *Note:* If you get an `nmv: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
@@ -130,7 +130,7 @@ After that, the `keyring` will be stored in the wallet. Add the lines below:
 
 ```
 async function testFunction() {
-    // Read keystore json file
+// Read keystore json file
   const fs = require('fs')
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
 	const password = await loadPassword()
