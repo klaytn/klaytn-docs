@@ -21,7 +21,7 @@ This tutorial helps you to write a simple server-client example using caver-js S
 
 ## 2. How fee delegation works <a id="2-how-fee-delegation-works"></a>
 
-Let's skim though how fee delegation works.
+Let's skim through how fee delegation works.
 
 ### 2.1 Transaction signing by the sender <a id="2-1-transaction-signing-by-the-sender"></a>
 
@@ -132,7 +132,7 @@ sendFeeDelegateTx = async() => {
 sendFeeDelegateTx();
 ```
 
-The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderRawTranscation` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
+The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderRawTransaction` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
 
 ### 3.2 Fee payer's server <a id="3-2-fee-payer-s-server"></a>
 
@@ -209,7 +209,7 @@ Let's run `sender_client.js` to send a fee delegated transaction.
 ```text
 $ node sender_client.js
 Signed a fee delegated value transfer transaction.
-Sending a signed transcation to fee delegated service.
+Sending a signed transaction to fee delegated service.
 Connected to fee delegated service
 Received data from server: This is fee delegating service
 Received data from server: Fee payer is 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410

@@ -1,10 +1,10 @@
 # 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
 
-1\) `src/index.js` - Entry point of our app  
-2\) `public/index.html` - index.html  
-3\) `src/routes.js` - Contains route definition  
-4\) `src/App.js` - Root component of our app  
-5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+1. `src/index.js` - Entry point of our app  
+2. `static/index.html` - index.html  
+3. `src/routes.js` - Contains route definition  
+4. `src/App.js` - Root component of our app  
+5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
 ## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -36,7 +36,7 @@ if (module.hot) {
 
 It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
 
-## 2\) `public/index.html`: <a id="2-public-index-html"></a>
+## 2\) `static/index.html`: <a id="2-static-index-html"></a>
 
 ```markup
 <!DOCTYPE html>
