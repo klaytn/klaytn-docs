@@ -54,7 +54,7 @@ And now we are ready to install caver-js.
 npm install caver-js
 ```
 
-Also, add the below module because we need it
+Also, add the below module because we need it:
 
 ```
 npm i read
