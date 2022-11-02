@@ -4,12 +4,13 @@ Klaytn Docs introduces [Klaytn](https://www.klaytn.com), an enterprise-grade, se
 
 You can also find a comprehensive list of EVERYTHING related to Klaytn in [Awesome Klaytn](https://github.com/klaytn/awesome-klaytn).
 
-| Document                            | Description                                                                                                                                               |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Klaytn Overview](klaytn/)          | Describes Klaytn key concepts and design principles.                                                                                                      |
-| [Getting Started](getting-started/) | Provides guidelines for getting started with Klaytn.                                                                                                      |
-| [Smart Contract](smart-contract/)   | Tools and resources for smart contract development.                                                                                                       |
-| [Installation & Operation](node/)   | Illustrates how to set up and operate Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
+| Document                            | Description                                                                                                                                   |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [Klaytn Overview](klaytn/)          | Describes Klaytn key concepts and design principles.                                                                                          |
+| [Getting Started](getting-started/) | Provides guidelines for getting started with Klaytn.                                                                                          |
+| [Smart Contract](smart-contract/)   | Tools and resources for smart contract development.                                                                                           |
+| [Installation](installation-guide/) | Illustrates how to set up Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
+| [Operation](operation-guide/)       | Illustrates how to manage Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
 | [dApp Developers](dapp/)            | Development resources and references for dApp developers. This section contains Klaytn API references and provides end-to-end dApp development tutorials. |
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn evolves, Klaytn Docs and the source code will continue to be updated. Here are some websites for reference:

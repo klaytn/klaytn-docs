@@ -71,9 +71,6 @@
   * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
 
 * [Installation](installation-guide/README.md)
-  * [Klaytn Network Architecture](installation-guide/klaytn-network-architecture/README.md)
-     * [CCN(CN+PN) + EN + Service Chain](installation-guide/klaytn-network-architecture/ccn-en-service-chain.md)
-     * [BN](installation-guide/klaytn-network-architecture/bn.md)
   * [Deployment](installation-guide/deployment/README.md)
     * [Endpoint Node](installation-guide/deployment/endpoint-node/README.md)
       * [System Requirements](installation-guide/deployment/endpoint-node/system-requirements.md)
