@@ -45,15 +45,19 @@ You can check the version like this:
 node --version
 ```
 
-![Checking node version](../images/node_version.png)
+If the version is not 12 or 14, **make sure to change it**. Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
 
-Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
-
-And then we are ready to install caver-js.
+And now we are ready to install caver-js.
 
 
 ```
 npm install caver-js
+```
+
+Also, add the below module because we need it
+
+```
+npm i read
 ```
 
 ### 3. Initialize project <a id="3.-initialize-project"></a>
@@ -64,7 +68,7 @@ Now let's initialize our project:
 npm init
 ```
 
-Since we are just doing a simple test, it doesn't matter how you answer the questions.
+Since we are just doing a simple test, it doesn't matter how you answer the questions. Keep pressing `Enter`.
 
 ```
 
@@ -110,16 +114,17 @@ We will be writing our code in this file to send a transaction to transfer KLAY.
 
 Since we are sending a transaction to the blockchain network, we need to connect to a Klaytn node. We will be using Klaytn's testnet Baobab.
 
-We will import the caver-js module and connect it to a Klaytn node in the Baobab network as shown below:
+We will import the `caver-js` and `read` module and connect to a Klaytn node in the Baobab network as shown below:
 
 ```javascript
 const Caver = require('caver-js')
+const read = require('read')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
 ### 6. Add Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a> 
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore, **which you need to provide along with the password**. It will be decrypted, and then stored as `keyring`.
+You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, which we will add later, you will be prompted to type the password on the terminal. It will be decrypted, and then stored as `keyring`.
 
 After that, the `keyring` will be stored in the wallet. Add the lines below:
 
@@ -128,9 +133,10 @@ async function testFunction() {
     // Read keystore json file
     const fs = require('fs')
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
+	const password = await loadPassword()
 
 	// Decrypt keystore and create
-	const keyring = caver.wallet.keyring.decrypt(keystore, '{password}')
+	const keyring = caver.wallet.keyring.decrypt(keystore, 'password')
 	console.log(keyring)
 
     // Add to caver.wallet
@@ -162,51 +168,76 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }
+```
+### 8. Load password <a id="8.-load-password"></a> 
 
+Add the below function, and you will be prompted to type your password on terminal. It will then be saved as `password`, which we have declared in step 6. 
+
+```
+async function loadPassword() {
+    return new Promise((resolve, reject)=> {
+        read({ prompt: 'Password: ', silent: true }, function(er, password) {
+            if(er) {
+                reject(er)
+                return
+            }
+            resolve(password)
+        })
+
+    })
+
+}
+```
+
+Don't forget to add in the end:
+
+```
 testFunction()
 ```
 
-8. Run the code
+9. Run the code
 Let's run the code that we've just written:
 
 ```
 node testcaver.js
 ```
 
+![Type your password](../images/prompt.png)
+
+
 The result will look something like this:
 
 ```
-terri.k@Terri test % node testcaver.js
 SingleKeyring {
-  _address: '0xe9731bc09dae6e8351e1df63ad5b92300545c6bb',
+  _address: '0x658750eaa5d4db896d9ad0de79e00d551e0bf808',
   _key: PrivateKey {
-    _privateKey: '0xfe6a95a9ae82e2a087c0947e505c4750d020cf90ae612fff6fdb7f309116b244'
+    _privateKey: '0xea296e1bc67ba18a9ca87161c9e4fe486bb805ffff4f7a453f621a45e341e076'
   }
 }
 {
-  blockHash: '0xedae255190fdfca0671bbc2ea9049e24f47c54db9551e341c42bdfcd81942cdf',
-  blockNumber: '0x64bc24e',
+  blockHash: '0x0c29221072f049cf08ec2112755cbc0bc55289de5337faf2911147a4d8229693',
+  blockNumber: '0x64e399d',
   contractAddress: null,
   effectiveGasPrice: '0x5d21dba00',
-  from: '0xe9731bc09dae6e8351e1df63ad5b92300545c6bb',
+  from: '0x658750eaa5d4db896d9ad0de79e00d551e0bf808',
   gas: '0x61a8',
   gasPrice: '0xba43b7400',
   gasUsed: '0x5208',
   logs: [],
   logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   nonce: '0x0',
-  senderTxHash: '0x6c6ba0a3a2a885b5ca1f065e1a67da044dbd53f4eef0ea1b38366f51f38e3c84',
+  senderTxHash: '0xdef371f3b194de1d6b6b678a3181e0e961549f2bc8f6391f97f48c8ea995225e',
   signatures: [
     {
-      V: '0x7f5',
-      R: '0xe961a3a811b8702cc94a714e0f0514c4bbf2ccd0ff9f04189ed4594b0c30cfaa',
-      S: '0x344e6706468e3d3d6e2e72b3374820822af9677e82f92be1f6c09da0ae01b97b'
+      V: '0x7f6',
+      R: '0x6425f98285f8e680a9cbfe32de824cceedd7fdca91ba9f7fa513898bc0d01ea8',
+      S: '0x37718277df2a7a940212c9adb411f52d79d8cced784177c41224dca1a1ef122c'
     }
   ],
   status: '0x1',
   to: '0x7f1d6235b79688169fd6e15c4e8f540d6799dc75',
-  transactionHash: '0x6c6ba0a3a2a885b5ca1f065e1a67da044dbd53f4eef0ea1b38366f51f38e3c84',
-  transactionIndex: '0x0',
+  transactionHash: '0xdef371f3b194de1d6b6b678a3181e0e961549f2bc8f6391f97f48c8ea995225e',
+  transactionIndex: '0x2',
   type: 'TxTypeValueTransfer',
   typeInt: 8,
   value: '0x8ac7230489e80000'
