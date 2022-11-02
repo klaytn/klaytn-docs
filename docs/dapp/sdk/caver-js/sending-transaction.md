@@ -131,7 +131,7 @@ After that, the `keyring` will be stored in the wallet. Add the lines below:
 ```
 async function testFunction() {
     // Read keystore json file
-    const fs = require('fs')
+  const fs = require('fs')
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
 	const password = await loadPassword()
 
