@@ -164,8 +164,8 @@
       
 * [Operation Guide](operation-guide/README.md)
   * [Configuration](operation-guide/configuration.md) 
-  * [Errors & Troubleshooting](operation-guide/errors-and-troubleshooting.md)
   * [Node Log](operation-guide/node-log.md)
+  * [Errors & Troubleshooting](operation-guide/errors-and-troubleshooting.md)
 
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
