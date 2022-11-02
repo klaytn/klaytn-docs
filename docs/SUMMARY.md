@@ -98,7 +98,7 @@
           * [Startup the PN](installation-guide/deployment/core-cell/installation-guide/proxy-node-setup/startup-the-pn.md)
         * [Testing the Core Cell](installation-guide/deployment/core-cell/installation-guide/testing-the-core-cell.md)
       * [Monitoring Setup](installation-guide/deployment/core-cell/monitoring-setup.md)
-      * [H/A Setup](installation-guide/deployment/core-cellh-a-setup.md)
+      * [H/A Setup](installation-guide/deployment/core-cell/h-a-setup.md)
     * [Service Chain](installation-guide/deployment/service-chain/README.md)
       * [Getting Started](installation-guide/deployment/service-chain/getting-started/README.md)
         * [Setting up a 4-node Service Chain](installation-guide/deployment/service-chain/getting-started/4nodes-setup-guide.md)
