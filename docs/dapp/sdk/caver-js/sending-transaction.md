@@ -195,7 +195,8 @@ Don't forget to add in the end:
 testFunction()
 ```
 
-9. Run the code
+### 9. Run the code <a id="8.-run-the-code"></a> 
+
 Let's run the code that we've just written:
 
 ```
