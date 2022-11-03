@@ -12,7 +12,7 @@ First install the following packages.
 * [nvm](https://github.com/nvm-sh/nvm)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-*Note:* If you get an `nmv: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+*Note:* If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
  
 ### 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://klaytn.github.io/klaytn-online-toolkit/misc/generateKeystore).
