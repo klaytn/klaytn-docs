@@ -84,7 +84,7 @@ About to write to /Users/terri.k/test/package.json:
 Is this OK? (yes)
 ```
 
-Alternatively, you can simply type to skip hitting `enter`:
+Alternatively, you can simply type the command below to skip hitting `enter`:
 
 ```
 npm init -y
