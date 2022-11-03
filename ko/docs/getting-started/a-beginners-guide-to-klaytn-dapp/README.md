@@ -1,3 +1,3 @@
-# A Beginner's Guide to Klaytn dApp <a id="a-beginner-s-guide-to-klaytn-dapp"></a>
+# Klaytn dApp 초보자 가이드 <a id="a-beginner-s-guide-to-klaytn-dapp"></a>
 
 
