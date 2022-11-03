@@ -136,7 +136,7 @@ async function testFunction() {
 	const password = await loadPassword()
 
 	// Decrypt keystore and create
-	const keyring = caver.wallet.keyring.decrypt(keystore, 'password')
+	const keyring = caver.wallet.keyring.decrypt(keystore, password)
 	console.log(keyring)
 
     // Add to caver.wallet
