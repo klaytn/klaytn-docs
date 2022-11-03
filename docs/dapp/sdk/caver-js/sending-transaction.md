@@ -147,7 +147,7 @@ async function testFunction() {
 
 ### 7. Send Transaction <a id="7.-send-transaction"></a> 
 
-We will now create a trasaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
 
 The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`, 
 
