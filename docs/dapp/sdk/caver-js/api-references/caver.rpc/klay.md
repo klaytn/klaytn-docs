@@ -2914,7 +2914,7 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
 ```javascript
 > caver.rpc.klay.getLogs({
-        fromBlock: '0x1'
+        fromBlock: '0x1',
         toBlock: 'latest',
         address:'0x87ac99835e67168d4f9a40580f8f5c33550ba88b'
     }).then(console.log)
