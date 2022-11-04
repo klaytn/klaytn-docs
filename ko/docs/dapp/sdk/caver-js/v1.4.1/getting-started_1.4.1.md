@@ -51,7 +51,7 @@ EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+> const caver = new Caver('https://your.en.url:8651/')
 ```
 
 ## 계정 관리 <a id="managing-accounts"></a>
