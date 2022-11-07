@@ -15,14 +15,14 @@
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 이름       | 타입            | 설명                                                                                                |
-| -------- | ------------- | ------------------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                          |
-| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                         |
-| gas      | QUANTITY      | (선택 사항) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다. |
-| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                               |
-| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                            |
-| data     | DATA          | (선택 사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                               |
+| 이름       | 타입            | 설명                                                                                                                                                         |
+| -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                                                                   |
+| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                                                                  |
+| gas      | QUANTITY      | (선택 사항) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.                                                          |
+| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                                                                                        |
+| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                     |
+| input    | DATA          | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
 
 **리턴값**
 
@@ -40,7 +40,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_call", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}, "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_call", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}, "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
@@ -58,14 +58,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 이름       | 타입            | 설명                                                                                      |
-| -------- | ------------- | --------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                |
-| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                               |
-| gas      | QUANTITY      | (선택 사항) 가스 추정을 위해 제공되는 가스 한도의 정숫값입니다. 가스 한도를 지정하지 않으면 Klaytn 노드는 지정된 가스 한도를 상한으로 설정합니다. |
-| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                     |
-| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                  |
-| data     | DATA          | (선택 사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                     |
+| 이름       | 타입            | 설명                                                                                                                                                         |
+| -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                                                                   |
+| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                                                                  |
+| gas      | QUANTITY      | (선택 사항) 가스 추정을 위해 제공되는 가스 한도의 정숫값입니다. 가스 한도를 지정하지 않으면 Klaytn 노드는 지정된 가스 한도를 상한으로 설정합니다.                                                                    |
+| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                                                                                        |
+| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                     |
+| input    | DATA          | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
 
 **리턴값**
 
@@ -77,7 +77,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 **예시**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}], "id": 1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -103,7 +103,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 **예시**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "data":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "input":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -637,7 +637,7 @@ params: [{
   "gas": "0x76c0",
   "gasPrice": "0x5d21dba00",
   "value": "0x9184e72a",
-  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+  "input": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
 }]
 ```
 
