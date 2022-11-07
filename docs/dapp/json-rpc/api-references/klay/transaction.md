@@ -22,7 +22,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 | gas | QUANTITY | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field but 'data` field is still being supported for backward-compatiblity. |
+| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
 
 **Return Value**
 
@@ -66,7 +66,7 @@ Generates and returns an estimate of how much gas is necessary to allow the tran
 | gas | QUANTITY | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound.  
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field but 'data` field is still being supported for backward-compatiblity. |
+| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
 
 **Return Value**
 

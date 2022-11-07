@@ -21,7 +21,7 @@ transaction would be without running it live.
 | gas      | QUANTITY     | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
 | gasPrice | QUANTITY     | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
 | value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.      |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.      |
 
 **Example - callObject**
 
@@ -160,7 +160,7 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
 | gas      | QUANTITY     | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
 | gasPrice | QUANTITY     | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
 | value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.      |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
 
 **Example - callObject**
 
@@ -619,7 +619,7 @@ transaction to Klaytn network.
 | gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                      |
 | maxFeePerGas         | QUANTITY        | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).|
 | maxPriorityFeePerGas | QUANTITY        | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).           |
-| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.        |
+| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.   |
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
 | nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
 
@@ -668,7 +668,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 | gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                         |
 | maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                      |
 | maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                                 |
-| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.|
+| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                        |
 | nonce                | QUANTITY        | The integer of a nonce.                                                                                                                                             |
 
