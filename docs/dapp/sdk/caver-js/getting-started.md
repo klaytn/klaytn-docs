@@ -17,7 +17,7 @@ The following packages are required to use the caver-js library.
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([nvm](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
 ### Installation <a id="installation"></a>
 
@@ -33,48 +33,6 @@ To install a specific version of caver-js, try the following command:
 
 ```text
 $ npm install caver-js@X.X.X
-```
-
-## Sending KLAY at a glance <a id="sending-klay-at-a-glance"></a>
-
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
-
-```javascript
-const fs = require('fs')
-const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
-
-async function testFunction() {
-	// Read keystore json file
-	const keystore = fs.readFileSync('./keystore.json', 'utf8')
-
-	// Decrypt keystore
-	const keyring = caver.wallet.keyring.decrypt(keystore, 'password')
-	console.log(keyring)
-	
-	// You can also generate a private key directly via
-	// const keyring = caver.wallet.keyring.generate()
-
-	// Add to caver.wallet
-	caver.wallet.add(keyring)
-	
-	// Create value transfer transaction
-	const vt = caver.transaction.valueTransfer.create({
-		from: keyring.address,
-		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
-		value: caver.utils.toPeb(1, 'KLAY'),
-		gas: 25000,
-	})
-
-	// Sign to the transaction
-	const signed = await caver.wallet.sign(keyring.address, vt)
-
-	// Send transaction to the Klaytn blockchain platform (Klaytn)
-	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
-	console.log(receipt)
-}
-
-testFunction()
 ```
 
 ## Starting with caver-js <a id="starting-with-caver-js"></a>
