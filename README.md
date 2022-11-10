@@ -1,3 +1,8 @@
+# Branch name will be changed
+
+We will change the `master` branch to `main` at Nov 1, 2022. 
+After change branch policy, please check your local or forked repository settings.
+
 # The Klaytn Docs
 
 [![Gitter](https://badges.gitter.im/klaytn/klaytn-docs.svg)](https://gitter.im/klaytn/klaytn-docs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
