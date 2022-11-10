@@ -11,6 +11,47 @@
 - [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
 
 
+
+
+## What is Klaytn? <a id="what-is-klaytn"></a>
+Klaytn is the blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the metaverse.
+
+## What is Klaytn 2.0? <a id="what-is-klaytn-2.0"></a>
+Klaytn 2.0 marks Klaytn’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Klaytn 2.0, please refer to our Light Paper.
+
+## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
+Klaytn is EVM compatible, and supports all Ethereum London EVM features. Our `eth` namespace has been amended to be compatible with Ethereum’s. Ethereum toolings can be used seamlessly, and migration of Ethereum dApps have also become possible with minimal effort. Transaction types and fields are also equivalent to Ethereum’s.
+
+## What is Klaytn’s gas policy? <a id="klaytn-gas-policy"></a>
+Klaytn transitioned from a fixed gas fee policy to adopt a dynamic gas fee mechanism in order to combat arbitrage bots.
+
+## What is special about Klaytn’s account structure? <a id="klaytn-account-structure"></a>
+To provide maximum convenience for dApp developers, Klaytn has devised a way to decouple private keys from addresses. As a result, you can easily implement multisig, whereby you create multiple private keys for a single account, with each key having different weights. Each key can be assigned with different roles as well.
+
+## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
+Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on Remix IDE using Klaytn Plugin or connect to MetaMask wallet and Kaikas. Klaytn’s sdk `caver` is available as caver-js You can refer to our tutorials to try building a dApp on Klaytn.
+
+## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
+Klaytn is most certainly open source! Take a look at our Github Organisation and you can start contributing to our Klaytn Documentation. Read more about our open-source policies here.
+
+## How can I initially fund my account? <a id="fund-my-acconut"></a>
+You may purchase KLAY on the exchange. The list of available exchanges can be found in Coinmarketcap or Coingecko.
+
+## Any Klaytn’s Public Node Providers for testing and development?
+Refer to this list for Klaytn’s Public Node Providers and the network domains.
+
+## Are there faucets to get test KLAY?
+You can get test KLAY for development and testing purposes here:
+https://baobab.wallet.klaytn.foundation/faucet
+https://www.allthatnode.com/faucet/klaytn.dsrv
+
+How do I check for Public RPC endpoints status?
+Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status here.
+
+
+
+Which wallets support Klaytn?
+Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list here.
 ## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
 
 Cypress is the Klaytn mainnet, Baobab is a testnet.
