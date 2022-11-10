@@ -2,7 +2,8 @@
 
 We will change the `master` branch to `main` on Nov 1, 2022. 
 
-After change branch policy, please check your local or forked repository settings.
+After the branch policy change, please check your local or forked repository settings.
+
 
 # The Klaytn Docs
 
