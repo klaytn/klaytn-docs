@@ -44,7 +44,7 @@ To provide maximum convenience for dApp developers, Klaytn has devised a way to 
 
 
 ## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
-Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on Remix IDE using Klaytn Plugin or connect to MetaMask wallet and Kaikas. Klaytn’s sdk `caver` is available as caver-js You can refer to our tutorials to try building a dApp on Klaytn.
+Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](https://docs.klaytn.foundation/dapp/tutorials/connecting-remix) using Klaytn Plugin or connect to [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Klaytn’s sdk `caver` is available as [caver-js](https://github.com/klaytn/caver-js) You can refer to our [tutorials](https://docs.klaytn.foundation/dapp/tutorials) to try building a dApp on Klaytn.
 
 
 ## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
