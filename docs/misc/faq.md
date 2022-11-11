@@ -48,7 +48,7 @@ Whether you are migrating from Ethereum, or building on Klaytn from scratch, we 
 
 
 ## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
-Klaytn is most certainly open source! Take a look at our Github Organisation and you can start contributing to our Klaytn Documentation. Read more about our open-source policies here.
+Klaytn is most certainly open source! Take a look at our [Github Organisation](https://github.com/klaytn) and you can start [contributing](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md) to our Klaytn Documentation. Read more about our open-source policies [here](https://docs.klaytn.foundation/misc/opensource).
 
 
 ## How can I initially fund my account? <a id="fund-my-acconut"></a>
