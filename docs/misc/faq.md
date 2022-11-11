@@ -40,7 +40,7 @@ Klaytn transitioned from a fixed gas fee policy to adopt a dynamic gas fee mecha
 
 
 ## What is special about Klaytn’s account structure? <a id="klaytn-account-structure"></a>
-To provide maximum convenience for dApp developers, Klaytn has devised a way to decouple private keys from addresses. As a result, you can easily implement multisig, whereby you create multiple private keys for a single account, with each key having different weights. Each key can be assigned with different roles as well.
+To provide maximum convenience for dApp developers, Klaytn has devised a way to [decouple private keys from addresses](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744). As a result, you can easily implement [multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01), whereby you create multiple private keys for a single account, with each key having different weights. Each key can be assigned with [different roles](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b) as well.
 
 
 ## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
