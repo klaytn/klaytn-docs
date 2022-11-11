@@ -28,7 +28,7 @@ Klaytn is the blockchain platform with low latency, high TPS and immediate final
 
 
 ## What is Klaytn 2.0? <a id="what-is-klaytn-2.0"></a>
-Klaytn 2.0 marks Klaytn’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Klaytn 2.0, please refer to our Light Paper.
+Klaytn 2.0 marks Klaytn’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf).
 
 
 ## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
