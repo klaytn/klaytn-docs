@@ -36,7 +36,7 @@ Klaytn is EVM compatible, and supports all Ethereum London EVM features. Our `et
 
 
 ## What is Klaytn’s gas policy? <a id="klaytn-gas-policy"></a>
-Klaytn transitioned from a fixed gas fee policy to adopt a dynamic gas fee mechanism in order to combat arbitrage bots.
+Klaytn transitioned from a fixed gas fee policy to adopt a dynamic gas fee mechanism in order to combat arbitrage bots. Please refer to this [article](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) for more information.
 
 
 ## What is special about Klaytn’s account structure? <a id="klaytn-account-structure"></a>
