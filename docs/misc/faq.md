@@ -62,12 +62,12 @@ Refer to this [list](https://docs.klaytn.foundation/dapp/json-rpc/public-en#publ
 
 ## Are there faucets to get test KLAY? <a id="are-there-faucets"></a>
 You can get test KLAY for development and testing purposes here:
-https://baobab.wallet.klaytn.foundation/faucet
-https://www.allthatnode.com/faucet/klaytn.dsrv
+[Klay Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+[AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
 
 ## How do I check for Public RPC endpoint status? <a id="rpc-endpoint-status"></a>
-Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status here.
+Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status [here](https://www.allthatnode.com/klaytn.dsrv).
 
 
 ## Which wallets support Klaytn? <a id="which-wallets"></a>
