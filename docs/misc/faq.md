@@ -52,7 +52,8 @@ Klaytn is most certainly open source! Take a look at our [Github Organisation](h
 
 
 ## How can I initially fund my account? <a id="fund-my-acconut"></a>
-You may purchase KLAY on the exchange. The list of available exchanges can be found in Coinmarketcap or Coingecko.
+You may purchase KLAY on the exchange. The list of available exchanges can be found here:
+[Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/) or [Coingecko](https://www.coingecko.com/en/coins/klay#markets)
 
 
 ## Any Klaytn’s Public Node Providers for testing and development? <a id="node-providers"></a>
