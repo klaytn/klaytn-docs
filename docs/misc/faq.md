@@ -57,7 +57,7 @@ You may purchase KLAY on the exchange. The list of available exchanges can be fo
 
 
 ## Any Klaytn’s Public Node Providers for testing and development? <a id="node-providers"></a>
-Refer to this list for Klaytn’s Public Node Providers and the network domains.
+Refer to this [list](https://docs.klaytn.foundation/dapp/json-rpc/public-en#public-json-rpc-endpoint-providers) for Klaytn’s Public Node Providers and the network domains.
 
 
 ## Are there faucets to get test KLAY? <a id="are-there-faucets"></a>
