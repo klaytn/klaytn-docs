@@ -71,7 +71,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 
 ## Which wallets support Klaytn? <a id="which-wallets"></a>
-Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list here.
+Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
 
 ## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
