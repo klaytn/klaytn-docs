@@ -24,7 +24,7 @@
 
 
 ## What is Klaytn? <a id="what-is-klaytn"></a>
-Klaytn is the blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](https://docs.klaytn.foundation/klaytn2/metaverse-package).
+Klaytn is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](https://docs.klaytn.foundation/klaytn2/metaverse-package).
 
 
 ## What is Klaytn 2.0? <a id="what-is-klaytn-2.0"></a>
