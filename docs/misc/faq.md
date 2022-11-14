@@ -137,7 +137,6 @@ If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.m
 
 No official browser wallets at the moment.
 
-Kaikas, a browser extension wallet of Klaytn will be released in 1H 2020.
 
 
 ## Why is my fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
