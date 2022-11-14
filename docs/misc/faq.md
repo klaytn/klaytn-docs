@@ -135,7 +135,7 @@ If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.m
 
 ## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-No official browser wallets at the moment.
+Klaytn's web brower extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KLAY transactions and create accounts. 
 
 
 
