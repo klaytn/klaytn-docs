@@ -14,7 +14,7 @@ endpoint management.
 
 The `nodeInfo` administrative property can be queried for all the information known about the running
 Klaytn node at the networking granularity. These include general information about the node itself as a
-participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P
+participant of the [devp2p](https://github.com/ethereum/devp2p/blob/main/README.md) P2P
 overlay protocol, as well as specialized information added by each of the running application protocols,
 e.g., `klay`.
 
