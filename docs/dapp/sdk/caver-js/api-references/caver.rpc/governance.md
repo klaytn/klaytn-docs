@@ -201,7 +201,7 @@ Provides the initial chain configuration. Because it just stores the initial con
     governanceMode: 'single',
     reward: {
       mintingAmount: 9600000000000000000,
-      ratio: '34/54/12',
+      ratio: '50/40/10',
       useGiniCoeff: true,
       deferredTxFee: true,
       stakingUpdateInterval: 60,
@@ -291,7 +291,7 @@ Returns governance items at a specific block. It is the result of previous votin
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
   'reward.proposerupdateinterval': 30,
-  'reward.ratio': '34/54/12',
+  'reward.ratio': '50/40/10',
   'reward.stakingupdateinterval': 60,
   'reward.useginicoeff': true
 }
@@ -434,7 +434,7 @@ Returns the governance information stored on the given block. If no changes are 
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
   'reward.proposerupdateinterval': 30,
-  'reward.ratio': '34/54/12',
+  'reward.ratio': '50/40/10',
   'reward.stakingupdateinterval': 60,
   'reward.useginicoeff': true
 }

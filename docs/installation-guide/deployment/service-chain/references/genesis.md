@@ -126,7 +126,7 @@ The `reward` field stores the information about the network's token economy.
             "governanceMode": "single",
             "reward": {
                 "mintingAmount": 9600000000000000000,
-                "ratio": "34/54/12",
+                "ratio": "50/40/10",
                 "useGiniCoeff": true,
                 "deferredTxFee": true,
                 "stakingUpdateInterval": 86400,
