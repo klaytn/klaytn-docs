@@ -67,7 +67,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Time: 블록이 생성된 때부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
 * Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
 * Block Proposer: 블록을 제안한 컨센서스 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다.
-* Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 이 목록에서는 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 장에 마우스 포인터를 가져가세요. More details about the block reward distribution system can be found in the [Klaytn Token Economy][].
+* Reward: Aggregation of newly minted KLAY \(6.4 KLAY\) and transaction fees used in the block. 이 목록에서는 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 장에 마우스 포인터를 가져가세요. More details about the block reward distribution system can be found in the [Klaytn Token Economy][].
 * Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
 ### Transactions <a id="transactions"></a>
@@ -100,7 +100,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Hash: 블록의 고유 식별자입니다. 복사 버튼을 눌러 해시를 쉽게 복사할 수 있습니다.
 * Parent Hash: 이전 블록의 고유 식별자입니다. 해시를 클릭하여 이전 블록 해시의 상세 보기 페이지로 이동할 수 있습니다.
 * Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
-* Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 마우스 포인터를 가져가면 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. More details about block reward distribution system can be found in the [Klaytn Token Economy][].
+* Block Reward: Aggregation of the newly minted KLAY \(6.4 KLAY\) and the transaction fees collected in the block. 마우스 포인터를 가져가면 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. More details about block reward distribution system can be found in the [Klaytn Token Economy][].
 * Block Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
 #### Committee <a id="committee"></a>
