@@ -8,11 +8,11 @@
 
 클레이튼의 펀딩 구조는 클레이튼 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 모든 신규 블록에서 발행된 KLAY, 그리고 블록\(총칭 "블록 보상" \)에 사용된 트랜잭션 수수료의 합계는 사전 결정된 비율에 따라 다음 세 개의 계정에 집계 및 배포됩니다.
 
-* 클레이튼 거버넌스 카운슬 보상: 34%
-* 클레이튼 성장 펀드 \(KGF\): 54%
-* 클레이튼 개선 준비금 \(KIR\) : 12 %
+* Klaytn Governance Council Reward: 50%
+* Klaytn Growth Fund \(KGF\): 40%
+* Klaytn Improvement Reserve \(KIR\): 10%
 
-매 블록마다 9.6 KLAY가 민팅됩니다. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 클레이튼 Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
+6.4 KLAY will be minted for every new block. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 클레이튼 Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
 
 ## 클레이튼 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
