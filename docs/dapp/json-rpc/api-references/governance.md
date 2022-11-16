@@ -253,7 +253,7 @@ None
     reward: {
       deferredTxFee: true,
       minimumStake: 5000000,
-      mintingAmount: 9600000000000000000,
+      mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
       ratio: "50/40/10",
       stakingUpdateInterval: 20,
@@ -455,7 +455,7 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
   istanbul.policy: 2,
   reward.deferredtxfee: true,
   reward.minimumstake: "5000000",
-  reward.mintingamount: "9600000000000000000",
+  reward.mintingamount: "6400000000000000000",
   reward.proposerupdateinterval: 3600,
   reward.ratio: "50/40/10",
   reward.stakingupdateinterval: 20,

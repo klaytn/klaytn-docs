@@ -125,7 +125,7 @@ The `reward` field stores the information about the network's token economy.
             "governingNode": "0x46b0bd6380005952759f605d02a6365552c776f3",
             "governanceMode": "single",
             "reward": {
-                "mintingAmount": 9600000000000000000,
+                "mintingAmount": 6400000000000000000,
                 "ratio": "50/40/10",
                 "useGiniCoeff": true,
                 "deferredTxFee": true,
