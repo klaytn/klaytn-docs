@@ -168,8 +168,8 @@
   * [Log operation](operation-guide/log-management.md)
   * [Errors & Troubleshooting](operation-guide/errors-and-troubleshooting.md)
   * [Klaytn Command](operation-guide/klaytn-command.md)
-  * [Chaindata Change](operation-guide/disk-management.md)
-  * [Chaindata Migration](operation-guide/disk-management-2.md)
+  * [Chaindata Change](operation-guide/chaindata-change.md)
+  * [Chaindata Migration](operation-guide/chaindata-migration.md)
 
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
