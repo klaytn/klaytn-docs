@@ -17,7 +17,7 @@
 ## Go to Klaytn Console
 
 ```bash
-$ sudo kpn attach klay.ipc
+$ kpn attach klay.ipc
 
 #start chain data Migration
 > admin.startStateMigration()

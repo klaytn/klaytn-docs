@@ -11,7 +11,7 @@
 
 ### Create new disk
 
-1. Preparing new disk (2500GB disk) or creating new path on the current disk (It must have 2500GB available.)
+1. Preparing new disk (2,500GB disk) or creating new path on the current disk (It must have 2,500GB available.)
 
 <aside>
 💡 Assuming that the new path is `/var/kcnd2`
