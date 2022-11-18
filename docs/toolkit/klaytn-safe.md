@@ -1,6 +1,6 @@
 # Introduction <a id="klaytn-safe-"></a>
 
-In a typical blockchain platform like Klaytn, most users are familiar with single key wallet systems such as Kaikas and Metamask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure. 
+In a typical blockchain platform like Klaytn, most users are familiar with single key wallet systems such as Kaikas and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure. 
 
 This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the Wintermute hack where $162.5 million was lost. 
 
