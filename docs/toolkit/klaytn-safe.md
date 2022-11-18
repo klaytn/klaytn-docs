@@ -21,7 +21,9 @@ Here are the main benefits of multisig wallets:
 
 * Enable decentralised decision making: Companies and business executives can make on-chain decisions on which transactions to execute.
 
-Two-factor authentication: With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+
+* Two-factor authentication: With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+
 
 Next, we will dive into the Klaytn Safe multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
 
