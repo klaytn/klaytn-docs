@@ -200,8 +200,8 @@ Provides the initial chain configuration. Because it just stores the initial con
     governingNode: '0xbeafcca672100a88a953fcf5e882cb763f9e3de9',
     governanceMode: 'single',
     reward: {
-      mintingAmount: 9600000000000000000,
-      ratio: '34/54/12',
+      mintingAmount: 6400000000000000000,
+      ratio: '50/40/10',
       useGiniCoeff: true,
       deferredTxFee: true,
       stakingUpdateInterval: 60,
@@ -289,9 +289,9 @@ Returns governance items at a specific block. It is the result of previous votin
   'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
-  'reward.mintingamount': '9600000000000000000',
+  'reward.mintingamount': '6400000000000000000',
   'reward.proposerupdateinterval': 30,
-  'reward.ratio': '34/54/12',
+  'reward.ratio': '50/40/10',
   'reward.stakingupdateinterval': 60,
   'reward.useginicoeff': true
 }
@@ -432,9 +432,9 @@ Returns the governance information stored on the given block. If no changes are 
   'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
-  'reward.mintingamount': '9600000000000000000',
+  'reward.mintingamount': '6400000000000000000',
   'reward.proposerupdateinterval': 30,
-  'reward.ratio': '34/54/12',
+  'reward.ratio': '50/40/10',
   'reward.stakingupdateinterval': 60,
   'reward.useginicoeff': true
 }
