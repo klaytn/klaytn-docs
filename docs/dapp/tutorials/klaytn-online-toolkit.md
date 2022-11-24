@@ -1,7 +1,7 @@
 # Klaytn Online Toolkit <a id="klaytn-online-toolkit"></a>
 
 ## What is the Klaytn Online Toolkit? <a id="what-is-the-klaytn-online-toolkit"></a>
-* `Klaytn Online Toolkit` provides code examples to help you to utilize the `Klaytn SDK(caver-js)` easily. Also it provides a [demo page](https://klaytn.github.io/klaytn-online-toolkit/) for developers to use simple online tools.
+* `Klaytn Online Toolkit` provides code examples to help you to utilize the `Klaytn SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
 * `Klaytn SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Klaytn node using an HTTP or Websocket connection.
 * You can just try out Klaytn's features without having to code.
 
@@ -10,7 +10,7 @@
 ## Links <a id="links"></a>
 Here are the links for `Klaytn Online Toolkit`. Feel free to use it :)
 * [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
-* [Github Page](https://klaytn.github.io/klaytn-online-toolkit/)
+* [Page](https://toolkit.klaytn.foundation)
 * [Klaytn SDK(caver-js)](https://docs.klaytn.foundation/dapp/sdk/caver-js)
 
 ![Klaytn Online Toolkit](./img/klaytn-online-toolkit.png)
