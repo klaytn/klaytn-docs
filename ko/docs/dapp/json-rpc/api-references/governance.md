@@ -40,7 +40,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 | `"istanbul.epoch"`                  | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                                                                               |
 | `"istanbul.committeesize"`          | `NUMBER`. 위원회 내 검증자 수입니다.(체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                                                                                   |
 | `"reward.mintingamount"`            | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                                                                                         |
-| `"reward.ratio"`                    | `STRING`. `"/"`로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.                                                                       |
+| `"reward.ratio"`                    | `STRING`. `"/"`로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                                    |
 | `"reward.useginicoeff"`             | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                                                                                          |
 | `"reward.deferredtxfee"`            | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다.                                                                |
 | `"reward.minimumstake"`             | `STRING`. CN(컨센서스 노드)이 되는 데 필요한 KLAY 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                                                                                              |
@@ -246,9 +246,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
     reward: {
       deferredTxFee: true,
       minimumStake: 5000000,
-      mintingAmount: 9600000000000000000,
+      mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
-      ratio: "34/54/12",
+      ratio: "50/40/10",
       stakingUpdateInterval: 20,
       useGiniCoeff: false
     }
@@ -448,9 +448,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
   istanbul.policy: 2,
   reward.deferredtxfee: true,
   reward.minimumstake: "5000000",
-  reward.mintingamount: "9600000000000000000",
+  reward.mintingamount: "6400000000000000000",
   reward.proposerupdateinterval: 3600,
-  reward.ratio: "34/54/12",
+  reward.ratio: "50/40/10",
   reward.stakingupdateinterval: 20,
   reward.useginicoeff: false
 }
