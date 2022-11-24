@@ -12,7 +12,7 @@
 * Klaytn Growth Fund \(KGF\): 40%
 * Klaytn Improvement Reserve \(KIR\): 10%
 
-6.4 KLAY will be minted for every new block. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 클레이튼 Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
+6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
 
 ## 클레이튼 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
