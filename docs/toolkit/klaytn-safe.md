@@ -55,7 +55,7 @@ Here you will learn how to create a Safe and evaluate its features on the Klaytn
 
 ## Create a Safe <a id="Create a Safe"></a>
 
-**Step 1:** Navigate to [Klaytn Safe App](https://safe.klaytn.foundation/).
+**Step 1:** Navigate to Klaytn Safe App.
 
 **Step 2:** Connect your signer wallet to start creating your Safe.
 
