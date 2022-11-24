@@ -93,15 +93,20 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 </aside>
 
 1. Stop klaytn daemon process before swap
-    1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
+    1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN 
+
+    💡 You can get packages for EN in the [Startup the CN](../installation-guide/deployment/core-cell/installation-guide/consensus-node-setup/startup-the-cn.md).
+
+
 2. Swap the old and new path
     1. New Disk
 
         ```bash
-        sudo umount /var/kcnd # old path
-        sudo umount /var/kcnd2 # new path
-        sudo mount /dev/nvme2n1 /var/kcnd
+        umount /var/kcnd # old path
+        umount /var/kcnd2 # new path
+        mount /dev/nvme2n1 /var/kcnd
         ```
+   💡 These commands should be executed with the appropriate privileges.
 
     2. Current Disk
 

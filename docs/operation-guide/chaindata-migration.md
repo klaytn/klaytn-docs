@@ -2,12 +2,11 @@
 
 
 <aside>
-💡 THIS GUIDE IS BASED ON Amazon Linux 2
+💡 Run migration only for PN and EN nodes (not CN)
 
 </aside>
 
-## Prerequisites <a id="prerequisites"></a>
-- Run migration only for PN and EN nodes (not CN)
+## Things to know before this job <a id="things-to-know-before-this-job"></a>
 - It needs m5.8xlarges spec (32 cores and 128GB memory) or higher
 - 7 days for full progress (Migration is divided in 2 parts)
     - Part 1 - Migrate DB to a new directory (The message “State migration is completed”  appears)
