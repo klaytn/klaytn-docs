@@ -40,7 +40,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | `"istanbul.epoch"`                  | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                           |
 | `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                |
 | `"reward.mintingamount"`            | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                    |
-| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, KGF 54%, KIR 12%                                                                               |
+| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                               |
 | `"reward.useginicoeff"`             | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                  |
 | `"reward.deferredtxfee"`            | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false` |
 | `"reward.minimumstake"`             | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                           |
@@ -246,9 +246,9 @@ None
     reward: {
       deferredTxFee: true,
       minimumStake: 5000000,
-      mintingAmount: 9600000000000000000,
+      mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
-      ratio: "34/54/12",
+      ratio: "50/40/10",
       stakingUpdateInterval: 20,
       useGiniCoeff: false
     }
@@ -448,9 +448,9 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
   istanbul.policy: 2,
   reward.deferredtxfee: true,
   reward.minimumstake: "5000000",
-  reward.mintingamount: "9600000000000000000",
+  reward.mintingamount: "6400000000000000000",
   reward.proposerupdateinterval: 3600,
-  reward.ratio: "34/54/12",
+  reward.ratio: "50/40/10",
   reward.stakingupdateinterval: 20,
   reward.useginicoeff: false
 }
