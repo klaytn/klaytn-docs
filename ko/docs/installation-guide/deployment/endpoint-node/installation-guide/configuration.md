@@ -50,5 +50,7 @@ $ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 데이터 추출 후 EN을 정상적으로 시작할 수 있습니다.
 
+You can refer to detailed information in the [Chaindata change](../../../../operation-guide/chaindata-change.md)
+
 ## <a id="en-start-stop-status"></a>
 
