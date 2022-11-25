@@ -281,7 +281,7 @@ None
 }
 ```
 
-## governance_chainConfigAt <a id="governance_chainconfigAt"></a>
+## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
 The `chainConfigAt` returns the chain configuration at specific block.
 If the parameter is not set, it returns the chain configuration at the latest block.
