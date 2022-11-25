@@ -94,3 +94,5 @@ $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 After the data is extracted, you may start the CN normally.
 
+You can refer to detailed information in the [Chaindata change](../../../../../operation-guide/chaindata-change.md)
+
