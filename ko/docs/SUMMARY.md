@@ -165,7 +165,11 @@
 * [운영 가이드](operation-guide/README.md)
   * [환경설정](operation-guide/configuration.md)
   * [노드 로그](operation-guide/node-log.md)
-  * [에러 및 문제 해결](operation-guide/errors-and-troubleshooting.md)
+  * [Log operation](operation-guide/log-management.md)
+  * [Errors & Troubleshooting](operation-guide/errors-and-troubleshooting.md)
+  * [Klaytn Command](operation-guide/klaytn-command.md)
+  * [Chaindata Change](operation-guide/chaindata-change.md)
+  * [Chaindata Migration](operation-guide/chaindata-migration.md)
 
 * [dApp<br>개발자](dapp/README.md)
   * [JSON-RPC API](dapp/json-rpc/README.md)
