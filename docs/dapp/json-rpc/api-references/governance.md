@@ -226,7 +226,8 @@ This is equivalent to `chainConfigAt()` with an empty parameter.
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration.
-However, due to its confusing name, we have decided to make a semantic change.
+However, due to its confusing name, it is updated since Klaytn v1.10.0.
+To query the initial chain configuration, use `chainConfigAt(0)` instead.
 {% endhint %}
 
 **Parameters**
