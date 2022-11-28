@@ -165,7 +165,11 @@
 * [Operation Guide](operation-guide/README.md)
   * [Configuration](operation-guide/configuration.md) 
   * [Node Log](operation-guide/node-log.md)
+  * [Log operation](operation-guide/log-management.md)
   * [Errors & Troubleshooting](operation-guide/errors-and-troubleshooting.md)
+  * [Klaytn Command](operation-guide/klaytn-command.md)
+  * [Chaindata Change](operation-guide/chaindata-change.md)
+  * [Chaindata Migration](operation-guide/chaindata-migration.md)
 
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
