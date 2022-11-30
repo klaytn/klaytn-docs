@@ -215,7 +215,7 @@ Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP t
 
 In this guide, we have minted DRIP tokens to the Safe address for illustrative purpose.
 
-Let’s get started with this simple example using Transaction Builder!
+Let’s get started with this example using Transaction Builder!
 
 
 
