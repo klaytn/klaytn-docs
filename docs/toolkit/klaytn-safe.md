@@ -29,7 +29,7 @@ Next, we will dive into the Klaytn Safe multisig wallet for Klatyn, and how to u
 
 # What is Klaytn Safe? <a id="What is Klaytn Safe"></a>
 
-Klaytn Safe is a multisig wallet for the Klaytn ecosystem. It is a fork of the well-known Ethereum multisig wallet [Safe](https://gnosis-safe.io/). 
+Klaytn Safe is a multisig wallet for the Klaytn ecosystem. It is a fork of the well-known multisig wallet [Safe](https://gnosis-safe.io/). 
 
 Currently, Klaytn Safe is a collection of tools to create and manage multi-signature wallets, viz:
 
