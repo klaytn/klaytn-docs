@@ -290,6 +290,9 @@ When copying your safe address from your dashboard to paste in your wallet as se
 
 ![](img/klaytn-safe/25_copyAcctPrepend.png)
 
+
+# Conclusion
+
 Klaytn Safe is an extremely powerful tool for the management of your projects, company funds, and transaction automation. Creating a Safe account provides security against private key hacks and other unforeseen situations that may cause your funds to be lost.
 
 With Klaytn Safe, you don't have to worry about understanding smart contracts to explore multi signature wallet functionalities. Klaytn Safe provides a smooth UI that enables you to easily configure multisig wallets according to your needs.
