@@ -211,7 +211,7 @@ With transaction builder, you can compose transactions from token transfers to c
 
 **Illustration**
 
-A real world example is when you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
 
 Please keep in mind that, for the purposes of this guide, we have minted DRIP tokens to the Safe address.
 
