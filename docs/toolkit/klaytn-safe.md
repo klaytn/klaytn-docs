@@ -240,7 +240,7 @@ Note: The value is an unsigned integer without any decimals. In this example, th
 
 ![](img/klaytn-safe/18_safeTxBatchTxInfo.gif)
 
-**Step 5:** Click **"Add transaction"**
+**Step 5:** Click **Add transaction**
  
 **Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
  
