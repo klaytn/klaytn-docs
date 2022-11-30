@@ -11,7 +11,7 @@ This is where multisig wallets like Klaytn Safe come in. Unlike single key walle
 As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
 
 
-For example: You can imagine a multi-signature wallet as a safe that has three locks, and the three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
 
 Here are the main benefits of multisig wallets:
 
