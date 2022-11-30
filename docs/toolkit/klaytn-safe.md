@@ -244,7 +244,7 @@ Note: The value is an unsigned integer without any decimals. In this example, th
  
 **Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
  
-**Step 7:** Once you added all operations to the batch click "Create Batch"
+**Step 7:** Once you added all operations to the batch click **Create Batch**
 
 ![](img/klaytn-safe/19_safeTxBatch.gif)
 
