@@ -233,7 +233,7 @@ Let’s get started with this example using Transaction Builder!
 
 **Step 4:** Select a method and fill the transaction information
 
-From the drop-down you can select a method. In this case, we select the  transfer method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
+From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
 
 
 Please note: The value is an unsigned integer without any decimals. In this example, the DRIP token has 18 decimals. So if you want to send 1 DRIP, you have to enter 1000000000000000000. 
