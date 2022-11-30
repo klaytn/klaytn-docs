@@ -268,7 +268,7 @@ Klaytn Safe transactions, whether asset transfers or contract interactions, incu
 
 For security reasons, transactions made with Safe need to be executed in order. To achieve this, a number called **nonce** is assigned to a transaction to ensure that each transaction can be executed once. 
 
-At any given time, only transactions with a nonce of **last executed transaction +1** can be executed. Transactions with a higher nonce are queued for execution. So, whenever a transaction is completed, the next transaction in the queue is made available for execution, provided it has accumulated enough signatures.
+At any given time, only transactions with a nonce _last executed transaction +1_ can be executed. Transactions with a higher nonce are queued for execution. So, whenever a transaction is completed, the next transaction in the queue is made available for execution, provided it has accumulated enough signatures.
 
 
 ## Chain-specific addresses <a id="Chain-specific addresses"></a>
