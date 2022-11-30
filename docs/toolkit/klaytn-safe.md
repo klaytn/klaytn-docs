@@ -205,7 +205,7 @@ To interact with a smart contract in your safe wallet, click **"New Transaction"
 
 ## Transaction Builder <a id="Transaction Builder"></a>
 
-This is a custom app in Klaytn Safe that is responsible for batching transactions. This means that when we want to execute several transactions, instead of having to confirm a set of transactions one after the other, they can be bundled together into a single transaction so users just have to confirm and execute once.
+This is a custom app in Klaytn Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
 
 With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
 
