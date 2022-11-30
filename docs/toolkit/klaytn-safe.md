@@ -250,7 +250,7 @@ Note: The value is an unsigned integer without any decimals. In this example, th
 
 **Step 8:** Review and submit transaction
 
-You'll be able to review the whole batch. Once ready, click "Send Batch" to submit and execute the transaction just like any other Safe transaction.
+You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
 
 ![](img/klaytn-safe/20_safeTxBuildExec.gif)
 
