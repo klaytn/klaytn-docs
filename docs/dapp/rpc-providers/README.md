@@ -5,48 +5,33 @@ By using node services, you can focus on developing your application or product 
 
 ## Klaytn API Service (KAS)
 
-### Limits
+KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save cost.
 
+### Features
 
-
-### URL
-
-
-### Metrics
-
-|Features|Free|Premium|
-|---|---|---|---|
-|WebSocket||O|
-|Batch Request|||
-|Customer Support|||
-
-
+- 10,000 requests per day (100 requests per second) for the free plan
+- Community support for the free plan, and ticket suppport for paid plans (Starter, Pro, and Pro Plus)
+- Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API, Metadata API
 
 ### References
 
-- [Docs]
-- [Pricing]
-- [Website]
-
+- [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
+- [Subscription](https://www.klaytnapi.com/en/landing/pricings)
+- [Website](https://www.klaytnapi.com/en/landing/main)
 
 ## Tatum
 
-### Limits
+Tatum is the fastest way to build, test and run blockchain apps. We offer the most flexible platform for developers to turn their blockchain ideas into reality fast.
 
-5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic).
+### Features
+
+- 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic).
+- Community support
 
 ### URL
 
 Klaytn Mainnet: cypress-archive.klaytn.tatum.io (not Live)
 Klaytn Testnet: baobab.klaytn.tatum.io  (not Live)
-
-### Metrics
-
-|Features|Free|Paid|
-|---|---|---|---|
-|WebSocket|Under development|Under development|
-|Tracing|||
-|Customer Support|Community support|Community support|
 
 ### References
 
@@ -54,29 +39,23 @@ Klaytn Testnet: baobab.klaytn.tatum.io  (not Live)
 - [Pricing](https://tatum.io/pricing)
 - [Website](https://tatum.io/)
 
-
 ## BlockPi
 
-### Limits
+BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable working nodes. 
 
-20 requests per second on the free plan, and unlimited for paid plans (Elementary, Premium and Enterprise).
+**Note**: BlockPi uses Request Units (RUs) to transparently measure usage. The RPC methods are charged based on the data size. The rate is 5 RUs per 250 byte. The rate is 50000 RUs per $0.01. You can see the number of request units for each plan [here](https://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn [here](https://docs.blockpi.io/documentations/request-unit-ru#individual-method-cost).
 
-BlockPi uses Request Units (RUs) to transparently measure usage. The RPC methods are charged based on the data size. The rate is 5 RUs per 250 byte. The rate is 50000 RUs per $0.01. You can see the number of request units for each plan [here](https://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn [here](https://docs.blockpi.io/documentations/request-unit-ru#individual-method-cost).
+### Features
+
+- 20 requests per second on the free plan, and unlimited for paid plans (Elementary, Premium and Enterprise).
+- No hard limit for Klaytn archive node and endpoint node
+- Whitelisting possible for endpoint nodes
+- WSS connections currently under development.
 
 ### URL
 
 Klaytn Mainnet: https://klaytn.blockpi.network/v1/rpc/public
 Klaytn Testnet: https://klaytn-baobab.blockpi.network/v1/rpc/public
-
-### Metrics
-
-|Features|Free|Premium|
-|---|---|---|---|
-|WebSocket|Under development|Under development|
-|Tracing|O|O|
-|Customer Support|Community support||
-
-https://docs.pokt.network/build/
 
 ### References
 
@@ -86,19 +65,32 @@ https://docs.pokt.network/build/
 
 ## Pocket Network
 
-### Limits
+Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+
+Pocket supports dozens of blockchains, with more being added all the time.
+
+### Features
+
+- Decentralized RPC Protocol and Marketplace
+- 1M Requests Per Day Free Tier (per endpoint, max 2)
+- Public Endpoints
+- Pre-Stake+ Program (if you need more than 1M requests per day)
+- 15+ Blockchains Supported
+- 6400+ Nodes earning POKT for serving applications
+- Archival Node, Archival Node w/ Tracing, & Testnet Node Support
+- No Single Point of Failure
+- Zero Downtime
+- Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
+- No monthly sunk costs, turn your infrastructure into an asset
+- Load-Balancing built into the Protocol
+- Infinitely scale the number of requests per day and nodes per hour as you go
+- The most private, censorship-resistant option
+- Hands-on developer support
 
 
 ### URL
 
 RPC URL-  https://klaytn-rpc.gateway.pokt.network/
-
-### Metrics
-
-|Features|Free|Premium|
-|---|---|---|---|
-|WebSocket|||
-|Customer Support|||
 
 
 ### References
@@ -106,29 +98,22 @@ RPC URL-  https://klaytn-rpc.gateway.pokt.network/
 - [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
 - [Subscription]
 - [Website](https://docs.pokt.network/)
+- [Pocket Portal](https://bit.ly/ETHorg_POKTportal) dashboard and analytics
 
 ## ANKR
 
 Ankr allows you to easily deploy and manage full nodes and validator nodes on your favorite blockchain, without any technical knowledge required.
 
-### Limits
+### Features
 
-500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-
+- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
+- Discord and Support Portal for the free plan, and dedicated support for the premium.
+- WebSocket available for the premium plan.
 
 ### URL
 
 Klayrn Mainnet: https://rpc.ankr.com/klaytn
 Klaytn Testnet: https://rpc.ankr.com/klaytn_testnet
-
-### Metrics
-
-|Features|Free|Premium|
-|---|---|---|---|
-|WebSocket|X|O|
-|Batch Request|O|O|
-|Customer Support|Discord and Support Portal|Dedicated Support|
-
 
 ### References
 
