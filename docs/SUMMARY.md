@@ -268,6 +268,7 @@
       * [caver-java ~v1.4.0](dapp/sdk/caver-java/v1.4.0/README.md)
         * [Getting Started (~v1.4.0)](dapp/sdk/caver-java/v1.4.0/getting-started_1.4.0.md)
         * [Porting from web3j](dapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
+  * [RPC Provider Service](dapp/rpc-providers.md)
   * [Tutorials](dapp/tutorials/README.md)
     * [Klaytn Online Toolkit](dapp/tutorials/klaytn-online-toolkit.md)
     * [Fee Delegation Example](dapp/tutorials/fee-delegation-example.md)
