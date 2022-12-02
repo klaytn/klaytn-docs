@@ -65,7 +65,7 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts).
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 **NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -140,7 +140,7 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../../getting-started/klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../../klaytn/design/accounts.md#account-key).
 
 **NOTE** getAccountKey returns the account key if the account exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 

@@ -94,13 +94,13 @@ Creates an instance of Account with the given AccountKey. Account is for managin
 | accountKeyType                    | String                    | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
 | accountKey                        | Object                    | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
 | keys                              | String \| Array \| Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned.                        |
-| transactionKey                    | String \| Array           | Key used for the [RoleTransaction](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                  |
-| updateKey                         | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                     |
-| feePayerKey                       | String \| Array           | Key used for [RoleFeePayer](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                            |
+| transactionKey                    | String \| Array           | Key used for the [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                  |
+| updateKey                         | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                     |
+| feePayerKey                       | String \| Array           | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                            |
 | signTransaction(tx \[, callback]) | Function                  | The function to sign transactions. See [caver.klay.accounts.signTransaction](caver.klay.accounts.md#signtransaction).                                                                                                                                                                                                   |
 | sign(data)                        | Function                  | The function to sign transactions. See [caver.klay.accounts.sign](caver.klay.accounts.md#sign).                                                                                                                                                                                                                         |
 | encrypt                           | Function                  | The function to encrypt an Account with given password.                                                                                                                                                                                                                                                                 |
-| getKlaytnWalletKey                | Function                  | The function to get [Klaytn Wallet Key](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format).                                                                                                                                                                                             |
+| getKlaytnWalletKey                | Function                  | The function to get [Klaytn Wallet Key](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).                                                                                                                                                                                                             |
 
 **Example**
 
@@ -285,9 +285,9 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 | type           | String                    | The type of AccountKey instance.                                                                                                                                                                                                                                                                                                                                                                       |
 | defaultKey     | String                    | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey. |
 | keys           | String \| Array \| Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned.                                                                                               |
-| transactionKey | String \| Array           | Key used for the [RoleTransaction](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                                                                 |
-| updateKey      | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                                                                    |
-| feePayerKey    | String \| Array           | Key used for [RoleFeePayer](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                                                                           |
+| transactionKey | String \| Array           | Key used for the [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                                                                                 |
+| updateKey      | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                                                                                    |
+| feePayerKey    | String \| Array           | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                                                                                           |
 
 **Example**
 
@@ -562,7 +562,7 @@ The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a
 
 You can create an AccountForUpdate instance using the public key with [caver.klay.accounts.createAccountForUpdateWithPublicKey](caver.klay.accounts.md#createaccountforupdatewithpublickey).
 
-You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](caver.klay.accounts.md#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](caver.klay.accounts.md#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../getting-started/klaytn/design/accounts.md#accountkeyfail).
+You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](caver.klay.accounts.md#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](caver.klay.accounts.md#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -750,7 +750,7 @@ AccountForUpdate {
 caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
 
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
 
 `AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
@@ -783,7 +783,7 @@ AccountForUpdate {
 caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
 
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../getting-started/klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
 
 `AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
@@ -840,17 +840,17 @@ See [Sending a Transaction with multiple signer](../getting-started\_1.4.1.md#se
 
 `Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
-| Name               | Type           | Description                                                                                                                                          |
-| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| messageHash        | String         | The hash of the given message.                                                                                                                       |
-| r                  | String         | ECDSA signature r.                                                                                                                                   |
-| s                  | String         | ECDSA signature s.                                                                                                                                   |
-| v                  | String         | ECDSA recovery id.                                                                                                                                   |
-| rawTransaction     | String         | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction.                                                                |
-| txHash             | 32-byte String | Hash of the transaction.                                                                                                                             |
-| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) |
-| signatures         | Array          | (optional) An array of the sender's signature(s).                                                                                                    |
-| feePayerSignatures | Array          | (optional) An array of the fee payer's signature(s).                                                                                                 |
+| Name               | Type           | Description                                                                                                                          |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| messageHash        | String         | The hash of the given message.                                                                                                       |
+| r                  | String         | ECDSA signature r.                                                                                                                   |
+| s                  | String         | ECDSA signature s.                                                                                                                   |
+| v                  | String         | ECDSA recovery id.                                                                                                                   |
+| rawTransaction     | String         | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction.                                                |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                             |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) |
+| signatures         | Array          | (optional) An array of the sender's signature(s).                                                                                    |
+| feePayerSignatures | Array          | (optional) An array of the fee payer's signature(s).                                                                                 |
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
 
@@ -1122,16 +1122,16 @@ See [Sending a Transaction with multiple signer](../getting-started\_1.4.1.md#se
 
 `Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
-| Name               | Type           | Description                                                                                                                                          |
-| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| messageHash        | String         | The hash of the given message.                                                                                                                       |
-| v                  | String         | ECDSA recovery id.                                                                                                                                   |
-| r                  | String         | ECDSA signature r.                                                                                                                                   |
-| s                  | String         | ECDSA signature s.                                                                                                                                   |
-| rawTransaction     | String         | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                   |
-| txHash             | 32-byte String | Hash of the transaction.                                                                                                                             |
-| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) |
-| feePayerSignatures | Array          | An array of the fee payer's signature(s).                                                                                                            |
+| Name               | Type           | Description                                                                                                                          |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| messageHash        | String         | The hash of the given message.                                                                                                       |
+| v                  | String         | ECDSA recovery id.                                                                                                                   |
+| r                  | String         | ECDSA signature r.                                                                                                                   |
+| s                  | String         | ECDSA signature s.                                                                                                                   |
+| rawTransaction     | String         | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                   |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                             |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) |
+| feePayerSignatures | Array          | An array of the fee payer's signature(s).                                                                                            |
 
 **NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
@@ -1436,7 +1436,7 @@ combineSignatures removes duplicates in signatures or feePayerSignatures.
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                                       |
 | txHash             | 32-byte String | Hash of the transaction.                                                                                                                                                                                |
-| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash)                                                    |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash)                                                                    |
 | signatures         | Array          | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
 | feePayerSignatures | Array          | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
@@ -1509,7 +1509,7 @@ Returns a signed RLP encoded transaction string from a given transaction object.
 | ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                              |
 | txHash             | 32-byte String | Hash of the transaction.                                                                                                                                                                       |
-| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash)                                           |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash)                                                           |
 | signatures         | Array          | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
 | feePayerSignatures | Array          | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
@@ -1660,7 +1660,7 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 
-1. Use the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
+1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
 2. Use the `options.address` to send the address as a parameter.
 
 **Return Value**
@@ -1895,7 +1895,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 
-1. Use the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
 2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **Return Value**
@@ -2049,10 +2049,10 @@ Determines if the key is decoupled from the address.
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                                                                    |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key     | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key.                                                                          |
+| Name    | Type   | Description                                                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| key     | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key.                                                          |
 
 **Return Value**
 
@@ -2082,13 +2082,13 @@ false
 caver.klay.accounts.getLegacyAccount(key)
 ```
 
-Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy).
+Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy).
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                                                                                                                                                                                                           |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key  | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
+| Name | Type   | Description                                                                                                                                                                                                                                                                           |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key  | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
 
 **Return Value**
 
@@ -2212,7 +2212,7 @@ Adds an account using a private key or account object to the wallet.
 | account       | String \| Object | A private key or account object created with [caver.klay.accounts.create](caver.klay.accounts.md#create). |
 | targetAddress | String           | A target address which will be used with a given private key.                                             |
 
-**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format).
+**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 

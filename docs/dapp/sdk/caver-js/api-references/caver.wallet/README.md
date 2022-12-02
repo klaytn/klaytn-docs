@@ -71,10 +71,10 @@ If `key` is a private key string, a [SingleKeyring](keyring.md#singlekeyring) in
 
 **Parameters**
 
-| Name    | Type            | Description                                                                                                                                                                                        |
-| ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string          | The address string.                                                                                                                                                                                |
-| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles). |
+| Name    | Type            | Description                                                                                                                                                                        |
+| ------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string          | The address string.                                                                                                                                                                |
+| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles). |
 
 **Return Value**
 
@@ -342,16 +342,16 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 
 Signs the transaction as a `sender` of the transaction and appends `signatures` in the transaction object using the keyring in `caver.wallet`.
 
-For [Account Update](../caver.transaction/basic.md#accountupdate) transaction, use [roleTransactionKey](../../../../../getting-started/klaytn/design/accounts.md#roles), otherwise, use [roleTransactionKey](../../../../../getting-started/klaytn/design/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.sign` signs the transaction using only one private key at the given index.
+For [Account Update](../caver.transaction/basic.md#accountupdate) transaction, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles), otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.sign` signs the transaction using only one private key at the given index.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                                         |
-| transaction | object   | An instance of [Transaction](../caver.transaction/#class).                                                                                                                                                                                                                                                                                                                    |
-| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                |
-| hasher      | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../getting-started/klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
+| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                   |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                         |
+| transaction | object   | An instance of [Transaction](../caver.transaction/#class).                                                                                                                                                                                                                                                                                                    |
+| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                |
+| hasher      | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **Return Value**
 
@@ -452,7 +452,7 @@ caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])
 
 Signs the transaction as `fee payer` of the transaction and appends `feePayerSignatures` in the transaction object using the keyring in `caver.wallet`.
 
-For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../getting-started/klaytn/design/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.signAsFeePayer` signs the transaction using only one private key at the given index.
+For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../klaytn/design/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.signAsFeePayer` signs the transaction using only one private key at the given index.
 
 If the `transaction.feePayer` is not defined, the address of keyring which is founded from `caver.wallet` is assigned.
 

@@ -69,10 +69,10 @@ Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
 
 **Parameters**
 
-| Name    | Type      | Description                                                                                                                                                              |
-| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keytype | QUANTITY  | Integer value indicating account key type. For the value of each account key type, see [Account Key](../../../../getting-started/klaytn/design/accounts.md#account-key). |
-| key     | JSON DATA | Account key object                                                                                                                                                       |
+| Name    | Type      | Description                                                                                                                                              |
+| ------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keytype | QUANTITY  | Integer value indicating account key type. For the value of each account key type, see [Account Key](../../../../klaytn/design/accounts.md#account-key). |
+| key     | JSON DATA | Account key object                                                                                                                                       |
 
 **Return Value**
 
@@ -227,7 +227,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ### klay\_getAccount <a href="#klay_getaccount" id="klay_getaccount"></a>
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts).
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 **Parameters**
 
@@ -302,7 +302,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ### klay\_getAccountKey <a href="#klay_getaccountkey" id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../getting-started/klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
 
 **Parameters**
 

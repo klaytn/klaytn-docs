@@ -31,4 +31,4 @@ $ solc --evm-version london contract.sol
 
 ## Decoupled Key Pairs <a href="#decoupled-key-pairs" id="decoupled-key-pairs"></a>
 
-Klaytn [decouples key pairs from addresses](../getting-started/klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../getting-started/klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts/precompiled-contracts.md).
+Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts/precompiled-contracts.md).

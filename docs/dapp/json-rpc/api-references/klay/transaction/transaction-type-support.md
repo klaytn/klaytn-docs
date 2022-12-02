@@ -4,7 +4,7 @@ Klaytn has various types of transaction and each type of transaction consists of
 
 ## TxTypeLegacyTransaction <a href="#txtypelegacytransaction" id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. This transaction type exists to support compatibility. For more information, see [TxTypeLegacyTransaction](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypelegacytransaction).
+TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. This transaction type exists to support compatibility. For more information, see [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction).
 
 **Parameters**
 
@@ -48,7 +48,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## TxTypeValueTransfer <a href="#txtypevaluetransfer" id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer is used when a user wants to send KLAY. For more information, see [TxTypeValueTransfer](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypevaluetransfer).
+TxTypeValueTransfer is used when a user wants to send KLAY. For more information, see [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer).
 
 **Parameters**
 
@@ -98,7 +98,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransfer <a href="#txtypefeedelegatedvaluetransfer" id="txtypefeedelegatedvaluetransfer"></a>
 
-Fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+Fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
 
 **Parameters**
 
@@ -166,7 +166,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a href="#txtypefeedelegatedvaluetransferwithratio" id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-Partial fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
+Partial fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
 
 **Parameters**
 
@@ -236,7 +236,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeValueTransferMemo <a href="#txtypevaluetransfermemo" id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. For more information, see [TxTypeValueTransferMemo](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypevaluetransfermemo).
+TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. For more information, see [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo).
 
 **Parameters**
 
@@ -288,7 +288,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferMemo <a href="#txtypefeedelegatedvaluetransfermemo" id="txtypefeedelegatedvaluetransfermemo"></a>
 
-Fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemo](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo).
+Fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemo](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo).
 
 **Parameters**
 
@@ -358,7 +358,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a href="#txtypefeedelegatedvaluetransfermemowithratio" id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-Partial fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio).
+Partial fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio).
 
 **Parameters**
 
@@ -430,7 +430,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeAccountUpdate <a href="#txtypeaccountupdate" id="txtypeaccountupdate"></a>
 
-TxTypeAccountUpdate updates the key of the given account. For more information, see [TxTypeAccountUpdate](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypeaccountupdate).
+TxTypeAccountUpdate updates the key of the given account. For more information, see [TxTypeAccountUpdate](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate).
 
 **Parameters**
 
@@ -441,7 +441,7 @@ TxTypeAccountUpdate updates the key of the given account. For more information, 
 | gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
 | gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
 | nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| key      | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../getting-started/klaytn/design/accounts.md#account-key).                        |
+| key      | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                        |
 
 **Example**
 
@@ -478,7 +478,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedAccountUpdate <a href="#txtypefeedelegatedaccountupdate" id="txtypefeedelegatedaccountupdate"></a>
 
-Fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdate](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate).
+Fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdate](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate).
 
 **Parameters**
 
@@ -489,7 +489,7 @@ Fee delegating version of TxTypeAccountUpdate. For more information, see [TxType
 | gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
 | gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
 | nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../getting-started/klaytn/design/accounts.md#account-key).                                            |
+| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
 | feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
 | signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
@@ -544,7 +544,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio <a href="#txtypefeedelegatedaccountupdatewithratio" id="txtypefeedelegatedaccountupdatewithratio"></a>
 
-Partial fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio).
+Partial fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio).
 
 **Parameters**
 
@@ -555,7 +555,7 @@ Partial fee delegating version of TxTypeAccountUpdate. For more information, see
 | gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
 | gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
 | nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../getting-started/klaytn/design/accounts.md#account-key).                                            |
+| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
 | feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
 | feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 \~ 99, if it is out of range, the transaction will not be accepted.                           |
 | signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
@@ -612,7 +612,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeSmartContractDeploy <a href="#txtypesmartcontractdeploy" id="txtypesmartcontractdeploy"></a>
 
-TxTypeSmartContractDeploy deploys a smart contract to the given address. For more information, see [TxTypeSmartContractDeploy](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypesmartcontractdeploy).
+TxTypeSmartContractDeploy deploys a smart contract to the given address. For more information, see [TxTypeSmartContractDeploy](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy).
 
 **Parameters**
 
@@ -668,7 +668,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractDeploy <a href="#txtypefeedelegatedsmartcontractdeploy" id="txtypefeedelegatedsmartcontractdeploy"></a>
 
-Fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeploy](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy).
+Fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeploy](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy).
 
 **Parameters**
 
@@ -742,7 +742,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a href="#txtypefeedelegatedsmartcontractdeploywithratio" id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-Partial fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
+Partial fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
 
 **Parameters**
 
@@ -818,7 +818,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeSmartContractExecution <a href="#txtypesmartcontractexecution" id="txtypesmartcontractexecution"></a>
 
-TxTypeSmartContractExecution executes a smart contract with the given data in `input`. For more information, see [TxTypeSmartContractExecution](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypesmartcontractexecution).
+TxTypeSmartContractExecution executes a smart contract with the given data in `input`. For more information, see [TxTypeSmartContractExecution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution).
 
 **Parameters**
 
@@ -870,7 +870,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractExecution <a href="#txtypefeedelegatedsmartcontractexecution" id="txtypefeedelegatedsmartcontractexecution"></a>
 
-Fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecution](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
+Fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
 
 **Parameters**
 
@@ -940,7 +940,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a href="#txtypefeedelegatedsmartcontractexecutionwithratio" id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
-Partial fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio).
+Partial fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio).
 
 **Parameters**
 
@@ -1012,7 +1012,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeCancel <a href="#txtypecancel" id="txtypecancel"></a>
 
-TxTypeCancel cancels the execution of the transaction with the same nonce in the transaction pool. For more information, see [TxTypeCancel](../../../../../getting-started/klaytn/design/transactions/basic.md#txtypecancel).
+TxTypeCancel cancels the execution of the transaction with the same nonce in the transaction pool. For more information, see [TxTypeCancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel).
 
 **Parameters**
 
@@ -1058,7 +1058,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedCancel <a href="#txtypefeedelegatedcancel" id="txtypefeedelegatedcancel"></a>
 
-Fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancel](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel).
+Fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel).
 
 **Parameters**
 
@@ -1122,7 +1122,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedCancelWithRatio <a href="#txtypefeedelegatedcancelwithratio" id="txtypefeedelegatedcancelwithratio"></a>
 
-Partial fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancelWithRatio](../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
+Partial fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
 
 **Parameters**
 

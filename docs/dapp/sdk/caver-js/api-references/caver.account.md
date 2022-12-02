@@ -10,7 +10,7 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains information needed to update the [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](caver.account.md#caver-account-create).
+`Account` is a class that contains information needed to update the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](caver.account.md#caver-account-create).
 
 **properties**
 
@@ -25,7 +25,7 @@ const account = new caver.account(address, accountKey)
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy](../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy). To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](caver.account.md#caver-account-createwithaccountkeylegacy).
+`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy). To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](caver.account.md#caver-account-createwithaccountkeylegacy).
 
 ### AccountKeyPublic <a href="#accountkeypublic" id="accountkeypublic"></a>
 
@@ -33,7 +33,7 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic](../../../../getting-started/klaytn/design/accounts.md#accountkeypublic). By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for details.
+`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic](../../../../klaytn/design/accounts.md#accountkeypublic). By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../klaytn/design/accounts.md#account-key) for details.
 
 To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyPublic](caver.account.md#caver-account-createwithaccountkeypublic).
 
@@ -49,7 +49,7 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail](../../../../getting-started/klaytn/design/accounts.md#accountkeyfail). To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](caver.account.md#caver-account-createwithaccountkeyfail).
+`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail](../../../../klaytn/design/accounts.md#accountkeyfail). To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](caver.account.md#caver-account-createwithaccountkeyfail).
 
 ### AccountKeyWeightedMultiSig <a href="#accountkeyweightedmultisig" id="accountkeyweightedmultisig"></a>
 
@@ -57,7 +57,7 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig](../../../../getting-started/klaytn/design/accounts.md#accountkeyweightedmultisig). By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for details.
+`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig](../../../../klaytn/design/accounts.md#accountkeyweightedmultisig). By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../klaytn/design/accounts.md#account-key) for details.
 
 To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](caver.account.md#caver-account-createwithaccountkeyweightedmultisig).
 
@@ -74,15 +74,15 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased](../../../../getting-started/klaytn/design/accounts.md#accountkeyrolebased). By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for more details.
+`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased](../../../../klaytn/design/accounts.md#accountkeyrolebased). By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../klaytn/design/accounts.md#account-key) for more details.
 
 To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](caver.account.md#caver-account-createwithaccountkeyrolebased).
 
 **properties**
 
-| Name            | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKeyArray | Array | The array defining accountKey to be used for each [role](../../../../getting-started/klaytn/design/accounts.md#roles). Each role can be defined with [AccountKeyLegacy](caver.account.md#accountkeylegacy), [AccountKeyPublic](caver.account.md#accountkeypublic), [AccountKeyFail](caver.account.md#accountkeyfail), or [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig). |
+| Name            | Type  | Description                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKeyArray | Array | The array defining accountKey to be used for each [role](../../../../klaytn/design/accounts.md#roles). Each role can be defined with [AccountKeyLegacy](caver.account.md#accountkeylegacy), [AccountKeyPublic](caver.account.md#accountkeypublic), [AccountKeyFail](caver.account.md#accountkeyfail), or [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig). |
 
 ### WeightedPublicKey <a href="#weightedpublickey" id="weightedpublickey"></a>
 
@@ -94,10 +94,10 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 
 **properties**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                              |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig](../../../../getting-started/klaytn/design/accounts.md#accountkeyweightedmultisig) object. |
-| publicKey | string | The public key string.                                                                                                                                                                                                                                   |
+| Name      | Type   | Description                                                                                                                                                                                                                              |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig](../../../../klaytn/design/accounts.md#accountkeyweightedmultisig) object. |
+| publicKey | string | The public key string.                                                                                                                                                                                                                   |
 
 ### WeightedMultiSigOptions <a href="#weightedmultisigoptions" id="weightedmultisigoptions"></a>
 

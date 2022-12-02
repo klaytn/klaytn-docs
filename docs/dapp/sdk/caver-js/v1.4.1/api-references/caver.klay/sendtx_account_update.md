@@ -6,7 +6,7 @@
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends an [Account Update](../../../../../../getting-started/klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
+Sends an [Account Update](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
 
 **Parameters**
 
@@ -268,7 +268,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Account Update](../../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
+Sends a [Fee Delegated Account Update](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
 
 There are two ways for a fee payer to sign a transaction and send it to the network.
 
@@ -377,7 +377,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Account Update With Ratio](../../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) transaction to the network.
+Sends a [Fee Delegated Account Update With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) transaction to the network.
 
 There are in two ways fee payer sign a transaction and send it to the network.
 

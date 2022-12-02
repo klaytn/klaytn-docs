@@ -39,7 +39,7 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../getting-started/klaytn/design/accounts.md#klaytn-account-types).
+Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../klaytn/design/accounts.md#klaytn-account-types).
 
 **NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -96,7 +96,7 @@ Returns the account information of a given address in the Klaytn. For more detai
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 ```
 
-Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../getting-started/klaytn/design/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../getting-started/klaytn/design/accounts.md#account-key) for more details.
+Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../klaytn/design/accounts.md#account-key) for more details.
 
 **NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a Klaytn account matching the given address does not exist in the network, `null` is returned.
 
@@ -511,7 +511,7 @@ Returns the total number of transactions sent from an address.
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../getting-started/klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
+Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
 
 **Parameters**
 
@@ -1729,7 +1729,7 @@ Returns the information about a transaction requested by transaction hash.
 | gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | hash               | string  | Hash of the transaction.                                                                                                                                                                                     |
 | humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../getting-started/klaytn/design/accounts.md#account-key) for more details.               |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../klaytn/design/accounts.md#account-key) for more details.                               |
 | input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
 | senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                            |
@@ -1798,10 +1798,10 @@ Please note that this API returns the correct result only if the indexing featur
 
 **Parameters**
 
-| Name         | Type     | Description                                                                                                                               |
-| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                |
+| Name         | Type     | Description                                                                                                               |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for more detail. |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
 **Return Value**
 
@@ -1857,36 +1857,36 @@ Returns the receipt of a transaction by transaction hash.
 
 `Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
 
-| Name               | Type    | Description                                                                                                                                                                                                                                             |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                        |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                             |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                                      |
-| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                             |
-| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.                               |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                                    |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                            |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                                       |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                                  |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                             |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                |
-| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                                              |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                         |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                                    |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                                    |
-| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                 |
-| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                        |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                        |
-| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                                   |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                                  |
-| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                           |
-| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                             |
-| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                                |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                 |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                      |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                    |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                               |
+| Name               | Type    | Description                                                                                                                                                                                                                             |
+| ------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                        |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                             |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                      |
+| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                             |
+| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.               |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                    |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                            |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                       |
+| from               | string  | Address of the sender.                                                                                                                                                                                                                  |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                             |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                |
+| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                              |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                         |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                    |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                    |
+| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                 |
+| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                        |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                        |
+| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                   |
+| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                  |
+| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                           |
+| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                             |
+| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                 |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                      |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                    |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                                               |
 
 **NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
@@ -1958,10 +1958,10 @@ Please note that this API returns the correct result only if the indexing featur
 
 **Parameters**
 
-| Name         | Type     | Description                                                                                                                               |
-| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                |
+| Name         | Type     | Description                                                                                                               |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for more detail. |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
 **Return Value**
 

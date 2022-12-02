@@ -6,7 +6,7 @@
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Value Transfer Memo](../../../../../../getting-started/klaytn/design/transactions/basic.md#txtypevaluetransfermemo) transaction to the network.
+Sends a [Value Transfer Memo](../../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo) transaction to the network.
 
 **Parameters**
 
@@ -82,7 +82,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Value Transfer Memo](../../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo) transaction to the network.
+Sends a [Fee Delegated Value Transfer Memo](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo) transaction to the network.
 
 **Parameters**
 
@@ -178,7 +178,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Value Transfer Memo With Ratio](../../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) transaction to the network.
+Sends a [Fee Delegated Value Transfer Memo With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) transaction to the network.
 
 **Parameters**
 

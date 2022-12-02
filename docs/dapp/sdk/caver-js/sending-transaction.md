@@ -23,7 +23,7 @@ The most simple way to create an account is using the [Klaytn Online Toolkit](ht
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../developer-tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a href="#2.-initialize-project" id="2.-initialize-project"></a>
 

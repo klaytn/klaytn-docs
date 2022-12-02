@@ -4,7 +4,7 @@
 
 ## Class <a href="#class" id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts).
+`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 `Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
@@ -54,14 +54,14 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 `RoleBasedKeyring` is a class that stores the `address` of the account and the `private keys` to be used for each role in the form of an array.
 
-`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles). The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
+`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../../../klaytn/design/accounts.md#roles). The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
 
 **properties**
 
-| Name    | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account.                                                                                                                                                                                                                                                                                                                                                                                       |
-| keys    | Array  | A two-dimensional array that defines the keys used for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles). Each [role](../../../../../getting-started/klaytn/design/accounts.md#roles) includes [PrivateKey](keyring.md#privatekey) instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| Name    | Type   | Description                                                                                                                                                                                                                                                                                                                                                                       |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | The address of the account.                                                                                                                                                                                                                                                                                                                                                       |
+| keys    | Array  | A two-dimensional array that defines the keys used for each [role](../../../../../klaytn/design/accounts.md#roles). Each [role](../../../../../klaytn/design/accounts.md#roles) includes [PrivateKey](keyring.md#privatekey) instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
 
 Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
 
@@ -196,20 +196,20 @@ Generates private key strings.
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ```
 
-Generates a 2D array of which each array element contains keys defined for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles).
+Generates a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
 **Parameters**
 
-| Name     | Type   | Description                                                                                                             |
-| -------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
-| numArray | Array  | An array containing the number of keys for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles). |
-| entropy  | string | (optional) A random string to increase entropy.                                                                         |
+| Name     | Type   | Description                                                                                             |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| numArray | Array  | An array containing the number of keys for each [role](../../../../../klaytn/design/accounts.md#roles). |
+| entropy  | string | (optional) A random string to increase entropy.                                                         |
 
 **Return Value**
 
-| Type  | Description                                                                                                                                               |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | A 2D array of which each array element contains keys defined for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles) is returned. |
+| Type  | Description                                                                                                                               |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Array | A 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles) is returned. |
 
 **Example**
 
@@ -243,10 +243,10 @@ If `key` is a private key string, a [SingleKeyring](keyring.md#singlekeyring) in
 
 **Parameters**
 
-| Name    | Type            | Description                                                                                                                                                                                       |
-| ------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string          | An address of keyring.                                                                                                                                                                            |
-| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles). |
+| Name    | Type            | Description                                                                                                                                                                       |
+| ------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string          | An address of keyring.                                                                                                                                                            |
+| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../klaytn/design/accounts.md#roles). |
 
 **Return Value**
 
@@ -306,13 +306,13 @@ RoleBasedKeyring {
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format).
+Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                                                         |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| Name | Type   | Description                                                                                                                         |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 
 **Return Value**
 
@@ -344,13 +344,13 @@ SingleKeyring {
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) string.
+Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string.
 
 **Parameters**
 
-| Name            | Type   | Description                                                                                                      |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
-| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
+| Name            | Type   | Description                                                                                      |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------ |
+| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 
@@ -439,7 +439,7 @@ MultipleKeyring {
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 ```
 
-Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role](../../../../../getting-started/klaytn/design/accounts.md#roles).
+Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
 **Parameters**
 
@@ -1041,13 +1041,13 @@ PrivateKey { _privateKey: '0x{private key}' }
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring), [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](keyring.md#keyring-encrypt).
+Returns the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring), [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](keyring.md#keyring-encrypt).
 
 **Return Value**
 
-| Type   | Description                                                                                                              |
-| ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| string | The [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) of the keyring. |
+| Type   | Description                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------- |
+| string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) of the keyring. |
 
 **Example**
 
@@ -1062,9 +1062,9 @@ Returns the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accou
 keyring.toAccount([options])
 ```
 
-Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../getting-started/klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../getting-started.md#account-update).
+Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../getting-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../../getting-started/klaytn/design/accounts.md#account-key) of the [Account](../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Klaytn account](../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
+Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
 
 Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
 

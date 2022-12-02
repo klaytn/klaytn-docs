@@ -101,7 +101,7 @@ String address = credentials.getAddress();
 
 #### Using a Keystore File <a href="#using-a-keystore-file" id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet](../../../developer-tools/wallets/klaytn-wallet.md)):
+If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md)):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -134,7 +134,7 @@ Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](../../../../getting-started/klaytn/design/transactions/#fee-delegation). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](../../../../klaytn/design/transactions/#fee-delegation). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -209,7 +209,7 @@ In this receipt, you can check the status of the transaction execution. If the '
 
 ### Account Update <a href="#account-update" id="account-update"></a>
 
-If you want to update the key of the given account to a new [AccountKeyPublic](../../../../getting-started/klaytn/design/accounts.md#accountkeypublic) key:
+If you want to update the key of the given account to a new [AccountKeyPublic](../../../../klaytn/design/accounts.md#accountkeypublic) key:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -223,7 +223,7 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key).
+An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey](../../../../klaytn/design/accounts.md#account-key).
 
 ### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
@@ -314,7 +314,7 @@ BigInteger balance = erc20Mock.balanceOf(
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation](../../../../getting-started/klaytn/design/transactions/#fee-delegation) feature which allows service providers to pay transaction fees instead of the users.
+Klaytn provides [Fee Delegation](../../../../klaytn/design/transactions/#fee-delegation) feature which allows service providers to pay transaction fees instead of the users.
 
 #### Value Transfer <a href="#value-transfer" id="value-transfer"></a>
 
@@ -381,7 +381,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 
 ## Using various AccountKey Types <a href="#using-various-account-key-type" id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
+caver-java introduces new classes to support the various types of [AccountKey](../../../../klaytn/design/accounts.md#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
 
 ### AccountKey <a href="#account-key" id="account-key"></a>
 

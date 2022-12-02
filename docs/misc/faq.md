@@ -123,14 +123,14 @@ Klaytn's web brower extension wallet [Kaikas](https://chrome.google.com/webstore
 
 ## Why is my fee-payer account address not derived from the key provided? <a href="#account-address-is-not-derived-from-the-key" id="account-address-is-not-derived-from-the-key"></a>
 
-In Klaytn, [the account address can be decoupled from the key pair](../getting-started/klaytn/design/accounts.md#decoupling-key-pairs-from-addresses).
+In Klaytn, [the account address can be decoupled from the key pair](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses).
 
 Common use cases are as follows.
 
 * The account owner wants to change the key for security reasons.
 * The account has a weighted-multisig or a role-based key that allows having multiple key pairs to control the account.
 
-Fee-payer accounts usually have a [role-based key](../getting-started/klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
+Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
 ## Where can I find complete working samples of fee-delegation? <a href="#fee-delegation-samples" id="fee-delegation-samples"></a>
 

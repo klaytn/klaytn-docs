@@ -1652,7 +1652,7 @@ true
 caver.utils.isKlaytnWalletKey(key)
 ```
 
-Returns `true` if key is in [KlaytnWalletKey](../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
 
 **Parameters**
 
@@ -1715,13 +1715,13 @@ Converts buffer to 0x-prefixed hex string.
 caver.utils.parseKlaytnWalletKey(key)
 ```
 
-Parses [KlaytnWalletKey](../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
+Parses [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                 |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------- |
-| key  | string | A [KlaytnWalletKey](../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
+| Name | Type   | Description                                                                                 |
+| ---- | ------ | ------------------------------------------------------------------------------------------- |
+| key  | string | A [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 

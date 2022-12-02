@@ -176,15 +176,15 @@ transaction.sign(keyring [, index] [, hasher])
 
 Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
 
-For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../getting-started/klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../getting-started/klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
 **Parameters**
 
-| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                                                      |
-| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
+| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 **Return Value**
 
@@ -282,7 +282,7 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
 
-For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../getting-started/klaytn/design/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
+For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../klaytn/design/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
 
 If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
 
@@ -292,11 +292,11 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **Parameters**
 
-| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                                                      |
-| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
+| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 **Return Value**
 
@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 Returns a RLP-encoded transaction string.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../getting-started/klaytn/design/transactions/).
+For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 Returns a `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../getting-started/klaytn/design/transactions/).
+For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
@@ -536,11 +536,11 @@ For information on how to make the transaction hash for each transaction type, s
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) of transaction.
+Returns a [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) of transaction.
 
-The [senderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](./#transaction-gettransactionhash) and [senderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) are the same for basic transactions.
+The [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](./#transaction-gettransactionhash) and [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) are the same for basic transactions.
 
-For information on how to make the [senderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../getting-started/klaytn/design/transactions/).
+For information on how to make the [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../getting-started/klaytn/design/transactions/).
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../getting-started/klaytn/design/transactions/).
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 

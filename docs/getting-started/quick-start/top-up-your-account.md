@@ -62,7 +62,7 @@ true
 
 To see the balance of your account, execute the following command.
 
-The default unit is peb (1 KLAY = 10^18 peb). More information about KLAY units can be found at [Units of KLAY](../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
+The default unit is peb (1 KLAY = 10^18 peb). More information about KLAY units can be found at [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address

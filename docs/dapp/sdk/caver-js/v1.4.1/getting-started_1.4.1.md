@@ -58,7 +58,7 @@ $ node
 
 ### Creating an Account <a href="#creating-an-account" id="creating-an-account"></a>
 
-You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../developer-tools/wallets/klaytn-wallet.md#create-a-new-account).
+You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account).
 
 ```
 > const account = caver.klay.accounts.create()
@@ -129,7 +129,7 @@ This section will show you how to send a KLAY using caver-js on the Baobab netwo
 
 ### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../developer-tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -273,11 +273,11 @@ The result of the transaction can be found through the status of the receipt. Fo
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../../getting-started/klaytn/design/transactions/). This section describes various examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../../klaytn/design/transactions/). This section describes various examples that can be used with caver-js.
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation](../../../../getting-started/klaytn/design/transactions/#fee-delegation) feature. Here's an example code.
+Klaytn provides [Fee Delegation](../../../../klaytn/design/transactions/#fee-delegation) feature. Here's an example code.
 
 When you are a sender, use the code below to make an RLP-encoded transaction object:
 
@@ -433,7 +433,7 @@ See [caver.klay.Contract](api-references/caver.klay.Contract.md) for details.
 
 ## Using various AccountKey Types <a href="#using-various-accountkey-types" id="using-various-accountkey-types"></a>
 
-caver-js introduces new classes to support the various types of [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) supported by the platform.
+caver-js introduces new classes to support the various types of [AccountKey](../../../../klaytn/design/accounts.md#account-key) supported by the platform.
 
 The examples below describe the example in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
 
@@ -511,9 +511,9 @@ The printAccount above shows how to use the properties of the Account instance. 
 | accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
 | accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
 | keys           | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                        |
-| transactionKey | Key used for the [RoleTransaction](../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                     |
-| updateKey      | Key used for the [RoleAccountUpdate](../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                        |
-| feePayerKey    | Key used for [RoleFeePayer](../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                               |
+| transactionKey | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                     |
+| updateKey      | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                        |
+| feePayerKey    | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                               |
 
 **NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return a private key string or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
@@ -521,7 +521,7 @@ An explanation of the various AccountKey classes is provided in the [AccountKey]
 
 ### AccountKey <a href="#accountkey" id="accountkey"></a>
 
-AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../../getting-started/klaytn/design/accounts.md#roles).
+AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../../klaytn/design/accounts.md#roles).
 
 To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
@@ -657,7 +657,7 @@ AccountForUpdate is a class designed to make it easier to use transactions for a
 
 The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
 
-The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../developer-tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 #### Create an AccountForUpdate <a href="#create-an-accountforupdate" id="create-an-accountforupdate"></a>
 
