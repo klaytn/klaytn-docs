@@ -1,36 +1,35 @@
-# Fee delegation type transaction class <a id="fee-delegation-type-transaction-class"></a>
+# Fee Delegation
 
-## FeeDelegatedValueTransfer <a id="feedelegatedvaluetransfer"></a>
+## FeeDelegatedValueTransfer <a href="#feedelegatedvaluetransfer" id="feedelegatedvaluetransfer"></a>
 
 ```javascript
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransfer` represents a [fee delegated value transfer transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransfer` transaction.
+`FeeDelegatedValueTransfer` represents a [fee delegated value transfer transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransfer` transaction.
 
 `FeeDelegatedValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedValueTransfer` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedValueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedValueTransfer` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedValueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransfer({...})`, please change it to `caver.transaction.feeDelegatedValueTransfer.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| value | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
-| from | string | The address of the sender. |
-| to | string | The account address that will receive the transferred value. |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn blockchain platform (abbreviated as "Klaytn" for the rest of this document). If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type   | Description                                                                                                                                                                             |
+| ------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                           |
+| from               | string | The address of the sender.                                                                                                                                                              |
+| to                 | string | The account address that will receive the transferred value.                                                                                                                            |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                    |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                           |
+| chainId            | string | (optional) The chain id of the Klaytn blockchain platform (abbreviated as "Klaytn" for the rest of this document). If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -59,38 +58,37 @@ FeeDelegatedValueTransfer {
 }
 ```
 
-## FeeDelegatedValueTransferMemo <a id="feedelegatedvaluetransfermemo"></a>
+## FeeDelegatedValueTransferMemo <a href="#feedelegatedvaluetransfermemo" id="feedelegatedvaluetransfermemo"></a>
 
 ```javascript
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemo` represents a [fee delegated value transfer memo transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemo` transaction.
+`FeeDelegatedValueTransferMemo` represents a [fee delegated value transfer memo transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemo` transaction.
 
 `FeeDelegatedValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemo` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedValueTransferMemo` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedValueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedValueTransferMemo` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedValueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemo({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemo.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| value | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
-| from | string | The address of the sender. |
-| to | string | The account address that will receive the transferred value. |
-| input | string | Data attached to the transaction. The message should be passed to this property. |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type   | Description                                                                                                                                                          |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                        |
+| from               | string | The address of the sender.                                                                                                                                           |
+| to                 | string | The account address that will receive the transferred value.                                                                                                         |
+| input              | string | Data attached to the transaction. The message should be passed to this property.                                                                                     |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                   |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                           |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                 |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
+| chainId            | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                          |
 
 **Example**
 
@@ -121,38 +119,37 @@ FeeDelegatedValueTransferMemo {
 }
 ```
 
-## FeeDelegatedAccountUpdate <a id="feedelegatedaccountupdate"></a>
+## FeeDelegatedAccountUpdate <a href="#feedelegatedaccountupdate" id="feedelegatedaccountupdate"></a>
 
 ```javascript
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdate` represents a [fee delegated account update transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdate` transaction.
+`FeeDelegatedAccountUpdate` represents a [fee delegated account update transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdate` transaction.
 
 `FeeDelegatedAccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdate` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedAccountUpdate` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedAccountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedAccountUpdate` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedAccountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdate({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdate.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | string | The address of the sender. |
-| account | [Account] | An [Account] instance that contains the information needed to update your account. |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type       | Description                                                                                                                                                          |
+| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string     | The address of the sender.                                                                                                                                           |
+| account            | \[Account] | An \[Account] instance that contains the information needed to update your account.                                                                                  |
+| gas                | string     | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
+| signatures         | Array      | (optional) An array of signatures.                                                                                                                                   |
+| feePayerSignatures | Array      | (optional) An array of feePayerSignatures.                                                                                                                           |
+| feePayer           | string     | (optional) The address of fee payer.                                                                                                                                 |
+| nonce              | string     | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice           | string     | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
+| chainId            | string     | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                          |
 
-For how to create an [Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../getting-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
+For how to create an \[Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../getting-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
 **Example**
 
@@ -182,40 +179,39 @@ FeeDelegatedAccountUpdate {
 }
 ```
 
-## FeeDelegatedSmartContractDeploy <a id="feedelegatedsmartcontractdeploy"></a>
+## FeeDelegatedSmartContractDeploy <a href="#feedelegatedsmartcontractdeploy" id="feedelegatedsmartcontractdeploy"></a>
 
 ```javascript
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeploy` represents a [fee delegated smart contract deploy transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeploy` transaction.
+`FeeDelegatedSmartContractDeploy` represents a [fee delegated smart contract deploy transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeploy` transaction.
 
 `FeeDelegatedSmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeploy` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedSmartContractDeploy` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedSmartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedSmartContractDeploy` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedSmartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeploy({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeploy.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | string | The address of the sender. |
-| input | string | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy). |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
-| to | string | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future. |
-| humanReadable | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet. |
-| codeFormat | string | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally.|
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type    | Description                                                                                                                                                                                                              |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from               | string  | The address of the sender.                                                                                                                                                                                               |
+| input              | string  | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                 |
+| gas                | string  | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                 |
+| value              | string  | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                               |
+| to                 | string  | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future.                                            |
+| humanReadable      | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                       |
+| codeFormat         | string  | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
+| signatures         | Array   | (optional) An array of signatures.                                                                                                                                                                                       |
+| feePayerSignatures | Array   | (optional) An array of feePayerSignatures.                                                                                                                                                                               |
+| feePayer           | string  | (optional) The address of fee payer.                                                                                                                                                                                     |
+| nonce              | string  | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                     |
+| gasPrice           | string  | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                            |
+| chainId            | string  | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                              |
 
 **Example**
 
@@ -246,38 +242,37 @@ FeeDelegatedSmartContractDeploy {
 }
 ```
 
-## FeeDelegatedSmartContractExecution <a id="feedelegatedsmartcontractexecution"></a>
+## FeeDelegatedSmartContractExecution <a href="#feedelegatedsmartcontractexecution" id="feedelegatedsmartcontractexecution"></a>
 
 ```javascript
 caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecution` transaction.
+`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecution` transaction.
 
 `FeeDelegatedSmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecution` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedSmartContractExecution` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedSmartContractExecution.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedSmartContractExecution` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedSmartContractExecution.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractExecution({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecution.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | string | The address of the sender. |
-| to | string | The address of the smart contract account to be executed. |
-| input | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this encoded string through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type   | Description                                                                                                                                                                                                                                                                                  |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                                                                                                                                                   |
+| to                 | string | The address of the smart contract account to be executed.                                                                                                                                                                                                                                    |
+| input              | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this encoded string through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                     |
+| value              | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                                   |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                                                                                           |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                                                                                                   |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                                                                                         |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                         |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                                                                |
+| chainId            | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                                                                  |
 
 **Example**
 
@@ -307,35 +302,34 @@ FeeDelegatedSmartContractExecution {
 }
 ```
 
-## FeeDelegatedCancel <a id="feedelegatedcancel"></a>
+## FeeDelegatedCancel <a href="#feedelegatedcancel" id="feedelegatedcancel"></a>
 
 ```javascript
 caver.transaction.feeDelegatedCancel.create(transactionObject)
 ```
 
-`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel). The `transactionObject` can have properties below to create a `FeeDelegatedCancel` transaction.
+`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel). The `transactionObject` can have properties below to create a `FeeDelegatedCancel` transaction.
 
 `FeeDelegatedCancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancel` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedCancel` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedCancel.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedCancel` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedCancel.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedCancel({...})`, please change it to `caver.transaction.feeDelegatedCancel.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | string | The address of the sender. |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type   | Description                                                                                                                                                          |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                           |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                   |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                           |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                 |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
+| chainId            | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                          |
 
 **Example**
 
@@ -361,36 +355,35 @@ FeeDelegatedCancel {
 }
 ```
 
-## FeeDelegatedChainDataAnchoring <a id="feedelegatedchaindataanchoring"></a>
+## FeeDelegatedChainDataAnchoring <a href="#feedelegatedchaindataanchoring" id="feedelegatedchaindataanchoring"></a>
 
 ```javascript
 caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoring` transaction.
+`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoring` transaction.
 
 `FeeDelegatedChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoring` transaction.
 
-{% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedChainDataAnchoring` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedChainDataAnchoring.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedChainDataAnchoring` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.feeDelegatedChainDataAnchoring.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoring({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoring.create({...})`.
 {% endhint %}
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | string | The address of the sender. |
-| input | string | Data of the service chain. |
-| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| signatures | Array | (optional) An array of signatures. |
-| feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
-| feePayer | string | (optional) The address of fee payer. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| Name               | Type   | Description                                                                                                                                                          |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                           |
+| input              | string | Data of the service chain.                                                                                                                                           |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                   |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                           |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                 |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
+| chainId            | string | (optional) The chain id of the Klaytn. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                          |
 
 **Example**
 

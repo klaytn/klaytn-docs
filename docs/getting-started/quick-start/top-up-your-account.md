@@ -1,6 +1,6 @@
-# Top up your Account <a id="top-up-your-account"></a>
+# Top up your Account
 
-## Attaching to the Console <a id="attaching-to-the-console"></a>
+## Attaching to the Console <a href="#attaching-to-the-console" id="attaching-to-the-console"></a>
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
@@ -15,11 +15,11 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/) 
+**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 
-## Creating a New Klaytn Account <a id="creating-a-new-klaytn-account"></a>
+## Creating a New Klaytn Account <a href="#creating-a-new-klaytn-account" id="creating-a-new-klaytn-account"></a>
 
 To create a new Klaytn account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
 
@@ -37,9 +37,9 @@ $ ls ~/kend_home/keystore/
 UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 ```
 
-## Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
+## Unlocking the Klaytn Account <a href="#unlocking-the-klaytn-account" id="unlocking-the-klaytn-account"></a>
 
-To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](../../dapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../dapp/tutorials/count-dapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
+To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](../../dapp/json-rpc/api-references/personal.md#personal\_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../dapp/tutorials/count-dapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock
@@ -48,29 +48,28 @@ Passphrase: # enter your passphrase
 true
 ```
 
-## Getting testnet KLAY from the Baobab Faucet <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
+## Getting testnet KLAY from the Baobab Faucet <a href="#getting-testnet-klay-from-the-baobab-faucet" id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
 * Using the Baobab faucet in KlaytnWallet.
 * Access [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
 * You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
-* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
+*   Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
 
-  You can run the KLAY Faucet once every 24 hours.
-
+    You can run the KLAY Faucet once every 24 hours.
 * If you created a new account to get KLAY, then send the KLAY to your created account on the EN.
 
-## Checking the Balance in Your Account <a id="checking-the-balance-in-your-account"></a>
+## Checking the Balance in Your Account <a href="#checking-the-balance-in-your-account" id="checking-the-balance-in-your-account"></a>
 
 To see the balance of your account, execute the following command.
 
-The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
+The default unit is peb (1 KLAY = 10^18 peb). More information about KLAY units can be found at [Units of KLAY](../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
 1e+21  # 1000 KLAY
 ```
 
-## Exiting the Console <a id="exiting-the-console"></a>
+## Exiting the Console <a href="#exiting-the-console" id="exiting-the-console"></a>
 
 To leave the javascript console, execute the following command.
 
@@ -78,5 +77,3 @@ To leave the javascript console, execute the following command.
 > exit
 $
 ```
-
-

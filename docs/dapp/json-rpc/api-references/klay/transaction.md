@@ -1,41 +1,42 @@
-## klay_call <a id="klay_call"></a>
+# Transaction
+
+### klay\_call <a href="#klay_call" id="klay_call"></a>
 
 Executes a new message call immediately without creating a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| callObject | Object | The transaction call object.  See the next table for the object's properties. |
-| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+| Name              | Type                    | Description                                                                                                                                                                          |
+| ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject        | Object                  | The transaction call object. See the next table for the object's properties.                                                                                                         |
+| blockNumberOrHash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
-{% hint style="success" %} 
+{% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
 `callObject` has the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
-| gas | QUANTITY | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
-| gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
+| Name     | Type         | Description                                                                                                                                                |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | (optional) The address the transaction is sent from.                                                                                                       |
+| to       | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                       |
+| gas      | QUANTITY     | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.  |
+| gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                 |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                                |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data\` field is still supported for backward compatibility. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type | Description                            |
+| ---- | -------------------------------------- |
 | DATA | The return value of executed contract. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+If you deployed a contract, use [klay\_getTransactionReceipt](transaction.md#klay\_gettransactionreceipt) to get the contract address.
 
 **Error**
 
-It returns an error object of JSON RPC if anything goes wrong.
-For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+It returns an error object of JSON RPC if anything goes wrong. For example, an error object with a message "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
 
 **Example**
 
@@ -47,35 +48,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
 ```
 
-## klay_estimateGas <a id="klay_estimategas"></a>
+### klay\_estimateGas <a href="#klay_estimategas" id="klay_estimategas"></a>
 
 Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| callObject | Object | The transaction call object.  See the next table for the object's properties. |
+| Name       | Type   | Description                                                                  |
+| ---------- | ------ | ---------------------------------------------------------------------------- |
+| callObject | Object | The transaction call object. See the next table for the object's properties. |
 
 `callObject` has the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
-| gas | QUANTITY | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound.  
-| gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| input | DATA | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
+| Name     | Type         | Description                                                                                                                                                               |
+| -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | (optional) The address the transaction is sent from.                                                                                                                      |
+| to       | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                                      |
+| gas      | QUANTITY     | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound. |
+| gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                                |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                                               |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but 'data\` field is still supported for backward compatibility.                |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type     | Description             |
+| -------- | ----------------------- |
 | QUANTITY | The amount of gas used. |
 
-
 **Example**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}], "id": 1}' https://api.baobab.klaytn.net:8651
@@ -87,24 +88,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
+### klay\_estimateComputationCost <a href="#klay_estimatecomputationcost" id="klay_estimatecomputationcost"></a>
 
-Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
-Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
-The transaction will not be added to the blockchain like [klay_estimateGas](#klay_estimategas).
+Generates and returns an estimate of how much computation cost will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [klay\_estimateGas](transaction.md#klay\_estimategas).
 
 **Parameters**
 
-See [klay_call](#klay_call) parameters, except that all properties are optional.
-If no gas limit is specified, the Klaytn node uses the default gas limit (uint64 / 2) as an upper bound.
+See [klay\_call](transaction.md#klay\_call) parameters, except that all properties are optional. If no gas limit is specified, the Klaytn node uses the default gas limit (uint64 / 2) as an upper bound.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type     | Description                          |
+| -------- | ------------------------------------ |
 | QUANTITY | The amount of computation cost used. |
 
 **Example**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "input":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' https://api.baobab.klaytn.net:8651
@@ -116,21 +115,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
+### klay\_getTransactionByBlockHashAndIndex <a href="#klay_gettransactionbyblockhashandindex" id="klay_gettransactionbyblockhashandindex"></a>
 
-Returns information about a transaction by block hash and transaction index position.
-This API works only on RPC call, not on JavaScript console.
+Returns information about a transaction by block hash and transaction index position. This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
-| Type | Description |
-| --- |
-| 32-byte DATA | Hash of a block. |
-| QUANTITY | Integer of the transaction index position. |
+\| Type | Description | | --- | | 32-byte DATA | Hash of a block. | | QUANTITY | Integer of the transaction index position. |
 
 **Return Value**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+See [klay\_getTransactionByHash](transaction.md#klay\_gettransactionbyhash)
 
 **Example**
 
@@ -168,26 +163,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+### klay\_getTransactionByBlockNumberAndIndex <a href="#klay_gettransactionbyblocknumberandindex" id="klay_gettransactionbyblocknumberandindex"></a>
 
-## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
-
-Returns information about a transaction by block number and transaction index position.
-This API works only on RPC call, not on JavaScript console.
+Returns information about a transaction by block number and transaction index position. This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
-| Type | Description |
-| --- | --- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY | The transaction index position. |
+| Type            | Description                                                                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY        | The transaction index position.                                                                                                                                       |
 
-{% hint style="success" %} 
+{% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+See [klay\_getTransactionByHash](transaction.md#klay\_gettransactionbyhash)
 
 **Example**
 
@@ -225,46 +218,43 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+### klay\_getTransactionByHash <a href="#klay_gettransactionbyhash" id="klay_gettransactionbyhash"></a>
 
-## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
-
-Returns the information about a transaction requested by transaction hash.
-This API works only on RPC call, not on JavaScript console.
+Returns the information about a transaction requested by transaction hash. This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
-| Type | Description |
-| --- | --- |
+| Type         | Description            |
+| ------------ | ---------------------- |
 | 32-byte DATA | Hash of a transaction. |
 
 **Return Value**
 
 `Object` - A transaction object, or `null` when no transaction was found:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending. |
-| blockNumber | QUANTITY | Block number where this transaction was in. `null` when it is pending. |
-| codeFormat | String | (optional) The code format of smart contract code. |
-| feePayer | 20-byte DATA | (optional) Address of the fee payer. |
-| feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | QUANTITY | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | 20-byte DATA | Address of the sender. |
-| gas | QUANTITY | Gas provided by the sender. |
-| gasPrice | QUANTITY | Gas price provided by the sender in peb. |
-| hash | 32-byte DATA | Hash of the transaction. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | String | (optional) Key of the newly created account. |
-| input | DATA | (optional) The data sent along with the transaction. |
-| nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
-| signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
-| transactionIndex | QUANTITY | Integer of the transaction index position in the block. `null` when it is pending. |
-| type | String | A string representing the type of the transaction. |
-| typeInt | QUANTITY | An integer representing the type of the transaction.  |
-| value | QUANTITY | Value transferred in peb. |
-
+| Name               | Type         | Description                                                                                                                                                                                                                    |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                    |
+| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                         |
+| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                                             |
+| feePayer           | 20-byte DATA | (optional) Address of the fee payer.                                                                                                                                                                                           |
+| feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                   |
+| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                              |
+| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                         |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                    |
+| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                       |
+| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                       |
+| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                |
+| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                                   |
+| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                           |
+| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                               |
+| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../getting-started/klaytn/design/transactions/#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
+| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                          |
+| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                    |
+| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                             |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                                             |
+| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                           |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                      |
 
 **Example**
 
@@ -309,47 +299,43 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+### klay\_getTransactionBySenderTxHash <a href="#klay_gettransactionbysendertxhash" id="klay_gettransactionbysendertxhash"></a>
 
-## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
-
-Returns the information about a transaction requested by sender transaction hash.
-This API works only on RPC call, not on JavaScript console.
-Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+Returns the information about a transaction requested by sender transaction hash. This API works only on RPC call, not on JavaScript console. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay\_isSenderTxHashIndexingEnabled](config.md#klay\_issendertxhashindexingenabled).
 
 **Parameters**
 
-| Type | Description |
-| --- | --- |
-| 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). |
+| Type         | Description                                                                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../getting-started/klaytn/design/transactions/#sendertxhash). |
 
 **Return Value**
 
 `Object` - A transaction object, or `null` when no transaction was found:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending. |
-| blockNumber | QUANTITY | Block number where this transaction was in. `null` when it is pending. |
-| codeFormat | String | (optional) The code format of smart contract code. |
-| feePayer | 20-byte DATA | Address of the fee payer. |
-| feePayerSignatures | Array | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | QUANTITY | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | 20-byte DATA | Address of the sender. |
-| gas | QUANTITY | Gas provided by the sender. |
-| gasPrice | QUANTITY | Gas price provided by the sender in peb. |
-| hash | 32-byte DATA | Hash of the transaction. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | String | (optional) Key of the newly created account. |
-| input | DATA | (optional) The data sent along with the transaction. |
-| nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
-| signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
-| transactionIndex | QUANTITY | Integer of the transaction index position in the block. `null` when it is pending. |
-| type | String | A string representing the type of the transaction. |
-| typeInt | QUANTITY | An integer representing the type of the transaction.  |
-| value | QUANTITY | Value transferred in peb. |
+| Name               | Type         | Description                                                                                                                                                                                                                    |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                    |
+| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                         |
+| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                                             |
+| feePayer           | 20-byte DATA | Address of the fee payer.                                                                                                                                                                                                      |
+| feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                              |
+| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                              |
+| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                         |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                    |
+| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                       |
+| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                       |
+| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                |
+| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                                   |
+| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                           |
+| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                               |
+| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../getting-started/klaytn/design/transactions/#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
+| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                          |
+| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                    |
+| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                             |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                                             |
+| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                           |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                      |
 
 **Example**
 
@@ -394,8 +380,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
+### klay\_getTransactionReceipt <a href="#klay_gettransactionreceipt" id="klay_gettransactionreceipt"></a>
 
 Returns the receipt of a transaction by transaction hash.
 
@@ -403,44 +388,44 @@ Returns the receipt of a transaction by transaction hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type         | Description            |
+| ---- | ------------ | ---------------------- |
 | Hash | 32-byte DATA | Hash of a transaction. |
 
 **Return Value**
 
 `Object` - A transaction receipt object, or `null` when no receipt was found
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | 32-byte DATA | Hash of the block where this transaction was in. |
-| blockNumber | QUANTITY | The block number where this transaction was in. |
-| codeFormat | String | (optional) The code format of smart contract code. |
-| contractAddress | DATA | The contract address created, if the transaction was a contract creation, otherwise `null`. |
-| feePayer | 20-byte DATA | (optional) Address of the fee payer. |
-| feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | QUANTITY | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | 20-byte DATA | Address of the sender. |
-| gas | QUANTITY | Gas provided by the sender. |
-| effectiveGasPrice | QUANTITY | The actual value per gas deducted from the senders account. |
-| gasPrice | QUANTITY | Gas price provided by the sender in peb. |
-| gasUsed | QUANTITY | The amount of gas used by this specific transaction alone. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | String | (optional) Key of the newly created account. |
-| input | DATA | (optional) The data sent along with the transaction. |
-| logs | Array | Array of log objects, which this transaction generated. |
-| logsBloom | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs. |
-| nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions. |
-| signature | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| status | QUANTITY | Either `1` (success) or `0` (failure). |
-| txError | QUANTITY | (optional) detailed error code if `status` is equal to zero. |
-| to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
-| transactionHash | 32-byte DATA | Hash of the transaction. |
-| transactionIndex | QUANTITY | Integer of the transaction index position in the block. |
-| type | String | A string representing the type of the transaction. |
-| typeInt | QUANTITY | An integer representing the type of the transaction. |
-| value | QUANTITY | Value transferred in peb. |
+| Name               | Type                    | Description                                                                                                                                                                                                  |
+| ------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | 32-byte DATA            | Hash of the block where this transaction was in.                                                                                                                                                             |
+| blockNumber        | QUANTITY                | The block number where this transaction was in.                                                                                                                                                              |
+| codeFormat         | String                  | (optional) The code format of smart contract code.                                                                                                                                                           |
+| contractAddress    | DATA                    | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                  |
+| feePayer           | 20-byte DATA            | (optional) Address of the fee payer.                                                                                                                                                                         |
+| feePayerSignatures | Array                   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | QUANTITY                | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
+| from               | 20-byte DATA            | Address of the sender.                                                                                                                                                                                       |
+| gas                | QUANTITY                | Gas provided by the sender.                                                                                                                                                                                  |
+| effectiveGasPrice  | QUANTITY                | The actual value per gas deducted from the senders account.                                                                                                                                                  |
+| gasPrice           | QUANTITY                | Gas price provided by the sender in peb.                                                                                                                                                                     |
+| gasUsed            | QUANTITY                | The amount of gas used by this specific transaction alone.                                                                                                                                                   |
+| humanReadable      | Boolean                 | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
+| key                | String                  | (optional) Key of the newly created account.                                                                                                                                                                 |
+| input              | DATA                    | (optional) The data sent along with the transaction.                                                                                                                                                         |
+| logs               | Array                   | Array of log objects, which this transaction generated.                                                                                                                                                      |
+| logsBloom          | 256-byte DATA           | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                             |
+| nonce              | QUANTITY                | The number of transactions made by the sender prior to this one.                                                                                                                                             |
+| senderTxHash       | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions.                                              |
+| signature          | Array                   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
+| status             | QUANTITY                | Either `1` (success) or `0` (failure).                                                                                                                                                                       |
+| txError            | QUANTITY                | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                 |
+| to                 | 20-byte DATA            | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                  |
+| transactionHash    | 32-byte DATA            | Hash of the transaction.                                                                                                                                                                                     |
+| transactionIndex   | QUANTITY                | Integer of the transaction index position in the block.                                                                                                                                                      |
+| type               | String                  | A string representing the type of the transaction.                                                                                                                                                           |
+| typeInt            | QUANTITY                | An integer representing the type of the transaction.                                                                                                                                                         |
+| value              | QUANTITY                | Value transferred in peb.                                                                                                                                                                                    |
 
 **Example**
 
@@ -491,54 +476,51 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
+### klay\_getTransactionReceiptBySenderTxHash <a href="#klay_gettransactionreceiptbysendertxhash" id="klay_gettransactionreceiptbysendertxhash"></a>
 
 Returns the receipt of a transaction by sender transaction hash.
 
-**NOTE**: The receipt is not available for pending transactions.
-Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+**NOTE**: The receipt is not available for pending transactions. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay\_isSenderTxHashIndexingEnabled](config.md#klay\_issendertxhashindexingenabled).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type         | Description                                                              |
+| ---- | ------------ | ------------------------------------------------------------------------ |
 | Hash | 32-byte DATA | Hash of a transaction before signing of feePayer(senderTransactionHash). |
 
 **Return Value**
 
 `Object` - A transaction receipt object, or `null` when no receipt was found
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | 32-byte DATA | Hash of the block where this transaction was in. |
-| blockNumber | QUANTITY | The block number where this transaction was in. |
-| codeFormat | String | (optional) The code format of smart contract code. |
-| contractAddress | DATA | The contract address created, if the transaction was a contract creation, otherwise `null`. |
-| feePayer | 20-byte DATA | Address of the fee payer. |
-| feePayerSignatures | Array | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | QUANTITY | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | 20-byte DATA | Address of the sender. |
-| gas | QUANTITY | Gas provided by the sender. |
-| gasPrice | QUANTITY | Gas price provided by the sender in peb. |
-| gasUsed | QUANTITY | The amount of gas used by this specific transaction alone. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | String | (optional) Key of the newly created account. |
-| input | DATA | (optional) The data sent along with the transaction. |
-| logs | Array | Array of log objects, which this transaction generated. |
-| logsBloom | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs. |
-| nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions. |
-| signature | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| status | QUANTITY | Either `1` (success) or `0` (failure). |
-| txError | QUANTITY | (optional) detailed error code if `status` is equal to zero. |
-| to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
-| transactionHash | 32-byte DATA | Hash of the transaction. |
-| transactionIndex | QUANTITY | Integer of the transaction index position in the block. |
-| type | String | A string representing the type of the transaction. |
-| typeInt | QUANTITY | An integer representing the type of the transaction. |
-| value | QUANTITY | Value transferred in peb. |
+| Name               | Type                    | Description                                                                                                                                                                                       |
+| ------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte DATA            | Hash of the block where this transaction was in.                                                                                                                                                  |
+| blockNumber        | QUANTITY                | The block number where this transaction was in.                                                                                                                                                   |
+| codeFormat         | String                  | (optional) The code format of smart contract code.                                                                                                                                                |
+| contractAddress    | DATA                    | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                       |
+| feePayer           | 20-byte DATA            | Address of the fee payer.                                                                                                                                                                         |
+| feePayerSignatures | Array                   | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | QUANTITY                | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                 |
+| from               | 20-byte DATA            | Address of the sender.                                                                                                                                                                            |
+| gas                | QUANTITY                | Gas provided by the sender.                                                                                                                                                                       |
+| gasPrice           | QUANTITY                | Gas price provided by the sender in peb.                                                                                                                                                          |
+| gasUsed            | QUANTITY                | The amount of gas used by this specific transaction alone.                                                                                                                                        |
+| humanReadable      | Boolean                 | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                   |
+| key                | String                  | (optional) Key of the newly created account.                                                                                                                                                      |
+| input              | DATA                    | (optional) The data sent along with the transaction.                                                                                                                                              |
+| logs               | Array                   | Array of log objects, which this transaction generated.                                                                                                                                           |
+| logsBloom          | 256-byte DATA           | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                  |
+| nonce              | QUANTITY                | The number of transactions made by the sender prior to this one.                                                                                                                                  |
+| senderTxHash       | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions.                                   |
+| signature          | Array                   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.             |
+| status             | QUANTITY                | Either `1` (success) or `0` (failure).                                                                                                                                                            |
+| txError            | QUANTITY                | (optional) detailed error code if `status` is equal to zero.                                                                                                                                      |
+| to                 | 20-byte DATA            | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                       |
+| transactionHash    | 32-byte DATA            | Hash of the transaction.                                                                                                                                                                          |
+| transactionIndex   | QUANTITY                | Integer of the transaction index position in the block.                                                                                                                                           |
+| type               | String                  | A string representing the type of the transaction.                                                                                                                                                |
+| typeInt            | QUANTITY                | An integer representing the type of the transaction.                                                                                                                                              |
+| value              | QUANTITY                | Value transferred in peb.                                                                                                                                                                         |
 
 **Example**
 
@@ -588,24 +570,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
+### klay\_sendRawTransaction <a href="#klay_sendrawtransaction" id="klay_sendrawtransaction"></a>
 
 Creates a new message call transaction or a contract creation for signed transactions.
 
 **Parameters**
 
-| Type | Description |
-| --- | --- |
+| Type | Description                  |
+| ---- | ---------------------------- |
 | DATA | The signed transaction data. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type         | Description                                                                    |
+| ------------ | ------------------------------------------------------------------------------ |
 | 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+If you deployed a contract, use [klay\_getTransactionReceipt](transaction.md#klay\_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -621,25 +602,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+### klay\_sendTransaction <a href="#klay_sendtransaction" id="klay_sendtransaction"></a>
 
-## klay_sendTransaction <a id="klay_sendtransaction"></a>
-
-Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network. 
+Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network.
 
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
-The required parameters depend on the transaction type. 
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](transaction/transaction-type-support.md).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type         | Description          |
+| ------------ | -------------------- |
 | 32-byte DATA | The transaction hash |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+If you deployed a contract, use [klay\_getTransactionReceipt](transaction.md#klay\_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -665,26 +644,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+### klay\_sendTransactionAsFeePayer <a href="#klay_sendtransactionasfeepayer" id="klay_sendtransactionasfeepayer"></a>
 
-## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
-
-Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. 
-This API supports only fee delegated type (including partial fee delegated type) transactions.
+Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. This API supports only fee delegated type (including partial fee delegated type) transactions.
 
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
 
-The required parameters depend on the transaction type. 
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](transaction/transaction-type-support.md).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type         | Description          |
+| ------------ | -------------------- |
 | 32-byte DATA | The transaction hash |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+If you deployed a contract, use [klay\_getTransactionReceipt](transaction.md#klay\_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -719,26 +695,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_signTransaction <a id="klay_signtransaction"></a>
+### klay\_signTransaction <a href="#klay_signtransaction" id="klay_signtransaction"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a sender's private key. 
-This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
+Constructs a transaction with given parameters and signs the transaction with a sender's private key. This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
 
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
-The required parameters depend on the transaction type. 
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](transaction/transaction-type-support.md).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| raw | Signed raw transaction |
-| tx | Transaction object including the sender's signature |
+| Type | Description                                         |
+| ---- | --------------------------------------------------- |
+| raw  | Signed raw transaction                              |
+| tx   | Transaction object including the sender's signature |
 
 **Example**
+
 ```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' https://api.baobab.klaytn.net:8651
@@ -765,29 +740,25 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
+### klay\_signTransactionAsFeePayer <a href="#klay_signtransactionasfeepayer" id="klay_signtransactionasfeepayer"></a>
 
-## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
-
-Constructs a transaction with given parameters and signs the transaction with a fee payer's private key.
-This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network.
-In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result.
-Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network. In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result. Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
 
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
 
-The required parameters depend on the transaction type. 
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](transaction/transaction-type-support.md).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| raw | Signed raw transaction |
-| tx | Transaction object including the fee payer's signature |
+| Type | Description                                            |
+| ---- | ------------------------------------------------------ |
+| raw  | Signed raw transaction                                 |
+| tx   | Transaction object including the fee payer's signature |
 
 **Example**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 83}' http://127.0.0.1:8551
@@ -823,69 +794,64 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
+### txError: Detailed Information of Transaction Failures <a href="#txerror-detailed-information-of-transaction-failures" id="txerror-detailed-information-of-transaction-failures"></a>
 
-## txError: Detailed Information of Transaction Failures <a id="txerror-detailed-information-of-transaction-failures"></a>
+Klaytn provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
 
-Klaytn provides a field `txError` in the transaction receipt
-to give developers more information about the reason for the failed transaction execution.
-This field exists only if the transaction execution is failed.
-To save storage and network bandwidth, `txError` contains an integer value.
-The below table shows the meaning of the value in `txError`.
+| Error Code | Description                                                               |
+| ---------- | ------------------------------------------------------------------------- |
+| 0x02       | VM error occurs while running smart contract                              |
+| 0x03       | max call depth exceeded                                                   |
+| 0x04       | contract address collision                                                |
+| 0x05       | contract creation code storage out of gas                                 |
+| 0x06       | evm: max code size exceeded                                               |
+| 0x07       | out of gas                                                                |
+| 0x08       | evm: write protection                                                     |
+| 0x09       | evm: execution reverted                                                   |
+| 0x0a       | reached the opcode computation cost limit (100000000) for tx              |
+| 0x0b       | account already exists                                                    |
+| 0x0c       | not a program account (e.g., an account having code and storage)          |
+| 0x0d       | Human-readable address is not supported now                               |
+| 0x0e       | fee ratio is out of range \[1, 99]                                        |
+| 0x0f       | AccountKeyFail is not updatable                                           |
+| 0x10       | different account key type                                                |
+| 0x11       | AccountKeyNil cannot be initialized to an account                         |
+| 0x12       | public key is not on curve                                                |
+| 0x13       | key weight is zero                                                        |
+| 0x14       | key is not serializable                                                   |
+| 0x15       | duplicated key                                                            |
+| 0x16       | weighted sum overflow                                                     |
+| 0x17       | unsatisfiable threshold. Weighted sum of keys is less than the threshold. |
+| 0x18       | length is zero                                                            |
+| 0x19       | length too long                                                           |
+| 0x1a       | nested composite type                                                     |
+| 0x1b       | a legacy transaction must be with a legacy account key                    |
+| 0x1c       | deprecated feature                                                        |
+| 0x1d       | not supported                                                             |
+| 0x1e       | smart contract code format is invalid                                     |
 
-| Error Code | Description |
-|---|---|
-|0x02|VM error occurs while running smart contract|
-|0x03|max call depth exceeded|
-|0x04|contract address collision|
-|0x05|contract creation code storage out of gas|
-|0x06|evm: max code size exceeded|
-|0x07|out of gas|
-|0x08|evm: write protection|
-|0x09|evm: execution reverted|
-|0x0a|reached the opcode computation cost limit (100000000) for tx|
-|0x0b|account already exists|
-|0x0c|not a program account (e.g., an account having code and storage)|
-|0x0d|Human-readable address is not supported now|
-|0x0e|fee ratio is out of range [1, 99]|
-|0x0f|AccountKeyFail is not updatable|
-|0x10|different account key type|
-|0x11|AccountKeyNil cannot be initialized to an account|
-|0x12|public key is not on curve|
-|0x13|key weight is zero|
-|0x14|key is not serializable|
-|0x15|duplicated key|
-|0x16|weighted sum overflow|
-|0x17|unsatisfiable threshold. Weighted sum of keys is less than the threshold.|
-|0x18|length is zero|
-|0x19|length too long|
-|0x1a|nested composite type|
-|0x1b|a legacy transaction must be with a legacy account key|
-|0x1c|deprecated feature|
-|0x1d|not supported|
-|0x1e|smart contract code format is invalid|
-
-## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
+### klay\_getDecodedAnchoringTransactionByHash <a href="#klay_getdecodedanchoringtransactionbyhash" id="klay_getdecodedanchoringtransactionbyhash"></a>
 
 Returns the decoded anchored data in the transaction for the given transaction hash.
 
 **Parameters**
 
-| Type | Description |
-| --- | --- |
+| Type         | Description            |
+| ------------ | ---------------------- |
 | 32-byte DATA | Hash of a transaction. |
 
 **Return Value**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| BlockHash | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed. |
-| BlockNumber | QUANTITY | The child chain block number that this anchoring transaction was performed. |
-| ParentHash | 32-byte DATA | Hash of the parent block. |
-| TxHash | 32-byte DATA | The root of the transaction trie of the block. |
-| StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
-| ReceiptHash| 32-byte DATA | The root of the receipts trie of the block. |
-| BlockCount | QUANTITY | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount | QUANTITY | The number of transactions generated in the child chain during this anchoring period. |
+| Name          | Type         | Description                                                                                                                                                                                                                                           |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                          |
+| BlockNumber   | QUANTITY     | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                           |
+| ParentHash    | 32-byte DATA | Hash of the parent block.                                                                                                                                                                                                                             |
+| TxHash        | 32-byte DATA | The root of the transaction trie of the block.                                                                                                                                                                                                        |
+| StateRootHash | 32-byte DATA | The root of the final state trie of the block.                                                                                                                                                                                                        |
+| ReceiptHash   | 32-byte DATA | The root of the receipts trie of the block.                                                                                                                                                                                                           |
+| BlockCount    | QUANTITY     | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount       | QUANTITY     | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                 |
 
 **Example**
 

@@ -1,29 +1,31 @@
-## Sending KLAY for Beginners <a id="sending-klay-at-a-glance"></a>
+# Sending a sample transaction
 
 Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Klaytn node, as well as creating a transaction - all of this using caver-js!
 
 Don't worry if this is your first time using caver-js. Just follow the simple steps below.
 
-### Prerequisites
+## Prerequisites
 
 First install the following packages.
+
 * [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 * [npm](https://www.npmjs.com/get-npm)
 * [nvm](https://github.com/nvm-sh/nvm)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-*Note:* If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
- 
-### 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
+_Note:_ If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+
+## 1. Create an Account and Download Keystore <a href="#1.-create-an-account-and-download-keystore" id="1.-create-an-account-and-download-keystore"></a>
+
 The most simple way to create an account is using the [Klaytn Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
 
 ![Klaytn Online Toolkit](../images/keystore.png)
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../developer-tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
-### 2. Initialize Project <a id="2.-initialize-project"></a>
+## 2. Initialize Project <a href="#2.-initialize-project" id="2.-initialize-project"></a>
 
 First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
 
@@ -37,7 +39,7 @@ Now let's navigate to our folder.
 cd test
 ```
 
-We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14. 
+We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14.
 
 You can check the version like this:
 
@@ -90,10 +92,9 @@ Alternatively, you can simply type the command below to skip hitting `enter`:
 npm init -y
 ```
 
-### 3. Download caver-js <a id="3.-download-caver-js"></a>
+## 3. Download caver-js <a href="#3.-download-caver-js" id="3.-download-caver-js"></a>
 
 And now we are ready to install caver-js.
-
 
 ```
 npm install caver-js
@@ -105,18 +106,17 @@ Also, add the below module because we need it:
 npm i read
 ```
 
-### 4. Create Test File <a id="4.-create-test-file"></a>
+## 4. Create Test File <a href="#4.-create-test-file" id="4.-create-test-file"></a>
 
 Let's create a test file named `testcaver.js` like so:
 
-``` 
+```
 touch testcaver.js
 ```
 
 We will be writing our code in this file to send a transaction to transfer KLAY.
 
-
-### 5. Connect to Klaytn Node <a id="5.-connect-to-klaytn-node"></a> 
+## 5. Connect to Klaytn Node <a href="#5.-connect-to-klaytn-node" id="5.-connect-to-klaytn-node"></a>
 
 Since we are sending a transaction to the blockchain network, we need to connect to a Klaytn node. We will be using Klaytn's testnet Baobab.
 
@@ -128,7 +128,7 @@ const read = require('read')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
-### 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a> 
+## 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a href="#6.-add-keystore-create-keyring-and-add-to-caver-wallet" id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
 
 You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, we can implement a password prompt on the terminal. The function looks like this:
 
@@ -169,11 +169,11 @@ async function sendKlay() {
 	}
 ```
 
-### 7. Send Transaction <a id="7.-send-transaction"></a> 
+## 7. Send Transaction <a href="#7.-send-transaction" id="7.-send-transaction"></a>
 
 We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`, 
+The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`,
 
 ```
 	
@@ -200,7 +200,7 @@ Don't forget to add in the end:
 sendKlay()
 ```
 
-### 8. Run the Code <a id="8.-run-the-code"></a> 
+## 8. Run the Code <a href="#8.-run-the-code" id="8.-run-the-code"></a>
 
 Let's run the code that we've just written:
 
@@ -209,7 +209,6 @@ node testcaver.js
 ```
 
 ![Type your password](../images/prompt.png)
-
 
 The result will look something like this:
 
@@ -252,7 +251,7 @@ SingleKeyring {
 
 You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
 
-### 9. Entire Code <a id="9.-run-the-code"></a>
+## 9. Entire Code <a href="#9.-run-the-code" id="9.-run-the-code"></a>
 
 ```
 const Caver = require('caver-js')

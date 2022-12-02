@@ -70,7 +70,7 @@ export default caver
 
 ## 4. Interact with Klaytn node: `BlockNumber` component <a href="#4-interact-with-klaytn-node-blocknumber-component" id="4-interact-with-klaytn-node-blocknumber-component"></a>
 
-![blocknumber component](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
+![blocknumber component](count-dapp/images/blocknumber-component.gif)
 
 BlockNumber component gets the current block number every 1 second (1000ms).
 
@@ -102,7 +102,7 @@ For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknu
 
 ## 5. Interact with the contract: `Count` component <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
-![count component](../../bapp/tutorials/count-bapp/images/count-component.gif)
+![count component](count-dapp/images/count-component.gif)
 
 To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.
 

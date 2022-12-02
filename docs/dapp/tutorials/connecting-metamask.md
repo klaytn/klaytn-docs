@@ -12,7 +12,7 @@
 
 ## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask"></a>
 
-![Create a Wallet](../../bapp/tutorials/img/new-to-metamask.png)
+![Create a Wallet](img/new-to-metamask.png)
 
 * Click on \[Create a Wallet].
 * Set a password.
@@ -20,7 +20,7 @@
 
     > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
 
-![Seed phrase and Wallet](../../bapp/tutorials/img/metamask-secret-backup.png)
+![Seed phrase and Wallet](img/metamask-secret-backup.png)
 
 ## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
 
@@ -36,7 +36,7 @@
     * Currency Symbol: KLAY
 * Click \[Save] to add Klaytn Cypress Network.
 
-![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
+![Network Setup and Custom RPC](img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](img/metamask-add-cypress-2.png)
 
 ## Step 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
 

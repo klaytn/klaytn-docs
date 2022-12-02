@@ -1,6 +1,6 @@
 # 7. FeedPage
 
-![FeedPage](../../../../bapp/tutorials/klaystagram/images/klaystagram-feedpage.png)
+![FeedPage](../images/klaystagram-feedpage.png)
 
 FeedPage is consisted of 3 main components that interact with `Klaystagram` contract.
 

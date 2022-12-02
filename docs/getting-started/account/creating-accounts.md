@@ -1,6 +1,6 @@
-# Creating Accounts <a id="creating-accounts"></a>
+# Create an account
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## Creating a New Account <a href="#creating-a-new-account" id="creating-a-new-account"></a>
 
 This will create a new account and print the address on the screen. A keystore file is created under the data directory.
 
@@ -12,25 +12,25 @@ When you create an account, a keystore file is created. The keystore file is an 
 
 It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
 
-### ken <a id="ken"></a>
+### ken <a href="#ken" id="ken"></a>
 
 ```bash
-$ ken account new --datadir <DATADIR>
-$ ken account new --password <passwordfile> --datadir <DATADIR>
-$ ken account new --password <(echo $mypassword) --datadir <DATADIR>
+ken account new --datadir <DATADIR>
+ken account new --password <passwordfile> --datadir <DATADIR>
+ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
 **`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
 
 ```bash
-$ touch /path/to/password
-$ chmod 700 /path/to/password
-$ cat > /path/to/password
+touch /path/to/password
+chmod 700 /path/to/password
+cat > /path/to/password
 I type my pass here
 ^D
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript Console <a href="#javascript-console" id="javascript-console"></a>
 
 On the console, you can call the following function to create an account:
 
@@ -40,7 +40,7 @@ On the console, you can call the following function to create an account:
 
 The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
 
-## Importing an Account <a id="importing-an-account"></a>
+## Importing an Account <a href="#importing-an-account" id="importing-an-account"></a>
 
 You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
 
@@ -48,14 +48,14 @@ This imports an unencrypted private key from the given keyfile, creates a new ac
 
 **NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
 
-### ken <a id="ken-1"></a>
+### ken <a href="#ken-1" id="ken-1"></a>
 
 ```bash
-$ ken account import <keyfile> --datadir <DATADIR>
-$ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
+ken account import <keyfile> --datadir <DATADIR>
+ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### JavaScript Console <a id="javascript-console-1"></a>
+### JavaScript Console <a href="#javascript-console-1" id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
@@ -65,6 +65,3 @@ $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
-
-
-

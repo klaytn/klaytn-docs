@@ -1,23 +1,23 @@
-# Managing Accounts <a id="managing-accounts"></a>
+# Manage your account
 
-## List Your Accounts <a id="list-your-accounts"></a>
+## List Your Accounts <a href="#list-your-accounts" id="list-your-accounts"></a>
 
 This will return the list of all accounts created under the data directory.
 
-### ken <a id="ken"></a>
+### ken <a href="#ken" id="ken"></a>
 
 From the command line, call the CLI with:
 
 ```bash
-$ ken account list --datadir <DATADIR>
-$ ken account list --datadir ~/kend_home
+ken account list --datadir <DATADIR>
+ken account list --datadir ~/kend_home
 Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-02-58.524962000Z--bfc22a57999459b0c2ce6337deb9287e7a970e02
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
 **NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript Console <a href="#javascript-console" id="javascript-console"></a>
 
 When using the console:
 
@@ -26,40 +26,40 @@ When using the console:
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
-## Unlock Accounts <a id="unlock-accounts"></a>
+## Unlock Accounts <a href="#unlock-accounts" id="unlock-accounts"></a>
 
 If you want to use an account non-interactively, you need to unlock it.
 
-### ken <a id="ken"></a>
+### ken <a href="#ken" id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts \(in hex or index\) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from dApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
+You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from dApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
 
 Create an account and start a node with the account unlocked:
 
 ```bash
-$ ken account new --password <(echo this is not secret) --datadir <DATADIR>
-$ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
+ken account new --password <(echo this is not secret) --datadir <DATADIR>
+ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-If you want to start a node with a specific account unlocked, you can use an address or an index which refers to the address position in the account list \(and corresponds to the order of creation\).
+If you want to start a node with a specific account unlocked, you can use an address or an index which refers to the address position in the account list (and corresponds to the order of creation).
 
 ```bash
-$ ken --unlock "0" --datadir <DATADIR>
-$ ken --unlock "2" --datadir <DATADIR>
-$ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
+ken --unlock "0" --datadir <DATADIR>
+ken --unlock "2" --datadir <DATADIR>
+ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
 The command line allows you to unlock multiple accounts. In this case, the argument to unlock is a comma-separated list of account addresses or indexes.
 
 ```bash
-$ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
+ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
 ```
 
 If this construction is used non-interactively, your password file will need to contain the respective passwords for the accounts in question, one per line.
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript Console <a href="#javascript-console" id="javascript-console"></a>
 
-On the console you can also unlock accounts \(one at a time\) for a duration \(in seconds\).
+On the console you can also unlock accounts (one at a time) for a duration (in seconds).
 
 ```javascript
 > personal.unlockAccount(address, "password", 300)
@@ -67,13 +67,13 @@ On the console you can also unlock accounts \(one at a time\) for a duration \(i
 
 Note that we do NOT recommend using the password argument here, since the console history is logged, so you may compromise your account. You have been warned.
 
-## Check Account Balance <a id="check-account-balance"></a>
+## Check Account Balance <a href="#check-account-balance" id="check-account-balance"></a>
 
-### ken <a id="ken"></a>
+### ken <a href="#ken" id="ken"></a>
 
 n/a
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript Console <a href="#javascript-console" id="javascript-console"></a>
 
 To check your account balance:
 
@@ -121,4 +121,3 @@ true
 ```
 
 The file will modify your JavaScript environment as if you have typed the commands manually. Feel free to experiment!
-

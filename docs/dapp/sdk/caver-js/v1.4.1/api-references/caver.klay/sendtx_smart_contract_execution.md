@@ -1,33 +1,34 @@
-# Smart Contract Execution Transaction <a id="smart-contract-execution-transaction"></a>
+# Smart Contract Execution
 
-## sendTransaction (SMART_CONTRACT_EXECUTION) <a id="sendtransaction-smart_contract_execution"></a>
+## sendTransaction (SMART\_CONTRACT\_EXECUTION) <a href="#sendtransaction-smart_contract_execution" id="sendtransaction-smart_contract_execution"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Smart Contract Execution](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
+
+Sends a [Smart Contract Execution](../../../../../../getting-started/klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
 
 **Parameters**
 
 The parameters of sendTransaction are a transaction object and a callback function.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionObject | Object | The transaction object to send. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 A transaction object of type `SMART_CONTRACT_EXECUTION` has the following structure:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| type | String | Transaction Type. "SMART_CONTRACT_EXECUTION" |
-| from | String | Address of this transaction sender. |
-| to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
-| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | An input data of the smart contract. |
+| Name     | Type                                | Description                                                                                                                                                                                                       |
+| -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | String                              | Transaction Type. "SMART\_CONTRACT\_EXECUTION"                                                                                                                                                                    |
+| from     | String                              | Address of this transaction sender.                                                                                                                                                                               |
+| to       | String                              | The address of the deployed smart contract.                                                                                                                                                                       |
+| value    | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
+| gas      | Number                              | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                            |
+| gasPrice | Number                              | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                        |
+| nonce    | Number                              | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                               |
+| data     | String                              | An input data of the smart contract.                                                                                                                                                                              |
 
 **Return Value**
 
@@ -35,9 +36,9 @@ The `callback` will return the 32-byte transaction hash.
 
 `PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- ``"transactionHash"`` returns ``String``: Is fired right after the transaction is sent and a transaction hash is available.
-- ``"receipt"`` returns ``Object``: Is fired when the transaction receipt is available.
-- ``"error"`` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+* `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+* `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -77,43 +78,43 @@ caver.klay.sendTransaction({
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-
-## sendTransaction (FEE_DELEGATED_SMART_CONTRACT_EXECUTION) <a id="sendtransaction-fee_delegated_smart_contract_execution"></a>
+## sendTransaction (FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION) <a href="#sendtransaction-fee_delegated_smart_contract_execution" id="sendtransaction-fee_delegated_smart_contract_execution"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
+
+Sends a [Fee Delegated Smart Contract Execution](../../../../../../getting-started/klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
 
 **Parameters**
 
 The parameters of sendTransaction are a transaction object and a callback function.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionObject | Object | The transaction object to send. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` has the following structure:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" |
-| from | String | Address of this transaction sender. |
-| to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
-| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | An input data of the smart contract. |
+| Name     | Type                                | Description                                                                                                                                                                                                       |
+| -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | String                              | Transaction Type. "FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION"                                                                                                                                                    |
+| from     | String                              | Address of this transaction sender.                                                                                                                                                                               |
+| to       | String                              | The address of the deployed smart contract.                                                                                                                                                                       |
+| value    | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
+| gas      | Number                              | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                            |
+| gasPrice | Number                              | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                        |
+| nonce    | Number                              | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                               |
+| data     | String                              | An input data of the smart contract.                                                                                                                                                                              |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| feePayer | String | The fee payer address of the transaction. |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
 | senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **Return Value**
@@ -122,9 +123,9 @@ The `callback` will return the 32-byte transaction hash.
 
 `PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- ``"transactionHash"`` returns ``String``: Is fired right after the transaction is sent and a transaction hash is available.
-- ``"receipt"`` returns ``Object``: Is fired when the transaction receipt is available.
-- ``"error"`` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+* `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+* `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -173,44 +174,44 @@ caver.klay.sendTransaction({
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-
-## sendTransaction (FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO) <a id="sendtransaction-fee_delegated_smart_contract_execution_with_ratio"></a>
+## sendTransaction (FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION\_WITH\_RATIO) <a href="#sendtransaction-fee_delegated_smart_contract_execution_with_ratio" id="sendtransaction-fee_delegated_smart_contract_execution_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
+
+Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../getting-started/klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
 
 **Parameters**
 
 The parameters of sendTransaction are a transaction object and a callback function.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionObject | Object | The transaction object to send. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` has the following structure:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO" |
-| from | String | Address of this transaction sender. |
-| to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
-| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | An input data of the smart contract. |
-| feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
+| Name     | Type                                | Description                                                                                                                                                                                                            |
+| -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | String                              | Transaction Type. "FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION\_WITH\_RATIO"                                                                                                                                            |
+| from     | String                              | Address of this transaction sender.                                                                                                                                                                                    |
+| to       | String                              | The address of the deployed smart contract.                                                                                                                                                                            |
+| value    | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero.      |
+| gas      | Number                              | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                 |
+| gasPrice | Number                              | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                             |
+| nonce    | Number                              | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                    |
+| data     | String                              | An input data of the smart contract.                                                                                                                                                                                   |
+| feeRatio | Number                              | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 \~ 99, if it is out of range, the transaction will not be accepted. |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| feePayer | String | The fee payer address of the transaction. |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
 | senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **Return Value**
@@ -219,9 +220,9 @@ The `callback` will return the 32-byte transaction hash.
 
 `PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- ``"transactionHash"`` returns ``String``: Is fired right after the transaction is sent and a transaction hash is available.
-- ``"receipt"`` returns ``Object``: Is fired when the transaction receipt is available.
-- ``"error"`` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+* `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+* `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -271,5 +272,3 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
-

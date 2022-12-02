@@ -1,8 +1,8 @@
-# Getting Started <a id="getting-started"></a>
+# Getting Started (\~v1.4.0)
 
-## Prerequisites <a id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-### Dependency <a id="dependency"></a>
+### Dependency <a href="#dependency" id="dependency"></a>
 
 **maven**
 
@@ -20,7 +20,7 @@
 implementation 'com.klaytn.caver:core:1.4.0'
 ```
 
-If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
+If you want to use Android dependency, just append -android at the end of the version string. (e.g. 1.0.1-android)
 
 If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
@@ -30,68 +30,66 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 **Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
-### Installation <a id="installation"></a>
+### Installation <a href="#installation" id="installation"></a>
 
 If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
 
-#### Solidity Compiler <a id="solidity-compiler"></a>
+#### Solidity Compiler <a href="#solidity-compiler" id="solidity-compiler"></a>
 
 You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
 
-```text
+```
 $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### Command-line Tool <a id="command-line-tool"></a>
+#### Command-line Tool <a href="#command-line-tool" id="command-line-tool"></a>
 
 The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
-**Installation \(Homebrew\)**
+**Installation (Homebrew)**
 
 Java 1.8+ is required to install this.
 
-```text
+```
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
 After installation you can run command 'caver-java' like below:
 
-```text
+```
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**Installation \(Other\)**
+**Installation (Other)**
 
 Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
 
 * Download or fork caver-java.
-* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
+*   Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
 
-  ```text
-  $ ./gradlew :console:shadowDistZip
-  ```
+    ```
+    $ ./gradlew :console:shadowDistZip
+    ```
+*   Unzip the zip file in the build directory
 
-* Unzip the zip file in the build directory
+    ```
+    $ unzip ./console/build/distributions/console-shadow-{version}.zip
+    ```
+*   Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
 
-  ```text
-  $ unzip ./console/build/distributions/console-shadow-{version}.zip
-  ```
+    ```
+    $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
+    ```
 
-* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
+## Managing Accounts <a href="#managing-accounts" id="managing-accounts"></a>
 
-  ```text
-  $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
-  ```
+### Creating an Account <a href="#creating-an-account" id="creating-an-account"></a>
 
-## Managing Accounts <a id="managing-accounts"></a>
+In order to sign transactions, you need to have either an EC (Elliptic Curve) key pair or a Klaytn keystore file.
 
-### Creating an Account <a id="creating-an-account"></a>
-
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
-
-#### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
+#### Using an EC Key Pair <a href="#using-an-ec-key-pair" id="using-an-ec-key-pair"></a>
 
 You can create a Klaytn account using an EC key pair like below:
 
@@ -101,9 +99,9 @@ String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().get
 String address = credentials.getAddress();
 ```
 
-#### Using a Keystore File <a id="using-a-keystore-file"></a>
+#### Using a Keystore File <a href="#using-a-keystore-file" id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
+If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet](../../../developer-tools/wallets/klaytn-wallet.md)):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -118,13 +116,13 @@ To load an account using a keystore file like below:
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
 After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). The received testnet KLAY will be used for transaction fee later.
 
-### Connecting to Baobab <a id="connecting-to-baobab"></a>
+### Connecting to Baobab <a href="#connecting-to-baobab" id="connecting-to-baobab"></a>
 
 You can connect to the Baobab network like below:
 
@@ -132,11 +130,11 @@ You can connect to the Baobab network like below:
 Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 ```
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
-After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
+After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](../../../../getting-started/klaytn/design/transactions/#fee-delegation). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -169,7 +167,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### Checking Receipts <a id="checking-receipts"></a>
+### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
 If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
 
@@ -205,13 +203,13 @@ If you send a transaction via `sendFunds`, caver-java tries to get a transaction
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError].
+In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError](../../../json-rpc/transaction-error-codes.md).
 
-## Sending Other Transaction Types <a id="sending-other-transaction-types"></a>
+## Sending Other Transaction Types <a href="#sending-other-transaction-types" id="sending-other-transaction-types"></a>
 
-### Account Update <a id="account-update"></a>
+### Account Update <a href="#account-update" id="account-update"></a>
 
-If you want to update the key of the given account to a new [AccountKeyPublic] key:
+If you want to update the key of the given account to a new [AccountKeyPublic](../../../../getting-started/klaytn/design/accounts.md#accountkeypublic) key:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -225,19 +223,19 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey].
+An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key).
 
-### Smart Contract <a id="smart-contract"></a>
+### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
+caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler](getting-started\_1.4.0.md#solidity-compiler).
 
-```text
+```
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-Then, generate the wrapper code using caver-java’s [command-line tool].
+Then, generate the wrapper code using caver-java’s [command-line tool](getting-started\_1.4.0.md#command-line-tool).
 
-```text
+```
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
@@ -271,7 +269,7 @@ To call a smart contract:
 <type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
-#### Example <a id="example"></a>
+#### Example <a href="#example" id="example"></a>
 
 This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
 
@@ -297,7 +295,7 @@ ERC20Mock erc20Mock = ERC20Mock.load(
 );
 ```
 
-If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
+If you transfer 10 tokens to a specified address (e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`), use the following code:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
@@ -306,7 +304,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfe
 ).send();
 ```
 
-To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
+To check the balance of the recipient (e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`), use the code below:
 
 ```java
 BigInteger balance = erc20Mock.balanceOf(
@@ -314,11 +312,11 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### Fee Delegation <a id="fee-delegation"></a>
+### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
+Klaytn provides [Fee Delegation](../../../../getting-started/klaytn/design/transactions/#fee-delegation) feature which allows service providers to pay transaction fees instead of the users.
 
-#### Value Transfer <a id="value-transfer"></a>
+#### Value Transfer <a href="#value-transfer" id="value-transfer"></a>
 
 On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
 
@@ -346,9 +344,9 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-#### Smart Contract Execution <a id="smart-contract-execution"></a>
+#### Smart Contract Execution <a href="#smart-contract-execution" id="smart-contract-execution"></a>
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
+The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract](getting-started\_1.4.0.md#smart-contract).
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -373,26 +371,25 @@ SmartContractExecutionTransaction smartContractExecution =
 String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer] above:
+After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer](getting-started\_1.4.0.md#value-transfer) above:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
 FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
-## Using various AccountKey Types <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey] supported by the platform. This feature is supported starting with version 1.2.0.
+## Using various AccountKey Types <a href="#using-various-account-key-type" id="using-various-account-key-type"></a>
 
-### AccountKey  <a id="account-key"></a>
+caver-java introduces new classes to support the various types of [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
 
-To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`.
-See [Account Update](#account-update) for how to update an Account.
+### AccountKey <a href="#account-key" id="account-key"></a>
 
-### AccountKeyPublic <a id="account-key-public"></a>
+To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`. See [Account Update](getting-started\_1.4.0.md#account-update) for how to update an Account.
 
-`AccountKeyPublic` is an implementation of `AccountKey` with one public key.
-You can create it like this:
+### AccountKeyPublic <a href="#account-key-public" id="account-key-public"></a>
+
+`AccountKeyPublic` is an implementation of `AccountKey` with one public key. You can create it like this:
 
 ```java
 ECKeyPair newKeyPair = Keys.createEcKeyPair();
@@ -408,7 +405,7 @@ KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredent
 KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
 ```
 
-### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
+### AccountKeyWeightedMultiSig <a href="#account-key-weighted-multi-sig" id="account-key-weighted-multi-sig"></a>
 
 `AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
 
@@ -451,9 +448,9 @@ transactionECKeyPairList.add(ecKeyPair2);
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, address);
 ```
 
-### AccountKeyRoleBased <a id="account-key-role-based"></a>
+### AccountKeyRoleBased <a href="#account-key-role-based" id="account-key-role-based"></a>
 
-`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,` AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
+`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
 
 ```java
 List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
@@ -500,13 +497,13 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
+## Sending a Transaction with Multiple Signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
 If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-### Sequential sender signing <a id="sequential-sender-signing"></a>
+### Sequential sender signing <a href="#sequential-sender-signing" id="sequential-sender-signing"></a>
 
 The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
@@ -543,7 +540,7 @@ TransactionManager transactionManager_charlie = new TransactionManager.Builder(c
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
+### Sequential fee-payer signing <a href="#sequential-fee-payer-signing" id="sequential-fee-payer-signing"></a>
 
 Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
 
@@ -567,18 +564,6 @@ FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, fee
 KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-## Thanks to <a id="thanks-to"></a>
+## Thanks to <a href="#thanks-to" id="thanks-to"></a>
 
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
-
-
-[Klaytn Wallet]: ../../../../toolkit/klaytn-wallet.md
-[txError]: ../../../json-rpc/transaction-error-codes.md
-[AccountKeyPublic]: ../../../../klaytn/design/accounts.md#accountkeypublic
-[AccountKey]: ../../../../klaytn/design/accounts.md#account-key
-[Solidity Compiler]: #solidity-compiler
-[command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
-[Smart Contract]: #smart-contract
-[fee-delegated value transfer]: #value-transfer
-

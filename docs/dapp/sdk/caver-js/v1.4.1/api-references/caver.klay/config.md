@@ -1,4 +1,6 @@
-## gasPriceAt <a id="gaspriceat"></a>
+# Configuration
+
+### gasPriceAt <a href="#gaspriceat" id="gaspriceat"></a>
 
 ```javascript
 caver.klay.gasPriceAt([defaultBlock] [, callback])
@@ -8,15 +10,14 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                          |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Number \| String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](block.md#defaultblock) will be used. |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                           |
 
 **Return Value**
 
 `Promise` returns `String` - A numeric string of the gas price in peb.
-
 
 **Example**
 
@@ -28,7 +29,7 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 0x5d21dba00
 ```
 
-## getChainId <a id="getchainid"></a>
+### getChainId <a href="#getchainid" id="getchainid"></a>
 
 ```javascript
 caver.klay.getChainId([callback])
@@ -38,8 +39,8 @@ Returns the chain ID of the chain.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -53,7 +54,7 @@ Returns the chain ID of the chain.
 1001
 ```
 
-## getGasPrice <a id="getgasprice"></a>
+### getGasPrice <a href="#getgasprice" id="getgasprice"></a>
 
 ```javascript
 caver.klay.getGasPrice([callback])
@@ -63,8 +64,8 @@ Returns the unit price defined in the Klaytn network.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -78,7 +79,7 @@ Returns the unit price defined in the Klaytn network.
 "25000000000"
 ```
 
-## getNodeInfo <a id="getnodeinfo"></a>
+### getNodeInfo <a href="#getnodeinfo" id="getnodeinfo"></a>
 
 ```javascript
 caver.klay.getNodeInfo([callback])
@@ -88,14 +89,13 @@ Returns the current client version of a Klaytn node.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - The current client version of a Klaytn node.
-
 
 **Example**
 
@@ -104,25 +104,23 @@ Returns the current client version of a Klaytn node.
 Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 ```
 
-## getProtocolVersion <a id="getprotocolversion"></a>
+### getProtocolVersion <a href="#getprotocolversion" id="getprotocolversion"></a>
 
 ```javascript
 caver.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
-The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - The Klaytn protocol version of the node.
-
 
 **Example**
 
@@ -131,7 +129,7 @@ The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 0x40
 ```
 
-## isSenderTxHashIndexingEnabled <a id="issendertxhashindexingenabled"></a>
+### isSenderTxHashIndexingEnabled <a href="#issendertxhashindexingenabled" id="issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.klay.isSenderTxHashIndexingEnabled([callback])
@@ -141,14 +139,13 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                                            |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
-
+`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay\_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay\_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../getting-started/klaytn/design/transactions/#fee-delegation).
 
 **Example**
 
@@ -157,7 +154,7 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 true
 ```
 
-## isParallelDBWrite <a id="isparalleldbwrite"></a>
+### isParallelDBWrite <a href="#isparalleldbwrite" id="isparalleldbwrite"></a>
 
 ```javascript
 caver.klay.isParallelDBWrite([callback])
@@ -167,14 +164,13 @@ Returns `true` if the node is writing blockchain data in parallel manner. It is 
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. Returns `false` if the node is writing the data in a serial manner.
-
 
 **Example**
 
@@ -183,7 +179,7 @@ Returns `true` if the node is writing blockchain data in parallel manner. It is 
 true
 ```
 
-## rewardbase <a id="rewardbase"></a>
+### rewardbase <a href="#rewardbase" id="rewardbase"></a>
 
 ```javascript
 caver.klay.rewardbase([callback])
@@ -191,11 +187,10 @@ caver.klay.rewardbase([callback])
 
 Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md).
 
-
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

@@ -1,8 +1,8 @@
-# Introduction <a id="introduction"></a>
+# caver-js \~v1.4.1
 
 `caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
-## Features <a id="features"></a>
+## Features <a href="#features" id="features"></a>
 
 * Complete implementation of Klaytn’s JSON-RPC client API over HTTP and Websocket
 * Support of Klaytn transaction, account, and account key types
@@ -14,7 +14,7 @@
 * Signing of a transaction object
 * Easy to port web3-js application to caver-js
 
-## Packages in caver-js <a id="packages-in-caver-js"></a>
+## Packages in caver-js <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
 Below are packages provided in `caver-js`.
 
@@ -23,15 +23,15 @@ Below are packages provided in `caver-js`.
 * [caver.klay.Contract](api-references/caver.klay.Contract.md)
 * [caver.klay.net](api-references/caver.klay.net.md)
 * [caver.klay.abi](api-references/caver.klay.abi.md)
-* [caver.utils](api-references/caver.utils_1.4.1.md)
+* [caver.utils](api-references/caver.utils\_1.4.1.md)
 
-## Error Code Improvement <a id="error-code-improvement"></a>
+## Error Code Improvement <a href="#error-code-improvement" id="error-code-improvement"></a>
 
 The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
 More details can be found in the value of `txError` of the transaction receipt like the below:
 
-```text
+```
 Error: runtime error occurred in interpreter
  {
   "blockHash": "0xe7ec35c9fff1178d52cee1d46d40627d19f828c4b06ad1a5c3807698b99acb20",
@@ -49,15 +49,13 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Klaytn <a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn uses a fixed gas price \(25 ston = 25 \* 10^9\). A transaction with a different price submitted to the Klaytn network will be rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](api-references/caver.klay/config.md#getgasprice).
+Klaytn uses a fixed gas price (25 ston = 25 \* 10^9). A transaction with a different price submitted to the Klaytn network will be rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../../getting-started/klaytn/design/transaction-fees/#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](api-references/caver.klay/config.md#getgasprice).
 
 If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.klay.getGasPrice](api-references/caver.klay/config.md#getgasprice) RPC call to set the gas price of the transaction.
 
-## Links <a id="links"></a>
+## Links <a href="#links" id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
-
-

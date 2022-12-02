@@ -1,21 +1,21 @@
-## defaultAccount <a id="defaultaccount"></a>
+# Account
+
+### defaultAccount <a href="#defaultaccount" id="defaultaccount"></a>
 
 ```javascript
 caver.klay.defaultAccount
 ```
 
-This default address is used as the default `from` property, if no `from`
-property is specified in parameters of the following methods:
+This default address is used as the default `from` property, if no `from` property is specified in parameters of the following methods:
 
-- [caver.klay.sendTransaction()](./sendtx_legacy.md#sendtransaction-legacy)
-- [caver.klay.call()](./transaction.md#call)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
+* [caver.klay.sendTransaction()](sendtx\_legacy.md#sendtransaction-legacy)
+* [caver.klay.call()](transaction.md#call)
+* [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
+* [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
 
 **Property**
 
-20-byte `String` - Any Klaytn address.  You should have the private key for
-that address in your node or keystore.  Default is `undefined`.
+20-byte `String` - Any Klaytn address. You should have the private key for that address in your node or keystore. Default is `undefined`.
 
 **Example**
 
@@ -27,7 +27,7 @@ undefined
 > caver.klay.defaultAccount = '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe';
 ```
 
-## accountCreated <a id="accountcreated"></a>
+### accountCreated <a href="#accountcreated" id="accountcreated"></a>
 
 ```javascript
 caver.klay.accountCreated(address [, defaultBlock] [, callback])
@@ -39,11 +39,11 @@ Returns `true` if the account associated with the address is created. It returns
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the account you want to query to see if it has been created on the network. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address of the account you want to query to see if it has been created on the network.                                          |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
@@ -59,23 +59,23 @@ true
 false
 ```
 
-## getAccount <a id="getaccount"></a>
+### getAccount <a href="#getaccount" id="getaccount"></a>
 
 ```javascript
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../../klaytn/design/accounts.md#klaytn-accounts).
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../../getting-started/klaytn/design/accounts.md#klaytn-accounts).
 
 **NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the account for which you want to get account information. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address of the account for which you want to get account information.                                                           |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
@@ -109,8 +109,7 @@ Returns the account information of a given address. There are two different acco
 }
 ```
 
-
-## getAccounts <a id="getaccounts"></a>
+### getAccounts <a href="#getaccounts" id="getaccounts"></a>
 
 ```javascript
 caver.klay.getAccounts([callback])
@@ -120,8 +119,8 @@ Returns a list of accounts that the node controls.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -135,24 +134,23 @@ Returns a list of accounts that the node controls.
 ["0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "0xDCc6960376d6C6dEa93647383FfB245CfCed97Cf"]
 ```
 
-
-## getAccountKey <a id="getaccountkey"></a>
+### getAccountKey <a href="#getaccountkey" id="getaccountkey"></a>
 
 ```javascript
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../../klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../../getting-started/klaytn/design/accounts.md#account-key).
 
 **NOTE** getAccountKey returns the account key if the account exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the account for which you want to get accountKey. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address of the account for which you want to get accountKey.                                                                    |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
@@ -244,24 +242,25 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 }
 ```
 
-## getBalance <a id="getbalance"></a>
+### getBalance <a href="#getbalance" id="getbalance"></a>
 
 ```javascript
 caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
+
 Gets the balance of an address at a given block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address to get the balance of. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address to get the balance of.                                                                                                  |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
-``Promise`` returns ``String`` - The current balance for the given address in peb.
+`Promise` returns `String` - The current balance for the given address in peb.
 
 **Example**
 
@@ -270,26 +269,25 @@ Gets the balance of an address at a given block.
 "1000000000000"
 ```
 
-
-
-## getCode <a id="getcode"></a>
+### getCode <a href="#getcode" id="getcode"></a>
 
 ```javascript
 caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
+
 Gets the code at a specific address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address to get the code from. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address to get the code from.                                                                                                   |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
-``Promise`` returns ``String`` - The data at given address ``address``.
+`Promise` returns `String` - The data at given address `address`.
 
 **Example**
 
@@ -299,27 +297,26 @@ Gets the code at a specific address.
 
 ```
 
-
-
-## getTransactionCount <a id="gettransactioncount"></a>
+### getTransactionCount <a href="#gettransactioncount" id="gettransactioncount"></a>
 
 ```javascript
 caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
+
 Gets the number of transactions sent from this address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address to get the number of transactions from. |
-| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). If omitted, `latest` will be used. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | String           | The address to get the number of transactions from.                                                                                                                                                        |
+| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](block.md#defaultblock). If omitted, `latest` will be used. |
+| callback    | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                 |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                             |
+| ------ | ------------------------------------------------------- |
 | Number | The number of transactions sent from the given address. |
 
 **Example**
@@ -330,7 +327,7 @@ Gets the number of transactions sent from this address.
 1
 ```
 
-## isContractAccount <a id="iscontractaccount"></a>
+### isContractAccount <a href="#iscontractaccount" id="iscontractaccount"></a>
 
 ```javascript
 caver.klay.isContractAccount(address [, defaultBlock] [, callback])
@@ -340,11 +337,11 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the account you want to check for isContractAccount. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type             | Description                                                                                                                         |
+| ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String           | The address of the account you want to check for isContractAccount.                                                                 |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
+| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                          |
 
 **Return Value**
 
@@ -360,22 +357,22 @@ true
 false
 ```
 
-## sign <a id="sign"></a>
+### sign <a href="#sign" id="sign"></a>
 
 ```javascript
 caver.klay.sign(message, address [, callback])
 ```
 
-Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay\_sign](../../../../../json-rpc/api-references/klay/account.md#klay\_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction.md#signtransaction).
+**NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](transaction.md#signtransaction).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message | String | Message to sign. |
-| address | String | The address of the account to sign the message with. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| message  | String   | Message to sign.                                                                                           |
+| address  | String   | The address of the account to sign the message with.                                                       |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

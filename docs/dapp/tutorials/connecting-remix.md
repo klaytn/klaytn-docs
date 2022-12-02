@@ -20,11 +20,11 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 * Click **plugin manager**, and then click **Connect to a Local Plugin**.
 
-![Plugin](../../bapp/tutorials/img/remix-environment-plugin.png)
+![Plugin](img/remix-environment-plugin.png)
 
 * Put https://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
 
-![Local Plugin](../../bapp/tutorials/img/remix-local-plugin.png)
+![Local Plugin](img/remix-local-plugin.png)
 
 * If the \[Klaytn] tab appears, you are ready to interact with Klaytn.
 
@@ -39,14 +39,14 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
   * **\[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
   * **\[Injected Web3]**: Connects to injected web3(e.g., Metamask)
 
-![Klaytn Tab](../../bapp/tutorials/img/remix-klaytn-tab.png)
+![Klaytn Tab](img/remix-klaytn-tab.png)
 
 ## Import account <a href="#import-account" id="import-account"></a>
 
 * You can import keys from **private key** or **Keystore**.
 * Click **plus** button next to the **ACCOUNT**.
 
-![Import Keys](../../bapp/tutorials/img/remix-klaytn-import-account.png)
+![Import Keys](img/remix-klaytn-import-account.png)
 
 * Then put private key or keystore.
 * You can also import keys for the **feePayer**. It only supports **private key**.
@@ -89,7 +89,7 @@ We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-co
 
 * Add KlaytnGreeter.sol and write the testing code.
 
-![Add KlaytnGreeter](../../bapp/tutorials/img/remix-add-klaytngreeter.png)
+![Add KlaytnGreeter](img/remix-add-klaytngreeter.png)
 
 * On the Solidity Compile tab, select \[Compile KlaytnGreeter.sol] to compile the contract code.
 
@@ -97,8 +97,8 @@ We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-co
 
 * In the Deploy & Run Transactions tab, click \[Deploy] to deploy the compiled contract.
 
-![Deploy the Contract](../../bapp/tutorials/img/remix-deploy-run-tx.png)
+![Deploy the Contract](img/remix-deploy-run-tx.png)
 
 * You can view the deployed contract. You can test or debug it.
 
-![Check the Contract](../../bapp/tutorials/img/remix-test-or-debug.png)
+![Check the Contract](img/remix-test-or-debug.png)

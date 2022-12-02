@@ -1,38 +1,36 @@
 ---
-description: >-
-  caver-js APIs related to managing accounts.
+description: caver-js APIs related to managing accounts.
 ---
 
-# caver.klay.accounts <a id="caver-klay-accounts"></a>
+# caver.klay.accounts
 
 `caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
 
-
-## create <a id="create"></a>
+## create <a href="#create" id="create"></a>
 
 ```javascript
 caver.klay.accounts.create([entropy])
 ```
+
 Generates an account object with private key and public key.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
-
+| Name    | Type   | Description                                                                                                                                             |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](caver.utils\_1.4.1.md#randomhex). |
 
 **Return Value**
 
-``Object`` - The account object with the following structure:
+`Object` - The account object with the following structure:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The account address. |
-| privateKey | String | The accounts private key. This should never be shared or stored unencrypted in local storage! Also make sure to null the memory after usage. |
-| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
-| sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
-| encrypt | Function | The function to encrypt private key with given password. |
+| Name                              | Type     | Description                                                                                                                                  |
+| --------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| address                           | String   | The account address.                                                                                                                         |
+| privateKey                        | String   | The accounts private key. This should never be shared or stored unencrypted in local storage! Also make sure to null the memory after usage. |
+| signTransaction(tx \[, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](caver.klay.accounts.md#signtransaction).                        |
+| sign(data)                        | Function | The function to sign transactions. See [caver.klay.accounts.sign](caver.klay.accounts.md#sign).                                              |
+| encrypt                           | Function | The function to encrypt private key with given password.                                                                                     |
 
 **Example**
 
@@ -68,42 +66,41 @@ Generates an account object with private key and public key.
 }
 ```
 
-## createWithAccountKey <a id="createwithaccountkey"></a>
+## createWithAccountKey <a href="#createwithaccountkey" id="createwithaccountkey"></a>
 
 ```javascript
 caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
-Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey. 
 
-**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network.
-**NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey.
+
+**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network. **NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
-
+| Name       | Type                      | Description                                                                                                                                                                                                                                        |
+| ---------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | String                    | Address of an Account.                                                                                                                                                                                                                             |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 **Return Value**
 
 `Object` - An Account instance is returned, with the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the account. |
-| privateKey | String | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
-| accountKeyType | String | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
-| accountKey | Object | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
-| keys | String &#124; Array &#124; Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
-| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
-| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
-| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
-| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
-| sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
-| encrypt | Function | The function to encrypt an Account with given password. |
-| getKlaytnWalletKey | Function | The function to get [Klaytn Wallet Key](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| Name                              | Type                      | Description                                                                                                                                                                                                                                                                                                             |
+| --------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address                           | String                    | The address of the account.                                                                                                                                                                                                                                                                                             |
+| privateKey                        | String                    | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
+| accountKeyType                    | String                    | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
+| accountKey                        | Object                    | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
+| keys                              | String \| Array \| Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned.                        |
+| transactionKey                    | String \| Array           | Key used for the [RoleTransaction](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                  |
+| updateKey                         | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                     |
+| feePayerKey                       | String \| Array           | Key used for [RoleFeePayer](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                            |
+| signTransaction(tx \[, callback]) | Function                  | The function to sign transactions. See [caver.klay.accounts.signTransaction](caver.klay.accounts.md#signtransaction).                                                                                                                                                                                                   |
+| sign(data)                        | Function                  | The function to sign transactions. See [caver.klay.accounts.sign](caver.klay.accounts.md#sign).                                                                                                                                                                                                                         |
+| encrypt                           | Function                  | The function to encrypt an Account with given password.                                                                                                                                                                                                                                                                 |
+| getKlaytnWalletKey                | Function                  | The function to get [Klaytn Wallet Key](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format).                                                                                                                                                                                             |
 
 **Example**
 
@@ -149,26 +146,26 @@ Account {
 }
 ```
 
-## createWithAccountKeyPublic <a id="createwithaccountkeypublic"></a>
+## createWithAccountKeyPublic <a href="#createwithaccountkeypublic" id="createwithaccountkeypublic"></a>
 
 ```javascript
 caver.klay.accounts.createWithAccountKeyPublic(address, accountKey)
 ```
+
 Creates an instance of Account with AccountKeyPublic.
 
 **NOTE** `caver.klay.accounts.createWithAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string.  |
-
+| Name       | Type             | Description                                           |
+| ---------- | ---------------- | ----------------------------------------------------- |
+| address    | String           | Address of an Account.                                |
+| accountKey | String \| Object | An AccountKeyPublic instance or a private key string. |
 
 **Return Value**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](caver.klay.accounts.md#createwithaccountkey).
 
 **Example**
 
@@ -185,26 +182,26 @@ Account {
 }
 ```
 
-## createWithAccountKeyMultiSig <a id="createwithaccountkeymultisig"></a>
+## createWithAccountKeyMultiSig <a href="#createwithaccountkeymultisig" id="createwithaccountkeymultisig"></a>
 
 ```javascript
 caver.klay.accounts.createWithAccountKeyMultiSig(address, accountKey)
 ```
+
 Creates an instance of Account with AccountKeyMultiSig.
 
 **NOTE** `caver.klay.accounts.createWithAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings.  |
-
+| Name       | Type             | Description                                                        |
+| ---------- | ---------------- | ------------------------------------------------------------------ |
+| address    | String           | Address of an Account.                                             |
+| accountKey | String \| Object | An AccountKeyMultiSig instance or an array of private key strings. |
 
 **Return Value**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](caver.klay.accounts.md#createwithaccountkey).
 
 **Example**
 
@@ -221,26 +218,26 @@ Account {
 }
 ```
 
-## createWithAccountKeyRoleBased <a id="createwithaccountkeyrolebased"></a>
+## createWithAccountKeyRoleBased <a href="#createwithaccountkeyrolebased" id="createwithaccountkeyrolebased"></a>
 
 ```javascript
 caver.klay.accounts.createWithAccountKeyRoleBased(address, accountKey)
 ```
+
 Creates an instance of Account with AccountKeyRoleBased.
 
 **NOTE** `caver.klay.accounts.createWithAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
-
+| Name       | Type             | Description                                                                      |
+| ---------- | ---------------- | -------------------------------------------------------------------------------- |
+| address    | String           | Address of an Account.                                                           |
+| accountKey | String \| Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
 
 **Return Value**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](caver.klay.accounts.md#createwithaccountkey).
 
 **Example**
 
@@ -261,12 +258,13 @@ Account {
 }
 ```
 
-## createAccountKey <a id="createaccountkey"></a>
+## createAccountKey <a href="#createaccountkey" id="createaccountkey"></a>
 
 ```javascript
 caver.klay.accounts.createAccountKey(key)
 ```
-Creates an instance of `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` depending on the type of parameter. 
+
+Creates an instance of `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` depending on the type of parameter.
 
 AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPublic if you want to use a single private key, AccountKeyMultiSig if you want to use multiple private keys, or AccountKeyRoleBased if you want to use a different key for each role.
 
@@ -274,23 +272,22 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| key | String &#124; Array &#124; Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
-
+| Name | Type                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key  | String \| Array \| Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
 
 **Return Value**
 
 `Object` - An AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased instance is returned with the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| type | String | The type of AccountKey instance. |
-| defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey.  |
-| keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
-| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
-| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
-| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| Name           | Type                      | Description                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type           | String                    | The type of AccountKey instance.                                                                                                                                                                                                                                                                                                                                                                       |
+| defaultKey     | String                    | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey. |
+| keys           | String \| Array \| Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned.                                                                                               |
+| transactionKey | String \| Array           | Key used for the [RoleTransaction](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                                                                 |
+| updateKey      | String \| Array           | Key used for the [RoleAccountUpdate](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                                                                    |
+| feePayerKey    | String \| Array           | Key used for [RoleFeePayer](../../../../../getting-started/klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                                                                           |
 
 **Example**
 
@@ -335,26 +332,25 @@ AccountKeyRoleBased {
 }
 ```
 
-## createAccountKeyPublic <a id="createaccountkeypublic"></a>
+## createAccountKeyPublic <a href="#createaccountkeypublic" id="createaccountkeypublic"></a>
 
 ```javascript
 caver.klay.accounts.createAccountKeyPublic(key)
 ```
+
 Creates an instance of `AccountKeyPublic` with the given private key string.
 
 **NOTE** `caver.klay.accounts.createAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| key | String | A string of private key for generating AccountKeyPublic. |
-
+| Name | Type   | Description                                              |
+| ---- | ------ | -------------------------------------------------------- |
+| key  | String | A string of private key for generating AccountKeyPublic. |
 
 **Return Value**
 
-`Object` - An AccountKeyPublic instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
-
+`Object` - An AccountKeyPublic instance, see [caver.klay.accounts.createAccountKey](caver.klay.accounts.md#createaccountkey).
 
 **Example**
 
@@ -365,26 +361,25 @@ AccountKeyPublic {
 }
 ```
 
-## createAccountKeyMultiSig <a id="createaccountkeymultisig"></a>
+## createAccountKeyMultiSig <a href="#createaccountkeymultisig" id="createaccountkeymultisig"></a>
 
 ```javascript
 caver.klay.accounts.createAccountKeyMultiSig(keys)
 ```
+
 Creates an instance of `AccountKeyMultiSig` with the given multiple private keys.
 
 **NOTE** `caver.klay.accounts.createAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type  | Description                                                        |
+| ---- | ----- | ------------------------------------------------------------------ |
 | keys | Array | An array of private key strings for generating AccountKeyMultiSig. |
-
 
 **Return Value**
 
-`Object` - An AccountKeyMultiSig instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
-
+`Object` - An AccountKeyMultiSig instance, see [caver.klay.accounts.createAccountKey](caver.klay.accounts.md#createaccountkey).
 
 **Example**
 
@@ -398,26 +393,25 @@ AccountKeyMultiSig {
 }
 ```
 
-## createAccountKeyRoleBased <a id="createaccountkeyrolebased"></a>
+## createAccountKeyRoleBased <a href="#createaccountkeyrolebased" id="createaccountkeyrolebased"></a>
 
 ```javascript
 caver.klay.accounts.createAccountKeyRoleBased(keyObject)
 ```
+
 Creates an instance of `AccountKeyRoleBased` with the given keys associated with each role.
 
 **NOTE** `caver.klay.accounts.createAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name      | Type   | Description                                                                                                        |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
 | keyObject | Object | An object with role-key pairs. A key for each role can be a private key string or an array of private key strings. |
-
 
 **Return Value**
 
-`Object` - An AccountKeyRoleBased instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
-
+`Object` - An AccountKeyRoleBased instance, see [caver.klay.accounts.createAccountKey](caver.klay.accounts.md#createaccountkey).
 
 **Example**
 
@@ -446,27 +440,27 @@ AccountKeyRoleBased {
 }
 ```
 
-## accountKeyToPublicKey <a id="accountkeytopublickey"></a>
+## accountKeyToPublicKey <a href="#accountkeytopublickey" id="accountkeytopublickey"></a>
 
 ```javascript
 caver.klay.accounts.accountKeyToPublicKey(accountKey)
 ```
+
 This function converts the private key of AccountKey to public key.
 
 **NOTE** `caver.klay.accounts.accountKeyToPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+| Name       | Type                      | Description                                                                                                                                                                                                                                        |
+| ---------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| String &#124; Array &#124; Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
-
+| Type                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| String \| Array \| Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
 
 **Example**
 
@@ -497,23 +491,23 @@ This function converts the private key of AccountKey to public key.
 }
 ```
 
-## privateKeyToAccount <a id="privatekeytoaccount"></a>
+## privateKeyToAccount <a href="#privatekeytoaccount" id="privatekeytoaccount"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToAccount(privateKey)
 ```
+
 Creates an account object from a private key.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type   | Description                 |
+| ---------- | ------ | --------------------------- |
 | privateKey | string | The private key to convert. |
-
 
 **Return Value**
 
-``Object`` - The account object
+`Object` - The account object
 
 **Example**
 
@@ -529,23 +523,23 @@ Creates an account object from a private key.
 }
 ```
 
-## privateKeyToPublicKey <a id="privatekeytopublickey"></a>
+## privateKeyToPublicKey <a href="#privatekeytopublickey" id="privatekeytopublickey"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToPublicKey(privateKey)
 ```
+
 Gets public key from a given private key
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type   | Description                 |
+| ---------- | ------ | --------------------------- |
 | privateKey | string | The private key to convert. |
-
 
 **Return Value**
 
-``String`` - The public key (64 bytes)
+`String` - The public key (64 bytes)
 
 **Example**
 
@@ -554,40 +548,40 @@ Gets public key from a given private key
 '0xbb1846722a4c27e71196e1a44611ee7174276a6c51c4830fb810cac64b0725f217cb8783625a809d1303adeeec2cf036ab74098a77a6b7f1003486e173b29aa7'
 ```
 
-## createAccountForUpdate <a id="createaccountforupdate"></a>
+## createAccountForUpdate <a href="#createaccountforupdate" id="createaccountforupdate"></a>
 
 ```javascript
 caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
-Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update. 
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update.
 
-The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a private key. 
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
-You can create an AccountForUpdate instance using the public key with [caver.klay.accounts.createAccountForUpdateWithPublicKey](#createaccountforupdatewithpublickey). 
+The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a private key.
 
-You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail).
+You can create an AccountForUpdate instance using the public key with [caver.klay.accounts.createAccountForUpdateWithPublicKey](caver.klay.accounts.md#createaccountforupdatewithpublickey).
+
+You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](caver.klay.accounts.md#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](caver.klay.accounts.md#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../getting-started/klaytn/design/accounts.md#accountkeyfail).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
-| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below. |
+| Name       | Type                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | String                    | Address of an Account.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| accountKey | String \| Array \| Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](caver.klay.accounts.md#createaccountkey) to create an AccountKey instance from the given key info. |
+| options    | Object                    | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below.                                                                                                                                                                                                                                                                                          |
 
 **Return Value**
 
 `Object` - An AccountForUpdate instance is returned, with the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of the account to be updated. |
+| Name         | Type   | Description                                                                |
+| ------------ | ------ | -------------------------------------------------------------------------- |
+| address      | String | Address of the account to be updated.                                      |
 | keyForUpdate | Object | An object containing the new public key derived from the given accountKey. |
-
 
 **Example**
 
@@ -663,29 +657,29 @@ AccountForUpdate {
 }
 ```
 
-## createAccountForUpdateWithPublicKey <a id="createaccountforupdatewithpublickey"></a>
+## createAccountForUpdateWithPublicKey <a href="#createaccountforupdatewithpublickey" id="createaccountforupdatewithpublickey"></a>
 
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, options)
 ```
+
 Creates an instance of `AccountForUpdate` with the public key of the new key to update.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | Address of an Account. |
-| keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased. |
-| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
+| Name         | Type                      | Description                                                                                                                                                                                                                                                             |
+| ------------ | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String                    | Address of an Account.                                                                                                                                                                                                                                                  |
+| keyForUpdate | String \| Array \| Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased.                                              |
+| options      | Object                    | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
-
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](caver.klay.accounts.md#createaccountforupdate).
 
 **Example**
 
@@ -750,27 +744,27 @@ AccountForUpdate {
 }
 ```
 
-## createAccountForUpdateWithLegacyKey <a id="createaccountforupdatewithlegacykey"></a>
+## createAccountForUpdateWithLegacyKey <a href="#createaccountforupdatewithlegacykey" id="createaccountforupdatewithlegacykey"></a>
 
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithLegacyKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description            |
+| ------- | ------ | ---------------------- |
 | address | String | Address of an Account. |
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
-
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](caver.klay.accounts.md#createaccountforupdate).
 
 **Example**
 
@@ -783,27 +777,27 @@ AccountForUpdate {
 }
 ```
 
-## createAccountForUpdateWithFailKey <a id="createaccountforupdatewithfailkey"></a>
+## createAccountForUpdateWithFailKey <a href="#createaccountforupdatewithfailkey" id="createaccountforupdatewithfailkey"></a>
 
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../getting-started/klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started\_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithFailKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description            |
+| ------- | ------ | ---------------------- |
 | address | String | Address of an Account. |
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
-
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](caver.klay.accounts.md#createaccountforupdate).
 
 **Example**
 
@@ -816,7 +810,7 @@ AccountForUpdate {
 }
 ```
 
-## signTransaction <a id="signtransaction"></a>
+## signTransaction <a href="#signtransaction" id="signtransaction"></a>
 
 ```javascript
 caver.klay.accounts.signTransaction(tx [, privateKey] [, callback])
@@ -824,20 +818,19 @@ caver.klay.accounts.signTransaction(tx [, privateKey] [, callback])
 
 Signs a Klaytn transaction with a given private key.
 
-Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), this method takes an RLP-encoded transaction as an input as well as a plain transaction object. See [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction) for the various types of transaction object. This method basically signs as a sender. 
-If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.feePayerSignTransaction](#feepayersigntransaction). But, fee-payers can still sign using this method by passing an object, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, as `tx`. senderRawTransaction must be a FEE_DELEGATED_ type transaction.
+Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), this method takes an RLP-encoded transaction as an input as well as a plain transaction object. See [caver.klay.sendTransaction](caver.klay/transaction.md#sendtransaction) for the various types of transaction object. This method basically signs as a sender. If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.feePayerSignTransaction](caver.klay.accounts.md#feepayersigntransaction). But, fee-payers can still sign using this method by passing an object, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, as `tx`. senderRawTransaction must be a FEE\_DELEGATED\_ type transaction.
 
 Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), signTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the signature(s) of the signer to it.
 
-See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+See [Sending a Transaction with multiple signer](../getting-started\_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
-| privateKey | String &#124; Array  | (optional) The private key to sign with. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name       | Type             | Description                                                                                                                                                                                                                                                                        |
+| ---------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx         | String \| Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](caver.klay/transaction.md#sendtransaction). |
+| privateKey | String \| Array  | (optional) The private key to sign with.                                                                                                                                                                                                                                           |
+| callback   | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                         |
 
 **NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
 
@@ -847,17 +840,17 @@ See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sen
 
 `Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| messageHash | String | The hash of the given message. |
-| r | String | ECDSA signature r. |
-| s | String | ECDSA signature s. |
-| v | String | ECDSA recovery id. |
-| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
-| txHash | 32-byte String | Hash of the transaction. |
-| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures | Array | (optional) An array of the sender's signature(s). |
-| feePayerSignatures | Array | (optional) An array of the fee payer's signature(s). |
+| Name               | Type           | Description                                                                                                                                          |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| messageHash        | String         | The hash of the given message.                                                                                                                       |
+| r                  | String         | ECDSA signature r.                                                                                                                                   |
+| s                  | String         | ECDSA signature s.                                                                                                                                   |
+| v                  | String         | ECDSA recovery id.                                                                                                                                   |
+| rawTransaction     | String         | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction.                                                                |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                                             |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) |
+| signatures         | Array          | (optional) An array of the sender's signature(s).                                                                                                    |
+| feePayerSignatures | Array          | (optional) An array of the fee payer's signature(s).                                                                                                 |
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
 
@@ -1013,7 +1006,7 @@ See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sen
 }
 ```
 
-## signTransactionWithHash <a id="signtransactionwithhash"></a>
+## signTransactionWithHash <a href="#signtransactionwithhash" id="signtransactionwithhash"></a>
 
 ```javascript
 caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
@@ -1025,23 +1018,24 @@ Signs a Klaytn transaction with the given transaction hash and private key.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| txHash | String | The hash of the transaction to sign. |
-| privateKeys | String &#124; Array  | The private key to sign with. |
-| chainId | String &#124; Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](./caver.klay/config.md#getchainid) |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                                                       |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| txHash      | String           | The hash of the transaction to sign.                                                                                                              |
+| privateKeys | String \| Array  | The private key to sign with.                                                                                                                     |
+| chainId     | String \| Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](caver.klay/config.md#getchainid) |
+| callback    | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                        |
 
 **Return Value**
 
 `Promise` returning `Array`: An array of signatures
 
 Each signature object in the array has the following values:
-| Name | Type | Description |
-| --- | --- | --- |
-| V | String | ECDSA recovery id. |
-| R | String | ECDSA signature r. |
-| S | String | ECDSA signature s. |
+
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| V    | String | ECDSA recovery id. |
+| R    | String | ECDSA signature r. |
+| S    | String | ECDSA signature s. |
 
 **Example**
 
@@ -1097,7 +1091,7 @@ Each signature object in the array has the following values:
 ]
 ```
 
-## feePayerSignTransaction <a id="feepayersigntransaction"></a>
+## feePayerSignTransaction <a href="#feepayersigntransaction" id="feepayersigntransaction"></a>
 
 ```javascript
 caver.klay.accounts.feePayerSignTransaction(tx, feePayerAddress [, privateKey] [, callback])
@@ -1105,40 +1099,39 @@ caver.klay.accounts.feePayerSignTransaction(tx, feePayerAddress [, privateKey] [
 
 Signs a transaction as a fee payer.
 
-Fee payers can sign on a FEE_DELEGATED_ transaction. A transaction object or an RLP-encoded transaction can be passed as an argument.
+Fee payers can sign on a FEE\_DELEGATED\_ transaction. A transaction object or an RLP-encoded transaction can be passed as an argument.
 
 If privateKay is not given, feePayerKey of the fee payer's account inside the caver-js in-memory wallet is used.
 
 feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the fee-payer signature(s) to it.
 
-See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+See [Sending a Transaction with multiple signer](../getting-started\_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-
-| Name | Type | Description |
-| --- | --- | --- |
-| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
-| feePayerAddress | String | The address of fee payer.  |
-| privateKey | String &#124; Array | (optional) The private key to sign with. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name            | Type             | Description                                                                                                                                                                                                                                                                        |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx              | String \| Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](caver.klay/transaction.md#sendtransaction). |
+| feePayerAddress | String           | The address of fee payer.                                                                                                                                                                                                                                                          |
+| privateKey      | String \| Array  | (optional) The private key to sign with.                                                                                                                                                                                                                                           |
+| callback        | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                         |
 
 **Return Value**
 
 `Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| messageHash | String | The hash of the given message. |
-| v | String | ECDSA recovery id. |
-| r | String | ECDSA signature r. |
-| s | String | ECDSA signature s. |
-| rawTransaction | String | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
-| txHash | 32-byte String | Hash of the transaction. |
-| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| feePayerSignatures | Array | An array of the fee payer's signature(s). |
+| Name               | Type           | Description                                                                                                                                          |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| messageHash        | String         | The hash of the given message.                                                                                                                       |
+| v                  | String         | ECDSA recovery id.                                                                                                                                   |
+| r                  | String         | ECDSA signature r.                                                                                                                                   |
+| s                  | String         | ECDSA signature s.                                                                                                                                   |
+| rawTransaction     | String         | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                   |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                                             |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash) |
+| feePayerSignatures | Array          | An array of the fee payer's signature(s).                                                                                                            |
 
 **NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
@@ -1253,23 +1246,24 @@ See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sen
 }
 ```
 
-## recoverTransaction <a id="recovertransaction"></a>
+## recoverTransaction <a href="#recovertransaction" id="recovertransaction"></a>
 
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
 ```
+
 Recovers the Klaytn address that was used to sign the given RLP encoded transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name      | Type   | Description                  |
+| --------- | ------ | ---------------------------- |
 | signature | String | The RLP encoded transaction. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | String | The Klaytn address used to sign this transaction. |
 
 **Example**
@@ -1279,33 +1273,31 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 '0xF0109fC8DF283027b6285cc889F5aA624EaC1F55'
 ```
 
-
-## hashMessage <a id="hashmessage"></a>
+## hashMessage <a href="#hashmessage" id="hashmessage"></a>
 
 ```javascript
 caver.klay.accounts.hashMessage(message)
 ```
 
-Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](#recover).
-The data will be UTF-8 HEX decoded and enveloped as follows:
+Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](caver.klay.accounts.md#recover). The data will be UTF-8 HEX decoded and enveloped as follows:
+
 ```
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
+
 and hashed using keccak256.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message | String | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
-
+| Name    | Type   | Description                                                               |
+| ------- | ------ | ------------------------------------------------------------------------- |
+| message | String | A message to hash. If it is a HEX string, it will be UTF-8 decoded first. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | String | The hashed message |
-
 
 **Example**
 
@@ -1318,38 +1310,37 @@ and hashed using keccak256.
 '0xf334bf277b674260e85f1a3d2565d76463d63d29549ef4fa6d6833207576b5ba'
 ```
 
-
-## sign <a id="sign"></a>
+## sign <a href="#sign" id="sign"></a>
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
 ```
+
 Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as follows:
+
 ```
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| data | String | The data to sign. |
+| Name       | Type   | Description                   |
+| ---------- | ------ | ----------------------------- |
+| data       | String | The data to sign.             |
 | privateKey | String | The private key to sign with. |
-
 
 **Return Value**
 
-``String|Object``: The signed data RLP encoded signature. The signature values as follows:
+`String|Object`: The signed data RLP encoded signature. The signature values as follows:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message | String | The given message. |
+| Name        | Type   | Description                    |
+| ----------- | ------ | ------------------------------ |
+| message     | String | The given message.             |
 | messageHash | String | The hash of the given message. |
-| r | String | ECDSA signature r. |
-| s | String | ECDSA signature s. |
-| v | String | ECDSA recovery id. |
-| signature | String | The generated signature. |
-
+| r           | String | ECDSA signature r.             |
+| s           | String | ECDSA signature s.             |
+| v           | String | ECDSA recovery id.             |
+| signature   | String | The generated signature.       |
 
 **Example**
 
@@ -1365,41 +1356,39 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 }
 ```
 
-
-## recover <a id="recover"></a>
+## recover <a href="#recover" id="recover"></a>
 
 ```javascript
 caver.klay.accounts.recover(signatureObject)
 caver.klay.accounts.recover(message, signature [, preFixed])
 caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
+
 Recovers the Klaytn address that was used to sign the given data.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message &#124; signatureObject | String &#124; Object | Either signed message or hash. For the details of the signature object, see the table below. |
-| messageHash | String | The hash of the given message. |
-| signature | String | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values. |
-| preFixed | Boolean | (optional, default: ``false``) If the last parameter is ``true``, the given message will NOT automatically be prefixed with ``"\x19Klaytn Signed Message:\n" + message.length + message``, and assumed to be already prefixed. |
+| Name                       | Type             | Description                                                                                                                                                                                                              |
+| -------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message \| signatureObject | String \| Object | Either signed message or hash. For the details of the signature object, see the table below.                                                                                                                             |
+| messageHash                | String           | The hash of the given message.                                                                                                                                                                                           |
+| signature                  | String           | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values.                                                                                                                                                       |
+| preFixed                   | Boolean          | (optional, default: `false`) If the last parameter is `true`, the given message will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and assumed to be already prefixed. |
 
 The signature object has following values:
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name        | Type   | Description                                                                                                      |
+| ----------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
 | messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
-| r | String | ECDSA signature r. |
-| s | String | ECDSA signature s. |
-| v | String | ECDSA recovery id. |
-
+| r           | String | ECDSA signature r.                                                                                               |
+| s           | String | ECDSA signature s.                                                                                               |
+| v           | String | ECDSA recovery id.                                                                                               |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
 | String | The Klaytn address used to sign this data. |
-
 
 **Example**
 
@@ -1421,7 +1410,7 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
-## combineSignatures <a id="combinesignatures"></a>
+## combineSignatures <a href="#combinesignatures" id="combinesignatures"></a>
 
 ```javascript
 caver.klay.accounts.combineSignatures(rawTransactions)
@@ -1435,21 +1424,21 @@ combineSignatures removes duplicates in signatures or feePayerSignatures.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name            | Type  | Description                                                   |
+| --------------- | ----- | ------------------------------------------------------------- |
 | rawTransactions | Array | An array of RLP encoded transaction strings (rawTransaction). |
 
 **Return Value**
 
 `Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
-| txHash | 32-byte String | Hash of the transaction. |
-| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures | Array | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
-| feePayerSignatures | Array | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+| Name               | Type           | Description                                                                                                                                                                                             |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                                       |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                                                                                                |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash)                                                    |
+| signatures         | Array          | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | Array          | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
@@ -1496,7 +1485,7 @@ combineSignatures removes duplicates in signatures or feePayerSignatures.
 }
 ```
 
-## getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
+## getRawTransactionWithSignatures <a href="#getrawtransactionwithsignatures" id="getrawtransactionwithsignatures"></a>
 
 ```javascript
 caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
@@ -1508,21 +1497,21 @@ Returns a signed RLP encoded transaction string from a given transaction object.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| tx | Object | A transaction object that includes signatures and feePayerSignatures. The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| Name | Type   | Description                                                                                                                                                                                                                                                                       |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx   | Object | A transaction object that includes signatures and feePayerSignatures. The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](caver.klay/transaction.md#sendtransaction). |
 
 **Return Value**
 
 `Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
-| txHash | 32-byte String | Hash of the transaction. |
-| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures | Array | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
-| feePayerSignatures | Array | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+| Name               | Type           | Description                                                                                                                                                                                    |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                              |
+| txHash             | 32-byte String | Hash of the transaction.                                                                                                                                                                       |
+| senderTxHash       | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../getting-started/klaytn/design/transactions/#sendertxhash)                                           |
+| signatures         | Array          | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | Array          | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
 
@@ -1649,35 +1638,36 @@ Returns a signed RLP encoded transaction string from a given transaction object.
 }
 ```
 
-## encrypt <a id="encrypt"></a>
+## encrypt <a href="#encrypt" id="encrypt"></a>
 
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
+
 Encrypts an account to the Klaytn keystore standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use [caver.klay.accounts.encryptV3](#encryptv3).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use [caver.klay.accounts.encryptV3](caver.klay.accounts.md#encryptv3).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
-| password | String | The password used for encryption. |
-| options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
+| Name          | Type                      | Description                                                                                                                                                                                                                                                                                                                          |
+| ------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| encryptTarget | String \| Array \| Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
+| password      | String                    | The password used for encryption.                                                                                                                                                                                                                                                                                                    |
+| options       | Object                    | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`.                                                                                                                      |
 
 **NOTE** If account address cannot be extracted from encryptTarget (when AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object that defines the keys by role) or if the account's private key is decoupled from address, you must specify the address in the options object.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
+
+1. Use the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
 2. Use the `options.address` to send the address as a parameter.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                                                                                                       |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Object | The encrypted keystore JSON. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), keystore v4 is used. The example below illustrates both keystore v3 and v4. |
-
 
 **Example**
 
@@ -1885,33 +1875,34 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
 }
 ```
 
-## encryptV3 <a id="encryptv3"></a>
+## encryptV3 <a href="#encryptv3" id="encryptv3"></a>
 
 ```javascript
 caver.klay.accounts.encryptV3(encryptTarget, password [, options])
 ```
-Encrypts an account to the Klaytn keystore v3 standard. 
+
+Encrypts an account to the Klaytn keystore v3 standard.
 
 **NOTE** `caver.klay.accounts.encryptV3` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| encryptTarget | String &#124; Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
-| password | String | The password used for encryption. |
-| options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
+| Name          | Type             | Description                                                                                                                                                                                                             |
+| ------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| encryptTarget | String \| Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt.                                                                                                                           |
+| password      | String           | The password used for encryption.                                                                                                                                                                                       |
+| options       | Object           | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+
+1. Use the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
 2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | Object | The encrypted keystore v3 JSON. |
-
 
 **Example**
 
@@ -1965,30 +1956,28 @@ Encrypts an account to the Klaytn keystore v3 standard.
 }
 ```
 
-
-## decrypt <a id="decrypt"></a>
+## decrypt <a href="#decrypt" id="decrypt"></a>
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
 ```
+
 Decrypts a keystore v3 or v4 JSON and returns the decrypted account object.
 
 **NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.decrypt` can decrypt the keystore v4.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name         | Type   | Description                                              |
+| ------------ | ------ | -------------------------------------------------------- |
 | keystoreJson | String | JSON string containing the encrypted account to decrypt. |
-| password | String | The password used for encryption. |
-
+| password     | String | The password used for encryption.                        |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description            |
+| ------ | ---------------------- |
 | Object | The decrypted account. |
-
 
 **Example**
 
@@ -2050,27 +2039,26 @@ Account {
 }
 ```
 
-## isDecoupled <a id="isdecoupled"></a>
+## isDecoupled <a href="#isdecoupled" id="isdecoupled"></a>
 
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
 ```
+
 Determines if the key is decoupled from the address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| key | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key. |
-
+| Name    | Type   | Description                                                                                                                                                                                    |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key     | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key.                                                                          |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                                                      |
+| ------- | -------------------------------------------------------------------------------- |
 | Boolean | `true` if the key is decoupled from the address. `false` if it is not decoupled. |
-
 
 **Example**
 
@@ -2088,26 +2076,25 @@ false
 false
 ```
 
-## getLegacyAccount <a id="getlegacyaccount"></a>
+## getLegacyAccount <a href="#getlegacyaccount" id="getlegacyaccount"></a>
 
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
 ```
-Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy).
+
+Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| key | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
-
+| Name | Type   | Description                                                                                                                                                                                                                                                                                           |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key  | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Object | An account object with a legacy account key of the given value. If there is address information extracted from the key, it is returned together. |
-
 
 **Example**
 
@@ -2143,14 +2130,13 @@ Returns an account that has an address derived from the given private key. See [
 }
 ```
 
-
-## wallet <a id="wallet"></a>
+## wallet <a href="#wallet" id="wallet"></a>
 
 ```javascript
 caver.klay.accounts.wallet
 ```
-Contains an in-memory wallet with multiple accounts.  These accounts can be used
-when using [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction).
+
+Contains an in-memory wallet with multiple accounts. These accounts can be used when using [caver.klay.sendTransaction](caver.klay/transaction.md#sendtransaction).
 
 **Example**
 
@@ -2174,27 +2160,26 @@ Wallet {
 }
 ```
 
-
-## wallet.create  <a id="wallet-create"></a>
+## wallet.create <a href="#wallet-create" id="wallet-create"></a>
 
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
+
 Generates one or more accounts in the wallet with randomly generated key pairs. If wallets already exist, they will not be overridden.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| numberOfAccounts | Number | (optional) The number of accounts to create. Leave empty to create an empty wallet. |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
+| Name             | Type   | Description                                                                                                                                             |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numberOfAccounts | Number | (optional) The number of accounts to create. Leave empty to create an empty wallet.                                                                     |
+| entropy          | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](caver.utils\_1.4.1.md#randomhex). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | Object | The wallet object. |
-
 
 **Example**
 
@@ -2210,34 +2195,30 @@ Wallet {
   '0xC89cDD4258e17471fBaf75283b6A952451Eb7f54': { ... }
 ```
 
-
-## wallet.add <a id="wallet-add"></a>
+## wallet.add <a href="#wallet-add" id="wallet-add"></a>
 
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
 ```
+
 Adds an account using a private key or account object to the wallet.
 
-**NOTE**: If the same address exists inside the wallet, an error is returned. 
-If you want to change the private key associated to an account in the wallet, please use [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey).
-
+**NOTE**: If the same address exists inside the wallet, an error is returned. If you want to change the private key associated to an account in the wallet, please use [caver.klay.accounts.wallet.updatePrivateKey](caver.klay.accounts.md#wallet-updateprivatekey).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| account | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
-| targetAddress | String | A target address which will be used with a given private key. |
+| Name          | Type             | Description                                                                                               |
+| ------------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| account       | String \| Object | A private key or account object created with [caver.klay.accounts.create](caver.klay.accounts.md#create). |
+| targetAddress | String           | A target address which will be used with a given private key.                                             |
 
-**NOTE**: caver-js supports two types of private key formats.
-One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
+**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../../getting-started/klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | Object | The added account. |
-
 
 **Example**
 
@@ -2293,27 +2274,25 @@ One is a raw private key format of a 32-byte string type and the other is the [K
 }
 ```
 
-
-## wallet.getAccount <a id="wallet-getaccount"></a>
+## wallet.getAccount <a href="#wallet-getaccount" id="wallet-getaccount"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getAccount(addressOrIndex)
 ```
-Returns the account corresponding to the address in `caver.klay.accounts.wallet`.
 
+Returns the account corresponding to the address in `caver.klay.accounts.wallet`.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| Name           | Type             | Description                                                                                                             |
+| -------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| addressOrIndex | String \| Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description            |
+| ------ | ---------------------- |
 | Object | The account in wallet. |
-
 
 **Example**
 
@@ -2345,27 +2324,25 @@ Account {
 }
 ```
 
-
-## wallet.remove <a id="wallet-remove"></a>
+## wallet.remove <a href="#wallet-remove" id="wallet-remove"></a>
 
 ```javascript
 caver.klay.accounts.wallet.remove(account)
 ```
+
 Removes an account from the wallet.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| account | String &#124; Number | The account address or the index in the wallet. |
-
+| Name    | Type             | Description                                     |
+| ------- | ---------------- | ----------------------------------------------- |
+| account | String \| Number | The account address or the index in the wallet. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| Boolean | ``true`` if the wallet was removed. ``false`` if it could not be found. |
-
+| Type    | Description                                                         |
+| ------- | ------------------------------------------------------------------- |
+| Boolean | `true` if the wallet was removed. `false` if it could not be found. |
 
 **Example**
 
@@ -2388,12 +2365,12 @@ true
 false
 ```
 
-
-## wallet.clear <a id="wallet-clear"></a>
+## wallet.clear <a href="#wallet-clear" id="wallet-clear"></a>
 
 ```javascript
 caver.klay.accounts.wallet.clear()
 ```
+
 Securely empties the wallet and removes all its accounts.
 
 **Parameters**
@@ -2402,8 +2379,8 @@ None
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | Object | The wallet object. |
 
 **Example**
@@ -2417,27 +2394,25 @@ Wallet {
 }
 ```
 
-
-## wallet.encrypt <a id="wallet-encrypt"></a>
+## wallet.encrypt <a href="#wallet-encrypt" id="wallet-encrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
 ```
+
 Encrypts all wallet accounts and returns an array of encrypted keystore v3 objects.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type   | Description                                    |
+| -------- | ------ | ---------------------------------------------- |
 | password | String | The password that will be used for encryption. |
-
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                        |
+| ----- | ---------------------------------- |
 | Array | The encrypted keystore v3 objects. |
-
 
 **Example**
 
@@ -2485,28 +2460,26 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ]
 ```
 
-
-## wallet.decrypt <a id="wallet-decrypt"></a>
+## wallet.decrypt <a href="#wallet-decrypt" id="wallet-decrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
+
 Decrypts keystore v3 objects.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| keystoreArray | Array | The encrypted keystore v3 objects to decrypt. |
-| password | String | The password that was used for encryption. |
-
+| Name          | Type   | Description                                   |
+| ------------- | ------ | --------------------------------------------- |
+| keystoreArray | Array  | The encrypted keystore v3 objects to decrypt. |
+| password      | String | The password that was used for encryption.    |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | Object | The wallet object. |
-
 
 **Example**
 
@@ -2566,27 +2539,26 @@ Wallet {
 }
 ```
 
-## wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a>
+## wallet.getKlaytnWalletKey <a href="#wallet-getklaytnwalletkey" id="wallet-getklaytnwalletkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
 caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
+
 Return the Klaytn wallet key for the account on the wallet of caver-js.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| indexOrAddress | Number&#124;String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
-
+| Name           | Type           | Description                                                                                                          |
+| -------------- | -------------- | -------------------------------------------------------------------------------------------------------------------- |
+| indexOrAddress | Number\|String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
 | String | KlaytnWalletKey that matches the account. This value allows you to log in to the wallet. |
-
 
 **Example**
 
@@ -2608,32 +2580,30 @@ Return the Klaytn wallet key for the account on the wallet of caver-js.
 Error: Failed to find account
 ```
 
-## wallet.updatePrivateKey <a id="wallet-updateprivatekey"></a>
+## wallet.updatePrivateKey <a href="#wallet-updateprivatekey" id="wallet-updateprivatekey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
+
 Update the account's private key information stored in the wallet.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT\_UPDATE'](caver.klay/sendtx\_account\_update.md#sendtransaction-account\_update) transaction.
 
-**NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. 
-Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey).
+**NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](caver.klay.accounts.md#wallet-updateaccountkey).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type   | Description                             |
+| ---------- | ------ | --------------------------------------- |
 | privateKey | String | New private key to be used for updates. |
-| address | String | The account address in the wallet. |
-
+| address    | String | The account address in the wallet.      |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------- |
 | Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
-
 
 **Example**
 
@@ -2651,33 +2621,32 @@ Account {
 }
 ```
 
-## wallet.updateAccountKey <a id="wallet-updateaccountkey"></a>
+## wallet.updateAccountKey <a href="#wallet-updateaccountkey" id="wallet-updateaccountkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 ```
+
 Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
 
 If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT\_UPDATE'](caver.klay/sendtx\_account\_update.md#sendtransaction-account\_update) transaction.
 
 **NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The account address in the wallet. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
-
+| Name       | Type                      | Description                                                                                                                                                                                                                                        |
+| ---------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | String                    | The account address in the wallet.                                                                                                                                                                                                                 |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------- |
 | Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
-
 
 **Example**
 

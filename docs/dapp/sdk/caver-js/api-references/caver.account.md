@@ -1,107 +1,105 @@
-# caver.account <a id="caver-account"></a>
+# caver.account
 
 `caver.account` is a package that provides functionality related to Account that is used when updating an account.
 
-## Class <a id="class"></a>
+## Class <a href="#class" id="class"></a>
 
-### Account <a id="account"></a>
+### Account <a href="#account" id="account"></a>
 
 ```javascript
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains information needed to update the [AccountKey] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+`Account` is a class that contains information needed to update the [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](caver.account.md#caver-account-create).
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of account to be updated. |
-| accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the Klaytn is changed to this. |
+| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](caver.account.md#accountkeylegacy), [AccountKeyPublic](caver.account.md#accountkeypublic), [AccountKeyFail](caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](caver.account.md#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the Klaytn is changed to this. |
 
-
-### AccountKeyLegacy <a id="accountkeylegacy"></a>
+### AccountKeyLegacy <a href="#accountkeylegacy" id="accountkeylegacy"></a>
 
 ```javascript
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy]. To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
+`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy](../../../../getting-started/klaytn/design/accounts.md#accountkeylegacy). To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](caver.account.md#caver-account-createwithaccountkeylegacy).
 
-
-### AccountKeyPublic <a id="accountkeypublic"></a>
+### AccountKeyPublic <a href="#accountkeypublic" id="accountkeypublic"></a>
 
 ```javascript
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for details.
+`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic](../../../../getting-started/klaytn/design/accounts.md#accountkeypublic). By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for details.
 
-To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
+To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyPublic](caver.account.md#caver-account-createwithaccountkeypublic).
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name      | Type   | Description            |
+| --------- | ------ | ---------------------- |
 | publicKey | string | The public key string. |
 
-### AccountKeyFail <a id="accountkeyfail"></a>
+### AccountKeyFail <a href="#accountkeyfail" id="accountkeyfail"></a>
 
 ```javascript
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail]. To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
+`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail](../../../../getting-started/klaytn/design/accounts.md#accountkeyfail). To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](caver.account.md#caver-account-createwithaccountkeyfail).
 
-### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
+### AccountKeyWeightedMultiSig <a href="#accountkeyweightedmultisig" id="accountkeyweightedmultisig"></a>
 
 ```javascript
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for details.
+`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig](../../../../getting-started/klaytn/design/accounts.md#accountkeyweightedmultisig). By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for details.
 
-To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
+To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](caver.account.md#caver-account-createwithaccountkeyweightedmultisig).
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| threshold | number | The validation threshold. |
-| weightedPublicKeys | Array | The array of [WeightedPublicKey]. |
+| Name               | Type   | Description                                                           |
+| ------------------ | ------ | --------------------------------------------------------------------- |
+| threshold          | number | The validation threshold.                                             |
+| weightedPublicKeys | Array  | The array of [WeightedPublicKey](caver.account.md#weightedpublickey). |
 
-### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
+### AccountKeyRoleBased <a href="#accountkeyrolebased" id="accountkeyrolebased"></a>
 
 ```javascript
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for more details.
+`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased](../../../../getting-started/klaytn/design/accounts.md#accountkeyrolebased). By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey](../../../../getting-started/klaytn/design/accounts.md#account-key) for more details.
 
-To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
+To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](caver.account.md#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](caver.account.md#caver-account-createwithaccountkeyrolebased).
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| accountKeyArray | Array | The array defining accountKey to be used for each [role]. Each role can be defined with [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), or [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
+| Name            | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKeyArray | Array | The array defining accountKey to be used for each [role](../../../../getting-started/klaytn/design/accounts.md#roles). Each role can be defined with [AccountKeyLegacy](caver.account.md#accountkeylegacy), [AccountKeyPublic](caver.account.md#accountkeypublic), [AccountKeyFail](caver.account.md#accountkeyfail), or [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig). |
 
-### WeightedPublicKey <a id="weightedpublickey"></a>
+### WeightedPublicKey <a href="#weightedpublickey" id="weightedpublickey"></a>
 
 ```javascript
 const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight, publicKey)
 ```
 
-`WeightedPublicKey` contains a public key and its weight. `WeightedPublicKey` is a class that contains the public key and the weight of the key, and it is used in [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig).
+`WeightedPublicKey` contains a public key and its weight. `WeightedPublicKey` is a class that contains the public key and the weight of the key, and it is used in [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig).
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| weight | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig] object. |
-| publicKey | string | The public key string. |
+| Name      | Type   | Description                                                                                                                                                                                                                                              |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig](../../../../getting-started/klaytn/design/accounts.md#accountkeyweightedmultisig) object. |
+| publicKey | string | The public key string.                                                                                                                                                                                                                                   |
 
-### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
+### WeightedMultiSigOptions <a href="#weightedmultisigoptions" id="weightedmultisigoptions"></a>
 
 ```javascript
 const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(threshold, weights)
@@ -111,36 +109,34 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| threshold | number | The validation threshold. |
-| weights | Array | An array of weights of keys. |
+| Name      | Type   | Description                  |
+| --------- | ------ | ---------------------------- |
+| threshold | number | The validation threshold.    |
+| weights   | Array  | An array of weights of keys. |
 
-
-## caver.account.create <a id="caver-account-create"></a>
+## caver.account.create <a href="#caver-account-create" id="caver-account-create"></a>
 
 ```javascript
 caver.account.create(address, accountKey [, options])
 ```
 
-Generates an Account instance with an address and an accountKey. 
+Generates an Account instance with an address and an accountKey.
 
-If accountKey is a public key string, an Account instance with [AccountKeyPublic](#accountkeypublic) as accountKey is created. If accountKey is an array containing public key strings, an Account instance with [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) as accountKey is created. If options are not defined as the last parameter, it is created using a default option with a threshold of 1 and a weight of 1 for each key. If accountKey is an array containing accountKeys that are used for each role, an Account instance with [AccountKeyRoleBased](#accountkeyrolebased) is created. Options must be defined for each role with [WeightedMultiSigOptions]. If options are not defined, the default option is used for roles that use multiple public keys. Please refer to the example below for how to use it.
+If accountKey is a public key string, an Account instance with [AccountKeyPublic](caver.account.md#accountkeypublic) as accountKey is created. If accountKey is an array containing public key strings, an Account instance with [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig) as accountKey is created. If options are not defined as the last parameter, it is created using a default option with a threshold of 1 and a weight of 1 for each key. If accountKey is an array containing accountKeys that are used for each role, an Account instance with [AccountKeyRoleBased](caver.account.md#accountkeyrolebased) is created. Options must be defined for each role with [WeightedMultiSigOptions](caver.account.md#weightedmultisigoptions). If options are not defined, the default option is used for roles that use multiple public keys. Please refer to the example below for how to use it.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of account to be updated. |
-| accountKey | string &#124; Array | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options | [WeightedMultiSigOptions] &#124; Array | (optional) Options for AccountKeyWeigthedMultiSig. |
-
+| Name       | Type                                                                         | Description                                                                                                                             |
+| ---------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string                                                                       | The address of account to be updated.                                                                                                   |
+| accountKey | string \| Array                                                              | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
+| options    | [WeightedMultiSigOptions](caver.account.md#weightedmultisigoptions) \| Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -249,7 +245,7 @@ Account {
 }
 ```
 
-## caver.account.createFromRLPEncoding <a id="caver-account-createfromrlpencoding"></a>
+## caver.account.createFromRLPEncoding <a href="#caver-account-createfromrlpencoding" id="caver-account-createfromrlpencoding"></a>
 
 ```javascript
 caver.account.createFromRLPEncoding(address, rlpEncodedKey)
@@ -259,17 +255,16 @@ Creates an Account instance from RLP-encoded AccountKey.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of an account to be updated. |
-| rlpEncodedKey | string | The RLP-encoded string of AccountKey. |
-
+| Name          | Type   | Description                              |
+| ------------- | ------ | ---------------------------------------- |
+| address       | string | The address of an account to be updated. |
+| rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -288,7 +283,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyLegacy <a id="caver-account-createwithaccountkeylegacy"></a>
+## caver.account.createWithAccountKeyLegacy <a href="#caver-account-createwithaccountkeylegacy" id="caver-account-createwithaccountkeylegacy"></a>
 
 ```javascript
 caver.account.createWithAccountKeyLegacy(address)
@@ -298,16 +293,15 @@ Creates an Account instance which has AccountKeyLegacy as an accountKey.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description                              |
+| ------- | ------ | ---------------------------------------- |
 | address | string | The address of an account to be updated. |
-
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -319,7 +313,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyPublic <a id="caver-account-createwithaccountkeypublic"></a>
+## caver.account.createWithAccountKeyPublic <a href="#caver-account-createwithaccountkeypublic" id="caver-account-createwithaccountkeypublic"></a>
 
 ```javascript
 caver.account.createWithAccountKeyPublic(address, publicKey)
@@ -329,17 +323,16 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of an account to be updated. |
-| publicKey | string | The public key string. |
-
+| Name      | Type   | Description                              |
+| --------- | ------ | ---------------------------------------- |
+| address   | string | The address of an account to be updated. |
+| publicKey | string | The public key string.                   |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -351,7 +344,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyFail <a id="caver-account-createwithaccountkeyfail"></a>
+## caver.account.createWithAccountKeyFail <a href="#caver-account-createwithaccountkeyfail" id="caver-account-createwithaccountkeyfail"></a>
 
 ```javascript
 caver.account.createWithAccountKeyFail(address)
@@ -361,16 +354,15 @@ Creates an Account instance which has AccountKeyFail as an accountKey.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description                              |
+| ------- | ------ | ---------------------------------------- |
 | address | string | The address of an account to be updated. |
-
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -382,7 +374,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyWeightedMultiSig <a id="caver-account-createwithaccountkeyweightedmultisig"></a>
+## caver.account.createWithAccountKeyWeightedMultiSig <a href="#caver-account-createwithaccountkeyweightedmultisig" id="caver-account-createwithaccountkeyweightedmultisig"></a>
 
 ```javascript
 caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, options])
@@ -392,18 +384,17 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of an account to be updated. |
-| publicKeyArray | Array | The array that includes multiple public key strings. |
-| options | [WeightedMultiSigOptions] | (optional) The [WeightedMultiSigOptions] instance that defines threshold and weight array. |
-
+| Name           | Type                                                                | Description                                                                                                                          |
+| -------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| address        | string                                                              | The address of an account to be updated.                                                                                             |
+| publicKeyArray | Array                                                               | The array that includes multiple public key strings.                                                                                 |
+| options        | [WeightedMultiSigOptions](caver.account.md#weightedmultisigoptions) | (optional) The [WeightedMultiSigOptions](caver.account.md#weightedmultisigoptions) instance that defines threshold and weight array. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -438,7 +429,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyRoleBased <a id="caver-account-createwithaccountkeyrolebased"></a>
+## caver.account.createWithAccountKeyRoleBased <a href="#caver-account-createwithaccountkeyrolebased" id="caver-account-createwithaccountkeyrolebased"></a>
 
 ```javascript
 caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [, options])
@@ -448,18 +439,17 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of an account to be updated. |
-| roledBasedPublicKeyArray | Array | A two-dimensional array containing arrays of public key strings for each role. |
-| options | Array | (optional) An array that contains [WeightedMultiSigOptions] instances for each role. |
-
+| Name                     | Type   | Description                                                                                                                    |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| address                  | string | The address of an account to be updated.                                                                                       |
+| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role.                                                 |
+| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions](caver.account.md#weightedmultisigoptions) instances for each role. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | The account instance is returned. |
+| Type                                | Description                       |
+| ----------------------------------- | --------------------------------- |
+| [Account](caver.account.md#account) | The account instance is returned. |
 
 **Example**
 
@@ -532,26 +522,25 @@ Account {
 }
 ```
 
-## caver.account.accountKey.decode <a id="caver-account-accountkey-decode"></a>
+## caver.account.accountKey.decode <a href="#caver-account-accountkey-decode" id="caver-account-accountkey-decode"></a>
 
 ```javascript
 caver.account.accountKey.decode(rlpEncodedAccountKey)
 ```
 
-Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased) instance.
+Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](caver.account.md#accountkeylegacy), [AccountKeyPublic](caver.account.md#accountkeypublic), [AccountKeyFail](caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](caver.account.md#accountkeyrolebased) instance.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name                 | Type   | Description                          |
+| -------------------- | ------ | ------------------------------------ |
 | rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
-
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
+| Type                                                                                                                                                                                                                                                                                                            | Description                          |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| [AccountKeyLegacy](caver.account.md#accountkeylegacy) \| [AccountKeyPublic](caver.account.md#accountkeypublic) \| [AccountKeyFail](caver.account.md#accountkeyfail) \| [AccountKeyWeightedMultiSig](caver.account.md#accountkeyweightedmultisig) \| [AccountKeyRoleBased](caver.account.md#accountkeyrolebased) | The AccountKey instance is returned. |
 
 **Example**
 
@@ -560,7 +549,7 @@ Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#a
 AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9' }
 ```
 
-## account.getRLPEncodingAccountKey <a id="account-getrlpencodingaccountkey"></a>
+## account.getRLPEncodingAccountKey <a href="#account-getrlpencodingaccountkey" id="account-getrlpencodingaccountkey"></a>
 
 ```javascript
 account.getRLPEncodingAccountKey()
@@ -568,11 +557,10 @@ account.getRLPEncodingAccountKey()
 
 Return RLP-encoded string of AccountKey.
 
-
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
 | string | A RLP-encoded string of AccountKey . |
 
 **Example**
@@ -582,14 +570,3 @@ Return RLP-encoded string of AccountKey.
 > account.getRLPEncodingAccountKey()
 '0x02a102d851040f46d61a042a787cca34ad12bc43e51f01ad0b22270cfc25c15c4b4e22'
 ```
-
-[AccountKey]: ../../../../klaytn/design/accounts.md#account-key
-[AccountKeyLegacy]: ../../../../klaytn/design/accounts.md#accountkeylegacy
-[AccountKeyPublic]: ../../../../klaytn/design/accounts.md#accountkeypublic
-[AccountKeyFail]: ../../../../klaytn/design/accounts.md#accountkeyfail
-[AccountKeyWeightedMultiSig]: ../../../../klaytn/design/accounts.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../../../../klaytn/design/accounts.md#accountkeyrolebased
-[WeightedPublicKey]: #weightedpublickey
-[WeightedMultiSigOptions]: #weightedmultisigoptions
-[Account]: #account
-[role]: ../../../../klaytn/design/accounts.md#roles
