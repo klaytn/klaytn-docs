@@ -2,6 +2,8 @@
 description: >-
   Try and get familiar with Klaytn. This chapter is the starting point of your
   journey to Klaytn dApps.
+cover: ../.gitbook/assets/IMG_2404.JPG
+coverY: -19.64167219641672
 ---
 
 # Getting Started
