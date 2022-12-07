@@ -1,3 +1,9 @@
+---
+cover: >-
+  https://images.unsplash.com/photo-1667835949430-a2516cc93d27?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAzOTM3MDY&ixlib=rb-4.0.3&q=80
+coverY: 0
+---
+
 # Klaytn Basics
 
 Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability. Key design goals are;
