@@ -23,8 +23,8 @@ NOTE: This document is written based on the latest EVM which have been used sinc
 If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 
 `Kore` hardfork block number is as follows.
-* Baobab Testnet: `will be updated`
-* Cypress Mainnet: `will be updated`
+* Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)
+* Cypress Mainnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L49)
 {% endhint %}
 
 | Opcode | ComputationCost |

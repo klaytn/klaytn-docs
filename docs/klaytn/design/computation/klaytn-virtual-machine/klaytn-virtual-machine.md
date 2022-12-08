@@ -5,8 +5,8 @@ NOTE: This document is written based on the latest EVM which have been used sinc
 If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
 
 `Kore` hardfork block number is as follows.
-* Baobab Testnet: `will be updated`
-* Cypress Mainnet: `will be updated`
+* Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)
+* Cypress Mainnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L49)
 {% endhint %}
 
 ## Overview <a id="overview"></a>
@@ -26,6 +26,7 @@ We use the following notations and conventions in this document.
 * `A := B`
   * `:=` is used to define `A` as `B`.
 * We use the terms "smart contract" and "contract" interchangeably.
+* We use the terms "opcode" as the "operation code/operation"
 
 ### Symbols <a id="symbols"></a>
 
@@ -106,22 +107,19 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 ##### Scalar values representing `constantGas` of an opcode
 | Name | Value | Name in code | Opcodes |
 | :--- | ---: | ---: | :--- |
-| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID(added at istanbul Hardfork)`, `BASEFEE(added at london Hardfork) |
-| `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
-| `G_low` | 5 | GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE(added at istanbul hardfork)` |
+| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br>  `PREVRANDAO(originally it was difficulty)`, `GASLIMIT`, </br>`RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, </br> `CHAINID(added at istanbul hardfork)`, </br> `BASEFEE(added at london Hardfork)` |
+| `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, </br> `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, </br> `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
+| `G_low` | 5 | GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, </br> `SELFBALANCE(added at istanbul hardfork)` |
 | `G_mid` | 8 | GasMidStep | `ADDMOD`, `MULMOD`, `JUMP` |
 | `G_high` | 10 | GasSlowStep | `JUMPI` |
+| `G_selfdestruct` | 5000 | SelfdestructGas | `SELFDESTRUCT` |
+| `G_warmStorageReadCost` </br> | 100 | WarmStorageReadCostEIP2929 </br> (newly added at Kore hardfork) | `EXTCODECOPY`, `EXTCODESIZE`, `EXTCODEHASH`, `BALANCE`, </br> `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL` |
 | `G_blockhash` | 20 | GasExtStep | `BLOCKHASH` |
-| `G_extcodesize` | 700 | ExtcodeSizeGas | `EXTCODESIZE` |
-| `G_balance` | 700 | BalanceGasEIP1884 | `BALANCE` |
-| `G_sload` | 800 | SloadGasEIP1884 | `SLOAD` |
 | `G_jumpdest` | 1 | JumpdestGas | `JUMPDEST` |
 | `G_sha3` | 30 | Sha3Gas | `SHA3` |
-| `G_call` | 700 | CallGas | `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL` |
 | `G_create` | 32000 | CreateGas | `CREATE`, `CREATE2` |
-| `G_extcodehash` | 700 | ExtcodeHashGasEIP1884 | `extcodehash` |
 
-##### Scalar values used to calculate the gas based on memory usage
+##### Scalar values used to calculate the gas based on memory and log usage
 | Name | Value | Name in Code | Description |
 | :--- | ---: | ---: | :--- |
 | `G_memory` | 3 | MemoryGas | Amount of gas paid for every additional word when expanding memory |
@@ -135,11 +133,11 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | :--- | ---: | --- | :--- |
 | `G_sset` | 20000 | SstoreSetGas | Amount of gas paid when the storage value when set storage | 
 | `G_sreset` | 5000 | SstoreResetGas | Amount of gas paid when the storage value remains unchanged at zero or is set to zero | 
-| `R_sclear` | 15000 | SstoreRefundGas | Refund Gas given \(added to the refund counter\) when the storage value is set to zero from nonzero |
+| `G_coldSloadCost` | 2100 | ColdSloadCostEIP2929 | Amount of gas paid when the storage value is not in accessList |
+| `R_sclear` | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)` |
 | `G_exp` | 10 | ExpGas | Partial payment |
 | `G_expbyte` | 50 | ExpByte | Partial payment when multiplied by `ceil(log_256(exponent))` |
 | `G_selfdestruct` | 5000 | SelfdestructGas | Amount of gas paid for a `SELFDESTRUCT` operation |
-| `R_selfdestruct` | 24000 | SelfdestructRefundGas | Refund Gas given \(added to the refund counter\) for self-destructing an account |
 | `G_callvalue` | 9000 | CallValueTransferGas | Amount of gas paid for a nonzero value transfer |
 | `G_callstipend` | 2300 | CallStipend | Free gas given at beginning of call for a nonzero value transfer |
 | `G_newaccount` | 25000 | CallNewAccountGas | Amount of gas paid when creating an account. It is also be defined as `CreateBySelfdestructGas` with `SELFDESTRUCT` operation. |
@@ -174,8 +172,8 @@ Gas = number of signatures * ValidateSenderGas
 | 0xFE | feePayer | FeePayerGas | 300 |
 | 0xFF | validateSender | ValidateSenderGas | 5000 |
 
-#### Gas cost during contract execution <a id="gas-cost-during-contract-execution"></a>
-The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
+#### Gas calculation during contract execution <a id="gas-calculation-during-contract-execution"></a>
+The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method. 
 
 Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
 
@@ -186,27 +184,36 @@ Here, I will briefly explain the gas calculation logic during contract execution
   * For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
   * For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
   * For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
-  * For `EXTCODECOPY`, add `wordSize(stack.back(3)) x G_copy` to gas
+  * For `EXTCODECOPY`, 
+    * add `wordSize(stack.back(3)) x G_copy` to gas
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
+  * For `EXTCODESIZE` or `EXTCODEHASH` or `BALANCE`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
   * For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
   * For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
   * For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit` to gas
   * For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit` to gas
   * For `SSTORE`,
-    * If current value equals new value (no-op), add `G_sload` to gas
-    * If it creates new slot, add `SstoreSetGasEIP2200` to gas
-    * If it deletes existing slot, add `SstoreResetGasEIP2200` to gas and add `SstoreClearsScheduleRefundEIP2200` to refund
-    * If it rewrites existing slot, add `SstoreResetGasEIP2200` to gas
-    * If it recreates the slot once exists before, add `SstoreResetGasEIP2200` to gas and subtract `SstoreClearsScheduleRefundEIP2200` from refund
-    * If it deletes existing slot, but which was not exist when tx starts, add `SstoreResetGasEIP2200` to gas and add `params.SstoreSetGasEIP2200 - params.SloadGasEIP2200` to refund
-    * IF it rewrites existing slot with the original value when tx starts, add `SstoreResetGasEIP2200` to gas and add `params.SstoreResetGasEIP2200 - params.SloadGasEIP2200` to refund
+    * [**_eip2929_**]  If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * If it just reads the slot (no-op), add `G_warmStorageReadCost` to gas
+    * If it creates a new slot, add `G_sset` to gas
+    * If it deletes the slot, add `G_sreset-G_coldSloadCost` to gas and add `R_sclear` to refund
+    * If it recreates the slot once exists before, add `G_warmStorageReadCost` to gas and subtract `R_sclear` from refund
+    * If it deletes the slot once exists before, add `R_sclear` to refund
+    * If it resets to the original inexistent slot, add `G_warmStorageReadCost` to gas and add `G_sset - G_warmStorageReadCost` to refund
+    * IF it resets to the original existing slot, add `G_warmStorageReadCost` to gas and add `G_sreset - G_coldSloadCost - G_warmStorageReadCost` to refund
+  * For `SLOAD`,
+    * [**_eip2929_**] If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * [**_eip2929_**] If a slot(contractAddr, slot) is in AccessList, add `G_warmStorageReadCost` to gas
   * For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
     * if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
     * if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
     * if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
     * add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
   * For `SELFDESTRUCT`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
     * if it transfers value and if is a new account, add `G_newaccount` to gas
-    * if the contract has not suicided yet, add `R_selfdestruct` to refund
 
 ### Execution Environment <a id="execution-environment"></a>
 

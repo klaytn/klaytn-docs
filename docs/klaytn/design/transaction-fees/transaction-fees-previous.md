@@ -5,7 +5,7 @@ NOTE: This document is written based on the initial EVM used before the activati
 If you want the latest document, please refer to [latest document](transaction-fees.md).
 {% endhint %}
 
-The transaction fee of one transaction is computed as follows:
+The transaction fee of one transaction is calculated as follows:
 ```text
 Transaction fee := (Gas used) x (GasPrice)
 ```
@@ -45,7 +45,7 @@ Every action that changes the state of the blockchain requires gas. When a node 
 `Gas used` is computed by adding up the next three gas costs;
 * `IntrinsicGasCost` is calculated based on the transaction type. I will explain it here.
 * `KeyValidationGasCost` is calculated based on the account type. I will explain it here.
-* `ContractExecutionGasCost` is calculated during the contract execution based on KLVM. For more information, please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine.md).
+* `ContractExecutionGasCost` is calculated during the contract execution based on KLVM. For more information, please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine-previous.md).
 
 ### Intrinsic Gas Cost <a id="intrinsic-gas-cost"></a>
 

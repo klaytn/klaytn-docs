@@ -4,13 +4,13 @@ NOTE: This document is written based on the latest EVM which have been used sinc
 If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
 `Kore` hardfork block number is as follows.
-* Baobab Testnet: `will be updated`
-* Cypress Mainnet: `will be updated`
+* Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)
+* Cypress Mainnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L49)
 {% endhint %}
 
 The transaction fee of one transaction is calculated as follows:
 ```text
-(Transaction Fee) := GasUsed * GasPrice
+Transaction fee := (Gas used) x (GasPrice)
 ```
 As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
@@ -61,9 +61,9 @@ Every action that changes the state of the blockchain requires gas. When a node 
 `Gas used` is computed by adding up the next three gas costs;
 * `IntrinsicGasCost` is calculated based on the transaction type. I will explain it here.
 * `KeyValidationGasCost` is calculated based on the account type. I will explain it here.
-* `ContractExecutionGasCost` is calculated during the contract execution based on KLVM. For more information, please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine-previous.md).
+* `ContractExecutionGasCost` is calculated during the contract execution based on KLVM. For more information, please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine.md).
 
-### Intrinsic Gas Cost  <a id="intrinsic-gas-cost"></a>
+### Intrinsic Gas Cost <a id="intrinsic-gas-cost"></a>
 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas cost calcuation is pretty similar with that of Ethereum. However, due to the unique features, there are several new gas costs for those features.
 

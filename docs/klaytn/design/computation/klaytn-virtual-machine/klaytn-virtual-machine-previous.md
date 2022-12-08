@@ -89,7 +89,7 @@ The machine can execute exception code for several reasons, including stack unde
 ### Fees Overview <a id="fees-overview"></a>
 
 Fees \(denominated in gas\) are charged under three distinct circumstances. Sometimes, some policies may be omitted.
-* The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation. 
+* The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
 * Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
 * Finally, gas may be charged due to an increase in memory usage.
 
@@ -103,8 +103,8 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 ##### Scalar values representing `constantGas` of an opcode
 | Name | Value | Name in code | Opcodes |
 | :--- | ---: | ---: | :--- |
-| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS` |
-| `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
+| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br> `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS` |
+| `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, </br> `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, </br> `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
 | `G_low` | 5 | GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND` |
 | `G_mid` | 8 | GasMidStep | `ADDMOD`, `MULMOD`, `JUMP` |
 | `G_high` | 10 | GasSlowStep | `JUMPI` |
@@ -118,7 +118,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_extcodesize` | 700 | ExtcodeSizeGas | `EXTCODESIZE` |
 | `G_extcodehash` | 400 | ExtcodeHashGas | `EXTCODEHASH` |
 
-##### Scalar values used to calculate the gas based on memory usage
+##### Scalar values used to calculate the gas based on memory and log usage
 | Name | Value | Name in Code | Description |
 | :--- | ---: | ---: | :--- |
 | `G_memory` | 3 | MemoryGas | Amount of gas paid for every additional word when expanding memory |
