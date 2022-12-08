@@ -1,5 +1,14 @@
 # Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
 
+{% hint style="success" %}
+NOTE: This document is written based on the latest EVM which have been used since the `Kore` hardfork.
+If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+
+`Kore` hardfork block number is as follows.
+* Baobab Testnet: `will be updated`
+* Cypress Mainnet: `will be updated`
+{% endhint %}
+
 ## Overview <a id="overview"></a>
 
 The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
@@ -82,148 +91,122 @@ The machine can execute exception code for several reasons, including stack unde
 
 ### Fees Overview <a id="fees-overview"></a>
 
-Fees \(denominated in gas\) are charged under three distinct circumstances, all three are prerequisite to operation execution. The first and most common is the fee intrinsic to the computation of the operation. Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`. Finally, gas may be charged due to an increase in memory usage.
+Fees \(denominated in gas\) are charged under three distinct circumstances. Sometimes, some policies may be omitted.
+* The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
+* Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
+* Finally, gas may be charged due to an increase in memory usage.
 
 Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
 
 Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
 #### Fee Schedule <a id="fee-schedule"></a>
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes. For other tables such as `intrinsic gas cost` or `key validation gas cost`, please refer to [this document](./../../transaction-fees/transaction-fees.md)
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
+##### Scalar values representing `constantGas` of an opcode
+| Name | Value | Name in code | Opcodes |
+| :--- | ---: | ---: | :--- |
+| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID(added at istanbul Hardfork)`, `BASEFEE(added at london Hardfork) |
+| `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
+| `G_low` | 5 | GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE(added at istanbul hardfork)` |
+| `G_mid` | 8 | GasMidStep | `ADDMOD`, `MULMOD`, `JUMP` |
+| `G_high` | 10 | GasSlowStep | `JUMPI` |
+| `G_blockhash` | 20 | GasExtStep | `BLOCKHASH` |
+| `G_extcodesize` | 700 | ExtcodeSizeGas | `EXTCODESIZE` |
+| `G_balance` | 700 | BalanceGasEIP1884 | `BALANCE` |
+| `G_sload` | 800 | SloadGasEIP1884 | `SLOAD` |
+| `G_jumpdest` | 1 | JumpdestGas | `JUMPDEST` |
+| `G_sha3` | 30 | Sha3Gas | `SHA3` |
+| `G_call` | 700 | CallGas | `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL` |
+| `G_create` | 32000 | CreateGas | `CREATE`, `CREATE2` |
+| `G_extcodehash` | 700 | ExtcodeHashGasEIP1884 | `extcodehash` |
 
-{% hint style="success" %}
-NOTE: Fee has been changed after `IstanbulEVM` protocol upgrade, or the "hard fork".
-If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+##### Scalar values used to calculate the gas based on memory usage
+| Name | Value | Name in Code | Description |
+| :--- | ---: | ---: | :--- |
+| `G_memory` | 3 | MemoryGas | Amount of gas paid for every additional word when expanding memory |
+| `G_copy` | 3 | CopyGas | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
+| `G_log` | 375 | LogGas | Partial payment for a `LOG` operation |
+| `G_logdata` | 8 | LogDataGas | Amount of gas paid for each byte in a `LOG` operation's data |
+| `G_logtopic` | 375 | LogTopicGas | Amount of gas paid for each topic of a `LOG` operation |
 
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
-{% endhint %}
+##### Scalar values used to calculate the gas of the particular opcode
+| Name | Value | Name in Code | Description |
+| :--- | ---: | --- | :--- |
+| `G_sset` | 20000 | SstoreSetGas | Amount of gas paid when the storage value when set storage | 
+| `G_sreset` | 5000 | SstoreResetGas | Amount of gas paid when the storage value remains unchanged at zero or is set to zero | 
+| `R_sclear` | 15000 | SstoreRefundGas | Refund Gas given \(added to the refund counter\) when the storage value is set to zero from nonzero |
+| `G_exp` | 10 | ExpGas | Partial payment |
+| `G_expbyte` | 50 | ExpByte | Partial payment when multiplied by `ceil(log_256(exponent))` |
+| `G_selfdestruct` | 5000 | SelfdestructGas | Amount of gas paid for a `SELFDESTRUCT` operation |
+| `R_selfdestruct` | 24000 | SelfdestructRefundGas | Refund Gas given \(added to the refund counter\) for self-destructing an account |
+| `G_callvalue` | 9000 | CallValueTransferGas | Amount of gas paid for a nonzero value transfer |
+| `G_callstipend` | 2300 | CallStipend | Free gas given at beginning of call for a nonzero value transfer |
+| `G_newaccount` | 25000 | CallNewAccountGas | Amount of gas paid when creating an account. It is also be defined as `CreateBySelfdestructGas` with `SELFDESTRUCT` operation. |
+| `G_codedeposit` | 200 | CreateDataGas | Amount of gas paid per byte for a creating a contract that succeeds in placing code into state |
+| `G_sha3word` | 6 | Sha3WordGas | Amount of gas paid for each word \(rounded up\) for an `SHA3` input data |
 
-| Name | Value | Description |
-| :--- | ---: | :--- |
-| `G_zero` | 0 | Nothing paid for operations of the set `W_zero` |
-| `G_base` | 2 | Amount of gas paid for operations of the set `W_base` |
-| `G_verylow` | 3 | Amount of gas paid for operations of the set `W_verylow` |
-| `G_low` | 5 | Amount of gas paid for operations of the set `W_low` |
-| `G_mid` | 8 | Amount of gas paid for operations of the set `W_mid` |
-| `G_high` | 10 | Amount of gas paid for operations of the set `W_high` |
-| `G_blockhash` | 20 | Payment for a `BLOCKHASH` operation |
-| `G_extcode` | 700 | Amount of gas paid for operations of the set `W_extcode` |
-| `G_balance` | 700 | Amount of gas paid for a `BALANCE` operation |
-| `G_sload` | 800 | Amount of gas paid for an `SLOAD` operation |
-| `G_jumpdest` | 1 | Amount of gas paid for a `JUMPDEST` operation |
-| `G_sset` | 20000 | Amount of gas paid for an `SSTORE` operation when the storage value is set to nonzero from zero |
-| `G_sreset` | 5000 | Amount of gas paid for an `SSTORE` operation when the storage value remains unchanged at zero or is set to zero |
-| `R_sclear` | 15000 | Refund given \(added to the refund counter\) when the storage value is set to zero from nonzero |
-| `R_selfdestruct` | 24000 | Refund given \(added to the refund counter\) for self-destructing an account |
-| `G_selfdestruct` | 5000 | Amount of gas paid for a `SELFDESTRUCT` operation |
-| `G_create` | 32000 | Amount of gas paid for a `CREATE` operation |
-| `G_codedeposit` | 200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state |
-| `G_call` | 700 | Amount of gas paid for a `CALL` operation |
-| `G_callvalue` | 9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation |
-| `G_callstipend` | 2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer |
-| `G_newaccount` | 25000 | Amount of gas paid for a `CALL` or `SELFDESTRUCT` operation that creates an account |
-| `G_exp` | 10 | Partial payment for an `EXP` operation |
-| `G_expbyte` | 50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation |
-| `G_memory` | 3 | Amount of gas paid for every additional word when expanding memory |
-| `G_txcreate` | 32000 | Amount of gas paid by all contract-creating transactions |
-| `G_txdatazero` | 4 | Amount of gas paid for every zero byte of data or code for a transaction |
-| `G_txdatanonzero` | 68 | Amount of gas paid for every nonzero byte of data or code for a transaction |
-| `G_transaction` | 21000 | Amount of gas paid for every transaction |
-| `G_log` | 375 | Partial payment for a `LOG` operation |
-| `G_logdata` | 8 | Amount of gas paid for each byte in a `LOG` operation's data |
-| `G_logtopic` | 375 | Amount of gas paid for each topic of a `LOG` operation |
-| `G_sha3` | 30 | Amount of gas paid for each `SHA3` operation |
-| `G_sha3word` | 6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation |
-| `G_copy` | 3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
-| `G_extcodehash` | 700 | Paid for getting `keccak256` hash of a contract's code |
-| `G_create2` | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguments |
+##### Items to calculate the precompiled contracts gas
+Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
-We define the following subsets of instructions:
+For example, gas cost can be calculated simply like below, but some gas cost calculation functions are very complex. So I would not explain the exact gas cost calculation function here.
 
-* `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`, `BASEFEE`}
-* `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
-* `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE`}
-* `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}
-* `W_high` = {`JUMPI`}
-* `W_extcode` = {`EXTCODESIZE`}
+```text
+# ecrecover, sha256hash, ripemd160hash, dataCopy
+Gas = XXXBaseGas + (number of words * XXXPerWordGas)
 
-#### Gas Cost <a id="gas-cost"></a>
+# validateSender
+Gas = number of signatures * ValidateSenderGas
+```
 
-The general gas cost function, `C`, is defined as follows:
+| Address | Precompiled contracts | Item | Value |
+| :--- | :--- | :--- | :--- |
+| 0x01 | ecrecover | EcrecoverGas | 3000 |
+| 0x02 | sha256hash | Sha256BaseGas, Sha256PerWordGas | 60, 12 |
+| 0x03 | ripemd160hash | Ripemd160BaseGas, Ripemd160PerWordGas | 600, 120 |
+| 0x04 | dataCopy | IdentityBaseGas, IdentityPerWordGas | 15, 3 |
+| 0x05 | bigModExp | ModExpQuadCoeffDiv | 20 | ​ |
+| 0x06 | bn256Add | Bn256AddGas | 150 | 
+| 0x07 | bn256ScalarMul | Bn256ScalarMulGas | 6000 |
+| 0x08 | bn256Pairing | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |
+| 0x09 | blake2f | - | - |
+| 0xFD | vmLog | VMLogBaseGas, VMLogPerByteGas | 100, 20 |
+| 0xFE | feePayer | FeePayerGas | 300 |
+| 0xFF | validateSender | ValidateSenderGas | 5000 |
 
-`C(S_system, S_machine, I) := C_mem(S_machine,i') - C_mem(S_machine, i) +`
+#### Gas cost during contract execution <a id="gas-cost-during-contract-execution"></a>
+The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
 
-* `C_SSTORE(S_system, S_machine)`, if `w == SSTORE`
-* `G_exp`, if `(w == EXP) && (S_machine[1] == 0)`
-* `G_exp + G_expbyte x (1 + floor(log_256(S_machine,sp[1])))`,
+Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
 
-  if `(w == EXP) && (S_machine,sp[1] > 0)`
-
-* `G_verylow + G_copy x ceil(S_machine,sp[2] / 32)`,
-
-  if `w == CALLDATACOPY || CODECOPY || RETURNDATACOPY`
-
-* `G_extcode + G_copy x ceil(S_machine,sp[3] / 32)`,
-
-  if `w == EXTCODECOPY`
-
-* `G_log + G_logdata x S_machine,sp[1]`,
-
-  if `w == LOG0`
-
-* `G_log + G_logdata x S_machine,sp[1] + G_logtopic`,
-
-  if `w == LOG1`
-
-* `G_log + G_logdata x S_machine,sp[1] + 2 x G_logtopic`,
-
-  if `w == LOG2`
-
-* `G_log + G_logdata x S_machine,sp[1] + 3 x G_logtopic`,
-
-  if `w == LOG3`
-
-* `G_log + G_logdata x S_machine,sp[1] + 4 x G_logtopic`,
-
-  if `w == LOG4`
-
-* `C_CALL(S_system, S_machine)`,
-
-  if `w == CALL || CALLCODE || DELEGATECALL`
-
-* `C_SELFDESTRUCT(S_system, S_machine)`,
-
-  if `w == SELFDESTRUCT`
-
-* `G_create`, if `w == CREATE`
-* `G_sha3 + G_sha3word x ceil(s[1] / 32)`,
-
-  if `w == SHA3`
-
-* `G_jumpdest`, if `w == JUMPDEST`
-* `G_sload`, if `w == SLOAD`
-* `G_zero`, if `w` in `W_zero`
-* `G_base`, if `w` in `W_base`
-* `G_verylow`, if `w` in `W_verylow`
-* `G_low`, if `w` in `W_low`
-* `G_mid`, if `w` in `W_mid`
-* `G__high</sub>`, if `w` in `W_high`
-* `G_extcode`, if `w` in `W_extcode`
-* `G_balance`, if `w == BALANCE`
-* `G_blockhash`, if `w == BLOCKHASH`
-* where `w` is
-  * `T_code[S_machine,pc]`,
-
-    if `S_machine,pc < length(T_code)`
-
-  * `STOP`, otherwise
-* where `C_mem(a) := G_memory x a + floor(a^2 / 512)`
-
-with `C_CALL`, `C_SELFDESTRUCT` and `C_SSTORE` which will be described in the future.
+* add `constantGas` defined in each opcode to gas
+  * e.g. if an opcode is `MUL`, add `G_low` to gas
+  * e.g. if an opcode is `CREATE2`, add `G_create` to gas
+* add the gas which is calculated through additionally defined gas calculation method
+  * For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
+  * For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
+  * For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
+  * For `EXTCODECOPY`, add `wordSize(stack.back(3)) x G_copy` to gas
+  * For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
+  * For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
+  * For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit` to gas
+  * For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit` to gas
+  * For `SSTORE`,
+    * If current value equals new value (no-op), add `G_sload` to gas
+    * If it creates new slot, add `SstoreSetGasEIP2200` to gas
+    * If it deletes existing slot, add `SstoreResetGasEIP2200` to gas and add `SstoreClearsScheduleRefundEIP2200` to refund
+    * If it rewrites existing slot, add `SstoreResetGasEIP2200` to gas
+    * If it recreates the slot once exists before, add `SstoreResetGasEIP2200` to gas and subtract `SstoreClearsScheduleRefundEIP2200` from refund
+    * If it deletes existing slot, but which was not exist when tx starts, add `SstoreResetGasEIP2200` to gas and add `params.SstoreSetGasEIP2200 - params.SloadGasEIP2200` to refund
+    * IF it rewrites existing slot with the original value when tx starts, add `SstoreResetGasEIP2200` to gas and add `params.SstoreResetGasEIP2200 - params.SloadGasEIP2200` to refund
+  * For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
+    * if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
+    * if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
+    * if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    * add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
+  * For `SELFDESTRUCT`,
+    * if it transfers value and if is a new account, add `G_newaccount` to gas
+    * if the contract has not suicided yet, add `R_selfdestruct` to refund
 
 ### Execution Environment <a id="execution-environment"></a>
 
@@ -280,7 +263,7 @@ where
 
 The machine state `S_machine` is defined as a tuple `(g, pc, memory, i, stack)`, which represent the available gas, the program counter `pc` \(64-bit unsigned integer\), the memory contents, the active number of words in memory \(counting continuously from position 0\), and the stack contents. The memory contents `S_machine,memory` are a series of zeroes of size 2^256.
 
-For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine.md#instruction-set) section.
+For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine-previous.md#instruction-set) section.
 
 To define `Z`, `H` and `O`, we define `w` as the current operation to be executed:
 
