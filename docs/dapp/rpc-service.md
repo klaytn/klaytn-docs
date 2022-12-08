@@ -27,11 +27,6 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 * 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
 * Community support
 
-### URL
-
-* Klaytn Mainnet: cypress-archive.klaytn.tatum.io (not Live)
-* Klaytn Testnet: baobab.klaytn.tatum.io (not Live)
-
 ### References
 
 * [Docs](https://apidoc.tatum.io/tag/Klaytn?\_gl=1\*1dhfv8u\*\_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*\_ga\_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
@@ -51,11 +46,6 @@ BlockPI provides free public endpoints to the Klaytn community and advanced feat
 * Whitelisting possible for endpoint nodes
 * WSS available and subscription coming soon
 * Supports tracing
-
-### URL
-
-* Klaytn Mainnet: https://klaytn.blockpi.network/v1/rpc/public
-* Klaytn Testnet: https://klaytn-baobab.blockpi.network/v1/rpc/public
 
 ### References
 
@@ -110,7 +100,6 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 ### URL
 
 * Klaytn Mainnet: https://rpc.ankr.com/klaytn
-* Klaytn Testnet: https://rpc.ankr.com/klaytn_testnet
 
 ### References
 
