@@ -64,7 +64,7 @@ Pocket supports dozens of blockchains, with more being added all the time.
 * Decentralized RPC Protocol and Marketplace
 * 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
 * Public Endpoints
-* Pay As You Go plan (if you need more than 250,000 requests per day)
+* Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
 * 30+ Blockchains Supported
 * 25,000 + Nodes earning POKT for serving applications
 * Archival Node, Archival Node w/ Tracing, & Testnet Node Support
