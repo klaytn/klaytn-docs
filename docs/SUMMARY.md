@@ -1,7 +1,9 @@
 # Table of contents
 
 * [Klaytn Docs](README.md)
-* [---](misc.md)
+
+## --- <a href="#misc" id="misc"></a>
+
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
   * [Klaytn Design](klaytn/design/README.md)
