@@ -2,7 +2,7 @@
 
 * [Klaytn Docs](README.md)
 
-## --- <a href="#content" id="content"></a>
+## - <a href="#content" id="content"></a>
 
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
