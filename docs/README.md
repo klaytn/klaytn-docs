@@ -1,26 +1,10 @@
-# Welcome
+---
+cover: .gitbook/assets/main_header.png
+coverY: -451
+---
 
-Klaytn Docs introduces [Klaytn](https://www.klaytn.com), an enterprise-grade, service-centric platform that brings user-friendly blockchain experience to millions of users. In the following documents, we explain what Klaytn is and provide guidelines and instructions on how to use Klaytn, as well as how to interact with the Klaytn network.
+# Klaytn Docs
 
-You can also find a comprehensive list of EVERYTHING related to Klaytn in [Awesome Klaytn](https://github.com/klaytn/awesome-klaytn).
+Klaytn Docs introduces [Klaytn](http://klaytn.foundation), an enterprise-grade, service-centric platform that brings user-friendly blockchain experience to millions of users.
 
-| Document                            | Description                                                                                                                                   |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| [Klaytn Overview](klaytn/)          | Describes Klaytn key concepts and design principles.                                                                                          |
-| [Getting Started](getting-started/) | Provides guidelines for getting started with Klaytn.                                                                                          |
-| [Smart Contract](smart-contract/)   | Tools and resources for smart contract development.                                                                                           |
-| [Installation](installation-guide/) | Illustrates how to set up Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
-| [Operation](operation-guide/)       | Illustrates how to manage Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
-| [dApp Developers](dapp/)            | Development resources and references for dApp developers. This section contains Klaytn API references and provides end-to-end dApp development tutorials. |
-
-**Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn evolves, Klaytn Docs and the source code will continue to be updated. Here are some websites for reference:
-
-* [https://ethereum.org/developers/](https://ethereum.org/developers/)
-* [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
-* [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
-* [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
-
-**Credit**: Icons used in the following pages are made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com).
-
-* [Klaytn Overview](klaytn/)
-* [Consensus Mechanism](klaytn/design/consensus-mechanism.md)
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Klaytn Overview</td><td>Want to know about Klaytn?</td><td></td><td><a href=".gitbook/assets/thum_01.png">thum_01.png</a></td><td><a href="klaytn/">klaytn</a></td></tr><tr><td>Getting Started</td><td>Want to start building on Klaytn?</td><td></td><td><a href=".gitbook/assets/thum_02.png">thum_02.png</a></td><td><a href="getting-started/">getting-started</a></td></tr><tr><td>Node Operators</td><td>Instructions on running Klaytn's nodes</td><td></td><td><a href=".gitbook/assets/thum_03.png">thum_03.png</a></td><td><a href="operation-guide/">operation-guide</a></td></tr><tr><td>Awesome Klaytn</td><td>Comprehensive list of resources from Klaytn's vast ecosystem</td><td></td><td><a href=".gitbook/assets/thum_04.png">thum_04.png</a></td><td><a href="https://github.com/klaytn/awesome-klaytn">https://github.com/klaytn/awesome-klaytn</a></td></tr><tr><td>Klaytn Developer Hub</td><td>Klaytn's developer portal</td><td></td><td><a href=".gitbook/assets/thum_05.png">thum_05.png</a></td><td><a href="http://developer.klaytn.foundation">http://developer.klaytn.foundation</a></td></tr><tr><td>Klaytn Developer Forum</td><td>Got a question? Visit our forum!</td><td></td><td><a href=".gitbook/assets/thum_06 (1).png">thum_06 (1).png</a></td><td><a href="http://forum.klaytn.foundation">http://forum.klaytn.foundation</a></td></tr></tbody></table>

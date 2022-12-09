@@ -1,8 +1,8 @@
-# caver.rpc.klay <a id="caver-rpc-klay"></a>
+# caver.rpc.klay
 
 `caver.rpc.klay` provides JSON-RPC call with `klay` name space.
 
-## caver.rpc.klay.accountCreated <a id="caver-rpc-klay-accountcreated"></a>
+## caver.rpc.klay.accountCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
 ```javascript
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
@@ -12,18 +12,18 @@ Returns `true` if the account associated with the address is created in the Klay
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account you want to query to see if it has been created on the network. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address of the account you want to query to see if it has been created on the network.                 |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                      |
+| ------- | ------------------------------------------------ |
 | boolean | The existence of an input address in the Klaytn. |
 
 **Example**
@@ -33,7 +33,7 @@ Returns `true` if the account associated with the address is created in the Klay
 true
 ```
 
-## caver.rpc.klay.getAccount <a id="caver-rpc-klay-getaccount"></a>
+## caver.rpc.klay.getAccount <a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
@@ -45,18 +45,18 @@ Returns the account information of a given address in the Klaytn. For more detai
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account for which you want to get account information. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address of the account for which you want to get account information.                                  |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                  |
+| ------ | -------------------------------------------------------------------------------------------- |
 | object | An object that contains the account information. Each account type has different attributes. |
 
 **Example**
@@ -90,7 +90,7 @@ Returns the account information of a given address in the Klaytn. For more detai
 }
 ```
 
-## caver.rpc.klay.getAccountKey <a id="caver-rpc-klay-getaccountkey"></a>
+## caver.rpc.klay.getAccountKey <a href="#caver-rpc-klay-getaccountkey" id="caver-rpc-klay-getaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
@@ -102,18 +102,18 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of Klaytn account from which you want to get an object of AccountKey information. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address of Klaytn account from which you want to get an object of AccountKey information.              |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------------- |
 | object | An object that contains AccountKey information. Each AccountKey type has different attributes. |
 
 **Example**
@@ -178,7 +178,7 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 }
 ```
 
-## caver.rpc.klay.encodeAccountKey <a id="caver-rpc-klay-encodeaccountkey"></a>
+## caver.rpc.klay.encodeAccountKey <a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.encodeAccountKey(accountKey [, callback])
@@ -188,17 +188,17 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| accountKey | object | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy], [AccountKeyPublic], [AccountKeyFail], [AccountKeyWeightedMultiSig] or [AccountKeyRoleBased]). |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKey | object   | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
+| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                                                                                                                              |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description               |
+| ------ | ------------------------- |
 | string | A RLP-encoded AccountKey. |
 
 **Example**
@@ -297,7 +297,7 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
-## caver.rpc.klay.decodeAccountKey <a id="caver-rpc-klay-decodeaccountkey"></a>
+## caver.rpc.klay.decodeAccountKey <a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
@@ -307,17 +307,17 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| encodedKey | string | A RLP-encoded AccountKey. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name       | Type     | Description                                                                                                |
+| ---------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| encodedKey | string   | A RLP-encoded AccountKey.                                                                                  |
+| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                   |
+| ------ | --------------------------------------------- |
 | object | An object defines `keyType` and `key` inside. |
 
 **Example**
@@ -412,7 +412,7 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 }
 ```
 
-## caver.rpc.klay.getBalance <a id="caver-rpc-klay-getbalance"></a>
+## caver.rpc.klay.getBalance <a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
 
 ```javascript
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
@@ -422,18 +422,18 @@ Returns the balance of the account of the given address in Klaytn.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account for which you want to get balance. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address of the account for which you want to get balance.                                              |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | The current balance for the given address in peb. |
 
 **Example**
@@ -443,7 +443,7 @@ Returns the balance of the account of the given address in Klaytn.
 0xde0b6b3a7640000
 ```
 
-## caver.rpc.klay.getCode <a id="caver-rpc-klay-getcode"></a>
+## caver.rpc.klay.getCode <a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
 
 ```javascript
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
@@ -453,18 +453,18 @@ Returns code at a given address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address to get the code from. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address to get the code from.                                                                          |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                      |
+| ------ | -------------------------------- |
 | string | The code from the given address. |
 
 **Example**
@@ -474,7 +474,7 @@ Returns code at a given address.
 0x60806...
 ```
 
-## caver.rpc.klay.getTransactionCount <a id="caver-rpc-klay-gettransactioncount"></a>
+## caver.rpc.klay.getTransactionCount <a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
@@ -484,18 +484,18 @@ Returns the total number of transactions sent from an address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address to get the number of transactions from. |
-| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |[]
+| Name        | Type             | Description                                                                                                                                                                                                                                                        |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string           | The address to get the number of transactions from.                                                                                                                                                                                                                |
+| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                         |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                    |
+| ------ | -------------------------------------------------------------- |
 | string | The number of transactions sent from the given address in hex. |
 
 **Example**
@@ -505,7 +505,7 @@ Returns the total number of transactions sent from an address.
 0x5f
 ```
 
-## caver.rpc.klay.isContractAccount <a id="caver-rpc-klay-iscontractaccount"></a>
+## caver.rpc.klay.isContractAccount <a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
 
 ```javascript
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
@@ -515,18 +515,18 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address you want to check for isContractAccount. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address you want to check for isContractAccount.                                                       |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                                           |
+| ------- | --------------------------------------------------------------------- |
 | boolean | true means the input parameter is an existing smart contract address. |
 
 **Example**
@@ -539,31 +539,31 @@ false
 true
 ```
 
-## caver.rpc.klay.sign <a id="caver-rpc-klay-sign"></a>
+## caver.rpc.klay.sign <a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
 
 ```javascript
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay\_sign](../../../../json-rpc/api-references/klay/account.md#klay\_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](klay.md#caver-rpc-klay-signtransaction).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | String | The address of the imported account to sign the message. |
-| message | String | Message to sign. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| address     | String           | The address of the imported account to sign the message.                                                   |
+| message     | String           | Message to sign.                                                                                           |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                  |
+| ------ | -------------------------------------------- |
 | string | The signature made from an imported account. |
 
 **Example**
@@ -573,7 +573,7 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 0x1066e052c4be821daa4d0a0cd1e9e75ccb200bb4001c2e38853ba41b712a5a226da2acd67c86a13b266e0d75d0a6e7d1551c8924af413267615a5948617c746c1c
 ```
 
-## caver.rpc.klay.getAccounts <a id="caver-rpc-klay-getaccounts"></a>
+## caver.rpc.klay.getAccounts <a href="#caver-rpc-klay-getaccounts" id="caver-rpc-klay-getaccounts"></a>
 
 ```javascript
 caver.rpc.klay.getAccounts([callback])
@@ -583,16 +583,16 @@ Returns a list of addresses owned by the Klaytn Node.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                     |
+| ----- | ----------------------------------------------- |
 | Array | An array of addresses owned by the Klaytn Node. |
 
 **Example**
@@ -605,7 +605,7 @@ Returns a list of addresses owned by the Klaytn Node.
 ]
 ```
 
-## caver.rpc.klay.getBlockNumber <a id="caver-rpc-klay-getblocknumber"></a>
+## caver.rpc.klay.getBlockNumber <a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockNumber([callback])
@@ -615,16 +615,16 @@ Returns the number of the most recent block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                 |
+| ------ | ------------------------------------------- |
 | string | The number of the most recent block in hex. |
 
 **Example**
@@ -634,29 +634,28 @@ Returns the number of the most recent block.
 0x5d39
 ```
 
-## caver.rpc.klay.getHeader <a id="caver-rpc-klay-getheader"></a>
+## caver.rpc.klay.getHeader <a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
 
 ```javascript
 caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
 ```
 
-Returns a block header by block hash or block number.
-If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) is called.
+Returns a block header by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](klay.md#caver-rpc-klay-getheaderbynumber) is called.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumberOrHash | number &#124; string | The block hash, number or the block tag string. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type             | Description                                                                                                |
+| ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | number \| string | The block hash, number or the block tag string.                                                            |
+| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| Type   | Description                                                                                                                                                      |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
 
@@ -681,7 +680,7 @@ If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHas
 }
 ```
 
-## caver.rpc.klay.getHeaderByNumber <a id="caver-rpc-klay-getheaderbynumber"></a>
+## caver.rpc.klay.getHeaderByNumber <a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
@@ -691,18 +690,18 @@ Returns a block header by block number.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the block tag string. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | The block number or the block tag string.                                                                  |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| Type   | Description                                                                                                                                                      |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
 
@@ -727,7 +726,7 @@ Returns a block header by block number.
 }
 ```
 
-## caver.rpc.klay.getHeaderByHash <a id="caver-rpc-klay-getheaderbyhash"></a>
+## caver.rpc.klay.getHeaderByHash <a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
@@ -737,32 +736,32 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes the block header:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| baseFeePerGas | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-| blockScore | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData | string | The "extra data" field of this block. |
-| gasUsed | string | The gas in total that was used by all transactions in this block. |
-| governanceData | string | RLP encoded governance configuration |
-| hash | string | Hash of the block. `null` when it is a pending block. |
-| logsBloom | string | The bloom filter for the logs of the block. `null` when it is a pending block. |
-| number | string | The block number. `null` when it is a pending block. |
-| parentHash | string | Hash of the parent block. |
-| receiptsRoot | string | The root of the receipts trie of the block. |
-| reward | string | The address of the beneficiary to whom the block rewards were given. |
-| stateRoot | string | The root of the final state trie of the block. |
-| timestamp | string | The unix timestamp for when the block was collated. |
-| timestampFoS | string | The fraction of a second of the timestamp for when the block was collated. |
-| transactionsRoot | string | The root of the transaction trie of the block. |
+| Name             | Type   | Description                                                                                                                                                  |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
+| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
+| extraData        | string | The "extra data" field of this block.                                                                                                                        |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                    |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
 
 **Example**
 
@@ -787,30 +786,29 @@ Returns the block number of the most recent block by using `blockHash`.
 }
 ```
 
-## caver.rpc.klay.getBlock <a id="caver-rpc-klay-getblock"></a>
+## caver.rpc.klay.getBlock <a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
 
 ```javascript
 caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block hash or block number.
-If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) is called.
+Returns information about a block by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](klay.md#caver-rpc-klay-getblockbynumber) is called.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumberOrHash | number &#124; string | The block hash, number or the block tag string. |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name                     | Type             | Description                                                                                                                                                      |
+| ------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | number \| string | The block hash, number or the block tag string.                                                                                                                  |
+| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| Type   | Description                                                                                                                                             |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
@@ -839,7 +837,7 @@ If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash
 }
 ```
 
-## caver.rpc.klay.getBlockByNumber <a id="caver-rpc-klay-getblockbynumber"></a>
+## caver.rpc.klay.getBlockByNumber <a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
@@ -849,19 +847,19 @@ Returns information about a block by block number.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the block which is tagged with a string (`genesis` or `latest`). |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name                     | Type             | Description                                                                                                                                                      |
+| ------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | number \| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
+| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| Type   | Description                                                                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
@@ -890,7 +888,7 @@ Returns information about a block by block number.
 }
 ```
 
-## caver.rpc.klay.getBlockByHash <a id="caver-rpc-klay-getblockbyhash"></a>
+## caver.rpc.klay.getBlockByHash <a href="#caver-rpc-klay-getblockbyhash" id="caver-rpc-klay-getblockbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
@@ -900,37 +898,37 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name                     | Type     | Description                                                                                                                                                      |
+| ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                | string   | The block hash.                                                                                                                                                  |
+| returnTransactionObjects | boolean  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes block:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| baseFeePerGas | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-| blockScore | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData | string | The "extra data" field of this block. |
-| gasUsed | string | The gas in total that was used by all transactions in this block. |
-| governanceData | string | RLP encoded governance configuration |
-| hash | string | Hash of the block. `null` when it is a pending block. |
-| logsBloom | string | The bloom filter for the logs of the block. `null` when it is a pending block. |
-| number | string | The block number. `null` when it is a pending block. |
-| parentHash | string | Hash of the parent block. |
-| receiptsRoot | string | The root of the receipts trie of the block. |
-| reward | string | The address of the beneficiary to whom the block rewards were given. |
-| size | string | Integer the size of this block in bytes. |
-| stateRoot | string | The root of the final state trie of the block. |
-| timestamp | string | The unix timestamp for when the block was collated. |
-| timestampFoS | string | The fraction of a second of the timestamp for when the block was collated. |
-| totalBlockScore | string | Integer of the total blockScore of the chain until this block. |
-| transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
-| transactionsRoot | string | The root of the transaction trie of the block. |
-| voteData | string | RLP encoded governance vote of the proposer. |
+| Name             | Type   | Description                                                                                                                                                  |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
+| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
+| extraData        | string | The "extra data" field of this block.                                                                                                                        |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                    |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
+| size             | string | Integer the size of this block in bytes.                                                                                                                     |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                               |
+| transactions     | Array  | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter.                                           |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
+| voteData         | string | RLP encoded governance vote of the proposer.                                                                                                                 |
 
 **Example**
 
@@ -959,7 +957,7 @@ Returns the block number of the most recent block by using `blockHash`.
 }
 ```
 
-## caver.rpc.klay.getBlockReceipts <a id="caver-rpc-klay-getblockreceipts"></a>
+## caver.rpc.klay.getBlockReceipts <a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
 
 ```javascript
 caver.rpc.klay.getBlockReceipts(blockHash [, callback])
@@ -969,18 +967,18 @@ Returns receipts included in a block identified by block hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type | Description |
-| --- | --- |
-| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt).|
+| Type  | Description                                                                                                                                                                                                                                                                        |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt). |
 
 **Example**
 
@@ -1017,7 +1015,7 @@ Returns receipts included in a block identified by block hash.
 ]
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByNumber <a id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber <a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
@@ -1027,18 +1025,18 @@ Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the block tag string (`genesis` or `latest`). |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
-| string | The number of transactions in the given block in hex.|
+| Type   | Description                                           |
+| ------ | ----------------------------------------------------- |
+| string | The number of transactions in the given block in hex. |
 
 **Example**
 
@@ -1047,7 +1045,7 @@ Returns the number of transactions in a block matching the given block number.
 0x1
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByHash <a id="caver-rpc-klay-getblocktransactionCountbyhash"></a>
+## caver.rpc.klay.getBlockTransactionCountByHash <a href="#caver-rpc-klay-getblocktransactioncountbyhash" id="caver-rpc-klay-getblocktransactioncountbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
@@ -1057,18 +1055,18 @@ Returns the number of transactions in a block matching the given block hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
-| string | The number of transactions in the given block in hex.|
+| Type   | Description                                           |
+| ------ | ----------------------------------------------------- |
+| string | The number of transactions in the given block in hex. |
 
 **Example**
 
@@ -1077,7 +1075,7 @@ Returns the number of transactions in a block matching the given block hash.
 0x1
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
@@ -1087,18 +1085,18 @@ Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the block tag string (`genesis` or `latest`). |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
+| Type   | Description                                                                                                                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](klay.md#caver-rpc-klay-getblockwithconsensusinfobyhash). |
 
 **Example**
 
@@ -1154,7 +1152,7 @@ Returns a block with consensus information matched by the given block number.
 }
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByHash <a id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByHash <a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
@@ -1164,39 +1162,39 @@ Returns a block with consensus information matched by the given hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - A block object with consensus information (a proposer and a list of committee members), or null when no block was found:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockScore | string | Former difficulty. Always 1 in the BFT consensus engine |
-| committee | Array | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
-| extraData | string | The "extra data" field of this block. |
-| gasUsed | string | The gas in total that was used by all transactions in this block. |
-| governanceData | string | RLP encoded governance configuration |
-| hash | string | Hash of the block. `null` when it is a pending block. |
-| logsBloom | string | The bloom filter for the logs of the block. ``null`` when it is a pending block. |
-| number | string | The block number. `null` when it is a pending block. |
-| originProposer | string | The proposal of 0 round at the same block number. |
-| parentHash | string | Hash of the parent block. |
-| proposer | string | The address of the block proposer. |
-| receiptsRoot | string | The root of the receipts trie of the block. |
-| reward | string | The address of the beneficiary to whom the block rewards were given. |
-| round | number | The round number. |
-| size | string | Integer the size of this block in bytes. |
-| stateRoot | string | The root of the final state trie of the block. |
-| timestamp | string | The unix timestamp for when the block was collated. |
-| timestampFoS | string | The fraction of a second of the timestamp for when the block was collated. |
-| totalBlockScore | string | Integer of the total blockScore of the chain until this block. |
-| transactions | Array | Array of transaction objects. |
-| transactionsRoot | string | The root of the transaction trie of the block. |
-| voteData | string | RLP encoded governance vote of the proposer |
+| Name             | Type   | Description                                                                                                                                               |
+| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                   |
+| committee        | Array  | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
+| extraData        | string | The "extra data" field of this block.                                                                                                                     |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                         |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                      |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                     |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                            |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                      |
+| originProposer   | string | The proposal of 0 round at the same block number.                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                 |
+| proposer         | string | The address of the block proposer.                                                                                                                        |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                               |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                      |
+| round            | number | The round number.                                                                                                                                         |
+| size             | string | Integer the size of this block in bytes.                                                                                                                  |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                            |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                       |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                            |
+| transactions     | Array  | Array of transaction objects.                                                                                                                             |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                            |
+| voteData         | string | RLP encoded governance vote of the proposer                                                                                                               |
 
 **Example**
 
@@ -1277,7 +1275,7 @@ Returns a block with consensus information matched by the given hash.
 }
 ```
 
-## caver.rpc.klay.getCommittee <a id="caver-rpc-klay-getcommittee"></a>
+## caver.rpc.klay.getCommittee <a href="#caver-rpc-klay-getcommittee" id="caver-rpc-klay-getcommittee"></a>
 
 ```javascript
 caver.rpc.klay.getCommittee([blockNumber] [, callback])
@@ -1287,17 +1285,17 @@ Returns a list of all validators in the committee at the specified block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                      |
+| ----- | ---------------------------------------------------------------- |
 | Array | Addresses of all validators in the committee at the given block. |
 
 **Example**
@@ -1310,7 +1308,7 @@ Returns a list of all validators in the committee at the specified block.
 ]
 ```
 
-## caver.rpc.klay.getCommitteeSize <a id="caver-rpc-klay-getcommitteesize"></a>
+## caver.rpc.klay.getCommitteeSize <a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
 
 ```javascript
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
@@ -1320,17 +1318,17 @@ Returns the size of the committee at the specified block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                   |
+| ------ | --------------------------------------------- |
 | number | The size of the committee at the given block. |
 
 **Example**
@@ -1340,7 +1338,7 @@ Returns the size of the committee at the specified block.
 2
 ```
 
-## caver.rpc.klay.getCouncil <a id="caver-rpc-klay-getcouncil"></a>
+## caver.rpc.klay.getCouncil <a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
 
 ```javascript
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
@@ -1350,17 +1348,17 @@ Returns a list of all validators of the council at the specified block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                                                           |
+| ----- | ----------------------------------------------------------------------------------------------------- |
 | Array | An array of validator addresses of the council at the given block, or null when no council was found. |
 
 **Example**
@@ -1373,7 +1371,7 @@ Returns a list of all validators of the council at the specified block.
 ]
 ```
 
-## caver.rpc.klay.getCouncilSize <a id="caver-rpc-klay-getcouncilsize"></a>
+## caver.rpc.klay.getCouncilSize <a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
 
 ```javascript
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
@@ -1383,17 +1381,17 @@ Returns the size of the council at the specified block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                 |
+| ------ | ------------------------------------------- |
 | number | The size of the council at the given block. |
 
 **Example**
@@ -1403,7 +1401,7 @@ Returns the size of the council at the specified block.
 2
 ```
 
-## caver.rpc.klay.getStorageAt <a id="caver-rpc-klay-getstorageat"></a>
+## caver.rpc.klay.getStorageAt <a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
 
 ```javascript
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
@@ -1413,19 +1411,19 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address to get the storage from. |
-| position | number | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/api-references/klay/block.md#klay_getstorageat). |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                                                                                                 |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string           | The address to get the storage from.                                                                                                                                                        |
+| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay\_getStorageAt](../../../../json-rpc/api-references/klay/block.md#klay\_getstorageat). |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                                         |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                  |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
 | string | The value at this storage position. |
 
 **Example**
@@ -1435,7 +1433,7 @@ Returns the value from a storage position at a given address.
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
-## caver.rpc.klay.isMinting <a id="caver-rpc-klay-isminting"></a>
+## caver.rpc.klay.isMinting <a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
 
 ```javascript
 caver.rpc.klay.isMinting([callback])
@@ -1445,8 +1443,8 @@ Returns `true` if client is actively mining new blocks.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1460,7 +1458,7 @@ Returns `true` if client is actively mining new blocks.
 true
 ```
 
-## caver.rpc.klay.isSyncing <a id="caver-rpc-klay-issyncing"></a>
+## caver.rpc.klay.isSyncing <a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
 caver.rpc.klay.isSyncing([callback])
@@ -1470,21 +1468,21 @@ Returns an object with data about the sync status or false.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| startingBlock | string | The block number in hex where the sync started. |
-| currentBlock | string | The block number in hex where the node currently synced to. |
-| highestBlock | string | The estimated block number in hex to sync to. |
-| knownStates | string | The estimated states in hex to download. |
-| pulledStates | string | The already downloaded states in hex. |
+| Name          | Type   | Description                                                 |
+| ------------- | ------ | ----------------------------------------------------------- |
+| startingBlock | string | The block number in hex where the sync started.             |
+| currentBlock  | string | The block number in hex where the node currently synced to. |
+| highestBlock  | string | The estimated block number in hex to sync to.               |
+| knownStates   | string | The estimated states in hex to download.                    |
+| pulledStates  | string | The already downloaded states in hex.                       |
 
 **Example**
 
@@ -1502,7 +1500,7 @@ Returns an object with data about the sync status or false.
 false
 ```
 
-## caver.rpc.klay.call <a id="caver-rpc-klay-call"></a>
+## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
 
 ```javascript
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
@@ -1512,30 +1510,30 @@ Executes a new message call immediately without sending a transaction on the blo
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| callObject | object | A transaction call object. See the next table for the object's properties. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| callObject  | object           | A transaction call object. See the next table for the object's properties.                                 |
+| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `callObject` has the following properties:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| to | string | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
-| input | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| from | string | (optional) The address the transaction is sent from. |
-| gas | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
-| gasPrice | string | (optional) The gasPrice used for each paid gas. |
-| value | string | (optional) The value sent with this transaction in `peb`. |
+| Name     | Type   | Description                                                                                                                                         |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                |
+| input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| from     | string | (optional) The address the transaction is sent from.                                                                                                |
+| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.      |
+| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                     |
+| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                           |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
-| string | The returned data of the call. *e.g.*, the return value of a smart contract function. |
+| Type   | Description                                                                           |
+| ------ | ------------------------------------------------------------------------------------- |
+| string | The returned data of the call. _e.g._, the return value of a smart contract function. |
 
 **Example**
 
@@ -1547,24 +1545,24 @@ Executes a new message call immediately without sending a transaction on the blo
 0x0000000000000000000000000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.klay.estimateGas <a id="caver-rpc-klay-estimategas"></a>
+## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
 
 ```javascript
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain. 
+Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain.
 
 **Parameters**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+See [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) parameters, expect that all properties are optional.
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description             |
+| ------ | ----------------------- |
 | string | The amount of gas used. |
 
 **Example**
@@ -1577,24 +1575,24 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 0xb2a0
 ```
 
-## caver.rpc.klay.estimateComputationCost <a id="caver-rpc-klay-estimatecomputationcost"></a>
+## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
 
 ```javascript
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](klay.md#caver-rpc-klay-estimategas).
 
 **Parameters**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+See [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) parameters, expect that all properties are optional.
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
 | string | The amount of computation cost used. |
 
 **Example**
@@ -1607,7 +1605,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 0xd761
 ```
 
-## caver.rpc.klay.getTransactionByBlockHashAndIndex <a id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
+## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
@@ -1617,19 +1615,19 @@ Returns information about a transaction by `block hash` and `transaction index` 
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | The block hash. |
-| index | number | A transaction index position inside the block. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| index     | number   | A transaction index position inside the block.                                                             |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash] for more detail. |
+| Type   | Description                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
 
@@ -1653,7 +1651,7 @@ Returns information about a transaction by `block hash` and `transaction index` 
 }
 ```
 
-## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
+## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
@@ -1663,19 +1661,19 @@ Returns information about a transaction by `block number` and `transaction index
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the block tag string (`genesis` or `latest`). |
-| index | number | A transaction index position inside the block. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type             | Description                                                                                                |
+| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| index       | number           | A transaction index position inside the block.                                                             |
+| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash] for more detail. |
+| Type   | Description                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
 
@@ -1699,7 +1697,7 @@ Returns information about a transaction by `block number` and `transaction index
 }
 ```
 
-## caver.rpc.klay.getTransactionByHash <a id="caver-rpc-klay-gettransactionbyhash"></a>
+## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
@@ -1709,38 +1707,38 @@ Returns the information about a transaction requested by transaction hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionHash | string | A transaction hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | A transaction hash.                                                                                        |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - A transaction object, or `null` when no transaction was found:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | Hash of the block where this transaction was in. |
-| blockNumber | string | Block number where this transaction was in. |
-| codeFormat | string | (optional) The code format of smart contract code. |
-| feePayer | string | (optional) Address of the fee payer. |
-| feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | string | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | string | Address of the sender. |
-| gas | string | Gas provided by the sender. |
-| gasPrice | string | Gas price provided by the sender in peb. |
-| hash | string | Hash of the transaction. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | string | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey] for more details. |
-| input | string | (optional) The data sent along with the transaction. |
-| nonce | string | The number of transactions made by the sender prior to this one. |
-| senderTxHash | string | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions. |
-| signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| to | string | Address of the receiver. `null` when it is a contract deploying transaction. |
-| transactionIndex | string | Integer of the transaction index position in the block. |
-| type | string | A string representing the type of the transaction. |
-| typeInt | number | An integer representing the type of the transaction. |
-| value | string | Value transferred in peb. |
+| Name               | Type    | Description                                                                                                                                                                                                  |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                             |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                  |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                           |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                         |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
+| from               | string  | Address of the sender.                                                                                                                                                                                       |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                  |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
+| hash               | string  | Hash of the transaction.                                                                                                                                                                                     |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../klaytn/design/accounts.md#account-key) for more details.                               |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
+| senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                            |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
+| to                 | string  | Address of the receiver. `null` when it is a contract deploying transaction.                                                                                                                                 |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                      |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                           |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                         |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                    |
 
 If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. See the example below.
 
@@ -1788,7 +1786,7 @@ If the transaction is in `pending` status that has not yet been processed, defau
 }
 ```
 
-## caver.rpc.klay.getTransactionBySenderTxHash <a id="caver-rpc-klay-gettransactionbysendertxhash"></a>
+## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
@@ -1796,22 +1794,22 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 
 Returns the information about a transaction requested by the sender transaction hash.
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](klay.md#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| senderTxHash | string | The sender transaction hash. See [SenderTxHash] for more detail. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type     | Description                                                                                                               |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for more detail. |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash] for more details. |
+| Type   | Description                                                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) for more details. |
 
 **Example**
 
@@ -1838,7 +1836,7 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.klay.getTransactionReceipt <a id="caver-rpc-klay-gettransactionreceipt"></a>
+## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
@@ -1850,45 +1848,45 @@ Returns the receipt of a transaction by transaction hash.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionHash | string | A transaction hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | A transaction hash.                                                                                        |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockHash | string | Hash of the block where this transaction was in. |
-| blockNumber | string | Block number where this transaction was in. |
-| codeFormat | string | (optional) The code format of smart contract code. |
-| contractAddress | string | The contract address created, if the transaction was a contract creation, otherwise `null`. |
-| effectiveGasPrice | string | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header. |
-| feePayer | string | (optional) Address of the fee payer. |
-| feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio | string | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
-| from | string | Address of the sender. |
-| gas | string | Gas provided by the sender. |
-| gasPrice | string | Gas price provided by the sender in peb. |
-| gasUsed | string | The amount of gas used by this specific transaction alone. |
-| humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | string | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account. |
-| input | string | (optional) The data sent along with the transaction. |
-| logs | Array | Array of log objects, which this transaction generated. |
-| logsBloom | string | Bloom filter for light clients to quickly retrieve related logs. |
-| nonce | string | The number of transactions made by the sender prior to this one. |
-| senderTxHash | string | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash]. This value is always the same as `transactionHash` for non-fee-delegated transactions. |
-| signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| status | string | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction. |
-| txError | string | (optional) detailed error code if `status` is equal to `0x0`. |
-| to | string | Address of the receiver. `null` when it is a contract creation transaction. |
-| transactionHash | string | Hash of the transaction. |
-| transactionIndex | string | Integer of the transaction index position in the block. |
-| type | string | A string representing the type of the transaction. |
-| typeInt | number | An integer representing the type of the transaction. |
-| value | string | Value transferred in peb. |
+| Name               | Type    | Description                                                                                                                                                                                                                             |
+| ------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                        |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                             |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                      |
+| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                             |
+| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.               |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                    |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                            |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                       |
+| from               | string  | Address of the sender.                                                                                                                                                                                                                  |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                             |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                |
+| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                              |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                         |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                    |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                    |
+| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                 |
+| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                        |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                        |
+| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                   |
+| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                  |
+| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                           |
+| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                             |
+| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                 |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                      |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                    |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                                               |
 
 **NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
@@ -1946,7 +1944,7 @@ Returns the receipt of a transaction by transaction hash.
 }
 ```
 
-## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
+## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
@@ -1954,24 +1952,24 @@ caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 
 Returns the receipt of a transaction by sender transaction hash.
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](klay.md#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
 **NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| senderTxHash | string | The sender transaction hash. See [SenderTxHash] for more detail. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name         | Type     | Description                                                                                                               |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for more detail. |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type | Description |
-| --- | --- |
-| object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
+| Type   | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail. |
 
 **Example**
 
@@ -2001,34 +1999,34 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.klay.sendRawTransaction <a id="caver-rpc-klay-sendrawtransaction"></a>
+## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Sends a `signed transaction` to the Klaytn. 
+Sends a `signed transaction` to the Klaytn.
 
 The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| signedTransaction | string &#124; object | A RLP-encoded signed transaction or an instance of signed transaction. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type             | Description                                                                                                |
+| ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| signedTransaction | string \| object | A RLP-encoded signed transaction or an instance of signed transaction.                                     |
+| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type       | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -2061,7 +2059,7 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransaction <a id="caver-rpc-klay-sendtransaction"></a>
+## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendTransaction(transaction [, callback])
@@ -2069,28 +2067,28 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
 
-For more information about each transaction type, refer to [Transaction].
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transaction | object | An instance of a transaction to be sent to the Klaytn. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | An instance of a transaction to be sent to the Klaytn.                                                     |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type       | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -2129,7 +2127,7 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransactionAsFeePayer <a id="caver-rpc-klay-sendtransactionasfeepayer"></a>
+## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
@@ -2139,28 +2137,28 @@ Signs a fee delegated transaction as a transaction `fee payer` with an `imported
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
-For more information about each transaction type, refer to [Transaction].
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transaction | object | An instance of fee delegated transaction to send to the Klaytn. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | An instance of fee delegated transaction to send to the Klaytn.                                            |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type       | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -2210,7 +2208,7 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.signTransaction <a id="caver-rpc-klay-signtransaction"></a>
+## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
 ```javascript
 caver.rpc.klay.signTransaction(transaction [, callback])
@@ -2218,25 +2216,25 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 Signs a transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
 
-For more information about each transaction type, refer to [Transaction].
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transaction | object | An instance of a transaction to sign. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | An instance of a transaction to sign.                                                                      |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes signed transaction:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| raw | string | A RLP-encoded signed transaction. |
-| tx | object | The transaction object including the sender's signature. |
+| Name | Type   | Description                                              |
+| ---- | ------ | -------------------------------------------------------- |
+| raw  | string | A RLP-encoded signed transaction.                        |
+| tx   | object | The transaction object including the sender's signature. |
 
 **Example**
 
@@ -2266,7 +2264,7 @@ For more information about each transaction type, refer to [Transaction].
 }
 ```
 
-## caver.rpc.klay.signTransactionAsFeePayer <a id="caver-rpc-klay-signtransactionasfeepayer"></a>
+## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
@@ -2274,25 +2272,25 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 
 Signs a transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
 
-For more information about each transaction type, refer to [Transaction].
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transaction | object | An instance of a transaction to sign. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | An instance of a transaction to sign.                                                                      |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes signed transaction:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| raw | string | A RLP-encoded signed transaction. |
-| tx | object | The transaction object to sign as fee payer. |
+| Name | Type   | Description                                  |
+| ---- | ------ | -------------------------------------------- |
+| raw  | string | A RLP-encoded signed transaction.            |
+| tx   | object | The transaction object to sign as fee payer. |
 
 **Example**
 
@@ -2333,7 +2331,7 @@ For more information about each transaction type, refer to [Transaction].
 }
 ```
 
-## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
+## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
@@ -2343,25 +2341,25 @@ Returns the decoded anchored data in the transaction for the given transaction h
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionHash | string | A transaction hash. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | A transaction hash.                                                                                        |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes decoded anchored data:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| BlockHash | string | Hash of the child chain block that this anchoring transaction was performed. |
-| BlockNumber | number | The child chain block number that this anchoring transaction was performed. |
-| ParentHash | string | Hash of the parent block. |
-| TxHash | string | The root of the transaction trie of the block. |
-| StateRootHash | string | The root of the final state trie of the block. |
-| ReceiptHash| string | The root of the receipts trie of the block. |
-| BlockCount | number | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount | number | The number of transactions generated in the child chain during this anchoring period. |
+| Name          | Type   | Description                                                                                                                                                                                                                            |
+| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                           |
+| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                                                                                                                            |
+| ParentHash    | string | Hash of the parent block.                                                                                                                                                                                                              |
+| TxHash        | string | The root of the transaction trie of the block.                                                                                                                                                                                         |
+| StateRootHash | string | The root of the final state trie of the block.                                                                                                                                                                                         |
+| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                                                                                                                            |
+| BlockCount    | number | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                  |
 
 **Example**
 
@@ -2379,7 +2377,7 @@ Returns the decoded anchored data in the transaction for the given transaction h
 }
 ```
 
-## caver.rpc.klay.getChainId <a id="caver-rpc-klay-getchainid"></a>
+## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
 
 ```javascript
 caver.rpc.klay.getChainId([callback])
@@ -2389,16 +2387,16 @@ Returns the chain ID of the chain.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                |
+| ------ | -------------------------- |
 | string | The chain ID of the chain. |
 
 **Example**
@@ -2408,7 +2406,7 @@ Returns the chain ID of the chain.
 0x2710
 ```
 
-## caver.rpc.klay.getClientVersion <a id="caver-rpc-klay-getclientversion"></a>
+## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
 
 ```javascript
 caver.rpc.klay.getClientVersion([callback])
@@ -2418,16 +2416,16 @@ Returns the current client version of a Klaytn node.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                  |
+| ------ | -------------------------------------------- |
 | string | The current client version of a Klaytn node. |
 
 **Example**
@@ -2437,7 +2435,7 @@ Returns the current client version of a Klaytn node.
 Klaytn/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.klay.getGasPrice <a id="caver-rpc-klay-getgasprice"></a>
+## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getGasPrice([callback])
@@ -2447,16 +2445,16 @@ Returns the current price per gas in peb.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                   |
+| ------ | ----------------------------- |
 | string | The current gas price in peb. |
 
 **Example**
@@ -2466,7 +2464,7 @@ Returns the current price per gas in peb.
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getGasPriceAt <a id="caver-rpc-klay-getgaspriceat"></a>
+## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
 
 ```javascript
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
@@ -2476,17 +2474,17 @@ Returns the current price per gas in peb for the given block.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockNumber | number | (optional) The block number. If omitted, the latest unit price will be returned. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned.                           |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                   |
+| ------ | ----------------------------- |
 | string | The current gas price in peb. |
 
 **Example**
@@ -2496,27 +2494,26 @@ Returns the current price per gas in peb for the given block.
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getMaxPriorityFeePerGas <a id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
 
 ```javascript
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggested gas tip cap for dynamic fee transactions in peb.
-Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
+Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | The suggested gas tip cap in peb. |
 
 **Example**
@@ -2526,7 +2523,7 @@ Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getLowerBoundGasPrice <a id="caver-rpc-klay-getlowerboundgasprice"></a>
+## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getLowerBoundGasPrice([callback])
@@ -2536,16 +2533,16 @@ Returns the lower bound gas price in peb.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | The lower bound gas price in peb. |
 
 **Example**
@@ -2555,7 +2552,7 @@ Returns the lower bound gas price in peb.
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getUpperBoundGasPrice <a id="caver-rpc-klay-getupperboundgasprice"></a>
+## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getUpperBoundGasPrice([callback])
@@ -2565,16 +2562,16 @@ Returns the upper bound gas price in peb.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | The upper bound gas price in peb. |
 
 **Example**
@@ -2584,34 +2581,33 @@ Returns the upper bound gas price in peb.
 0xae9f7bcc00
 ```
 
-## caver.rpc.klay.getFeeHistory <a id="caver-rpc-klay-getfeehistory"></a>
+## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
 
 ```javascript
 caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
 ```
 
-Returns fee history for the returned block range.
-This can be a subsection of the requested range if not all blocks are available.
+Returns fee history for the returned block range. This can be a subsection of the requested range if not all blocks are available.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| blockCount | number&#124;BigNumber&#124;BN&#124;string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
-| lastBlock | number&#124;BigNumber&#124;BN&#124;string | Highest number block (or block tag string) of the requested range. |
-| rewardPercentiles | Array | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type                          | Description                                                                                                                                                                                                                                     |
+| ----------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | number\|BigNumber\|BN\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                     |
+| lastBlock         | number\|BigNumber\|BN\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                              |
+| rewardPercentiles | Array                         | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
+| callback          | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                      |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes fee history:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| oldestBlock | string | Lowest number block of returned range. |
-| reward | Array | A two-dimensional array of effective priority fees per gas at the requested block percentiles. |
-| baseFeePerGas | Array | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio | Array | An array of gasUsed/gasLimit in the block. |
+| Name          | Type   | Description                                                                                                                                                                                                     |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
+| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
+| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
+| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
 
 **Example**
 
@@ -2629,36 +2625,32 @@ This can be a subsection of the requested range if not all blocks are available.
 }
 ```
 
-## caver.rpc.klay.createAccessList <a id="caver-rpc-klay-createaccesslist"></a>
+## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
 
 ```javascript
 caver.rpc.klay.createAccessList(txCallObject [, callback])
 ```
 
-This method creates an accessList based on a given Transaction. 
-The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles.
-This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. 
-An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases.
-Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles. This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases. Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| callObject | object | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters. |
-| blockParameter | number&#124;BigNumber&#124;BN&#124;string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name           | Type                          | Description                                                                                                               |
+| -------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| callObject     | object                        | A transaction call object. Please see [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) parameters.                      |
+| blockParameter | number\|BigNumber\|BN\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
+| callback       | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes an access list:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| oldestBlock | string | Lowest number block of returned range. |
-| reward | Array | A two-dimensional array of effective priority fees per gas at the requested block percentiles. |
-| baseFeePerGas | Array | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio | Array | An array of gasUsed/gasLimit in the block. |
+| Name          | Type   | Description                                                                                                                                                                                                     |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
+| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
+| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
+| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
 
 **Example**
 
@@ -2673,7 +2665,7 @@ Adding an accessList to your transaction does not necessary result in lower gas 
 { accessList: [], gasUsed: '0x0' }
 ```
 
-## caver.rpc.klay.isParallelDBWrite <a id="caver-rpc-klay-isparalleldbwrite"></a>
+## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
 
 ```javascript
 caver.rpc.klay.isParallelDBWrite([callback])
@@ -2683,16 +2675,16 @@ Returns `true` if the node is writing blockchain data in a parallel manner.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                                                                                                    |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
 
 **Example**
@@ -2702,7 +2694,7 @@ Returns `true` if the node is writing blockchain data in a parallel manner.
 true
 ```
 
-## caver.rpc.klay.isSenderTxHashIndexingEnabled <a id="caver-rpc-klay-issendertxhashindexingenabled"></a>
+## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
@@ -2712,16 +2704,16 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
 | boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
 **Example**
@@ -2731,27 +2723,26 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 true
 ```
 
-## caver.rpc.klay.getProtocolVersion <a id="caver-rpc-klay-getprotocolversion"></a>
+## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
 
 ```javascript
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
-The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
 | string | The Klaytn protocol version of the node. |
 
 **Example**
@@ -2761,7 +2752,7 @@ The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 0x40
 ```
 
-## caver.rpc.klay.getRewardbase <a id="caver-rpc-klay-getrewardbase"></a>
+## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
 ```javascript
 caver.rpc.klay.getRewardbase([callback])
@@ -2771,16 +2762,16 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description             |
+| ------ | ----------------------- |
 | string | The rewardbase address. |
 
 **Example**
@@ -2790,7 +2781,7 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.getFilterChanges <a id="caver-rpc-klay-getfilterchanges"></a>
+## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
 caver.rpc.klay.getFilterChanges(filterId [, callback])
@@ -2800,29 +2791,29 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| filterId | String | The filter id. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | String   | The filter id.                                                                                             |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
 
-- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
+* For filters created with [caver.rpc.klay.newBlockFilter](klay.md#caver-rpc-klay-newblockfilter), the returns are block hashes, _e.g._, `["0x3454645634534..."]`.
+* For filters created with [caver.rpc.klay.newPendingTransactionFilter](klay.md#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
+* For filters created with [caver.rpc.klay.newFilter](klay.md#caver-rpc-klay-newfilter), logs are objects with the following parameters:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| logIndex | string | The log index position in the block. |
-| transactionIndex | string | The index position of transactions where this log was created from. |
-| transactionHash | string| Hash of the transactions this log was created from. `null` when pending. |
-| blockHash | string | Hash of the block where this log was in. `null` when pending. |
-| blockNumber | string | The block number where this log was in. `null` when pending. |
-| address | string | Address from which this log originated. |
-| data | string | Contains the non-indexed arguments of the log. |
-| topics | Array | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| Name             | Type   | Description                                                                                                                                                                                                                                  |
+| ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logIndex         | string | The log index position in the block.                                                                                                                                                                                                         |
+| transactionIndex | string | The index position of transactions where this log was created from.                                                                                                                                                                          |
+| transactionHash  | string | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
+| blockHash        | string | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
+| blockNumber      | string | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
+| address          | string | Address from which this log originated.                                                                                                                                                                                                      |
+| data             | string | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
+| topics           | Array  | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (_e.g._, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
 **Example**
 
@@ -2842,27 +2833,26 @@ Polling method for a filter, which returns an array of logs since the last poll.
 ]
 ```
 
-## caver.rpc.klay.getFilterLogs <a id="caver-rpc-klay-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#caver-rpc-klay-newfilter).  
+Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](klay.md#caver-rpc-klay-newfilter).
 
-Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
-
+Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](klay.md#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](klay.md#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| filterId | string | The filter id. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | string   | The filter id.                                                                                             |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+See [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges)
 
 **Example**
 
@@ -2882,7 +2872,7 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## caver.rpc.klay.getLogs <a id="caver-rpc-klay-getlogs"></a>
+## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
@@ -2892,23 +2882,23 @@ Returns an array of all logs matching a given filter object.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| options | object | The filter options. See the below table to find the description. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| options  | object   | The filter options. See the below table to find the description.                                           |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 The options object can contain the following:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`. |
-| toBlock | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`. |
-| address | string &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
-| topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
+| Name      | Type             | Description                                                                                                                                                                                                                                                                           |
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                         |
+| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                            |
+| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                    |
+| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+See [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges)
 
 **Example**
 
@@ -2935,26 +2925,26 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## caver.rpc.klay.newBlockFilter <a id="caver-rpc-klay-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
 caver.rpc.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description  |
+| ------ | ------------ |
 | string | A filter id. |
 
 **Example**
@@ -2964,40 +2954,41 @@ Creates a filter in the node, to notify when a new block arrives. To check if th
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.klay.newFilter <a id="caver-rpc-klay-newfilter"></a>
+## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
 ```
 
 Creates a filter object using the given filter options, to receive the specific state changes (logs).
-- To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
+* To check if the state has changed, call [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges).
+* To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](klay.md#caver-rpc-klay-getfilterlogs).
+
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay\_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay\_newfilter).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| options | object | The filter options. See the below table to find the description. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| options  | object   | The filter options. See the below table to find the description.                                           |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 The options object can contain the following:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`. |
-| toBlock | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`. |
-| address | string &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
-| topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
+| Name      | Type             | Description                                                                                                                                                                                                                                                                           |
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                         |
+| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                            |
+| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                    |
+| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description  |
+| ------ | ------------ |
 | string | A filter id. |
 
 **Example**
@@ -3010,27 +3001,26 @@ The options object can contain the following:
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.klay.newPendingTransactionFilter <a id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transaction arrival.
-To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
+| Type   | Description  |
+| ------ | ------------ |
 | string | A filter id. |
 
 **Example**
@@ -3040,27 +3030,27 @@ To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.klay.uninstallFilter <a id="caver-rpc-klay-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) for a period of time.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| filterId | string | The filter id. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | string   | The filter id.                                                                                             |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                                                           |
+| ------- | --------------------------------------------------------------------- |
 | boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
 **Example**
@@ -3070,7 +3060,7 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 true
 ```
 
-## caver.rpc.klay.sha3 <a id="caver-rpc-klay-sha3"></a>
+## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])
@@ -3080,18 +3070,18 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| data | String | The data to be converted into a SHA3 hash. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| data     | String   | The data to be converted into a SHA3 hash.                                                                 |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type | Description |
-| --- | --- |
-| string | The SHA3 result of the given data.|
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| string | The SHA3 result of the given data. |
 
 **Example**
 
@@ -3099,13 +3089,3 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 > caver.rpc.klay.sha3('0x11223344').then(console.log)
 0x36712aa4d0dd2f64a9ae6ac09555133a157c74ddf7c079a70c33e8b4bf70dd73
 ```
-
-[AccountKey]: ../../../../../klaytn/design/accounts.md#account-key
-[AccountKeyLegacy]: ../caver.account.md#accountkeylegacy
-[AccountKeyPublic]: ../caver.account.md#accountkeypublic
-[AccountKeyFail]: ../caver.account.md#accountkeyfail
-[AccountKeyWeightedMultiSig]: ../caver.account.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../caver.account.md#accountkeyrolebased
-[SenderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
-[caver.rpc.klay.getTransactionByHash]: #caver-rpc-klay-gettransactionbyhash
-[Transaction]: ../caver.transaction/README.md#class
