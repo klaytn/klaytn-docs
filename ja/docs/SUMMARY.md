@@ -54,7 +54,6 @@
   * [Precompiled Contracts](smart-contract/precompiled-contracts/precompiled-contracts.md)
     * [Precompiled Contracts (Previous docs)](smart-contract/precompiled-contracts/precompiled-contracts-previous.md)
   * [IDE and Tools](smart-contract/ide-and-tools/README.md)
-    * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [Truffle](toolkit/truffle.md)
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
