@@ -290,7 +290,6 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
-    *
     * [Covalent API](toolkit/covalent.md)
 
 ## --- <a href="#misc" id="misc"></a>
