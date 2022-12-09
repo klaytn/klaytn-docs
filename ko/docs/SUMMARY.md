@@ -54,7 +54,6 @@
   * [미리 컴파일된 컨트랙트](smart-contract/precompiled-contracts/precompiled-contracts.md)
     * [미리 컴파일된 컨트랙트 (구 버전 문서)](smart-contract/precompiled-contracts/precompiled-contracts-previous.md)
   * [IDE 및 도구](smart-contract/ide-and-tools/README.md)
-    * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [트러플(Truffle)](toolkit/truffle.md)
   * [샘플 컨트랙트](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
