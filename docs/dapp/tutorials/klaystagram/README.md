@@ -26,7 +26,7 @@ Klaystagram DApp is tested in the following environment.
 
 ## Introduction <a href="#introduction" id="introduction"></a>
 
-[![Klaystagram Introduction Video](images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
+[![Klaystagram Introduction Video](../../../bapp/tutorials/klaystagram/images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
 In this tutorial, we will learn how to make `Klaystagram`, a Klaytn-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
 
