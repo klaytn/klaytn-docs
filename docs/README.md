@@ -1,6 +1,7 @@
 ---
 cover: .gitbook/assets/main_header.png
 coverY: -451
+layout: landing
 ---
 
 # Klaytn Docs

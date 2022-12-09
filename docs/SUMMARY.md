@@ -1,9 +1,7 @@
 # Table of contents
 
 * [Klaytn Docs](README.md)
-
-## --- <a href="#misc" id="misc"></a>
-
+* [---](misc.md)
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
   * [Klaytn Design](klaytn/design/README.md)
@@ -290,7 +288,7 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
-    * [Truffle](toolkit/truffle.md)
+    *
     * [Covalent API](toolkit/covalent.md)
 
 ## --- <a href="#misc" id="misc"></a>
