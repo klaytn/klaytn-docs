@@ -31,7 +31,7 @@ $ kscnd start
 
 ## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../../../misc-1/klaytn-history.md) to ServiceChain.
+This section describes the steps for applying Klaytn [hard forks](../../../../misc/klaytn-history.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 
@@ -122,7 +122,7 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../../misc-1/klaytn-history.md).
+You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../../misc/klaytn-history.md).
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 

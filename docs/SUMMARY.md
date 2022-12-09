@@ -1,9 +1,6 @@
 # Table of contents
 
 * [Klaytn Docs](README.md)
-
-## --- <a href="#misc" id="misc"></a>
-
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
   * [Klaytn Design](klaytn/design/README.md)
@@ -295,14 +292,14 @@
 
 ## --- <a href="#misc" id="misc"></a>
 
-* [Klaytn Hard Fork History](misc-1/klaytn-history.md)
-* [Klaytn 2.0](misc-1/klaytn2/README.md)
-  * [Metaverse Package](misc-1/klaytn2/metaverse-package.md)
-  * [Finality and Improvements](misc-1/klaytn2/finality-and-improvements.md)
-  * [Ethereum Compatibility](misc-1/klaytn2/ethereum-compatibility.md)
-  * [Decentralizing Governance](misc-1/klaytn2/decentralizing-governance.md)
-  * [Massive Eco Fund](misc-1/klaytn2/massive-ecofund.md)
-* [FAQ](misc-1/faq.md)
-* [Open Source](misc-1/opensource.md)
-* [Terms of Use](misc-1/terms-of-use.md)
-* [Languages](misc-1/languages.md)
+* [Klaytn Hard Fork History](misc/klaytn-history.md)
+* [Klaytn 2.0](misc/klaytn2/README.md)
+  * [Metaverse Package](misc/klaytn2/metaverse-package.md)
+  * [Finality and Improvements](misc/klaytn2/finality-and-improvements.md)
+  * [Ethereum Compatibility](misc/klaytn2/ethereum-compatibility.md)
+  * [Decentralizing Governance](misc/klaytn2/decentralizing-governance.md)
+  * [Massive Eco Fund](misc/klaytn2/massive-ecofund.md)
+* [FAQ](misc/faq.md)
+* [Open Source](misc/opensource.md)
+* [Terms of Use](misc/terms-of-use.md)
+* [Languages](misc/languages.md)
