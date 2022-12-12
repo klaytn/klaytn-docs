@@ -7,7 +7,7 @@ description: >-
 
 The namespace `unsafedebug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
 
-**`WARNING`**: This namespace includes some unsafe APIs. Do not open this namespace over RPC. See [this link](../../installation-guide/deployment/endpoint-node/json-rpc-apis.md) to learn how to open a namespace over RPC.
+**`WARNING`**: This namespace includes some unsafe APIs. Do not open this namespace over RPC. See [this link](../../../installation-guide/deployment/endpoint-node/json-rpc-apis.md) to learn how to open a namespace over RPC.
 
 ## [Logging](./unsafedebug/logging.md) <a id="logging"></a>
 
