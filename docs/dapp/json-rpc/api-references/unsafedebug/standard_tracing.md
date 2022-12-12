@@ -1,8 +1,8 @@
 # VM Standard Tracing <a id="vm-standard-tracing"></a>
 
-## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
+## unsafedebug_standardTraceBadBlockToFile <a id="unsafedebug_standardtracebadblocktofile"></a>
 
-Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock),
+Similar to [unsafedebug_traceBadBlock](./tracing.md#unsafedebug_tracebadblock),
 `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad
 block. It returns a list of file names containing tracing result. Note that the
 files will be stored in the machine that serves this API.
@@ -10,8 +10,8 @@ files will be stored in the machine that serves this API.
 
 | Client  | Method Invocation                                                       |
 |:-------:|-------------------------------------------------------------------------|
-| Console | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
-| RPC     | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
+| Console | `unsafedebug.standardTraceBadBlockToFile(hash, [options])`                    |
+| RPC     | `{"method": "unsafedebug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
 **Parameters**
 
@@ -30,20 +30,20 @@ files will be stored in the machine that serves this API.
 
 Console
 ```javascript
-> debug.standardTraceBadBlockToFile("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
+> unsafedebug.standardTraceBadBlockToFile("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 ["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-0-0xae6f8ed4-701973544", "/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-1-0x2e37321f-918920039"]
 ```
 
 HTTP RPC
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_standardTraceBadBlockToFile","params":["0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6"],"id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_standardTraceBadBlockToFile","params":["0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-0-0xae6f8ed4-608268252","/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-1-0x2e37321f-315574667"]}
 ```
 
 
-## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
+## unsafedebug_standardTraceBlockToFile <a id="unsafedebug_standardtraceblocktofile"></a>
 
-Similar to [debug_traceBlock](./tracing.md#debug_traceblock),
+Similar to [unsafedebug_traceBlock](./tracing.md#unsafedebug_traceblock),
 `standardTraceBlockToFile` accepts a block hash and will replay the block that
 is already present in the database. It returns a list of file names containing
 tracing result. Note that the files will be stored in the machine that serves
@@ -51,8 +51,8 @@ this API.
 
 | Client  | Method Invocation                                                    |
 |:-------:|----------------------------------------------------------------------|
-| Console | `debug.standardTraceBlockToFile(hash, [options])`                    |
-| RPC     | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
+| Console | `unsafedebug.standardTraceBlockToFile(hash, [options])`                    |
+| RPC     | `{"method": "unsafedebug_standardTraceBlockToFile", "params": [hash, {}]}` |
 
 **Parameters**
 
@@ -71,13 +71,13 @@ this API.
 
 Console
 ```javascript
-> debug.standardTraceBlockToFile("0x485fff444481ee28debe50639f312f44e0a09342161a8906a99cf325cc2512a4")
+> unsafedebug.standardTraceBlockToFile("0x485fff444481ee28debe50639f312f44e0a09342161a8906a99cf325cc2512a4")
 ["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-141224302"]
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_standardTraceBlockToFile","params":["0x485fff444481ee28debe50639f312f44e0a09342161a8906a99cf325cc2512a4"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_standardTraceBlockToFile","params":["0x485fff444481ee28debe50639f312f44e0a09342161a8906a99cf325cc2512a4"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-288181237"]}
 ```
 

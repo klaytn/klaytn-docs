@@ -1,16 +1,16 @@
 # Profiling <a id="profiling"></a>
 
-## debug_blockProfile <a id="debug_blockprofile"></a>
+## unsafedebug_blockProfile <a id="unsafedebug_blockprofile"></a>
 
 Turns on block profiling for the given duration and writes profile data to
 disk. It uses a profile rate of 1 for most accurate information. If a different
 rate is desired, set the rate and write the profile manually using
-[debug_writeBlockProfile](#debug_writeblockprofile).
+[unsafedebug_writeBlockProfile](#unsafedebug_writeblockprofile).
 
 | Client  | Method Invocation                                              |
 | :-----: | -------------------------------------------------------------- |
-| Console | `debug.blockProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
+| Console | `unsafedebug.blockProfile(file, seconds)`                            |
+|   RPC   | `{"method": "unsafedebug_blockProfile", "params": [string, number]}` |
 
 **Parameters**
 
@@ -27,24 +27,24 @@ None
 
 Console
 ```javascript
-> debug.blockProfile("block.profile", 10)
+> unsafedebug.blockProfile("block.profile", 10)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_blockProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_cpuProfile <a id="debug_cpuprofile"></a>
+## unsafedebug_cpuProfile <a id="unsafedebug_cpuprofile"></a>
 
 Turns on CPU profiling for the given duration and writes profile data to disk.
 
 | Client  | Method Invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `debug.cpuProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
+| Console | `unsafedebug.cpuProfile(file, seconds)`                            |
+|   RPC   | `{"method": "unsafedebug_cpuProfile", "params": [string, number]}` |
 
 **Parameters**
 
@@ -61,24 +61,24 @@ None
 
 Console
 ```javascript
-> debug.cpuProfile("block.profile", 10)
+> unsafedebug.cpuProfile("block.profile", 10)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_cpuProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## debug_mutexProfile <a id="debug_mutexprofile"></a>
+## unsafedebug_mutexProfile <a id="unsafedebug_mutexprofile"></a>
 
 Turns on mutex profiling for nsec (nanosecond) and writes profile data to file.
 It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually.
 
 | Client  | Method Invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `debug.mutexProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+| Console | `unsafedebug.mutexProfile(file, seconds)`                            |
+|   RPC   | `{"method": "unsafedebug_mutexProfile", "params": [string, number]}` |
 
 **Parameters**
 
@@ -95,24 +95,24 @@ None
 
 Console
 ```javascript
-> debug.mutexProfile("mutex.profile", 10)
+> unsafedebug.mutexProfile("mutex.profile", 10)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_mutexProfile","params":["mutex.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
+## unsafedebug_isPProfRunning <a id="unsafedebug_ispprofrunning"></a>
 
 Returns `true` if the pprof HTTP server is running and `false` otherwise.
 
 | Client  | Method Invocation                                  |
 | :-----: | -------------------------------------------------- |
-| Console | `debug.isPProfRunning()`                           |
-| RPC     | `{"method": "debug_isPProfRunning", "params": []}` |
+| Console | `unsafedebug.isPProfRunning()`                           |
+| RPC     | `{"method": "unsafedebug_isPProfRunning", "params": []}` |
 
 **Parameters**
 
@@ -128,28 +128,28 @@ None
 
 Console
 ```javascript
-> debug.isPProfRunning()
+> unsafedebug.isPProfRunning()
 false
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_isPProfRunning","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
 
-## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
+## unsafedebug_setBlockProfileRate <a id="unsafedebug_setblockprofilerate"></a>
 
 Sets the rate (in samples/sec) of goroutine block profile data collection. A
 non-zero rate enables block profiling, setting it to zero stops the profile.
 Collected profile data can be written using
-[debug_writeBlockProfile](#debug_writeblockprofile).
+[unsafedebug_writeBlockProfile](#unsafedebug_writeblockprofile).
 
 | Client  | Method Invocation                                             |
 |:-------:|---------------------------------------------------------------|
-| Console | `debug.setBlockProfileRate(rate)`                             |
-| RPC     | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
+| Console | `unsafedebug.setBlockProfileRate(rate)`                             |
+| RPC     | `{"method": "unsafedebug_setBlockProfileRate", "params": [number]}` |
 
 **Parameters**
 
@@ -165,24 +165,24 @@ None
 
 Console
 ```javascript
-> debug.setBlockProfileRate(1)
+> unsafedebug.setBlockProfileRate(1)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_setBlockProfileRate","params":['3'],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_startCPUProfile <a id="debug_startcpuprofile"></a>
+## unsafedebug_startCPUProfile <a id="unsafedebug_startcpuprofile"></a>
 
 Turns on CPU profiling indefinitely, writing to the given file.
 
 | Client  | Method Invocation                                         |
 |:-------:|-----------------------------------------------------------|
-| Console | `debug.startCPUProfile(file)`                             |
-| RPC     | `{"method": "debug_startCPUProfile", "params": [string]}` |
+| Console | `unsafedebug.startCPUProfile(file)`                             |
+| RPC     | `{"method": "unsafedebug_startCPUProfile", "params": [string]}` |
 
 **Parameters**
 
@@ -199,24 +199,24 @@ None
 Console
 
 ```javascript
-> debug.startCPUProfile("cpu.profile")
+> unsafedebug.startCPUProfile("cpu.profile")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_startCPUProfile","params":["cpu.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_stopCPUProfile <a id="debug_stopcpuprofile"></a>
+## unsafedebug_stopCPUProfile <a id="unsafedebug_stopcpuprofile"></a>
 
 Turns off CPU profiling.
 
 | Client  | Method Invocation                                  |
 |:-------:|----------------------------------------------------|
-| Console | `debug.stopCPUProfile()`                           |
-| RPC     | `{"method": "debug_stopCPUProfile", "params": []}` |
+| Console | `unsafedebug.stopCPUProfile()`                           |
+| RPC     | `{"method": "unsafedebug_stopCPUProfile", "params": []}` |
 
 **Parameters**
 
@@ -230,17 +230,17 @@ None
 
 Console
 ```javascript
-> debug.stopCPUProfile()
+> unsafedebug.stopCPUProfile()
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_stopCPUProfile","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_startPProf <a id="debug_startpprof"></a>
+## unsafedebug_startPProf <a id="unsafedebug_startpprof"></a>
 
 Starts the pprof HTTP server.  The running pprof server can be accessed by
 (when the default configuration, i.e., localhost:6060, is used):
@@ -250,8 +250,8 @@ Starts the pprof HTTP server.  The running pprof server can be accessed by
 
 | Client  | Method Invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `debug.startPProf(address, port)`                            |
-| RPC     | `{"method": "debug_startPProf", "params": [string, number]}` |
+| Console | `unsafedebug.startPProf(address, port)`                            |
+| RPC     | `{"method": "unsafedebug_startPProf", "params": [string, number]}` |
 
 **Parameters**
 
@@ -269,30 +269,30 @@ None
 Console
 ```javascript
 # To start the pprof server at 127.0.0.1:6060
-> debug.startPProf()
+> unsafedebug.startPProf()
 null
 
 # To start the pprof server at localhost:12345
-> debug.startPProf("localhost", 12345)
+> unsafedebug.startPProf("localhost", 12345)
 null
 ```
 
 HTTP RPC
 ```shell
 # To start the pprof server at localhost:6060
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_startPProf","params":["localhost", 6060],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_stopPProf <a id="debug_stoppprof"></a>
+## unsafedebug_stopPProf <a id="unsafedebug_stoppprof"></a>
 
 Stops the pprof HTTP server.
 
 | Client  | Method Invocation                             |
 | :-----: | --------------------------------------------- |
-| Console | `debug.stopPProf()`                           |
-| RPC     | `{"method": "debug_stopPProf", "params": []}` |
+| Console | `unsafedebug.stopPProf()`                           |
+| RPC     | `{"method": "unsafedebug_stopPProf", "params": []}` |
 
 **Parameters**
 
@@ -306,25 +306,25 @@ None
 
 Console
 ```javascript
-> debug.stopPProf()
+> unsafedebug.stopPProf()
 null
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_stopPProf","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_writeBlockProfile <a id="debug_writeblockprofile"></a>
+## unsafedebug_writeBlockProfile <a id="unsafedebug_writeblockprofile"></a>
 
 Writes a goroutine blocking profile to the given file.
 
 | Client  | Method Invocation                                           |
 |:-------:|-------------------------------------------------------------|
-| Console | `debug.writeBlockProfile(file)`                             |
-| RPC     | `{"method": "debug_writeBlockProfile", "params": [string]}` |
+| Console | `unsafedebug.writeBlockProfile(file)`                             |
+| RPC     | `{"method": "unsafedebug_writeBlockProfile", "params": [string]}` |
 
 **Parameters**
 
@@ -340,17 +340,17 @@ None
 
 Console
 ```javascript
-> debug.writeBlockProfile("block.profile")
+> unsafedebug.writeBlockProfile("block.profile")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_writeBlockProfile","params":["block.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_writeMemProfile <a id="debug_writememprofile"></a>
+## unsafedebug_writeMemProfile <a id="unsafedebug_writememprofile"></a>
 
 Writes an allocation profile to the given file.  Note that the profiling rate
 cannot be set through the API, it must be set on the command line using the
@@ -358,8 +358,8 @@ cannot be set through the API, it must be set on the command line using the
 
 | Client  | Method Invocation                                           |
 |:-------:|-------------------------------------------------------------|
-| Console | `debug.writeMemProfile(file)`                               |
-| RPC     | `{"method": "debug_writeMemProfile", "params": [string]}` |
+| Console | `unsafedebug.writeMemProfile(file)`                               |
+| RPC     | `{"method": "unsafedebug_writeMemProfile", "params": [string]}` |
 
 **Parameters**
 
@@ -375,23 +375,23 @@ None
 
 Console
 ```javascript
-> debug.writeMemProfile("mem.profile")
+> unsafedebug.writeMemProfile("mem.profile")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_writeMemProfile","params":["mem.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
+## unsafedebug_writeMutexProfile <a id="unsafedebug_writemutexprofile"></a>
 
 Writes a goroutine blocking profile to the given file.
 
 | Client  | Method Invocation                                           |
 |:-------:|-------------------------------------------------------------|
-| Console | `debug.writeMutexProfile(file)`                               |
-| RPC     | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+| Console | `unsafedebug.writeMutexProfile(file)`                               |
+| RPC     | `{"method": "unsafedebug_writeMutexProfile", "params": [string]}` |
 
 **Parameters**
 
@@ -407,11 +407,11 @@ None
 
 Console
 ```javascript
-> debug.writeMutexProfile("mutex.profile")
+> unsafedebug.writeMutexProfile("mutex.profile")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_writeMutexProfile","params":["mutex.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```

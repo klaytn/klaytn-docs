@@ -1,14 +1,14 @@
 # Go Runtime Tracing <a id="go-runtime-tracing"></a>
 
-## debug_goTrace <a id="debug_gotrace"></a>
+## unsafedebug_goTrace <a id="unsafedebug_gotrace"></a>
 
 Turns on Go runtime tracing for the given duration and writes
 trace data to disk.
 
 | Client  | Method Invocation                                         |
 |:-------:|-----------------------------------------------------------|
-| Console | `debug.goTrace(file, seconds)`                            |
-| RPC     | `{"method": "debug_goTrace", "params": [string, number]}` |
+| Console | `unsafedebug.goTrace(file, seconds)`                            |
+| RPC     | `{"method": "unsafedebug_goTrace", "params": [string, number]}` |
 
 **Parameters**
 
@@ -25,25 +25,25 @@ None
 
 Console
 ```javascript
-> debug.goTrace("go.trace", 5)
+> unsafedebug.goTrace("go.trace", 5)
 null
 ```
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_goTrace","params":["go.trace",5],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_goTrace","params":["go.trace",5],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_startGoTrace <a id="debug_startgotrace"></a>
+## unsafedebug_startGoTrace <a id="unsafedebug_startgotrace"></a>
 
 Starts writing a Go runtime trace to the given file.
 
 | Client  | Method Invocation                                      |
 |:-------:|--------------------------------------------------------|
-| Console | `debug.startGoTrace(file)`                             |
-| RPC     | `{"method": "debug_startGoTrace", "params": [string]}` |
+| Console | `unsafedebug.startGoTrace(file)`                             |
+| RPC     | `{"method": "unsafedebug_startGoTrace", "params": [string]}` |
 
 **Parameters**
 
@@ -59,24 +59,24 @@ None
 
 Console
 ```javascript
-> debug.startGoTrace("go.trace")
+> unsafedebug.startGoTrace("go.trace")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startGoTrace","params":["go.trace"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_startGoTrace","params":["go.trace"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
-## debug_stopGoTrace <a id="debug_stopgotrace"></a>
+## unsafedebug_stopGoTrace <a id="unsafedebug_stopgotrace"></a>
 
 Stops writing the Go runtime trace.
 
 | Client  | Method Invocation                                 |
 |:-------:|---------------------------------------------------|
-| Console | `debug.stopGoTrace()`                             |
-| RPC     | `{"method": "debug_stopGoTrace", "params": []}`   |
+| Console | `unsafedebug.stopGoTrace()`                             |
+| RPC     | `{"method": "unsafedebug_stopGoTrace", "params": []}`   |
 
 **Parameters**
 
@@ -90,12 +90,12 @@ None
 
 Console
 ```javascript
-> debug.stopGoTrace()
+> unsafedebug.stopGoTrace()
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopGoTrace","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"unsafedebug_stopGoTrace","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
