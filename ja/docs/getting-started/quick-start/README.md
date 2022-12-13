@@ -16,14 +16,14 @@ This step by step guide will walk you through the process of launching an Endpoi
 
 The first part of this tutorial explains how to launch an EN, create a new account, and top up your account with the faucet in the Baobab Klaytn Wallet.
 
-* [Launch an Endpoint Node](launch-an-en.md)
-* [Top up your Account](top-up-your-account.md)
+* [エンドポイントノードを起動](launch-an-en.md)
+* [アカウントへ入金する](top-up-your-account.md)
 
 ## 2. Deploying a Smart Contract: KlaytnGreeter <a id="2-deploying-a-smart-contract-klaytngreeter"></a>
 
 The second of this guide shows how to create smart contracts and deploy them on the Klaytn Baobab network. Before getting into developing smart contracts, you need to set up the development tools, install caver-js and Truffle.
 
-* [Install Development Tools](install-development-tools.md)
-* [Deploy a Smart Contract](deploy-a-smart-contract.md)
-* [Check the Deployment](check-the-deployment.md)
+* [開発ツールのインストール](install-development-tools.md)
+* [スマートコントラクトを展開する](deploy-a-smart-contract.md)
+* [配備を確認してください](check-the-deployment.md)
 
