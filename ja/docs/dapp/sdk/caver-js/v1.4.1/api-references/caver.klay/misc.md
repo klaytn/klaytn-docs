@@ -4,23 +4,23 @@
 caver.klay.sha3(data[, callback])
 ```
 
-Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
+与えられたデータの Kecchak-256 ハッシュを返します(標準化された SHA3-256 ではありません)。
 
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| data     | String   | The data to convert into a SHA3 hash.                                                                      |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| data     | 文字列 | SHA3ハッシュに変換するデータ。                                                  |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `String` - The SHA3 result of the given data.
+`Promise` は `String を返します。` - 与えられたデータの SHA3 結果。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.sha3("0x11223344").then(console.log);
-0x36712aa4d0dd2f64a9ae6ac09555133a157c74ddf7c079a70c33e8b4bf70dd73
+0x36712aa4d0dd2f64a9ae6ac09555133a157c74ddf7c079a70c33e8b4bf70ddd73
 ```
