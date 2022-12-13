@@ -1,84 +1,84 @@
-## call <a id="call"></a>
+## 通話 <a id="call"></a>
 
 ```javascript
 caver.klay.call(callObject [, defaultBlock] [, callback])
 ```
-Executes a message call transaction, which is directly executed in the Klaytn Virtual Machine of the node, but never mined into the blockchain.
+ノードの Klaytn 仮想マシンで直接実行されますが、ブロックチェーンにマイニングされることはありません。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock).                                                                                       |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| 名前           | タイプ           | Description                                                                                                                                   |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject   | Object        | from プロパティを呼び出す際の違いを持つトランザクションオブジェクトもオプションです。 [エンコードされた関数コール](../caver.klay.abi.md#encodefunctioncall) は、トランザクションオブジェクトのデータフィールドに設定する必要があります。 |
+| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。                                              |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                            |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `String`: The returned data of the call, *e.g.*, a smart contract functions return value.
+`Promise` returns `String`: 呼び出しの返されるデータ。 *例:*, スマートコントラクト関数の戻り値。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.call({
     to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", // contract address
-    data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
+    data: "0xc6888fa10000000000000000000000000000000000000000000003"
 })
 .then(console.log);
 
-"0x000000000000000000000000000000000000000000000000000000000000000a"
+"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a"
 ```
 
-## estimateGas <a id="estimategas"></a>
+## 推定ガス <a id="estimategas"></a>
 
 ```javascript
 caver.klay.estimateGas(callObject [, callback])
 ```
-Executes a message call or transaction and returns the amount of the gas used for the simulated call/transaction.
+メッセージコールまたはトランザクションを実行し、シミュレートされたコール/トランザクションに使用されるガスの量を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type     | Description                                                                                                                                                                                                                 |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject | Object   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| callback   | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| 名前         | タイプ    | Description                                                                                                                                   |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject | Object | from プロパティを呼び出す際の違いを持つトランザクションオブジェクトもオプションです。 [エンコードされた関数コール](../caver.klay.abi.md#encodefunctioncall) は、トランザクションオブジェクトのデータフィールドに設定する必要があります。 |
+| callback   | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                            |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - the used gas for the simulated call/transaction.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.estimateGas({
     to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
-    data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
+    data: "0xc6888fa10000000000000000000000000000000003"
 })
 .then(console.log);
 
 40
 ```
 
-## estimateComputationCost <a id="estimatecomputationcost"></a>
+## 見積もり計算コスト <a id="estimatecomputationcost"></a>
 
 ```javascript
 caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 ```
-Generates and returns an estimate of how much computation cost will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain.
+トランザクションの実行に費やされる計算コストの見積もりを生成して返します。 Klaytn はトランザクションの計算コストを `10000000000` に制限しています。 トランザクションはブロックチェーンに追加されません。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used.                                                                                      |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| 名前           | タイプ           | Description                                                                                                                                   |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject   | Object        | from プロパティを呼び出す際の違いを持つトランザクションオブジェクトもオプションです。 [エンコードされた関数コール](../caver.klay.abi.md#encodefunctioncall) は、トランザクションオブジェクトのデータフィールドに設定する必要があります。 |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used.        |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                            |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Number` - The amount of computation cost used.
+`Promise` は `Number` を返します。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.estimateComputationCost({
@@ -100,25 +100,25 @@ Generates and returns an estimate of how much computation cost will be spent to 
 ```javascript
 caver.klay.decodeTransaction(rawTransaction)
 ```
-Returns a transaction object containing all decoded values from the given `rawTransaction`, an RLP-encoded transaction. Since all transaction types except for legacy transaction can have multiple signatures of sender and fee payer, the existing returned fields v, r, s and payerV, payerR, payerS are the 0th signature of sender and fee payer.
+与えられた `rawTransaction`(RLP でエンコードされたトランザクション) からすべてのデコードされた値を含むトランザクションオブジェクトを返します。 従来のトランザクションを除くすべてのトランザクションタイプは、送信者と手数料支払者の複数の署名を持つことができます。 既存の返されたフィールドv、r、s、payerV、payerR、payerSは、送信者と手数料支払者の0番目の署名です。
 
-**NOTE** caver.klay.decodeTransaction is supported from **v1.0.1-rc.8**.  To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+**注意** caver.klay.decodeTransaction は **v1.0.1-rc.8** からサポートされています。  この機能を使用するには、 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) 以上をインストールしてください。
 
-**NOTE** To support multiple signature, `signatures` and `feePayerSignatures` properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3).
+**注意** 複数の署名をサポートするため、 `署名` と `feePayerSignatures` プロパティは caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3) から追加されました。
 
-**Parameters**
+**パラメータ**
 
-| Name           | Type   | Description                   |
-| -------------- | ------ | ----------------------------- |
-| rawTransaction | String | RLP encoded transaction data. |
+| 名前             | タイプ | Description             |
+| -------------- | --- | ----------------------- |
+| rawTransaction | 文字列 | RLPエンコードされたトランザクションデータ。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                                                                                                                               |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | A transaction object. Depending on the transaction type, the returned transaction object has different properties. For the list of properties included in each transaction type, see [SendTransaction](#sendtransaction). |
+| タイプ    | Description                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Object | トランザクションオブジェクト トランザクションの種類に応じて、返されるトランザクションオブジェクトは異なるプロパティを持ちます。 各トランザクションタイプに含まれるプロパティのリストについては、 [SendTransaction](#sendtransaction) を参照してください。 |
 
-**Example**
+**例**
 
 ```javascript
 // Basic Transaction
@@ -217,45 +217,45 @@ Returns a transaction object containing all decoded values from the given `rawTr
 ```javascript
 caver.klay.getTransaction(transactionHash [, callback])
 ```
-Returns a transaction matching the given transaction hash.
+指定されたトランザクションハッシュに一致するトランザクションを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type     | Description                                                                                                |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash.                                                                                      |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前              | タイプ | Description                                                        |
+| --------------- | --- | ------------------------------------------------------------------ |
+| transactionHash | 文字列 | トランザクションハッシュ。                                                      |
+| callback        | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
+`Promise` は `Object を返します。` - トランザクションが見つからなかった場合は `null` です。
 
-| Name               | Type         | Description                                                                                                                                                                                                  |
-| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                  |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                       |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                           |
-| feePayer           | 20-byte DATA | (optional) Address of the fee payer.                                                                                                                                                                         |
-| feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                       |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                  |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                     |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                     |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                 |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                         |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                             |
-| senderTxHash       | 32-byte DATA | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non fee-delegated transactions.                                            |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                  |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                           |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                           |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                         |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                    |
+| 名前                 | タイプ        | Description                                                                                                                              |
+| ------------------ | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`                                                                                                  |
+| blockNumber        | 品質         | このトランザクションがあったブロック番号。 `保留中の場合は null`                                                                                                     |
+| codeFormat         | 文字列        | (オプション) スマートコントラクトコードのコード形式。                                                                                                             |
+| feePayer           | 20 バイトのデータ | (オプション) 手数料支払者の住所。                                                                                                                       |
+| feePayerSignatures | 行列         | (オプション) 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
+| 手数料比               | 品質         | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                   |
+| from               | 20 バイトのデータ | 送信者のアドレス                                                                                                                                 |
+| ガス                 | 品質         | 送信者が提供するガス。                                                                                                                              |
+| gasPrice           | 品質         | ペブ内の送信者によって提供されるガス価格。                                                                                                                    |
+| hash               | 32バイトのデータ  | トランザクションのハッシュ                                                                                                                            |
+| humanReadable      | Boolean    | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                               |
+| キー                 | 文字列        | (オプション) 新しく作成されたアカウントのキー。                                                                                                                |
+| input              | データ        | (オプション) トランザクションとともに送信されるデータ。                                                                                                            |
+| nonce              | 品質         | この前の送信者によって行われたトランザクションの数。                                                                                                               |
+| senderTxHash       | 32バイトのデータ  | (オプション) 手数料支払者のアドレスと署名なしでTXをハッシュします。 この値は、手数料委任されていないトランザクションの `ハッシュ` の値と常に同じです。                                                         |
+| signatures         | 行列         | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                |
+| to                 | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                   |
+| transactionIndex   | 品質         | ブロック内のトランザクションインデックス位置の整数。 `保留中の場合は null`                                                                                                |
+| タイプ                | 文字列        | トランザクションのタイプを表す文字列。                                                                                                                      |
+| typeInt            | 品質         | トランザクションのタイプを表す整数。                                                                                                                       |
+| 値                  | 品質         | 値はペブで転送されます。                                                                                                                             |
 
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getTransaction('0x2d26f602cfbb4c662931592bf2c4ee18d29f09683be5b9e8d589ff935fca0b97')
@@ -285,47 +285,47 @@ Returns a transaction matching the given transaction hash.
 ## getTransactionBySenderTxHash <a id="gettransactionbysendertxhash"></a>
 
 ```javascript
-caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
+caver.klay.getTransactionBySenderTxHash(senderTxHash[, callback])
 ```
-Returns the information about the transaction identified by the given `senderTxHash`. Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+与えられた `senderTxHash` によって識別されたトランザクションに関する情報を返します。 この API は、 `--sendertxhashindexing` によってノードでインデックス機能が有効になっている場合にのみ正しい結果を返すことに注意してください。 [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) を使用して、インデックス機能が有効かどうかを確認します。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type     | Description                                                                                                                                       |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                        |
+| 名前           | タイプ | Description                                                                                                       |
+| ------------ | --- | ----------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | 文字列 | 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). |
+| callback     | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
+`Promise` は `Object を返します。` - トランザクションが見つからなかった場合は `null` です。
 
-| Name               | Type         | Description                                                                                                                                                                                                                   |
-| ------------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                   |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                        |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                                            |
-| feePayer           | 20-byte DATA | Address of the fee payer.                                                                                                                                                                                                     |
-| feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                             |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                             |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                        |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                   |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                      |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                      |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                               |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                                  |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                          |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                              |
-| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                         |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                   |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                            |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                                            |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                          |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                     |
+| 名前                 | タイプ        | Description                                                                                                                                                    |
+| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`                                                                                                                        |
+| blockNumber        | 品質         | このトランザクションがあったブロック番号。 `保留中の場合は null`                                                                                                                           |
+| codeFormat         | 文字列        | (オプション) スマートコントラクトコードのコード形式。                                                                                                                                   |
+| feePayer           | 20 バイトのデータ | 手数料支払者の住所。                                                                                                                                                     |
+| feePayerSignatures | 行列         | 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                               |
+| 手数料比               | 品質         | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                                         |
+| from               | 20 バイトのデータ | 送信者のアドレス                                                                                                                                                       |
+| ガス                 | 品質         | 送信者が提供するガス。                                                                                                                                                    |
+| gasPrice           | 品質         | ペブ内の送信者によって提供されるガス価格。                                                                                                                                          |
+| hash               | 32バイトのデータ  | トランザクションのハッシュ                                                                                                                                                  |
+| humanReadable      | Boolean    | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                                                     |
+| キー                 | 文字列        | (オプション) 新しく作成されたアカウントのキー。                                                                                                                                      |
+| input              | データ        | (オプション) トランザクションとともに送信されるデータ。                                                                                                                                  |
+| nonce              | 品質         | この前の送信者によって行われたトランザクションの数。                                                                                                                                     |
+| senderTxHash       | 32バイトのデータ  | 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). この値は、手数料が委任されていないトランザクションでは、 `ハッシュ` と常に同じです。 |
+| signatures         | 行列         | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                                      |
+| to                 | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                                         |
+| transactionIndex   | 品質         | ブロック内のトランザクションインデックス位置の整数。 `保留中の場合は null`                                                                                                                      |
+| タイプ                | 文字列        | トランザクションのタイプを表す文字列。                                                                                                                                            |
+| typeInt            | 品質         | トランザクションのタイプを表す整数。                                                                                                                                             |
+| 値                  | 品質         | 値はペブで転送されます。                                                                                                                                                   |
 
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getTransactionBySenderTxHash('0x8c0b092fed92a6619666efd582f7d71fbc3d784781072dd26741715b3731ab22').then(console.log);
@@ -369,25 +369,25 @@ Returns the information about the transaction identified by the given `senderTxH
 caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
 ```
 
-Returns a transaction based on a block hash or number and the transactions index position.
+ブロックハッシュまたは数とトランザクションのインデックス位置に基づいてトランザクションを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name               | Type     | Description                                                                                                |
-| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| hashStringOrNumber | String   | A block number or hash. Or the string `"genesis"` or `"latest"`.                                           |
-| indexNumber        | Number   | The transactions index position.                                                                           |
-| callback           | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前                 | タイプ    | Description                                                        |
+| ------------------ | ------ | ------------------------------------------------------------------ |
+| hashStringOrNumber | 文字列    | ブロック番号またはハッシュ。 Or the string `"genesis"` or `"latest"`.            |
+| indexNumber        | Number | トランザクションのインデックス位置。                                                 |
+| callback           | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Object` - A transaction object, see [caver.klay.getTransaction](#gettransaction)
+`Object` - トランザクションオブジェクト。 [caver.klay.getTransaction を参照](#gettransaction)
 
-**Examples**
+**例**
 
 ```javascript
 > caver.klay.getTransactionFromBlock('0x4534534534', 2).then(console.log);
-// see caver.klay.getTransaction
+// 参照する caver.klay.getTransaction
 ```
 
 ## getTransactionReceipt <a id="gettransactionreceipt"></a>
@@ -395,51 +395,51 @@ Returns a transaction based on a block hash or number and the transactions index
 ```javascript
 caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```
-Returns the receipt of a transaction by transaction hash.
+トランザクションハッシュによるトランザクションの受領を返します。
 
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type     | Description                                                                                                |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash                                                                                       |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前              | タイプ | Description                                                        |
+| --------------- | --- | ------------------------------------------------------------------ |
+| transactionHash | 文字列 | トランザクションハッシュ                                                       |
+| callback        | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` は `Object を返します。` - 領収書が見つからない場合は `null` です。
 
-| Name               | Type           | Description                                                                                                                                                                                                                                         |
-| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte String | Hash of the block where this transaction was in.                                                                                                                                                                                                    |
-| blockNumber        | Number         | Block number where this transaction was in.                                                                                                                                                                                                         |
-| codeFormat         | String         | (optional) The code format of smart contract code.                                                                                                                                                                                                  |
-| contractAddress    | DATA           | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                         |
-| feePayer           | 20-byte DATA   | (optional) Address of the fee payer.                                                                                                                                                                                                                |
-| feePayerSignatures | Array          | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                        |
-| feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                                   |
-| from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                              |
-| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                                         |
-| gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                                            |
-| gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                                          |
-| humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                     |
-| key                | String         | (optional) Key of the newly created account.                                                                                                                                                                                                        |
-| input              | DATA           | (optional) The data sent along with the transaction.                                                                                                                                                                                                |
-| logs               | Array          | Array of log objects, which this transaction generated.                                                                                                                                                                                             |
-| logsBloom          | 256-byte DATA  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                    |
-| nonce              | QUANTITY       | The number of transactions made by the sender prior to this one.                                                                                                                                                                                    |
-| senderTxHash       | 32-byte DATA   | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
-| signatures         | Array          | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                               |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                           |
-| txError            | QUANTITY       | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                                                        |
-| to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                         |
-| transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                                            |
-| transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                                             |
-| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                                  |
-| typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                                |
-| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                                           |
+| 名前                 | タイプ            | Description                                                                                                                                               |
+| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte String | このトランザクションがあったブロックのハッシュ。                                                                                                                                  |
+| blockNumber        | Number         | このトランザクションがあったブロック番号。                                                                                                                                     |
+| codeFormat         | 文字列            | (オプション) スマートコントラクトコードのコード形式。                                                                                                                              |
+| コントラクトアドレス         | データ            | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。                                                                                                |
+| feePayer           | 20 バイトのデータ     | (オプション) 手数料支払者の住所。                                                                                                                                        |
+| feePayerSignatures | 行列             | (オプション) 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                  |
+| 手数料比               | 品質             | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                                    |
+| from               | 20 バイトのデータ     | 送信者のアドレス                                                                                                                                                  |
+| ガス                 | 品質             | 送信者が提供するガス。                                                                                                                                               |
+| gasPrice           | 品質             | ペブ内の送信者によって提供されるガス価格。                                                                                                                                     |
+| gasUsed            | 品質             | この特定の取引だけで使用されるガスの量。                                                                                                                                      |
+| humanReadable      | Boolean        | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                                                |
+| キー                 | 文字列            | (オプション) 新しく作成されたアカウントのキー。                                                                                                                                 |
+| input              | データ            | (オプション) トランザクションとともに送信されるデータ。                                                                                                                             |
+| ログ                 | 行列             | このトランザクションが生成したログオブジェクトの配列。                                                                                                                               |
+| logsBloom          | 256バイトのデータ     | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                                                                                                         |
+| nonce              | 品質             | この前の送信者によって行われたトランザクションの数。                                                                                                                                |
+| senderTxHash       | 32バイトのデータ      | (オプション) 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). この値は `transactionHash` と常に同じです。 |
+| signatures         | 行列             | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                                 |
+| ステータス              | Boolean        | `true` トランザクションが成功した場合、 `false` の場合、Klaytn 仮想マシンがトランザクションを元に戻しました。                                                                                        |
+| txError            | 品質             | (オプション) `ステータス` が 0 に等しい場合の詳細なエラーコード。                                                                                                                     |
+| to                 | 20 バイトのデータ     | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                                    |
+| transactionHash    | 32バイトのデータ      | トランザクションのハッシュ                                                                                                                                             |
+| transactionIndex   | 品質             | ブロック内のトランザクションインデックス位置の整数。                                                                                                                                |
+| タイプ                | 文字列            | トランザクションのタイプを表す文字列。                                                                                                                                       |
+| typeInt            | 品質             | トランザクションのタイプを表す整数。                                                                                                                                        |
+| 値                  | 品質             | 値はペブで転送されます。                                                                                                                                              |
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getTransactionReceipt('0x9108f22693de7b16ece4db2c8d11c004feae31973acc2ecb9dbd61cd57bb0d7b')
@@ -474,55 +474,55 @@ Returns the receipt of a transaction by transaction hash.
 ## getTransactionReceiptBySenderTxHash <a id="gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
-caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
+caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash[, callback])
 ```
-Returns the receipt of a transaction identified by the given `senderTxHash`.
+与えられた `senderTxHash` によって識別されたトランザクションの受領を返します。
 
-**NOTE**: The receipt is not available for pending transactions. Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled).
+**注意**: 保留中の取引ではレシートは利用できません。 この API は、 `--sendertxhashindexing` によってノードでインデックス機能が有効になっている場合にのみ正しい結果を返すことに注意してください。 これは [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) を呼び出すことで確認できます。
 
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type     | Description                                                                                                                                       |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                        |
+| 名前           | タイプ | Description                                                                                                       |
+| ------------ | --- | ----------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | 文字列 | 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). |
+| callback     | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` は `Object を返します。` - 領収書が見つからない場合は `null` です。
 
-| Name               | Type           | Description                                                                                                                                                                                                                              |
-| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte String | Hash of the block where this transaction was in.                                                                                                                                                                                         |
-| blockNumber        | Number         | Block number where this transaction was in.                                                                                                                                                                                              |
-| codeFormat         | String         | (optional) The code format of smart contract code.                                                                                                                                                                                       |
-| contractAddress    | DATA           | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                              |
-| feePayer           | 20-byte DATA   | Address of the fee payer.                                                                                                                                                                                                                |
-| feePayerSignatures | Array          | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                        |
-| feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                        |
-| from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                   |
-| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                              |
-| gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                                 |
-| gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                               |
-| humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                          |
-| key                | String         | (optional) Key of the newly created account.                                                                                                                                                                                             |
-| input              | DATA           | (optional) The data sent along with the transaction.                                                                                                                                                                                     |
-| logs               | Array          | Array of log objects, which this transaction generated.                                                                                                                                                                                  |
-| logsBloom          | 256-byte DATA  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                         |
-| nonce              | QUANTITY       | The number of transactions made by the sender prior to this one.                                                                                                                                                                         |
-| senderTxHash       | 32-byte DATA   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
-| signatures         | Array          | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                    |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                |
-| txError            | QUANTITY       | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                                             |
-| to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                              |
-| transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                                 |
-| transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                                  |
-| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                       |
-| typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                     |
-| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                                |
+| 名前                 | タイプ            | Description                                                                                                                                       |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte String | このトランザクションがあったブロックのハッシュ。                                                                                                                          |
+| blockNumber        | Number         | このトランザクションがあったブロック番号。                                                                                                                             |
+| codeFormat         | 文字列            | (オプション) スマートコントラクトコードのコード形式。                                                                                                                      |
+| コントラクトアドレス         | データ            | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。                                                                                        |
+| feePayer           | 20 バイトのデータ     | 手数料支払者の住所。                                                                                                                                        |
+| feePayerSignatures | 行列             | 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                  |
+| 手数料比               | 品質             | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                            |
+| from               | 20 バイトのデータ     | 送信者のアドレス                                                                                                                                          |
+| ガス                 | 品質             | 送信者が提供するガス。                                                                                                                                       |
+| gasPrice           | 品質             | ペブ内の送信者によって提供されるガス価格。                                                                                                                             |
+| gasUsed            | 品質             | この特定の取引だけで使用されるガスの量。                                                                                                                              |
+| humanReadable      | Boolean        | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                                        |
+| キー                 | 文字列            | (オプション) 新しく作成されたアカウントのキー。                                                                                                                         |
+| input              | データ            | (オプション) トランザクションとともに送信されるデータ。                                                                                                                     |
+| ログ                 | 行列             | このトランザクションが生成したログオブジェクトの配列。                                                                                                                       |
+| logsBloom          | 256バイトのデータ     | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                                                                                                 |
+| nonce              | 品質             | この前の送信者によって行われたトランザクションの数。                                                                                                                        |
+| senderTxHash       | 32バイトのデータ      | 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../../klaytn/design/transactions/README.md#sendertxhash). この値は `transactionHash` と常に同じです。 |
+| signatures         | 行列             | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                         |
+| ステータス              | Boolean        | `true` トランザクションが成功した場合、 `false` の場合、Klaytn 仮想マシンがトランザクションを元に戻しました。                                                                                |
+| txError            | 品質             | (オプション) `ステータス` が 0 に等しい場合の詳細なエラーコード。                                                                                                             |
+| to                 | 20 バイトのデータ     | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                            |
+| transactionHash    | 32バイトのデータ      | トランザクションのハッシュ                                                                                                                                     |
+| transactionIndex   | 品質             | ブロック内のトランザクションインデックス位置の整数。                                                                                                                        |
+| タイプ                | 文字列            | トランザクションのタイプを表す文字列。                                                                                                                               |
+| typeInt            | 品質             | トランザクションのタイプを表す整数。                                                                                                                                |
+| 値                  | 品質             | 値はペブで転送されます。                                                                                                                                      |
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getTransactionReceiptBySenderTxHash('0x8c0b092fed92a6619666efd582f7d71fbc3d784781072dd26741715b3731ab22').then(console.log);
@@ -574,30 +574,30 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 ```
 
-Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`.
+`caver.klay.accounts.signTransaction` を使用して生成された既に署名済みトランザクションを送信します。
 
-**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include an RLP-encoded transaction string or should be an unencoded transaction object with signatures/feePayerSignatures. You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
+**注意** `caver.klay.sendSignedTransaction` は caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) 以降、オブジェクトをパラメータとして受け付けることができます。 オブジェクトは、RLPエンコードされたトランザクション文字列を含めるか、署名/feePayerSignatures を持つ符号化されていないトランザクションオブジェクトである必要があります。 cave.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures
 
-**Parameters**
+**パラメータ**
 
-| Name                  | Type                 | Description                                                                                                                                                                                                                    |
-| --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| signedTransactionData | String &#124; Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
-| callback              | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                     |
+| 名前                    | タイプ                  | Description                                                                                                                                   |
+| --------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransactionData | String &#124; Object | RLPエンコードされた符号付きトランザクション文字列、RLPエンコードされたトランザクション文字列を `rawTransaction` プロパティに含むオブジェクト または、署名/feePayerSignatures が添付された符号化されていないトランザクションオブジェクトです。 |
+| callback              | 関数                   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                            |
 
-**Return Value**
+**戻り値**
 
-| Type       | Description                                                                                   |
-| ---------- | --------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available. |
+| タイプ        | Description                              |
+| ---------- | ---------------------------------------- |
+| PromiEvent | Promise複合イベントエミッター。 領収書が入手可能な場合には解決されます。 |
 
-For PromiEvent, the following events are available:
+PromiEvent の場合、次のイベントを使用できます。
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
+- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
+- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
 
-**Example**
+**例**
 
 ```javascript
 // sendSignedTransaction using promise with RLP encoded signed transaction string
@@ -677,29 +677,29 @@ caver.klay.sendSignedTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
 .on('error', console.error)
 ```
 
 
-## sendTransaction <a id="sendtransaction"></a>
+## トランザクションを送信 <a id="sendtransaction"></a>
 - [sendTransaction (Legacy)](./sendtx_legacy.md#sendtransaction-legacy)
 - [sendTransaction (VALUE_TRANSFER)](./sendtx_value_transfer.md#sendtransaction-value_transfer)
 - [sendTransaction (FEE_DELEGATED_VALUE_TRANSFER)](./sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer)
-- [sendTransaction (FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO)](./sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer_with_ratio)
+- [sendTransaction (FEE_DELEGATED_VALUE_TRANSE_WITH_RATIO)](./sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer_with_ratio)
 - [sendTransaction (VALUE_TRANSFER_MEMO)](./sendtx_value_transfer_memo.md#sendtransaction-value_transfer_memo)
-- [sendTransaction (FEE_DELEGATED_VALUE_TRANSFER_MEMO)](./sendtx_value_transfer_memo.md#sendtransaction-fee_delegated_value_transfer_memo)
-- [sendTransaction (FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO)](./sendtx_value_transfer_memo.md#sendtransaction-fee_delegated_value_transfer_memo_with_ratio)
+- [sendTransaction (FEE_DELEGATED_VALUE_TRANSE_MEMO)](./sendtx_value_transfer_memo.md#sendtransaction-fee_delegated_value_transfer_memo)
+- [sendTransaction (FEE_DELEGATED_VALUE_TRANSE_MEMO_WITH_RATIO)](./sendtx_value_transfer_memo.md#sendtransaction-fee_delegated_value_transfer_memo_with_ratio)
 - [sendTransaction (ACCOUNT_UPDATE)](./sendtx_account_update.md#sendtransaction-account_update)
 - [sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE)](./sendtx_account_update.md#sendtransaction-fee_delegated_account_update)
 - [sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO)](./sendtx_account_update.md#sendtransaction-fee_delegated_account_update_with_ratio)
 - [sendTransaction (SMART_CONTRACT_DEPLOY)](./sendtx_smart_contract_deploy.md#sendtransaction-smart_contract_deploy)
 - [sendTransaction (FEE_DELEGATED_SMART_CONTRACT_DEPLOY)](./sendtx_smart_contract_deploy.md#sendtransaction-fee_delegated_smart_contract_deploy)
 - [sendTransaction (FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO)](./sendtx_smart_contract_deploy.md#sendtransaction-fee_delegated_smart_contract_deploy_with_ratio)
-- [sendTransaction (SMART_CONTRACT_EXECUTION)](./sendtx_smart_contract_execution.md#sendtransaction-smart_contract_execution)
-- [sendTransaction (FEE_DELEGATED_SMART_CONTRACT_EXECUTION)](./sendtx_smart_contract_execution.md#sendtransaction-fee_delegated_smart_contract_execution)
-- [sendTransaction (FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO)](./sendtx_smart_contract_execution.md#sendtransaction-fee_delegated_smart_contract_execution_with_ratio)
+- [sendTransaction (SMART_CONTRACTION)](./sendtx_smart_contract_execution.md#sendtransaction-smart_contract_execution)
+- [sendTransaction (FEE_DELEGATED_SMART_CONTRACTION)](./sendtx_smart_contract_execution.md#sendtransaction-fee_delegated_smart_contract_execution)
+- [sendTransaction (FEE_DELEGATED_SMART_CONTRACTION_WITH_RATIO)](./sendtx_smart_contract_execution.md#sendtransaction-fee_delegated_smart_contract_execution_with_ratio)
 - [sendTransaction (CANCEL)](./sendtx_cancel.md#sendtransaction-cancel)
 - [sendTransaction (FEE_DELEGATED_CANCEL)](./sendtx_cancel.md#sendtransaction-fee_delegated_cancel)
 - [sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO)](./sendtx_cancel.md#sendtransaction-fee_delegated_cancel_with_ratio)
@@ -710,20 +710,20 @@ caver.klay.sendSignedTransaction({
 ```javascript
 caver.klay.signTransaction(transactionObject [, callback])
 ```
-Signs a transaction. This account needs to be unlocked.
+トランザクションをサインします。 このアカウントのロックを解除する必要があります。
 
-**Parameters**
+**パラメータ**
 
-| Name              | Type     | Description                                                                                                |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction data to sign.                                                                              |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前                | タイプ    | Description                                                        |
+| ----------------- | ------ | ------------------------------------------------------------------ |
+| transactionObject | Object | 署名する取引データ。                                                         |
+| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - The RLP encoded transaction. The `raw` property can be used to send the transaction using [caver.klay.sendSignedTransaction](#sendsignedtransaction).
+`Promise` は `Object` - RLPエンコードされたトランザクションを返します。 `raw` プロパティは、 [caver.klay.sendSignedTransaction](#sendsignedtransaction) を使用してトランザクションを送信するために使用できます。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.signTransaction({
