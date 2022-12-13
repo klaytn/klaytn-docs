@@ -1,26 +1,26 @@
-# caver.contract <a id="caver-contract"></a>
+# caver.contract
 
 The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
-## caver.contract.create <a id="caver-contract-create"></a>
+## caver.contract.create <a href="#caver-contract-create" id="caver-contract-create"></a>
 
 ```javascript
 caver.contract.create(jsonInterface [, address] [, options])
 ```
-Creates a new contract instance with all its methods and events defined in its JSON interface object. This function works the same as [new caver.contract](#new-contract).
+
+Creates a new contract instance with all its methods and events defined in its JSON interface object. This function works the same as [new caver.contract](caver.contract.md#new-contract).
 
 **NOTE** `caver.contract.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Parameters**
 
-See the [new caver.contract](#new-contract).
+See the [new caver.contract](caver.contract.md#new-contract).
 
 **Return Value**
 
-See the [new caver.contract](#new-contract).
-
+See the [new caver.contract](caver.contract.md#new-contract).
 
 **Example**
 
@@ -39,11 +39,12 @@ const contract = caver.contract.create([
   ], '0x{address in hex}')
 ```
 
-## caver.contract <a id="new-contract"></a>
+## caver.contract <a href="#new-contract" id="new-contract"></a>
 
 ```javascript
 new caver.contract(jsonInterface [, address] [, options])
 ```
+
 Creates a new contract instance with all its methods and events defined in its JSON interface object.
 
 **Parameters**
@@ -72,14 +73,13 @@ The options object contains the following:
 | ------ | ------------------------------------------------------ |
 | object | The contract instance with all its methods and events. |
 
-
 **Example**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## myContract.options <a id="mycontract-options"></a>
+## myContract.options <a href="#mycontract-options" id="mycontract-options"></a>
 
 ```javascript
 myContract.options
@@ -102,7 +102,6 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 | feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
-
 
 **Example**
 
@@ -128,8 +127,7 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 > myContract.options.feeRatio = 20 // default fee ratio when send partial fee delegation transaction
 ```
 
-
-## myContract.options.address <a id="mycontract-options-address"></a>
+## myContract.options.address <a href="#mycontract-options-address" id="mycontract-options-address"></a>
 
 ```javascript
 myContract.options.address
@@ -139,9 +137,9 @@ The address used for this contract instance `myContract`. All transactions gener
 
 **Property**
 
-| Name    | Type                 | Description                                                   |
-| ------- | -------------------- | ------------------------------------------------------------- |
-| address | string &#124; `null` | The address for this contract or `null` if it is not yet set. |
+| Name    | Type      | Description                                                            |
+| ------- | --------- | ---------------------------------------------------------------------- |
+| address | string \ | `null` | The address for this contract or `null` if it is not yet set. |
 
 **Example**
 
@@ -153,11 +151,12 @@ The address used for this contract instance `myContract`. All transactions gener
 >  myContract.options.address = '0x1234FFDD...'
 ```
 
-## myContract.options.jsonInterface <a id="mycontract-options-jsoninterface"></a>
+## myContract.options.jsonInterface <a href="#mycontract-options-jsoninterface" id="mycontract-options-jsoninterface"></a>
 
 ```javascript
 myContract.options.jsonInterface
 ```
+
 The JSON interface object derived from the ABI of this contract `myContract`.
 
 **Property**
@@ -165,7 +164,6 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 | Name          | Type  | Description                                                                                                            |
 | ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
 | jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
-
 
 **Example**
 
@@ -200,8 +198,7 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 > myContract.options.jsonInterface = [...]
 ```
 
-
-## myContract.clone <a id="mycontract-clone"></a>
+## myContract.clone <a href="#mycontract-clone" id="mycontract-clone"></a>
 
 ```javascript
 myContract.clone([contractAddress])
@@ -221,7 +218,6 @@ Clones the current contract instance.
 | ------ | --------------------------------- |
 | object | The new cloned contract instance. |
 
-
 **Example**
 
 ```javascript
@@ -233,13 +229,13 @@ Contract {
 }
 ```
 
-## myContract.deploy <a id="mycontract-deploy2"></a>
+## myContract.deploy <a href="#mycontract-deploy2" id="mycontract-deploy2"></a>
 
 ```javascript
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
+Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](caver.contract.md#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -247,12 +243,11 @@ Deploys the contract to the Klaytn network. After a successful deployment, the p
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                         |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| byteCode   | string | The byte code of the contract.                                                                                      |
-| parameters | Mixed  | (optional) The parameters that get passed to the constructor on deployment.                                         |
-
+| Name       | Type   | Description                                                                                                                          |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| byteCode   | string | The byte code of the contract.                                                                                                       |
+| parameters | Mixed  | (optional) The parameters that get passed to the constructor on deployment.                                                          |
 
 **Return Value**
 
@@ -264,9 +259,9 @@ Deploys the contract to the Klaytn network. After a successful deployment, the p
 
 For PromiEvent, the following events are available:
 
-- `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-- `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-- `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -333,7 +328,7 @@ For PromiEvent, the following events are available:
   })
 ```
 
-## myContract.deploy <a id="mycontract-deploy"></a>
+## myContract.deploy <a href="#mycontract-deploy" id="mycontract-deploy"></a>
 
 ```javascript
 myContract.deploy(options)
@@ -362,14 +357,14 @@ The options object can contain the following:
 
 The object contains the following:
 
-| Name                                                 | Type     | Description                                                                                                                                                        |
-| ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                            | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
-| [send](#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
-| [sign](#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
-| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
-| [estimateGas](#methods-methodname-estimategas)       | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
-| [encodeABI](#methods-methodname-encodeabi)           | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
+| Name                                                                  | Type     | Description                                                                                                                                                        |
+| --------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| arguments                                                             | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
+| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
+| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
 
 **NOTE** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -427,8 +422,7 @@ The object contains the following:
   })
 ```
 
-
-## myContract.send <a id="mycontract-send"></a>
+## myContract.send <a href="#mycontract-send" id="mycontract-send"></a>
 
 ```javascript
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
@@ -438,10 +432,10 @@ Submits a transaction to execute the function of the smart contract. This can al
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.send`, `feeDelegation` and `feePayer` should be set properly.
 
-- `feeDelegation` is not defined or defined to `false`: [SmartContractExecution][]
-- `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
-- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined or defined to `false`: [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -449,11 +443,11 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                         |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| methodName | string | The method name of the contract function to execute.                                                                |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                           |
+| Name       | Type   | Description                                                                                                                          |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| methodName | string | The method name of the contract function to execute.                                                                                 |
+| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                            |
 
 **Return Value**
 
@@ -465,9 +459,9 @@ The transaction type used for this function depends on the `options` or the valu
 
 For PromiEvent, the following events are available:
 
-- `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-- `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-- `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -574,7 +568,7 @@ For PromiEvent, the following events are available:
 }
 ```
 
-## myContract.sign <a id="mycontract-sign"></a>
+## myContract.sign <a href="#mycontract-sign" id="mycontract-sign"></a>
 
 ```javascript
 myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
@@ -586,9 +580,9 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
 
-- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy][] / [SmartContractExecution][]
-- `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy][] / [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio][] / [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
@@ -598,13 +592,13 @@ The transaction type used for this function depends on the `options` or the valu
 
 | Name       | Type   | Description                                                                                                                                                                      |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                              |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details.                                             |
 | methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
 | parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **Return Value**
 
-`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
 
 **Example**
 
@@ -725,7 +719,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.signAsFeePayer <a id="mycontract-signasfeepayer"></a>
+## myContract.signAsFeePayer <a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
 
 ```javascript
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
@@ -737,10 +731,10 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
 
-- `feeDelegation` is not defined : Throws an error.
-- `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
-- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy][] / [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio][] / [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined : Throws an error.
+* `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -750,13 +744,13 @@ The transaction type used for this function depends on the `options` or the valu
 
 | Name       | Type   | Description                                                                                                                                                                      |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                              |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details.                                             |
 | methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
 | parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **Return Value**
 
-`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
 
 **Example**
 
@@ -847,7 +841,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.call <a id="mycontract-call"></a>
+## myContract.call <a href="#mycontract-call" id="mycontract-call"></a>
 
 ```javascript
 myContract.call('methodName', [param1 [, param2 [, ...]]])
@@ -860,12 +854,11 @@ Will call a constant method and execute its smart contract method in the Klaytn 
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                                    |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| options    | object | (optional) The options used for calling. See the table in [methods.methodName.call](#methods-methodname-call) for the details. |
-| methodName | string | The method name of the contract function to call.                                                                              |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                      |
-
+| Name       | Type   | Description                                                                                                                                     |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| options    | object | (optional) The options used for calling. See the table in [methods.methodName.call](caver.contract.md#methods-methodname-call) for the details. |
+| methodName | string | The method name of the contract function to call.                                                                                               |
+| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                                       |
 
 **Return Value**
 
@@ -881,7 +874,7 @@ Jasmine
 Test Result
 ```
 
-## myContract.decodeFunctionCall <a id="mycontract-decodefunctioncall"></a>
+## myContract.decodeFunctionCall <a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
 
 ```javascript
 myContract.decodeFunctionCall(functionCall)
@@ -937,32 +930,34 @@ Result {
 }
 ```
 
-
-## myContract.methods <a id="mycontract-methods"></a>
+## myContract.methods <a href="#mycontract-methods" id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
 myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
+
 Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
 
 The methods of this smart contract are available via:
 
-- Method name: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
-- Method prototype: `myContract.methods['methodName(uint256)'](123)`
-- Method signature: `myContract.methods['0x58cf5f10'](123)`
+* Method name: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
+* Method prototype: `myContract.methods['methodName(uint256)'](123)`
+* Method signature: `myContract.methods['0x58cf5f10'](123)`
 
 This allows calling functions with the same name but different parameters from the JavaScript contract object.
 
-## cf) \*function signature (function selector)   <a id="cf-function-signature-function-selector"></a>
-The first four bytes of the call data for a function call specifies the function to be called.  
+## cf) \*function signature (function selector) <a href="#cf-function-signature-function-selector" id="cf-function-signature-function-selector"></a>
+
+The first four bytes of the call data for a function call specifies the function to be called.\
 It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
-The function signature can be given via 2 different methods.  
-`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`  
+The function signature can be given via 2 different methods.\
+`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
 ex)
+
 ```javascript
 caver.abi.encodefunctionSignature('methodName(uint256)')
 > 0x58cf5f10
@@ -979,15 +974,15 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
-| Name                                                 | Type     | Description                                                                                                                                                                      |
-| ---------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| arguments                                            | Array    | The arguments passed to this method.                                                                                                                                             |
-| [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
-| [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                         |
-| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                            |
-| [estimateGas](#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                  |
-| [encodeABI](#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
+| Name                                                                  | Type     | Description                                                                                                                                                                      |
+| --------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| arguments                                                             | Array    | The arguments passed to this method.                                                                                                                                             |
+| [call](caver.contract.md#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
+| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                         |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                            |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                  |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
 
 **NOTE** `sign` and `signAsFeePayer` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1079,15 +1074,14 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
   }).then(function(signedTx) { ... })
 ```
 
-
-## methods.methodName.call <a id="methods-methodname-call"></a>
+## methods.methodName.call <a href="#methods-methodname-call" id="methods-methodname-call"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](#mycontract-call) provided as a short-cut function.
+Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](caver.contract.md#mycontract-call) provided as a short-cut function.
 
 **Parameters**
 
@@ -1153,24 +1147,23 @@ contract MyContract {
 "Hello!%"
 ```
 
-
-## methods.methodName.send <a id="methods-methodname-send"></a>
+## methods.methodName.send <a href="#methods-methodname-send" id="methods-methodname-send"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. It is recommended to use [myContract.send](#mycontract-send) provided as a short-cut function.
+Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. It is recommended to use [myContract.send](caver.contract.md#mycontract-send) provided as a short-cut function.
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`, but it is recommended to use the [myContract.deploy](#mycontract-deploy2) function.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`, but it is recommended to use the [myContract.deploy](caver.contract.md#mycontract-deploy2) function.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
 
-- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy][] / [SmartContractExecution][]
-- `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
-- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy][] / [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio][] / [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -1183,15 +1176,15 @@ The transaction type used for this function depends on the `options` or the valu
 
 The options object can contain the following:
 
-| Name          | Type                                            | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                          | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                 |
-| gas           | number                                          | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
-| gasPrice      | string                                          | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                               |
-| value         | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                    |
-| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
-| feePayer      | string                                          | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
-| feeRatio      | string                                          | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
+| Name          | Type      | Description                                                                                                                                                                                                                                                                                                                                                |
+| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string    | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                 |
+| gas           | number    | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
+| gasPrice      | string    | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                               |
+| value         | number \ | string \| BN \| Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                      |
+| feeDelegation | boolean   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
+| feePayer      | string    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
+| feeRatio      | string    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1205,9 +1198,9 @@ The options object can contain the following:
 
 For PromiEvent, the following events are available:
 
-- `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-- `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-- `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -1269,22 +1262,22 @@ For PromiEvent, the following events are available:
 > myContract.methods['constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
 ```
 
-## methods.methodName.sign <a id="methods-methodname-sign"></a>
+## methods.methodName.sign <a href="#methods-methodname-sign" id="methods-methodname-sign"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).sign(options)
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
 ```
 
-Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.sign](#mycontract-sign) provided as a short-cut function.
+Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.sign](caver.contract.md#mycontract-sign) provided as a short-cut function.
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
 
-- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy][] / [SmartContractExecution][]
-- `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy][] / [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio][] / [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
@@ -1292,13 +1285,13 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| Name    | Type   | Description                                                                                                                                                   |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
 
 **Return Value**
 
-`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
 
 **Example**
 
@@ -1383,23 +1376,23 @@ FeeDelegatedSmartContractExecution {
 > myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 ```
 
-## methods.methodName.signAsFeePayer <a id="methods-methodname-signasfeepayer"></a>
+## methods.methodName.signAsFeePayer <a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 ```
 
-Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.signAsFeePayer](#mycontract-signasfeepayer) provided as a short-cut function.
+Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.signAsFeePayer](caver.contract.md#mycontract-signasfeepayer) provided as a short-cut function.
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
 
-- `feeDelegation` is not defined : Throws an error.
-- `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
-- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy][] / [FeeDelegatedSmartContractExecution][]
-- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio][] / [FeeDelegatedSmartContractExecutionWithRatio][]
+* `feeDelegation` is not defined : Throws an error.
+* `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -1407,13 +1400,13 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| Name    | Type   | Description                                                                                                                                                   |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
 
 **Return Value**
 
-`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
 
 **Example**
 
@@ -1457,7 +1450,7 @@ The transaction type used for this function depends on the `options` or the valu
 > myContract.methods['methodName'](123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 ```
 
-## methods.methodName.estimateGas <a id="methods-methodname-estimategas"></a>
+## methods.methodName.estimateGas <a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
@@ -1474,11 +1467,11 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 The options object can contain the following:
 
-| Name  | Type                                            | Description                                                                                                                                                                    |
-| ----- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from  | string                                          | (optional) The address from which calling the contract method should be made.                                                                                                  |
-| gas   | number                                          | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn.         |
+| Name  | Type      | Description                                                                                                                                                                                          |
+| ----- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | string    | (optional) The address from which calling the contract method should be made.                                                                                                                        |
+| gas   | number    | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number.                       |
+| value | number \ | string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **Return Value**
 
@@ -1500,15 +1493,13 @@ The options object can contain the following:
   })
 ```
 
-
-## methods.methodName.encodeABI <a id="methods-methodname-encodeabi"></a>
+## methods.methodName.encodeABI <a href="#methods-methodname-encodeabi" id="methods-methodname-encodeabi"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 ```
 
 Encodes the ABI for this method. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
-
 
 **Parameters**
 
@@ -1520,7 +1511,6 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | ------ | ------------------------------------------------------------ |
 | string | The encoded ABI byte code to send via a transaction or call. |
 
-
 **Example**
 
 ```javascript
@@ -1528,8 +1518,7 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
 
-
-## myContract.once <a id="mycontract-once"></a>
+## myContract.once <a href="#mycontract-once" id="mycontract-once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
@@ -1539,22 +1528,22 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                                                      |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                         |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                               |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
+| Name     | Type     | Description                                                                                                                                                                                                       |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                          |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                                                |
+| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
 | Name   | Type   | Description                                                                                                                                                           |
 | ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
 | topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
 
 **Example**
 
@@ -1585,13 +1574,13 @@ The options object can contain the following:
 }
 ```
 
-## myContract.subscribe <a id="mycontract-subscribe"></a>
+## myContract.subscribe <a href="#mycontract-subscribe" id="mycontract-subscribe"></a>
 
 ```javascript
 myContract.subscribe(event [, options], callback)
 ```
 
-Subscribes to an event. This function works same as [myContract.events.eventName](#mycontract-events).
+Subscribes to an event. This function works same as [myContract.events.eventName](caver.contract.md#mycontract-events).
 
 You can unsubscribe an event by calling the `unsubscribe` function of the subscription object returned by the `subscribe` function.
 
@@ -1599,22 +1588,22 @@ You can unsubscribe an event by calling the `unsubscribe` function of the subscr
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                                                      |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                         |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                               |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
+| Name     | Type     | Description                                                                                                                                                                                                       |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                          |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                                                |
+| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
 | Name   | Type   | Description                                                                                                                                                           |
 | ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
 | topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
 
 **Example**
 
@@ -1644,8 +1633,7 @@ The options object can contain the following:
 > subscription.unsubscribe() // unsubscribe the event
 ```
 
-
-## myContract.events <a id="mycontract-events"></a>
+## myContract.events <a href="#mycontract-events" id="mycontract-events"></a>
 
 ```javascript
 myContract.events.eventName([options][, callback])
@@ -1664,10 +1652,9 @@ The options object can contain the following:
 
 | Name      | Type   | Description                                                                                                                                                           |
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter    | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                                                 |
 | topics    | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
-
 
 **Return Value**
 
@@ -1683,20 +1670,20 @@ The options object can contain the following:
 
 The structure of the returned event `object` looks as follows:
 
-| Name             | Type                 | Description                                                                                                                            |
-| ---------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string               | The event name.                                                                                                                        |
-| signature        | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                                               |
-| address          | string               | Address which from this event originated.                                                                                              |
-| returnValues     | object               | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                                                     |
-| logIndex         | number               | Integer of the event index position in the block.                                                                                      |
-| transactionIndex | number               | Integer of the transaction's index position where the event was created.                                                               |
-| transactionHash  | 32-byte string       | Hash of the transaction this event was created in. `null` when it is still pending.                                                    |
-| blockHash        | 32-byte string       | Hash of the block this event was created in. `null` when it is still pending.                                                          |
-| blocknumber      | number               | The block number this log was created in. `null` when still pending.                                                                   |
-| raw.data         | string               | The data containing non-indexed log parameter.                                                                                         |
-| raw.topics       | Array                | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                |
-| id               | string               | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Name             | Type           | Description                                                                                                                               |
+| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string         | The event name.                                                                                                                           |
+| signature        | string \      | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
+| address          | string         | Address which from this event originated.                                                                                                 |
+| returnValues     | object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                        |
+| logIndex         | number         | Integer of the event index position in the block.                                                                                         |
+| transactionIndex | number         | Integer of the transaction's index position where the event was created.                                                                  |
+| transactionHash  | 32-byte string | Hash of the transaction this event was created in. `null` when it is still pending.                                                       |
+| blockHash        | 32-byte string | Hash of the block this event was created in. `null` when it is still pending.                                                             |
+| blocknumber      | number         | The block number this log was created in. `null` when still pending.                                                                      |
+| raw.data         | string         | The data containing non-indexed log parameter.                                                                                            |
+| raw.topics       | Array          | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                   |
+| id               | string         | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -1736,20 +1723,20 @@ The structure of the returned event `object` looks as follows:
 }
 ```
 
-
-## events.allEvents <a id="events-allevents"></a>
+## events.allEvents <a href="#events-allevents" id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
 ```
-Same as [myContract.events](#mycontract-events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
 
+Same as [myContract.events](caver.contract.md#mycontract-events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
 
-## getPastEvents <a id="getpastevents"></a>
+## getPastEvents <a href="#getpastevents" id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
 ```
+
 Gets past events for this contract.
 
 **Parameters**
@@ -1764,7 +1751,7 @@ To options object can contain the following:
 
 | Name      | Type   | Description                                                                                                                                                        |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| filter    | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
+| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                                              |
 | toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                                          |
 | topics    | Array  | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
@@ -1775,18 +1762,18 @@ To options object can contain the following:
 
 An event object can contain the following:
 
-| Name             | Type                 | Description                                                                                                                                                                                                   |
-| ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string               | The event name.                                                                                                                                                                                               |
-| signature        | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
-| address          | string               | Address this event originated from.                                                                                                                                                                           |
-| returnValues     | object               | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
-| logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
-| transactionIndex | number               | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | string               | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | string               | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
-| blockNumber      | number               | The block number this log was created in. null when still pending.                                                                                                                                            |
-| raw              | object               | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| Name             | Type      | Description                                                                                                                                                                                                   |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string    | The event name.                                                                                                                                                                                               |
+| signature        | string \ | `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                              |
+| address          | string    | Address this event originated from.                                                                                                                                                                           |
+| returnValues     | object    | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
+| logIndex         | number    | The event index position in the block.                                                                                                                                                                        |
+| transactionIndex | number    | The transaction’s index position the event was created in.                                                                                                                                                    |
+| transactionHash  | string    | The hash of the transaction this event was created in.                                                                                                                                                        |
+| blockHash        | string    | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
+| blockNumber      | number    | The block number this log was created in. null when still pending.                                                                                                                                            |
+| raw              | object    | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
 **Example**
 
@@ -1822,10 +1809,3 @@ An event object can contain the following:
       ...
 }]
 ```
-
-[SmartContractDeploy]: ./caver.transaction/basic.md#smartcontractdeploy
-[SmartContractExecution]: ./caver.transaction/basic.md#smartcontractexecution
-[FeeDelegatedSmartContractDeploy]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
-[FeeDelegatedSmartContractExecution]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
-[FeeDelegatedSmartContractDeployWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
-[FeeDelegatedSmartContractExecutionWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio
