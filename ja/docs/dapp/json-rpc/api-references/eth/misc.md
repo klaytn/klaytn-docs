@@ -1,20 +1,20 @@
-## eth_hashrate <a id="eth_hashrate"></a>
+## ハッシュレート <a id="eth_hashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+ノードが採掘している1秒あたりのハッシュ数を返します。
 
-Please note that it always return `0x0` because there is no PoW mechanism in Klaytn.
+Klaytn には PoW メカニズムがないため、常に `0x0` を返すことに注意してください。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | 毎秒のハッシュ数。   |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -30,21 +30,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHashrate <a id="eth_gethashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+ノードが採掘している1秒あたりのハッシュ数を返します。
 
-Please note that it always return `0` because there is no PoW mechanism in Klaytn.
+Klaytn には PoW メカニズムがないため、常に `0 0` を返すことに注意してください。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | 毎秒のハッシュ数。   |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -62,7 +62,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns the hash of the current block, the seedHash, and the boundary condition to be met ("target").
 
-Please note that it always return `errNoMiningWork` because there is no PoW mechanism in Klaytn.
+KlaytnにPoWメカニズムがないため、常に `errNoMiningWork`を返すことに注意してください。
 
 **Parameters**
 
@@ -94,25 +94,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitWork <a id="eth_submitwork"></a>
 
-Used for submitting a proof-of-work solution.
+作業証明ソリューションの送信に使用されます。
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Klaytn には PoW メカニズムがないため、常に `false` を返すことに注意してください。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                      |
-| ------------ | -------------------------------- |
-| 8-byte DATA  | The nonce found (64 bits)        |
-| 32-byte DATA | The header’s pow-hash (256 bits) |
-| 32-byte DATA | The mix digest (256 bits)        |
+| タイプ       | Description           |
+| --------- | --------------------- |
+| 8バイトのデータ  | nonce found (64 bits) |
+| 32バイトのデータ | ヘッダのpow-hash（256ビット）  |
+| 32バイトのデータ | ミックスダイジェスト（256ビット）    |
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | Returns true if the provided solution is valid, otherwise false. |
+| タイプ     | Description                                        |
+| ------- | -------------------------------------------------- |
+| Boolean | 与えられたソリューションが有効な場合は true を返し、それ以外の場合は false を返します。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -129,30 +129,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitHashrate <a id="eth_submithashrate"></a>
 
-Used for submitting mining hashrate.
+マイニングハッシュレートの送信に使用します。
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Klaytn には PoW メカニズムがないため、常に `false` を返すことに注意してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                      |
-| -------- | ------------ | ---------------------------------------------------------------- |
-| hashrate | 32-byte DATA | A hexadecimal string representation (32 bytes) of the hash rate. |
-| id       | 32-byte DATA | A random hexadecimal(32 bytes) ID identifying the client.        |
+| 名前      | タイプ       | Description                    |
+| ------- | --------- | ------------------------------ |
+| ハッシュレート | 32バイトのデータ | ハッシュレートの16進数文字列表現(32バイト)。      |
+| id      | 32バイトのデータ | クライアントを識別するランダムな16進数(32バイト)ID。 |
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | Returns true if submitting went through succesfully and false otherwise. |
+| タイプ     | Description                                  |
+| ------- | -------------------------------------------- |
+| Boolean | 送信が正常に行われた場合は true を返し、それ以外の場合は false を返します。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submithashrate","params":["0x5", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2. ","method":"eth_submithashrate","params":["0x5", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551 
+ // Result
 
-// Result
+{
 {
   "jsonrpc": "2.0",
   "id":1,
