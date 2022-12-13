@@ -1,95 +1,95 @@
 ---
 description: >-
-  APIs related to the Klaytn Governance.
+  Klaytn Governance に関連する API 。
 ---
 
-# Namespace governance <a id="namespace-governance"></a>
+# ネームスペースのガバナンスについて <a id="namespace-governance"></a>
 
-For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
+ネットワークのガバナンスのために、Klaytnは `ガバナンス` 名前空間の下で以下のAPIを提供します。
 
-In Klaytn, there are three different governance modes.
-* `none`: All nodes participating in the network have the right to change the configuration.
-* `single`: Only one designated node has the right to change the configuration.
-* `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
+Klaytnには3つの異なるガバナンスモードがあります。
+* `none`: ネットワークに参加しているすべてのノードには、設定を変更する権利があります。
+* `single`: 1つの指定ノードのみが構成を変更する権利を有する。
+* `<unk>`: 投票権を持つすべてのノードが変更に投票できます。 総投票権の半分以上を集めると、投票は通過します。
 
-Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc. In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY. All the qualified nodes are always eligible to propose a block, but the chance is propositional to the stake amount.
+ガバナンスモードに基づいて、提案者はユニット価格、最小投資額などのネットワークパラメータについて投票することができます。 提案者になるためには、候補ノードは最低限のKLAY金額を入金する必要があります。 すべての適格ノードは常にブロックを提案する資格がありますが、チャンスはステーク量に提案されます。
 
-When calculating the staking proportions to determine the number of slots(the number of chances) to become a proposer within a certain period, it is possible that a node may not be allocated any slots as a result of rounding numbers. However, a slot is guaranteed to a qualified node that has deposited a minimum amount of KLAY.
+一定期間内に提案者になるスロットの数(チャンスの数)を決定するためにステーキングプロポーションを計算する場合 番号の丸めにより、ノードにスロットが割り当てられない可能性があります。 ただし、スロットは、KLAYの最小量を預けた修飾ノードに保証されます。
 
-That is, if a node is not qualified - the node does not stake enough amount of KLAY - it won't be given a chance to propose nor validate a block.
+つまり、 ノードが修飾されていない場合 - ノードは十分な量のKLAYをステークしていません。ブロックの提案や検証を行う機会は与えられません。
 
-**Caveat**
-- A governing node is always qualified in `single` mode as an exception.
-- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed. As an exception, only addValidator/removeValidator is applied immediately.
+**注意**
+- 準拠ノードは例外として `single` モードで常に修飾されます。
+- ブロックが提案されると投票が行われます。 この投票は、ブロックが提案されているエポックを含む2つのエポックの後に適用されます。 例外として、addValidator/removeValidatorのみが即座に適用されます。
 ## governance_vote <a id="governance_vote"></a>
 
-The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
+`vote` メソッドは新しい投票を提出します。 ノードにガバナンスモードに基づいて投票する権利がある場合、投票を行うことができます。 そうでない場合は、エラーメッセージが返され、投票は無視されます。
 
-**Parameters**
+**パラメータ**
 
-- `Key` : Name of the configuration setting to be changed. Key has the form of `domain.field`
-- `Value` : Various types of value for each key.
+- `Key` : 変更する設定の名前。 キーは `domain.field` のフォームを持っています
+- `値` : 各キーの値の種類。
 
-| Key                                 | Description                                                                                                                                                                                                                               |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`       | `STRING`. One of the three governance modes. `"none"`, `"single"`, `"ballot"`                                                                                                                                                             |
-| `"governance.governingnode"`        | `ADDRESS`. Designated governing node's address. It only works if the governance mode is `"single"` e.g.,`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                    |
-| `"governance.unitprice"`            | `NUMBER`. Price of unit gas. e.g., `25000000000`                                                                                                                                                                                          |
-| `"governance.addvalidator"`         | `ADDRESS`. Address of a new validator candidate. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                       |
-| `"governance.removevalidator"`      | `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                    |
-| `"istanbul.epoch"`                  | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                           |
-| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                |
-| `"reward.mintingamount"`            | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                    |
-| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                               |
-| `"reward.useginicoeff"`             | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                  |
-| `"reward.deferredtxfee"`            | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false` |
-| `"reward.minimumstake"`             | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                           |
-| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) for further details. e.g., `25000000000`                                                                                  |
-| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                                             |
-| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000`                           |
-| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                                                  |
-| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                                                       |
+| キー                                  | Description                                                                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.goverancemode"`        | `STRING`. 三つのガバナンスモードの一つ。 `"none"`, `"single"`, `"ballot"`                                                                   |
+| `"governance.governingnode"`        | `アドレス`. 指定された管理ノードのアドレス。 ガバナンスモードが `"single"` などの場合にのみ動作します。`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                   |
+| `"governance.unitprice"`            | `NUMBER`. ユニットガスの価格。 例えば、 `25000000000`                                                                                      |
+| `"governance.addvalidator"`         | `アドレス`. 新しいバリデータ候補のアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                  |
+| `"governance.removevalidator"`      | `アドレス`. 削除する必要がある現在のバリデータのアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                           |
+| `"istanbul.epoch"`                  | `NUMBER`. 投票がブロックに集められる期間。 エポックが終了すると、まだ合格していないすべての投票がクリアされます。 例： `86400`                                                    |
+| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a commitage.(`sub` in chain configuration) e. `7`                                      |
+| `"reward.mintingamount"`            | `STRING`. ブロックが生成されたときに生成されるペブの量。 値には二重引用符が必要です。 例えば、 `"960000000000000"`                                                    |
+| `"reward.ratio"`                    | `STRING`. CN/KGF/KIR の分布率は `"/"` で区切られています。 すべての値の合計は `100` でなければなりません。 例えば、 `"50/40/10"` は CN 50%、KGF 40%、KIR 10% を意味します    |
+| `"reward.useginicoeff"`             | `BOOL`. ジニ係数を使用するかどうか。 `true`, `false`                                                                                       |
+| `"reward.deferredtxfee"`            | `BOOL`. 提案者に取引手数料を与える方法。 trueの場合、tx手数料がブロック報酬と合計され、提案者、KIR、KGFに配布されることを意味します。 そうでない場合は、すべてのtx手数料が提案者に与えられます。 `true`, `false` |
+| `"reward.minimumstake"`             | `STRING`. Klay の量は CN (コンセンサスノード) である必要があります。 値には二重引用符が必要です。 例: `"5000000"`                                                  |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. 最低限の基本料金。 詳細は [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) を参照してください。 例えば、 `25000000000`    |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. 可能な限り最高の基本料金。 例: `750000000000`                                                                                    |
+| `"kip71.gastarget"`                 | `NUMBER`. 基本料金が達成したいブロックガス。 親ブロックにガスターゲット以上のものが含まれている場合は基本料金が増加し、親ブロックにガスターゲット以下のものが含まれている場合は減少します。 例えば、 `3000万`             |
+| `"kip71.basefeedenominator"`        | `NUMBER`. 基本手数料の変更速度を制御します。 例: `20`                                                                                          |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. 基本料金計算で認識される最大ブロックガス。 例えば、 `60000000`                                                                              |
 
 
-**Return Value**
+**戻り値**
 
-| Type   | Description               |
-| ------ | ------------------------- |
-| String | Result of vote submission |
+| タイプ | Description |
+| --- | ----------- |
+| 文字列 | 投票提出の結果     |
 
-**Example**
+**例**
 
 ```javascript
-> governance.vote ("governance.governancemode", "ballot")
-"Your vote was successfully placed."
+> governance.vote ("governance.goverancemode", "ballot")
+"あなたの投票は正常に配置されました。
 
-> governance.vote ("governance.governingnode", "0x12345678990123456789901234567899012345678990")
+> governance.vote ("governance.goveringnode", "0x12345678990123456789901234567899090")
 "Your vote was successfully placed."
 
 > governance.vote("istanbul.epoch", 604800)
-"Your vote was successfully placed."
+"投票が正常に行われました。
 
-> governance.vote("governance.unitprice", 25000000000)
-"Your vote was successfully placed."
+> governance.vote("governance.unitprice", 250000000)
+"あなたの投票は正常に配置されました。
 
-> governance.vote("istanbul.committeesize", 7)
-"Your vote was successfully placed."
+> governance.vote("istanbul.commiticesize", 7)
+"あなたの投票は正常に配置されました。
 
 > governance.vote("reward.mintingamount", "9600000000000000000")
-"Your vote was successfully placed."
+"あなたの投票は正常に行われました。
 
 > governance.vote("reward.ratio", "40/30/30")
-"Your vote was successfully placed."
+"あなたの投票は正常に配置されました。
 
 > governance.vote("reward.useginicoeff", false)
-"Your vote was successfully placed."
+"投票に成功しました。
 
 // If wrong data are given
 > governance.vote("reward.ratio", 100)
-"Your vote couldn't be placed. Please check your vote's key and value"
+"Your vote could not be placed. Please check your vote's key and value"
 
-> governance.vote("governance.governingnode", 1234)
-"Your vote couldn't be placed. Please check your vote's key and value"
+> governance.vote("governance.goveringnode", 1234)
+"Your vote could not be placed. Please check your vote's key and value"
 
 // when `governancemode` is "single" and the node is not `governingnode`
 > governance.vote("governance.governancemode", "ballot")
@@ -99,19 +99,19 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 
 ## governance_showTally <a id="governance_showtally"></a>
 
-The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
+`showTally` プロパティは、現在のガバナンス投票の集計を提供します。 これは、集計された承認率をパーセントで示しています。 50%を超えると、投票は通過します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                       |
-| ----- | ------------------------------------------------- |
-| Tally | Each vote's value and approval rate in percentage |
+| タイプ | Description        |
+| --- | ------------------ |
+| タリー | 各投票の値と承認率（パーセンテージ） |
 
-**Example**
+**例**
 
 ```javascript
 > governance.showTally
@@ -129,19 +129,19 @@ None
 
 ## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
-The `totalVotingPower` property provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+`totalVotingPower` プロパティは、CNが持つすべての投票電力の合計を提供します。 各CNには1.0〜2.0の投票力があります。 `"none"`, `"single"` ガバナンスモード, `totalVotingPower` では情報は提供されません。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                         |
-| ----- | ----------------------------------- |
-| Float | Total Voting Power or error message |
+| タイプ   | Description     |
+| ----- | --------------- |
+| Float | 総投票力またはエラーメッセージ |
 
-**Example**
+**例**
 
 ```javascript
 // In "ballot" governance mode
@@ -156,19 +156,19 @@ None
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+`myVotingPower` プロパティは、ノードの投票電力を提供します。 投票力は1.0〜2.0です。 `"none"`, `"single"` ガバナンスモード, `totalVotingPower` では情報は提供されません。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                          |
-| ----- | ------------------------------------ |
-| Float | Node's Voting Power or error message |
+| タイプ   | Description        |
+| ----- | ------------------ |
+| Float | ノードの投票力またはエラーメッセージ |
 
-**Example**
+**例**
 
 ```javascript
 // In "ballot" governance mode
@@ -183,29 +183,29 @@ None
 
 ## governance_myVotes <a id="governance_myvotes"></a>
 
-The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
+`myVotes` プロパティは、私の投票時の情報を提供します。 ユーザーのノードが新しいブロックを生成すると、各投票はブロックに保存されます。 現在のエポックが終了すると、この情報はクリアされます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                                                                                                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote List | Node's Voting status in the epoch<br>- `BlockNum`: The block number that this vote is stored<br>- `Casted`: If this vote is stored in a block or not<br>- `Key/Value`: The content of the vote |
+| タイプ  | Description                                                                                                             |
+| ---- | ----------------------------------------------------------------------------------------------------------------------- |
+| 投票一覧 | 時代のノードの投票状況<br>- `BlockNum`: この投票が保存されているブロック番号<br>- `キャスト`: この投票がブロックに保存されているかどうか<br>- `キー/値`: 投票の内容 |
 
-**Example**
+**例**
 
 ```javascript
-> governance.vote("governance.governancemode", "ballot")
-"Your vote was successfully placed."
+> governance.vote("governance.goverancemode", "ballot")
+"あなたの投票は正常に配置されました。
 
-> governance.myVotes
+> goverance.myVotes
 [{
     BlockNum: 403,
     Casted: true,
-    Key: "governance.governancemode",
+    Key: "governancemode",
     Value: "ballot"
 }]
 
@@ -214,19 +214,19 @@ None
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
+`chainConfig` プロパティは最初のチェーン構成を提供します。 最初の構成だけが保存されているので、投票によって行われたガバナンスの変更があった場合。 `chainConfig` の結果は現在の状態と異なります。 現在の情報を見るには、 `itemsAt` を使用してください。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type | Description                 |
-| ---- | --------------------------- |
-| JSON | Current chain configuration |
+| タイプ  | Description |
+| ---- | ----------- |
+| JSON | 現在のチェーン構成   |
 
-**Example**
+**例**
 
 ```javascript
 > governance.chainConfig
@@ -266,21 +266,21 @@ None
 ```
 
 
-## governance_nodeAddress <a id="governance_nodeaddress"></a>
+## Governance_nodeAddress <a id="governance_nodeaddress"></a>
 
-The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
+`nodeAddress` プロパティは、ユーザーが使用しているノードのアドレスを提供します。 これは、nodekey から派生し、コンセンサスメッセージに署名するために使用されます。 `"governingnode"` の値は、バリデータのノードアドレスの 1 つでなければなりません。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description               |
-| ------- | ------------------------- |
-| ADDRESS | 20 BYTE address of a node |
+| タイプ  | Description       |
+| ---- | ----------------- |
+| アドレス | ノードの 20 BYTE アドレス |
 
-**Example**
+**例**
 
 ```javascript
 > governance.nodeAddress
@@ -289,25 +289,25 @@ None
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+`itemsAt` は、特定のブロックのガバナンス項目を返します。 これは、ブロックの以前の投票の結果であり、指定されたブロック番号のチェーンの構成として使用されます。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                                |
+| タイプ                 | Description                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**x
+**戻り値**x
 
-| Type | Description      |
-| ---- | ---------------- |
-| JSON | governance items |
+| タイプ  | Description |
+| ---- | ----------- |
+| JSON | ガバナンス項目     |
 
-**Example**
+**例**
 
 ```javascript
 > governance.itemsAt(89)
@@ -334,19 +334,19 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
-The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
+`pendingChanges` は、十分な票数を受け取ったがまだ確定していない項目のリストを返します。 現在の時代の終わりには、これらの変更が完了し、結果は次の時期の後にエポックから有効になります。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                           |
-| --------- | ----------------------------------------------------- |
-| Vote List | Currently pending changes composed of keys and values |
+| タイプ  | Description            |
+| ---- | ---------------------- |
+| 投票一覧 | 現在保留中の変更はキーと値で構成されています |
 
-**Example**
+**例**
 ```javascript
 > governance.pendingChanges
 {
@@ -355,21 +355,21 @@ None
 }
 ```
 
-## governance_votes <a id="governance_votes"></a>
+## governance_vote <a id="governance_votes"></a>
 
-The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
+`は` に投票し、エポック内のすべてのノードから投票を返します。 これらの投票は各ブロックのヘッダーから集められます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                               |
-| --------- | --------------------------------------------------------- |
-| Vote List | Current votes composed of keys, values and node addresses |
+| タイプ  | Description             |
+| ---- | ----------------------- |
+| 投票一覧 | キー、値、ノードアドレスで構成された現在の投票 |
 
-**Example**
+**例**
 ```javascript
 > governance.votes
 [{
@@ -384,59 +384,59 @@ None
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
+`idxCache` プロパティは、メモリーキャッシュ内の現在の idxCache の配列を返します。 idxCache にはガバナンスの変更が発生したブロック番号が含まれています。 キャッシュは、デフォルトで最大1000個のブロック番号をメモリ内に持つことができます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                                    |
-| ------------ | ---------------------------------------------- |
-| uint64 array | Block numbers where governance change happened |
+| タイプ          | Description         |
+| ------------ | ------------------- |
+| uint64 array | ガバナンスの変更が起こったブロック番号 |
 
-**Example**
+**例**
 ```javascript
 > governance.idxCache
 [0, 30]
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
+`idxCacheFromdb` は、ガバナンスが変更されたすべてのブロック番号を含む配列を返します。 `idxCacheFromdb` の結果は `idxCache` と同じまたはそれ以上です。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                                          |
-| ------------ | ---------------------------------------------------- |
-| uint64 array | Every block numbers where governance change happened |
+| タイプ          | Description         |
+| ------------ | ------------------- |
+| uint64 array | ガバナンスの変更が起こったブロック番号 |
 
-**Example**
+**例**
 ```javascript
 > governance.idxCacheFromDb
 [0, 30]
 ```
 
-## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
-The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
+## governance_itemCacheFromdb <a id="governance_itemcachefromdb"></a>
+`itemCacheFromdb` は、与えられたブロックに格納されたガバナンス情報を返します。 与えられたブロックに変更が保存されていない場合、関数は `null` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
-| uint64 | A block number to query the governance change made in the block. |
+| タイプ    | Description                       |
+| ------ | --------------------------------- |
+| uint64 | ブロック内で行われたガバナンスの変更を照会するためのブロック番号。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                    |
-| ---- | ---------------------------------------------- |
-| JSON | Stored governance information at a given block |
+| タイプ  | Description          |
+| ---- | -------------------- |
+| JSON | 特定のブロックに格納されたガバナンス情報 |
 
-**Example**
+**例**
 ```javascript
 > governance.itemCacheFromDb(0)
 {
@@ -457,32 +457,32 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
-- `BlockNum`: The block number at which the staking information is given.
-- `CouncilNodeAddrs`: The addresses of the consensus node.
-- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
-- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
-- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
-- `Gini`: Gini coefficient.
-- `KIRAddr`: The contract address of KIR.
-- `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
-- `UseGini`: The boolean value whether or not the Gini coefficient is used.
+`getStakingInfo` は特定のブロックにステーキング情報を返します。 結果には以下の情報が含まれます。
+- `BlockNum`: ステーキング情報が与えられるブロック番号。
+- `CouncilNodeAdds`: コンセンサスノードのアドレス。
+- `CouncilRewardAdrs`: 関連するノードのブロック報酬が送信されるアドレス。
+- `CouncilStakingAdrs`: 関連するノードがステークのためにデプロイするコントラクトアドレス。
+- `CouncilStakingAmounts`: 関連するノードがステークするKLAYの量。
+- `ジニ`: ジニ係数.
+- `KIRAddr`: KIRのコントラクトアドレス。
+- `PoCAddr`: KGFのコントラクトアドレス。 PoCはKGFの以前の名前です。
+- `UseGini`: ジニ係数を使用するかどうかの真偽値。
 
-Note that the order of all addresses and the staking amounts are matched.
+すべての住所の順序と投資金額が一致していることに注意してください。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                         |
+| タイプ                 | Description                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**戻り値**
 
-| Type | Description         |
-| ---- | ------------------- |
-| JSON | Staking information |
+| タイプ  | Description |
+| ---- | ----------- |
+| JSON | ステーキング情報    |
 
-**Example**
+**例**
 
 ```javascript
 > governance.getStakingInfo("latest")
