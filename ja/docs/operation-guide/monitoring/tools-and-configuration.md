@@ -1,5 +1,5 @@
-# Tools and Configuration
-## :Prometheus, InfluxDB+Grafana, Datadog and NewRelic <a id="tools-and-configuration"></a>
+# ツールと構成
+## :Prometheus、InfluxDB+Grafana、Datadog、NewRelic <a id="tools-and-configuration"></a>
 
 
 
