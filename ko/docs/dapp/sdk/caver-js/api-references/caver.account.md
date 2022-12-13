@@ -127,7 +127,7 @@ caver.account.create(address, accountKey [, options])
 
 accountKey가 공개키 문자열인 경우, accountKey가 [AccountKeyPublic](#accountkeypublic)인 Account 인스턴스가 생성됩니다. accountKey가 공개키 문자열을 포함한 배열인 경우, accountKey가 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)인 Account 인스턴스가 생성됩니다. 옵션들이 마지막 파라미터로 정의되지 않은 경우 기본값으로 임계값이 1, 각 키의 가중치가 1로 설정되어 생성됩니다. accountKey가 각 역할에 사용되는 accountKeys를 포함한 배열인 경우, [AccountKeyRoleBased](#accountkeyrolebased)를 지닌 Account 인스턴스가 생성됩니다. 옵션들은 [WeightedMultiSigOptions][]를 통해 각 역할에 정의되어야 합니다. 옵션들이 정의되어 있지 않다면, 다수의 공개키를 사용하는 역할들에 대해 기본 옵션이 사용됩니다. 사용법은 아래 예시를 참고하세요.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                                       | 설명                                                                 |
 | ---------- | ---------------------------------------- | ------------------------------------------------------------------ |
@@ -257,7 +257,7 @@ caver.account.createFromRLPEncoding(address, rlpEncodedKey)
 
 RLP 인코딩된 AccountKey로부터 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입     | 설명                           |
 | ------------- | ------ | ---------------------------- |
@@ -296,7 +296,7 @@ caver.account.createWithAccountKeyLegacy(address)
 
 AccountKeyLegacy를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                |
 | ------- | ------ | ----------------- |
@@ -327,7 +327,7 @@ caver.account.createWithAccountKeyPublic(address, publicKey)
 
 AccountKeyPublic를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름        | 타입     | 설명                |
 | --------- | ------ | ----------------- |
@@ -359,7 +359,7 @@ caver.account.createWithAccountKeyFail(address)
 
 AccountKeyFail를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                |
 | ------- | ------ | ----------------- |
@@ -390,7 +390,7 @@ caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, op
 
 AccountKeyWeightedMultiSig를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름             | 타입                          | 설명                                                             |
 | -------------- | --------------------------- | -------------------------------------------------------------- |
@@ -446,7 +446,7 @@ caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [,
 
 AccountKeyRoleBased를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름                       | 타입     | 설명                                                             |
 | ------------------------ | ------ | -------------------------------------------------------------- |
@@ -540,7 +540,7 @@ caver.account.accountKey.decode(rlpEncodedAccountKey)
 
 AccountKey의 RLP 인코딩된 문자열을 디코딩하며, [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 [AccountKeyRoleBased](#accountkeyrolebased) 인스턴스를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름                   | 타입     | 설명                           |
 | -------------------- | ------ | ---------------------------- |
