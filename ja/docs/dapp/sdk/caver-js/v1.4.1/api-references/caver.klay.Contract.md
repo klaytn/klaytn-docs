@@ -6,7 +6,7 @@ description: A caver-js object used to interact with a smart contract.
 
 The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
 
-This allows you to interact with smart contracts as if they were JavaScript objects.
+これにより、JavaScript オブジェクトであるかのようにスマートコントラクトとやり取りできます。
 
 ## new contract <a id="new-contract"></a>
 
@@ -14,32 +14,32 @@ This allows you to interact with smart contracts as if they were JavaScript obje
 new caver.klay.Contract(jsonInterface [, address] [, options])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object.
+JSON インターフェイスオブジェクトで定義されているすべてのメソッドとイベントを使用して、新しいコントラクトインスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type   | Description                                                                                                                  |
-|:------------- |:------ |:---------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Object | The JSON interface for the contract to instantiate                                                                           |
-| address       | String | \(optional\) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | Object | \(optional\) The options of the contract.  See the table below for the details.                                            |
+| 名前            | タイプ    | Description                                                                                         |
+|:------------- |:------ |:--------------------------------------------------------------------------------------------------- |
+| jsonInterface | Object | インスタンス化するコントラクトの JSON インターフェイス                                                                      |
+| address       | 文字列    | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'` |
+| オプション         | Object | \(optional\) The options of the contract.  詳細は以下の表をご覧ください。                                        |
 
-The options object contains the following:
+options オブジェクトには次のものが含まれています。
 
-| Name     | Type   | Description                                                                         |
-|:-------- |:------ |:----------------------------------------------------------------------------------- |
-| from     | String | \(optional\) The address from which transactions should be made.                  |
-| gasPrice | String | \(optional\) The gas price in peb to use for transactions.                        |
-| gas      | Number | \(optional\) The maximum gas provided for a transaction \(gas limit\).          |
-| data     | String | \(optional\) The byte code of the contract. Used when the contract gets deployed. |
+| 名前       | タイプ    | Description                                                                |
+|:-------- |:------ |:-------------------------------------------------------------------------- |
+| from     | 文字列    | \(optional\) The address from which transactions should be made.         |
+| gasPrice | 文字列    | \(optional\) The gas price in peb to use for transactions.               |
+| ガス       | Number | \(optional\) The maximum gas provided for a transaction \(gas limit\). |
+| data     | 文字列    | \(optional\) The byte code of the contract. コントラクトがデプロイされるときに使用されます。     |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                            |
-|:------ |:------------------------------------------------------ |
-| Object | The contract instance with all its methods and events. |
+| タイプ    | Description                   |
+|:------ |:----------------------------- |
+| Object | すべてのメソッドとイベントを持つコントラクトインスタンス。 |
 
-**Example**
+**例**
 
 ```javascript
 var myContract = new caver.klay.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
@@ -59,20 +59,20 @@ var myContract = new caver.klay.Contract([...], 'myContract', {
 myContract.options
 ```
 
-The `options` object for the contract instance. `from`, `gas` and `gasPrice` are used as fallback values when sending transactions.
+コントラクトインスタンスの `オプション` オブジェクト。 `from`, `gas` and `gasPrice` are used as fallback values when sending transactions.
 
-**Properties**
+**プロパティー**
 
-| Name          | Type   | Description                                                                                    |
-|:------------- |:------ |:---------------------------------------------------------------------------------------------- |
-| address       | String | The address where the contract is deployed.  Also see [options.address](#options-address).     |
-| jsonInterface | Array  | The JSON interface of the contract.  Also see [options.jsonInterface](#options-jsoninterface). |
-| data          | String | The byte code of the contract. Used when the contract gets deployed.                           |
-| from          | String | The address from which transactions should be made.                                            |
-| gasPrice      | String | The gas price in peb to use for transactions.                                                  |
-| gas           | Number | The maximum gas provided for a transaction \(gas limit\).                                    |
+| 名前            | タイプ    | Description                                                                       |
+|:------------- |:------ |:--------------------------------------------------------------------------------- |
+| address       | 文字列    | コントラクトがデプロイされているアドレス。  Also see [options.address](#options-address).              |
+| jsonInterface | 行列     | コントラクトの JSON インターフェイス。  Also see [options.jsonInterface](#options-jsoninterface). |
+| data          | 文字列    | 契約のバイトコード コントラクトがデプロイされるときに使用されます。                                                |
+| from          | 文字列    | The address from which transactions should be made.                               |
+| gasPrice      | 文字列    | 取引に使用するペブ内のガス価格。                                                                  |
+| ガス            | Number | The maximum gas provided for a transaction \(gas limit\).                       |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.options;
@@ -95,15 +95,15 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 myContract.options.address
 ```
 
-The address used for this contract instance `myContract`. All transactions generated by caver-js from this contract will contain this address as the "to". The address is stored in lowercase.
+このコントラクトインスタンスに使用されるアドレス `myContract`. All transactions generated by caver-js from this contract will contain this address as the "to". The address is stored in lowercase.
 
-**Property**
+**属性**
 
-| Name    | Type      | Description                                                            |
+| 名前      | タイプ       | Description                                                            |
 |:------- |:--------- |:---------------------------------------------------------------------- |
 | address | String \ | `null` | The address for this contract or `null` if it is not yet set. |
 
-**Example**
+**例**
 
 ```javascript
 >  myContract.options.address;
@@ -119,15 +119,15 @@ The address used for this contract instance `myContract`. All transactions gener
 myContract.options.jsonInterface
 ```
 
-The JSON interface object derived from the ABI of this contract `myContract`.
+この契約 `myContract` の ABI から派生した JSON インターフェイスオブジェクト。
 
-**Property**
+**属性**
 
-| Name          | Type  | Description                                                                                                            |
-|:------------- |:----- |:---------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
+| 名前            | タイプ | Description                                                        |
+|:------------- |:--- |:------------------------------------------------------------------ |
+| jsonInterface | 行列  | このコントラクトの JSON インターフェイス。 これを再設定すると、コントラクトインスタンスのメソッドとイベントが再生成されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.options.jsonInterface;
@@ -152,19 +152,19 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 myContract.clone()
 ```
 
-Clones the current contract instance.
+現在のコントラクトインスタンスを複製します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                       |
-|:------ |:--------------------------------- |
-| Object | The new cloned contract instance. |
+| タイプ    | Description        |
+|:------ |:------------------ |
+| Object | 新しい複製コントラクトインスタンス。 |
 
-**Example**
+**例**
 
 ```javascript
 > var contract1 = new caver.klay.Contract(abi, address, {gasPrice: '12345678', from: fromAddress});
@@ -182,27 +182,27 @@ myContract.deploy(options)
 
 Deploys the contract to the Klaytn blockchain. After successful deployment, the promise will be resolved with a new contract instance.
 
-**Parameters**
+**パラメータ**
 
 `options`: the options object used for deployment:
 
-| Name      | Type   | Description                                                                    |
-|:--------- |:------ |:------------------------------------------------------------------------------ |
-| data      | String | The byte code of the contract.                                                 |
-| arguments | Array  | \(optional\) The arguments that get passed to the constructor on deployment. |
+| 名前   | タイプ | Description                                                                    |
+|:---- |:--- |:------------------------------------------------------------------------------ |
+| data | 文字列 | 契約のバイトコード                                                                      |
+| 引数   | 行列  | \(optional\) The arguments that get passed to the constructor on deployment. |
 
-**Return Value**
+**戻り値**
 
 `Object`: The transaction object:
 
-| Type     | Description                                                                                                                                    |
-|:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array    | arguments: The arguments passed to the method before. They can be changed.                                                                     |
-| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
-| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                                   |
-| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters.                  |
+| タイプ | Description                                                                                                                                    |
+|:--- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 行列  | arguments: The arguments passed to the method before. They can be changed.                                                                     |
+| 関数  | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
+| 関数  | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                                   |
+| 関数  | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters.                  |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.deploy({
@@ -262,7 +262,7 @@ Deploys the contract to the Klaytn blockchain. After successful deployment, the 
 myContract.methods.myMethod([param1 [, param2 [, ...]]])
 ```
 
-Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
+そのメソッドのトランザクションオブジェクトを作成します。このオブジェクトは、sent、推定、ABI エンコードと呼ばれます。
 
 The methods of this smart contract are available through:
 
@@ -270,7 +270,7 @@ The methods of this smart contract are available through:
 * The name with parameters: `myContract.methods['myMethod(uint256)'](123)`
 * The signature\*: `myContract.methods['0x58cf5f10'](123)`
 
-This allows calling functions with the same name but different parameters from the JavaScript contract object.
+これにより、同じ名前の関数を呼び出すことができますが、JavaScript コントラクトオブジェクトとは異なるパラメータを呼び出すことができます。
 
 ## cf\) \*Function signature \(Function selector\) <a id="cf-function-signature-function-selector"></a>
 
@@ -291,23 +291,23 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Parameters**
+**パラメータ**
 
 Parameters of any method depend on the smart contracts methods, defined in the JSON interface.
 
-**Return Value**
+**戻り値**
 
 `Object`: The transaction object:
 
-| Type     | Description                                                                                                                                                                                                    |
-|:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array    | arguments: The arguments passed to the method before. They can be changed.                                                                                                                                     |
-| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
-| Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method \(can alter the smart contract state\).                                                                 |
-| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain.                                                                                  |
-| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument.                 |
+| タイプ | Description                                                                                                                                                                                                    |
+|:--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 行列  | arguments: The arguments passed to the method before. They can be changed.                                                                                                                                     |
+| 関数  | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
+| 関数  | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method \(can alter the smart contract state\).                                                                 |
+| 関数  | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain.                                                                                  |
+| 関数  | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument.                 |
 
-**Example**
+**例**
 
 ```javascript
 // calling a method
@@ -327,7 +327,7 @@ Parameters of any method depend on the smart contracts methods, defined in the J
       ...
   })
   .on('receipt', function(receipt) {
-      ...
+...
   })
   .on('error', console.error);
 ```
@@ -338,28 +338,28 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. 通話はスマートコントラクトの状態を変更できません。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                                              |
-|:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| options  | Object   | \(optional\) The options used for calling.  See the table below for the details.                                                                                       |
-| callback | Function | \(optional\) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                                                                                                                              |
+|:-------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| オプション    | Object | \(optional\) The options used for calling.  詳細は以下の表をご覧ください。                                                                                                            |
+| callback | 関数     | \(optional\) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name     | Type   | Description                                                                          |
+| 名前       | タイプ    | Description                                                                          |
 |:-------- |:------ |:------------------------------------------------------------------------------------ |
-| from     | String | \(optional\) The address the call “transaction” should be made from.               |
-| gasPrice | String | \(optional\) The gas price in peb to use for this call "transaction".              |
-| gas      | Number | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). |
+| from     | 文字列    | \(optional\) The address the call “transaction” should be made from.               |
+| gasPrice | 文字列    | \(optional\) The gas price in peb to use for this call "transaction".              |
+| ガス       | Number | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Mixed`: The return value\(s\) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, they are returned as an object with properties and indices.
+`Promise` returns `Mixed`: The return value\(s\) of the smart contract method. 単一の値を返す場合はそのまま返されます。 If it has multiple return values, they are returned as an object with properties and indices.
 
-**Example**
+**例**
 
 ```javascript
 // using the callback
@@ -417,35 +417,35 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 Will send a transaction to the smart contract and execute its method. Note that this can alter the smart contract state.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                 |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | The options used for sending.  See the table below for the details.                                                         |
-| callback | Function | \(optional\) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                                                                                 |
+|:-------- |:------ |:--------------------------------------------------------------------------------------------------------------------------- |
+| オプション    | Object | 送信に使用するオプション  詳細は以下の表をご覧ください。                                                                                               |
+| callback | 関数     | \(optional\) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name     | Type      | Description                                                                                    |
+| 名前       | タイプ       | Description                                                                                    |
 |:-------- |:--------- |:---------------------------------------------------------------------------------------------- |
-| from     | String    | The address from which the transaction should be sent.                                         |
-| gasPrice | String    | \(optional\) The gas price in peb to use for this transaction.                               |
-| gas      | Number    | The maximum gas provided for this transaction \(gas limit\).                                 |
-| value    | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the transaction in peb. |
+| from     | 文字列       | トランザクションを送信するアドレス                                                                              |
+| gasPrice | 文字列       | \(optional\) The gas price in peb to use for this transaction.                               |
+| ガス       | Number    | The maximum gas provided for this transaction \(gas limit\).                                 |
+| 値        | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the transaction in peb. |
 
-**Return Value**
+**戻り値**
 
 `callback` will return the 32-byte transaction hash.
 
 `PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available, or if this `send()` is called from a `someContract.deploy()`, then the promise will be resolved with the new contract instance. Additionally, the following events are available:
 
-| Name            | Type   | Description                                                                                                                                                                                                                                                                                   |
-|:--------------- |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | Is fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                             |
-| receipt         | Object | Is fired when the transaction receipt is available.  Receipts from contracts will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](#getpastevents) for details about the returned event object. |
-| error           | Error  | Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.                                                                                                                                                                                      |
+| 名前                | タイプ    | Description                                                                                                                                                                                                                                                                                   |
+|:----------------- |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash   | 文字列    | Is fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                             |
+| レシート|領収書|領収書|受信する | Object | Is fired when the transaction receipt is available.  Receipts from contracts will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](#getpastevents) for details about the returned event object. |
+| エラー               | エラー    | Is fired if an error occurs during sending. ガス欠エラーでは、2 番目のパラメータはレシートです。                                                                                                                                                                                                                       |
 
-**Example**
+**例**
 
 ```javascript
 // using the callback
@@ -512,28 +512,28 @@ The options object can contain the following:
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
+Klaytn Virtual Machineで実行される場合、メソッド実行がかかるガスを推定します。 見積もりは、後で取引を送るときに使用される実際のガスと異なる場合があります。 その時点でスマートコントラクトの状態は異なります
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                             |
-|:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | \(optional\) The options used for calling.  See the table below for the details.                                                                      |
-| callback | Function | \(optional\) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                                                                                                             |
+|:-------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オプション    | Object | \(optional\) The options used for calling.  詳細は以下の表をご覧ください。                                                                                           |
+| callback | 関数     | \(optional\) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name  | Type      | Description                                                                                                                                                                                          |
-|:----- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from  | String    | \(optional\) The address from which the call "transaction" should be made.                                                                                                                         |
-| gas   | Number    | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the call "transaction" in peb.                                                                                                |
+| 名前   | タイプ       | Description                                                                                                                                    |
+|:---- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
+| from | 文字列       | \(optional\) The address from which the call "transaction" should be made.                                                                   |
+| ガス   | Number    | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). 特定の値を設定すると、ガスエラーを検出するのに役立ちます。 すべてのガスが使用されている場合は、同じ数を返します。 |
+| 値    | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the call "transaction" in peb.                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - the used gas for the simulated call/transaction.
 
-**Example**
+**例**
 
 ```javascript
 // using the callback
@@ -548,7 +548,7 @@ The options object can contain the following:
     ...
   })
   .catch(function(error) {
-    ...
+...
   });
 ```
 
@@ -558,19 +558,19 @@ The options object can contain the following:
 myContract.methods.myMethod([param1 [, param2[, ...]]]).encodeABI()
 ```
 
-Encodes the ABI for this method. This can be used to send a transaction, call a method, or pass it into another smart contract method as arguments.
+ABI をこのメソッドのエンコードします。 This can be used to send a transaction, call a method, or pass it into another smart contract method as arguments.
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                  |
-|:------ |:------------------------------------------------------------ |
-| String | The encoded ABI byte code to send via a transaction or call. |
+| タイプ | Description                              |
+|:--- |:---------------------------------------- |
+| 文字列 | トランザクションまたはコールを介して送信するエンコードされたABIバイトコード。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.methods.myMethod(123).encodeABI();
@@ -583,28 +583,28 @@ None
 myContract.once(event [, options], callback)
 ```
 
-Subscribes to an event and unsubscribes immediately after the first event or error. Will only fire for a single event.
+イベントを購読し、最初のイベントまたはエラーの直後に購読を解除します。 単一のイベントに対してのみ発火します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                                                                         |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                                                                                          |
-| options  | Object   | \(optional\) The options used for deployment.  See the table below for the details.                                                                                                               |
-| callback | Function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [getPastEvents return values](#getpastevents) for details about the event structure. |
+| 名前       | タイプ    | Description                                                                                                                                     |
+|:-------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント     | 文字列    | The name of the event in the contract, or `"allEvents"` to get all events.                                                                      |
+| オプション    | Object | \(optional\) The options used for deployment.  詳細は以下の表をご覧ください。                                                                                |
+| callback | 関数     | このコールバックは、最初のイベントを 2 番目の引数として、または 1 番目の引数としてエラーが発生します。 See [getPastEvents return values](#getpastevents) for details about the event structure. |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name   | Type   | Description                                                                                                                                                                 |
-|:------ |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                         |
-| topics | Array  | \(optional\) This allows you to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| 名前    | タイプ    | Description                                                                                                                                                                 |
+|:----- |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                         |
+| トピック  | 行列     | \(optional\) This allows you to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Return Value**
+**戻り値**
 
 `undefined`
 
-**Example**
+**例**
 
 ```javascript
 > myContract.once('MyEvent', {
@@ -641,48 +641,48 @@ myContract.events.MyEvent([options][, callback])
 
 Subscribes to an event.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                          |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | \(optional\) The options used for deployment.  See the table below for the details.                                |
-| callback | Function | \(optional\) This callback will be fired for each event as the second argument, or an error as the first argument. |
+| 名前       | タイプ    | Description                                                                                                          |
+|:-------- |:------ |:-------------------------------------------------------------------------------------------------------------------- |
+| オプション    | Object | \(optional\) The options used for deployment.  詳細は以下の表をご覧ください。                                                     |
+| callback | 関数     | \(optional\) This callback will be fired for each event as the second argument, or an error as the first argument. |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name      | Type   | Description                                                                                                                                                             |
-|:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter    | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                     |
-| fromBlock | Number | \(optional\) The block number from which to get events on.                                                                                                            |
-| topics    | Array  | \(optional\) This allows to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| 名前     | タイプ    | Description                                                                                                                                                             |
+|:------ |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター  | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                     |
+| ブロックから | Number | \(optional\) The block number from which to get events on.                                                                                                            |
+| トピック   | 行列     | \(optional\) This allows to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Return Value**
+**戻り値**
 
 `EventEmitter`: The event emitter has the following events:
 
-| Name  | Type   | Description                                                     |
-|:----- |:------ |:--------------------------------------------------------------- |
-| data  | Object | Fires on each incoming event with the event object as argument. |
-| error | Object | Fires when an error in the subscription occurs.                 |
+| 名前   | タイプ    | Description                                                     |
+|:---- |:------ |:--------------------------------------------------------------- |
+| data | Object | Fires on each incoming event with the event object as argument. |
+| エラー  | Object | Fires when an error in the subscription occurs.                 |
 
 The structure of the returned event `Object` looks as follows:
 
-| Name             | Type           | Description                                                                                                                               |
+| 名前               | タイプ            | Description                                                                                                                               |
 |:---------------- |:-------------- |:----------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | String         | The event name.                                                                                                                           |
-| signature        | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
-| address          | String         | Address which from this event originated.                                                                                                 |
+| イベント             | 文字列            | The event name.                                                                                                                           |
+| 署名               | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
+| address          | 文字列            | Address which from this event originated.                                                                                                 |
 | returnValues     | Object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                        |
 | logIndex         | Number         | Integer of the event index position in the block.                                                                                         |
 | transactionIndex | Number         | Integer of the transaction's index position where the event was created.                                                                  |
 | transactionHash  | 32-byte String | Hash of the block this event was created in. `null` when it is still pending.                                                             |
 | blockHash        | 32-byte String | Hash of the block this event was created in. `null` when it is still pending.                                                             |
 | blockNumber      | Number         | The block number this log was created in. `null` when still pending.                                                                      |
-| raw.data         | String         | The data containing non-indexed log parameter.                                                                                            |
-| raw.topics       | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the event.                                                   |
-| id               | String         | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| raw.data         | 文字列            | The data containing non-indexed log parameter.                                                                                            |
+| raw.topics       | 行列             | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the event.                                                   |
+| id               | 文字列            | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.events.MyEvent({
@@ -733,28 +733,28 @@ myContract.getPastEvents(event [, options] [, callback])
 
 Gets past events for this contract.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                       |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------------- |
-| event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                        |
-| options  | Object   | \(optional\) The options used for deployment.  See the table below for the details.                                             |
-| callback | Function | \(optional\) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
+| 名前       | タイプ    | Description                                                                                                                       |
+|:-------- |:------ |:--------------------------------------------------------------------------------------------------------------------------------- |
+| イベント     | 文字列    | The name of the event in the contract, or `"allEvents"` to get all events.                                                        |
+| オプション    | Object | \(optional\) The options used for deployment.  詳細は以下の表をご覧ください。                                                                  |
+| callback | 関数     | \(optional\) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
 To options object can contain the following:
 
-| Name      | Type   | Description                                                                                                                                                              |
-|:--------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| filter    | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                      |
-| fromBlock | Number | \(optional\) The block number from which to get events on.                                                                                                             |
-| toBlock   | Number | \(optional\) The block number to get events up to \(defaults to `"latest"`\).                                                                                        |
-| topics    | Array  | \(optional\) This allows manually setting the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| 名前      | タイプ    | Description                                                                                                                                                              |
+|:------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| フィルター   | Object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                      |
+| ブロックから  | Number | \(optional\) The block number from which to get events on.                                                                                                             |
+| toBlock | Number | \(optional\) The block number to get events up to \(defaults to `"latest"`\).                                                                                        |
+| トピック    | 行列     | \(optional\) This allows manually setting the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Array`: An array with the past event objects, matching the given event name and filter.
 
-**Example**
+**例**
 
 ```javascript
 > myContract.getPastEvents('MyEvent', {
