@@ -7,7 +7,7 @@ caver.klay.sha3(data[, callback])
 Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
