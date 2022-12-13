@@ -1,46 +1,46 @@
-# Legacy Transaction <a id="legacy-transaction"></a>
+# 従来の取引 <a id="legacy-transaction"></a>
 
 ## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a transaction to the network.
+ネットワークにトランザクションを送信します。
 
-Note: Only the account having `AccountKeyLegacy` can send this transaction.
+注: `AccountKeyLegacy` を持つアカウントのみがこのトランザクションを送信できます。
 
-**Parameters**
+**パラメータ**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+sendTransaction のパラメータはトランザクションオブジェクトとコールバック関数です。
 
-| Name              | Type     | Description                                                                                                |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction object to send.                                                                            |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前                | タイプ    | Description                                                        |
+| ----------------- | ------ | ------------------------------------------------------------------ |
+| transactionObject | Object | 送信するトランザクションオブジェクト。                                                |
+| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-A transaction object of type `LEGACY` has the following structure:
+タイプ `LEGACY` のトランザクションオブジェクトには以下の構造があります。
 
-| Name     | Type                                            | Description                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | String                                          | Address of this transaction sender.                                                                                                                                                                                               |
-| to       | String                                          | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
-| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                            |
-| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
-| data     | String                                          | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| nonce    | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                               |
+| 名前       | タイプ                                             | Description                                                                                                                                   |
+| -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 文字列                                             | このトランザクション送信者のアドレス。                                                                                                                           |
+| to       | 文字列                                             | (オプション) コントラクト作成トランザクションに未定義のメッセージの宛先アドレスです。                                                                                                  |
+| 値        | Number &#124; String &#124; BN &#124; BigNumber | (オプション) pebでトランザクションに転送される値で、契約作成トランザクションの場合は寄付も行います。                                                                                         |
+| ガス       | Number                                          | 取引に支払うガスの最大額(使用されていないガスは返金されます)。                                                                                                              |
+| gasPrice | Number                                          | (オプション) ペブで送信者が提供するガス価格。 gasPriceは、Klaytnノードで設定されているunitPriceと同じである必要があります。                                                                   |
+| data     | 文字列                                             | (オプション) コントラクト上の関数呼び出しのデータを含む [ABI バイト文字列](http://solidity.readthedocs.io/en/latest/abi-spec.html) のいずれかです。 または、契約作成トランザクションの場合、初期化コードを指定します。 |
+| nonce    | Number                                          | (オプション) nonce の整数。 省略された場合、 `caver.klay.getTransactionCount` を呼び出すことで caver-js によって設定されます。                                                    |
 
-**Return Value**
+**戻り値**
 
-The `callback` will return the 32-byte transaction hash.
+`コールバック` は 32 バイトのトランザクションハッシュを返します。
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: A promise combined event emitter. 領収書が入手可能な場合には解決されます。 さらに、次のイベントが利用できます:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
+- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
+- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
 
-**Example**
+**例**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
@@ -62,7 +62,7 @@ caver.klay.sendTransaction({
     value: '1000000000000000'
 })
 .then(function(receipt){
-    ...
+...
 });
 
 // using the event emitter
@@ -72,10 +72,10 @@ caver.klay.sendTransaction({
     value: '1000000000000000'
 })
 .on('transactionHash', function(hash){
-    ...
+...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 ```
