@@ -1,28 +1,28 @@
 ---
 description: >-
-  APIs used to query network configuration.
+  ネットワーク構成のクエリに使用されるAPI。
 ---
 
-# Namespace net <a id="namespace-net"></a>
+# ネームスペースネット <a id="namespace-net"></a>
 
-The namespace `net` provides functions related to the Klaytn networks.
+名前空間 `net` は、Klaytn ネットワークに関連する関数を提供します。
 
 
-## net_networkID <a id="net_networkid"></a>
+## networkID <a id="net_networkid"></a>
 
-Returns the network identifier (network ID).
+ネットワーク識別子(ネットワーク ID)を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                                                                       |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
+| タイプ | Description                                                                                                                       |
+| --- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 品質  | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -37,21 +37,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 ```
 
 
-## net_listening <a id="net_listening"></a>
+## net_listen <a id="net_listening"></a>
 
-Returns `true` if the client is actively listening for network connections.
+クライアントがネットワーク接続を積極的にリッスンしている場合、 `true` を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| Boolean | `true` when listening, otherwise `false`. |
+| タイプ     | Description               |
+| ------- | ------------------------- |
+| Boolean | `true` , それ以外の場合 `false`. |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -68,19 +68,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCount <a id="net_peercount"></a>
 
-Returns the number of peers currently connected to the client.
+クライアントに現在接続されているピアの数を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                               |
-| -------- | ----------------------------------------- |
-| QUANTITY | Integer of the number of connected peers. |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | 接続ピアの数の整数。  |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -96,23 +96,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCountByType <a id="net_peercountbytype"></a>
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+接続されたノードの数を type とキーと値のペアを持つ接続されたノードの合計数で返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                                                           |
-| ----------- | ------------------------------------------------------------------------------------- |
-| JSON string | The number of connected peers by type as well as the total number of connected peers. |
+| タイプ     | Description                 |
+| ------- | --------------------------- |
+| JSON文字列 | 接続されているピアの数と、接続されているピアの合計数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCountByType","params":[],"id":74}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCountByType","params":[],"id":74}) https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -124,19 +124,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_version <a id="net_version"></a>
 
-Return the current klaytn protocol version.
+現在の klaytn プロトコルのバージョンを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                                                                            |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY | The integer of the klaytn protocol version.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
+| タイプ | Description                                                                                                     |
+| --- | --------------------------------------------------------------------------------------------------------------- |
+| 品質  | Klaytnプロトコルバージョンの整数。<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**Example**
+**例**
 
 ```shell
 // Request
