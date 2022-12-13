@@ -1,26 +1,26 @@
-# Core Cell Overview <a id="core-cell-overview"></a>
+# コアセルの概要 <a id="core-cell-overview"></a>
 
-## Intended Audience  <a id="intended-audience"></a>
+## 聴衆を対象に  <a id="intended-audience"></a>
 
-- Core Cell Operators
-- If your interest is in making and running Blockchain Applications on Klaytn, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/README.md) instead to make your application interact with Klaytn network.
+- コアセル演算子
+- あなたの関心がKlaytnでブロックチェーンアプリケーションを作成して実行することであるならば、コアセルを維持する必要はありません。 アプリケーションを Klaytn ネットワークと相互作用させるには、代わりに [エンドポイント ノード](../endpoint-node/README.md) を実行する必要があります。
 
 
-## Core Cell Overview <a id="core-cell-overview"></a>
+## コアセルの概要 <a id="core-cell-overview"></a>
 
-Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks. A Klaytn Core Cell (CC) consists of the following components.
+コアセル(CC)は、コンセンサスプロセスに参加し、トランザクションの実行とブロックの生成を担当するエンティティです。 Klaytn Core Cell (CC) は以下のコンポーネントで構成されています。
 
--  Consensus Node (CN): Consensus Nodes are participating in the block generation process.
--  Proxy Node (PN): Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+-  コンセンサスノード(CN):コンセンサスノードはブロック生成プロセスに参加しています。
+-  プロキシ ノード (PN): プロキシ ノードは、ネットワークへのインターフェイスを提供します。 PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
 
-It is recommended that a Core Cell consists of one CN with two or more PNs. A CN connects to other CNs within the Core Cell Network to perform consensus. CNs only accept connections from their PNs in the same Core Cell to receive transaction requests and propagate blocks to the network. PNs accepts connections from any ENs within the Endpoint Node Network.
+コアセルは2つ以上のPNを持つ1つのCNで構成することをお勧めします。 CNはコアセルネットワーク内の他のCNに接続してコンセンサスを実行します。 CNはトランザクション要求を受信し、ブロックをネットワークに伝播するために、同じコアセル内のPNからの接続のみを受け付けます。 プッシュ通知はエンドポイントノードネットワーク内の任意のENからの接続を受け付けます。
 
-![Core Cell Overview](images/cn_set.png)
+![コアセルの概要](images/cn_set.png)
 
-| Name | Description                                                                                                                                                                                                                                                                       | Network Security                                                                                                                                                                                                                                                                           | Quantity                                               |
-|:---- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------ |
-| CN   | A node that creates a new block with other CNs in the Core Cell Network                                                                                                                                                                                                           | A network is composed of permissioned CNs. (Requires IP access control).                                                                                                                                                                                                                   | 1 unit                                                 |
-| PN   | - A node that submits transactions received from the Klaytn Endpoint Node Network to the CN. <br>- It propagates the created blocks to Klaytn Endpoint Node Network. <br>- It can scale out horizontally depending on the number of ENs in the Endpoint Node Network. | - It is connected to the CN in the Core Cell, and its IP and Ports are required to be public to accept connections from other Klaytn nodes on the Internet. <br>- It can connect to other PNs in other Core Cell via PN bootnode. <br>- It can connect to ENs via EN bootnode. | At least 1 PN required. 2 or more PNs are recommended. |
+| 名前 | Description                                                                                                                                                       | ネットワークセキュリティ                                                                                                                                                          | 数量                                  |
+|:-- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:----------------------------------- |
+| CN | コア セル ネットワーク内の他のCNと新しいブロックを作成するノード                                                                                                                                | ネットワークは許可されたCNで構成されています。 (IP アクセス制御が必要です)。                                                                                                                            | 1 単位                                |
+| PN | - クラインエンドポイントノードネットワークから受信したトランザクションをCNに送信するノード。 <br>- 作成されたブロックを Klaytn エンドポイント ノード ネットワークに伝播します。 <br>- エンドポイント ノード ネットワークのENの数に応じて水平方向にスケールアウトできます。 | - コアセル内のCNに接続されています そして、IPとポートは、インターネット上の他のKlaytnノードからの接続を受け入れるために一般に公開される必要があります。 <br>- PNブートノードを介して他のコアセルの他のPNに接続することができます。 <br>- ENブートノード経由でENに接続できます。 | 少なくとも 1 PN が必要です。 2つ以上のプッシュが推奨されます。 |
 
 
 
