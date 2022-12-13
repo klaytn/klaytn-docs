@@ -1,43 +1,43 @@
-# Account Creation Transaction <a id="account-creation-transaction"></a>
+# 取引先作成取引 <a id="account-creation-transaction"></a>
 
-## sendTransaction (ACCOUNT_CREATION) <a id="sendtransaction-account_creation"></a>
+## sendTransaction (account_CREATION) <a id="sendtransaction-account_creation"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends an [Account Creation](../../../../../../klaytn/design/transactions/basic.md) transaction to the network.
+ネットワークに [アカウント 作成](../../../../../../klaytn/design/transactions/basic.md) トランザクションを送信します。
 
-**Parameters**
+**パラメータ**
 
-| Name                                   | Type                                            | Description                                                                                                                                                                                                                                                                                 |
-| -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | Object                                          | The transaction object to send.                                                                                                                                                                                                                                                             |
-| transactionObject.type                 | String                                          | The type of "ACCOUNT_CREATION" transaction.                                                                                                                                                                                                                                                 |
-| transactionObject.from                 | String                                          | The sender address of the transaction.                                                                                                                                                                                                                                                      |
-| transactionObject.to                   | String                                          | The address which will be created newly.                                                                                                                                                                                                                                                    |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the newly-created account in peb.                                                                                                                                                                                                                                 |
-| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
-| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                         |
-| transactionObject.publicKey            | String                                          | (optional) if creating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
-| transactionObject.multisig             | String                                          | (optional) if creating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
-| transactionObject.roleTransactionKey   | String                                          | (optional) if creating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
-| transactionObject.roleAccountUpdateKey | String                                          | (optional) if creating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction.                                                                                              |
-| transactionObject.roleFeePayerKey      | String                                          | (optional) if creating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer.                                                                                                       |
-| transactionObject.failKey              | Bool                                            | (optional) if creating account with fail key, set it true                                                                                                                                                                                                                                   |
-| callback                               | Function                                        | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                  |
+| 名前                                     | タイプ                                             | Description                                                                                                                                      |
+| -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transactionObject                      | Object                                          | 送信するトランザクションオブジェクト。                                                                                                                              |
+| transactionObject.type                 | 文字列                                             | "ACCOUNT_CREATION"トランザクションのタイプ。                                                                                                                  |
+| transactionObject.from                 | 文字列                                             | トランザクションの送信者アドレス                                                                                                                                 |
+| transactionObject.to                   | 文字列                                             | 新しく作成されるアドレス                                                                                                                                     |
+| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | pebで新しく作成された口座に転送される値。                                                                                                                           |
+| transactionObject.gas                  | Number                                          | 取引に使用するガスの量(未使用ガスは返金されます)。                                                                                                                       |
+| transactionObject.gasPrice             | Number                                          | (オプション) ペブで送信者が提供するガス価格。 gasPriceは、Klaytnノードで設定されているunitPriceと同じである必要があります。                                                                      |
+| transactionObject.nonce                | Number                                          | (オプション) nonce の整数。 省略された場合、 `caver.klay.getTransactionCount` を呼び出すことで caver-js によって設定されます。                                                       |
+| transactionObject.publicKey            | 文字列                                             | (オプション) 公開鍵でアカウントを作成する場合は、公開鍵の 64 バイトを書き留めます。                                                                                                    |
+| transactionObject.multisig             | 文字列                                             | (オプション) マルチシグキーでアカウントを作成する場合は、複数の公開鍵でマルチシグを書き留めます。 マルチシグを構成する公開鍵は、独自の重みを持っています。 マルチシグで署名されたトランザクションの場合、署名の重みの合計はしきい値以上でなければなりません。                |
+| transactionObject.roleTransactionKey   | 文字列                                             | (オプション) ロールベースのキーでアカウントを作成する場合は、公開キーまたはマルチシグキーでロールトランザクションキーを書き留めます。 このロールTransactionKeyはトランザクションに署名するときに使用されます。                                 |
+| transactionObject.roleAccountUpdateKey | 文字列                                             | (オプション) ロールベースのキーでアカウントを作成する場合は、公開キーまたはマルチシグキーを使用して roleAccountUpdateKey を書き留めます。 このroleAccountUpdateKey は、AccountUpdate トランザクションに署名するときに使用されます。 |
+| transactionObject.roleFeePayerKey      | 文字列                                             | (オプション) ロールベースのキーでアカウントを作成する場合は、公開キーまたはマルチシグキーでroleFeePayerKeyを書き留めます。 この roleFeePayerKey は、トランザクションに feePayer として署名するときに使用されます。                 |
+| transactionObject.failKey              | ブール型                                            | (オプション) 失敗キーでアカウントを作成する場合はtrueを設定します                                                                                                             |
+| callback                               | 関数                                              | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                               |
 
-**Return Value**
+**戻り値**
 
-The `callback` will return the 32-byte transaction hash.
+`コールバック` は 32 バイトのトランザクションハッシュを返します。
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: A promise combined event emitter. 領収書が入手可能な場合には解決されます。 さらに、次のイベントが利用できます:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
+- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
+- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
 
-**Example**
+**例**
 
 ```javascript
 
@@ -69,9 +69,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 
 // Case 2: Creating account with public key (non-humanreadable)
 
@@ -101,9 +101,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 
 // Case 3: Creating account with fail key
 
@@ -133,9 +133,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 
 // Case 4: Creating account with weighted-multisig
 
@@ -179,9 +179,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 
 // Case 5: Creating account with role-based key
 
@@ -225,8 +225,8 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-    ...
+...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
 
 ```
