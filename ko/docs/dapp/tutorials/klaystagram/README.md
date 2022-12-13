@@ -3,7 +3,7 @@
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. 개발 환경 구성](1.-environment-setup.md)
-* [2. Clone Klaystagram DApp](2.-clone-klaystagram-dapp.md)
+* [2. Klaystagram dApp 클론하기](2.-clone-klaystagram-dapp.md)
 * [3. 디렉토리 구조](3.-directory-structure.md)
 * [4. Klaystagram 스마트 컨트랙트 작성](4.-write-klaystagram-smart-contract.md)
 * [5. 스마트 컨트랙트 배포](5.-deploy-contract.md)
