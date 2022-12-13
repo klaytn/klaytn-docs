@@ -1,22 +1,22 @@
 # Startup the EN <a id="startup-the-en"></a>
 
-You can start or stop the Endpoint Node using the following commands.
+エンドポイントノードを開始または停止するには、以下のコマンドを使用します。
 
-**start**
+**開始**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**停止する**
 
 ```bash
 $ kend stop
-Shutting down kend: Killed
+kendをシャットダウン: Kend: Killed
 ```
 
-**status**
+**ステータス**
 
 ```bash
 $ kend status
