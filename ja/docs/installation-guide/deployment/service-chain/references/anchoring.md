@@ -1,66 +1,66 @@
-As explained in the design section, Service Chain supports the data anchoring feature. This page shows how to enable the anchoring function. If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. This ensures the security and credibility of the service chain.
+デザインセクションで説明したように、Service Chainはデータアンカー機能をサポートします。 このページでは、アンカー機能を有効にする方法を示します。 これが有効になっている場合、SCN アンカーは定期的に子チェーンのブロックデータを親チェーンへの存在と不変性の証明としてブロックします。 これにより、サービスチェーンの安全性と信頼性が保証されます。
 
-# Enable Anchoring <a id="enable-anchoring"></a>
+# アンカーを有効化 <a id="enable-anchoring"></a>
 
-## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
-If you have installed and run an SCN successfully, the parent chain operator account should be generated. You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. You can check the parent operator address via RPC API, `subbridge_parentOperator`.
+## SCNの親演算子を確認する <a id="check-parent-operator-of-scn"></a>
+SCNをインストールして正常に実行した場合は、親チェーンオペレータアカウントを生成する必要があります。 親演算子として使用するキーストアファイルを指定できます。 または提供されていない場合は、SCN がキーを生成します。 親演算子アドレスは RPC API、 `subbridge_parentOperator` で確認できます。
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+インスタンス: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
 
  datadir: ~/kscnd_home
- modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
+ modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 klay:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
  > subbridge.parentOperator
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 
 ```
-*This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory.*
+*この親オペレーターアカウントアドレスは、 `$dataDIR/parent_bridge_account` ディレクトリのキーストアファイルから派生します。*
 
 
-## Add KLAY to Parent Operator account<a id="add-klay-to-parent-operator-account"></a>
-When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator. Therefore the account needs KLAY to pay the transaction fee. You should add enough KLAY to the parent operator account.
+## 親オペレーターアカウントにKLAYを追加<a id="add-klay-to-parent-operator-account"></a>
+SCNがブロックデータをアンカーする場合、SCNは親オペレータとしてアンカートランザクションを作成します。 そのため、取引手数料を支払うにはKLAYが必要です。 親演算子口座に十分な KLAYを追加する必要があります。
 
-## Enable Anchoring <a id="enable-anchoring"></a>
-After sending KLAY, you can check the balance like below.
+## アンカーを有効化 <a id="enable-anchoring"></a>
+KLAYを送った後、以下のように残高を確認することができます。
 ```javascript
 > subbridge.parentOperatorBalance
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
+以下のように、 `subbridge.anchoring`を介してアンカーを有効にすることができます。 詳細については、 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) を参照してください。
 ```
 > subbridge.anchoring(true)
 true
 ```
 
-# Check Anchoring Data <a id="check-anchoring-data"></a>
-If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain. You can check the anchored data like below.
+# アンカーデータの確認 <a id="check-anchoring-data"></a>
+アンカー機能が有効になっている場合、SCN はブロックデータを定期的にメインチェーンにアンカーします。 アンカーされたデータは以下のように確認できます。
 
-## Sub-Bridge <a id="sub-bridge"></a>
-In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+## サブブリッジ <a id="sub-bridge"></a>
+サブブリッジでは、最新のアンカーされたブロック番号を以下のように確認できます。 詳細については、 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) を参照してください。
 ```javascript
-> subbridge.latestAnchoredBlockNumber
+> subbridge.latestAnkirdBlockNumber
 71025
 ```
 
-Also, you can find the anchoring transaction hash by the service chain block number like below.
+また、以下のようにサービスチェーンブロック番号によってアンカートランザクションハッシュを見つけることができます。
 ```javascript
 > subbridge.getAnchoringTxHashByBlockNumber(1055)
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-## Main-Bridge <a id="sub-bridge"></a>
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
+## メインブリッジ <a id="sub-bridge"></a>
+Main-Bridgeでは、チェーンインデックス作成オプションが有効になっている場合、以下のようにサービスチェーンブロックハッシュによってアンカーtxハッシュを見つけることができます。 詳細は [メインブリッジ API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) を参照してください。
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-You can get the decoded anchoring data by anchoring transaction hash like below.
+トランザクションハッシュをアンカーすることで、デコードされたアンカーデータを取得することができます。
 ```javascript
 > klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
