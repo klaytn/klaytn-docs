@@ -14,7 +14,7 @@
 
 가장 최근의 블록 번호를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -45,7 +45,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check the [Caution-Header](./caution.md#block_header) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                          |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check [Caution-Header](./caution.md#block_header) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명         |
 | ------------- | ---------- |
@@ -115,7 +115,7 @@ Please check [Caution-Header](./caution.md#block_header) before using this API.
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다.                                                                                                       |
 | 채굴자              | 20바이트 크기 DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
 | mixHash          | 32바이트 크기 DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
-| 논스               | 8-byte DATA    | The hash of the generated proof-of-work.                                                                                  |
+| 논스               | 8바이트 크기 DATA   | The hash of the generated proof-of-work.                                                                                  |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                        |
 | parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                                                                                             |
 | receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                    |
@@ -166,7 +166,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check [Caution-Block](./caution.md#block) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                                                        |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -225,7 +225,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check [Caution-Block](./caution.md#block) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명                                                     |
 | ------------- | ------------------------------------------------------ |
@@ -247,7 +247,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                              |
 | 채굴자              | 20바이트 크기 DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
 | mixHash          | 32바이트 크기 DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
-| 논스               | 8-byte DATA    | The hash of the generated proof-of-work.                                                                                  |
+| 논스               | 8바이트 크기 DATA   | The hash of the generated proof-of-work.                                                                                  |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                        |
 | parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                                                                                             |
 | receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                    |
@@ -302,7 +302,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a uncle of a block by hash and the uncle's index position. Since there are no uncles in Klaytn, it always returns `null`.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명                          |
 | ------------- | --------------------------- |
@@ -329,7 +329,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a uncle of a block by number and the uncle's index position. As there are no uncles in Klaytn, it always returns `null`.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                                                                |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -356,7 +356,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                                                                |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -387,7 +387,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 해시를 기준으로 조회한 특정 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명         |
 | ------------- | ---------- |
@@ -418,7 +418,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                                                                |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -449,7 +449,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns the number of uncles in a block from a block matching the given block hash. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명         |
 | ------------- | ---------- |
@@ -482,7 +482,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 타입                              | 설명                                                                                                                                                                               |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -550,7 +550,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 **참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. Please note that the actual "mining" is only performed by the Consensus Nodes (CNs).
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -579,7 +579,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
