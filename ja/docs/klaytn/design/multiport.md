@@ -1,28 +1,28 @@
-# Multi-Channel <a id="multi-channel"></a>
+# マルチチャンネル <a id="multi-channel"></a>
 
-A Klaytn node can be run with **Multi-channel**.
+Klaytn ノードは **マルチチャンネル** で実行できます。
 
-If a node is executed with multi-channel configuration, 2 ports are set up for communication. On the otherhand, if a node is executed with single channel configuration, 1 port is set up. If 2 multi-channel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
+マルチチャンネル構成でノードが実行される場合、通信のためのポートは 2 つに設定されます。 一方、単一のチャンネル構成でノードが実行されると、1 ポートが設定されます。 2 つのマルチチャネルノードが接続しようとしている場合、2 つのポートを使用して接続が確立されます。 そうでなければ、彼らは通信のために1ポートを使用します。
 
-A multi-channel node can be enabled through the flag `--multichannel`. If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). To disable multi-channel, please replace the statement with `MULTICHANNEL=0`. If you want to run a node with specific ports, flags `port` and `subport` can be used. If you want to specify ports values of a connecting peer, check out [KNI](./kni.md).
+フラグ `--multichannel` を介してマルチチャンネルノードを有効にすることができます。 If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). マルチチャネルを無効にするには、ステートメントを `MULTICHANNEL=0` に置き換えてください。 特定のポートを持つノードを実行したい場合は、フラグ `ポート` と `サブポート` を使用できます。 接続ピアのポート値を指定したい場合は、 [KNI](./kni.md) をチェックしてください。
 
-## Architecture <a id="architecture"></a>
+## 建築 <a id="architecture"></a>
 
-![Multi-Channel Server](../images/multichannel.png)
+![マルチチャンネルサーバー](../images/multichannel.png)
 
-The picture above shows a connection between two multi-channel nodes. Two ports, mainport (A) and subport (B), transfer different messages.
-* **Mainport**(A) is used to transfer messages related to blocks and consensus protocols.
-  * Block messages include requests and responses of the hash, header, body and receipt of a block.
-  * Consensus messages include Request, Preprepare, Prepare, Commit and RoundChange. The meaning of the messages can be found in [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
-* **Subport**(B) is for transferring transaction messages.
+上の図は、2 つのマルチチャンネルノード間の接続を示しています。 2つのポート、メインポート(A)、サブポート(B)、異なるメッセージを転送します。
+* **Mainport**(A) は、ブロックとコンセンサスプロトコルに関連するメッセージを転送するために使われる。
+  * ブロックメッセージには、ハッシュ、ヘッダー、ボディ、およびブロックの受領のリクエストと応答が含まれます。
+  * コンセンサスメッセージには、Request、Preprepare、Prepare、Commit、RoundChangeが含まれます。 メッセージの意味は [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance) にあります。
+* **サブポート**(B) はトランザクションメッセージを転送するためのものです。
 
-![Single Channel Server](../images/singlechannel.png)
+![シングルチャンネルサーバー](../images/singlechannel.png)
 
-The picture shows a connection between two single channel nodes or between a single channel node and a multi-channel node. In this case, all messages related to blocks, transactions, and consensus protocols are transported via the same port.
+画像は、2 つの単一のチャネルノード間、または単一のチャネルノードとマルチチャネルノード間の接続を示しています。 この場合、ブロック、トランザクション、およびコンセンサスプロトコルに関連するすべてのメッセージは、同じポートを介して転送されます。
 
-## Ports  <a id="multichannel-port"></a>
+## ポート  <a id="multichannel-port"></a>
 
-To set port numbers in KNI, please refer to [the KNI scheme](./kni.md).
-* Single Channel : A single channel node uses one port (default is 32323).
-* Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
-    * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
+KNIでポート番号を設定するには、 [KNIスキーム](./kni.md) を参照してください。
+* シングルチャンネル : シングルチャンネルノードは1つのポートを使用します(デフォルトは32323)。
+* マルチチャンネル: マルチチャンネルノードは 2 つのポートを使用します。 ポートは `ポート` と `サブポート` で指定できます。 Klaytn では、 `ポート` と `サブポート` のデフォルト値はそれぞれ 32323 と 32324 です。
+    * マルチチャンネルノードに接続する際に `サブポート` を設定できない場合があります。 この場合、最初は Klaytn ノードはシングルチャネルを使用して接続しようとします。 ハンドシェイクプロセスでは、実際のピアのポート番号が明らかになります。 ピアがマルチチャネルノードの場合、継続中の接続はキャンセルされ、更新されたポートで再接続が行われます。
