@@ -2,7 +2,7 @@
 
 Returns the client coinbase address.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -31,7 +31,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns the client etherbase address.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -60,7 +60,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Return current chainId set on the requested node.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -91,7 +91,7 @@ peb의 현재 가스 가격을 반환합니다.
 
 **NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
-**Parameters**
+**파라미터**
 
 없음
 
