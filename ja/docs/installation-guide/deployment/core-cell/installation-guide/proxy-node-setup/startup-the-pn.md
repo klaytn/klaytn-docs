@@ -1,26 +1,26 @@
 # Startup the PN <a id="startup-the-pn"></a>
 
-## PN Start/Stop  <a id="pn-start-stop"></a>
+## プッシュ通知の開始/停止  <a id="pn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+以下の `systemctl` コマンドで Klaytn サービスを開始/停止できます。
 
-**Note**: This requires root privileges.
+**メモ**: root 権限が必要です。
 
-**start**
+**開始**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**stop**
+**停止する**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**ステータス**
 
 ```bash
 $ systemctl status kpnd.service
@@ -29,13 +29,13 @@ $ systemctl status kpnd.service
 
 ## Troubleshooting <a id="troubleshooting"></a>
 
-If you meet the following error,
+次のエラーに遭遇した場合
 
 ```bash
-Failed to start kpnd.service: Unit not found.
+kpnd.serviceの開始に失敗しました: ユニットが見つかりません。
 ```
 
-reload the systemd manager configuration with the following command.
+systemdマネージャの設定を以下のコマンドで再読み込みしてください。
 
 ```bash
 $ systemctl daemon-reload
