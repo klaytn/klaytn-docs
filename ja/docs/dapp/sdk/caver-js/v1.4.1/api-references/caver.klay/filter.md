@@ -4,34 +4,26 @@
 caver.klay.getFilterChanges(filterId [, callback])
 ```
 
-Polling method for a filter, which returns an array of logs since the last poll.
+フィルタのポーリングメソッド。最後のポーリング以降のログの配列を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| filterId | 文字列 | フィルタID。                                                            |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`Promise` は `Array` を返します。
 
-The structure of the returned log `Object` in the `Array` looks as follows:
+`Array` 内で返されるログ `Object` の構造は以下のようになります:インデックス付きログ引数の0~4バイトのデータ配列。 (Solidity: 最初のトピックは、イベント (*など) の署名のハッシュです。 * ,*, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> 
 
-| Name             | Type          | Description                                                                                                                                                                                                                                  |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| transactionHash  | 32-byte DATA  | Hash of the transaction that this log was created from. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed.                                                                      |
-| transactionIndex | QUANTITY      | Integer. The index of the transaction that this log was created from. `null` when pending.                                                                                                                                                   |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| id               | String        | A log identifier. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                            |
+</tbody> </table> 
 
-**Example**
+**例**
+
+
 
 ```javascript
 > caver.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log);
@@ -50,27 +42,36 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 ]
 ```
 
+
+
+
 ## getFilterLogs <a id="getfilterlogs"></a>
+
+
 
 ```javascript
 caver.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter).  
+
+与えられた id を持つフィルタに一致するすべてのログの配列を返します。 The filter object should be obtained using [newFilter](#newfilter).  
 Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| filterId | 文字列 | フィルタID。                                                            |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
 
-See [getFilterChanges](#getfilterchanges)
+**戻り値**
 
-**Example**
+[getFilterChanges](#getfilterchanges) を見る
+
+**例**
+
+
 
 ```javascript
 > caver.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
@@ -90,44 +91,54 @@ See [getFilterChanges](#getfilterchanges)
 ```
 
 
+
+
+
 ## getPastLogs <a id="getpastlogs"></a>
+
+
 
 ```javascript
 caver.klay.getPastLogs(options [, callback])
 ```
 
-Gets past logs, matching the given options.
 
-**Parameters**
+指定したオプションに一致する過去のログを取得します。
 
-| Name              | Type                 | Description                                                                                                                                                                                                                                                                           |
-| ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | The filter options.                                                                                                                                                                                                                                                                   |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                               |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                  |
-| options.address   | String &#124; Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                    |
-| options.topics    | Array                | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
-| callback          | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                            |
+**パラメータ**
 
-**Return Value**
+| 名前                | タイプ                 | Description                                                                                                                                                                    |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| オプション             | Object              | フィルタオプション。                                                                                                                                                                     |
+| options.fromBlock | 数値 &#124; 文字列       | (オプション) ログを取得する最も古いブロックの数。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                                  |
+| options.toBlock   | 数値 &#124; 文字列       | (オプション) ログを取得する最後のブロックの数。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                                   |
+| options.address   | String &#124; Array | (オプション) 住所または住所のリスト。 特定のアカウントに関連するログのみが返されます。                                                                                                                                  |
+| options.topics    | 行列                  | (オプション) ログエントリに表示される値の配列。 順序は重要である。 トピックを省略したい場合は、 `null`、 *例:*, `[null, '0x12...']` を使用してください。 そのトピックのオプションを指定して、各トピックの配列を渡すこともできます。 *例えば、* `[null, ['option1', 'option2']]`. |
+| callback          | 関数                  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                                             |
 
-`Promise` returns `Array` - Array of log objects.
 
-The structure of the returned event `Object` in the `Array` looks as follows:
+**戻り値**
 
-| Name             | Type           | Description                                                                                                                            |
-| ---------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | String         | From which this event originated from.                                                                                                 |
-| data             | String         | The data containing non-indexed log parameter.                                                                                         |
-| topics           | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                                                  |
-| logIndex         | Number         | Integer of the event index position in the block.                                                                                      |
-| transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                                                 |
-| transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                                                     |
-| blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                                                      |
-| blockNumber      | Number         | The block number where this log was created in. `null` when still pending.                                                             |
-| id               | String         | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+`Promise` は `Array` - ログオブジェクトの配列を返します。
 
-**Example**
+`Array` 内で返されるイベント `Object` の構造は以下のようになります:
+
+| 名前               | タイプ            | Description                                                                                    |
+| ---------------- | -------------- | ---------------------------------------------------------------------------------------------- |
+| address          | 文字列            | このイベントが発生した元。                                                                                  |
+| data             | 文字列            | The data containing non-indexed log parameter.                                                 |
+| トピック             | 行列             | 最大 4 32 バイトのトピックを持つ配列、topic 1-3 には、ログのインデックス付きパラメータが含まれます。                                     |
+| logIndex         | Number         | Integer of the event index position in the block.                                              |
+| transactionIndex | Number         | トランザクションのインデックス位置の整数、イベントが作成されました。                                                             |
+| transactionHash  | 32-byte String | このイベントが作成されたトランザクションのハッシュ。                                                                     |
+| blockHash        | 32-byte String | このイベントが作成されたブロックのハッシュ。 `保留中の null`。                                                            |
+| blockNumber      | Number         | このログが作成されたブロック番号 `null` when still pending.                                                    |
+| id               | 文字列            | A log identifier. "log_" 文字列を `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+
+
+**例**
+
+
 
 ```javascript
 > caver.klay.getPastLogs({
@@ -149,61 +160,78 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 },{...}]
 ```
 
+
+
+
 ## newBlockFilter <a id="newblockfilter"></a>
+
+
 
 ```javascript
 caver.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node to receive the information about new block arrival. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+ノードにフィルタを作成し、新しいブロックの到着に関する情報を受け取ります。 状態が変更されたかどうかを確認するには、 [getFilterChanges](#getfilterchanges) を呼び出します。
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback. The callback is fired with an error object as its first parameter and the result as the second. |
+**パラメータ**
 
-**Return Value**
+| 名前       | タイプ | Description                                                               |
+| -------- | --- | ------------------------------------------------------------------------- |
+| callback | 関数  | (オプション) オプションのコールバック。 コールバックは、error オブジェクトを最初のパラメータとし、結果は 2 番目のパラメータとします。 |
 
-`Promise` returns `String` - A filter id.
 
-**Example**
+**戻り値**
+
+`Promise` は `String` - フィルタ id。
+
+**例**
+
+
 
 ```javascript
 > caver.klay.newBlockFilter().then(console.log);
 0x9ca049dc8b0788ee05724e45fc4137f1
 ```
 
+
+
+
 ## newFilter <a id="newfilter"></a>
+
+
 
 ```javascript
 caver.klay.newFilter(options [, callback])
 ```
-Creates a filter object using the given filter options, to receive the specific state changes (logs).
-- To check if the state has changed, call [getFilterChanges](#getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
-
-For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
 
+与えられたフィルターオプションを使用してフィルターオブジェクトを作成し、特定の状態の変更 (ログ) を受け取ります。
 
-**Parameters**
+- 状態が変更されたかどうかを確認するには、 [getFilterChanges](#getfilterchanges) を呼び出します。
+- `newFilter`で作成されたフィルタに一致するすべてのログを取得するには、 [getFilterLogs](#getfilterlogs) を呼び出します。
 
-| Name              | Type                 | Description                                                                                                                                                                                                                                                                         |
-| ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | The filter options.                                                                                                                                                                                                                                                                 |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block). The default value is `"latest"`.                                                                                                          |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block). The default value is `"latest"`.                                                                                                      |
-| options.address   | String &#124; Array  | (optional) An address or a list of addresses to get logs generated inside the given contract(s).                                                                                                                                                                                    |
-| options.topics    | Array                | (optional) An array of values to search for in the log entries. The order is important. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array to match one of them.  *e.g.,* `[null, ['option1', 'option2']]`. |
-| callback          | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                          |
+トピックフィルタの詳細については、 [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter) を参照してください。
+
+**パラメータ**
+
+| 名前                | タイプ                 | Description                                                                                                                                                               |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オプション             | Object              | フィルタオプション。                                                                                                                                                                |
+| options.fromBlock | 数値 &#124; 文字列       | (オプション) イベントをクエリする最も初期のブロック高さの数。 (特殊なタグがあります。 `"latest"` は最新のブロックを意味します)。 デフォルト値は `"latest"` です。                                                                          |
+| options.toBlock   | 数値 &#124; 文字列       | (オプション) イベントをクエリする最後のブロック高さの数 (特殊なタグがあります。`"latest"` は最新の確認済みブロックを意味します)。 デフォルト値は `"latest"` です。                                                                          |
+| options.address   | String &#124; Array | (オプション) 指定されたコントラクト内で生成されたログを取得するアドレスまたはアドレスのリスト。                                                                                                                         |
+| options.topics    | 行列                  | (オプション) ログエントリで検索する値の配列。 順序は重要である。 指定された位置のすべてを一致させたい場合は、 `null`、 *などの*、 `[null, '0x12...']` を使用します。 配列のいずれかにマッチする配列を渡すこともできます。  *例えば、* `[null, ['option1', 'option2']]`. |
+| callback          | 関数                  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                                        |
 
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `String` - A filter id.
+`Promise` は `String` - フィルタ id。
 
-**Example**
+**例**
+
+
 
 ```javascript
 > caver.klay.newFilter({}).then(console.log);
@@ -213,51 +241,69 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
+
+
+
 ## newPendingTransactionFilter <a id="newpendingtransactionfilter"></a>
+
+
 
 ```javascript
 caver.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transactions arrival. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+新しい保留中のトランザクションの到着に関する情報を受信するために、ノードにフィルターを作成します。 状態が変更されたかどうかを確認するには、 [getFilterChanges](#getfilterchanges) を呼び出します。
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+**パラメータ**
 
-**Return Value**
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-`Promise` returns `String` - A filter id.
 
-**Example**
+**戻り値**
+
+`Promise` は `String` - フィルタ id。
+
+**例**
+
+
 
 ```javascript
 > caver.klay.newPendingTransactionFilter().then(console.log);
 0x1426438ffdae5abf43edf4159c5b013b
 ```
 
-## uninstallFilter <a id="uninstallfilter"></a>
+
+
+
+## アンインストールフィルタ <a id="uninstallfilter"></a>
+
+
 
 ```javascript
 caver.klay.uninstallFilter(filterId [, callback])
 ```
 
-Removes the filter with the given id. It is strongly recommended to immediately remove the filter if monitoring is no longer needed. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. The default configuration is 5 minutes.
 
-**Parameters**
+与えられた id のフィルターを削除します。 モニタリングが不要になった場合は、すぐにフィルタを外すことを強くお勧めします。 フィルターが [getFilterChanges](#getfilterchanges) でノードで設定されたタイムアウト値よりも多く呼び出されていない場合、フィルターは削除されます。 デフォルトの設定は5分です。
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+**パラメータ**
 
-**Return Value**
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| filterId | 文字列 | フィルタID。                                                            |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-`Promise` returns `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
-**Example**
+**戻り値**
+
+`Promise` は `Boolean` - フィルタが正常にアンインストールされた場合 `true` を返します。そうでなければ、 `false` を返します。
+
+**例**
+
+
 
 ```javascript
 > caver.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log);
