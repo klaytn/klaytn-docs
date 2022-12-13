@@ -109,7 +109,7 @@ caver.wallet.keyring.generate([entropy])
 
 무작위로 생성된 캐인키로 SingleKeyring 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -139,7 +139,7 @@ caver.wallet.keyring.generateSingleKey([entropy])
 
 개인키 문자열을 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -166,7 +166,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 
 개인키 문자열들을 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -198,7 +198,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 
 Generates a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                                                                                                      |
 | -------- | ------ | ------------------------------------------------------------------------------------------------------- |
@@ -241,7 +241,7 @@ caver.wallet.keyring.create(address, key)
 
 If `key` is a private key string, a [SingleKeyring](keyring.md#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](keyring.md#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](keyring.md#rolebasedkeyring) instance is created.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입        | 설명                                                                                                                                                                                        |
 | ------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -308,7 +308,7 @@ caver.wallet.keyring.createFromPrivateKey(key)
 
 Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                                                                                                                                  |
 | --- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -346,7 +346,7 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 
 Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string.
 
-**Parameters**
+**파라미터**
 
 | 이름              | 타입     | 설명                                                                                               |
 | --------------- | ------ | ------------------------------------------------------------------------------------------------ |
@@ -376,7 +376,7 @@ caver.wallet.keyring.createWithSingleKey(address, key)
 
 주소와 개인키 문자열로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                    |
 | ------- | ------ | --------------------- |
@@ -407,7 +407,7 @@ caver.wallet.keyring.createWithMultipleKey(address, key)
 
 주소와 개인키 문자열로부터 `MultipleKeyring` 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명               |
 | -------- | ------ | ---------------- |
@@ -441,7 +441,7 @@ caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 
 Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
-**Parameters**
+**파라미터**
 
 | 이름                 | 타입     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
@@ -490,7 +490,7 @@ caver.wallet.keyring.decrypt(keystore, password)
 
 키스토어 v3 또는 v4 JSON을 복호화하고 복호화된 키링 객체를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                     |
 | -------- | ------ | ---------------------- |
@@ -712,7 +712,7 @@ keyring.getPublicKey()
 
 공개키 문자열(들)을 반환합니다. If `keyring` is an instance of [SingleKeyring](keyring.md#singlekeyring), getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring](keyring.md#multiplekeyring), getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring](keyring.md#rolebasedkeyring), getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입      | 설명                                                                 |
 | ---------- | ------- | ------------------------------------------------------------------ |
@@ -809,7 +809,7 @@ Signs with transactionHash with the private key(s) and returns signature(s). If 
 
 When signing transactions, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign).
 
-**Parameters**
+**파라미터**
 
 | 이름              | 타입        | 설명                                                                                                            |
 | --------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
@@ -877,7 +877,7 @@ Signs with hashed data using the private key and returns a signature where V is 
 
 This function is only used for certain transaction types. Therefore, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign) when signing a transaction.
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입     | 설명                                                                                                            |
 | ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
@@ -914,7 +914,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 If the user has not defined the index parameter, `keyring.signMessage` signs message with all the private keys used by the role. If the index parameter is given, `keyring.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found through `caver.wallet.keyring.role`.
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입     | 설명                                                                                                            |
 | ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
@@ -968,7 +968,7 @@ keyring.getKeyByRole(role)
 
 Returns the private key(s) used by the role entered as a parameter.
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                                                          |
 | ---- | ------ | ----------------------------------------------------------- |
@@ -1072,7 +1072,7 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 * When the keyring contains private key strings: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
 * When the keyring contains the different private key strings by role: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입                                                                        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1198,7 +1198,7 @@ keyring.encrypt(password [, options])
 
 Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                                                                                                   |
 | -------- | ------ | ---------------------------------------------------------------------------------------------------- |
@@ -1348,7 +1348,7 @@ Encrypts an instance of [SingleKeyring](keyring.md#singlekeyring) and returns a 
 
 Note that [MultipleKeyring](keyring.md#multiplekeyring) and [RoleBasedKeyring](keyring.md#rolebasedkeyring) cannot use encryptV3. In this case, please use [keyring.encrypt](keyring.md#keyring-encrypt) with a keystore V4 standard.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                                                                                                              |
 | -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
