@@ -1,7 +1,7 @@
 ---
 description: >-
-  This chapter contains practical dApp examples with complete source code and explanations.
+  この章には、完全なソースコードと説明を備えた実用的な dApp の例が含まれています。
 ---
 
-# Tutorials <a id="tutorials"></a>
+# チュートリアル <a id="tutorials"></a>
 
