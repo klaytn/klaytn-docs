@@ -1,28 +1,28 @@
 ---
-description: '>- APIs related to the namespace "istanbul".'
+description: '>- 名前空間 "istanbul" に関連したAPI。'
 ---
 
 # Namespace istanbul <a id="namespace-istanbul"></a>
 
-The namespace `istanbul` provides functions related to consensus.
+名前空間 `istanbul` は、コンセンサスに関連する関数を提供します。
 
 ## istanbul_getSnapshot <a id="istanbul_getsnapshot"></a>
 
-Returns the state snapshot at a given block number. The state snapshot contains information such as number/hash, validator set, and governance vote of the snapshot block.
+指定されたブロック番号の状態スナップショットを返します。 stateスナップショットには、スナップショットブロックのnumber/hash、バリデータセット、ガバナンス投票などの情報が含まれます。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                | Description                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 名前           | タイプ                 | Description                                                                                                      |
+| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| block number | QUANTITY &#124; Tag | 整数のブロック番号、 `"firmest"` または `"latest"` の文字列。 [デフォルトのブロックパラメータ](./klay/block.md#the-default-block-parameter) のように。 |
 
-**Return Value**
+**戻り値**
 
-`Object` - A snapshot object, or `error` when no snapshot was found:
+`Object` - スナップショットが見つからなかった場合のスナップショットオブジェクト、または `エラー`。
 
-| Name | Type | Description | | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes | | Number | 64-byte DATA | The block number where the snapshot was created | | Number | 64-byte DATA | The block number where the snapshot was created | | ValSet | 64-byte DATA | Set of validators at the moment | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | List of votes cast in chronological order | | Tally | 64-byte DATA | Current vote tally to avoid recalculating |
+| Name | Type | Type | Description| | Epoch | 64バイトデータ | チェックポイントして保留中の投票をリセットするブロックの数 | | Number | 64バイトデータ | スナップショットが作成されたブロック番号 | | Number | 64バイトデータ | スナップショットが作成されたブロック番号 | | ValSet | 64バイトデータ | 瞬時にバリデータのセット | | ポリシー | 64バイトデータ | 64バイトデータ | | コミットサイズ | 64バイトデータ | 64バイトデータ | | 投票 | 64バイトデータ | 時系列順にキャストされる投票のリスト | | Tally | 64バイトデータ | 現在の投票 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -33,19 +33,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getSnapshotAtHash <a id="istanbul_getsnapshotAtHash"></a>
 
-Returns the state snapshot at a given block hash.
+指定されたブロックハッシュの状態スナップショットを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description          |
-| ---------- | ------------ | -------------------- |
-| block hash | 32-byte DATA | The hash of a block. |
+| 名前        | タイプ       | Description |
+| --------- | --------- | ----------- |
+| ハッシュをブロック | 32バイトのデータ | ブロックのハッシュ。  |
 
-**Return Value**
+**戻り値**
 
 See [istanbul_getSnapshot](#istanbul_getsnapshot)
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -57,44 +57,44 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidators <a id="istanbul_getvalidators"></a>
 
-Returns the list of validators at a given block number.
+指定されたブロック番号のバリデータのリストを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                | Description                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 名前           | タイプ                 | Description                                                                                                      |
+| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| block number | QUANTITY &#124; Tag | 整数のブロック番号、 `"firmest"` または `"latest"` の文字列。 [デフォルトのブロックパラメータ](./klay/block.md#the-default-block-parameter) のように。 |
 
-**Return Value**
+**戻り値**
 
-| Name       | Type         | Description                  |
-| ---------- | ------------ | ---------------------------- |
-| validators | 20-byte DATA | List of validator addresses. |
+| 名前    | タイプ        | Description     |
+| ----- | ---------- | --------------- |
+| バリデータ | 20 バイトのデータ | バリデータアドレスの一覧です。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"istanbul_getValidators","params":["latest"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"istanbul_getValidators","params":["latest"],"id":1}) https://api.baobab.klaytn.net:8651
 // Response
-{"jsonrpc":"2.0","id":1,"result":["0x571e53df607be94731a5qqefca1dffe5aek45g3e", ... ]}
+{"jsonrpc":"2.0","id":1,"result":["0x571e53df607be93147a5qefca1dffe5aek45g3e", ... ]}
 ```
 
 ## istanbul_getValidatorsAtHash <a id="istanbul_getvalidatorsathash"></a>
 
-Returns the list of authorized validators at a given block hash.
+指定されたブロックハッシュの承認済みバリデータのリストを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description          |
-| ---------- | ------------ | -------------------- |
-| block hash | 32-byte DATA | The hash of a block. |
+| 名前        | タイプ       | Description |
+| --------- | --------- | ----------- |
+| ハッシュをブロック | 32バイトのデータ | ブロックのハッシュ。  |
 
-**Return Value**
+**戻り値**
 
 See [istanbul_getValidators](#istanbul_getvalidators)
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -105,17 +105,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_candidates <a id="istanbul_candidates"></a>
 
-Returns the current candidates the node tries to uphold and vote on.
+ノードが支持して投票しようとする現在の候補を返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| account | 20-byte DATA | Address of candidate. | | auth | boolean | A value indicating the authorization status of the candidate. |
+| account | 20バイトデータ | 候補者のアドレス。 | | auth|boolean 候補の認可状況を示す値。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -124,22 +124,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 {"jsonrpc":"2.0","id":1,"result":{"0x571e53df607be94731a5qqefca1dffe5aek45g3e":true}}
 ```
 
-## istanbul_propose <a id="istanbul_propose"></a>
+## istanbul_proposal <a id="istanbul_propose"></a>
 
-Injects a new authorization candidate that the validator will attempt to push through.
+バリデータがプッシュ通知を試みる新しい認証候補を注入します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                                   |
-| ------- | ------------ | ------------------------------------------------------------- |
-| account | 20-byte DATA | Address of candidate.                                         |
-| auth    | boolean      | A value indicating the authorization status of the candidate. |
+| 名前    | タイプ        | Description      |
+| ----- | ---------- | ---------------- |
+| アカウント | 20 バイトのデータ | 候補者の住所。          |
+| 認証する  | boolean    | 候補者の承認ステータスを示す値。 |
 
-**Return Value**
+**戻り値**
 
-none
+なし
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -150,43 +150,43 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Drops a currently running candidate, stopping the validator from casting further votes (either for or against).
+現在実行中の候補者を削除し、検証者がさらに投票を行うことを停止します(for または against のいずれか)。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description           |
-| ------- | ------------ | --------------------- |
-| account | 20-byte DATA | Address of candidate. |
+| 名前    | タイプ        | Description |
+| ----- | ---------- | ----------- |
+| アカウント | 20 バイトのデータ | 候補者の住所。     |
 
-**Return Value**
+**戻り値**
 
-none
+なし
 
-**Example**
+**例**
 
 ```shell
 // Request
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"istanbul_discard","params":["0x571e53df607be94731a5qqefca1dffe5aek45g3e"],"id":1}' https://api.baobab.klaytn.net:8651 
-// Response
-{"jsonrpc":"2.0","id":1,"result":null}
+//
+Response {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 ## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
 
-Returns istanbul config timeout. Default value is 10000ms, and if over, timeoutEvent is sent. In case of CN, the timeoutEvent contains information such as currentRound, preparesSize and commitsSize to log.
+Returns istanbul config timeout. デフォルト値は 10000ms で、終了した場合は timeoutEvent が送信されます。 CNの場合、timeoutEventにはcurrentRound、preparesSize、logにcommitsSizeなどの情報が含まれます。
 
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Name    | Type | Description    |
-| ------- | ---- | -------------- |
-| timeout | int  | config timeout |
+| 名前     | タイプ | Description |
+| ------ | --- | ----------- |
+| タイムアウト | int | 設定のタイムアウト   |
 
-**Example**
+**例**
 
 ```shell
 // Request
