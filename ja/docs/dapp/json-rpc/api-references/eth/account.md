@@ -1,18 +1,18 @@
 ## eth_accounts <a id="eth_accounts"></a>
 
-Returns a list of addresses owned by client.
+クライアントが所有するアドレスのリストを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type                  | Description                    |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
+| タイプ          | Description      |
+| ------------ | ---------------- |
+| 20 バイトデータの配列 | クライアントが所有するアドレス。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -22,29 +22,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 {
   "jsonrpc": "2.0",
   "id":1,
-  "result": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f"]
+  "result": [0xc94770007dda54cF92009FFB0dE90c06F603a09f"]
 }
 ```
 
 
 ## eth_getBalance <a id="eth_getbalance"></a>
 
-Returns the balance of the account of given address.
+指定されたアドレスのアカウントの残高を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 名前            | タイプ                             | Description                                                                                                                                        |
+| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | 20 バイトのデータ                      | 残高を確認するアドレス。                                                                                                                                       |
+| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                            |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| タイプ | Description  |
+| --- | ------------ |
+| 品質  | ペブの現在の残高の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -60,22 +60,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getCode <a id="eth_getcode"></a>
 
-Returns code at a given address.
+指定されたアドレスのコードを返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| タイプ                             | Description                                                                                                                                        |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20 バイトのデータ                      | 住所                                                                                                                                                 |
+| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                      |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| タイプ | Description      |
+| --- | ---------------- |
+| データ | 指定されたアドレスからのコード。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -92,22 +92,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+アドレスから ** を送信したトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| タイプ                             | Description                                                                                                                                        |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20 バイトのデータ                      | 住所                                                                                                                                                 |
+| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| タイプ | Description                |
+| --- | -------------------------- |
+| 品質  | このアドレスから送信されるトランザクション数の整数。 |
 
-**Example**
+**例**
 
  ```shell
 // Request
@@ -124,29 +124,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sign <a id="eth_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+signメソッドは、Klaytn固有の署名を次のように計算します。
 ```
-sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(kecchak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious dApp signs arbitrary data (e.g. transaction) and uses the signature for impersonation.
+メッセージにプレフィックスを追加すると、計算された署名が Klaytn 固有の署名として認識可能になります。 これにより、悪意のあるdAppが任意のデータ (トランザクションなど) に署名し、偽装のために署名を使用する場合の誤用を防ぎます。
 
-**NOTE**: The address to sign with must be unlocked.
+**注**: 署名するアドレスのロックを解除する必要があります。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description     |
-| ------- | ------------ | --------------- |
-| account | 20-byte DATA | Address         |
-| message | N-byte DATA  | Message to sign |
+| 名前      | タイプ        | Description |
+| ------- | ---------- | ----------- |
+| アカウント   | 20 バイトのデータ | 住所          |
+| message | Nバイトのデータ   | 署名するメッセージ   |
 
-**Return Value**
+**戻り値**
 
-| Type | Description |
-| ---- | ----------- |
-| DATA | Signature   |
+| タイプ | Description |
+| --- | ----------- |
+| データ | 署名          |
 
-**Example**
+**例**
 
 ```shell
 // Request
