@@ -12,7 +12,7 @@ description: >-
 
 네트워크 식별자(네트워크 ID)를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -41,7 +41,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 클라이언트가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -70,7 +70,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 현재 클라이언트에 연결된 피어의 수를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -98,7 +98,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -126,7 +126,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 현재 Klaytn 프로토콜 버전을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
