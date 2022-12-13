@@ -2,23 +2,23 @@
 
 ## Intended Audience <a id="intended-audience"></a>
 
-- Companies that want to build blockchains for Metaverse, GameFi, and NFTs
-- dApp developers who need high TPS, minimal transaction fees, and data privacy.
+- Metaverse、GameFi、NFTsのブロックチェーンを構築したい企業
+- 高いTPS、最小限の取引手数料、およびデータプライバシーを必要とするdApp開発者。
 - Anyone who wants to build a local private network or a ledger database for testing.
 
-## ServiceChain Overview <a id="service-chain-overview"></a>
+## サービスチェーンの概要 <a id="service-chain-overview"></a>
 
-ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
+ServiceChainは、価値転送、セキュリティ、高いパフォーマンス、カスタマイズなどの企業の要件を満たすためのエンタープライズレベルのブロックチェーンです。 Klaytn ServiceChainには、以下の機能があります。
 
-- Immediate finality
-- Token transfer between Klaytn chains
-- Data anchoring to the main chain for data integrity
-- Multi-sig bridge contract to meet enterprise-level security requirements
+- 直ちに終了する
+- Klaytn 連鎖間のトークン転送
+- データ整合性のためにメインチェーンに固定されたデータ
+- 企業レベルのセキュリティ要件を満たすマルチシグブリッジ契約
 
 ![](../images/sc-overview.png)
 
 
-Read the [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+ServiceChain の詳細については、 [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) を参照してください。 以下のビデオは、Klaytn ServiceChainを理解するのに役立ちます。
 
-- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Klaytn のサービスチェーンを通じて水平スケーリングする | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [Klaytnサービスチェーンの高可用性アーキテクチャ | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
