@@ -17,14 +17,14 @@ Please check the [Differences Overview from Ethereum](#differences_overview_from
 
 The list below enumerates the API functions. All `eth` namespace APIs are supported on Klaytn.
 
-### [Account](./eth/account.md) <a id="account"></a>
+### [계정(Account)](./eth/account.md) <a id="account"></a>
 - [eth_accounts](./eth/account.md#eth_accounts)
 - [eth_getBalance](./eth/account.md#eth_getbalance)
 - [eth_getCode](./eth/account.md#eth_getcode)
 - [eth_getTransactionCount](./eth/account.md#eth_gettransactioncount)
 - [eth_sign](./eth/account.md#eth_sign)
 
-### [Block](./eth/block.md) <a id="block"></a>
+### [블록(Block)](./eth/block.md) <a id="block"></a>
 - [eth_blockNumber](./eth/block.md#eth_blocknumber)
 - [eth_getHeaderByNumber](./eth/block.md#eth_getheaderbynumber)
 - [eth_getHeaderByHash](./eth/block.md#eth_getheaderbyhash)
@@ -41,7 +41,7 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_syncing](./eth/block.md#eth_syncing)
 
 
-### [Transaction](./eth/transaction.md) <a id="transaction"></a>
+### [트랜잭션(Transaction)](./eth/transaction.md) <a id="transaction"></a>
 - [eth_call](./eth/transaction.md#eth_call)
 - [eth_estimateGas](./eth/transaction.md#eth_estimategas)
 - [eth_getTransactionByBlockHashAndIndex](./eth/transaction.md#eth_gettransactionbyblockhashandindex)
@@ -54,14 +54,14 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_fillTransaction](./eth/transaction.md#eth_filltransaction)
 - [eth_pendingTransactions](./eth/transaction.md#eth_pendingtransactions)
 
-### [Configuration](./eth/config.md) <a id="configuration"></a>
+### [환경설정(Configuration)](./eth/config.md) <a id="configuration"></a>
 - [eth_coinbase](./eth/config.md#eth_coinbase)
 - [eth_etherbase](./eth/config.md#eth_etherbase)
 - [eth_chainId](./eth/config.md#eth_chainid)
 - [eth_gasPrice](./eth/config.md#eth_gasprice)
 
 
-### [Filter](./eth/filter.md) <a id="filter"></a>
+### [필터(Filter)](./eth/filter.md) <a id="filter"></a>
 - [eth_getFilterChanges](./eth/filter.md#eth_getfilterchanges)
 - [eth_getFilterLogs](./eth/filter.md#eth_getfilterlogs)
 - [eth_getLogs](./eth/filter.md#eth_getlogs)
@@ -77,7 +77,7 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_feeHistory](./eth/gas.md#eth_feehistory)
 - [eth_maxPriorityFeePerGas](./eth/gas.md#eth_maxpriorityfeepergas)
 
-### [Miscellaneous](./eth/misc.md) <a id="miscellaneous"></a>
+### [기타(Miscellaneous)](./eth/misc.md) <a id="miscellaneous"></a>
 - [eth_hashrate](./eth/misc.md#eth_hashrate)
 - [eth_getWork](./eth/misc.md#eth_getwork)
 - [eth_submitWork](./eth/misc.md#eth_submitwork)
