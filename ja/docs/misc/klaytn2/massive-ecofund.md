@@ -1,30 +1,30 @@
-# Massive Eco Fund <a id="massive-eco-fund"></a>
+# 大規模エコ基金 <a id="massive-eco-fund"></a>
 
-## Our Full-suite, Protocol-level $1B+ Eco Fund <a id="our-full-suite-protocol-level-eco-fund"></a>
+## 私たちのフルスイート、プロトコルレベルの$ 1B+エコファンドです <a id="our-full-suite-protocol-level-eco-fund"></a>
 Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 66% of the newly minted tokens are reinvested in the ecosystem.
 
-Initially issued reserve tokens will also be used as a resource for investment in the ecosystem expansion.
+当初発行された準備トークンは、エコシステム拡張における投資 のリソースとしても使用されます。
 
-## Grant <a id="grant"></a>
+## 許可 <a id="grant"></a>
 
-### Klaytn Improvement Reserve (KIR) Grant Program <a id="kir-program"></a>
-• Our grant program that supports public goods such as infrastructure, tools and services that improve the quality of Klaytn L1
+### KIR助成金プログラム <a id="kir-program"></a>
+•Klaytn L1の品質を向上させるインフラ、ツール、サービスなどの公共財をサポートする当社の助成プログラム
 
-• 12% of the newly issued tokens are the main financial resource
+• 新しく発行されたトークンの12%が主な財源です
 
-### Klaytn Growth Fund (KGF) Grant Program <a id="kgf-program"></a>
-• Faucet resources for initial service testing and marketing - quickly applied and easily approved
+### Klaytn Growth Fund(KGF)助成プログラム <a id="kgf-program"></a>
+• 初期のサービステストとマーケティングのためのファケットリソース - 迅速に適用され、簡単に承認されました
 
-• Paid cumulative $9M in 4Q of 2021
+• 2021年第4四半期の累積支払額$9M
 
-## Invest <a id="invest"></a>
+## 投資 <a id="invest"></a>
 
-### KGF Investment Program <a id="kgf-investment-program"></a>
-• Invests in early-stage projects with potential to have a positive impact on Klaytn
+### KGF投資プログラム <a id="kgf-investment-program"></a>
+• Klaytn にプラスの影響を与える可能性のある初期段階のプロジェクトへの投資
 
-• 54% of the newly issued tokens are the main financial resource of the Klaytn Growth Fund
+•新しく発行されたトークンの54%は、Klaytn成長基金の主要な財源です
 
-## Reward <a id="reward"></a>
+## Recompensa <a id="reward"></a>
 
 ### Proof of Contribution (PoC) Program <a id="poc-program"></a>
-• Rewards builders of smart contracts that contribute to the growth of on-chain activities on Klaytns
+•Klaytnsのオンチェーン活動の成長に貢献するスマートコントラクトの報酬ビルダー。
