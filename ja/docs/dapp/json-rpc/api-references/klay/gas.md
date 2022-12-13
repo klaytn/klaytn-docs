@@ -1,31 +1,31 @@
 ## klay_feeHistory<a id="klay_feehistory"></a>
 
-Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
+利用可能な場合は、ガスあたりの基本料金と、要求されたブロック範囲に対するガス履歴あたりの取引効果的な優先度料金を返します。
 
 {% hint style="success" %}
-**NOTE**: This API is effective after Klaytn v1.8.0
+**注意**: この API は Klaytn v1.8.0 以降に有効になります。
 {% endhint %}
 
-**Parameters**
+**パラメータ**
 
-| Name              | Type                | Description                                                                                                                                                                                              |
-| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | QUANTITY            | Number of blocks in the requested range in hexadecimal. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
-| lastBlock         | QUANTITY &#124; TAG | Highest numbered block of the requested range as block number or block tag.                                                                                                                              |
-| rewardPercentiles | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                     |
-
-
-**Return Value**
-
-| Name          | Type              | Description                                                                                                                                                        |
-| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| oldestBlock   | QUANTITY          | Lowest numbered block of the returned range in hexadecimal.                                                                                                        |
-| baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
-| gasUsedRatio  | Array of FLOAT    | An array of the ratios of gas used per block. These are calculated as the ratio of gasUsed and gasLimit.                                                           |
-| reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
+| 名前                | タイプ                 | Description                                                                                                  |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| blockCount        | 品質                  | 要求された範囲内の 16 進数のブロック数。 1 回のクエリで 1 (0x1) から 1024 (0x400) のブロックを要求できます。 すべてのブロックが利用可能でない場合は、要求された未満を返すことができます。 |
+| lastBlock         | QUANTITY &#124; Tag | ブロック番号またはブロックタグとして要求された範囲の最も高い番号のブロック。                                                                       |
+| rewardPercentiles | FLOAT の配列           | 0 から 100 までの浮動小数点値の配列。                                                                                       |
 
 
-**Example**
+**戻り値**
+
+| 名前            | タイプ       | Description                                                                             |
+| ------------- | --------- | --------------------------------------------------------------------------------------- |
+| oldestBlock   | 品質        | 返される範囲の最も低い番号のブロックは16進数です。                                                              |
+| baseFeePerGas | 品質の配列     | ガスあたりのブロックベース・フィーの配列。 これには、返された範囲の最新の後に続く次のブロックが含まれます。なぜなら、この値は最新のブロックから派生することができるからです。 |
+| gasUsedRatio  | FLOAT の配列 | ブロックごとに使用されるガスの比率の配列。 これは gasUsed と gasLimit の比率として計算されます。                              |
+| 報酬            | 品質の配列     | 1つのブロックからのガスデータポイントあたりの効果的な優先手数料の配列。 ブロックが空の場合、すべてのゼロが返されます。                            |
+
+
+**例**
 
 ```shell
 // Request
@@ -39,34 +39,34 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "reward": [
       [ "0x0", "0x0", "0x0" ],
       ...
-      [ "0x5d21dba00", "0x5d21dba00", "0x5d21dba00" ]
+      ["0x5d21dba00", "0x5d21dba00", "0x5d21dba00" ]
     ],
     "baseFeePerGas": [ "0x0", ..., "0x0" ],
-    "gasUsedRatio": [ 0, ..., 0.0002963777000002964 ]
+    "gasedRatio": [ 0, ..., 0.0002963777000002964 ]
   }
-}
+
 ```
 
 
 ## klay_maxPriorityFeePerGas <a id="klay_maxpriorityfeepergas"></a>
 
-Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
+peb内の動的手数料取引のためのガスチップキャップの提案を返します。
 
 {% hint style="success" %}
-**NOTE**: This API is effective after Klaytn v1.8.0
+**注意**: この API は Klaytn v1.8.0 以降に有効になります。
 {% endhint %}
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| タイプ | Description     |
+| --- | --------------- |
+| 品質  | ペブ内の現在のガス価格の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
