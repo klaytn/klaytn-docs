@@ -6,7 +6,7 @@
 
 각 트랜잭션 클래스에 대한 자세한 설명이 있습니다:
 
-|                        | Basic                                                     | Fee Delegation                                                                             | Partial Fee Delegation                                                                                               |
+|                        | 기본                                                        | 수수료 위임 트랜잭션                                                                                | 수수료 부분 위임 트랜잭션                                                                                                       |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | N/A                                                                                        | N/A                                                                                                                  |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
@@ -27,7 +27,7 @@ caver.transaction.decode(rlpEncoded)
 
 Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](./#class) instance.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                         |
 | ---------- | ------ | -------------------------- |
@@ -67,7 +67,7 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Parameters**
+**파라미터**
 
 | 이름              | 타입     | 설명                                                |
 | --------------- | ------ | ------------------------------------------------- |
@@ -112,7 +112,7 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입     | 설명                                                                           |
 | ----- | ------ | ---------------------------------------------------------------------------- |
@@ -145,7 +145,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입     | 설명                                                                                                                                                                                                                         |
 | ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,7 +178,7 @@ Signs the transaction as a transaction sender with the private key(s) in the `ke
 
 For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -290,7 +290,7 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -402,7 +402,7 @@ transaction.appendSignatures(signatures)
 
 Appends `signatures` to the transaction.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                  |
 | -- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -424,7 +424,7 @@ Appends `feePayerSignatures` to the transaction.
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름                 | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -444,7 +444,7 @@ transaction.combineSignedRawTransactions(rlpEncodedTxs)
 
 Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입    | 설명                                                  |
 | ------------- | ----- | --------------------------------------------------- |
