@@ -1,4 +1,4 @@
-Here you will learn how to create a Safe and evaluate its benefits on the Klaytn Network. Let's get started!
+Here you will see how to create a Safe and evaluate its benefits on the Klaytn Network.
 
 **Step 1:** Navigate to [Klaytn Safe App](https://safe.klaytn.foundation/). By navigating to the application on your web browser, you can explore the functionality of Klaytn Safe.
 
