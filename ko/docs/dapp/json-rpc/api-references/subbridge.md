@@ -11,7 +11,7 @@ description: >-
 
 노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 서브브리지 노드는 KNI를 통해 메인브리지 노드에 연결할 수 있습니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -60,7 +60,7 @@ description: >-
 
 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -92,7 +92,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -123,7 +123,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_parentOperator <a id="subbridge_parentOperator"></a>
 `subbridge_parentOperator`는 부모 오퍼레이터 계정 주소를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -143,7 +143,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_childOperator <a id="subbridge_childOperator"></a>
 `subbridge_childOperator`는 자식 오퍼레이터 계정 주소를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -163,7 +163,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_parentOperatorNonce <a id="subbridge_parentOperatorNonce"></a>
 `subbridge_parentOperatorNonce`는 부모 오퍼레이터 계정 주소의 논스를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -183,7 +183,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_childOperatorNonce <a id="subbridge_childOperatorNonce"></a>
 `subbridge_childOperator`는 자식 오퍼레이터 계정 주소를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -203,7 +203,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
 `subbridge_parentOperatorBalance`는 부모 오퍼레이터 계정의 잔액을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -223,7 +223,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
 `subbridge_childOperatorBalance`는 자식 오퍼레이터 계정의 잔액을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -246,7 +246,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `sendChainTxslimit`은 한 번에 보내기 위해 대기 중인 보류 트랜잭션 수의 최댓값을 가져옵니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -266,7 +266,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ## subbridge_anchoring <a id="subbridge_anchoring"></a>
 `subbridge_anchoring`은 서비스체인의 앵커링 기능을 활성화/비활성화 합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입   | 설명                                       |
 | ------ | ---- | ---------------------------------------- |
@@ -301,7 +301,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
 `subbridge_latestAnchoredBlockNumber`는 서비스체인의 가장 최근에 앵커링된 블록 번호를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -321,7 +321,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
 `subbridge_getReceiptFromParentChain`은 앵커링 트랜잭션의 영수증을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명                            |
 | ------------- | ----------------------------- |
@@ -358,7 +358,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
 `subbridge_deployBridge`는 부모와 자식 체인에 브리지 컨트랙트를 배포하고 주소를 반환합니다. 이 메소드는 또한 브리지 컨트랙트를 서브 브리지에 등록합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -379,7 +379,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
 `subbridge_registerBridge`는 부모/자식 체인에 배포된 브리지 컨트랙트를 등록합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -405,7 +405,7 @@ Error: bridge already exists
 ## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
 `subbridge_deregisterBridge`는 부모/자식 체인에 있는 등록된 브리지 컨트랙트를 등록 해지합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -431,7 +431,7 @@ Error: invalid bridge pair
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
 `subbridge_subscribeBridge`는 부모/자식 체인에 등록된 브리지 컨트랙트를 구독합니다. 서브 브리지 노드가 브리지 컨트랙트 쌍을 구독하면, 서브 브리지는 체인 간 밸류 트랜스퍼 요청을 자동으로 처리합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -456,7 +456,7 @@ Error: already subscribed
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
 `subbridge_unsubscribeBridge`는 부모/자식 체인의 브리지 컨트랙트 구독을 해지합니다. 서브 브리지가 브리지 컨트랙트 쌍의 구독을 해지하면, 서브 브리지는 체인 간 밸류 트랜스퍼 요청을 더 이상 처리하지 못합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -479,7 +479,7 @@ null
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
 `subbridge_registerToken`은 한 쌍의 ERC-20 또는 721 토큰을 브리지 컨트랙트에 등록합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -506,7 +506,7 @@ Error: token already exists
 ## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
 `subbridge_deregisterBridge`는 브리지 컨트랙트에 등록된 한 쌍의 토큰 컨트랙트를 등록 취소합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                      |
 | ------- | ------------- | ----------------------- |
@@ -533,7 +533,7 @@ Error: invalid token pair
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
 `subbridge_convertRequestTxHashToHandleTxHash`는 주어진 "request value transfer transaction" 해시에 상응하는 반대편 체인에 있는 "handle value transfer transaction" 해시를 리턴합니다. "Request value transfer transaction"은 사용자가 체인 간 밸류 트랜스퍼를 요청하기 위해 생성한 트랜잭션입니다. "Handle value transfer transaction"은 서브 브리지가 사용자의 밸류 트랜스퍼 요청을 처리하기 위해 생성한 트랜잭션입니다.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입            | 설명                                 |
 | -- | ------------- | ---------------------------------- |
@@ -559,7 +559,7 @@ Error: invalid token pair
 ## subbridge_listBridge <a id="subbridge_listBridge"></a>
 `subbridge_listBridge`는 서브 브리지에 등록(저장)되어 있는 모든 브리지 컨트랙트 쌍의 리스트를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 논스
 
@@ -593,7 +593,7 @@ Error: invalid token pair
 ## subbridge_getBridgeInformation <a id="subbridge_getBridgeInformation"></a>
 `subbridge_getBridgeInformation`은 주어진 브리지 컨트랙트의 정보를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명           |
 | ------- | ------------- | ------------ |
@@ -633,7 +633,7 @@ Error: invalid token pair
 ## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
 `subbridge_txPendingCount`는 브리지 트랜잭션 풀에 있는 pending 트랜잭션 개수를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -653,7 +653,7 @@ Error: invalid token pair
 ## subbridge_txPending <a id="subbridge_txPending"></a>
 `subbridge_txPending`은 브리지 트랜잭션 풀에 있는 pending 트랜잭션 목록을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
