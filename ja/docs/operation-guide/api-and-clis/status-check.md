@@ -1,4 +1,4 @@
-# Status check <a id="status-check"></a>
+# 状態チェック <a id="status-check"></a>
 
 
 
