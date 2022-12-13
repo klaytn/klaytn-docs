@@ -1,6 +1,6 @@
-# Porting from web3j <a id="porting-from-web3j"></a>
+# web3jからのエクスポート <a id="porting-from-web3j"></a>
 
-We made caver-java as similar as possible to [web3j](https://github.com/web3j/web3j) for portability. The below code snippets show how to port an application written in web3j to caver-java.
+caver-javaをできるだけ [web3j](https://github.com/web3j/web3j) に似せて移植性を確保しました。 以下のコードスニペットは、web3jで書かれたアプリケーションをcaver-javaに移植する方法を示しています。
 
 ```java
 /* start a client */
