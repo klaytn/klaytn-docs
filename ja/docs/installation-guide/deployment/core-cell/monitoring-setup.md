@@ -1,23 +1,23 @@
-# Monitoring Setup <a id="monitoring-setup"></a>
+# モニタリング設定 <a id="monitoring-setup"></a>
 
 
-## Overview <a id="overview"></a>
+## 概要 <a id="overview"></a>
 
-The Klaytn team provides a site for monitoring the Klaytn CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
+Klaytnチームは、 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000) でKlaytn CCNを監視するためのサイトを提供します。 CCの各CN/PNには `テレグラフ・` 監視エージェントが設置されており、メトリックを収集して監視サーバーに送信します。 インストールが完了したら、モニタリングサイトにアクセスして、Klaytn CC のメトリックを表示できます。
 
-The installation process is as follows:
+インストールプロセスは以下のとおりです。
 
-1. Install `telegraf` in the CN/PNs
-2. Configure `telegraf`
-3. Start `telegraf`
+1. CN/PNに `telegraf` をインストールする
+2. `テレグラフ・`を設定する
+3. `テレグラフ・`を開始する
 
-## Telegraf Installation <a id="telegraf-installation"></a>
+## Telegraf のインストール <a id="telegraf-installation"></a>
 
-Telegraf Installation Guide \(Amazon Linux 2 users, see below\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
+Telegraf インストールガイド \(Amazon Linux 2 ユーザ, 以下を参照\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
-**Note for Amazon Linux 2**
+**Amazon Linux 2 の注意**
 
-To install Telegraph on Amazon Linux 2, you may use InfluxData's RHEL 7 yum repo as follows:
+Amazon Linux 2 にTelegraph をインストールするには、以下のように InfluxData の RHEL 7 yum repo を使用します。
 
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
@@ -32,27 +32,27 @@ EOF
 
 ## Telegraf Setup <a id="telegraf-setup"></a>
 
-### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
+### kcnd/kpnd でモニタリングを有効にする <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
-/etc/kcnd/conf/kcnd.conf
+/etc/kCND/conf/kcnd.conf
 
 ```text
 ...
 METRICS=1
-PROMETHEUS=1
+PROMETEUS=1
 ...
 ```
 
-**Check**
+**チェック**
 
-You may confirm that the above two options are enabled by checking that port 61001 is open.
+ポート61001が開いていることを確認することで、上記の2つのオプションが有効になっていることを確認できます。
 
 ```text
 $ netstat -ntap | grep 61001
 tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 ```
 
-**Configure Telegraf service**
+**Telegraf サービスの設定**
 
 Copy the following file to the `telegraf` configuration directory \(`/etc/telegraf/telegraf.d/`\), and edit `nodetype`, `instance`, and `hostname` appropriately for each node:
 
@@ -76,11 +76,11 @@ Copy the following file to the `telegraf` configuration directory \(`/etc/telegr
   urls = [ "http://localhost:61001/metrics" ]
 ```
 
-Change the following in `/etc/telegraf/telegraf.conf`:
+`/etc/telegraf/telegraf.conf` で以下を変更:
 
-* Comment out the `[[outputs.influxdb]]` section
+* `[[outputs.influxdb]]` セクションにコメントする
 
-**Start Telegraf**
+**Telegraf を開始**
 
 ```text
 $ systemctl restart telegraf
@@ -88,9 +88,9 @@ $ systemctl restart telegraf
 
 ## Grafana <a id="grafana"></a>
 
-If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
+各CN/PNに上記の設定とエージェントがある場合は、以下のURLでメトリックを確認できます。
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
-As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
+CCオペレーターとして、Slackチャンネルに会社名とメールアドレスを入力してアカウントをリクエストすることができます。 CC演算子のみがGrafanaアカウントをリクエストできますのでご注意ください。
 
