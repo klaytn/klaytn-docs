@@ -1,12 +1,12 @@
-# Installation Guide <a id="installation-guide"></a>
+# インストールガイド <a id="installation-guide"></a>
 
-You can download the latest version of the `kcn`  on [Download](../download.md) page.
+`kcn`  の最新バージョンは [ダウンロード](../download.md) ページでダウンロードできます。
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+アーカイブファイルは、実行可能バイナリと構成ファイルで構成されています。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注**: ファイル構造やファイル名を変更しないでください。 変更すると、ノードが正しく機能しないことがあります。
 
 ```text
 - bin
@@ -16,66 +16,66 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name      | File Description                 |
-|:-------------- |:-------------------------------- |
-| bin/kcn        | CN executable file               |
-| bin/kcnd       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| ファイル名          | ファイルの説明          |
+|:-------------- |:---------------- |
+| bin/kcn        | CN 実行可能ファイル      |
+| bin/kcnd       | CN開始/終了スクリプトファイル |
+| conf/kcnd.conf | CN設定ファイル         |
 
-### Installation <a id="installation"></a>
+### インストール <a id="installation"></a>
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+インストールは、パッケージをインストールするダウンロードしたパッケージの圧縮を解除します。
 
 ```bash
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+または
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. As an example,
+**注**: `kcn-linux-amd64/bin` パスを環境変数 `$PATH` に追加して、 `kcn` と `kcnd` をグローバルに実行することを推奨します。 一例として
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+他のセクションでは、パスが変数に追加されると仮定します。
 
-## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+## RPM配布 \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### Install downloaded RPM <a id="install-downloaded-rpm"></a>
+### ダウンロードしたRPMをインストール <a id="install-downloaded-rpm"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+以下の `yum` コマンドでダウンロードしたRPMファイルをインストールできます。
 
 ```bash
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+または
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Klaytn Yum Repoからインストール <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+あるいは、Klaytn Yum リポジトリから `kcnd` をインストールすることもできます。
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### インストールされた場所 <a id="installed-location"></a>
 
-The installed files are located as follows.
+インストールされたファイルは以下のとおりです。
 
-| File Name | Location                 |
+| ファイル名     | 場所                       |
 |:--------- |:------------------------ |
 | kcn       | /usr/bin/kcn             |
-| kcnd.conf | /etc/kcnd/conf/kcnd.conf |
+| kcnd.conf | /etc/kCND/conf/kcnd.conf |
 
 
 
