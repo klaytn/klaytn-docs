@@ -1,4 +1,4 @@
-# Description: Error, Warn and Info <a id="description"></a>
+# 説明: エラー、警告、情報 <a id="description"></a>
 
 
 
