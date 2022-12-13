@@ -14,7 +14,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 **참고** `caver.contract.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 See the [new caver.contract](caver.contract.md#new-contract).
 
@@ -47,7 +47,7 @@ new caver.contract(jsonInterface [, address] [, options])
 
 JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
@@ -206,7 +206,7 @@ myContract.clone([contractAddress])
 
 현재 컨트랙트 인스턴스를 복제합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름              | 타입     | 설명                                                                                 |
 | --------------- | ------ | ---------------------------------------------------------------------------------- |
@@ -241,7 +241,7 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.deploy`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                  |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -336,7 +336,7 @@ myContract.deploy(options)
 
 Klaytn에 스마트 컨트랙트를 배포할 때 사용되는 객체를 반환합니다. `myContract.deploy({ data, arguments }).send(options)`를 호출함으로써 스마트 컨트랙트 배포 트랜잭션을 전송할 수 있습니다. 성공적으로 배포된 후, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)될 것입니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입 | 설명                                      |
 | ------- | -- | --------------------------------------- |
@@ -441,7 +441,7 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.send`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                  |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -588,7 +588,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.sign`은 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                  |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -740,7 +740,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract. signAsFeePayer`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                  |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -852,7 +852,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 
 **참고** `myContract.call`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                                              |
 | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -884,7 +884,7 @@ Decodes a function call and returns parameters.
 
 **NOTE** `myContract.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Parameters**
+**파라미터**
 
 | 이름           | 타입     | 설명                                |
 | ------------ | ------ | --------------------------------- |
@@ -966,7 +966,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Parameters**
+**파라미터**
 
 JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
@@ -1083,7 +1083,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, ca
 
 상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다. Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](caver.contract.md#mycontract-call) provided as a short-cut function.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                                   |
 | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1167,7 +1167,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** 서명을 하기 위해서는 `caver.wallet`가 `options`나 `myContract.options`의 `from`와 `feePayer`에 해당하는 키링 인스턴스를 포함해야 합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                      |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -1283,7 +1283,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입 | 설명                                                                                                                                                            |
 | ------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1398,7 +1398,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입 | 설명                                                                                                                                                            |
 | ------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1458,7 +1458,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [
 
 Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                  |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1501,7 +1501,7 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 
 이 메소드에 대한 ABI를 인코딩합니다. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
 
-**Parameters**
+**파라미터**
 
 JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
@@ -1526,7 +1526,7 @@ myContract.once(event [, options], callback)
 
 Subscribes to an event and unsubscribes immediately after the first event or error. 단일 이벤트에 대해서만 발생합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1586,7 +1586,7 @@ You can unsubscribe an event by calling the `unsubscribe` function of the subscr
 
 **NOTE** `myContract.subscribe` is supported since caver-js [v1.9.1-rc.1](https://www.npmjs.com/package/caver-js/v/1.9.1-rc.1).
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1641,7 +1641,7 @@ myContract.events.eventName([options][, callback])
 
 이벤트를 구독합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                               |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -1739,7 +1739,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 이 컨트랙트의 이전 이벤트를 가져옵니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
