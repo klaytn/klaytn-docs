@@ -1,25 +1,25 @@
-# Runtime Debugging <a id="runtime-debugging"></a>
+# ランタイムデバッグ <a id="runtime-debugging"></a>
 
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
-Returns unused memory to the OS.
+OS に未使用のメモリを返します。
 
-| Client  | Method Invocation                  |
-|:-------:| ---------------------------------- |
-| Console | `debug.freeOSMemory()`             |
-|   RPC   | `{"method": "debug_freeOSMemory"}` |
+| クライアント | メソッドの呼び出し                          |
+|:------:| ---------------------------------- |
+| コンソール  | `debug.freeOSMemory()`             |
+|  RPC   | `{"method": "debug_freeOSMemory"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.freeOSMemory()
 null
@@ -33,24 +33,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_gcStats <a id="debug_gcstats"></a>
 
-Returns GC statistics.
+GC の統計情報を返します。
 
-| Client  | Method Invocation                           |
-|:-------:| ------------------------------------------- |
-| Console | `debug.gcStats()`                           |
-|   RPC   | `{"method": "debug_gcStats", "params": []}` |
+| クライアント | メソッドの呼び出し                                   |
+|:------:| ------------------------------------------- |
+| コンソール  | `debug.gcStats()`                           |
+|  RPC   | `{"method": "debug_gcStats", "params": []}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) を参照してください。
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.gcStats()
 {
@@ -65,30 +65,30 @@ Console
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_gcStats","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"LastGC":"2018-10-15T00:42:08.2787037Z","NumGC":14,"PauseTotal":292805500,"Pause":[3384700,60164200,259500,354600,62331200,241700,29701500,4868200,8242800,35177700,27621100,12647400,38250100,9560800],"PauseEnd":["2018-10-15T00:42:08.2787037Z","2018-10-15T00:40:19.3302813Z","2018-10-15T00:38:41.2202755Z","2018-10-15T00:36:41.2785669Z","2018-10-15T00:36:18.3196569Z","2018-10-15T00:34:48.2073609Z","2018-10-15T00:33:01.3309817Z","2018-10-15T00:31:28.3465898Z","2018-10-15T00:30:05.4245261Z","2018-10-15T00:28:58.6377593Z","2018-10-15T00:27:55.315809Z","2018-10-15T00:27:45.075085Z","2018-10-15T00:27:44.9164574Z","2018-10-15T00:27:44.8406572Z"],"PauseQuantiles":null}}
+{"jsonrpc":"2.0","id":1,"result":{"LastGC":"2018-10-15T00:42:2787037Z","NumGC":14,"PauseTotal":292805500,"Pause":[3384700,60164200,259500,3500,62331200,24
 ```
 
 
 ## debug_memStats <a id="debug_memstats"></a>
 
-Returns detailed runtime memory statistics.
+詳細なランタイムメモリ統計を返します。
 
-| Client  | Method Invocation                            |
-|:-------:| -------------------------------------------- |
-| Console | `debug.memStats()`                           |
-|   RPC   | `{"method": "debug_memStats", "params": []}` |
+| クライアント | メソッドの呼び出し                                    |
+|:------:| -------------------------------------------- |
+| コンソール  | `debug.memStats()`                           |
+|  RPC   | `{"method": "debug_memStats", "params": []}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) を参照してください。
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.memStats()
 {
@@ -112,36 +112,36 @@ Console
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_memStats","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"Alloc":265525152,"TotalAlloc":3548997112,"Sys":756177144,"Lookups":2165,"Mallocs":25572268,"Frees":24933943,
+{"jsonrpc":"2.0","id":1,"result":{"Alloc":265525152,"TotalAlloc":3548997112,"Sys":756177144,"Lookups":2165,"Mallocs":25572268,"Frees":2493,
 ...
-"Frees":36},{"Size":16384,"Mallocs":123,"Frees":122},{"Size":18432,"Mallocs":11,"Frees":3},{"Size":19072,"Mallocs":2,"Frees":1}]}}
+"Free":36},{"Size":16384,"Mallocs":123,"Free":122},{"Size":18432,"Mallocs":11,"Free":3},{"Size":19072,"Mallocs":2,"Free":1}}}
 ```
 
 
 ## debug_metrics <a id="debug_metrics"></a>
 
-Retrieves all the known system metrics collected by the node.
+ノードによって収集された既知のシステムメトリックをすべて取得します。
 
-| Client  | Method Invocation                              |
-|:-------:| ---------------------------------------------- |
-| Console | `debug.metrics(raw)`                           |
-|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
+| クライアント | メソッドの呼び出し                                      |
+|:------:| ---------------------------------------------- |
+| コンソール  | `debug.metrics(raw)`                           |
+|  RPC   | `{"method": "debug_metrics", "params": [raw]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type | Description                                           |
-| ---- | ---- | ----------------------------------------------------- |
-| raw  | bool | `true` If raw data is output as it is, `false` If not |
+| 名前  | タイプ  | Description                             |
+| --- | ---- | --------------------------------------- |
+| raw | bool | `true` 生データがそのまま出力される場合、 `false` でない場合は |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                   |
-| ----------- | --------------------------------------------- |
-| JSON string | The structured metrics collected by the node. |
+| タイプ     | Description              |
+| ------- | ------------------------ |
+| JSON文字列 | ノードによって収集された構造化されたメトリック。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -200,27 +200,27 @@ system: {
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[true],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"blockchain":{"block":{"tx":{"counter":{"Overall":98307},"rate":{"AvgRate01Min":19.99999999999893,"AvgRate05Min":19.999669059400787,"AvgRate15Min":19.91097896398045,"MeanRate":16.321034565305364,"Overall":98307}}},"head":{"blocknumber":"Unknown metric type"}},"bridgeTxpool":{"refuse":{"Overall":0}}, ...{"AvgRate01Min":0.9999999999999988,"AvgRate05Min":0.9999997215208508,"AvgRate15Min":0.9986124269288207,"MeanRate":0.9946322927570416,"Overall":5991,"Percentiles":{"20":6229668,"5":5986862.3,"50":6585653,"80":6864326.2,"95":7486187.249999999}}}}
+{"jsonrpc":"2.0","id":1,"result":{"blockchain":{"block":{"counter":{"overall":98307},"rate":{"rate":{"AvgRate01Min:999999999999999999999893,"AvgRate05Min:19.665978
 ```
 
 
 ## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
-Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
+ガベージコレクションのターゲットパーセントを設定します。 前の設定を返します。 負の値はGCを無効にします。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type    | Description                           |
-| ------- | ------- | ------------------------------------- |
-| Percent | integer | Garbage collection target percentage. |
+| 名前 | タイプ     | Description    |
+| -- | ------- | -------------- |
+| 割合 | integer | ガベージ回収目標パーセント。 |
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                    |
-| ------- | ---------------------------------------------- |
-| integer | Previous garbage collection target percentage. |
+| タイプ     | Description               |
+| ------- | ------------------------- |
+| integer | 以前のガベージコレクションのターゲットパーセント。 |
 
-**Example** Console
+**例** コンソール
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -243,26 +243,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks <a id="debug_stacks"></a>
 
-Returns a printed representation of the stacks of all goroutines.
+すべてのゴロチンのスタックの印刷表現を返します。
 
-| Client  | Method Invocation                          |
-|:-------:| ------------------------------------------ |
-| Console | `debug.stacks()`                           |
-|   RPC   | `{"method": "debug_stacks", "params": []}` |
+| クライアント | メソッドの呼び出し                                  |
+|:------:| ------------------------------------------ |
+| コンソール  | `debug.stacks()`                           |
+|  RPC   | `{"method": "debug_stacks", "params": []}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| string | The stack information of all goroutines. |
+| タイプ | Description       |
+| --- | ----------------- |
+| 文字列 | すべてのゴルーチンのスタック情報。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
