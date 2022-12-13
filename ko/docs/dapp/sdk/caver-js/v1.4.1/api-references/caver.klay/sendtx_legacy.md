@@ -9,7 +9,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 참고: ` AccountKeyLegacy` 가 있는 계정 만, sendTransaction 이 가능합니다.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
