@@ -1,26 +1,26 @@
-# Configuration <a id="configuration"></a>
+# 設定 <a id="configuration"></a>
 
-The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
+EN構成は、データディレクトリを作成し、設定ファイル `kend.conf`に環境変数を設定することです。
 
-1. Create the EN data directory.
-2. Configure the EN with `kend.conf`.
+1. ENデータディレクトリを作成します。
+2. `kend.conf` で EN を設定します。
 
-## EN Data Directory Creation <a id="en-data-directory-creation"></a>
+## EN データ ディレクトリ 作成 <a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You need to create the directory on your desired path.
+Klaytnブロックチェーンデータのサイズが増え続けていることを考えると、十分な大きさのストレージを使用することをお勧めします。 必要なパスにディレクトリを作成する必要があります。
 
 ```text
 $ sudo mkdir -p /var/kend/data
 ```
 
-## Update the Configuration File <a id="update-the-configuration-file"></a>
+## 設定ファイルを更新する <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+設定ファイルの場所:
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+* アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/ken-linux-amd64/conf/` です。
+* パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kend/conf/` です。
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### データディレクトリを追加  <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
 
@@ -28,29 +28,29 @@ You should update the the data directory environment variable `$DATA_DIR` on the
 DATA_DIR=/var/kend/data
 ```
 
-## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
+## 高速同期 \(オプション\) <a id="fast-sync-optional"></a>
 
-Each EN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new EN is first started, it must download the entire chain data from the network.
+各ENは、ネットワークのチェーンデータのコピーを保持します。 ノードが同期されていない場合、ネットワーク内の他のノードからこのデータを取得できます。同期と呼ばれるプロセスです。 新しいENが最初に開始されると、ネットワークからチェーンデータ全体をダウンロードする必要があります。
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on first start.
+このプロセスを加速するには、ENを開始する前にチェーンデータのスナップショットをダウンロードして高速同期を実行することができます。 これにより、ENが最初の起動時に同期に費やす時間が大幅に短縮されます。
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kend`, extract the snapshot inside the DATA\_DIR you configured in `kend.conf`.
+[Cypress スナップショットアーカイブ](http://packages.klaytn.net/cypress/chaindata/) または [Baobab スナップショット アーカイブ](http://packages.klaytn.net/baobab/chaindata/) から最新のチェーンデータ スナップショットをダウンロードします。 `kend`を開始する前に、 `kend.conf` で設定したDATA\_DIR内のスナップショットを抽出します。
 
-For example:
-
-```bash
-$ tar -C ~/kend_home -xvf klaytn-cypress-chaindata-latest.tar.gz
-```
-
-Or,
+例:
 
 ```bash
-$ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
+$ tar -C ~/kend_home -xvf klaytn-cypress-chain-latest.tar.gz
 ```
 
-After the data is extracted, you may start the EN normally.
+または
 
-You can refer to detailed information in the [Chaindata change](../../../../operation-guide/chaindata-change.md)
+```bash
+$ tar -C ~/kend_home -xvf klaytn-baobab-chain-data-latest.tar.gz
+```
+
+データが抽出された後、通常はENを開始することができます。
+
+[Chaindata change](../../../../operation-guide/chaindata-change.md) で詳細情報を参照できます。
 
 ## <a id="en-start-stop-status"></a>
 
