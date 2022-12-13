@@ -1,2 +1,2 @@
-# Installation Guide <a id="installation-guide"></a>
+# インストールガイド <a id="installation-guide"></a>
 
