@@ -1,27 +1,27 @@
 ---
 description: >-
-  APIs related to service chain ENs.
+  サービスチェーンENに関連するAPI。
 ---
 
-# Namespace subbridge <a id="namespace-subbridge"></a>
+# ネームスペースサブブリッジ <a id="namespace-subbridge"></a>
 
-The namespace `subbridge` provides functions related to Service Chain. To use the functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
+名前空間 `サブブリッジ` は、Service Chain に関連する関数を提供します。 この名前空間で関数を使用するには、サービスチェーンに接続された SEN で `subbridge` オプションを有効にする必要があります。
 
 ## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A subbridge node can connect to a mainbridge node via the KNI.
+ノードのKNI(Klaytn Network Identifier)を含むブリッジノード情報を返します。 サブブリッジノードは、KNI経由でメインブリッジノードに接続できます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                  |
-| ----------- | ---------------------------- |
-| JSON string | the bridge node information. |
+| タイプ     | Description |
+| ------- | ----------- |
+| JSON文字列 | ブリッジノードの情報  |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.nodeInfo
@@ -54,30 +54,30 @@ None
 ```
 
 ## subbridge_addPeer <a id="subbridge_addPeer"></a>
-Returns `true` if adding a mainbridge peer is done successfully.
+メインブリッジピアの追加が正常に完了した場合、 `true` を返します。
 
-The `addPeer` method adds a new remote node to the peer list. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down.
+`addPeer` メソッドはピア・リストに新しいリモート・ノードを追加します。 ノードは常にこれらのノードへの接続を維持しようとします リモート接続が切断された場合、 をしばらく毎に再接続します。
 
-The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` は、ピアが 追跡のために受け入れられたか、またはエラーが発生したかを示します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 名前  | タイプ | Description     |
+| --- | --- | --------------- |
+| URL | 文字列 | ピアの  `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| タイプ  | Description                          |
+| ---- | ------------------------------------ |
+| bool | `ピアが受け入れられた場合には true` `false` となります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
-> mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
+> mainbridge.addPeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
 true
 ```
 HTTP RPC
@@ -88,28 +88,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_removePeer <a id="subbridge_removePeer"></a>
-Returns `true` if removing the peer is done successfully.
+ピアの削除が成功した場合、 `true` を返します。
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+`removePeer` メソッドは、トラッキングされた静的ノードのリスト内のリモートノードを切断して削除します。 このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` は、ピアが 追跡のために受け入れられたか、またはエラーが発生したかを示します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 名前  | タイプ | Description     |
+| --- | --- | --------------- |
+| URL | 文字列 | ピアの  `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the peer was removed, `false` otherwise. |
+| タイプ  | Description                               |
+| ---- | ----------------------------------------- |
+| bool | `ピアが削除された場合は true` で、それ以外の場合は `false` です。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
-> mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
+> mainbridge.removePeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
 true
 ```
 
@@ -121,19 +121,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_parentOperator <a id="subbridge_parentOperator"></a>
-The `subbridge_parentOperator` returns the parent operator account address.
+`subbridge_parentOperator` は、親演算子のアカウントアドレスを返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                            |
-| ------- | -------------------------------------- |
-| Account | Parent chain operator account address. |
+| タイプ   | Description          |
+| ----- | -------------------- |
+| アカウント | 親チェーンオペレータアカウントアドレス。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.parentOperator
@@ -141,19 +141,19 @@ none
 ```
 
 ## subbridge_childOperator <a id="subbridge_childOperator"></a>
-The `subbridge_childOperator` returns the child operator account address.
+`subbridge_childOperator` は子演算子のアカウントアドレスを返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                           |
-| ------- | ------------------------------------- |
-| Account | Child chain operator account address. |
+| タイプ   | Description                           |
+| ----- | ------------------------------------- |
+| アカウント | Child chain operator account address. |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.childOperator
@@ -161,19 +161,19 @@ none
 ```
 
 ## subbridge_parentOperatorNonce <a id="subbridge_parentOperatorNonce"></a>
-The `subbridge_parentOperatorNonce` returns the nonce of the parent operator account address.
+`subbridge_parentOperatorNonce` は、親演算子の口座アドレスの nonce を返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                  |
-| -------- | ---------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions sent from the parent operator account. |
+| タイプ | Description                   |
+| --- | ----------------------------- |
+| 品質  | 親演算子アカウントから送信されたトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.parentOperatorNonce
@@ -181,19 +181,19 @@ none
 ```
 
 ## subbridge_childOperatorNonce <a id="subbridge_childOperatorNonce"></a>
-The `subbridge_childOperator` returns the child operator account address.
+`subbridge_childOperator` は子演算子のアカウントアドレスを返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions sent from the child operator account. |
+| タイプ | Description                   |
+| --- | ----------------------------- |
+| 品質  | 子演算子アカウントから送信されたトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.childOperatorNonce
@@ -201,19 +201,19 @@ none
 ```
 
 ## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
-The `subbridge_parentOperatorBalance` returns the balance of the parent operator account.
+`subbridge_parentOperatorBalance` は、親演算子口座の残高を返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                    |
-| -------- | -------------------------------------------------------------- |
-| QUANTITY | Integer of the current balance of the parent operator account. |
+| タイプ | Description       |
+| --- | ----------------- |
+| 品質  | 親演算子の口座の現在の残高の整数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.parentOperatorBalance
@@ -221,19 +221,19 @@ none
 ```
 
 ## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
-The `subbridge_childOperatorBalance` returns the balance of the child operator account.
+`subbridge_childOperatorBalance` は、子演算子口座の残高を返します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the current balance of the child operator account. |
+| タイプ | Description          |
+| --- | -------------------- |
+| 品質  | 子演算子のアカウントの現在の残高の整数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.childOperatorBalance
@@ -244,19 +244,19 @@ none
 
 ## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
-The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
+`sendChainTxslimit` は、一度に送信するために取得する保留中のトランザクションの最大数を取得します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
-| Uint64 | the maximum number of pending transactions to pickup for sending at once. |
+| タイプ    | Description          |
+| ------ | -------------------- |
+| Uint64 | 一度に送金するための最大保留中の取引数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.sendChainTxslimit
@@ -264,23 +264,23 @@ None
 ```
 
 ## subbridge_anchoring <a id="subbridge_anchoring"></a>
-The `subbridge_anchoring` can enable/disable the anchoring feature of the service chain.
+`subbridge_anchoring` はサービスチェーンのアンカー機能を有効/無効にできます。
 
-**Parameters**
+**パラメータ**
 
-| Name   | Type | Description                                                |
-| ------ | ---- | ---------------------------------------------------------- |
-| enable | Bool | `true` enables the anchoring feature, `false` disables it. |
+| 名前    | タイプ  | Description                           |
+| ----- | ---- | ------------------------------------- |
+| 有効にする | ブール型 | `true` でアンカー機能を有効にし、 `false` で無効にします。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                             |
-| ---- | ------------------------------------------------------- |
-| bool | `true` if the anchoring was enabled, `false` otherwise. |
+| タイプ  | Description                                   |
+| ---- | --------------------------------------------- |
+| bool | `アンカーが有効になっている場合は true` 、それ以外の場合は `false` です。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > subbridge.anchoring(true)
@@ -298,50 +298,50 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 {"jsonrpc":"2.0","id":1,"result":false}
 ```
 
-## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
-The `subbridge_latestAnchoredBlockNumber` returns the latest anchored block number of the service chain.
+## subbridge_latestAnkirdBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
+`subbridge_latestAnkirdBlockNumber` は、サービス・チェーンの最新のアンカーされたブロック番号を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| Uint64 | The latest anchored block number. |
+| タイプ    | Description    |
+| ------ | -------------- |
+| Uint64 | 最新のアンカーブロック番号。 |
 
-**Example**
+**例**
 
 ```javascript
-> subbridge.latestAnchoredBlockNumber
+> subbridge.latestAnkirdBlockNumber
 71025
 ```
 
 ## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
-The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring transaction.
+`subbridge_getReceiptFromParentChain` は、アンカートランザクションの受領を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                                                         |
-| ------------ | ------------------------------------------------------------------- |
-| 32-byte DATA | The child chain block hash that was included the anchoring tx hash. |
+| タイプ       | Description                         |
+| --------- | ----------------------------------- |
+| 32バイトのデータ | アンカリング tx ハッシュが含まれていた子チェーンブロックハッシュ。 |
 
 
-**Return Value**
+**戻り値**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found.
+`Object` - 領収書が見つからない場合は `null`。
 
-| Name            | Type          | Description                                                                                                      |
-| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| contractAddress | DATA          | The contract address created, if the transaction was a contract creation, otherwise `null`. (will be deprecated) |
-| gasUsed         | QUANTITY      | The amount of gas used by this specific transaction alone.                                                       |
-| logs            | Array         | Array of log objects, which this transaction generated.                                                          |
-| logsBloom       | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs.                                                 |
-| status          | QUANTITY      | Either `1` (success) or `0` (failure).                                                                           |
-| transactionHash | 32-byte DATA  | Hash of the transaction.                                                                                         |
+| 名前              | タイプ        | Description                                                           |
+| --------------- | ---------- | --------------------------------------------------------------------- |
+| コントラクトアドレス      | データ        | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。 (非推奨になります) |
+| gasUsed         | 品質         | この特定の取引だけで使用されるガスの量。                                                  |
+| ログ              | 行列         | このトランザクションが生成したログオブジェクトの配列。                                           |
+| logsBloom       | 256バイトのデータ | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                     |
+| ステータス           | 品質         | `1` (成功) または `0 0` (失敗).                                              |
+| transactionHash | 32バイトのデータ  | トランザクションのハッシュ                                                         |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.getReceiptFromParentChain("0x4f300d6574e71d7940c88fe08f27d9ac45cbc7b81d45c17e848d3772f64377b5")
@@ -356,20 +356,20 @@ The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring t
 ```
 
 ## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
-The `subbridge_deployBridge` deploys a bridge contract to the parent and child chains and returns the addresses of deployed bridge contracts. This method also registers the bridge contracts with the sub-bridge.
+`subbridge_deployBridge` は、ブリッジコントラクトを親チェーンと子チェーンにデプロイし、デプロイされたブリッジコントラクトのアドレスを返します。 この方法では、ブリッジコントラクトもサブブリッジに登録します。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.deployBridge()
@@ -377,99 +377,101 @@ none
 ```
 
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
-The `subbridge_registerBridge` registers already deployed bridge contracts in the parent and child chains.
+`subbridge_registerBridge` は、すでに親チェーンと子チェーンにブリッジコントラクトをデプロイしています。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                  |
-| ----- | ----- | ------------------------------------------------------------ |
-| error | Error | `null` if the registration succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                   |
+| --- | --- | --------------------------------------------- |
+| エラー | エラー | `null` 登録が成功した場合は、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 
 > subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: bridge already exists
+エラー: ブリッジは既に存在します
+
 ```
 
 ## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
-The `subbridge.deregisterBridge` deregisters already registered bridge contracts in the parent/child chain.
+`subbridge.delegisterBridge` は、すでに登録されている親/子チェーンのブリッジコントラクトを削除します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                    |
-| ----- | ----- | -------------------------------------------------------------- |
-| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                    |
+| --- | --- | ---------------------------------------------- |
+| エラー | エラー | `null` もし削除が成功した場合、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 
 > subbridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: invalid bridge pair
+エラー: 無効なブリッジペア
 ```
 
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
-The `subbridge_subscribeBridge` subscribes to the registered bridge contracts in the parent and child chains. If the sub-bridge node is subscribed to the bridge contract pair, cross-chain value-transfer requests are handled automatically by the sub-bridge.
+`subbridge_subscribeBridge` は、親チェーンと子チェーンで登録されたブリッジコントラクトをサブスクライブします。 サブブリッジノードがブリッジコントラクトペアを購読している場合、クロスチェーンの値転送リクエストはサブブリッジによって自動的に処理されます。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                 |
-| ----- | ----- | ----------------------------------------------------------- |
-| error | Error | `null` if the subscribing succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                  |
+| --- | --- | -------------------------------------------- |
+| エラー | エラー | `null` 購読が成功した場合、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
-> subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+> subbridge.subbridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
-> subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: already subscribed
+> subbridge.subscribeBridge("0x87d6b9c567e5bcd8400e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+エラー: 既に購読登録済みです 
+
 ```
 
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
-The `subbridge_unsubscribeBridge` unsubscribes the sub-bridge from the bridge contracts in the parent and child chains. If the sub-bridge is unsubscribed from the bridge contracts, cross-chain value transfer requests can not be handled by the sub-bridge.
+`subbridge_unsubscribeBridge` は、親チェーンと子チェーンのブリッジコントラクトからサブブリッジの登録を解除します。 サブブリッジがブリッジコントラクトから登録解除されている場合、クロスチェーン値転送要求はサブブリッジによって処理できません。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                   |
-| ----- | ----- | ------------------------------------------------------------- |
-| error | Error | `null` if the unsubscribing succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                    |
+| --- | --- | ---------------------------------------------- |
+| エラー | エラー | `null` 購読解除が成功した場合、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.unsubscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
@@ -477,24 +479,24 @@ null
 ```
 
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
-The `subbridge_registerToken` registers a pair of ERC-20 or 721 tokens with the bridge contracts.
+`subbridge_registerToken` は、ブリッジコントラクトに ERC-20 または 721 トークンのペアを登録します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
-| account | 20-byte DATA | Address of token contract on child chain.   |
-| account | 20-byte DATA | Address of token contract on parent chain.  |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
+| アカウント | 20 バイトのデータ | 子チェーン上のトークンコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のトークンコントラクトのアドレス。 |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                  |
-| ----- | ----- | ------------------------------------------------------------ |
-| error | Error | `null` if the registration succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                   |
+| --- | --- | --------------------------------------------- |
+| エラー | エラー | `null` 登録が成功した場合は、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
@@ -504,24 +506,24 @@ Error: token already exists
 ```
 
 ## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
-The `subbridge_deregisterBridge` deregisters already registered token pair from the bridge contracts.
+`subbridge_delegisterBridge` は、既に登録済みのトークンペアをブリッジコントラクトから削除しています。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
-| account | 20-byte DATA | Address of token contract on child chain.   |
-| account | 20-byte DATA | Address of token contract on parent chain.  |
+| 名前    | タイプ        | Description             |
+| ----- | ---------- | ----------------------- |
+| アカウント | 20 バイトのデータ | 子チェーン上のブリッジコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のブリッジ契約のアドレス。     |
+| アカウント | 20 バイトのデータ | 子チェーン上のトークンコントラクトのアドレス。 |
+| アカウント | 20 バイトのデータ | 親チェーン上のトークンコントラクトのアドレス。 |
 
-**Return Value**
+**戻り値**
 
-| Name  | Type  | Description                                                    |
-| ----- | ----- | -------------------------------------------------------------- |
-| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
+| 名前  | タイプ | Description                                    |
+| --- | --- | ---------------------------------------------- |
+| エラー | エラー | `null` もし削除が成功した場合、それ以外の場合は Error オブジェクトを返します。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
@@ -531,23 +533,23 @@ Error: invalid token pair
 ```
 
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
-The `subbridge_convertRequestTxHashToHandleTxHash` returns the corresponding "handle value transfer transaction" hash in the opposite chain for the given "request value transfer transaction" hash. "Request value transfer transaction" is a transaction initiated by a user, requesting a cross-chain value transfer. "Handle value transfer transaction" is the transaction created by the sub-bridge to handle the value transfer request from the user.
+`subbridge_convertRequestTxHashToHandleTxHash` は、与えられた「リクエスト値転送トランザクション」ハッシュに対して、対応する「ハンドル値転送トランザクション」ハッシュを反対のチェーンで返します。 「リクエスト値転送トランザクション」とは、ユーザーによって開始されたトランザクションであり、クロスチェーン値転送を要求します。 "Handle value transfer transaction" はサブブリッジによって作成されたトランザクションで、ユーザーからの値transfer requestを処理します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type         | Description                                     |
-| ---- | ------------ | ----------------------------------------------- |
-| Hash | 32-byte DATA | Hash of a "request value transfer" transaction. |
-
-
-**Return Value**
-
-| Name | Type         | Description                                                                                                                   |
-| ---- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Hash | 32-byte DATA | Hash of a "handle value transfer" transaction. zero hash means there is no corresponding "handle value transfer" transaction. |
+| 名前   | タイプ       | Description              |
+| ---- | --------- | ------------------------ |
+| ハッシュ | 32バイトのデータ | 「リクエスト値転送」トランザクションのハッシュ。 |
 
 
-**Example**
+**戻り値**
+
+| 名前   | タイプ       | Description                                                       |
+| ---- | --------- | ----------------------------------------------------------------- |
+| ハッシュ | 32バイトのデータ | 「ハンドル値転送」トランザクションのハッシュ。 ゼロハッシュは、対応する「ハンドル値転送」トランザクションがないことを意味します。 |
+
+
+**例**
 
 ```javascript
 > subbridge.convertRequestTxHashToHandleTxHash("0xae5604f8673098436ee4eaf1b453f1a395afccd6e8eb674c60edd63ebb047622")
@@ -557,21 +559,21 @@ The `subbridge_convertRequestTxHashToHandleTxHash` returns the corresponding "ha
 ```
 
 ## subbridge_listBridge <a id="subbridge_listBridge"></a>
-The `subbridge_listBridge` returns the list of all bridge contract pairs that are registered (stored) in the sub-bridge.
+`subbridge_listBridge` は、サブブリッジに登録されている(格納されている)すべてのブリッジコントラクトペアのリストを返します。
 
-**Parameters**
+**パラメータ**
 
 nonce
 
-**Return Value**
+**戻り値**
 
-| Name         | Type    | Description                                                              |
-| ------------ | ------- | ------------------------------------------------------------------------ |
-| localAddress | account | 20-byte DATA | Address of the bridge contract on child (service) chain.  |
-| localAddress | account | 20-byte DATA | Address of the bridge contract on parent (main) chain.    |
-| subscribed   | bool    | `true` if the pair of bridge contracts is subscribed, `false` otherwise. |
+| 名前           | タイプ   | Description                                                |
+| ------------ | ----- | ---------------------------------------------------------- |
+| localAddress | アカウント | 20バイトのデータ | 子(サービス)チェーン上のブリッジ契約のアドレス。                      |
+| localAddress | アカウント | 20バイトデータ | 親(main)チェーン上のブリッジコントラクトのアドレス。                   |
+| 購読済み         | bool  | `true` `ブリッジ契約のペアが契約されている場合、` それ以外の場合は false format@@4 です。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.listBridge
@@ -591,30 +593,30 @@ nonce
 ```
 
 ## subbridge_getBridgeInformation <a id="subbridge_getBridgeInformation"></a>
-The `subbridge_getBridgeInformation` returns the information of the given bridge contract.
+`subbridge_getBridgeInformation` は、与えられたブリッジコントラクトの情報を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                  |
-| ------- | ------------ | ---------------------------- |
-| account | 20-byte DATA | Address of a bridge contract |
-
-
-**Return Value**
-
-| Name             | Type         | Description                                                                                                             |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | 20-byte DATA | Address of the counterpart bridge contract. (Not supported yet)                                                         |
-| isRunning        | bool         | `true` if the bridge contract is running, `false` otherwise.                                                            |
-| isSubscribed     | bool         | `true` if the bridge contract is subscribed, `false` otherwise.                                                         |
-| onServiceChain   | bool         | `true` if the bridge contact is on child (service) chain, `false` otherwise.                                            |
-| pendingEventSize | QUANTITY     | Number of pending "request value transfer" events generated by the bridge contracts, not handled yet by the sub-bridge. |
-| requestNonce     | QUANTITY     | Request nonce of the bridge contract.                                                                                   |
-| handleNonce      | QUANTITY     | Upper handle nonce of the bridge contract.                                                                              |
-| lowerHandleNonce | QUANTITY     | Lower handle nonce of the bridge contract.                                                                              |
+| 名前    | タイプ        | Description     |
+| ----- | ---------- | --------------- |
+| アカウント | 20 バイトのデータ | ブリッジコントラクトのアドレス |
 
 
-**Example**
+**戻り値**
+
+| 名前               | タイプ        | Description                                                              |
+| ---------------- | ---------- | ------------------------------------------------------------------------ |
+| counterPart      | 20 バイトのデータ | 対応するブリッジ契約の住所。 (まだサポートされていません)                                           |
+| isRunning        | bool       | `ブリッジコントラクトが実行されている場合は` true `、そうでない場合は` false format@@4。                |
+| isSubscribed     | bool       | `true` `ブリッジコントラクトが購読されていれば、` が正しくありません。                                 |
+| onServiceChain   | bool       | `true` if the bridge contact is on child (service) chain, `false` other. |
+| pendingEventSize | 品質         | ブリッジコントラクトによって生成された保留中の「リクエスト値転送」イベントの数。サブブリッジはまだ処理していません。               |
+| requestNonce     | 品質         | ブリッジ契約のノンスを要求します。                                                        |
+| handleNonce      | 品質         | ブリッジ契約の上部ハンドルのノンス。                                                       |
+| lowerHandleNonce | 品質         | ブリッジ契約のハンドルを低くします。                                                       |
+
+
+**例**
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -631,19 +633,19 @@ The `subbridge_getBridgeInformation` returns the information of the given bridge
 ```
 
 ## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
-The `subbridge_txPendingCount` returns the number of pending transactions in the bridge transaction pool.
+`subbridge_txPendingCount` は、ブリッジトランザクションプールで保留中のトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                        |
-| ------ | ------------------------------------------------------------------ |
-| Uint64 | The number of pending transactions in the bridge transaction pool. |
+| タイプ    | Description                     |
+| ------ | ------------------------------- |
+| Uint64 | ブリッジトランザクションプール内の保留中のトランザクション数。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.txPendingCount
@@ -651,19 +653,19 @@ None
 ```
 
 ## subbridge_txPending <a id="subbridge_txPending"></a>
-The `subbridge_txPending` returns the list of pending transactions in the bridge transaction pool.
+`subbridge_txPending` はブリッジトランザクションプールで保留中のトランザクションのリストを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| JSON string | List of pending transactions in the bridge transaction pool. |
+| タイプ     | Description                        |
+| ------- | ---------------------------------- |
+| JSON文字列 | ブリッジトランザクションプールで保留中のトランザクションの一覧です。 |
 
-**Example**
+**例**
 
 ```javascript
 > subbridge.txPending
