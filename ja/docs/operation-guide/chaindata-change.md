@@ -1,38 +1,38 @@
-# Disk management - Chaindata Change <a id="disk-management"></a>
+# ディスク管理 - Chaindata Change <a id="disk-management"></a>
 
 
 
 <aside>
-💡 THIS GUIDE IS BASED ON Amazon Linux 2
+💡 このガイドは Amazon Linux 2 に基づいています
 
 </aside>
 
-## CN Node **Migration STEP**
+## CNノード**移行 STEP**
 
-### Create new disk
+### 新しいディスクを作成
 
-1. Preparing new disk (2,500GB disk) or creating new path on the current disk (It must have 2,500GB available.)
+1. 新しいディスク(2,500GBディスク)を準備したり、現在のディスクに新しいパスを作成したりします (2,500GBが利用可能である必要があります)。
 
 <aside>
-💡 Assuming that the new path is `/var/kcnd2`
+💡 新しいパスが `/var/kcnd2` であると仮定する
 
 </aside>
 
 #### Option 1 - New disk (more than 2500GB)
 
-1. Attach the disk to EC2 and run the command below
+1. EC2にディスクを接続し、以下のコマンドを実行してください
 
 ```bash
 $ lsblk
-NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-nvme2n1       259:0    0  2500G  0 disk **# New Disk**
-nvme1n1       259:0    0  4000G  0 disk /var/kcnd
-nvme0n1       259:2    0    8G  0 disk
-├─nvme0n1p1   259:3    0    8G  0 part /
-└─nvme0n1p128 259:4    0    1M  0 part
+NAME MAJ:MIN RM SIZE RO型 MOUNTPOINT
+nvme2n1 259:0 0 2500G 0 disk **# New Disk**
+nvme1n1 259:0 0 4000G 0 disk /var/kcnd
+nvme0n1 259:2 0 8G 0 disk
+├─nvme0n1p1 259:3 0 8G 0 part /
+└─nvme0n1p128 259:4 0 1M 0 part
 ```
 
-2. Mount it following the process below
+2. 以下のプロセスに従ってマウントします。
 
 ```bash
 $ sudo e2fsck -f /dev/nvme2n1
@@ -43,20 +43,20 @@ $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-#### Option 2 - Current Disk (not recommended)
+#### オプション2 - 現在のディスク (非推奨)
 
-1. Create New Folder
+1. 新しいフォルダを作成
 
 ```bash
 $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-### Download the latest chaindata
+### 最新のチェーンデータをダウンロード
 
-Download Chain Data to the data of the new Klaytn Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
+新しいKlaytn Data DIRのデータにチェーン データをダウンロードします。 (詳細は[https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/) で確認できます。
 
-1. Download with the following command
+1. 次のコマンドでダウンロード
 
 ```bash
 # (Option 1: recommended) curl 
@@ -71,7 +71,7 @@ sudo yum install axel pigz
 $ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
-2. Decompress
+2. 解凍する
 
 ```bash
 # (Option 1: recommended) tar
@@ -83,7 +83,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 
 
-## Configure DATA_DIR & LOG_DIR
+## DATA_DIR & LOG_DIR を設定できます
 
 ### Option 1 - Swap the old & new path
 
@@ -92,45 +92,45 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. Stop klaytn daemon process before swap
-    1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
+1. スワップ前に klaytn デーモンプロセスを停止する
+    1. ***重要な*** ノードタイプがCNの場合、Klaytn評議会でCNノードを削除する
 
-    💡 You can get packages for EN in the [Startup the CN](../installation-guide/deployment/core-cell/installation-guide/consensus-node-setup/startup-the-cn.md).
+    💡 ENのパッケージは [CNのスタートアップ](../installation-guide/deployment/core-cell/installation-guide/consensus-node-setup/startup-the-cn.md)で入手できます。
 
 
-2. Swap the old and new path
-    1. New Disk
+2. 古いパスと新しいパスを入れ替え
+    1. 新しいディスク
 
         ```bash
         umount /var/kcnd # old path
         umount /var/kcnd2 # new path
         mount /dev/nvme2n1 /var/kcnd
         ```
-   💡 These commands should be executed with the appropriate privileges.
+   💡 これらのコマンドは、適切な権限で実行する必要があります。
 
-    2. Current Disk
+    2. 現在のディスク
 
         ```bash
         sudo mv /var/kcnd /var/kcnd_old # old_path
         sudo mv /var/kcnd2 /var/kcnd # new path
         ```
 
-3. (Optional) Delete the old path if it is not required anymore
+3. (オプション) 不要な場合は、古いパスを削除する
 
 ### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
 
-1. Klaytn DIR Path Change
+1. Klaytn DIRパスの変更
     - Option 1 - New disk
-        - Change `fstab` value from old disk to new disk
-    - Option 2 - Current disk
-        - change the DIR Path from `kcnd.conf`
+        - `fstab` の値を古いディスクから新しいディスクに変更する
+    - オプション2 - 現在のディスク
+        - DIR パスを `kcnd.conf` から変更する
 
-## Restart Process(or Reboot Instance)
+## プロセスを再起動（またはインスタンスを再起動）
 
 <aside>
-💡 If reboot is required to add an additional disk, reboot the instance.
+💡 ディスクを追加するために再起動が必要な場合は、インスタンスを再起動します。
 
 </aside>
 
-1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
-2. Restart process or reboot instance
+1. ***重要な*** ノードタイプがCNの場合、Klaytn評議会でCNノードを削除する
+2. プロセスを再起動するかインスタンスを再起動します
