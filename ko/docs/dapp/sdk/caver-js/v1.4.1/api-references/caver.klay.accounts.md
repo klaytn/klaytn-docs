@@ -15,7 +15,7 @@ caver.klay.accounts.create([entropy])
 ```
 개인키와 공개키를 사용하여 계정 개체를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                                                                                                                                       |
 | ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 **참고** 이는 caver-js에서 사용되는 데이터 구조체일 뿐입니다. 이 메서드는 Klaytn 네트워크에 계정을 생성하거나 네트워크에 있는 계정을 업데이트하지 않습니다. **참고** `caver.klay.accounts.createWithAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ AccountKeyPublic을 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyPublic`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                   | 설명                                                    |
 | ---------- | -------------------- | ----------------------------------------------------- |
@@ -193,7 +193,7 @@ AccountKeyMultiSig를 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyMultiSig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                   | 설명                                                                 |
 | ---------- | -------------------- | ------------------------------------------------------------------ |
@@ -229,7 +229,7 @@ AccountKeyRoleBased를 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyRoleBased`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                   | 설명                                                                               |
 | ---------- | -------------------- | -------------------------------------------------------------------------------- |
@@ -271,7 +271,7 @@ AccountKey는 caver-js에서 키를 관리하기 위한 데이터 구조체입�
 
 **참고** `caver.klay.accounts.createAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입                                | 설명                                                                                                                                                                                                                                                                                                                                    |
 | --- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -343,7 +343,7 @@ caver.klay.accounts.createAccountKeyPublic(key)
 
 **참고** `caver.klay.accounts.createAccountKeyPublic`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                                    |
 | --- | ------ | ------------------------------------- |
@@ -373,7 +373,7 @@ caver.klay.accounts.createAccountKeyMultiSig(keys
 
 **참고** `caver.klay.accounts.createAccountKeyMultiSig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입    | 설명                                         |
 | ---- | ----- | ------------------------------------------ |
@@ -406,7 +406,7 @@ caver.klay.accounts.createAccountKeyRoleBased(keyObject)
 
 **참고** `caver.klay.accounts.createAccountKeyRoleBased`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름        | 타입     | 설명                                                               |
 | --------- | ------ | ---------------------------------------------------------------- |
@@ -454,7 +454,7 @@ caver.klay.accounts.accountKeyToPublicKey(accountKey)
 
 **참고** `caver.klay.accounts.accountKeyToPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -503,7 +503,7 @@ caver.klay.accounts.privateKeyToAccount(privateKey)
 ```
 개인키에서 계정 객체를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명       |
 | ---------- | ------ | -------- |
@@ -535,7 +535,7 @@ caver.klay.accounts.privateKeyToPublicKey(privateKey)
 ```
 주어진 개인키에서 공개키를 도출합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명       |
 | ---------- | ------ | -------- |
@@ -570,7 +570,7 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 **참고** `caver.klay.accounts.createAccountForUpdate`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                                | 설명                                                                                                                                                                                                                                                                                            |
 | ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -673,7 +673,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름           | 타입                                | 설명                                                                                                                                                                   |
 | ------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -760,7 +760,7 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithLegacyKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명     |
 | ------- | ------ | ------ |
@@ -793,7 +793,7 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithFailKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명     |
 | ------- | ------ | ------ |
@@ -829,7 +829,7 @@ Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), si
 
 여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                   | 설명                                                                                                                                                                                                                                 |
 | ---------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1021,7 +1021,7 @@ caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, c
 
 **참고** `caver.klay.accounts.signTransactionWithHash`는 caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름          | 타입                   | 설명                                                                                                                                |
 | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -1113,7 +1113,7 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 
 **참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 
 | 이름              | 타입                   | 설명                                                                                                                                                                                                                                 |
@@ -1258,7 +1258,7 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 ```
 주어진 RLP 인코딩된 트랜잭션에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름        | 타입     | 설명                           |
 | --------- | ------ | ---------------------------- |
@@ -1290,7 +1290,7 @@ caver.klay.accounts.hashMessage(message)
 ```
 keccak256로 해시를 취합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                                            |
 | --- | ------ | --------------------------------------------- |
@@ -1326,7 +1326,7 @@ caver.klay.accounts.sign(data, privateKey)
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명              |
 | ---------- | ------ | --------------- |
@@ -1372,7 +1372,7 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
 주어진 데이터에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름                             | 타입                   | 설명                                                                                                                                                   |
 | ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1430,7 +1430,7 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 
 **참고** `caver.klay.accounts.combineSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름              | 타입    | 설명                                        |
 | --------------- | ----- | ----------------------------------------- |
@@ -1503,7 +1503,7 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 
 **참고** `caver.klay.accounts.getRawTransactionWithSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입     | 설명                                                                                                                                                                                                              |
 | -- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1655,7 +1655,7 @@ Klaytn 키스토어 표준으로 계정을 암호화합니다. For more informat
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, `caver.klay.accounts.encrypt`는 다양한 AccountKey 타입(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)을 지원하기 키스토어 v4 표준을 사용하여 암호화합니다. 키스토어 v3를 사용해 계정을 암호화하려면, [caver.klay.accounts.encryptV3](#encryptv3)를 사용하시기 바랍니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입                                | 설명                                                                                                                                                                                                                                             |
 | ------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1891,7 +1891,7 @@ Klaytn 키스토어 v3 표준으로 계정을 암호화합니다.
 
 **참고** `caver.klay.accounts.encryptV3`는 caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입                   | 설명                                                                                                                                       |
 | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1972,7 +1972,7 @@ caver.klay.accounts.decrypt(keystoreJsonV3, password)
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, `caver.klay.accounts.decrypt`는 키스토어 v4 형식을 복호화할 수 있습니다.
 
-**Parameters**
+**파라미터**
 
 | 이름           | 타입     | 설명                             |
 | ------------ | ------ | ------------------------------ |
@@ -2054,7 +2054,7 @@ caver.klay.accounts.isDecoupled(key, address)
 ```
 키가 주소에서 분리되었는지 확인합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                                                                                                                                      |
 | ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2092,7 +2092,7 @@ caver.klay.accounts.getLegacyAccount(key)
 ```
 주어진 개인키에서 파생된 주소를 가진 계정을 반환합니다. [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)를 참조하세요.
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                                                                                                                                                                                      |
 | --- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2178,7 +2178,7 @@ caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
 무작위로 생성된 키 쌍을 사용하여 지갑에 하나 이상의 계정을 생성합니다. 지갑이 이미 존재하면, 덮어쓰지 않습니다.
 
-**Parameters**
+**파라미터**
 
 | 이름               | 타입     | 설명                                                                                                                                       |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2217,7 +2217,7 @@ caver.klay.accounts.wallet.add(account [, targetAddress])
 **참고**: 지갑에 동일한 주소가 있는 경우에는 오류가 반환됩니다. 지갑의 계정과 관련된 개인키를 변경하려면 [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey)를 사용하세요.
 
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입                   | 설명                                                          |
 | ------------- | -------------------- | ----------------------------------------------------------- |
@@ -2296,7 +2296,7 @@ caver.klay.accounts.wallet.getAccount(addressOrIndex)
 `caver.klay.accounts.wallet` 주소에 일치하는 키링 인스턴스를 반환합니다.
 
 
-**Parameters**
+**파라미터**
 
 | 이름             | 타입                   | 설명                                                            |
 | -------------- | -------------------- | ------------------------------------------------------------- |
@@ -2347,7 +2347,7 @@ caver.klay.accounts.wallet.remove(account)
 ```
 지갑에서 계정을 제거합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입                   | 설명                   |
 | ------- | -------------------- | -------------------- |
@@ -2390,7 +2390,7 @@ caver.klay.accounts.wallet.clear()
 ```
 지갑을 안전하게 비우고 모든 계정을 제거합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -2419,7 +2419,7 @@ caver.klay.accounts.wallet.encrypt(password)
 ```
 모든 지갑 계정을 암호화하고 암호화된 키스토어 v3 객체 배열을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                |
 | -------- | ------ | ----------------- |
@@ -2487,7 +2487,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
 키스토어 v3 객체들을 복호화합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입     | 설명                        |
 | ------------- | ------ | ------------------------- |
@@ -2568,7 +2568,7 @@ caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
 caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름             | 타입                 | 설명                                                            |
 | -------------- | ------------------ | ------------------------------------------------------------- |
@@ -2613,7 +2613,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 
 **참고** `updatePrivateKey`는 계정의 accountKey가 AccountKeyPublic일 때만 동작합니다. caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)에서 AccountKeys(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)를 지원하기 때문에, `privateKey`는 accountKey의 defaultKey를 참조하는 읽기 전용 속성으로 변경되었습니다. 이 메서드는 `privateKey`직접 업데이트하지 않고 accountKey를 업데이트합니다. 이 메서드는 이전 버전과의 호환성을 위해 유지됩니다. 이제는 좀 더 포괄적인 [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey) 사용을 권장합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                    |
 | ---------- | ------ | --------------------- |
@@ -2657,7 +2657,7 @@ caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 
 **참고** `caver.klay.accounts.wallet.updateAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
