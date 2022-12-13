@@ -1,22 +1,22 @@
 ## klay_chainID <a id="klay_chainid"></a>
 
-Returns the chain ID of the chain.
+チェーンの ID を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                           |
-| -------- | ------------------------------------- |
-| QUANTITY | Integer of the chain ID of the chain. |
+| タイプ | Description   |
+| --- | ------------- |
+| 品質  | チェーンの ID の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}) https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -29,48 +29,48 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_clientVersion <a id="klay_clientversion"></a>
 
-Returns the current client version of a Klaytn node.
+Klaytn ノードの現在のクライアントバージョンを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| String | The current client version of a Klaytn node. |
+| タイプ | Description                |
+| --- | -------------------------- |
+| 文字列 | Klaytn ノードの現在のクライアントバージョン。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}) https://api.baobab.klaytn.net:8651
 
 // Result
 {
     "jsonrpc":"2.0",
     "id":1,
-    "result":"Klaytn/v0.9.1+3518232250/linux-amd64/go1.11.2"
+    "result":"klaytn/v0.1+3518232250/linux-amd64/go1.11.2"
 }
 ```
 
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-Returns a suggestion for a gas price in peb.
+ペブ内のガス価格の提案を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| タイプ | Description     |
+| --- | --------------- |
+| 品質  | ペブ内の現在のガス価格の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -86,26 +86,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-Returns different values based on the condition described below. The unit of the return value is peb.
+下記の条件に基づいて異なる値を返します。 戻り値の単位は peb です。
 
-- If `baseFee` is undefined in the header, it returns the unit price from the governance parameter
-- If the block is a pending block, it returns the gas price of the txpool.
-- Otherwise, it returns the base fee of the given block.
+- ヘッダ内で `baseFee` が未定義の場合、ガバナンスパラメータから単価を返します。
+- ブロックが保留中のブロックの場合、txpoolのガス価格を返します。
+- そうでなければ、指定されたブロックの基本手数料を返します。
 
 
-**Parameters**
+**パラメータ**
 
-| Type   | Description                                                   |
-| ------ | ------------------------------------------------------------- |
-| NUMBER | Block number. If omitted, latest unit price will be returned. |
+| タイプ | Description                  |
+| --- | ---------------------------- |
+| 番号  | ブロック番号 省略した場合は、最新の単価が返却されます。 |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| タイプ | Description     |
+| --- | --------------- |
+| 品質  | ペブ内の現在のガス価格の整数。 |
 
-**Example**
+**例**
 
 ```javascript
 // Request
@@ -121,23 +121,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
+ブロックチェーンデータを並列に書き込む場合、 `true` を返します。 これはデフォルトで有効になっています。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                                                                                                          |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
+| タイプ     | Description                                                                        |
+| ------- | ---------------------------------------------------------------------------------- |
+| Boolean | `true` は、ノードがブロックチェーンデータを並列に書き込んでいることを意味します。 ノードがデータを連続的に書き込んでいる場合は `false` になります。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}) https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -150,23 +150,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. It is disabled by default and can be enabled by `--sendertxhashindexing`.
+Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. デフォルトでは無効化されており、 `--sendertxhashindexing` で有効化することができます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
+| タイプ     | Description                                                            |
+| ------- | ---------------------------------------------------------------------- |
+| Boolean | `true` は、ノードが送信者トランザクションハッシュをトランザクションハッシュマッピング情報にインデックス付けしていることを意味します。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isenderTxHashIndexingEnabled","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -179,19 +179,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_protocolVersion <a id="klay_protocolversion"></a>
 
-Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+ノードの Klaytn プロトコルバージョンを返します。 サイプレス/バオバブの現在のバージョンは `istanbul/65` です。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| String | The Klaytn protocol version of the node. |
+| タイプ | Description             |
+| --- | ----------------------- |
+| 文字列 | ノードの Klaytn プロトコルバージョン。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -208,19 +208,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
+現在のノードのリワードベースを返します。 Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 CNsにのみ必要です。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type         | Description |
-| ------------ | ----------- |
-| 20-byte DATA | Address.    |
+| タイプ        | Description |
+| ---------- | ----------- |
+| 20 バイトのデータ | 住所。         |
 
-**Example**
+**例**
 
 ```shell
 // Request
