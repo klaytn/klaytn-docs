@@ -7,7 +7,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Value Transfer Memo](../../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo) 트랜잭션을 네트워크에 전송합니다.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
@@ -83,7 +83,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Fee Delegated Value Transfer Memo](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo) 트랜잭션을 네트워크에 전송합니다.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
@@ -179,7 +179,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Fee Delegated Value Transfer Memo With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) 트랜잭션을 네트워크에 전송합니다.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
