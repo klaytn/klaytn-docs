@@ -16,7 +16,7 @@ new caver.klay.Contract(jsonInterface [, address] [, options])
 
 JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입     | 설명                                                                                                                        |
 |:------------- |:------ |:------------------------------------------------------------------------------------------------------------------------- |
@@ -154,7 +154,7 @@ myContract.clone()
 
 현재 컨트랙트 인스턴스를 복제합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -182,7 +182,7 @@ myContract.deploy(options)
 
 컨트랙트를 Klaytn 블록체인에 배포합니다. After successful deployment, the promise will be resolved with a new contract instance.
 
-**Parameters**
+**파라미터**
 
 `options`: 배포에 사용되는 옵션 객체:
 
@@ -291,7 +291,7 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Parameters**
+**파라미터**
 
 모든 메소드의 매개변수는 JSON 인터페이스에 정의된 스마트 컨트랙트 메소드에 의존합니다.
 
@@ -340,7 +340,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).call(options [, callbac
 
 Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                                       |
 |:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -417,7 +417,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 스마트 컨트랙트에 트랜잭션을 보내고 그 메소드를 실행합니다. Note that this can alter the smart contract state.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                          |
 |:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------- |
@@ -514,7 +514,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).estimateGas(options [, 
 
 Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                                      |
 |:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -560,7 +560,7 @@ myContract.methods.myMethod([param1 [, param2[, ...]]]).encodeABI()
 
 이 메소드에 대한 ABI를 인코딩합니다. This can be used to send a transaction, call a method, or pass it into another smart contract method as arguments.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -585,7 +585,7 @@ myContract.once(event [, options], callback)
 
 Subscribes to an event and unsubscribes immediately after the first event or error. 단일 이벤트에 대해서만 발생합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                           |
 |:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -641,7 +641,7 @@ myContract.events.MyEvent([options][, callback])
 
 이벤트를 구독합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                   |
 |:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------------- |
@@ -733,7 +733,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 이 컨트랙트의 이전 이벤트를 가져옵니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                                                                |
 |:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------------- |
