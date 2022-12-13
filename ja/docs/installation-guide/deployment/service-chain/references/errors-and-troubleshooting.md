@@ -1,2 +1,2 @@
-# Errors & Troubleshooting <a id="errors-troubleshooting"></a>
+# エラー & トラブルシューティング <a id="errors-troubleshooting"></a>
 
