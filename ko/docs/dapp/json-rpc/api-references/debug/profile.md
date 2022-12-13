@@ -9,7 +9,7 @@
 |  콘솔   | `debug.blockProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -43,7 +43,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.cpuProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -76,7 +76,7 @@ nsec (nanosecond)에 대한 뮤텍스(mutex) 프로파일링을 시작하고 파
 |  콘솔   | `debug.mutexProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_mutexProfile", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -110,7 +110,7 @@ pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으�
 |  콘솔   | `debug.isPProfRunning()`                           |
 |  RPC  | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -144,7 +144,7 @@ Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니
 |  콘솔   | `debug.setBlockProfileRate(rate)`                             |
 |  RPC  | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입  | 설명                       |
 | ---- | --- | ------------------------ |
@@ -177,7 +177,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startCPUProfile(file)`                             |
 |  RPC  | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -211,7 +211,7 @@ CPU 프로파일링을 중단합니다.
 |  콘솔   | `debug.stopCPUProfile()`                           |
 |  RPC  | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -245,7 +245,7 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 |  콘솔   | `debug.startPProf(address, port)`                            |
 |  RPC  | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                                                       |
 | ------- | ------ | -------------------------------------------------------- |
@@ -286,7 +286,7 @@ pprof HTTP 서버를 중단합니다.
 |  콘솔   | `debug.stopPProf()`                           |
 |  RPC  | `{"method": "debug_stopPProf", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -318,7 +318,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeBlockProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -351,7 +351,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeMemProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -383,7 +383,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeMutexProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeMutexProfile", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
