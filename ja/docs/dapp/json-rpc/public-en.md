@@ -1,83 +1,83 @@
-# Public JSON-RPC Endpoints
+# JSON-RPC公開エンドポイント
 
-Publicly exposed JSON-RPC endpoints allow you to test and run your blockchain products by providing interaction with the Klaytn network without running your own node.
+JSON-RPC エンドポイントを公開すると、独自のノードを実行せずに、Klaytn ネットワークとの相互作用を提供することで、ブロックチェーン製品をテストおよび実行できます。
 
-Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical expertise, monitoring and computing resources. It comes with a cost of maintaining storage, network bandwidth as well as having to divert engineering time and resources; nodes must be kept up to date and health checked regularly. Hence, the main benefit of using an existing Public EN is that it allows you to solely focus on building and testing your blockchain product without the distraction of maintaining infrastructure to connect and interact with the Klaytn network.
+独自のKlaytnエンドポイントノード(EN)を実行することは単純ではありません、それは技術的な専門知識、監視、およびコンピューティングリソースを必要とします。 ストレージ、ネットワーク帯域幅を維持するだけでなく、エンジニアリング時間とリソースを迂回するためのコストが付属しています。 ノードは定期的に最新の状態に保たれている必要があります。 それゆえ、 既存のPublic ENを使用する主な利点は、Klaytnネットワークと接続して相互作用するためのインフラストラクチャを維持することの注意を払うことなく、ブロックチェーン製品の構築とテストに専念できることです。
 
-## Things to Consider
+## 考慮すべきこと
 
-- The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes.
-- If traffic is concentrated on certain nodes, you may experience service delay.
-- To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
+- ノードプロバイダは、トラフィックやノードとの相互作用に起因するいかなる損害や損失についても責任を負いません。
+- トラフィックが特定のノードに集中している場合、サービスの遅延が発生する可能性があります。
+- あまりにも多くのリクエストを防ぐために、レート制限はノード単位で適用されることがあり、事前の通知なしに変更される可能性があります。
 
-## Public JSON-RPC Endpoint Providers
+## JSON-RPC公開エンドポイントプロバイダー
 
-Below is the list of Klaytn’s Public Node Providers and the network domains. (06.23.2022)
+以下は、Klaytnのパブリックノードプロバイダーとネットワークドメインのリストです。 (06.23.2022)
 
-### Mainnet (Cypress) Public JSON-RPC Endpoints
+### Mainnet (サイプレス) パブリック JSON-RPC エンドポイント
 
-Please keep in mind that these endpoints are provided to the community for testing and development purposes. Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
-
-**HTTPS**
-
-| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
-| Fantrie                                            | `https://klaytn01.fautor.app/`                     | klay,eth,net | Full    |
-|                                                    | `https://klaytn02.fautor.app/`                     | klay,eth,net | Full    |
-|                                                    | `https://klaytn03.fautor.app/`                     | klay,eth,net | Full    |
-|                                                    | `https://klaytn04.fautor.app/`                     | klay,eth,net | Full    |
-|                                                    | `https://klaytn05.fautor.app/`                     | klay,eth,net | Full    |
-|                                                    | `https://cypress.fautor.app/archive`               | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
-
-**WebSocket**
-
-| Service Provider                                   | Endpoints                                           | Namespaces   | Type    |
-| -------------------------------------------------- | --------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | Full    |
-| Fantrie                                            | `wss://klaytn01.fautor.app/ws/`                     | klay,eth,net | Full    |
-|                                                    | `wss://klaytn02.fautor.app/ws/`                     | klay,eth,net | Full    |
-|                                                    | `wss://klaytn03.fautor.app/ws/`                     | klay,eth,net | Full    |
-|                                                    | `wss://klaytn04.fautor.app/ws/`                     | klay,eth,net | Full    |
-|                                                    | `wss://klaytn05.fautor.app/ws/`                     | klay,eth,net | Full    |
-|                                                    | `wss://cypress.fautor.app/archive/ws`               | klay,eth,net | Archive |
-
-
-## Testnet (Baobab) Public JSON-RPC Endpoints
+これらのエンドポイントは、テストと開発の目的のためにコミュニティに提供されます。 エンドポイントの稼働時間と安定性を保証することはできませんので、商用目的では使用しないでください。
 
 **HTTPS**
 
-| Service Provider                                   | Endpoints                                         | Namespaces   | Type    |
-| -------------------------------------------------- | ------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | Full    |
-| Fantrie                                            | `https://baobab01.fautor.app/`                    | klay,eth,net | Full    |
-|                                                    | `https://baobab02.fautor.app/`                    | klay,eth,net | Full    |
-|                                                    | `https://baobab.fautor.app/archive`               | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
+| Service Provider                                   | エンドポイント                                            | 名前空間         | タイプ   |
+| -------------------------------------------------- | -------------------------------------------------- | ------------ | ----- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | フル    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | フル    |
+| Fantrie                                            | `https://klaytn01.fautor.app/`                     | klay,eth,net | フル    |
+|                                                    | `https://klaytn02.fautor.app/`                     | klay,eth,net | フル    |
+|                                                    | `https://klaytn03.fautor.app/`                     | klay,eth,net | フル    |
+|                                                    | `https://klaytn04.fautor.app/`                     | klay,eth,net | フル    |
+|                                                    | `https://klaytn05.fautor.app/`                     | klay,eth,net | フル    |
+|                                                    | `https://cypress.fautor.app/archive`               | klay,eth,net | アーカイブ |
+| [すべてのノード](www.allthatnode.com)                     | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | フル    |
 
 **WebSocket**
 
-| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | Full    |
-| Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | Full    |
-|                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | Full    |
-|                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | Archive |
+| Service Provider                                   | エンドポイント                                             | 名前空間         | タイプ   |
+| -------------------------------------------------- | --------------------------------------------------- | ------------ | ----- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | フル    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | フル    |
+| Fantrie                                            | `wss://klaytn01.fautor.app/ws/`                     | klay,eth,net | フル    |
+|                                                    | `wss://klaytn02.fautor.app/ws/`                     | klay,eth,net | フル    |
+|                                                    | `wss://klaytn03.fautor.app/ws/`                     | klay,eth,net | フル    |
+|                                                    | `wss://klaytn04.fautor.app/ws/`                     | klay,eth,net | フル    |
+|                                                    | `wss://klaytn05.fautor.app/ws/`                     | klay,eth,net | フル    |
+|                                                    | `wss://cypress.fautor.app/archive/ws`               | klay,eth,net | アーカイブ |
 
-## Useful Resources
 
-- Wallet: Kaikas is a browser extension wallet for the Klaytn Network. [Kaikas](https://docs.klaytn.foundation/dapp/developer-tools/kaikas)
+## Testnet (Baobab) 公開 JSON-RPC エンドポイント
 
-- Faucet: You can obtain test KLAY for the Baobab test network. [Faucet](https://docs.klaytn.foundation/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
+**HTTPS**
 
-- Explorer: Klaytnscope is the block explorer for the Klaytn Network. [Klaytnscope](https://docs.klaytn.foundation/dapp/developer-tools/klaytnscope)
+| Service Provider                                   | エンドポイント                                           | 名前空間         | タイプ   |
+| -------------------------------------------------- | ------------------------------------------------- | ------------ | ----- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | フル    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | フル    |
+| Fantrie                                            | `https://baobab01.fautor.app/`                    | klay,eth,net | フル    |
+|                                                    | `https://baobab02.fautor.app/`                    | klay,eth,net | フル    |
+|                                                    | `https://baobab.fautor.app/archive`               | klay,eth,net | アーカイブ |
+| [すべてのノード](www.allthatnode.com)                     | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net | フル    |
 
-- ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
+**WebSocket**
 
-- Gas price: Fixed at 250 ston [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
+| Service Provider                                   | エンドポイント                                            | 名前空間         | タイプ   |
+| -------------------------------------------------- | -------------------------------------------------- | ------------ | ----- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | フル    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | フル    |
+| Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | フル    |
+|                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | フル    |
+|                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | アーカイブ |
+
+## 有用なリソース
+
+- Wallet: Klaytn Network用のブラウザ拡張ウォレットです。 [Kaikas](https://docs.klaytn.foundation/dapp/developer-tools/kaikas)
+
+- Faucet: Baobabテストネットワーク用のテストKLAYを取得できます。 [Faucet](https://docs.klaytn.foundation/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
+
+- Explorer: Klaytnscopeは、Klaytn Networkのブロックエクスプローラです。 [Klaytnscope](https://docs.klaytn.foundation/dapp/developer-tools/klaytnscope)
+
+- チェーンID : バオバブ: 1001 (0x3E9), サイプレス: 8217 (0x2019)
+
+- ガス価格: 250 ston [取引手数料](https://docs.klaytn.com/klaytn/design/transaction-fees) で修正
 
