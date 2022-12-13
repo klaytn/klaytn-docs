@@ -50,7 +50,7 @@ NOTE: This document contains computation costs used before the activation of the
 | SHR            |            1346 |
 | SAR            |            1815 |
 | SHA3           |            2465 |
-| ADDRESS        |             284 |
+| アドレス           |             284 |
 | BALANCE        |            1407 |
 | ORIGIN         |             210 |
 | CALLER         |             188 |
@@ -69,7 +69,7 @@ NOTE: This document contains computation costs used before the activation of the
 | BLOCKHASH      |             500 |
 | COINBASE       |             189 |
 | TIMESTAMP      |             265 |
-| NUMBER         |             202 |
+| 番号             |             202 |
 | DIFFICULTY     |             180 |
 | GASLIMIT       |             166 |
 | POP            |             140 |
