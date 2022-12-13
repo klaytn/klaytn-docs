@@ -1,23 +1,23 @@
-# Metaverse Package
+# メタバースパッケージ
 
-## Lowering the barrier to entry <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
+## バリアを下げてエントリーします。 <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
 
-![Klaytn offers end-to-end integration including a built-in L2 solution](../../klaytn2/images/mainnet-integration.png)
+![Klaytnは組み込みL2ソリューションを含むエンドツーエンドの統合を提供します。](../../klaytn2/images/mainnet-integration.png)
 
-It is clear that blockchain technology will serve as the critical trust layer for the metaverse.
+ブロックチェーン技術が、メタバーにとって重要な信頼層となることは明らかです。
 
-However, between the fledgling state of blockchain tech and the difficulty of selecting the right tools and components, blockchain development is still filled with hurdles.
+しかし、ブロックチェーン技術の駆け出しの状態と、適切なツールとコンポーネントを選択することの難しさの間で、ブロックチェーンの開発は依然としてハードルでいっぱいです。
 
-That’s why we put together an end-to-end package that’s designed to help builders of metaverse enter the blockchain world as smoothly as possible.
+メタバースのビルダーができるだけスムーズにブロックチェーンの世界に入るのを助けるように設計されたエンドツーエンドのパッケージを私たちがまとめたのはそのためです。
 
-## Klaytn’s ‘Metaverse Package’ <a href="#klaytns-metaverse-package" id="klaytns-metaverse-package"></a>
+## Klaytnの「メタバースパッケージ」 <a href="#klaytns-metaverse-package" id="klaytns-metaverse-package"></a>
 
-Primary Infrastructure: Tool sets for end-to-end blockchain integration and building Customized L2 solution SDKs and smart contract libraries Wallets and chain explorers Distributed storage solutions Oracle support Bridges
+主要なインフラストラクチャ:エンドツーエンドのブロックチェーン統合と構築のためのツールセット カスタマイズされたL2ソリューションSDKとスマートコントラクトライブラリ ウォレットとチェーンエクスプローラー 分散ストレージソリューション Oracleのサポート ブリッジ
 
-Secondary Infrastructure: Ecosystem for supporting products and services Integration/abstraction services Stablecoin integrations DAOs NFT Marketplaces DEX and DeFi Traditional finance interfaces
+セカンダリインフラストラクチャ:製品とサービスをサポートするエコシステム 統合/抽象化サービス 安定した統合 DAO NFT Marketplaces DEXとDeFi 従来の金融インターフェイス
 
-• This package will be managed by our dedicated package manager.
+• このパッケージは当社の専用パッケージマネージャーによって管理されます。
 
-• Builders can easily build and customize Layer 2 as well as create/transfer assets.
+• ビルダーはレイヤー2を簡単に構築およびカスタマイズし、アセットを作成/転送できます。
 
-With our metaverse package, the complexity of blockchain will no longer get in the way of realizing your aspirations.
+私たちのメタバースパッケージでは、ブロックチェーンの複雑さはもはやあなたの願望を実現する邪魔になりません。
