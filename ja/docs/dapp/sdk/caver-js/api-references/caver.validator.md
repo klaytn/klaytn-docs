@@ -1,10 +1,10 @@
-# caver.validator <a id="caver-validator"></a>
+# caver.validator
 
 The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
 
 **NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-## validateSignedMessage <a id="validatesignedmessage"></a>
+## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
 ```javascript
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
@@ -14,17 +14,16 @@ Validates a signed message by comparing the public key recovered from the signat
 
 **Parameters**
 
-| Name       | Type                | Description                                                                                                                                                                                                                                               |
-| ---------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | string              | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                        |
-| signatures | object &#124; Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address    | string              | The address of the account that signed the message.                                                                                                                                                                                                       |
-| isHashed   | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                           |
+| Name       | Type      | Description                                                                                                                                                                                                                                                             |
+| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message    | string    | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                                      |
+| signatures | object \ | Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| address    | string    | The address of the account that signed the message.                                                                                                                                                                                                                     |
+| isHashed   | boolean   | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                                         |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
-
 
 **Examples**
 
@@ -49,7 +48,7 @@ const signature = [
 > caver.validator.validateSignedMessage(hashedMessage, signature, address, true).then(console.log)
 ```
 
-## validateTransaction <a id="validatetransaction"></a>
+## validateTransaction <a href="#validatetransaction" id="validatetransaction"></a>
 
 ```javascript
 caver.validator.validateTransaction(tx)
@@ -59,14 +58,13 @@ Validates a transaction. This function compares the public keys from the account
 
 **Parameters**
 
-| Name | Type   | Description                                 |
-| ---- | ------ | ------------------------------------------- |
-| tx   | object | An instance of [Transaction][] to validate. |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
-
 
 **Examples**
 
@@ -80,7 +78,7 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateTransaction(tx).then(console.log)
 ```
 
-## validateSender <a id="validatesender"></a>
+## validateSender <a href="#validatesender" id="validatesender"></a>
 
 ```javascript
 caver.validator.validateSender(tx)
@@ -90,14 +88,13 @@ Validates the sender of the transaction. This function compares the public keys 
 
 **Parameters**
 
-| Name | Type   | Description                                 |
-| ---- | ------ | ------------------------------------------- |
-| tx   | object | An instance of [Transaction][] to validate. |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
-
 
 **Examples**
 
@@ -106,7 +103,7 @@ const tx = caver.transaction.valueTransfer.create({...})
 > caver.validator.validateSender(tx).then(console.log)
 ```
 
-## validateFeePayer <a id="validatefeepayer"></a>
+## validateFeePayer <a href="#validatefeepayer" id="validatefeepayer"></a>
 
 ```javascript
 caver.validator.validateFeePayer(tx)
@@ -116,14 +113,13 @@ Validates a fee payer in the transaction. This function compares the public keys
 
 **Parameters**
 
-| Name | Type   | Description                                 |
-| ---- | ------ | ------------------------------------------- |
-| tx   | object | An instance of [Transaction][] to validate. |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
-
 
 **Examples**
 
@@ -131,5 +127,3 @@ Validates a fee payer in the transaction. This function compares the public keys
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateFeePayer(tx).then(console.log)
 ```
-
-[Transaction]: ./caver.transaction/README.md#class
