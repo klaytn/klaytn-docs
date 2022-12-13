@@ -1,18 +1,18 @@
-# Creating Accounts <a id="creating-accounts"></a>
+# アカウントの作成 <a id="creating-accounts"></a>
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## 新規アカウントの作成 <a id="creating-a-new-account"></a>
 
-This will create a new account and print the address on the screen. A keystore file is created under the data directory.
+これにより、新しいアカウントが作成され、画面にアドレスが印刷されます。 データディレクトリの下にキーストアファイルが作成されます。
 
-**Klaytn Keystore File**
+**Klaytn キーストアファイル**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+アカウントを作成すると、キーストアファイルが作成されます。 keystore ファイルは、トランザクションに署名するために使用する固有の Klaytn 秘密鍵の暗号化されたバージョンです。 キーストアのファイル名には、次の形式があります。
 
 * `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
+ディレクトリ全体または個々のキーストアファイルを Klaytn ノード間で転送しても安全です。 別のノードからキーを追加する場合、アカウントの順序が変わることに注意してください。 したがって、スクリプトやコードスニペット内のインデックスに依存しないようにしてください。
 
-### ken <a id="ken"></a>
+### <unk> <a id="ken"></a>
 
 ```bash
 $ ken account new --datadir <DATADIR>
@@ -20,50 +20,50 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
+**`警告`**: パスワードファイルの使用はテストのみに使用されることに注意してください; パスワードをファイルに保存したり、他の方法で公開するのは悪い考えだ パスワードファイルでパスワードフラグを使用する場合 ファイルが読めないことを確認するのが最善だ 君以外の誰にでも読めない 次のように達成しました：
 
 ```bash
 $ touch /path/to/password
 $ chmod 700 /path/to/password
 $ cat > /path/to/password
-I type my pass here
+ここにパスを入力します
 ^D
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript コンソール <a id="javascript-console"></a>
 
-On the console, you can call the following function to create an account:
+コンソールでは、次の関数を呼び出してアカウントを作成できます。
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
+アカウントは暗号化されたフォーマットで保存されます。 将来あなたのアカウントをロック解除するには、 **** このパスフレーズを覚えておいてください。
 
-## Importing an Account <a id="importing-an-account"></a>
+## アカウントのインポート <a id="importing-an-account"></a>
 
-You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
+キーファイルを使用してアカウントをインポートできます。 鍵ファイルには、暗号化されていない秘密鍵が hex にエンコードされた正規の EC raw バイトとして含まれていると仮定されます。 簡単に言うと、それは主要な `00x`を持たないプレーンテキストの秘密鍵です。
 
-This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
+指定されたキーファイルから暗号化されていない秘密鍵をインポートし、新しいアカウントを作成します。 データディレクトリの下にキーストアファイルを生成し、コンソールのアドレスを出力します。 今後アカウントのロックを解除するにはパスフレーズを覚えておく必要があります。
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**注**: キーストアのファイルを別の Klaytn インスタンスに直接コピーできる場合、このインポート/エクスポートの仕組みは必要ありません。
 
-### ken <a id="ken-1"></a>
+### <unk> <a id="ken-1"></a>
 
 ```bash
 $ ken account import <keyfile> --datadir <DATADIR>
 $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### JavaScript Console <a id="javascript-console-1"></a>
+### JavaScript コンソール <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
-"0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"​
+"0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"<unk>
 
-// Using a Klaytn wallet key
+// Klaytnウォレットキーを使用する
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
-"0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
+"0xfa415b3e6231f488ff39eb2897db0ef3636dd32"
 ```
 
 
