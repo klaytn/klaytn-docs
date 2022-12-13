@@ -1,10 +1,10 @@
 ---
 description: >-
-  This section covers the development resources for the Smart Contract development.
+  このセクションでは、スマートコントラクト開発の開発リソースについて説明します。
 ---
 
-# Overview <a id="overview"></a>
+# 概要 <a id="overview"></a>
 
-To write smart contracts, Klaytn currently supports [Solidity](https://github.com/ethereum/solidity) as the primary programming language. Solidity is adopted in Klaytn because it is a _de facto_ standard contract programming language for Ethereum and has a large user base and an active community. The Klaytn team decided to provide the users with familiar development experience so that the Ethereum DApp developers could easily experiment with or migrate their existing smart contracts to Klaytn.
+スマートコントラクトを記述するために、Klaytnは現在、プライマリプログラミング言語として [Solidity](https://github.com/ethereum/solidity) をサポートしています。 SolidityはEthereumの _デファクト_ 標準コントラクトプログラミング言語であり、大規模なユーザーベースとアクティブなコミュニティを持っているため、Klaytnで採用されています。 Klaytnチームは、Ethereum DApp開発者が既存のスマートコントラクトをKlaytnに簡単に実験または移行できるように、使い慣れた開発経験をユーザーに提供することを決定しました。
 
-In the future, Klaytn also plans to support writing smart contracts using other programming languages. The Klaytn team is investigating various favorable programming languages that developers might embrace.
+将来的には、Klaytnは他のプログラミング言語を使用してスマートコントラクトの作成もサポートする予定です。 Klaytnチームは、開発者が受け入れる可能性のあるさまざまな有利なプログラミング言語を調査しています。
