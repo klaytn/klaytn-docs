@@ -1,21 +1,21 @@
-# Decentralizing Governance
+# ガバナンスの分散化
 
-## Our Unique Governance Structure Delivers Decentralization with Stability
+## 当社独自のガバナンス体制は安定性を備えた分散化をもたらします
 
 ![](../../klaytn2/images/governance.png)
 
-## Response to the Growth of Non-traditional Entities <a href="#response-to-non-traditional-entities" id="response-to-non-traditional-entities"></a>
+## 非伝統的エンティティの成長への対応 <a href="#response-to-non-traditional-entities" id="response-to-non-traditional-entities"></a>
 
-With technological advancement, we will live in a more metaversified world where the influence of non-traditional entities such as builders contributing to the operation of the metaverse and DAOs as a major form of organization in the metaverse will continue to grow.
+技術の進歩により 私たちは、メタバースにおける主要な組織としてのメタバースとDAOの運営に貢献する建築家などの非伝統的な実体の影響が増大し続ける、よりメタバース化された世界に住んでいます。
 
-## Diversification of Governance Participants <a href="#diversification-of-governance-participants" id="diversification-of-governance-participants"></a>
+## ガバナンス参加者の多様化 <a href="#diversification-of-governance-participants" id="diversification-of-governance-participants"></a>
 
-In addition to traditional enterprises, by bringing the two decentralized entities into Klaytn Governance Council (GC), we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
+伝統的な企業に加えて、2つの分散型エンティティをKlaytn Governance Council(GC)に導入することによって。 私たちは、Klaytnのガバナンス構造全体を前例のない方法で再構築する可能性を開き、何百人ものガバナンス参加者と共にいます。
 
-## Voting Power that Scales with Community Support <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
+## コミュニティサポートで拡大する投票力 <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
 
-A stake-based governance model will be introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient will be discontinued soon. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
+ステークスベースのガバナンスモデルを導入し、Klaytn コミュニティからより多くのサポートを集めて、Klaytn を自分の好みに合わせて形作ることができるガバナンス参加者を可能にする。 ジニ係数はまもなく廃止されます。 メタファタイズされた世界で適切な決定をすることができるエンティティは、Klaytn GCでより多くの影響を持つでしょう。 私たちは、DAOとビルダーが将来的にシーンをリードすると信じています。
 
-## Ultimate Goal of Decentralization <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
+## 分権化の究極の目標 <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
 
-When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with DAOs and builders. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
+メタバージョンのレベルがクリティカル閾値を超えると、KlaytnガバナンスはDAOとビルダーによって完全に分散されます。 最終的に、KlaytnはDAOのDAOとDAOがKlaytnコミュニティの声を伝えるためのプラットフォームに進化します。
