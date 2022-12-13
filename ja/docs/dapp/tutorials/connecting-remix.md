@@ -1,104 +1,104 @@
-# Connecting Remix
+# リミックスに接続中
 
-## What is Remix <a href="#what-is-remix" id="what-is-remix"></a>
+## リミックスとは <a href="#what-is-remix" id="what-is-remix"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/#klaytn-ide), which was derived from Remix.
+Remix は、Solidity コントラクトを開発するためのブラウザベースの IDE (Integrated Development Environment) です。 このドキュメントでは、Remix と Klaytn の接続について説明します。 Remixの使い方についてもっと知りたい場合[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) または [**Klaytn IDE**](../../smart-contract/ide-and-tools/#klaytn-ide)を参照してください。 Remixから派生したものです
 
 > Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
 
-## Setup EVM version <a href="#setup-evm-version" id="setup-evm-version"></a>
+## EVMバージョンのセットアップ <a href="#setup-evm-version" id="setup-evm-version"></a>
 
-Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
+KlaytnはSolidityで書かれた契約をサポートし、EVMの **London** バージョンと互換性があります。 また、KlaytnではSolidityバージョン0.8.x以下がサポートされています。 そのため、コントラクトを Klaytn にデプロイするには、コントラクトを **ロンドン** EVM バージョンでコンパイルする必要があります。
 
-* Click **solidity compiler**, and then choose **London** EVM version in 'Advanced Configurations'.
+* **solidity compiler**をクリックし、'Advanced Configurations' で **London** EVMバージョンを選択します。
 
-![Solidity Complier](img/remix-solidity-compiler.png)
+![不安定度](img/remix-solidity-compiler.png)
 
-## Connect to a local plugin <a href="#connect-to-a-local-plugin" id="connect-to-a-local-plugin"></a>
+## ローカルプラグインに接続 <a href="#connect-to-a-local-plugin" id="connect-to-a-local-plugin"></a>
 
-You need a local plugin to connect to the Klaytn network using Remix. The process is described in the following:
+Remixを使用してKlaytnネットワークに接続するにはローカルプラグインが必要です。 このプロセスについては、以下のとおりです。
 
-* Click **plugin manager**, and then click **Connect to a Local Plugin**.
+* **プラグインマネージャー**をクリックし、 **ローカル プラグインに接続** をクリックします。
 
-![Plugin](../../bapp/tutorials/img/remix-environment-plugin.png)
+![プラグイン](../../bapp/tutorials/img/remix-environment-plugin.png)
 
-* Put https://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
+* https://klaytn-remix-plugin.ozys.net を **URL** に入れてください。 **プラグイン名** と **表示名** で、任意の名前を使用します。
 
-![Local Plugin](../../bapp/tutorials/img/remix-local-plugin.png)
+![ローカルプラグイン](../../bapp/tutorials/img/remix-local-plugin.png)
 
-* If the \[Klaytn] tab appears, you are ready to interact with Klaytn.
+* \[Klaytn] タブが表示されたら、Klaytnと対話する準備ができます。
 
-## Setting up the Deployment Environment <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
+## 配備環境の設定 <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
 
-* Click on the \[Klaytn] tab.
-* Select the appropriate \[Environment].
+* \[Klaytn] タブをクリックします。
+* 適切な \[Environment] を選択します。
 * You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
-  * **\[Baobab]**: Connects to the Baobab network
-  * **\[Cypress]**: Connects to the Cypress network
-  * **\[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
-  * **\[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
-  * **\[Injected Web3]**: Connects to injected web3(e.g., Metamask)
+  * **\[Baobab]**: Baobabネットワークに接続
+  * **\[Cypress]**: サイプレスネットワークに接続
+  * **\[Injected Caver]**: 注入された洞窟に接続します(例: Kaikas)
+  * **\[Caver Provider]**: RPCをサポートするKlaytnノードに直接接続します。
+  * **\[Injected Web3]**: 注入されたWeb3に接続します(例 Metamask)
 
 ![Klaytn Tab](../../bapp/tutorials/img/remix-klaytn-tab.png)
 
-## Import account <a href="#import-account" id="import-account"></a>
+## アカウントをインポート <a href="#import-account" id="import-account"></a>
 
-* You can import keys from **private key** or **Keystore**.
-* Click **plus** button next to the **ACCOUNT**.
+* **秘密キー** または **キーストア** からキーをインポートできます。
+* **アカウント** の横にある **+**ボタンをクリックします。
 
-![Import Keys](../../bapp/tutorials/img/remix-klaytn-import-account.png)
+![キーをインポート](../../bapp/tutorials/img/remix-klaytn-import-account.png)
 
-* Then put private key or keystore.
-* You can also import keys for the **feePayer**. It only supports **private key**.
+* 秘密鍵またはキーストアを入れてください。
+* **feePayer** のキーをインポートすることもできます。 **秘密キー** のみをサポートします。
 
-## Connecting Klaytn - Remix using EN (Endpoint Node) <a href="#connecting-klaytn-remix-using-en" id="connecting-klaytn-remix-using-en"></a>
+## 接続Klaytn - EN (エンドポイント ノード) を使用してリミックス <a href="#connecting-klaytn-remix-using-en" id="connecting-klaytn-remix-using-en"></a>
 
-* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en).
-*   Create an account by following the instructions in [**Account Management**](https://docs.klaytn.foundation/getting-started/account).
+* [**ENドキュメント**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en) の指示に従って、ローカル環境でエンドポイントノードを設定します。
+*   [**アカウント管理**](https://docs.klaytn.foundation/getting-started/account) の手順に従ってアカウントを作成します。
 
-    > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
-* Select \[Caver Provider] in the Environment menu.
+    > **注意:** BaobabからPublic ENを使用する場合は、ローカル環境ではなく、使用する場合。 個人用APIが無効になっているため、アカウントに接続されません。
+* 環境メニューから \[Caver Provider] を選択します。
 
-![Caver Provider](img/env-caver-provider.png)
+![Caver プロバイダー](img/env-caver-provider.png)
 
-* Enter the RPC address of the EN in the Caver Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
-* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+* Caver Provider EndpointにENのRPCアドレスを入力します。 ローカル EN (デフォルト): [http://localhost:8551](http://localhost:8551/)
+* ネットワークに正常に接続すると、接続されているネットワークのチェーンIDとアカウントが表示されます。
 
-## Connecting Klaytn - Remix using MetaMask <a href="#connecting-klaytn-remix-using-metamask" id="connecting-klaytn-remix-using-metamask"></a>
+## Connecting Klaytn - MetaMask を使ってリミックスする <a href="#connecting-klaytn-remix-using-metamask" id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
-* Select \[Injected Web3] on the Remix Environment menu.
+* [**MetaMask への接続**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask) を参照して、Klaytn と MetaMask を接続します。
+* Remix Environment メニューから \[Injected Web3] を選択します。
 
-![Injected Web3](img/env-injected-web3.png)
+![注入されたWeb3](img/env-injected-web3.png)
 
-* When you see the MetaMask pop-up, select the account by clicking it.
-* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+* MetaMask ポップアップが表示されたら、そのアカウントをクリックして選択します。
+* ネットワークに正常に接続すると、接続されているネットワークのチェーンIDとアカウントが表示されます。
 
-## Connecting Klaytn - Remix using Kaikas <a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
+## Klaytn を接続 - Kaikas を使ってリミックスする <a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
 
-* Select \[Injected Caver] on the Remix Environment menu.
+* Remix Environmentメニューで\[Injected Caver] を選択します。
 
-![Injected Caver](img/env-injected-caver.png)
+![注入されたCaver](img/env-injected-caver.png)
 
-* When you see the Kaikas pop-up, click \[Connect].
-* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+* Kaikasポップアップが表示されたら、\[Connect] をクリックします。
+* ネットワークに正常に接続すると、接続されているネットワークのチェーンIDとアカウントが表示されます。
 
-## Tutorial: KlaytnGreeter Contract <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
+## チュートリアル: KlaytnGreeter Contract <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
 
-We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) sample contract.
+[**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) サンプルコントラクトを使用します。
 
-* Add KlaytnGreeter.sol and write the testing code.
+* KlaytnGreeter.sol を追加し、テストコードを記述します。
 
-![Add KlaytnGreeter](../../bapp/tutorials/img/remix-add-klaytngreeter.png)
+![KlaytnGreeterを追加](../../bapp/tutorials/img/remix-add-klaytngreeter.png)
 
-* On the Solidity Compile tab, select \[Compile KlaytnGreeter.sol] to compile the contract code.
+* Solidity Compile タブで \[Compile KlaytnGreeter.sol] を選択し、コントラクトコードをコンパイルします。
 
-> It is better to turn on the 'Auto compile' option.
+> 「自動コンパイル」オプションをオンにすることをお勧めします。
 
-* In the Deploy & Run Transactions tab, click \[Deploy] to deploy the compiled contract.
+* Deploy & Run Transactions タブで、\[Deploy] をクリックしてコンパイルされたコントラクトをデプロイします。
 
-![Deploy the Contract](../../bapp/tutorials/img/remix-deploy-run-tx.png)
+![コントラクトを展開](../../bapp/tutorials/img/remix-deploy-run-tx.png)
 
-* You can view the deployed contract. You can test or debug it.
+* デプロイ済みコントラクトを表示できます。 テストまたはデバッグができます。
 
-![Check the Contract](../../bapp/tutorials/img/remix-test-or-debug.png)
+![契約を確認する](../../bapp/tutorials/img/remix-test-or-debug.png)
