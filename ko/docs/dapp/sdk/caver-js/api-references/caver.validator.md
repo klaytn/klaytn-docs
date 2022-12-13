@@ -12,7 +12,7 @@ caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 
 Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입        | 설명                                                                                                                                                                                                                                                                      |
 | -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ caver.validator.validateTransaction(tx)
 
 Validates a transaction. This function compares the public keys from the account key of the Klaytn account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입 | 설명                                                                  |
 | -- | -- | ------------------------------------------------------------------- |
@@ -86,7 +86,7 @@ caver.validator.validateSender(tx)
 
 Validates the sender of the transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입 | 설명                                                                  |
 | -- | -- | ------------------------------------------------------------------- |
@@ -111,7 +111,7 @@ caver.validator.validateFeePayer(tx)
 
 Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입 | 설명                                                                  |
 | -- | -- | ------------------------------------------------------------------- |
