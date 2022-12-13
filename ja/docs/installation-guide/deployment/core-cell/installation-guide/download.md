@@ -1,3 +1,3 @@
-# Download <a id="download"></a>
+# ダウンロード <a id="download"></a>
 
-You can get packages for CN, and PN in the [download page](../references/download/README.md).
+[ダウンロードページ](../references/download/README.md) で CNおよびPNのパッケージを取得できます。
