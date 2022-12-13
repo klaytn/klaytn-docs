@@ -1,55 +1,55 @@
 # H/A Setup <a id="h-a-setup"></a>
 
-Configuring the CN for high availability is critical for effectively operating a Core Cell. The recommended high availability scheme depends on whether the Core Cell is deployed on physical or cloud infrastructure.
+高可用性を実現するためにCNを設定することは、コアセルを効果的に操作するために重要です。 推奨される高可用性スキームは、コアセルが物理インフラストラクチャまたはクラウドインフラストラクチャに展開されるかによって異なります。
 
-## Active-Standby \(recommended for bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
+## アクティブスタンバイ\（ベアメタルに推奨） <a id="active-standby-recommended-for-bare-metal"></a>
 
-In this configuration, two CN nodes are installed in active-standby configuration. During normal operation the active node participates in block generation, while the standby only synchronizes chaindata from the network. This configuration ensures that the standby CN node has a fresh copy of the chaindata in the event of a failure in the active node.
+この設定では、アクティブスタンバイ設定に2つのCNノードがインストールされます。 通常の動作中、アクティブノードはブロック生成に参加し、スタンバイはネットワークからのチェーンデータのみを同期します。 この構成により、スタンバイCNノードは、アクティブノードで障害が発生した場合にチェーンデータの新しいコピーを持つことが保証されます。
 
-### Setup <a id="setup"></a>
+### セットアップ <a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Install a standby CN. The configuration is the same as the active CN except:
-   * The standby should use a different `nodekey`
-   * Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
+1. アクティブな CNの `nodekey` のバックアップを作成します。
+2. スタンバイCNをインストールします。 設定はアクティブなCNの例外と同じです:
+   * スタンバイは異なる `nodekey`を使用する必要があります
+   * プッシュ通知のアドレスを `$DATA_DIR/static-nodes.json に追加します`
 
-### Failover <a id="failover"></a>
+### フェイルオーバー <a id="failover"></a>
 
-1. Stop the standby CN: `sudo systemctl stop kcnd`
-2. Replace the `nodekey` of the standby with the `nodekey` of the failed active CN.
-3. Reassign the IP address of the active CN to the standby CN.
-4. Start the standby CN and verify that it is in sync with the network: `sudo systemctl start kcnd`
+1. スタンバイCNを停止: `sudo systemctl stop kcnd`
+2. スタンバイの `nodekey` を failed active CNの `nodekey` に置き換えます。
+3. アクティブなCNのIPアドレスをスタンバイCNに再割り当てます。
+4. スタンバイCNを起動し、ネットワークと同期していることを確認します: `sudo systemctl start kcnd`
 
-## Machine Image & Snapshot \(recommended for cloud\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
+## マシンイメージ & スナップショット \(クラウドに推奨) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
-Cloud infrastructure allows operators to replace failed nodes much more quickly, so it is not necessary to operate a second standby CN. Instead, it is sufficient to ensure that a new CN can be quickly provisioned and provided with a updated copy of the chaindata.
+クラウド・インフラストラクチャにより、オペレータは失敗したノードをより迅速に置き換えることができますので、第二のスタンバイCNを操作する必要はありません。 代わりに、新しいCNがすぐにプロビジョニングされ、チェーンデータの更新されたコピーが提供されるようにするだけで十分です。
 
-The exact terminology and procedure may vary across different cloud environments. The procedure below is based on AWS \(specifically EC2 and EBS\), but can be adapted for other cloud platforms.
+正確な用語と手順は、異なるクラウド環境で異なる場合があります。 以下の手順はAWS \(具体的にはEC2とEBS\)に基づいていますが、他のクラウドプラットフォームに適応することができます。
 
-### Setup <a id="setup"></a>
+### セットアップ <a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Each time the CN configuration or software is updated, create a machine image \(e.g. AMI\). Do not include the volume containing `DATA_DIR` in this image -- this will be obtained separately.
+1. アクティブな CNの `nodekey` のバックアップを作成します。
+2. CN構成またはソフトウェアが更新されるたびに、マシンイメージ\(例:AMI\)を作成します。 この画像には `DATA_DIR` を含むボリュームを含まないでください。
 
-### Failover <a id="failover"></a>
+### フェイルオーバー <a id="failover"></a>
 
-Use any of the CC's PN nodes to obtain a chaindata snapshot:
+チェーンデータのスナップショットを取得するには、CCのPNノードのいずれかを使用します。
 
-1. Connect to any PN node and stop kpnd: `sudo systemctl stop kpnd`. It is important to stop kpnd first, to ensure data consistency.
-2. Using the AWS console, create a snapshot of the volume containing the PN's `DATA_DIR`.
+1. PNノードに接続し、kpndを停止: `sudo systemctl stop kpnd`. データの一貫性を確保するために、最初に kpnd を停止することが重要です。
+2. AWSコンソールを使用して、PNの `DATA_DIR`を含むボリュームのスナップショットを作成します。
 3. Start kpnd: `sudo systemctl start kpnd`
 
-Create a new CN using the base CN image and the chaindata image:
+ベースCNイメージとチェーンデータイメージを使用して新しいCNを作成します。
 
-1. Create an instance using the CN image \(created in "Setup" above\).
-2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
-3. Remove all files from the volume except `$DATA_DIR/klay/chaindata`. Confirm that the `DATA_DIR` set in `kcnd.conf` matches the directory containing the chaindata. It may be necessary to rename the directory if the name is different.
-4. Copy the `nodekey` of the failed CN to `$DATA_DIR/klay/nodekey`.
-5. Reassign the IP address of the failed CN to the replacement.
+1. CNイメージ\(上記の「セットアップ」で作成した)を使用してインスタンスを作成します。
+2. プッシュ通知の `$DATA_DIR` のスナップショットから作成されたボリュームを添付します。
+3. `$DATA_DIR/klay/chaindata` を除くすべてのファイルをボリュームから削除します。 `kcnd.conf` に設定された `DATA_DIR` が、チェーンデータを含むディレクトリと一致することを確認します。 名前が違う場合は、ディレクトリ名を変更する必要があるかもしれません。
+4. 失敗した CN の `nodekey` を `$DATA_DIR/klay/nodekey` にコピーします。
+5. 失敗したCNのIPアドレスを置き換えに再割り当てます。
 6. Start kcnd: `sudo systemctl start kcnd`
-7. Verify the CN is in sync with the network.
+7. CNがネットワークと同期していることを確認します。
 
-## Additional Considerations <a id="additional-considerations"></a>
+## 追加の考慮事項 <a id="additional-considerations"></a>
 
-Reassigning the public IP of the failed CN to the replacement CN will allow the replacement to connect immediately to other CNs. If the IP changes, the new CN will not be able to connect to the network until all other CCOs have updated their firewall configurations.
+失敗したCNのパブリックIPを置換CNに再割り当てると、交換はすぐに他のCNに接続することができます。 IPが変更された場合、他のすべてのCCOがファイアウォール設定を更新するまで、新しいCNはネットワークに接続できません。
 
