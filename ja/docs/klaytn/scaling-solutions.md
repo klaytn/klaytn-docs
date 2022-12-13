@@ -16,12 +16,12 @@ Figure 1 shows the network topology of service chains being used to meet various
 
 Figure 2 shows an example of SCN (Service Chain Consensus Node) connected directly with Klaytn main chain’s EN (Endpoint Node) using a main/sub-bridge model in using the service chain’s features.
 
-## Features <a id="features"></a>
+## 特徴 <a id="features"></a>
 Service Chain expands and augments Klaytn by providing a data integrity mechanism and supporting token transfers between different chains.
 
 ### Data Anchoring <a id="data-anchoring"></a>
 For data integrity, Service Chain can automatically anchor every service chain block hash as a special transaction to the main chain. This data anchoring can ensure to the service users that the data in the service chain cannot be altered once it is created.
 
-### Value Transfer <a id="value-transfer"></a>
+### 値の転送 <a id="value-transfer"></a>
 To help the service providers (SPs) to easily migrate service users and values across chains, transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tokens issued by dApps, between different chains can be enabled. Users can easily request to transfer tokens to other chains by sending a transaction to a special contract, called bridge contract.
 
