@@ -11,7 +11,7 @@
 |  콘솔   | `debug.dumpBlock(number)`                           |
 |  RPC  | `{"method": "debug_dumpBlock", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,7 +75,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.dumpStateTrie(number)`                           |
 |  RPC  | `{"method": "debug_dumpStateTrie", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
@@ -114,7 +114,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 [RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
-**Parameters**
+**파라미터**
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -154,7 +154,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
 |  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름             | 타입            | 설명                         |
 | -------------- | ------------- | -------------------------- |
@@ -194,7 +194,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 |  콘솔   | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
 |  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입  | 설명                         |
 | ------------- | --- | -------------------------- |
@@ -233,11 +233,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 |  RPC  | `{"method": "debug_preimage", "params": [hash]}` |
 
 
-**Parameters**
+**파라미터**
 
-| 이름 | 타입     | 설명         |
-| -- | ------ | ---------- |
-| 해시 | string | sha3 hash. |
+| 이름 | 타입     | 설명          |
+| -- | ------ | ----------- |
+| 해시 | string | sha3 해시입니다. |
 
 **리턴값**
 
@@ -268,7 +268,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.getBadBlocks()`                           |
 |  RPC  | `{"method": "debug_getBadBlocks", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -300,7 +300,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.printBlock(number)`                           |
 |  RPC  | `{"method": "debug_printBlock", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -345,7 +345,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  RPC  | `{"method": "debug_setHead", "params": [number]}` |
 
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입     | 설명                     |
 | ------ | ------ | ---------------------- |
@@ -379,7 +379,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  RPC  | `{"method": "debug_seedHash", "params": [number]}` |
 
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입     | 설명        |
 | ------ | ------ | --------- |
@@ -414,7 +414,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startWarmUp()`             |
 |  RPC  | `{"method": "debug_startWarmUp"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -448,7 +448,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startContractWarmUp(address)`                           |
 |  RPC  | `{"method": "debug_startContractWarmUp", "params": [address]}` |
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -484,7 +484,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.stopWarmUp()`       |
 |  RPC  | `{"method": "stopWarmUp"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -517,7 +517,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startCollectingTrieStats(address)`                           |
 |  RPC  | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -548,11 +548,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-Log
+로그
 
 ```
 INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
-...
 INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
