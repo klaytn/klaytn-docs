@@ -2,7 +2,7 @@
 
 Executes a new message call immediately, without creating a transaction on the block chain. The eth_call method can be used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a transaction would be without running it live.
 
-**Parameters**
+**파라미터**
 
 | 이름               | 타입                  | 설명                                                                                                                                                                                                                                                                                            |
 | ---------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ Executes a new message call immediately, without creating a transaction on the b
 | 잔액        | 수량     | (optional) Fake balance to set for the account before executing the call.                                        |
 | 논스        | 수량     | (optional) Fake nonce to set for the account before executing the call.                                          |
 | code      | DATA   | (optional) Fake EVM bytecode to inject into the account before executing the call.                               |
-| state     | Object | (optional) Fake key-value mapping to override all slots in the account storage before executing the call.        |
+| 상태(State) | Object | (optional) Fake key-value mapping to override all slots in the account storage before executing the call.        |
 | stateDiff | Object | (optional) Fake key-value mapping to override individual slots in the account storage before executing the call. |
 
 The goal of the state override set is manyfold:
@@ -132,7 +132,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 트랜잭션 실행을 완료하는 데에 필요한 가스양의 추정치를 생성하여 반환합니다. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including EVM mechanics and node performance.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입     | 설명                                   |
 | ---------- | ------ | ------------------------------------ |
@@ -185,7 +185,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명                    |
 | ------------- | --------------------- |
@@ -234,7 +234,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입                  | 설명                                                                                                                                            |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -283,7 +283,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -479,7 +479,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Please check the [Caution-TransactionReceipt](./caution.md#transaction_receipt) before using this API.
 
-**Parameters**
+**파라미터**
 
 | 이름 | 타입            | 설명          |
 | -- | ------------- | ----------- |
@@ -554,7 +554,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 새 메시지 호출 트랜잭션을 생성하거나 또는 서명된 트랜잭션을 입력으로 받으면 컨트랙트를 생성합니다.
 
-**Parameters**
+**파라미터**
 
 | 타입   | 설명               |
 | ---- | ---------------- |
@@ -600,7 +600,7 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 | -------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from                 | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                             |
 | to                   | 20바이트 크기 DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                                                |
-| gas                  | QUANTITY      | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                       |
+| gas                  | QUANTITY      | (optional) The integer of the gas provided for the transaction's execution. 사용하지 않은 가스는 돌려받습니다.                                                                              |
 | maxFeePerGas         | QUANTITY      | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
 | maxPriorityFeePerGas | QUANTITY      | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).            |
 | input                | DATA          | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.            |
@@ -649,7 +649,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 | -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from                 | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                  |
 | to                   | 20바이트 크기 DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                                     |
-| gas                  | QUANTITY      | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                       |
+| gas                  | QUANTITY      | The integer of the gas provided for the transaction's execution. 사용하지 않은 가스는 돌려받습니다.                                                                              |
 | maxFeePerGas         | QUANTITY      | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                    |
 | maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                               |
 | input                | DATA          | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
@@ -663,7 +663,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 | 이름  | 타입     | 설명                                                            |
 | --- | ------ | ------------------------------------------------------------- |
 | raw | DATA   | A `rawTransaction` string (a RLP-encoded transaction string). |
-| tx  | Object | The transaction object. 객체 속성은 다음의 표를 참고해주세요.                 |
+| tx  | Object | 트랜잭션 객체. 객체 속성은 다음의 표를 참고해주세요.                                |
 
 `tx` has the following properties:
 
