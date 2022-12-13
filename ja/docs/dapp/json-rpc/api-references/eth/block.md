@@ -1,30 +1,30 @@
-## The Default Block Parameter <a id="the-default-block-parameter"></a>
+## デフォルトのブロックパラメータ <a id="the-default-block-parameter"></a>
 
-  When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
+  `eth` 名前空間で API リクエストを送信すると、ブロックの高さは `defaultBlock` パラメータによって決まります。
 
-The following options are possible for the `defaultBlock` parameter:
+`defaultBlock` パラメータには、以下のオプションがあります。
 
-- `HEX String` - an integer block number
-- `String "earliest"` for the earliest/genesis block
-- `String "latest"` - for the latest mined block
-- `String "pending"` - for pending state/transactions
+- `HEX文字列` - 整数ブロック数
+- `アーチスト/ジェネシスブロックの文字列 "firmaryest"`
+- `String "latest"` - 最新の採掘ブロック用
+- `文字列 "pending"` - 保留中の状態/トランザクション用
 
 
 ## eth_blockNumber <a id="eth_blocknumber"></a>
 
-Returns the number of the most recent block.
+直近のブロックの数を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| QUANTITY | Integer of the current block number the client is on. |
+| タイプ | Description                  |
+| --- | ---------------------------- |
+| 品質  | クライアントがオンになっている現在のブロック番号の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -41,21 +41,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHeaderByNumber <a id="eth_getheaderbynumber"></a>
 
-Returns information about a header by number.
+ヘッダに関する情報を数値で返します。
 
-Please check the [Caution-Header](./caution.md#block_header) before using this API.
+この API を使用する前に、 [Caution-Header](./caution.md#block_header) を確認してください。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                   |
+| タイプ                 | Description                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
-**Return Value**
+**戻り値**
 
-See [eth_getHeaderByHash](#eth_getheaderbyhash)
+[eth_getHeaderByHash](#eth_getheaderbyhash) を参照
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -90,43 +90,43 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
 
-Returns information about a header by hash.
+ヘッダーに関する情報をハッシュで返します。
 
-Please check [Caution-Header](./caution.md#block_header) before using this API.
+この API を使用する前に [Caution-Header](./caution.md#block_header) を確認してください。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 32-byte DATA | Hash of a block. |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ。  |
 
-**Return Value**
+**戻り値**
 
-`Object` - A header object, or `null` when no header was found. Otherwise, it returns an error.
+`Object` - ヘッダーが見つからなかった場合、ヘッダーオブジェクト、または `null`。 それ以外の場合は、エラーを返します。
 
-| Name             | Type          | Description                                                                                                               |
-| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | QUANTITY      | The base fee per gas.                                                                                                     |
-| difficulty       | QUANTITY      | The integer of the difficulty for this block.                                                                             |
-| extraData        | DATA          | The "extra data" field of this block.                                                                                     |
-| gasLimit         | QUANTITY      | The maximum gas allowed in this block.                                                                                    |
-| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                                     |
-| hash             | 32-byte DATA  | Hash of the block. `null` when it is a pending block.                                                                     |
-| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block.                                                                               |
-| miner            | 20-byte DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
-| mixHash          | 32-byte DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
-| nonce            | 8-byte DATA   | The hash of the generated proof-of-work.                                                                                  |
-| number           | QUANTITY      | The block number. `null` when it is a pending block.                                                                      |
-| parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                                 |
-| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                               |
-| sha3Uncles       | 32-byte DATA  | The SHA3 of the uncles data in the block.                                                                                 |
-| size             | QUANTITY      | Integer of the size of this block in bytes.                                                                               |
-| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                                            |
-| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                                       |
-| totalDifficulty  | QUANTITY      | The total blockScore of the chain until this block.                                                                       |
-| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                                            |
+| 名前               | タイプ        | Description                                       |
+| ---------------- | ---------- | ------------------------------------------------- |
+| baseFeePerGas    | 品質         | ガス1回あたりの基本料金。                                     |
+| 難易度：             | 品質         | このブロックの難易度の整数。                                    |
+| extraData        | データ        | このブロックの「追加データ」フィールド。                              |
+| gasLimit         | 品質         | このブロックで許可される最大ガス。                                 |
+| gasUsed          | 品質         | このブロック内のすべてのトランザクションによって使用された合計ガス。                |
+| hash             | 32バイトのデータ  | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                |
+| logsBloom        | 256バイトのデータ | ブロックのログのブルームフィルタ。                                 |
+| miner            | 20 バイトのデータ | 採掘報酬が与えられた受益者の住所。                                 |
+| mixHash          | 32バイトのデータ  | 十分な量の計算がこのブロックで実行されている nonce と組み合わされたことを証明するハッシュ。 |
+| nonce            | 8バイトのデータ   | 生成された作業証明のハッシュ。                                   |
+| 数値               | 品質         | ブロック番号 `保留中のブロックの場合は null` です。                    |
+| parentHash       | 32バイトのデータ  | 親ブロックのハッシュ。                                       |
+| receiptsRoot     | 32バイトのデータ  | ブロックのレシートのルートは試してみました。                            |
+| sha3Uncles       | 32バイトのデータ  | ブロック内の叔父のデータのSHA3。                                |
+| サイズ              | 品質         | バイト単位のブロックサイズの整数。                                 |
+| stateRoot        | 32バイトのデータ  | ブロックの最後の状態のルート。                                   |
+| timestamp        | 品質         | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                |
+| totalDifficulty  | 品質         | 合計ブロックこのブロックまでチェーンのスコア。                           |
+| transactionsRoot | 32バイトのデータ  | ブロックのトランザクションのルート。                                |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -162,23 +162,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockByNumber <a id="eth_getblockbynumber"></a>
 
-Returns information about a block by block number.
+ブロック番号でブロックに関する情報を返します。
 
-Please check [Caution-Block](./caution.md#block) before using this API.
+このAPIを使用する前に、 [注意-ブロック](./caution.md#block) をご確認ください。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                               |
+| タイプ                 | Description                                                                                                                                               |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
-| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                        |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| Boolean             | `true` の場合、トランザクションのハッシュのみが `false` の場合、完全なトランザクションオブジェクトを返します。                                                                                           |
 
 
-**Return Value**
+**戻り値**
 
-See [eth_getBlockByHash](#eth_getblockbyhash)
+参照 [eth_getBlockByHash](#eth_getblockbyhash)
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -221,46 +221,46 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
 
-Returns information about a block by hash.
+ハッシュでブロックに関する情報を返します。
 
-Please check [Caution-Block](./caution.md#block) before using this API.
+このAPIを使用する前に、 [注意-ブロック](./caution.md#block) をご確認ください。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                                                                                        |
-| ------------ | -------------------------------------------------------------------------------------------------- |
-| 32-byte DATA | Hash of a block.                                                                                   |
-| Boolean      | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
+| タイプ       | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| 32バイトのデータ | ブロックのハッシュ。                                                      |
+| Boolean   | `true` の場合、トランザクションのハッシュのみが `false` の場合、完全なトランザクションオブジェクトを返します。 |
 
-**Return Value**
+**戻り値**
 
-`Object` - A block object, or `null` when no block was found. Otherwise, it returns an error.
+`Object` - ブロックが見つからない場合はブロックオブジェクト、 `null`。 それ以外の場合は、エラーを返します。
 
-| Name             | Type          | Description                                                                                                               |
-| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | QUANTITY      | The base fee per gas.                                                                                                     |
-| difficulty       | QUANTITY      | The integer of the difficulty for this block                                                                              |
-| extraData        | DATA          | The "extra data" field of this block.                                                                                     |
-| gasLimit         | QUANTITY      | The maximum gas allowed in this block.                                                                                    |
-| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                                     |
-| hash             | 32-byte DATA  | Hash of the block. `null` when it is a pending block.                                                                     |
-| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is a pending block.                                            |
-| miner            | 20-byte DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
-| mixHash          | 32-byte DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
-| nonce            | 8-byte DATA   | The hash of the generated proof-of-work.                                                                                  |
-| number           | QUANTITY      | The block number. `null` when it is a pending block.                                                                      |
-| parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                                 |
-| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                               |
-| sha3Uncles       | 32-byte DATA  | The SHA3 of the uncles data in the block.                                                                                 |
-| size             | QUANTITY      | Integer of the size of this block in bytes.                                                                               |
-| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                                            |
-| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                                       |
-| totalDifficulty  | QUANTITY      | The total blockScore of the chain until this block                                                                        |
-| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                                            |
-| transactions     | Array         | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.                        |
-| uncles           | Array         | Array of uncle hashes.                                                                                                    |
+| 名前               | タイプ        | Description                                                    |
+| ---------------- | ---------- | -------------------------------------------------------------- |
+| baseFeePerGas    | 品質         | ガス1回あたりの基本料金。                                                  |
+| 難易度：             | 品質         | このブロックの難易度の整数                                                  |
+| extraData        | データ        | このブロックの「追加データ」フィールド。                                           |
+| gasLimit         | 品質         | このブロックで許可される最大ガス。                                              |
+| gasUsed          | 品質         | このブロック内のすべてのトランザクションによって使用された合計ガス。                             |
+| hash             | 32バイトのデータ  | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                             |
+| logsBloom        | 256バイトのデータ | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                      |
+| miner            | 20 バイトのデータ | 採掘報酬が与えられた受益者の住所。                                              |
+| mixHash          | 32バイトのデータ  | 十分な量の計算がこのブロックで実行されている nonce と組み合わされたことを証明するハッシュ。              |
+| nonce            | 8バイトのデータ   | 生成された作業証明のハッシュ。                                                |
+| 数値               | 品質         | ブロック番号 `保留中のブロックの場合は null` です。                                 |
+| parentHash       | 32バイトのデータ  | 親ブロックのハッシュ。                                                    |
+| receiptsRoot     | 32バイトのデータ  | ブロックのレシートのルートは試してみました。                                         |
+| sha3Uncles       | 32バイトのデータ  | ブロック内の叔父のデータのSHA3。                                             |
+| サイズ              | 品質         | バイト単位のブロックサイズの整数。                                              |
+| stateRoot        | 32バイトのデータ  | ブロックの最後の状態のルート。                                                |
+| timestamp        | 品質         | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                             |
+| totalDifficulty  | 品質         | 合計ブロックこのブロックまでチェーンのスコア                                         |
+| transactionsRoot | 32バイトのデータ  | ブロックのトランザクションのルート。                                             |
+| 取引               | 行列         | トランザクションオブジェクトの配列、または最後に指定されたパラメータに応じて32バイトのトランザクションハッシュを行います。 |
+| おじさんたち           | 行列         | 伯父のハッシュの配列。                                                    |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -300,23 +300,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
 
-Returns information about a uncle of a block by hash and the uncle's index position. Since there are no uncles in Klaytn, it always returns `null`.
+ブロックの叔父に関する情報をハッシュと叔父の位置から返します。 Klaytn には叔父がいないため、常に `null` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                 |
-| ------------ | --------------------------- |
-| 32-byte DATA | The hash of a block.        |
-| QUANTITY     | The uncle's index position. |
+| タイプ       | Description  |
+| --------- | ------------ |
+| 32バイトのデータ | ブロックのハッシュ。   |
+| 品質        | 叔父のインデックス位置。 |
 
-**Return Value** `null`
+**戻り値** `null`
 
-**Example**
+**例**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2. ","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74389ddb5c", "0x1"],"id":1}' http://localhost:8551 
+ // Result
 
-// Result
+{
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -327,23 +328,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
 
-Returns information about a uncle of a block by number and the uncle's index position. As there are no uncles in Klaytn, it always returns `null`.
+ブロックの叔父についての情報を数値と叔父の位置で返します。 Klaytn には叔父がいないので、常に `null` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                       |
+| タイプ                 | Description                                                                                                                                                       |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
-| QUANTITY            | The uncle's index position.                                                                                                                                       |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
+| 品質                  | 叔父のインデックス位置。                                                                                                                                                      |
 
-**Return Value** `null`
+**戻り値** `null`
 
-**Example**
+**例**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2. ","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551 
+ // Result
 
-// Result
+{
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -354,21 +356,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
 
-Returns the number of transactions in a block matching the given block number.
+指定されたブロック番号に一致するブロック内のトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                       |
+| タイプ                 | Description                                                                                                                                                       |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -385,27 +387,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
-Returns the number of transactions in a block from a block that matches the given hash.
+指定されたハッシュに一致するブロックから、ブロック内のトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description     |
-| ------------ | --------------- |
-| 32-byte DATA | Hash of a block |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ   |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3cccdc2621"],"id":1} http://localhost:8551
 
-// Result
+//
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -416,21 +418,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
-Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
+与えられたブロック番号に一致するブロックから、ブロック内の叔父の数を返します。 Klaytnには叔父がいないので、 `0x0`を返します。 一致するブロックがない場合は `null` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                       |
+| タイプ                 | Description                                                                                                                                                       |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
+| タイプ | Description                                        |
+| --- | -------------------------------------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 一致するブロックがない場合は `null` を返します。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -447,27 +449,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
-Returns the number of uncles in a block from a block matching the given block hash. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
+与えられたブロックハッシュに一致するブロックから、ブロック内の叔父の数を返します。 Klaytnには叔父がいないので、 `0x0`を返します。 一致するブロックがない場合は `null` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description     |
-| ------------ | --------------- |
-| 32-byte DATA | Hash of a block |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ   |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
+| タイプ | Description                                        |
+| --- | -------------------------------------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 一致するブロックがない場合は `null` を返します。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3cccdc2621"],"id":1} http://localhost:8551
 
-// Result
+//
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -480,25 +482,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getStorageAt <a id="eth_getstorageat"></a>
 
-Returns the value from a storage position at a given address.
+指定されたアドレスの格納位置から値を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                            | Description                                                                                                                                                                      |
+| タイプ                             | Description                                                                                                                                                                      |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address of the storage.                                                                                                                                                          |
-| QUANTITY                        | Integer of the position in the storage.                                                                                                                                          |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter), or block hash. |
+| 20 バイトのデータ                      | ストレージのアドレス。                                                                                                                                                                      |
+| 品質                              | ストレージ内の位置の整数。                                                                                                                                                                    |
+| QUANTITY &#124; Tag &#124; Hash | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                         |
-| ---- | ----------------------------------- |
-| DATA | The value at this storage position. |
+| タイプ | Description   |
+| --- | ------------- |
+| データ | このストレージの位置の値。 |
 
-**Example**
+**例**
 
-Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by the address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+正しい位置を計算することは、取得するストレージによって異なります。 `0x295a70b2de5e3953354a6a8344e616ed314d7251` にアドレス `0x391694e7e0b0cce554cb130d723a9d27458f9298` でデプロイされる以下のコントラクトを考えてみましょう。
 
 ```
 contract Storage {
@@ -512,31 +514,31 @@ contract Storage {
 }
 ```
 
-Retrieving the value of `pos0` is straight forward:
+`pos0` の値を取得することは、まっすぐに進みます。
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' http://localhost:8551
 
-{"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
+{"jsonrpc":"2.0","id":1,"result":"1,"result":"0x0000000000000000000000000000004d2"}
 ```
 
-Retrieving an element of the map is harder. The position of an element in the map is calculated with:
+マップの要素を取得するのは難しいです。 マップ内の要素の位置は、次のように計算されます。
 ```javascript
-keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
+ケックケーキ(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
-This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
+つまり、 `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` 次の位置を計算する必要があります：
 ```javascript
-keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
+kecchak(decodeHex("00000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000001"))
 ```
-The Klaytn console which comes with the `klay` library can be used to make the calculation
+`klay` ライブラリに付属のKlaytnコンソールを使用して計算を行うことができます。
 ```javascript
-> var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
+> var key = "0000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Now to fetch the storage:
+次に、ストレージを取得します。
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' http://localhost:8551
 
@@ -546,21 +548,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 ## eth_mining <a id="eth_mining"></a>
 
-Returns `true` if client is actively mining new blocks.
+クライアントが新しいブロックを積極的にマイニングしている場合、 `true` を返します。
 
-**NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that the actual "mining" is only performed by the Consensus Nodes (CNs).
+**注**: 現在、すべてのノードは、トランザクションを再送信するためにデフォルトでマイニングモードになっています。 実際の「マイニング」はコンセンサスノード(CNs)によってのみ実行されることに注意してください。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                                        |
-| ------- | -------------------------------------------------- |
-| Boolean | `true` if the client is mining, otherwise `false`. |
+| タイプ     | Description                                   |
+| ------- | --------------------------------------------- |
+| Boolean | `true` クライアントがマイニングしている場合、そうでなければ `false` です。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -577,25 +579,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_syncing <a id="eth_syncing"></a>
 
-Returns an object with data about the sync status or `false`.
+同期ステータスまたは `false`のデータを持つオブジェクトを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-`Object|Boolean`, an object with sync status data or `false` when not syncing:
+`Object|Boolean`、同期しない場合は `false` の状態データを持つオブジェクト。
 
-| Name          | Type     | Description                                                                                                        |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
-| currentBlock  | QUANTITY | The current block, same as `eth_blockNumber`.                                                                      |
-| highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
-| pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
-| knownStates   | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
+| 名前            | タイプ | Description                                      |
+| ------------- | --- | ------------------------------------------------ |
+| startingBlock | 品質  | インポートを開始したブロック（同期がヘッドに達した後にのみリセットされます）。          |
+| currentBlock  | 品質  | 現在のブロック、 `eth_blockNumber` と同じ。                  |
+| highestBlock  | 品質  | 推定最高ブロック。                                        |
+| pulledStates  | 品質  | 現在までに処理された状態項目の数。  同期モードが「高速」でない場合、ゼロが返されます。     |
+| 既知の状態         | 品質  | プルする必要がある既知の状態エントリの数。  同期モードが「高速」でない場合、ゼロが返されます。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
