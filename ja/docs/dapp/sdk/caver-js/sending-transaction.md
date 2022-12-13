@@ -1,59 +1,59 @@
-## Sending KLAY for Beginners <a id="sending-klay-at-a-glance"></a>
+## 初心者向けにKLAYを送る <a id="sending-klay-at-a-glance"></a>
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Klaytn node, as well as creating a transaction - all of this using caver-js!
+簡単なウォームアップとしてトランザクションを送信してみましょう。 この短い例では、Klaytn ノードに接続するキーストアを作成します。 caver-jsを使用してトランザクションを作成するだけでなく、これらのすべて!
 
-Don't worry if this is your first time using caver-js. Just follow the simple steps below.
+これがcaver-jsを使用するのは初めてであるかどうか心配しないでください。 以下の簡単な手順に従ってください。
 
-### Prerequisites
+### 前提条件
 
-First install the following packages.
-* [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+まず、以下のパッケージをインストールします。
+* [Node.js](https://nodejs.org/en/download/) バージョン ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 * [npm](https://www.npmjs.com/get-npm)
 * [nvm](https://github.com/nvm-sh/nvm)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 *Note:* If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
 
-### 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
-The most simple way to create an account is using the [Klaytn Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
+### 1. アカウントを作成してキーストアをダウンロード <a id="1.-create-an-account-and-download-keystore"></a>
+アカウントを作成する最も簡単な方法は、 [Klaytn Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore) を使用することです。
 
 ![Klaytn Online Toolkit](../images/keystore.png)
 
-Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
+keystore ファイルをダウンロードして、 `keystore.json` のように、もっとシンプルな名前に変更しましょう。
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**トランザクションを送信するにはKLAYが必要です。** [Faucet](https://baobab.wallet.klaytn.foundation/faucet) からBaobab testnetのKLAYテストを受けることができます。 詳細な手順については、 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) を参照してください。
 
-### 2. Initialize Project <a id="2.-initialize-project"></a>
+### 2. プロジェクトを初期化 <a id="2.-initialize-project"></a>
 
-First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
+まず、プロジェクトのフォルダを作成しましょう。 単純に `test` と呼びます。 コマンドラインに移動し、次のように入力します。
 
 ```
 mkdir test
 ```
 
-Now let's navigate to our folder.
+次に、フォルダに移動しましょう。
 
 ```
 cd test
 ```
 
-We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14.
+私たちは、私たちのフォルダにあります, 私たちは、caver-jsをダウンロードします. しかしその前に、 `node.js` のバージョンを確認する必要があります。なぜなら、12 または 14 を使用する必要があるからです。
 
-You can check the version like this:
+以下のようにバージョンを確認できます。
 
 ```
 node --version
 ```
 
-If the version is not 12 or 14, **make sure to change it**. Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
+バージョンが 12 または 14 でない場合は、 **必ず変更してください**。 ここでは、バージョン([14.16.0](https://nodejs.org/dist/latest-v14.x/) ) を使用します。 ノードのバージョンを変更するには、 `nvm use 14.16.0` を入力しましょう。
 
-Now let's initialize our project:
+では、プロジェクトを初期化しましょう。
 
 ```
 npm init
 ```
 
-Since we are just doing a simple test, it doesn't matter how you answer the questions. Keep pressing `enter`.
+私たちは単純なテストをしているだけなので、質問に答える方法は重要ではありません。 `を押し続けて` を入力します。
 
 ```
 
@@ -81,46 +81,46 @@ About to write to /Users/terri.k/test/package.json:
 }
 
 
-Is this OK? (yes)
+Is this OK? (はい)
 ```
 
-Alternatively, you can simply type the command below to skip hitting `enter`:
+あるいは、以下のコマンドを入力するだけで、 `Enter` をスキップすることができます。
 
 ```
 npm init -y
 ```
 
-### 3. Download caver-js <a id="3.-download-caver-js"></a>
+### 3. caver-jsをダウンロード <a id="3.-download-caver-js"></a>
 
-And now we are ready to install caver-js.
+今、私たちはcaver-jsをインストールする準備ができています。
 
 
 ```
 npm install caver-js
 ```
 
-Also, add the below module because we need it:
+また、以下のモジュールを追加する必要があります:
 
 ```
-npm i read
+npm I read
 ```
 
-### 4. Create Test File <a id="4.-create-test-file"></a>
+### 4. テストファイルを作成 <a id="4.-create-test-file"></a>
 
-Let's create a test file named `testcaver.js` like so:
+以下のように、 `testcaver.js` という名前のテストファイルを作成しましょう。
 
 ``` 
-touch testcaver.js
+タッチtestcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KLAY.
+KLAYを転送するトランザクションを送信するために、このファイルにコードを記述します。
 
 
-### 5. Connect to Klaytn Node <a id="5.-connect-to-klaytn-node"></a>
+### 5. Klaytn ノードに接続 <a id="5.-connect-to-klaytn-node"></a>
 
-Since we are sending a transaction to the blockchain network, we need to connect to a Klaytn node. We will be using Klaytn's testnet Baobab.
+ブロックチェーンネットワークにトランザクションを送信しているので、Klaytnノードに接続する必要があります。 Klaytnのtestnet Baobabを使用します。
 
-We will import the `caver-js` and `read` module and connect to a Klaytn node in the Baobab network as shown below:
+`caver-js` と `` モジュールをインポートし、Baobab ネットワーク内の Klaytn ノードに接続します:
 
 ```javascript
 const Caver = require('caver-js')
@@ -128,9 +128,9 @@ const read = require('read')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
-### 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
+### 6. キーストアを提供し、キーリングを作成し、Caverウォレットに追加 <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, we can implement a password prompt on the terminal. The function looks like this:
+ブロックチェーンで取引を行うにはアカウントが必要です。 そのアカウント情報はキーストアに含まれています。 `loadPassword()` 関数を使って、ターミナルにパスワードプロンプトを実装できます。 関数は次のようになります。
 
 ```
 async function loadPassword() {
@@ -148,9 +148,9 @@ async function loadPassword() {
 }
 ```
 
-The password entered from the prompt, along with the keystore file existing in the same directory, will be decrypted and stored as `keyring`.
+同じディレクトリに存在するキーストアファイルとともに、プロンプトから入力されたパスワード。 復号化され、 `キーリング` として保存されます。
 
-After that, the `keyring` will be stored in the wallet. Add the lines below:
+その後、 `キーリング` がウォレットに保存されます。 以下の行を追加します。
 
 ```
 async function sendKlay() {
@@ -169,11 +169,11 @@ async function sendKlay() {
     }
 ```
 
-### 7. Send Transaction <a id="7.-send-transaction"></a>
+### 7. トランザクションを送信 <a id="7.-send-transaction"></a>
 
-We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+これで、KLAYを転送するためのトランザクションを作成します。 このタイプのトランザクションは「値転送トランザクション」と呼ばれます。 それぞれのパラメータを分解しましょう。
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`,
+`の` アドレスは、アップロードしたキーストアに由来します。 `宛の` アドレスは、KLAYの受信者であり、任意のアドレスを使用することができます。 `値`の場合は、便利に `caver.utils.toPeb()` を使用してKLAYをpebに変換できます。 ここでは10KLAYをお送りします。 `ガス` 用
 
 ```
 
@@ -194,24 +194,24 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 }
 ```
 
-Don't forget to add in the end:
+最後に追加することを忘れないでください：
 
 ```
 sendKlay()
 ```
 
-### 8. Run the Code <a id="8.-run-the-code"></a>
+### 8. コードを実行する <a id="8.-run-the-code"></a>
 
-Let's run the code that we've just written:
+今書いたコードを実行してみましょう。
 
 ```
 node testcaver.js
 ```
 
-![Type your password](../images/prompt.png)
+![パスワードを入力してください](../images/prompt.png)
 
 
-The result will look something like this:
+結果は次のようになります。
 
 ```
 SingleKeyring {
@@ -250,9 +250,9 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
+トランザクションの詳細は [Klaytnfinder](https://baobab.klaytnfinder.io/) または [Klaytnscope](https://scope.klaytn.com) で `transactionHash` を使用して確認できます。
 
-### 9. Entire Code <a id="9.-run-the-code"></a>
+### 9. コード全体 <a id="9.-run-the-code"></a>
 
 ```
 const Caver = require('caver-js')
@@ -307,4 +307,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Klaytn Forum](https://forum.klaytn.foundation/) for help.
+あなたがcaver-jsを使ってtransacionを提出したことに自信を持っていることを願っています。 ご不明な点がございましたら、お気軽に [Klaytn Forum](https://forum.klaytn.foundation/) をご覧ください。
