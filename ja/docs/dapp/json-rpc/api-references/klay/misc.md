@@ -1,23 +1,23 @@
-# Miscellaneous <a id="miscellaneous"></a>
+# その他 <a id="miscellaneous"></a>
 
 ## klay_sha3 <a id="klay_sha3"></a>
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data.
+戻り値 与えられたデータの Keccak-256 (標準化された SHA3-256) ではありません。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type | Description                           |
-| ---- | ---- | ------------------------------------- |
-| data | DATA | The data to convert into a SHA3 hash. |
+| 名前   | タイプ | Description       |
+| ---- | --- | ----------------- |
+| data | データ | SHA3ハッシュに変換するデータ。 |
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                        |
-| ------------ | ---------------------------------- |
-| 32-byte DATA | The SHA3 result of the given data. |
+| タイプ       | Description      |
+| --------- | ---------------- |
+| 32バイトのデータ | 与えられたデータのSHA3結果。 |
 
 
-**Example**
+**例**
 
 ```shell
 // Request
