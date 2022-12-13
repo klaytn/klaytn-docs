@@ -4,7 +4,7 @@ Returns the number of hashes per second that the node is mining with.
 
 Please note that it always return `0x0` because there is no PoW mechanism in Klaytn.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -34,7 +34,7 @@ Returns the number of hashes per second that the node is mining with.
 
 Please note that it always return `0` because there is no PoW mechanism in Klaytn.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -98,11 +98,11 @@ Used for submitting a proof-of-work solution.
 
 Please note that it always return `false` because there is no PoW mechanism in Klaytn.
 
-**Parameters**
+**파라미터**
 
 | 타입            | 설명                               |
 | ------------- | -------------------------------- |
-| 8-byte DATA   | The nonce found (64 bits)        |
+| 8바이트 크기 DATA  | The nonce found (64 bits)        |
 | 32바이트 크기 DATA | The header’s pow-hash (256 bits) |
 | 32바이트 크기 DATA | The mix digest (256 bits)        |
 
@@ -133,7 +133,7 @@ Used for submitting mining hashrate.
 
 Please note that it always return `false` because there is no PoW mechanism in Klaytn.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                               |
 | -------- | ------------- | ---------------------------------------------------------------- |
