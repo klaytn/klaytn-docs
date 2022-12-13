@@ -10,7 +10,7 @@ description: '>- APIs related to the namespace "istanbul".'
 
 특정 블록 넘버에서 상태 스냅샷을 반환합니다. 상태 스냅샷은 번호/해시, 검증자, 스냅샷 블록의 거버넌스 투표 등의 정보를 포함하고 있습니다.
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입                  | 설명                                                                                                                            |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -35,7 +35,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 특정 블록 해시의 스냅샷을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입            | 설명                   |
 | ---------- | ------------- | -------------------- |
@@ -59,7 +59,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 특정 블록 번호의 검증자 목록을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입                  | 설명                                                                                                                            |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 주어진 블록 해시에서의 승인된 검증자 목록을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름         | 타입            | 설명                   |
 | ---------- | ------------- | -------------------- |
@@ -107,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 노드가 지지하고 투표하려고 하는 현재 후보자들을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -128,7 +128,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 검증자가 관철시키고자 하는 새로운 승인 후보를 추가합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                     |
 | ------- | ------------- | ---------------------- |
@@ -152,7 +152,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 현재 후보자를 탈락시키고, 검증자가 더 이상 투표하지 못하도록 합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명          |
 | ------- | ------------- | ----------- |
@@ -176,7 +176,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 이스탄불 config 타임아웃을 반환합니다. 기본값은 10000ms이며, 이를 초과할 시 timeoutEvent가 전송됩니다. CN의 경우 timeoutEvent는 currentRound, preparesSize, 그리고 로그될 commitsSize를 포함합니다.
 
 
-**Parameters**
+**파라미터**
 
 없음
 
