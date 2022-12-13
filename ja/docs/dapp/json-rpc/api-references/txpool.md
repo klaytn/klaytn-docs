@@ -1,9 +1,9 @@
 ---
 description: >-
-  APIs to inspect transaction pools in the node.
+  ノード内のトランザクションプールを検査するAPI。
 ---
 
-# Namespace txpool <a id="namespace-txpool"></a>
+# ネームスペースのtxt <a id="namespace-txpool"></a>
 
 The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.
 
@@ -12,26 +12,26 @@ The namespace `txpool` API gives you access to several non-standard RPC methods 
 
 The `content` inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with actual transactions.
+結果は、2つのフィールド `pending` と `キューに入れられた` を持つオブジェクトです。 これらの各項目は、連想的な 配列であり、各項目はオリジンアドレスをスケジュールされたトランザクションのバッチにマップします。 これらのバッチは それ自体が、ノンスと実際のトランザクションを関連付けるマップです。
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `txpool.content`               |
-|   RPC   | `{"method": "txpool_content"}` |
+| クライアント | メソッドの起動                        |
+|:------:| ------------------------------ |
+| コンソール  | `txpool.content`               |
+|  RPC   | `{"method": "txpool_content"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                          |
-| ----------- | ------------------------------------ |
-| JSON string | The content of the transaction pool. |
+| タイプ     | Description    |
+| ------- | -------------- |
+| JSON文字列 | トランザクションプールの内容 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > txpool.content
@@ -129,34 +129,34 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
-#There is no pending transaction nor queued transaction.
+#There are no pending transaction and queuedされたトランザクションはありません。
 ```
 
 
 ## txpool_inspect <a id="txpool_inspect"></a>
 
-The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
+The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. これは、プール内の トランザクションを迅速に確認し、潜在的な問題を見つけるために、開発者に特化した方法です。
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with transactions summary strings.
+結果は、2つのフィールド `pending` と `キューに入れられた` を持つオブジェクトです。 これらの各項目は、連想的な 配列であり、各項目はオリジンアドレスをスケジュールされたトランザクションのバッチにマップします。 これらのバッチ自体は トランザクション要約文字列に関連付けられたマップです。
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `txpool.inspect`               |
-|   RPC   | `{"method": "txpool_inspect"}` |
+| クライアント | メソッドの起動                        |
+|:------:| ------------------------------ |
+| コンソール  | `txpool.inspect`               |
+|  RPC   | `{"method": "txpool_inspect"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                |
-| ----------- | ------------------------------------------ |
-| JSON string | A list of pending and queued transactions. |
+| タイプ     | Description                         |
+| ------- | ----------------------------------- |
+| JSON文字列 | 保留中のトランザクションとキューに入れられたトランザクションのリスト。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > txpool.inspect
 {
@@ -210,35 +210,35 @@ HTTP RPC
 
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_inspect","id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
+{"jsonrpc":"2. ","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0"0":"0x87AC99835e67d4f9a40580f8F5C33550bA88b:0peb+99000000gas × 250000000000000 peb"}
 ```
 
 
 ## txpool_status <a id="txpool_status"></a>
 
-The `status` inspection property can be queried for the number of transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+`ステータス` 検査プロパティは、 次のブロックに含めるために現在保留中のトランザクション数を照会できます。 今後の実行のためだけに予定されているものと同様に。
 
 The result is an object with two fields `pending` and `queued`, each of which is a counter representing the number of transactions in that particular state.
 
-| Client  | Method invocation             |
-|:-------:| ----------------------------- |
-| Console | `txpool.status`               |
-|   RPC   | `{"method": "txpool_status"}` |
+| クライアント | メソッドの起動                       |
+|:------:| ----------------------------- |
+| コンソール  | `txpool.status`               |
+|  RPC   | `{"method": "txpool_status"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Name    | Type | Description                         |
-| ------- | ---- | ----------------------------------- |
-| pending | int  | The number of pending transactions. |
-| queued  | int  | The number of queued transactions.  |
+| 名前          | タイプ | Description        |
+| ----------- | --- | ------------------ |
+| pending     | int | 保留中のトランザクションの数。    |
+| キューに入れられました | int | キューに入れたトランザクションの数。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > txpool.status
@@ -251,5 +251,5 @@ HTTP RPC
 
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
+{"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0}}
 ```
