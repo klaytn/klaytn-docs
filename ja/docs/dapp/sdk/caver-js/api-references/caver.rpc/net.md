@@ -1,6 +1,6 @@
 # caver.rpc.net <a id="caver-rpc-net"></a>
 
-`caver.rpc.net` provides JSON-RPC call with `net` name space.
+`caver.rpc.net` は `net` の名前空間を持つ JSON-RPC 呼び出しを提供します。
 
 ## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
@@ -8,24 +8,24 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Returns the network identifier (network ID) of the Klaytn Node.
+Klaytn Node のネットワーク識別子 (ネットワーク ID) を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `number`
+`Promise` は `番号` を返します。
 
-| Type   | Description     |
-| ------ | --------------- |
-| number | The network id. |
+| タイプ | Description |
+| --- | ----------- |
+| 数値  | ネットワークID。   |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
@@ -38,24 +38,24 @@ Returns the network identifier (network ID) of the Klaytn Node.
 caver.rpc.net.isListening([callback])
 ```
 
-Returns `true` if the Klaytn Node is actively listening for network connections.
+Klaytn Node がネットワーク接続を積極的にリッスンしている場合、 `true` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `boolean`
+`Promise` は `boolean` を返します
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| boolean | `true` when listening, otherwise `false`. |
+| タイプ     | Description               |
+| ------- | ------------------------- |
+| boolean | `true` , それ以外の場合 `false`. |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
@@ -68,24 +68,24 @@ true
 caver.rpc.net.getPeerCount([callback])
 ```
 
-Returns the number of peers currently connected to the Klaytn Node.
+Klaytn Node に現在接続されているピアの数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `string`
+`Promise` は `文字列` を返します
 
-| Type   | Description                           |
-| ------ | ------------------------------------- |
-| string | The number of connected peers in hex. |
+| タイプ | Description        |
+| --- | ------------------ |
+| 文字列 | 接続されているピアの数を表示します。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
@@ -98,24 +98,24 @@ Returns the number of peers currently connected to the Klaytn Node.
 caver.rpc.net.getPeerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+接続されたノードの数を type とキーと値のペアを持つ接続されたノードの合計数で返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `object`
+`Promise` は `オブジェクト` を返す
 
-| Type   | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
-| object | The number of connected peers by type as well as the total number of connected peers. |
+| タイプ    | Description                 |
+| ------ | --------------------------- |
+| object | 接続されているピアの数と、接続されているピアの合計数。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)
