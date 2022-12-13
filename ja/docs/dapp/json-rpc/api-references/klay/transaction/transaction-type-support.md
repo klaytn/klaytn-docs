@@ -1,24 +1,24 @@
-# Working with Klaytn Transaction Types <a id="working-with-klaytn-transaction-types"></a>
-Klaytn has various types of transaction and each type of transaction consists of different fields. Therefore, users should understand the transaction types and specify the correct one when sending and signing a transaction. Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
+# Klaytn トランザクションタイプの操作 <a id="working-with-klaytn-transaction-types"></a>
+Klaytnにはさまざまな種類のトランザクションがあり、それぞれのトランザクションタイプは異なるフィールドで構成されています。 そのため、トランザクションの種類を理解し、トランザクションの送受信時に正しいものを指定する必要があります。 Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. This transaction type exists to support compatibility. For more information, see [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction).
+TxTypeLegacyTransaction は、Klaytnで以前に存在したトランザクションのタイプを表します。 このトランザクションタイプは互換性をサポートするために存在します。 詳細については、 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| to       | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed.                                                                                                                                    |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.                                                                                   |
-| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                                                                                                  |
-| data     | DATA         | The compiled byte code of a contract to deploy or data (function indicator and parameter values) required to call a contract.                                                                                                |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| 名前       | タイプ        | Description                                                                                                  |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                           |
+| to       | 20 バイトのデータ | (新規コントラクトを作成する際のオプション) トランザクションが指示されるアドレス。                                                                   |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。 |
+| gasPrice | 品質         | (オプション、デフォルト: 25000000000ペブ) gasPriceの整数。 取引手数料は、ガスとgasPriceの掛け算で計算されます。                                     |
+| 値        | 品質         | (オプション) このトランザクションで送信された値の整数。                                                                                |
+| data     | データ        | コントラクトのコンパイル済みバイトコード、またはコントラクトを呼び出すために必要なデータ (関数インジケータとパラメータ値) 。                                             |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                           |
 
-**Example**
+**例**
 ```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' https://api.baobab.klaytn.net:8651
@@ -48,21 +48,21 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer is used when a user wants to send KLAY. For more information, see [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer).
+TxTypeValueTransferは、ユーザーがKLAYを送信したいときに使用されます。 詳細については、 [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | Integer      | The integer indicating TxTypeValueTransfer: 8                                                                                                                                                                                |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| to       | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.                                                                                   |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| value    | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
+| 名前       | タイプ        | Description                                                                                                  |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| typeInt  | 整数         | TxTypeValueTransferを示す整数: 8                                                                                  |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                           |
+| to       | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                           |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。 |
+| gasPrice | 品質         | (オプション、デフォルト: 25000000000ペブ) gasPriceの整数。 取引手数料は、ガスとgasPriceの掛け算で計算されます。                                     |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                           |
+| 値        | 品質         | このトランザクションで送信された値の整数。                                                                                        |
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 8, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4"}], "id": 69}' http://127.0.0.1:8551
@@ -98,23 +98,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-Fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+TxTypeValueTransferのバージョンを委任する手数料。 詳細については、 [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedValueTransfer: 9                                                                                                                                                                                        |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.                                                                                                       |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| feePayer   | 20-byte DATA | The address which pays the transaction fee.                                                                                                                                                                                                      |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedValueTransferを示す整数: 9                                                                                                                                    |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト: 25000000000ペブ) gasPriceの整数。 取引手数料は、ガスとgasPriceの掛け算で計算されます。                                                                                                   |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | 取引手数料を支払う住所。                                                                                                                                                               |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 9, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 59}' http://127.0.0.1:8551
@@ -149,7 +149,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 9, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "nonce": "0x1c", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x2e6300", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x416a7d1833322359ae7b0f9aad10185f94739a81997af0abd1330ee866564957", "S": "0x1f6bd04c4ebcccced7d2f6b57be088c69070b94ad62898427e906f35b2b48b35"}]}], "id": 69}' http://127.0.0.1:8551
@@ -165,24 +165,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-Partial fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
+TxTypeValueTransferのバージョンを委任する部分的な手数料。 詳細については、 [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedValueTransferWithRatio: 10                                                                                                                                                                              |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedValueTransferWithRatioを示す整数: 10                                                                                                                          |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比       | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 42}' http://127.0.0.1:8551
@@ -218,7 +218,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "nonce": "0x1d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x2e6300", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x76377a0c1a050475fd06dfb192ef1724394a5f77ec6441764f7732d6ab0cbc4d", "S": "0xfb518b09210692bd530586cd484a9f6f653f9bb170e5da8b99d417e58692845"}]}], "id": 47}' http://127.0.0.1:8551
@@ -234,23 +234,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. For more information, see [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo).
+TxTypeValueTransferMemoは、ユーザーが特定のメッセージでKLAYを送信したい場合に使用されます。 詳細については、 [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | Integer      | The integer indicating TxTypeValueTransferMemo: 16                                                                                                                                                                           |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| to       | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| value    | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
-| input    | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
+| 名前       | タイプ        | Description                                                                                                  |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| typeInt  | 整数         | TxTypeValueTransferMemoを示す整数: 16                                                                             |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                           |
+| to       | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                           |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。 |
+| gasPrice | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                           |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                           |
+| 値        | 品質         | このトランザクションで送信された値の整数。                                                                                        |
+| input    | データ        | トランザクションとともに送信されたデータ。                                                                                        |
 
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 16, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 39}' http://127.0.0.1:8551
@@ -287,25 +287,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferMemo <a id="txtypefeedelegatedvaluetransfermemo"></a>
 
-Fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemo](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo).
+TxTypeValueTransferMemoの委任料金。 詳細については、 [TxTypeFeeDelegatedValueTransferMemo](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedValueTransferMemo: 17                                                                                                                                                                                   |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedValueTransferMemoを示す整数: 17                                                                                                                               |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input      | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 80}' http://127.0.0.1:8551
@@ -341,7 +341,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0xf343844adff1cde850c0215c78b7f9258ab158e125ee100888f454c91c51cf51", "S": "0x245f5e78ae1b52aafd18b86de6ca615af6676f3f3b70baba601748caaf1c813f"}], "nonce": "0x1e"}], "id": 81}' http://127.0.0.1:8551
@@ -357,25 +357,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-Partial fee delegating version of TxTypeValueTransferMemo. For more information, see [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio).
+TxTypeValueTransferMemoの一部手数料委任版 詳細については、 [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedValueTransferMemoWithRatio: 18                                                                                                                                                                          |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedValueTransferMemoWithRatioを示す整数: 18                                                                                                                      |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input      | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比       | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 38}' http://127.0.0.1:8551
@@ -412,7 +412,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e43", "R": "0x5fecba257917e6677c51d94f0d9670621650a511aae86bd1e50a01c771fb68a0", "S": "0x441a9632f499dbce3d4fc974db3b431cf8ff0a2f93a6490c018796278f6edb2b"}], "nonce": "0x1f"}], "id": 81}' http://127.0.0.1:8551
@@ -428,20 +428,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeAccountUpdate <a id="txtypeaccountupdate"></a>
 
-TxTypeAccountUpdate updates the key of the given account. For more information, see [TxTypeAccountUpdate](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate).
+TxTypeAccountUpdate は、指定したアカウントのキーを更新します。 詳細については、 [TxTypeAccountUpdate](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | Integer      | The integer indicating TxTypeAccountUpdate: 32                                                                                                                                                                               |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| key      | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                        |
+| 名前       | タイプ        | Description                                                                                                                               |
+| -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | 整数         | TxTypeAccountUpdateを示す整数: 32                                                                                                              |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                        |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                              |
+| gasPrice | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                        |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                                                        |
+| キー       | データ        | RLPでエンコードされたフォーマットの `アカウントからの` の新しいアカウントキー。 アカウント・キーの詳細については、 [アカウント・キー](../../../../../klaytn/design/accounts.md#account-key) を参照してください。 |
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 32, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0"}], "id": 68}' http://127.0.0.1:8551
@@ -476,23 +476,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedAccountUpdate <a id="txtypefeedelegatedaccountupdate"></a>
 
-Fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdate](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate).
+TxTypeAccountUpdate のバージョンを委任する手数料。 詳細については、 [TxTypeFeeDelegatedAccountUpdate](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) を参照してください。
 
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedAccountUpdate: 33                                                                                                                                                                                       |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedAccountUpdateを示す整数: 33                                                                                                                                   |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| キー         | データ        | RLPでエンコードされたフォーマットの `アカウントからの` の新しいアカウントキー。 アカウント・キーの詳細については、 [アカウント・キー](../../../../../klaytn/design/accounts.md#account-key) を参照してください。                                  |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 85}' http://127.0.0.1:8551
@@ -526,7 +526,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x87da8ac5c398bcf379d3034d72d239c8de167cafe240da13019606aad628aa8b", "S": "0x3d11215843cbc25cdf3076e4ead6272e20d72b22e0b9d498bfcd1ceff497baf4"}], "nonce": "0x20"}], "id": 78}' http://127.0.0.1:8551
@@ -542,24 +542,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio <a id="txtypefeedelegatedaccountupdatewithratio"></a>
 
-Partial fee delegating version of TxTypeAccountUpdate. For more information, see [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio).
+TxTypeAccountUpdate のバージョンを委任する部分的な手数料。 詳細については、 [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) を参照してください。
 
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedAccountUpdateWithRatio: 34                                                                                                                                                                              |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedAccountUpdateWithRatioを示す整数: 34                                                                                                                          |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| キー         | データ        | RLPでエンコードされたフォーマットの `アカウントからの` の新しいアカウントキー。 アカウント・キーの詳細については、 [アカウント・キー](../../../../../klaytn/design/accounts.md#account-key) を参照してください。                                  |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比       | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 78}' http://127.0.0.1:8551
@@ -594,7 +594,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd285969e88c3cc92471bda4bbcdce2d23eaa9bdcc47a64421de4858b7a51fd04", "S": "0x5b8123f9666580c51fdbd5a8b1d67bf1ae774e5a8e3e1ebfbf4f2024e94e82cc"}], "nonce": "0x21"}], "id": 100}' http://127.0.0.1:8551
@@ -610,25 +610,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeSmartContractDeploy <a id="txtypesmartcontractdeploy"></a>
 
-TxTypeSmartContractDeploy deploys a smart contract to the given address. For more information, see [TxTypeSmartContractDeploy](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy).
+TxTypeSmartContractDeployは指定されたアドレスにスマートコントラクトをデプロイします。 詳細については、 [TxTypeSmartContractDeploy](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type         | Description                                                                                                                                                                                                                  |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt       | Integer      | The integer indicating TxTypeSmartContractDeploy: 40                                                                                                                                                                         |
-| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
-| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
-| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
-| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
-| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                               |
-| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                         |
+| 名前            | タイプ        | Description                                                                                                       |
+| ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| typeInt       | 整数         | TxTypeSmartContractDeployを示す整数: 40                                                                                |
+| from          | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                |
+| to            | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                |
+| ガス            | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。      |
+| gasPrice      | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                |
+| nonce         | 品質         | (オプション) nonce の整数。                                                                                                |
+| 値             | 品質         | このトランザクションで送信された値の整数。                                                                                             |
+| input         | データ        | トランザクションとともに送信されたデータ。                                                                                             |
+| humanReadable | Boolean    | `場合は true` アドレスがヒューマンReadable, `false` アドレスがヒューマンReadableではない場合。 現在、値は `false` でなければなりません。 人間が読めるアドレスは後でサポートされます。 |
+| codeFormat    | 品質         | スマートコントラクトコードのコード形式。 値 `0 0` はEVMを示します。                                                                           |
 
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 40, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0}], "id": 78}' http://127.0.0.1:8551
@@ -667,27 +667,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractDeploy <a id="txtypefeedelegatedsmartcontractdeploy"></a>
 
-Fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeploy](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy).
+手数料はTxTypeSmartContractDeploy のバージョンを委任します。 詳細については、 [TxTypeFeeDelegatedSmartContractDeploy](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type         | Description                                                                                                                                                                                                                                      |
-| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt       | Integer      | The integer indicating TxTypeFeeDelegatedSmartContractDeploy: 41                                                                                                                                                                                 |
-| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                                                   |
-| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                                             |
-| feePayer      | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| signatures    | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前            | タイプ        | Description                                                                                                                                                                |
+| ------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt       | 整数         | TxTypeFeeDelegatedSmartContractDeployを示す整数: 41                                                                                                                             |
+| from          | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to            | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス            | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice      | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce         | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値             | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input         | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| humanReadable | Boolean    | `場合は true` アドレスがヒューマンReadable, `false` アドレスがヒューマンReadableではない場合。 現在、値は `false` でなければなりません。 人間が読めるアドレスは後でサポートされます。                                                          |
+| codeFormat    | 品質         | スマートコントラクトコードのコード形式。 値 `0 0` はEVMを示します。                                                                                                                                    |
+| feePayer      | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| signatures    | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 30}' http://127.0.0.1:8551
@@ -725,7 +725,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0x25aaa9dcd863ec742299c7204d7720277ae39a277232a3b1ad61d4b665c89da9", "S": "0x4c00c144ac183f6b61224f4721e7e0d2c5f583e5793175cf35c04bdfb46e1b16"}], "nonce": "0x22"}], "id": 84}' http://127.0.0.1:8551
@@ -741,28 +741,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-Partial fee delegating version of TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
+TxTypeSmartContractDeployのバージョンを委任する部分的な手数料。 詳細については、 [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type         | Description                                                                                                                                                                                                                                      |
-| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt       | Integer      | The integer indicating TxTypeFeeDelegatedSmartContractDeployWithRatio: 42                                                                                                                                                                        |
-| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                                                   |
-| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                                             |
-| feePayer      | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio      | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures    | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前            | タイプ        | Description                                                                                                                                                                |
+| ------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt       | 整数         | TxTypeFeeDelegatedSmartContractDeployWithRatioを示す整数: 42                                                                                                                    |
+| from          | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to            | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス            | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice      | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce         | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値             | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input         | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| humanReadable | Boolean    | `場合は true` アドレスがヒューマンReadable, `false` アドレスがヒューマンReadableではない場合。 現在、値は `false` でなければなりません。 人間が読めるアドレスは後でサポートされます。                                                          |
+| codeFormat    | 品質         | スマートコントラクトコードのコード形式。 値 `0 0` はEVMを示します。                                                                                                                                    |
+| feePayer      | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比          | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures    | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 49}' http://127.0.0.1:8551
@@ -801,7 +801,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xc4e11861dd7c2849a727c979cc96ff4dfbfddc36ffe443437e9a27a9dcd028c2", "S": "0x475dc05fe78c62ced1c3d2b260c47c3e971cd66edad28da5adeeb7de63ed9413"}], "nonce": "0x23"}], "id": 68}' http://127.0.0.1:8551
@@ -817,23 +817,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeSmartContractExecution <a id="txtypesmartcontractexecution"></a>
 
-TxTypeSmartContractExecution executes a smart contract with the given data in `input`. For more information, see [TxTypeSmartContractExecution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution).
+TxTypeSmartContractExecutionは、指定されたデータとスマートコントラクトを `入力`で実行します。 詳細については、 [TxTypeSmartContractExecution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | Integer      | The integer indicating TxTypeSmartContractExecution: 48                                                                                                                                                                      |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| to       | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
-| value    | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
-| input    | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
+| 名前       | タイプ        | Description                                                                                                  |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| typeInt  | 整数         | TxTypeSmartContractExecutionを示す整数: 48                                                                        |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                           |
+| to       | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                           |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。 |
+| gasPrice | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                           |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                           |
+| 値        | 品質         | このトランザクションで送信された値の整数。                                                                                        |
+| input    | データ        | トランザクションとともに送信されたデータ。                                                                                        |
 
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 48, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 69}' http://127.0.0.1:8551
@@ -870,25 +870,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractExecution <a id="txtypefeedelegatedsmartcontractexecution"></a>
 
-Fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
+手数料TxTypeSmartContractExecutionのバージョンを委任します。 詳細については、 [TxTypeFeeDelegatedSmartContractaction](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedSmartContractExecution: 49                                                                                                                                                                              |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedSmartContractExecutionを示す整数: 49                                                                                                                          |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input      | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 25}' http://127.0.0.1:8551
@@ -924,7 +924,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x8d179a52bd2c819a6b8a61bac63ec6e68583696bb7a2968e8071cb687808e92f", "S": "0x68b47095625c2af8c9996d19d64356a54b98f23de2585af7cb21db56c24e168"}], "nonce": "0x24"}], "id": 84}' http://127.0.0.1:8551
@@ -940,26 +940,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
-Partial fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio).
+TxTypeSmartContractExecutionの部分的な手数料委任バージョン。 詳細については、 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedSmartContractExecutionWithRatio: 50                                                                                                                                                                     |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedSmartContractExecutionWithRatioを示す整数: 50                                                                                                                 |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| to         | 20 バイトのデータ | トランザクションが指示されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| 値          | 品質         | このトランザクションで送信された値の整数。                                                                                                                                                      |
+| input      | データ        | トランザクションとともに送信されたデータ。                                                                                                                                                      |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比       | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 13}' http://127.0.0.1:8551
@@ -996,7 +996,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd742608c411371d7b1db08dc6f43adabdb9b75ec03c2fa185216103de600556b", "S": "0x24b541a84945f8bc96f563909aa0ad2c7ac8376d31a65eca7a2d79b721701170"}], "nonce": "0x25"}], "id": 44}' http://127.0.0.1:8551
@@ -1012,20 +1012,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeCancel <a id="txtypecancel"></a>
 
-TxTypeCancel cancels the execution of the transaction with the same nonce in the transaction pool. For more information, see [TxTypeCancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel).
+TxTypeCancel はトランザクションプール内で同じノンスを持つトランザクションの実行をキャンセルします。 詳細については、 [TxTypeCancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type         | Description                                                                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | Integer      | The integer indicating TxTypeCancel: 56                                                                                                                                                                                      |
-| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
-| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
-| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
-| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| 名前       | タイプ        | Description                                                                                                  |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| typeInt  | 整数         | TxTypeCancel を示す整数: 56                                                                                       |
+| from     | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                           |
+| ガス       | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。 |
+| gasPrice | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                           |
+| nonce    | 品質         | (オプション) nonce の整数。                                                                                           |
 
 
-**Example**
+**例**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 56, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00"}], "id": 81}' http://127.0.0.1:8551
@@ -1059,22 +1059,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedCancel <a id="txtypefeedelegatedcancel"></a>
 
-Fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel).
+TxTypeCancel のバージョンを委任する手数料。 詳細については、 [TxTypeFeeDelegatedCancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedCancel: 57                                                                                                                                                                                              |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedCancel を示す整数: 57                                                                                                                                         |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 15}' http://127.0.0.1:8551
@@ -1107,7 +1107,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0xf276dcf90e7ba5aef0c77a940d7f360bb60d761ba0ddced96584ededf56e87d3", "S": "0x2e5feb5b09985da167cce835a93ad60d56b4c125e62da4d3379fc6bcb37ef479"}], "nonce": "0x26"}], "id": 87}' http://127.0.0.1:8551
@@ -1123,23 +1123,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedCancelWithRatio <a id="txtypefeedelegatedcancelwithratio"></a>
 
-Partial fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
+TxTypeCancel のバージョンを委任する部分的な手数料。 詳細については、 [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedCancelWithRatio: 58                                                                                                                                                                                     |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| 名前         | タイプ        | Description                                                                                                                                                                |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | 整数         | TxTypeFeeDelegatedCancelWithRatioを示す整数: 58                                                                                                                                 |
+| from       | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                                                                                         |
+| ガス         | 品質         | (オプション、デフォルト:90000) トランザクション実行に必要なガスの整数。 未使用のガスは送信者に返金されます。 指定されたガスがトランザクションを実行するのに十分でない場合、トランザクションは元に戻されます。                                                               |
+| gasPrice   | 品質         | (オプション、デフォルト:25000000000 Peb) ガスの整数有料ガスごとに使用される価格。                                                                                                                         |
+| nonce      | 品質         | (オプション) nonce の整数。                                                                                                                                                         |
+| feePayer   | 20 バイトのデータ | このトランザクションの手数料支払者アドレス。                                                                                                                                                     |
+| 手数料比       | 品質         | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                       |
+| signatures | データ        | (省略可能な - `klay_sendTransactionAsFeePayer` APIのみ) 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。 |
 
 
-**Example 1 (`klay_signTransaction`)**
+**例 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 100}' http://127.0.0.1:8551
@@ -1173,7 +1173,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**例 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x8f966ed84221298383ad1d7599a18aa461f42206284a9121a58351b1e4a51bd8", "S": "0x2272e9eb953ed69a65a392c3a67b58a981acd503abeceaf60679ddb38e4fb4b0"}], "nonce": "0x27"}], "id": 96}' http://127.0.0.1:8551
