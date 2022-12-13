@@ -21,11 +21,11 @@ Klaytn's Baobab and Cypress networks currently have the following restrictions o
 
 ## Data Structures <a id="data-structures"></a>
 
-### Account <a id="account"></a>
+### アカウント <a id="account"></a>
 
 An account in Klaytn blockchain platform is a data structure containing information about a person's balance or a smart contract. Klaytn redesigns its account model to provide better DX and UX. Detailed information about the account model can be found [here](../accounts.md).
 
-### Transaction <a id="transaction"></a>
+### 取引 <a id="transaction"></a>
 
 A transaction in a blockchain platform is a message sent between nodes that changes the state of the blockchain. Klaytn also redesigns its transaction model. Transactions are separated into various types according to their own purposes to find chances of performance optimization and to support the redesigned account model. Detailed information about the transaction model can be found [here](../transactions/).
 
@@ -42,33 +42,33 @@ The table below shows the account data that are stored in the state.
 | storageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                            |
 | codeHash    | The hash of the account's bytecode.  This value is immutable, which means it is set only when the smart contract is created.  If the account is an EOA or an EA, this value is set to the hash of null. |
 
-### Block <a id="block"></a>
+### ブロック <a id="block"></a>
 
 A block is a crucial element of the Klaytn blockchain because the blockchain literally consists of a chain of blocks. The table below shows the components in a block.
 
-| Component        | Description                                                                                                         |
-|:---------------- |:------------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-| blockScore       | Former difficulty. Always 1 in the BFT consensus engine                                                             |
-| extraData        | The "extra data" field of this block.                                                                               |
-| gasUsed          | The total used gas by all transactions in this block.                                                               |
-| governanceData   | RLP encoded governance configuration                                                                                |
-| logsBloom        | The bloom filter for the logs of the block. `null` when it is pending block.                                        |
-| number           | The block number. `null` when it is pending block.                                                                  |
-| parentHash       | The hash of the block's parent block.                                                                               |
-| proposer         | The address of the block proposer.                                                                                  |
-| receiptsRoot     | The root of the receipts trie of the block.                                                                         |
-| reward           | The address receiving block reward.                                                                                 |
-| size             | Integer the size of this block in bytes.                                                                            |
-| stateRoot        | The root of the final state trie of the block.                                                                      |
-| totalBlockScore  | Integer of the total blockScore of the chain until this block.                                                      |
-| transactionsRoot | The root of the transaction trie of the block.                                                                      |
-| timestamp        | The Unix timestamp for when the block was collated.                                                                 |
-| timestampFoS     | The fraction of a second of the timestamp for when the block was collated.                                          |
-| transactions     | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.                  |
-| voteData         | RLP encoded governance vote of the proposer                                                                         |
+| Component        | Description                                                                 |
+|:---------------- |:--------------------------------------------------------------------------- |
+| baseFeePerGas    | ガス1回あたりの基本料金。 この値は、ブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返されます。 |
+| blockScore       | 以前の困難。 常にBFTコンセンサスエンジンの1                                                    |
+| extraData        | このブロックの「追加データ」フィールド。                                                        |
+| gasUsed          | このブロック内のすべてのトランザクションによって使用された合計ガス。                                          |
+| governanceData   | RLPエンコードされたガバナンス設定                                                          |
+| logsBloom        | ブロックのログのブルームフィルタ。 `ブロック保留中の場合は null`                                        |
+| 数値               | ブロック番号 `ブロック保留中の場合は null`                                                   |
+| parentHash       | The hash of the block's parent block.                                       |
+| 提案               | ブロック提案者のアドレス。                                                               |
+| receiptsRoot     | ブロックのレシートのルートは試してみました。                                                      |
+| 報酬               | The address receiving block reward.                                         |
+| サイズ              | このブロックのサイズをバイト単位で整数にします。                                                    |
+| stateRoot        | ブロックの最後の状態のルート。                                                             |
+| totalBlockScore  | 合計ブロックの整数このブロックまでチェーンのスコア。                                                  |
+| transactionsRoot | ブロックのトランザクションのルート。                                                          |
+| timestamp        | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                                          |
+| timestampFoS     | ブロックが冷却されたときのタイムスタンプの秒数。                                                    |
+| 取引               | トランザクションオブジェクトの配列、または最後に指定されたパラメータに応じて32バイトのトランザクションハッシュを行います。              |
+| voteData         | 提案者のRLPエンコードされたガバナンス投票                                                      |
 
-## Smart Contract <a id="smart-contract"></a>
+## スマート契約 <a id="smart-contract"></a>
 
 A _smart contract_ consists of a collection of code \(functions\) and data \(state\) that resides at a specific address on the Klaytn blockchain. Contract accounts are able to pass messages between each other as well as perform practically Turing complete computation. Contracts exist on the blockchain in Klaytn-specific binary formats. Currently, Klaytn supports one binary format --Ethereum Virtual Machine \(EVM\) bytecode; however, other formats will be supported in the future.
 
