@@ -9,7 +9,7 @@
 |  콘솔   | `debug.backtraceAt(location)`                         |
 |  RPC  | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                                                      |
 | -------- | ------ | ------------------------------------------------------- |
@@ -43,7 +43,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.setVMLogTarget(target)`                           |
 |  RPC  | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입  | 설명                                                                   |
 | ------ | --- | -------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosity(level)`                          |
 |  RPC  | `{"method": "debug_vmodule", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입  | 설명                     |
 | ----- | --- | ---------------------- |
@@ -134,7 +134,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosityByName(name, level)`                              |
 |  RPC  | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입     | 설명                     |
 | ----- | ------ | ---------------------- |
@@ -174,7 +174,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosityByID(id, level)`                                |
 |  RPC  | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입  | 설명                     |
 | ----- | --- | ---------------------- |
@@ -208,11 +208,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.vmodule(module)`                           |
 |  RPC  | `{"method": "debug_vmodule", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
-| 이름     | 타입     | 설명                           |
-| ------ | ------ | ---------------------------- |
-| module | string | The module name for logging. |
+| 이름     | 타입     | 설명             |
+| ------ | ------ | -------------- |
+| module | string | 로깅을 위한 모듈명입니다. |
 
 **리턴값**
 
