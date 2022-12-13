@@ -1,32 +1,32 @@
-# VM Tracing <a id="vm-tracing"></a>
+# VMトレース <a id="vm-tracing"></a>
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBadBlock` メソッドは、このブロックに含まれていたすべてのトランザクションの が呼び出された全てのスタックトレースを返します。
 
-**NOTE**: the parent of this block must be present or it will fail.
+**注意**: このブロックの親が存在しなければ、失敗します。
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.traceBadBlock(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
+| クライアント | メソッドの呼び出し                                                 |
+|:------:| --------------------------------------------------------- |
+| コンソール  | `debug.traceBadBlock(hash, [options])`                    |
+|  RPC   | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                              |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| 名前    | タイプ       | Description                              |
+| ----- | --------- | ---------------------------------------- |
+| hash  | 32バイトのデータ | ブロックのハッシュ。                               |
+| オプション | object    | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceBadBlock("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 [{
@@ -57,33 +57,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBlock` メソッドは、このブロックに含まれていたすべてのトランザクションの 全ての呼び出された全てのスタックトレースを返します。
 
-**NOTE**: the parent of this block must be present or it will fail.
+**注意**: このブロックの親が存在しなければ、失敗します。
 
-| Client  | Method Invocation                                          |
-|:-------:| ---------------------------------------------------------- |
-| Console | `debug.traceBlock(blockRlp, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
+| クライアント | メソッドの呼び出し                                                  |
+|:------:| ---------------------------------------------------------- |
+| コンソール  | `debug.traceBlock(blockRlp, [options])`                    |
+|  RPC   | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+参照: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                              |
+| 名前       | タイプ    | Description                              |
 | -------- | ------ | ---------------------------------------- |
-| blockRlp | string | The RLP-encoded block.                   |
-| options  | object | See [tracing options](#tracing-options). |
+| blockRlp | 文字列    | RLP でエンコードされたブロック。                       |
+| オプション    | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceBlock("0xblock_rlp")
 [{
@@ -100,34 +100,34 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xblock_rlp"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
 ...
-,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
+{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c57600000000000000000000000000000000000000000000000000000","000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd580f5b506f5061"
 ```
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.traceBlockByHash(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
+| クライアント | メソッドの呼び出し                                                    |
+|:------:| ------------------------------------------------------------ |
+| コンソール  | `debug.traceBlockByHash(hash, [options])`                    |
+|  RPC   | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type         | Description                              |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| 名前    | タイプ       | Description                              |
+| ----- | --------- | ---------------------------------------- |
+| hash  | 32バイトのデータ | ブロックのハッシュ。                               |
+| オプション | object    | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceBlockByHash("0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890")
 [{
@@ -143,34 +143,34 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890", {}],"id":1}' https://api.baobab.klaytn.net:8651 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
 ...
-,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
+{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c57600000000000000000000000000000000000000000000000000000","000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd580f5b506f5061"
 ```
 
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
 
-| Client  | Method Invocation                                                |
-|:-------:| ---------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumber(number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
+| クライアント | メソッドの呼び出し                                                        |
+|:------:| ---------------------------------------------------------------- |
+| コンソール  | `debug.traceBlockByNumber(number, [options])`                    |
+|  RPC   | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | The block number.                        |
-| options | object | See [tracing options](#tracing-options). |
+| 名前    | タイプ    | Description                              |
+| ----- | ------ | ---------------------------------------- |
+| 数値    | int    | ブロック番号                                   |
+| オプション | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceBlockByNumber(1449)
 [{
@@ -187,37 +187,37 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x5a9", {}],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
 ...
-,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
+{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c57600000000000000000000000000000000000000000000000000000","000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd580f5b506f5061"
 ```
 
 ## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
 
-Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object. That is, the result of tracing for a total of end-start+1 blocks is returned.
+EVMの実行中に作成された構造化されたログを (startを含む) 2つのブロック間でJSONオブジェクトとして返します。 つまり、合計の end-start+1 ブロックのトレースの結果が返されます。
 
-| Client  | Method Invocation                                                             |
-|:-------:| ----------------------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumberRange(number, number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
+| クライアント | メソッドの呼び出し                                                                     |
+|:------:| ----------------------------------------------------------------------------- |
+| コンソール  | `debug.traceBlockByNumberRange(number, number, [options])`                    |
+|  RPC   | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
-**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
+**注意**: マシンリソースを過剰に使用できるので、同時にブロックが多すぎないようにしてください。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | Tracing start block number.              |
-| number  | int    | Tracing end block number.                |
-| options | object | See [tracing options](#tracing-options). |
+| 名前    | タイプ    | Description                              |
+| ----- | ------ | ---------------------------------------- |
+| 数値    | int    | ブロック番号をトレースします。                          |
+| 数値    | int    | 終了ブロック番号のトレース。                           |
+| オプション | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                       | Description                                                              |
-| ------------------------------------------ | ------------------------------------------------------------------------ |
-| map(key: block number. value: JSON string) | Value contains the structured logs created during the execution of KLVM. |
+| タイプ                            | Description                        |
+| ------------------------------ | ---------------------------------- |
+| map(キー:ブロック番号 value: JSON 文字列) | 値には、KLVM の実行中に作成された構造化されたログが含まれます。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceBlockByNumberRange(21, 30, {})
 {
@@ -248,39 +248,39 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
+[debug_traceBlock](#debug_traceblock)と同様、 `traceBlockFromFile` は ブロックの RLP を含むファイルを受け付けます。
 
-**NOTE**: the file must include the associated hexadecimal string without `0x`.
+**注意**: ファイルには、 `0x` のない関連する16進数文字列を含める必要があります。
 
-| Client  | Method Invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `debug.traceBlockFromFile(fileName, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
+| クライアント | メソッドの呼び出し                                                          |
+|:------:| ------------------------------------------------------------------ |
+| コンソール  | `debug.traceBlockFromFile(fileName, [options])`                    |
+|  RPC   | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+参照: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                        |
-| -------- | ------ | -------------------------------------------------- |
-| fileName | string | The file name which contains the RLP of the block. |
-| options  | object | See [tracing options](#tracing-options).           |
+| 名前       | タイプ    | Description                              |
+| -------- | ------ | ---------------------------------------- |
+| fileName | 文字列    | ブロックのRLPを含むファイル名。                        |
+| オプション    | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-The contents of the `block.rlp` file was printed on the running node as follows.
+実行中のノードに `block.rlp` ファイルの内容を以下のように印字しました。
 ```
 $ cat block.rlp
-f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
+f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a3dcc4de8dec75d7aab85b567b6cd41ad312451b948a7413f0a142fd40347940000000000000000000000000000000000000000000000000000000000000000000000000000000000000b2f1b94a0b4a0bfd4934494c8494a0b9494c848a0b4a0b2b2f1e417312faa241fb93d93d83860e09
 ```
 
-Console
+コンソール
 ```javascript
 > debug.traceBlockFromFile("block.rlp")
 [{
@@ -297,35 +297,35 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockFromFile","params":["block.rlp", {}],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
 ...
-,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
+{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c57600000000000000000000000000000000000000000000000000000","000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd580f5b506f5061"
 ```
 
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+`traceTransaction` デバッグメソッドは、ネットワーク上で実行されたのとまったく同じ方法で トランザクションを実行しようとします。 これより前に実行されている可能性のある トランザクションは、 与えられたハッシュに対応するトランザクションの実行を最終的に試みます。
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.traceTransaction(txHash, [options])`                    |
-|   RPC   | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
+| クライアント | メソッドの呼び出し                                                      |
+|:------:| -------------------------------------------------------------- |
+| コンソール  | `debug.traceTransaction(txHash, [options])`                    |
+|  RPC   | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| txHash  | string | The hash of the transaction.             |
-| options | object | See [tracing options](#tracing-options). |
+| 名前     | タイプ    | Description                              |
+| ------ | ------ | ---------------------------------------- |
+| txHash | 文字列    | トランザクションのハッシュ値。                          |
+| オプション  | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| タイプ     | Description             |
+| ------- | ----------------------- |
+| JSON文字列 | KLVMの実行中に作成された構造化されたログ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09")
 {
@@ -402,24 +402,24 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},
 ...
-,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}
+,{"pc":322,"op","return","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c5760000000000000000000000000000000000000000000000000","0000000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd5506f506f5061",
 ```
 
 ## debug_traceChain <a id="debug_tracechain"></a>
 
-Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
+JSONオブジェクトとして、2つのブロック(スタートを除く)の間でEVMの実行中に作成された構造化されたログを返します。 このエンドポイントは debug_subscribe 経由で呼び出される必要があります。
 
-**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
+**注意**: マシンリソースを過剰に使用できるので、同時にブロックが多すぎないようにしてください。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | Tracing start block number.              |
-| number  | int    | Tracing end block number.                |
-| options | object | See [tracing options](#tracing-options). |
+| 名前    | タイプ    | Description                              |
+| ----- | ------ | ---------------------------------------- |
+| 数値    | int    | ブロック番号をトレースします。                          |
+| 数値    | int    | 終了ブロック番号のトレース。                           |
+| オプション | object | [トレースオプション](#tracing-options) を参照してください。 |
 
-**Example**
+**例**
 ```
 wscat -c ws://localhost:8552
 > {"id": 1, "method": "debug_subscribe", "params": ["traceChain", 21, 30, {}]}
@@ -430,34 +430,34 @@ wscat -c ws://localhost:8552
 >
 ```
 
-## Tracing Options <a id="tracing-options"></a>
+## トレースオプション <a id="tracing-options"></a>
 
-You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
+トレースAPI関数に、この特定の呼び出しのオプションを 指定する2番目のオプション引数を与えることができます。 利用可能なオプションは次のとおりです。
 
-- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
-- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
-- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
-- `timeout`: `STRING`. Overrides the default timeout of 5 seconds for JavaScript-based tracing calls. Valid values are described [here](https://golang.org/pkg/time/#ParseDuration).
-- `tracer`: `STRING`. Setting this will enable JavaScript-based transaction tracing, described in the [next section](#javascript-based-tracing). If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.
+- `disableStorage`: `BOOL`. true に設定すると、ストレージキャプチャが無効になります (デフォルト = false)。
+- `disableMemory`: `BOOL`. これをtrueに設定すると、メモリキャプチャが無効になります(既定値はfalse)。
+- `disableStack`: `BOOL`. これをtrueに設定するとスタックキャプチャが無効になります(デフォルトはfalse)。
+- `timeout`: `STRING`. JavaScriptベースのトレース呼び出しでデフォルトのタイムアウト時間5秒を上書きします。 有効な値はこちら [](https://golang.org/pkg/time/#ParseDuration) に記述されています。
+- `tracer`: `STRING`. これを設定すると、JavaScriptベースのトランザクショントレースが有効になります。 [次のセクション](#javascript-based-tracing) で説明されています。 設定されている場合、直前の 4 つの引数は無視されます。 定義済みトレーサーは次の表としても使用できます。
 
-| Tracer Name    | Description                                                                                                                                                                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.                            |
-| callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                                                         |
-| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
-| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
-| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
-| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
-| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
-| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
-| unigramTracer  | unigramTracer returns the number of occurrences of each opcode.                                                                                                                                                                                                  |
-| bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                                                                                                                       |
-| trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                                                                                                                    |
+| トレーサー名         | Description                                                                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 4byteTracer    | 4byteTracerは4バイト識別子を検索し、後処理のためにそれらを収集します。 指定されたデータのサイズとともにメソッド識別子を収集します。 データのサイズと照合することができます                                                                       |
+| callTracer     | callTracerは、トランザクションによって行われたすべての内部コールを、有益な情報とともに抽出し、報告する本格的なトランザクショントレーサーです。                                                                                       |
+| fastCallTracer | fastCallTracerは、callTracerのGoネイティブバージョンです。 JavaScript VM では実行されないため、callTracer に比べて 10倍以上の高速化を示します。 パフォーマンスが最初に重要である場合は、callTracer の代わりに fastCallTracer を使用してください。 |
+| evmdisTracer   | evmdisTracer はトレースから evmdisスタイルの逆アセンブリを実行するのに十分な情報を返します。                                                                                                           |
+| noopTracer     | noopTracerはトランザクショントレーサーとして使用するためにJavaScriptオブジェクトから必要とされるベアボイラプレートコードです。                                                                                          |
+| opcountTracer  | opcountTracerは、KLVMによって実行される命令の数だけをトランザクションが終了する前にカウントするサンプルトレーサーです。                                                                                               |
+| prestateTracer | prestateTracerは、カスタムアセンブリジェネシスブロックからトランザクションをローカルで実行するのに十分な情報を出力します。                                                                                               |
+| revertTracer   | revertTracerはREVERTのエラー文字列を出力します。 実行が元に戻されない場合は、空文字列を出力します。                                                                                                        |
+| unigramTracer  | unigramTracer は各オペコードの出現回数を返します。                                                                                                                                   |
+| bigramTracer   | bigramTracer は、連続した 2 つのオペコードの発生回数を返します。                                                                                                                           |
+| trigramTracer  | trigramTracerは3つの連続したオペコードの発生回数を返します。                                                                                                                              |
 
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09", {tracer: "callTracer"})
 {
@@ -485,28 +485,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
-Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
+## JavaScript ベースのトレース <a id="javascript-based-tracing"></a>
+第2引数に `トレーサー` オプションを指定すると、JavaScriptベースの トレースが有効になります。 In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
 `step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
 
-`log` has the following fields:
+`ログ` には以下のフィールドがあります。
 
-| Field Name | Type           | Description                                                 |
-| ---------- | -------------- | ----------------------------------------------------------- |
-| `pc`       | Number         | The current program counter.                                |
-| `op`       | Object         | An OpCode object representing the current opcode.           |
-| `gas`      | Number         | The amount of gas remaining.                                |
-| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
-| `memory`   | Object         | A structure representing the contract's memory space.       |
-| `stack`    | array[big.Int] | The KLVM execution stack.                                   |
-| `depth`    | Number         | The execution depth.                                        |
-| `account`  | String         | The address of the account executing the current operation. |
-| `err`      | String         | If an error occurred, information about the error.          |
+| フィールド名     | タイプ         | Description                   |
+| ---------- | ----------- | ----------------------------- |
+| `pc`       | Number      | 現在のプログラムカウンター。                |
+| `op`       | Object      | 現在の opcode を表す OpCode オブジェクト。 |
+| `ガス`       | Number      | 残りのガスの量。                      |
+| `gasPrice` | Number      | ガスの各ユニットのペブのコスト。              |
+| `メモリ`      | Object      | 契約のメモリ空間を表す構造。                |
+| `スタック`     | 配列[big.Int] | KLVM実行スタック。                   |
+| `深さ`       | Number      | 実行の深さ。                        |
+| `アカウント`    | 文字列         | 現在の操作を実行しているアカウントのアドレス。       |
+| `Err`      | 文字列         | エラーが発生した場合、エラーに関する情報です。       |
 
-If `err` is non-null, all other fields should be ignored.
+`err` が null でない場合、他のすべてのフィールドは無視されます。
 
-For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. 例えば、このステップ関数は動作しません:
 
 ```javascript
 function(log) {
@@ -514,7 +514,7 @@ function(log) {
 }
 ```
 
-But this step function will:
+しかし、このステップ関数は次のようになります。
 
 ```javascript
 function(log) {
@@ -522,46 +522,46 @@ function(log) {
 }
 ```
 
-`log.op` has the following methods:
+`log.op` には以下のメソッドがあります。
 
-| Method Name  | Description                                      |
-| ------------ | ------------------------------------------------ |
-| `isPush()`   | Returns true if the opcode is a `PUSHn`.         |
-| `toString()` | Returns the string representation of the opcode. |
-| `toNumber()` | Returns the opcode's number.                     |
+| メソッド名        | Description                     |
+| ------------ | ------------------------------- |
+| `isPush()`   | オペコードが `PUSHn` の場合は true を返します。 |
+| `toString()` | オペコードの文字列表現を返します。               |
+| `toNumber()` | オペコードの番号を返します。                  |
 
-`log.memory` has the following methods:
+`log.memory` には以下のメソッドがあります。
 
-| Method Name          | Description                                              |
-| -------------------- | -------------------------------------------------------- |
-| `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
-| `length()`           | Returns the length of the memory.                        |
+| メソッド名                | Description                   |
+| -------------------- | ----------------------------- |
+| `slice(start, stop)` | 指定したメモリのセグメントをバイトスライスとして返します。 |
+| `length()`           | メモリの長さを返します。                  |
 
-`log.stack` has the following methods:
+`log.stack` には以下のメソッドがあります。
 
-| Method Name | Description                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------- |
-| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
-| `length()`  | Returns the number of elements in the stack.                                                    |
+| メソッド名       | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| `peek(idx)` | スタックの先頭から idx 番目の要素を返します(0 が最上位の要素です)。 `big.Int` を返します。 |
+| `length()`  | スタック内の要素数を返します。                                         |
 
-`db` has the following methods:
+`db` には以下のメソッドがあります。
 
-| Method Name               | Description                                                               |
-| ------------------------- | ------------------------------------------------------------------------- |
-| `getBalance(address)`     | Returns a `big.Int` with the specified account's balance.                 |
-| `getNonce(address)`       | Returns a Number with the specified account's nonce.                      |
-| `getCode(address)`        | Returns a byte slice with the code for the specified account.             |
-| `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
-| `exists(address)`         | Returns true if the specified address exists.                             |
+| メソッド名                     | Description                   |
+| ------------------------- | ----------------------------- |
+| `getBalance(address)`     | 指定した口座残高を持つ `big.Int` を返します。  |
+| `getNonce(address)`       | 指定した口座の nonce の数値を返します。       |
+| `getCode(address)`        | 指定したアカウントのコードを含むバイトスライスを返します。 |
+| `getState(address, hash)` | 指定した口座と指定したハッシュの状態値を返します。     |
+| `exists(address)`         | 指定されたアドレスが存在する場合は true を返します。 |
 
-The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
+2番目の関数 `result`は引数を取らず、RPC呼び出し元に戻すために JSON-serializable 値を返すことが期待されます。
 
 If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
 
-Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
+いくつかの値はGolang `big.Int` オブジェクトであり、JavaScript 番号 や JS bigintsではないことに注意してください。 そのため、彼らは godocsで説明されているのと同じインターフェイスを持っています。 JSON へのデフォルトのシリアル化は、Javascript 番号として行われます。 大規模な数値をシリアライズするには `.String()` を正確に呼び出します。 便宜上、 `big.NewInt(x)` が提供され、 uint を Golang `big.int` に変換します。
 
-As an usage example below, it returns the top element of the stack at each CALL opcode only:
+以下の使用例では、各 CALL オペコードのみでスタックの一番上の要素を返します。
 
 ```javascript
-debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
+debug.traceTransaction(txh, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
 ```
