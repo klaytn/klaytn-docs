@@ -1,132 +1,132 @@
 ---
 description: >-
-  Cautions when using eth namespace apis in Klaytn.
+  Klaytnでeth名前空間apisを使用する際の注意。
 ---
 
-# Namespace caution <a id="namespace-caution"></a>
+# ネームスペースの注意 <a id="namespace-caution"></a>
 
-Klaytn supports `eth` namespace APIs, so developers using Ethereum based SDKs or tools now can easily migrate their existing projects to Klaytn. (e.g. You can replace the endpoint URL in the Ethereum tools to point to a Klaytn node.)
+Klaytn は `eth` 名前空間 API をサポートしているため、イーサリアムベースの SDK やツールを使用する開発者は、 既存のプロジェクトを Klaytn に簡単に移行できるようになりました。 (たとえば、Ethereumツール内のエンドポイント URLを置き換えて、Klaytn ノードを指すことができます。
 
-But due to the fundamental design differences existing between Klaytn and Ethereum, some APIs cannot be fully supported. (e.g. some fields have always zero value)
+しかし、KlaytnとEthereumの間に存在する基本的なデザインの違いにより、 いくつかのAPIは完全にサポートされることができません。 （例：一部のフィールドは常にゼロの値を持っています）
 
-This document describes the limitations of those APIs.
+このドキュメントでは、これらの API の制限について説明します。
 
-## Block Header <a id="block_header"></a>
+## ブロックヘッダー <a id="block_header"></a>
 
-Related APIs: [eth_getHeaderByNumber](./block.md#eth_getheaderbynumber), [eth_getHeaderByHash](./block.md/#eth_getheaderbyhash).
+関連API: [eth_getHeaderByNumber](./block.md#eth_getheaderbynumber), [eth_getHeaderByHash](./block.md/#eth_getheaderbyhash).
 
-* Please read the description :warning: carefully.
-* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
+* :warning: の説明をよくお読みください。
+* 説明内の :white_check_mark: アイコンは、Ethereumと同じ方法で使用されているフィールドを示します。
 
-| Ethereum Header Field | Klaytn Header Field     | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas         | (added)                 | :warning: This field always has the value `0x0` because Klaytn does not have a baseFeePerGas scheme.                                                                                                                                                                                                                                                                                                                                      |
-| difficulty            | (added)                 | :warning: This field corresponds to `blockScore` in the Klaytn header, which is fixed to `0x1`. This is because Klaytn's consensus mechanism is not based on PoW, indicating the technical concept of block difficulty is not applicable to Klaytn core.                                                                                                                                                                                  |
-| extraData             | extraData               | :warning: This field always has the value `0x` indicating the empty value. Owing to the fact that Klaytn's `extraData` contains consensus data such as validators addresses, validators signatures, and proposer signature, it is not applicable to `eth` namespace API.                                                                                                                                                                  |
-| gasLimit              | (added)                 | :warning: This field always has the value `0xe8d4a50fff`(=`999999999999` in decimal), which is an arbitrary figure since Klaytn has no GasLimit. At the time of writing, this figure is 30 times higher than the [block gas limit of Ethereum](https://ethereum.org/en/developers/docs/gas/#block-size). Please refer to [Computation Cost](../../../../klaytn/design/computation/computation-cost/computation-cost.md) for more details. |
-| gasUsed               | gasUsed                 | :white_check_mark: A scalar value equal to the total gas used in transactions in this block.                                                                                                                                                                                                                                                                                                                                            |
-|                       | governanceData(omitted) | :warning: This field is omitted because this field does not exist in Ethereum Block Header.                                                                                                                                                                                                                                                                                                                                               |
-| hash                  | hash                    | :white_check_mark: A hash of the block.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| logsBloom             | logsBloom               | :white_check_mark: The bloom filter for the logs of the block. `null` when it is pending block.                                                                                                                                                                                                                                                                                                                                         |
-| miner                 | (added)                 | :warning: This field returns the block proposer's address, because Klaytn's [consensus mechanism](../../../../klaytn/design/consensus-mechanism.md) is [PBFT](../../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance), which has a block proposer instead of miners.                                                                                                                                   |
-| mixHash               | (added)                 | :warning: This field always has zeroHash (`0x00...`) because Klaytn's consensus mechanism is not based on PoW.                                                                                                                                                                                                                                                                                                                            |
-| nonce                 | (added)                 | :warning: This field always has zeroNonce (`0x00...`) because Klaytn's consensus mechanism is not based on PoW.                                                                                                                                                                                                                                                                                                                           |
-| number                | number                  | :white_check_mark: The block number.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| parentHash            | parentHash              | :white_check_mark: The hash of the parent block.                                                                                                                                                                                                                                                                                                                                                                                        |
-| receiptsRoot          | receiptsRoot            | :white_check_mark: the root of the receipts trie of the block.                                                                                                                                                                                                                                                                                                                                                                          |
-|                       | reward(omitted)         | :warning: This field is omitted because this field does not exist in Ethereum Block Header.                                                                                                                                                                                                                                                                                                                                               |
-| sha3Uncles            | (added)                 | :warning: This field always has `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347`, which is the Keccak256 hash of the RLP-encoded bytes of the list containing empty block header because there are no uncles blocks on Klaytn.                                                                                                                                                                                        |
-| size                  | size                    | :white_check_mark: The size of this block in bytes.                                                                                                                                                                                                                                                                                                                                                                                     |
-| stateRoot             | stateRoot               | :white_check_mark: The root of the final state trie of the block.                                                                                                                                                                                                                                                                                                                                                                       |
-| timestamp             | timestamp               | :white_check_mark: The unix timestamp for when the block was collated.                                                                                                                                                                                                                                                                                                                                                                  |
-|                       | timestampFoS(omitted)   | :warning: This field is omitted because this field does not exist in Ethereum Block Header.                                                                                                                                                                                                                                                                                                                                               |
-| totalDifficulty       | (added)                 | :warning: The total difficulty of the chain until the querying block.                                                                                                                                                                                                                                                                                                                                                                     |
-| transactionsRoot      | transactionsRoot        | :white_check_mark: The root of the transaction trie of the block.                                                                                                                                                                                                                                                                                                                                                                       |
+| イーサリアムヘッダーフィールド  | Klaytnヘッダフィールド     | Description                                                                                                                                                                                                                                                                                                      |
+| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| baseFeePerGas    | (追加)               | :warning: Klaytn には baseFeePerGas スキームがないため、このフィールドは常に `0x0` の値を持ちます。                                                                                                                                                                                                                                            |
+| 難易度：             | (追加)               | :warning: このフィールドは、Klaytn ヘッダーの `blockScore` に対応します。これは、 `0x1` に固定されています。 これは、KlaytnのコンセンサスメカニズムがPoWに基づいていないため、ブロック難易度の技術的概念がKlaytnコアには適用できないことを示しています。                                                                                                                                                          |
+| extraData        | extraData          | :warning: この項目は常に空の値を示す `0x` を持っています。 Owing to the fact that Klaytn's `extraData` contains consensus data such as validators addresses, validators signatures, and proposer signature, it is not applicable to `eth` namespace API.                                                                              |
+| gasLimit         | (追加)               | :warning: このフィールドは常に値 `0xe8d4a50fff`(=`999999999999` の小数点以下) を持っています。 これは、KlaytnにGasLimitがないため、任意の数字です。 執筆時点では、この数字はEthereumの [ブロックガス制限の30倍です](https://ethereum.org/en/developers/docs/gas/#block-size)。 詳細については、 [計算コスト](../../../../klaytn/design/computation/computation-cost/computation-cost.md) を参照してください。 |
+| gasUsed          | gasUsed            | :white_check_mark: このブロック内のトランザクションで使用されるガスの合計に等しいスカラー値。                                                                                                                                                                                                                                                       |
+|                  | governanceData(省略) | :warning: このフィールドはEthereum Block Headerには存在しないため、省略されます。                                                                                                                                                                                                                                                         |
+| hash             | hash               | :white_check_mark: ブロックのハッシュ値。                                                                                                                                                                                                                                                                                 |
+| logsBloom        | logsBloom          | :white_check_mark: ブロックのログのブルームフィルター。 `ブロック保留中の場合は null`                                                                                                                                                                                                                                                       |
+| miner            | (追加)               | :warning: This field returns the block proposer's address, because Klaytn's [consensus mechanism](../../../../klaytn/design/consensus-mechanism.md) is [PBFT](../../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance), which has a block proposer instead of miners.          |
+| mixHash          | (追加)               | :warning: KlaytnのコンセンサスメカニズムはPoWに基づいていないため、このフィールドは常にゼロハッシュ(`0x00...`)を持ちます。                                                                                                                                                                                                                                     |
+| nonce            | (追加)               | :warning: KlaytnのコンセンサスメカニズムはPoWに基づいていないため、このフィールドは常にゼロNonce (`0x00...`) を持っています。                                                                                                                                                                                                                                |
+| 数値               | 数値                 | :white_check_mark: ブロック番号。                                                                                                                                                                                                                                                                                     |
+| parentHash       | parentHash         | :white_check_mark: 親ブロックのハッシュ。                                                                                                                                                                                                                                                                                 |
+| receiptsRoot     | receiptsRoot       | :white_check_mark: ブロックのレシートのルートが試行されました。                                                                                                                                                                                                                                                                      |
+|                  | 報酬（省略）             | :warning: このフィールドはEthereum Block Headerには存在しないため、省略されます。                                                                                                                                                                                                                                                         |
+| sha3Uncles       | (追加)               | :warning: このフィールドは常に `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347`を持っています。 これは空のブロックヘッダを含むリストのRLPエンコードバイトのKecchak256ハッシュで、Klaytnには叔父ブロックがないためです。                                                                                                                                          |
+| サイズ              | サイズ                | :white_check_mark: このブロックのサイズをバイトで指定します。                                                                                                                                                                                                                                                                       |
+| stateRoot        | stateRoot          | :white_check_mark: ブロックの最終状態のルート。                                                                                                                                                                                                                                                                              |
+| timestamp        | timestamp          | :white_check_mark: ブロックがCollatedされた時の unix タイムスタンプ。                                                                                                                                                                                                                                                            |
+|                  | timestampFoS(省略)   | :warning: このフィールドはEthereum Block Headerには存在しないため、省略されます。                                                                                                                                                                                                                                                         |
+| totalDifficulty  | (追加)               | :warning: クエリブロックまでのチェーンの難易度の合計。                                                                                                                                                                                                                                                                                 |
+| transactionsRoot | transactionsRoot   | :white_check_mark: ブロックのトランザクションのルート。                                                                                                                                                                                                                                                                          |
 
 
-## Block <a id="block"></a>
+## ブロック <a id="block"></a>
 
 Related APIs: [eth_getBlockByHash](./block.md/#eth_getblockbyhash), [eth_getBlockByNumber](./block.md/#eth_getblockbynumber), [eth_getUncleByBlockHashAndIndex](./block.md/#eth_getunclebyblockhashandindex), [eth_getUncleByBlockNumberAndIndex](./block.md/#eth_getunclebyblocknumberandindex).
 
-Since Block contains fields of Header and header has already been covered above, this section describes the remaining fields of the block except for header.
+Block にはヘッダのフィールドが含まれており、ヘッダはすでに上記でカバーされています。 このセクションでは、ヘッダー以外のブロックの残りのフィールドについて説明します。
 
-* Please read the description :warning: carefully.
-* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
+* :warning: の説明をよくお読みください。
+* 説明内の :white_check_mark: アイコンは、Ethereumと同じ方法で使用されているフィールドを示します。
 
-| Ethereum Header Field | Klaytn Header Field | Description                                                                                                              |
-| --------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-|                       | voteData(omitted)   | :warning: This field is omitted because this field does not exist in Ethereum Block.                                     |
-| uncles                | (added)             | :warning: This field always has the value `[]` because there is no technical concept of uncles block in Klaytn core.     |
-| transactions          | transactions        | :white_check_mark: Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter. |
+| イーサリアムヘッダーフィールド | Klaytnヘッダフィールド | Description                                                                      |
+| --------------- | -------------- | -------------------------------------------------------------------------------- |
+|                 | voteData(省略)   | :warning: このフィールドはEthereum Blockに存在しないため、省略されます。                                 |
+| おじさんたち          | (追加)           | :warning: このフィールドは常に値 `[]` を持っています。なぜなら、Klaytn コアには叔父ブロックの技術的な概念がないからです。         |
+| 取引              | 取引             | :white_check_mark: トランザクションオブジェクトの配列、または最後に与えられたパラメータに応じた32 Bytesトランザクションハッシュ。 |
 
 
-## Transaction <a id="transaction"></a>
+## 取引 <a id="transaction"></a>
 
-Related APIs: [eth_getTransactionByHash](./transaction.md/#eth_gettransactionbyhash), [eth_getTransactionByBlockHashAndIndex](./transaction.md/#eth_gettransactionbyblockhashandindex), [eth_getTransactionByBlockNumberAndIndex](./transaction.md/#eth_gettransactionbyblocknumberandindex), [eth_pendingTransactions](./transaction.md/#eth_pendingtransactions).
+関連API: [eth_getTransactionByHash](./transaction.md/#eth_gettransactionbyhash), [eth_getTransactionByBlockHashAndIndex](./transaction.md/#eth_gettransactionbyblockhashandindex), [eth_getTransactionByBlockNumberAndIndex](./transaction.md/#eth_gettransactionbyblocknumberandindex), [eth_pendingTransactions](./transaction.md/#eth_pendingtransactions).
 
-There are lots of transaction types in Klaytn, and fields of data structure vary based on the type.
+Klaytnには多くのトランザクションタイプがあり、データ構造のフィールドは型によって異なります。
 
-So you have to check how various types of Klaytn transaction are converted as Ethereum transaction because during converting process some fields are omitted or added with zero or dummy values. That means Some important information(in terms of Klaytn) will be lost during converting.
+So you have to check how various types of Klaytn transaction are converted as Ethereum transaction because during converting process some fields are omitted or added with zero or dummy values. つまり、 変換中にいくつかの重要な情報(Klaytnの面で)が失われます。
 
-Please note that we define EthereumLegacyTransaction in this document as the Ethereum transaction format before [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718).
+このドキュメントでは、EthereumLegacyTransaction を [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718) の前にEthereumトランザクションフォーマットとして定義しています。
 
-When you try to query Klaytn transactions via eth namespace JSON-RPC apis, Klaytn transactions will be return as Ethereum Legacy Transaction type.
+eth名前空間JSON-RPCAPIを介してKlaytnトランザクションをクエリしようとすると、KlaytnトランザクションはEthereum Legacyトランザクションタイプとして リターンします。
 
-This document describes the details of converting process (Klaytn transactions -> Ethereum Legacy Transaction).
+この文書では、変換プロセスの詳細について説明します (Klaytn transaction -> Ethereum Legacy Transaction)。
 
-* Please read the description :warning: carefully.
-* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
+* :warning: の説明をよくお読みください。
+* 説明内の :white_check_mark: アイコンは、Ethereumと同じ方法で使用されているフィールドを示します。
 
-### Common Fields
+### 一般フィールド
 
-Regardless of various Klaytn transaction type, there are common fields. This section describes how that common fields are served as Ethereum Legacy Transaction.
+さまざまな Klaytn トランザクションの種類にかかわらず、共通のフィールドがあります。 このセクションでは、共通フィールドがEthereum Legacy Transactionとしてどのように機能するかについて説明します。
 
-| Ethereum Legacy Transaction Field | Klaytn Transaction Field                                                               | Description                                                                                                                                                                                                                                    |
-| --------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                         | blockHash                                                                              | :white_check_mark: Block hash.                                                                                                                                                                                                               |
-| blockNumber                       | blockNumber                                                                            | :white_check_mark: Block number.                                                                                                                                                                                                             |
-| from                              | from                                                                                   | :white_check_mark: Address of the sender.                                                                                                                                                                                                    |
-| gas                               | gas                                                                                    | :white_check_mark: Gas provided by the sender.                                                                                                                                                                                               |
-| gasPrice                          | gasPrice                                                                               | :warning: Also known as [Unit Price](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) in Klaytn's context, this value is determined in the system via the governance processes.                                      |
-| hash                              | hash                                                                                   | :white_check_mark: Transaction hash.                                                                                                                                                                                                         |
-| input                             | (covered in below sections)                                                            | The description of this field is covered in the detailed transaction items below.                                                                                                                                                              |
-| nonce                             | nonce                                                                                  | :white_check_mark: The number of transactions made by the sender prior to this one.                                                                                                                                                          |
-|                                   | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(omitted) | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                              |
-|                                   | signatures(omitted)                                                                    | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                              |
-| to                                | (covered in below sections)                                                            | The description of this field is covered in the detailed transaction items below.                                                                                                                                                              |
-| transactionIndex                  | transactionIndex                                                                       | :warning: Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                                     |
-| value                             | (covered in below sections)                                                            | The description of this field is covered in the detailed transaction items below.                                                                                                                                                              |
-| type                              | type(converted)                                                                        | :warning: In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
-|                                   | typeInt(omitted)                                                                       | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                              |
-| v                                 | (added)                                                                                | :warning: Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].V` is used as the value of the field `v`.                                                                                         |
-| r                                 | (added)                                                                                | :warning: Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].R` is used as the value of the field `r`.                                                                                         |
-| s                                 | (added)                                                                                | :warning: Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].S` is used as the value of the field `s`.                                                                                         |
+| イーサリアムレガシートランザクションフィールド | Klaytn トランザクションフィールド                                                              | Description                                                                                                                                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash               | blockHash                                                                         | :white_check_mark: ブロックハッシュ。                                                                                                                                                                                   |
+| blockNumber             | blockNumber                                                                       | :white_check_mark: ブロック番号                                                                                                                                                                                      |
+| from                    | from                                                                              | :white_check_mark: 送信者のアドレス                                                                                                                                                                                    |
+| ガス                      | ガス                                                                                | :white_check_mark: ガスが送信者から提供されました。                                                                                                                                                                            |
+| gasPrice                | gasPrice                                                                          | :warning: Klaytnのコンテキストでは [単価](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) とも呼ばれ、この値はガバナンスプロセスを通じてシステム内で決定されます。                                                                   |
+| hash                    | hash                                                                              | :white_check_mark: トランザクションハッシュ                                                                                                                                                                                |
+| input                   | （以下の項で取り上げる）                                                                      | このフィールドの説明は以下の詳細なトランザクション項目で説明されています。                                                                                                                                                                            |
+| nonce                   | nonce                                                                             | :white_check_mark: この前の送信者によって行われたトランザクションの数。                                                                                                                                                                  |
+|                         | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(省略) | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                                                                                                                                                   |
+|                         | 署名（省略）                                                                            | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                                                                                                                                                   |
+| to                      | （以下の項で取り上げる）                                                                      | このフィールドの説明は以下の詳細なトランザクション項目で説明されています。                                                                                                                                                                            |
+| transactionIndex        | transactionIndex                                                                  | :warning: Ethereumとほぼ同じですが、Ethereumとは異なり、Klaytnは保留中のときと同じように整数を返します。                                                                                                                                             |
+| 値                       | （以下の項で取り上げる）                                                                      | このフィールドの説明は以下の詳細なトランザクション項目で説明されています。                                                                                                                                                                            |
+| タイプ                     | type(converted)                                                                   | :warning: In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Klaytnでのみ有効なトランザクションタイプは常に `0x0`を返します。 |
+|                         | typeInt(省略)                                                                       | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                                                                                                                                                   |
+| v                       | (追加)                                                                              | :warning: Klaytnはマルチシグをサポートしているため、Klaytnのトランザクションは複数の署名を持つことができます。 `署名[0].V` は フィールド `v` の値として使用されます。                                                                                                            |
+| r                       | (追加)                                                                              | :warning: Klaytnはマルチシグをサポートしているため、Klaytnのトランザクションは複数の署名を持つことができます。 `署名[0].R` は フィールド `r` の値として使用されます。                                                                                                            |
+| s                       | (追加)                                                                              | :warning: Klaytnはマルチシグをサポートしているため、Klaytnのトランザクションは複数の署名を持つことができます。 `署名[0].S` はフィールド `s` の値として使用されます。                                                                                                             |
 
-### Common Fields For [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md)
-Regardless of various Klaytn [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md) transaction type, there are common fields. This section describes how that common fields for feeDelegation(except for the common fields covered above) are served as Ethereum Legacy Transaction.
+### [手数料委任のための一般フィールド](../../../../klaytn/design/transactions/fee-delegation.md)
+さまざまな Klaytn [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md) トランザクションタイプに関係なく、共通のフィールドがあります。 このセクションでは、feeDelegation(上記の共通フィールドを除く) がEthereum Legacy Transactionとして機能する方法について説明します。
 
-| Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                       |
-| --------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------- |
-|                                   | feePayer(omitted)                      | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
-|                                   | feePayerSignatures(omitted)            | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+| イーサリアムレガシートランザクションフィールド | Klaytn FeeDelegation Transaction フィールド | Description                                                    |
+| ----------------------- | -------------------------------------- | -------------------------------------------------------------- |
+|                         | feePayer(省略)                           | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。 |
+|                         | feePayerSignatures(省略)                 | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。 |
 
-### Common Fields For [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md)
-Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) transaction type, there are common fields. This section describes how that common fields for partialFeeDelegation(except for the common fields covered above) are served as Ethereum Legacy Transaction.
+### [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) の共通フィールド
+さまざまな Klaytn [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) トランザクションタイプに関係なく、共通のフィールドがあります。 このセクションでは、partialFeeDelegation(上記の共通フィールドを除く) がEthereum Legacy Transactionとして機能する方法について説明します。
 
-| Ethereum Legacy Transaction Field | Klaytn PartialFeeDelegation Transaction Field | Description                                                                                       |
-| --------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-|                                   | feeRatio(omitted)                             | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+| イーサリアムレガシートランザクションフィールド | Klaytn PartialFeeDelegation トランザクションフィールド | Description                                                    |
+| ----------------------- | ----------------------------------------- | -------------------------------------------------------------- |
+|                         | feeRatio(省略)                              | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。 |
 
-### Different fields for each transaction type
-#### LegacyTransaction
+### トランザクションタイプごとに異なるフィールド
+#### 従来の取引
 
-| Ethereum Legacy Transaction Field | Klaytn LegacyTransaction Field | Description                                                                                    |
-| --------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------- |
-| input                             | input                          | :white_check_mark: The data sent along with the transaction.                                 |
-| to                                | to                             | :white_check_mark: Address of the receiver. `null` when its a contract creation transaction. |
-| value                             | value                          | :white_check_mark: Value transferred in Peb.                                                 |
+| イーサリアムレガシートランザクションフィールド | Klaytn LegacyTransaction Field | Description                                                                  |
+| ----------------------- | ------------------------------ | ---------------------------------------------------------------------------- |
+| input                   | input                          | :white_check_mark: トランザクションとともに送信されたデータ。                                   |
+| to                      | to                             | :white_check_mark: 受信者のアドレス `null` when its contract creation transaction. |
+| 値                       | 値                              | :white_check_mark: 値は Peb で転送されました。                                        |
 
-**Klaytn LegacyTransaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn LegacyTransaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -162,13 +162,13 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 
 #### ValueTransfer
 
-| Ethereum Legacy Transaction Field | Klaytn ValueTransfer Transaction Field | Description                                                                                                                               |
-| --------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| input                             | (added)                                | :warning: This field always has value `0x` which means empty input because this field does not exist in Klaytn ValueTransfer transaction. |
-| to                                | to                                     | :white_check_mark: Address of the receiver.                                                                                             |
-| value                             | value                                  | :white_check_mark: Value transferred in Peb.                                                                                            |
+| イーサリアムレガシートランザクションフィールド | Klaytn ValueTransfer トランザクションフィールド | Description                                                                                      |
+| ----------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| input                   | (追加)                               | :warning: このフィールドは常に値 `0x` を持っています。これは、このフィールドはKlaytn ValueTransfer トランザクションに存在しないため、空の入力を意味します。 |
+| to                      | to                                 | :white_check_mark: 受信者のアドレス                                                                    |
+| 値                       | 値                                  | :white_check_mark: 値は Peb で転送されました。                                                            |
 
-**Klaytn ValueTransfer Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn ValueTransfer Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -204,13 +204,13 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 
 #### ValueTransferMemo
 
-| Ethereum Legacy Transaction Field | Klaytn ValueTransferMemo Transaction Field | Description                                                    |
-| --------------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
-| input                             | input                                      | :white_check_mark: The data sent along with the transaction. |
-| to                                | to                                         | :white_check_mark: Address of the receiver.                  |
-| value                             | value                                      | :white_check_mark: Value transferred in Peb.                 |
+| イーサリアムレガシートランザクションフィールド | Klaytn ValueTransferMemo トランザクションフィールド | Description                                |
+| ----------------------- | -------------------------------------- | ------------------------------------------ |
+| input                   | input                                  | :white_check_mark: トランザクションとともに送信されたデータ。 |
+| to                      | to                                     | :white_check_mark: 受信者のアドレス              |
+| 値                       | 値                                      | :white_check_mark: 値は Peb で転送されました。      |
 
-**Klaytn ValueTransferMemo Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn ValueTransferMemo Transaction** は以下のようなEthereum Legacy Transactionとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
@@ -246,15 +246,15 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 
 #### SmartContractDeploy
 
-| Ethereum Legacy Transaction Field | Klaytn SmartContractDeploy Transaction Field | Description                                                                                                                                   |
-| --------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                   | codeFormat(omitted)                          | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                             |
-|                                   | humanReadable(omitted)                       | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                             |
-| input                             | input                                        | :white_check_mark: The data sent along with the transaction.                                                                                |
-| to                                | to                                           | :white_check_mark: Address of the receiver. This field always has value `null` because this transaction is a contract creation transaction. |
-| value                             | value                                        | :white_check_mark: Value transferred in Peb.                                                                                                |
+| イーサリアムレガシートランザクションフィールド | Klaytn SmartContractDeploy トランザクションフィールド | Description                                                                                |
+| ----------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+|                         | codeFormat(省略)                           | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                             |
+|                         | humanReadable(省略)                        | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                             |
+| input                   | input                                    | :white_check_mark: トランザクションとともに送信されたデータ。                                                 |
+| to                      | to                                       | :white_check_mark: 受信者のアドレス このトランザクションはコントラクト作成トランザクションであるため、このフィールドは常に値 `null` を持っています。 |
+| 値                       | 値                                        | :white_check_mark: 値は Peb で転送されました。                                                      |
 
-**Klaytn SmartContractDeploy Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn SmartContractDeploy Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -292,13 +292,13 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 
 #### SmartContractExecution
 
-| Ethereum Legacy Transaction Field | Klaytn SmartContractExecution Transaction Field | Description                                                    |
-| --------------------------------- | ----------------------------------------------- | -------------------------------------------------------------- |
-| input                             | input                                           | :white_check_mark: The data sent along with the transaction. |
-| to                                | to                                              | :white_check_mark: Address of the smart contract.            |
-| value                             | value                                           | :white_check_mark: Value transferred in Peb.                 |
+| イーサリアムレガシートランザクションフィールド | Klaytn SmartContractactionトランザクションフィールド | Description                                |
+| ----------------------- | --------------------------------------- | ------------------------------------------ |
+| input                   | input                                   | :white_check_mark: トランザクションとともに送信されたデータ。 |
+| to                      | to                                      | :white_check_mark: スマートコントラクトのアドレス。      |
+| 値                       | 値                                       | :white_check_mark: 値は Peb で転送されました。      |
 
-**Klaytn SmartContractExecution Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn SmartContractExecution Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -332,16 +332,16 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 }
 ```
 
-#### AccountUpdate
+#### アカウント更新
 
-| Ethereum Legacy Transaction Field | Klaytn AccountUpdate Transaction Field | Description                                                                                                                                                                                           |
-| --------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                   | key(omitted)                           | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                     |
-| input                             | (added)                                | :warning: This field always has value `0x` which means empty input because this field does not exist in Klaytn AccountUpdate transaction.                                                             |
-| to                                | (added)                                | :warning: This field always has same address with `from` because this field does not exist in Klaytn AccountUpdate transaction and giving a value of this field as `from` address is most meaningful. |
-| value                             | (added)                                | :warning: This field always has value `0x0` because this field does not exist in Klaytn AccountUpdate transaction.                                                                                    |
+| イーサリアムレガシートランザクションフィールド | Klaytn AccountUpdate トランザクションフィールド | Description                                                                                                             |
+| ----------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+|                         | key(省略)                            | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                                                          |
+| input                   | (追加)                               | :warning: このフィールドは常に値 `0x` を持っています。これは、このフィールドはKlaytn AccountUpdate トランザクションに存在しないため、空の入力を意味します。                        |
+| to                      | (追加)                               | :warning: このフィールドは `の` と常に同じアドレスを持っています。なぜなら、このフィールドは Klaytn AccountUpdate トランザクションに存在せず、 `から` の値を与えることが最も意味のあるものだからです。 |
+| 値                       | (追加)                               | :warning: このフィールドは、Klaytn AccountUpdate トランザクションにこのフィールドが存在しないため、常に値 `0x0` を持っています。                                     |
 
-**Klaytn AccountUpdate Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn AccountUpdate Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -376,15 +376,15 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 }
 ```
 
-#### Cancel
+#### キャンセル
 
-| Ethereum Legacy Transaction Field | Klaytn Cancel Transaction Field | Description                                                                                                                                                                                    |
-| --------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input                             | (added)                         | :warning: This field always has value `0x` which means empty input because this field does not exist in Klaytn Cancel transaction.                                                             |
-| to                                | (added)                         | :warning: This field always has same address with `from` because this field does not exist in Klaytn Cancel transaction and giving a value of this field as `from` address is most meaningful. |
-| value                             | (added)                         | :warning: This field always has value `0x0` because this field does not exist in Klaytn Cancel transaction.                                                                                    |
+| イーサリアムレガシートランザクションフィールド | Klaytn トランザクションキャンセルフィールド | Description                                                                                                                    |
+| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| input                   | (追加)                      | :warning: このフィールドは常に値 `0x` を持っています。これは、このフィールドはKlaytn Cancel トランザクションに存在しないため、空の入力を意味します。                                      |
+| to                      | (追加)                      | :warning: このフィールドは常に `from` と同じアドレスを持っています。なぜなら、このフィールドはKlaytn Cancel トランザクションに存在せず、 `から` のアドレスが最も意味のあるものとしてこのフィールドの値を与えるからです。 |
+| 値                       | (追加)                      | :warning: このフィールドは、Klaytn Cancel トランザクションに存在しないため、常に値 `0x0` を持っています。                                                           |
 
-**Klaytn Cancel Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn Cancel Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -420,14 +420,14 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 
 #### ChainDataAnchoring
 
-| Ethereum Legacy Transaction Field | Klaytn ChainDataAnchoring Transaction Field | Description                                                                                                                                                                                                |
-| --------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input                             | input                                       | :white_check_mark: The data sent along with the transaction.                                                                                                                                             |
-|                                   | inputJSON(omitted)                          | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                          |
-| to                                | (added)                                     | :warning: This field always has same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction and giving a value of this field as `from` address is most meaningful. |
-| value                             | (added)                                     | :warning: This field always has value `0x0` because this field does not exist in Klaytn ChainDataAnchoring transaction.                                                                                    |
+| イーサリアムレガシートランザクションフィールド | Klaytn ChainDataAnchoring トランザクションフィールド | Description                                                                                                                    |
+| ----------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| input                   | input                                   | :white_check_mark: トランザクションとともに送信されたデータ。                                                                                     |
+|                         | inputJSON(省略)                           | :warning: このフィールドはEthereum Legacy Transactionには存在しないため、省略されます。                                                                 |
+| to                      | (追加)                                    | :warning: このフィールドは常に `from` と同じアドレスを持っています。なぜなら、このフィールドはKlaytn ChainDataAnchoring トランザクションに存在せず、 `から` の値を与えることが最も意味のあるものだからです。 |
+| 値                       | (追加)                                    | :warning: このフィールドは、Klaytn ChainDataAnchoring トランザクションに存在しないため、常に値 `0x0` を持っています。                                               |
 
-**Klaytn ChainDataAnchoring Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn ChainDataAnchoring Transaction** は以下のようなEthereum Legacy Transactionとして機能します。
 ```json
 {
   "jsonrpc": "2.0",
@@ -471,77 +471,77 @@ Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/tr
 }
 ```
 
-## Transaction Receipt <a id="transaction_receipt"></a>
+## char@@0char@@1char@@2 <a id="transaction_receipt"></a>
 
-Related APIs: [eth_getTransactionReceipt](./transaction.md/#eth_gettransactionreceipt).
+関連API: [eth_getTransactionReceipt](./transaction.md/#eth_gettransactionreceipt).
 
-By default, the fields in the Klaytn Transaction Receipt are different depending on the transaction type. Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
+デフォルトでは、Klaytn Transaction Receiptのフィールドは、トランザクションの種類によって異なります。 Klaytnには多くのトランザクションタイプがあるため、トランザクション受領のフィールドはトランザクションタイプによって異なります。
 
-When you try to query Klaytn transaction receipts via eth namespace JSON-RPC apis, Klaytn TransactionReceipt will be returned as Ethereum Transaction Receipt.
+名前空間JSON-RPC apisを介してKlaytnトランザクションレシートをクエリしようとすると、 Klaytn TransactionReceiptはEthereumトランザクションレシートとして返されます。
 
-This document describes the details of converting process (Klaytn Transaction Receipt -> Ethereum Transaction Receipt).
+この文書では、変換プロセスの詳細について説明します(Klaytn Transaction Receipt -> Ethereum Transaction Receipt)。
 
-* Please read the description :warning: carefully.
-* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
+* :warning: の説明をよくお読みください。
+* 説明内の :white_check_mark: アイコンは、Ethereumと同じ方法で使用されているフィールドを示します。
 
-### Common Fields
+### 一般フィールド
 
-Regardless of various Klaytn transaction type, there are common fields. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
+さまざまな Klaytn トランザクションの種類にかかわらず、共通のフィールドがあります。 (Klaytn Transaction Receiptのフィールドはトランザクションの種類に基づいて様々であることを忘れないでください。
 
-This section describes how that common fields are served as Ethereum Transaction Receipt.
+このセクションでは、一般的なフィールドがEthereumトランザクション領収書として機能する方法について説明します。
 
-| Ethereum Transaction Receipt Field | Klaytn Transaction Receipt Field                                                       | Description                                                                                                                                                                                                                                 |
-| ---------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                          | blockHash                                                                              | :white_check_mark: Block hash.                                                                                                                                                                                                            |
-| blockNumber                        | blockNumber                                                                            | :white_check_mark: Block number.                                                                                                                                                                                                          |
-| contractAddress                    | contractAddress                                                                        | :white_check_mark: The contract address created, if the transaction was a contract creation, otherwise - `null`.                                                                                                                          |
-| cumulativeGasUsed                  | (added)                                                                                | :warning: The total amount of gas used when this transaction was executed in the block. It is provided with the same meaning as the Ethereum field.                                                                                         |
-| effectiveGasPrice                  | (added)                                                                                | :warning: Since Klaytn uses a fixed gas price policy, the gasPrice value is returned. gasPrice(also called [Unit Price](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)) is set in the system by the governance. |
-| from                               | from                                                                                   | :white_check_mark: Address of the sender.                                                                                                                                                                                                 |
-|                                    | gas(omitted)                                                                           | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
-| gasUsed                            | gasUsed                                                                                | :white_check_mark: the amount of gas used by this specific transaction alone.                                                                                                                                                             |
-|                                    | gasPrice(omitted)                                                                      | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
-| logs                               | logs                                                                                   | :white_check_mark: Array of log objects generated by transactions.                                                                                                                                                                        |
-| logsBloom                          | logsBloom                                                                              | :white_check_mark: Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                       |
-|                                    | nonce(omitted)                                                                         | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
-|                                    | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(omitted) | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
-|                                    | signatures(omitted)                                                                    | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
-| status                             | status                                                                                 | :white_check_mark: Either 1(success) or 0(failure).                                                                                                                                                                                       |
-| to                                 | (covered in below sections)                                                            | The description of this field is covered in the detailed transaction items below.                                                                                                                                                           |
-| transactionHash                    | transactionHash                                                                        | :white_check_mark: The transaction hash.                                                                                                                                                                                                  |
-| transactionIndex                   | transactionIndex                                                                       | :warning: Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                                  |
-| type                               | type(converted)                                                                        | :warning: Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Transaction Receipt.         |
-|                                    | typeInt(omitted)                                                                       | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                                          |
+| Ethereumトランザクション領収書フィールド | Klaytn トランザクション領収書フィールド                                                           | Description                                                                                                                                                                                                |
+| ------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                | blockHash                                                                         | :white_check_mark: ブロックハッシュ。                                                                                                                                                                             |
+| blockNumber              | blockNumber                                                                       | :white_check_mark: ブロック番号                                                                                                                                                                                |
+| コントラクトアドレス               | コントラクトアドレス                                                                        | :white_check_mark: トランザクションがコントラクト作成の場合、コントラクトアドレスが作成されました。それ以外の場合は - `null`。                                                                                                                            |
+| 累積ガス使用                   | (追加)                                                                              | :warning: この取引がブロック内で実行されたときに使用されるガスの合計量 これはEthereumフィールドと同じ意味で提供されています。                                                                                                                                   |
+| effectiveGasPrice        | (追加)                                                                              | :warning: Klaytnは一定のガス価格ポリシーを使用しているため、gasPrice値が返されます。 gasPrice( [Unit Price](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)とも呼ばれます)はガバナンスによってシステムに設定されます。                     |
+| from                     | from                                                                              | :white_check_mark: 送信者のアドレス                                                                                                                                                                              |
+|                          | gas(省略)                                                                           | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
+| gasUsed                  | gasUsed                                                                           | :white_check_mark: この特定の取引だけで使用されるガスの量                                                                                                                                                                   |
+|                          | gasPrice(省略)                                                                      | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
+| ログ                       | ログ                                                                                | :white_check_mark: トランザクションによって生成されたログオブジェクトの配列。                                                                                                                                                         |
+| logsBloom                | logsBloom                                                                         | :white_check_mark: ライトクライアントが関連するログをすばやく取得できるようにブルームフィルター。                                                                                                                                               |
+|                          | nonce(省略)                                                                         | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
+|                          | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(省略) | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
+|                          | 署名（省略）                                                                            | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
+| ステータス                    | ステータス                                                                             | :white_check_mark: 1（成功）または0（失敗）のいずれかです。                                                                                                                                                                 |
+| to                       | （以下の項で取り上げる）                                                                      | このフィールドの説明は以下の詳細なトランザクション項目で説明されています。                                                                                                                                                                      |
+| transactionHash          | transactionHash                                                                   | :white_check_mark: トランザクションハッシュ。                                                                                                                                                                         |
+| transactionIndex         | transactionIndex                                                                  | :warning: Ethereumとほぼ同じですが、Ethereumとは異なり、Klaytnは保留中のときと同じように整数を返します。                                                                                                                                       |
+| タイプ                      | type(converted)                                                                   | :warning: このフィールドの値とデータ型が変換されます。 The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Transaction Receipt. |
+|                          | typeInt(省略)                                                                       | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                                                                                                   |
 
-### Common Fields For [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md)
-Regardless of various Klaytn [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md) transaction type, there are common fields. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
+### [手数料委任のための一般フィールド](../../../../klaytn/design/transactions/fee-delegation.md)
+さまざまな Klaytn [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md) トランザクションタイプに関係なく、共通のフィールドがあります。 (Klaytn Transaction Receiptのフィールドはトランザクションの種類に基づいて様々であることを忘れないでください。
 
-This section describes how that common fields for feeDelegation(except for the common fields covered above) are served as Ethereum Transaction Receipt.
+このセクションでは、feeDelegation(上記の共通フィールドを除く) がEthereumトランザクション領収書として提供される方法について説明します。
 
-| Ethereum Transaction Receipt Field | Klaytn FeeDelegation Transaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                    | feePayer(omitted)                              | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-|                                    | feePayerSignatures(omitted)                    | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn FeeDelegation Transaction Receipt Field | Description                                              |
+| ------------------------ | ---------------------------------------------- | -------------------------------------------------------- |
+|                          | feePayer(省略)                                   | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
+|                          | feePayerSignatures(省略)                         | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
 
-### Common Fields For [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md)
-Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) transaction type, there are common fields. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
+### [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) の共通フィールド
+さまざまな Klaytn [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) トランザクションタイプに関係なく、共通のフィールドがあります。 (Klaytn Transaction Receiptのフィールドはトランザクションの種類に基づいて様々であることを忘れないでください。
 
-This section describes how that common fields for partialFeeDelegation(except for the common fields covered above) are served as Ethereum Transaction Receipt.
+このセクションでは、partialFeeDelegation(上記の共通フィールドを除く) がEthereumトランザクション領収書として提供される方法について説明します。
 
-| Ethereum Transaction Receipt Field | Klaytn PartialFeeDelegation Transaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                    | feeRatio(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn PartialFeeDelegation Transaction Receipt フィールド | Description                                              |
+| ------------------------ | ----------------------------------------------------- | -------------------------------------------------------- |
+|                          | feeRatio(省略)                                          | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
 
-### Different fields for each transaction type
-#### LegacyTransaction Receipt
+### トランザクションタイプごとに異なるフィールド
+#### レガシートランザクションの領収書：
 
-| Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                    | input(omitted)                         | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-| to                                 | to                                     | :white_check_mark: Address of the receiver. `null` when its a contract creation transaction.     |
-|                                    | value(omitted)                         | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn LegacyTransaction Receipt フィールド | Description                                                                  |
+| ------------------------ | -------------------------------------- | ---------------------------------------------------------------------------- |
+|                          | input(省略)                              | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                     |
+| to                       | to                                     | :white_check_mark: 受信者のアドレス `null` when its contract creation transaction. |
+|                          | 値(省略)                                  | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                     |
 
-**Klaytn LegacyTransaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn LegacyTransaction Receipt** は以下のようにEthereumトランザクション領収書として提供されています。
 ```json
 {
   "jsonrpc": "2.0",
@@ -597,12 +597,12 @@ This section describes how that common fields for partialFeeDelegation(except fo
 
 #### ValueTransfer Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| to                                 | to                                             | :white_check_mark: Address of the receiver.                                                      |
-|                                    | value(omitted)                                 | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn ValueTransfer Transaction Receipt Field | Description                                              |
+| ------------------------ | ---------------------------------------------- | -------------------------------------------------------- |
+| to                       | to                                             | :white_check_mark: 受信者のアドレス                            |
+|                          | 値(省略)                                          | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
 
-**Klaytn ValueTransfer Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn ValueTransfer Transaction Receipt** は以下のようにイーサリアムのTransaction Receiptとして提供されています。
 ```json
 {
   "jsonrpc": "2.0",
@@ -641,13 +641,13 @@ This section describes how that common fields for partialFeeDelegation(except fo
 
 #### ValueTransferMemo Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                    | input(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-| to                                 | to                                                 | :white_check_mark: Address of the receiver.                                                      |
-|                                    | value(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                              |
+| ------------------------ | -------------------------------------------------- | -------------------------------------------------------- |
+|                          | input(省略)                                          | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
+| to                       | to                                                 | :white_check_mark: 受信者のアドレス                            |
+|                          | 値(省略)                                              | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
 
-**Klaytn ValueTransferMemo Transaction** is served as Ethereum Transaction Receipt like below.
+**Klaytn ValueTransferMemo Transaction** は以下のようにイーサリアムトランザクションレシートとして提供されています。
 ```json
 {
   "jsonrpc": "2.0",
@@ -687,15 +687,15 @@ This section describes how that common fields for partialFeeDelegation(except fo
 
 #### SmartContractDeploy Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                                                                   |
-| ---------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                    | codeFormat(omitted)                                  | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                            |
-|                                    | humanReadable(omitted)                               | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                            |
-|                                    | input                                                | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt                                             |
-| to                                 | to                                                   | :white_check_mark: Address of the receiver. This field always has value `null` because this transaction is a contract creation transaction. |
-|                                    | value                                                | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt                                             |
+| Ethereumトランザクション領収書フィールド | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                |
+| ------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+|                          | codeFormat(省略)                                       | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                   |
+|                          | humanReadable(省略)                                    | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                   |
+|                          | input                                                | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています                                    |
+| to                       | to                                                   | :white_check_mark: 受信者のアドレス このトランザクションはコントラクト作成トランザクションであるため、このフィールドは常に値 `null` を持っています。 |
+|                          | 値                                                    | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています                                    |
 
-**Klaytn SmartContractDeploy Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn SmartContractDeploy Transaction Receipt** は以下のようにEthereum Transaction Receiptとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
@@ -753,13 +753,13 @@ This section describes how that common fields for partialFeeDelegation(except fo
 
 #### SmartContractExecution Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn SmartContractExecution Transaction Receipt Field | Description                                                                                        |
-| ---------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                    | input                                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-| to                                 | to                                                      | :white_check_mark: Address of the smart contract.                                                |
-|                                    | value                                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| Ethereumトランザクション領収書フィールド | Klaytn SmartContractExecution Transaction Receipt Field | Description                                              |
+| ------------------------ | ------------------------------------------------------- | -------------------------------------------------------- |
+|                          | input                                                   | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
+| to                       | to                                                      | :white_check_mark: スマートコントラクトのアドレス。                    |
+|                          | 値                                                       | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。 |
 
-**Klaytn SmartContractExecution Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn SmartContractExecution Transaction Receipt** は以下のようにEthereum Transaction Receiptとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
@@ -799,12 +799,12 @@ This section describes how that common fields for partialFeeDelegation(except fo
 
 #### AccountUpdate Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn AccountUpdate Transaction Receipt Field | Description                                                                                                                                                                                                   |
-| ---------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                    | key(omitted)                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                            |
-| to                                 | (added)                                        | :warning: This field always has same address with `from` because this field does not exist in Klaytn AccountUpdate transaction receipt and giving a value of this field as `from` address is most meaningful. |
+| Ethereumトランザクション領収書フィールド | Klaytn AccountUpdate Transaction Receipt Field | Description                                                                                                                       |
+| ------------------------ | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+|                          | key(省略)                                        | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                          |
+| to                       | (追加)                                           | :warning: このフィールドは常に `の` と同じアドレスを持っています。なぜなら、このフィールドはKlaytn AccountUpdate のトランザクション受領に存在せず、 `の` アドレスからこのフィールドの値を与えることが最も有意義だからです。 |
 
-**Klaytn AccountUpdate Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn AccountUpdate Transaction Receipt** は以下のようにイーサリアムのTransaction Receiptとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
@@ -842,13 +842,13 @@ This section describes how that common fields for partialFeeDelegation(except fo
 }
 ```
 
-#### Cancel Transaction Receipt
+#### トランザクション受信をキャンセル
 
-| Ethereum Transaction Receipt Field | Klaytn Cancel Transaction Receipt Field | Description                                                                                                                                                                                            |
-| ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| to                                 | (added)                                 | :warning: This field always has same address with `from` because this field does not exist in Klaytn Cancel transaction receipt and giving a value of this field as `from` address is most meaningful. |
+| Ethereumトランザクション領収書フィールド | Klaytn Cancel Transaction Receipt Field | Description                                                                                                         |
+| ------------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| to                       | (追加)                                    | :warning: このフィールドは `の` と常に同じアドレスを持っています。なぜなら、このフィールドは Klaytn に存在しないからです。トランザクションの受領をキャンセルし、 `の` からの値を与えることは最も有意義です。 |
 
-**Klaytn Cancel Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn Cancel Transaction Receipt** は以下のようにイーサリアムのTransaction Receiptとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
@@ -884,15 +884,15 @@ This section describes how that common fields for partialFeeDelegation(except fo
 }
 ```
 
-#### ChainDataAnchoring Transaction Receipt
+#### トランザクション領収書をChainDataAnchoring
 
-| Ethereum Transaction Receipt Field | Klaytn ChainDataAnchoring Transaction Receipt Field | Description                                                                                                                                                                                                        |
-| ---------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                    | input(omitted)                                      | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                 |
-|                                    | inputJSON(omitted)                                  | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                 |
-| to                                 | (added)                                             | :warning: This field always has same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction receipt and giving a value of this field as `from` address is most meaningful. |
+| Ethereumトランザクション領収書フィールド | Klaytn ChainDataAnchoring Transaction Receipt Field | Description                                                                                                                            |
+| ------------------------ | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+|                          | input(省略)                                           | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                               |
+|                          | inputJSON(省略)                                       | :warning: このフィールドはEthereumトランザクションレシートに存在しないため、省略されています。                                                                               |
+| to                       | (追加)                                                | :warning: このフィールドは `の` と常に同じアドレスを持っています。なぜなら、このフィールドは Klaytn ChainDataAnchoring トランザクション受領に存在せず、 `の` アドレスからこのフィールドの値を与えることが最も有意義だからです。 |
 
-**Klaytn ChainDataAnchoring Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+**Klaytn ChainDataAnchoring Transaction Receipt** は以下のようにEthereum Transaction Receiptとして提供されます。
 ```json
 {
   "jsonrpc": "2.0",
