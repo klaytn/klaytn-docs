@@ -53,7 +53,7 @@ If you run SCN successfully, you can check the parent/child chain bridge operato
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
 instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
@@ -76,7 +76,7 @@ After topping up the operator accounts, you can check their balances like below.
 **Parent chain bridge operator**
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
  instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
@@ -89,7 +89,7 @@ Welcome to the Klaytn JavaScript console!
 **Child chain bridge operator**
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
  instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
@@ -107,7 +107,7 @@ Sub-bridge provides a bridge contract deployment API. You can deploy bridge cont
 
 ```javascript
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
 instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
