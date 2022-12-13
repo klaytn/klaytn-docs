@@ -1,35 +1,35 @@
-# Configuration <a id="configuration"></a>
+# 設定 <a id="configuration"></a>
 
-The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
+CN構成は、データディレクトリを作成し、設定ファイル `kcnd.conf`に複数の値を設定します。
 
-1. Create the CN data directory.
-2. Install node key
-3. Configure the CN with `kcnd.conf`.
+1. CNデータディレクトリを作成します。
+2. ノードキーをインストール
+3. `kcnd.conf` で CNを設定します。
 
-## CN Data Directory Creation <a id="cn-data-directory-creation"></a>
+## CNデータディレクトリの作成 <a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Klaytnブロックチェーンデータのサイズが常に増加していることを考慮すると、十分な大きさのストレージを使用することをお勧めします。 必要なパスにディレクトリを作成する必要があります。
 
 ```bash
 $ mkdir -p /var/kcnd/data
 ```
 
-## Install Node Key <a id="install-node-key"></a>
+## ノードキーのインストール <a id="install-node-key"></a>
 
-In order to operate a CN, a `nodekey` is required. The KCN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the CN data directory. The way to create a `nodekey` is described in the '[Before You Install](../before-you-install.md)' section. The following command line copies the `nodekey` into the CN data directory.
+CNを操作するには、 `nodekey` が必要です。 KCN バイナリがない場合、新しいバイナリが作成されます。 もしあれば、 `nodekey` を CN データディレクトリに入れる必要があります。 `nodekey` を作成する方法は、 '[インストールする前に '](../before-you-install.md)' セクションで説明されています。 次のコマンドラインは、 `nodekey` を CNデータディレクトリにコピーします。
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-## Update the Configuration File <a id="update-the-configuration-file"></a>
+## 設定ファイルを更新する <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+設定ファイルの場所:
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+* アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kcn-linux-amd64/conf/` です。
+* パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kcnd/conf/` です。
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### データディレクトリを追加  <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
 
@@ -39,30 +39,30 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-### Setup Rewardbase <a id="setup-rewardbase"></a>
+### セットアップ報酬ベース <a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
+Klaytnネットワークのコンセンサスに参加した報酬として、CNオペレータはKLAYを受け取ります。 このため、設定ファイル `kcnd.conf` にアドレスを設定する必要があります。
 
-The ways to create a new account are various, but the `kcn` also provides the functionality. You can check the help message with the following command.
+新しいアカウントを作成する方法はさまざまですが、 `kcn` も機能を提供します。 以下のコマンドでヘルプメッセージを確認できます。
 
 ```bash
 $ kcn account new --help
 ```
 
-One of the example of doing this procedure is as follows. First of all, you need to create a new account which the reward KLAY will be sent to.
+この手順を行う例の1つは以下のとおりです。 まず、報酬KLAYが送られる新しいアカウントを作成する必要があります。
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
 INFO[03/15,09:04:43 +09] [17] Setting connection type                   nodetype=cn conntype=-0
 INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KLAY=25 LES=0 total=25
 INFO[03/15,09:04:43 +09] [17] SBN is disabled.
-Your new account is locked with a password. Please give a password. Do not forget this password.
-Passphrase:
-Repeat passphrase:
-Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
+新しいアカウントはパスワードでロックされています。 パスワードを入力してください。 このパスワードを忘れないでください。
+パスフレーズ:
+パスフレーズを繰り返す:
+住所: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-As a result of this, it will create the associated keystore on the path that you define. Next, you need to put the created address in the file `kcnd.conf` file as follows.
+これにより、定義したパス上に、関連するキーストアが作成されます。 次に、作成したアドレスを `kcnd.conf` ファイルに以下のように置く必要があります。
 
 ```text
 ...
@@ -70,29 +70,29 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../operation-guide/configuration.md) section.
+キーストアとあなたが作成したパスワードは非常に重要なので、それらを管理するために注意が必要です。 `kcnd.conf` の詳細については、 [設定ファイル](../../operation-guide/configuration.md) セクションを参照してください。
 
-## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
+## 高速同期 \(オプション\) <a id="fast-sync-optional"></a>
 
-Each CN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new CN is first started, it must download the entire chain data from the network.
+各CNは、ネットワークのチェーンデータのコピーを保持します。 ノードが同期されていない場合、ネットワーク内の他のノードからこのデータを取得できます。同期と呼ばれるプロセスです。 新しいCNが最初に開始されると、ネットワークからチェーンデータ全体をダウンロードする必要があります。
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
+このプロセスを加速するには、CNを起動する前にチェーンデータのスナップショットをダウンロードして、高速同期を実行することができます。 これにより、CNが最初の起動時に同期に費やす時間が劇的に短縮されます。
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA\_DIR you configured in `kcnd.conf`.
+[Cypress スナップショットアーカイブ](http://packages.klaytn.net/cypress/chaindata/) または [Baobab スナップショット アーカイブ](http://packages.klaytn.net/baobab/chaindata/) から最新のチェーンデータ スナップショットをダウンロードします。 `kcnd`を開始する前に、 `kcnd.conf` で設定したDATA\_DIR内のスナップショットを抽出します。
 
-For example:
+例:
 
 ```bash
-$ tar -C ~/kcnd_home -xvf klaytn-cypress-chaindata-latest.tar.gz
+$ tar -C ~/kcnd_home -xvf klaytn-cypress-chain-latest.tar.gz
 ```
 
-Or,
+または
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the CN normally.
+データが抽出された後、CNを正常に開始することができます。
 
-You can refer to detailed information in the [Chaindata change](../../../../../operation-guide/chaindata-change.md)
+[Chaindata change](../../../../../operation-guide/chaindata-change.md) で詳細情報を参照できます。
 
