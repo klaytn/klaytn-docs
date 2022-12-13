@@ -9,7 +9,7 @@
 |  콘솔   | `debug.goTrace(file, seconds)`                            |
 |  RPC  | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입     | 설명                  |
 | ------- | ------ | ------------------- |
@@ -44,7 +44,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startGoTrace(file)`                             |
 |  RPC  | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -77,7 +77,7 @@ Go 런타임 추적을 중지합니다.
 |  콘솔   | `debug.stopGoTrace()`                           |
 |  RPC  | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
