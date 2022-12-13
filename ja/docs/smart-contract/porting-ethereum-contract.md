@@ -1,34 +1,34 @@
-# Porting Ethereum Contract <a id="porting-ethereum-contract"></a>
+# Ethereumコントラクトのエクスポート <a id="porting-ethereum-contract"></a>
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification. However, be aware of the following two issues.
+ほとんどの場合、KlaytnでEthereum契約を変更することなく使用できます。 ただし、以下の2つの問題に注意してください。
 
 ## Solidity Support <a id="solidity-support"></a>
 
-* Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
-* Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+* Baobabネットワークは現在 **ロンドン** イーサリアム仮想マシン(EVM)と互換性があります。
+* サイプレスネットワークは現在 **ロンドン** イーサリアム仮想マシン(EVM)と互換性があります。
 
 {% hint style="success" %}
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
+v1.7.0 Protocol Upgrade - **イスタンブール** ハードフォークアイテムと Klaytn 自身のアイテムを含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#75,373,312` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+v1.7.3 プロトコルアップグレード - **ロンドン** のハードフォークからの基本料金を含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#80,295,291` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
 
-v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
+v1.8.0 プロトコルアップグレード - **ロンドン** ハードフォークからの基本手数料を含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#86,513,895` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
 {% endhint %}
 
-Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
-* Baobab: --evm-version london
-* Cypress: --evm-version london
-* Others(private/service chain): determined according to the protocol upgrade status
+後方互換性は、Klaytnの他のEVMバージョンでは保証されません。 したがって、プロトコルのアップグレードステータスに従って、Solidityコードを正しいターゲットオプションでコンパイルすることを強くお勧めします。
+* バオバブ: --evm-version London
+* キプロス: --evm-version London
+* Others(private/service chain): プロトコルのアップグレードステータスに従って決定されます
 
-Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+[Solc の EVM バージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target) を参照してください。
 
 
-An example command is shown below:
+コマンドの例を以下に示します。
 
 ```
-$ solc --evm-version london contract.sol
+$ solc --evm-version ロンドンcontract.sol
 ```
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
-Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts/precompiled-contracts.md).
+Klaytn [は、アドレス](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) からキーペアを分離します。 ユーザ [がアカウント](../klaytn/design/transactions/basic.md#txtypeaccountupdate)を更新した場合、特定のアカウントの秘密鍵は別のものに置き換えられます。 ほとんどの場合、これはビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は [こちら](precompiled-contracts/precompiled-contracts.md) をご覧ください。
