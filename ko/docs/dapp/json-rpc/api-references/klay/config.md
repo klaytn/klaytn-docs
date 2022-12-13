@@ -2,7 +2,7 @@
 
 체인 ID를 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -31,7 +31,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -60,7 +60,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Returns a suggestion for a gas price in peb.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -93,7 +93,7 @@ Returns different values based on the condition described below. The unit of the
 - Otherwise, it returns the base fee of the given block.
 
 
-**Parameters**
+**파라미터**
 
 | 타입     | 설명                              |
 | ------ | ------------------------------- |
@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -152,7 +152,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. It is disabled by default and can be enabled by `--sendertxhashindexing`.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -181,7 +181,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드의 Klaytn 프로토콜 버전을 반환합니다. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -210,7 +210,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block rewards goes to. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
-**Parameters**
+**파라미터**
 
 없음
 
