@@ -6,11 +6,11 @@ In this page, we will describe the steps of connecting a Service Chain to the Ma
 
 You should enable main-bridge by configuring `kend.conf`.
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 設定ファイルを更新する <a id="update-the-configuration-file"></a>
 
 The `kend.conf` contains the following main-bridge properties.
 
-| Name                   | Description                                                                                               |
+| 名前                     | Description                                                                                               |
 |:---------------------- |:--------------------------------------------------------------------------------------------------------- |
 | MAIN_BRIDGE            | Enable bridge service as main bridge for service chain. 1 to enable.                                      |
 | MAIN_BRIDGE_PORT     | Bridge listen port. Default: 50505                                                                        |
@@ -62,7 +62,7 @@ You need to run an EN of the main chain as a main-bridge. And also you should de
 
 There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
 
-Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
+以下のコマンドを実行し、結果を確認してください。 (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -119,7 +119,7 @@ Attach to the SCN process like below. You should have enabled `subbridge` API fo
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
