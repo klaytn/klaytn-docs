@@ -17,7 +17,7 @@ description: >-
 |  콘솔   | `admin.nodeInfo`               |
 |  RPC  | `{"method": "admin_nodeInfo"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -81,7 +81,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.datadir`               |
 |  RPC  | `{"method": "admin_datadir"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -116,7 +116,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.peers`               |
 |  RPC  | `{"method": "admin_peers"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -193,7 +193,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 |  콘솔   | `admin.addPeer(url)`                           |
 |  RPC  | `{"method": "admin_addPeer", "params": [url]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -231,7 +231,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.removePeer(url)`                           |
 |  RPC  | `{"method": "admin_removePeer", "params": [url]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -270,7 +270,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.startHTTP(host, port, cors, apis)`                           |
 |  RPC  | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                                                                                                                             |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -311,7 +311,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.stopHTTP()`             |
 |  RPC  | `{"method": "admin_stopHTTP"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -347,7 +347,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.startWS(host, port, cors, apis)`                           |
 |  RPC  | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름   | 타입     | 설명                                                                                                                             |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -386,7 +386,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.stopWS()`             |
 |  RPC  | `{"method": "admin_stopWS"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -420,7 +420,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.exportChain(fileName)`                            |
 |  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                       |
 | -------- | ------ | ------------------------ |
@@ -456,7 +456,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.importChain(fileName)`                            |
 |  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                             |
 | -------- | ------ | ------------------------------ |
@@ -491,7 +491,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.importChainFromString(blockRlp)`                                    |
 |  RPC  | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입     | 설명                                                       |
 | -------- | ------ | -------------------------------------------------------- |
@@ -526,7 +526,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.startStateMigration()`             |
 |  RPC  | `{"method": "admin_startStateMigration"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -561,7 +561,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.stopStateMigration()`             |
 |  RPC  | `{"method": "admin_stopStateMigration"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -595,7 +595,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.stateMigrationStatus`               |
 |  RPC  | `{"method": "admin_stateMigrationStatus"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -642,7 +642,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.saveTrieNodeCacheToDisk()`             |
 |  RPC  | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -676,7 +676,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.setMaxSubscriptionPerWSConn(limit)`        |
 |  RPC  | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입  | 설명                             |
 | ----- | --- | ------------------------------ |
