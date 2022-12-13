@@ -1,1 +1,1 @@
-# homi commands
+# homiコマンド
