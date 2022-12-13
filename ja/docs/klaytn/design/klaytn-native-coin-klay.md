@@ -1,37 +1,37 @@
-# Klaytn native coin - KLAY <a id="klaytn-native-coin-klay"></a>
+# Klaytn ネイティブコイン - KLY <a id="klaytn-native-coin-klay"></a>
 
 ## KLAY <a id="klay"></a>
 
-KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
+KLAYはKlaytnの主な社内譲渡可能な暗号通貨であり、スマートコントラクトの作成または実行時またはKLAY転送時に取引手数料を支払うために使用されます。
 
-KLAY is a necessary element--a fuel--for operating the Klaytn distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs and RNs are compensated for the resources they contribute\).
+KLAYは、Klaytn 分散アプリケーションプラットフォームを動作させるために必要な要素である。 これは、要求された操作を実行するコンセンサスノードに対するプラットフォームのクライアントによる支払いの一形態です。 別の言い方をすると、KLAYはインセンティブです。 これにより、開発者は高品質なアプリケーションを書くことができます \(無駄なコードコストを上げる) し、ネットワークが健全な \(CNs、RNs が貢献するリソースに対して補償されます\)。
 
-## Units of KLAY <a id="units-of-klay"></a>
+## KLAYの単位 <a id="units-of-klay"></a>
 
-Klaytn uses the following unit system for KLAY.
+KlaytnはKLAYに以下の単位系を使用します。
 
-* `peb` is the smallest currency unit.
-* `ston` is an alias for `Gpeb` and introduced for convenience.
-* A `KLAY` is 10^18 peb.
+* `peb` は最小の通貨単位です。
+* `ston` は `Gpeb` の別名で、便宜上導入されたものです。
+* A `KLAY` is 10^18 peb
 
-| Unit  | peb value | peb                                       |
-|:----- |:--------- |:----------------------------------------- |
-| peb   | 1 peb     | 1                                         |
-| kpeb  | 10^3 peb  | 1,000                                     |
-| Mpeb  | 10^6 peb  | 1,000,000                                 |
-| Gpeb  | 10^9 peb  | 1,000,000,000                             |
-| ston  | 10^9 peb  | 1,000,000,000                             |
-| uKLAY | 10^12 peb | 1,000,000,000,000                         |
-| mKLAY | 10^15 peb | 1,000,000,000,000,000                     |
-| KLAY  | 10^18 peb | 1,000,000,000,000,000,000                 |
-| kKLAY | 10^21 peb | 1,000,000,000,000,000,000,000             |
-| MKLAY | 10^24 peb | 1,000,000,000,000,000,000,000,000         |
-| GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000     |
-| TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
+| 単位             | peb値      | peb                                       |
+|:-------------- |:--------- |:----------------------------------------- |
+| peb            | 1 peb     | 1                                         |
+| kpeb           | 10^3 peb  | 1,000                                     |
+| Mpeb           | 10^6 peb  | 1,000,000                                 |
+| Gpeb           | 10^9 peb  | 1,000,000,000                             |
+| ston           | 10^9 peb  | 1,000,000,000                             |
+| uKLAY（uKLAY）   | 10^12 peb | 1,000,000,000,000                         |
+| mKLAY:         | 10^15 peb | 1,000,000,000,000,000                     |
+| KLAY           | 10^18 peb | 1,000,000,000,000,000,000                 |
+| kKLAY          | 10^21 peb | 1,000,000,000,000,000,000,000             |
+| MKLAY          | 10^24 peb | 1,000,000,000,000,000,000,000,000         |
+| GKLAYformat@@0 | 10^27 peb | 1,000,000,000,000,000,000,000,000,000     |
+| TKLAY:         | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
 
-#### APIs Related to KLAY Units <a id="apis-related-to-klay-units"></a>
+#### KLAYユニットに関連するAPI <a id="apis-related-to-klay-units"></a>
 
-`klay.toPeb` and `klay.fromPeb` are convenient APIs for converting between KLAY units.
+`klay.toPeb` と `klay.fromPeb` はKLY単位間で変換するための便利なAPIです。
 
 ```text
 $ ./klay attach data/dd/klay.ipc
