@@ -6,7 +6,7 @@ caver.klay.getFilterChanges(filterId [, callback])
 
 필터에 대한 폴링 방법으로, 마지막 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ caver.klay.getFilterLogs(filterId [, callback])
 입력으로 받은 필터 ID값을 가진 필터 객체를 찾고, 이 필터 객체에 해당하는 모든 로그를 배열 형태로 반환합니다. The filter object should be obtained using [newFilter](#newfilter).  
 Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ caver.klay.getPastLogs(options [, callback])
 
 주어진 옵션에 맞는 과거 로그를 얻습니다.
 
-**Parameters**
+**파라미터**
 
 | 이름                | 타입                   | 설명                                                                                                                                                                               |
 | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ caver.klay.newBlockFilter([callback])
 
 새로운 블록이 도착했다는 정보를 받기 위해 노드에 필터를 만듭니다. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                                        |
 | -------- | -------- | ----------------------------------------------------------------------------------------- |
@@ -187,7 +187,7 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 
 
 
-**Parameters**
+**파라미터**
 
 | 이름                | 타입                   | 설명                                                                                                                                                                                                                                                       |
 | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -221,7 +221,7 @@ caver.klay.newPendingTransactionFilter([callback])
 
 보류 상태의 트랜잭션이 새롭게 도착했다는 정보를 받기 위해 노드에 필터를 만듭니다. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -246,7 +246,7 @@ caver.klay.uninstallFilter(filterId [, callback])
 
 주어진 ID를 가진 필터를 제거합니다. 모니터링이 불필요하다면 즉시 필터를 제거하는 것을 강력하게 권장합니다. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. 기본 설정은 5분 입니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
