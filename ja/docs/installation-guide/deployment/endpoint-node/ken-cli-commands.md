@@ -1,62 +1,62 @@
 # ken CLI commands <a id="ken-cli-commands"></a>
 
-`ken` is a command-line interface for Klaytn Endpoint Node.
+`ken` は Klaytn Endpoint Node のコマンドラインインターフェイスです。
 
 ```bash
 USAGE:
-   ken [options] command [command options] [arguments...]
+   ken [options] コマンド [command options] [arguments...]
 ```
 
-## Commands <a id="commands"></a>
+## マーク <a id="commands"></a>
 
-`ken` has the following commands.
+`ken` には以下のコマンドがあります。
 
 ```bash
 COMMANDS:
-   account     Manage accounts
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
-   dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
-   init        Bootstrap and initialize a new genesis block
-   version     Show version number
-   help, h     Shows a list of commands or help for one command
+   account Manage accounts
+   attach interactive JavaScript environment(connect to node)
+   console インタラクティブな JavaScript environment
+   dumpconfig 設定値を表示します。
+   dumpgenesis ブロックの JSON 設定を標準出力に変換します (このコマンドは Klaytn v1 から取って代わられます。 .0.)
+   initブートストラップと新しいジェネシスブロックの初期化
+   バージョン バージョン番号を表示する
+   ヘルプを表示する h 1つのコマンドのコマンドまたはヘルプの一覧を表示します
 ```
 
-To get a detailed usage guideline for each command, give `-h` option.
+各コマンドの詳細な使用ガイドラインを取得するには、 `-h` オプションを指定します。
 
 ```bash
 $ ken account -h
 Manage accounts, list all existing accounts, import a private key into a new
 account, create a new account or update an existing account.
  ...
-Keys are stored under <DATADIR>/keystore.
-It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+キーは <DATADIR>/keystore の下に保存されます。
+単にコピーするだけでディレクトリ全体または個々のキーを klay ノード間で
+転送することが安全です。
 
-Make sure you backup your keys regularly.
+キーを定期的にバックアップしてください。
 
-USAGE:
-   ken account command [command options] [arguments...]
+使用状況:
+   kenアカウントコマンド [command options] [arguments...]
 
 COMMANDS:
-     list    Print summary of existing accounts
-     new     Create a new account
-     update  Update an existing account
-     import  Import a private key into a new account
+     list 既存のアカウントのサマリーを印刷する
+     new アカウントを作成する
+     update an existing account
+     import a private key into a new account
 ```
 
 ```bash
 $ ken init -h
 init [command options] [arguments...]
 
-The init command initializes a new genesis block and definition for the network.
-This is a destructive action and changes the network in which you will be
-participating.
+init コマンドは、ネットワークの新しいジェネシスブロックと定義を初期化します。
+これは破壊的な動作であり、あなたが
+参加するネットワークを変更します。
  ...
 ```
 
-## JavaScript Console <a id="javascript-console"></a>
+## JavaScript コンソール <a id="javascript-console"></a>
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
@@ -71,16 +71,16 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.
+`` コマンドを実行中のノードにアタッチし、 `コンソール` コマンドを実行してノードに接続します。
 
 ```bash
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
+   アタッチ インタラクティブな JavaScript 環境を開始します(ノードに接続)
+   コンソール インタラクティブな JavaScript 環境を開始します。
 ```
 
-### Module APIs <a id="module-apis"></a>
+### モジュール API <a id="module-apis"></a>
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../dapp/json-rpc/api-references/README.md).
+コンソールプロンプトでモジュール名を入力すると、モジュールの利用可能なプロパティと機能が表示されます。 関数の詳細については、 [Klaytn API](../../dapp/json-rpc/api-references/README.md) を参照してください。
 
 ```javascript
 > personal
