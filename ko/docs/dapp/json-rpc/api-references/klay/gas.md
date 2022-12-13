@@ -6,7 +6,7 @@ Returns base fee per gas and transaction effective priority fee per gas history 
 **NOTE**: This API is effective after Klaytn v1.8.0
 {% endhint %}
 
-**Parameters**
+**파라미터**
 
 | 이름                | 타입                  | 설명                                                                                                                                                                                                       |
 | ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
 **NOTE**: This API is effective after Klaytn v1.8.0
 {% endhint %}
 
-**Parameters**
+**파라미터**
 
 없음
 
