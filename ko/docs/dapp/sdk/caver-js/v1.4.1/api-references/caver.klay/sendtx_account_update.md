@@ -7,7 +7,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Account Update](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 네트워크에 전송합니다.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
@@ -277,7 +277,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 `caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
@@ -385,7 +385,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 `caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
 
-**Parameters**
+**파라미터**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
