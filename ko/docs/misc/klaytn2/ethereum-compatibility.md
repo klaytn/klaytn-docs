@@ -1,4 +1,4 @@
-# Ethereum Compatibility
+# 이더리움 호환성
 
 ## 이더리움 동일성을 지원합니다
 
