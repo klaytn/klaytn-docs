@@ -1,18 +1,18 @@
-# Deploy Guide <a id="deploy-guide"></a>
+# 導入ガイド <a id="deploy-guide"></a>
 
-There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
+Klaytnにスマートコントラクトを展開するにはさまざまな方法があります。 このドキュメントでは、さまざまなツールを使用してサンプルコントラクトをデプロイするためのステップバイステップガイドを提供します。 取引手数料を支払うのに十分な KLAYを備えた Klaytn アカウントがあることを前提としています。 アカウントを作成するには、 [Klaytn Wallet](../toolkit/klaytn-wallet.md) を参照してください。
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-Open your internet browser and go to https://ide.klaytn.foundation
+インターネットブラウザを開き、https://ide.klaytn.foundにアクセスしてください
 
 
-- Add a new file.
+- 新規ファイルを追加
 
 ![](img/deploy-with-ide/01_deployment_ide.png)
 
 
-- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+- 新しいファイルに次のサンプルコード(またはデプロイするコード)をコピーして貼り付けます。 このコードは、MortalとKlaytnGreeterと呼ばれる2つの契約で構成されており、簡単な「Hello World!」を実行することができます。
 
 ```
 pragma solidity 0.5.12;
@@ -40,49 +40,49 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+- アイコンパネルで「コンパイラー」を選択します。 希望するEVM環境を選択します。 Klaytnネットワークの場合、Baobab(testnet)とサイプレス(mainnet)のどちらかを選択できます。 実際の展開前にサンプルコードを遵守する準備ができたら、 `Compile` をクリックします。
 
 ![](img/deploy-with-ide/02_deployment_compile.png)
 
-- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+- 今度は契約を展開することができます。 アイコンパネルの Klaytn ロゴをクリックします。 `アカウント` の横にあるプラスボタンをクリックして口座をインポートします。 必要なスマートコントラクトを展開するトランザクションに対して支払うのに十分な KLAYがアカウントにあることを確認してください。
 
 ![](img/deploy-with-ide/05_deployment_account.png)
 
-- Set Gas limit and Value to send.
-  - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-  - Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
-- Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+- 送信するガスの上限と値を設定します。
+  - より複雑な契約を展開する場合は、より高いガス制限を設定する必要がある場合があります。 この例ではそのままにしておくことができます。
+  - デプロイ時にコントラクトに `KLAY` を送信する場合を除き、 `値` を0に設定します。
+- コンストラクタ関数の引数として "Hello World!" と入力し、 `Deploy` ボタンをクリックします。
 
 ![](img/deploy-with-ide/03_deployment_hello.png)
 
-- If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
+- コントラクトが正常に展開されると、対応するトランザクション受領と端末の詳細な結果が表示されます。
 
-- You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+- 機能ボタンをクリックすることで、コントラクトを操作できます。 機能は異なる色で表されます。 `constant` または `純粋な` 関数は青いボトル(例では`あいさつ` )を持ち、新しいトランザクションを作成しません。 ガソリン代はかからないのです 赤色のボタン (`kill` ) は、ブロックチェーン上の状態を変更する `payable` 関数を表します。 ガスを消費し価値を受け入れることができます Orange ボタンは `non-payable` 関数で、コントラクトの状態を変更しますが、値を受け付けません。
 
 ![](img/deploy-with-ide/06_deployment_functions.png)
 
-For more details, please refer to this [link](../toolkit/klaytn-ide.md).
+詳細については、こちらの [リンク](../toolkit/klaytn-ide.md)をご覧ください。
 
 ## Truffle  <a id="truffle"></a>
 
-Truffle is the most popular framework for smart contract deployment and execution.
+Truffleは、スマートコントラクトの導入と実行のための最も一般的なフレームワークです。
 
-- Install via the following command.
+- 以下のコマンドでインストールします。
 
 ```
 $ sudo npm install -g truffle
 ```
 
-- Set up a project directory, and install .`truffle-hdwallet-provider-klaytn`
+- プロジェクトディレクトリを設定し、インストール .`truffle-hdwallet-provider-klaytn`
 
 ```
 $ mkdir hello-klaytn
 $ cd hello-klaytn
-$ truffle init
+$ truffle-init
 $ npm install truffle-hdwallet-provider-klaytn
 ```
 
-- Create `KlaytnGreeter.sol` under `/contracts` directory and copy the following code.
+- `KlaytnGreeter.sol` を `/contracts` ディレクトリの下に作成し、次のコードをコピーします。
 
 ```
 pragma solidity 0.5.6;
@@ -110,7 +110,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Modify `/migrations/1_initial_migration.js` as in the following.
+- 以下のように、 `/migrations/1_initial_migration.js` を変更します。
 
 ```
 const Migrations = artifacts.require("./Migrations.sol");
@@ -121,7 +121,7 @@ module.exports = function(deployer) {
 };
 ```
 
-- Set `truffle-config.js` as below. Make sure you enter the private key of an account that has enough `KLAY` to deploy the contract.
+- `truffle-config.js` を以下のように設定してください。 コントラクトをデプロイするのに十分な `KLAY` を持つアカウントの秘密鍵を入力してください。
 
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -155,31 +155,31 @@ module.exports = {
   }
 };
 ```
-*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.
+*注意*: 本番環境での使用にはこの例は推奨されていません。 秘密鍵を扱うときは注意してください。
 
-- Deploying on Klaytn testnet.
+- Klaytn testnet にデプロイします。
 
 ```
 $ truffle deploy --network testnet
 ```
 
-- Deploying on Klaytn mainnet.
+- Klaytn mainnetにデプロイする。
 
 ```
 $ truffle deploy --network mainnet
 ```
 
-For more details refer to this [link](../toolkit/truffle.md).
+詳細については、この [リンク](../toolkit/truffle.md) を参照してください。
 
 ## VVISP <a id="vvisp"></a>
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details.
+vvisp は、HEACHI LABSが提供するスマートコントラクトを開発するための使いやすいCLIツール/フレームワークです。 単一のコマンドで簡単に環境を設定、デプロイ、Klaytn スマートコントラクトを実行できます。 詳細は以下のリンクをご参照ください。
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
+契約をデプロイするもう1つの方法は、Solc を使用して契約を手動でコンパイルし、caver-js でそれらをデプロイすることです。
 
-- Create `KlaytnGreeter.sol` and write the following code.
+- `KlaytnGreeter.sol` を作成し、次のコードを書きます。
 
 ```
 pragma solidity 0.5.6;
@@ -213,19 +213,19 @@ contract KlaytnGreeter is Mortal {
 $ sudo npm install -g solc@0.5.6
 ```
 
-- Compile the contract.
+- 契約をコンパイルします。
 
 ```
 $ solcjs KlaytnGreeter.sol --bin
 ```
 
-- Install caver-js.
+- caver-jsをインストールする。
 
 ```
 $ npm install caver-js.
 ```
 
-- Create `deploy.js` in the same directory with the following code.
+- 同じディレクトリに `deploy.js` を次のコードで作成します。
 
 ```
 const Caver = require("caver-js");
@@ -256,9 +256,9 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
-*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.
+*注意*: 本番環境での使用にはこの例は推奨されていません。 秘密鍵を扱うときは注意してください。
 
-- Deploy the contract using node environment.
+- ノード環境を使用してコントラクトをデプロイします。
 
 ```
 $ node deploy.js
