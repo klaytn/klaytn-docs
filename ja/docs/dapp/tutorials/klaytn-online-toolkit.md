@@ -1,16 +1,16 @@
 # Klaytn Online Toolkit <a id="klaytn-online-toolkit"></a>
 
-## What is the Klaytn Online Toolkit? <a id="what-is-the-klaytn-online-toolkit"></a>
-* `Klaytn Online Toolkit` provides code examples to help you to utilize the `Klaytn SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
-* `Klaytn SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Klaytn node using an HTTP or Websocket connection.
-* You can just try out Klaytn's features without having to code.
+## Klaytn Online Toolkitとは? <a id="what-is-the-klaytn-online-toolkit"></a>
+* `Klaytn Online Toolkit` は `Klaytn SDK(caver-js)` を簡単に利用できるコード例を提供します。 また、開発者がシンプルなオンラインツールを使用するための [デモページ](https://toolkit.klaytn.foundation) も提供しています。
+* `Klaytn SDK(caver-js)` は、開発者がHTTPまたはWebSocket接続を使用してKlaytnノードと対話できるようにするJavaScript APIライブラリです。
+* Klaytnの機能をコードを書かなくても試すことができます。
 
-> To help more people use the `Klaytn Online Toolkit`, We have prepared the ["Using Klaytn Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) series.
+> より多くの人が `Klaytn Online Toolkit`を使用できるように、 ["Using Klaytn Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) シリーズを用意しました。
 
-## Links <a id="links"></a>
-Here are the links for `Klaytn Online Toolkit`. Feel free to use it :)
+## リンク <a id="links"></a>
+`Klaytn Online Toolkit` のリンクは次のとおりです。 気軽に使ってください :)
 * [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
-* [Page](https://toolkit.klaytn.foundation)
+* [ページ](https://toolkit.klaytn.foundation)
 * [Klaytn SDK(caver-js)](https://docs.klaytn.foundation/dapp/sdk/caver-js)
 
 ![Klaytn Online Toolkit](./img/klaytn-online-toolkit.png)
