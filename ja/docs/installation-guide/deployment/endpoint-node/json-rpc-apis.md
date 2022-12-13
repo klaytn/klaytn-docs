@@ -1,31 +1,31 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../dapp/json-rpc/api-references/README.md).
+エンドポイントノードは JSON-RPC API を公開します。 API の有効化/無効化は以下のとおりです。 詳細なAPI仕様については、 [JSON-RPC API](../../dapp/json-rpc/api-references/README.md) を参照してください。
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs you enable. By defaulti, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone access to the APIs who can access this interface (DApps, browser tabs, etc). どのAPI を有効にするかに注意してください。 デフォルトで表示 Klaytn は IPC (`ipc`) インターフェイス上ですべての API を有効にしますが、必要な `rpc` と `ws` モジュールは明示的に有効にする必要があります。
 
-## Enabling APIs  <a id="enabling-apis"></a>
+## APIの有効化  <a id="enabling-apis"></a>
 
-### From Commandline <a id="from-commandline"></a>
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api` command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+### コマンドラインから <a id="from-commandline"></a>
+Klaytn RPCエンドポイントを介してAPIを提供するには `--${interface}api` コマンドライン引数で HTTP エンドポイントの `${interface}` が `rpc` で、WebSocket エンドポイントの `ws` で指定してください。
 
-`ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
+`ipc` は、フラグなしで unix ソケット (Unix) または命名されたパイプ (Windows) エンドポイントを介してすべての API を提供します。
 
-You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+以下の例のように追加したい特定の API で Klaytn ノードを起動できます。 しかし、ノードを起動すると、API を変更することはできません。
 
-Example) launching a Klaytn node with `klay` and `net` modules enabled:
+例) `klay` と `net` モジュールが有効になっている Klaytn ノードを起動します:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+HTTP RPC インターフェイスは、 `--rpc` フラグを使用して明示的に有効にする必要があります。
 
-### Using Configuration <a id="using-configuration"></a>
+### 設定の使用 <a id="using-configuration"></a>
 
 Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](operation-guide/configuration.md).
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## 有効なAPIのクエリ <a id="querying-enabled-apis"></a>
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For example over an `rpc` interface:
+インタフェースが提供する API を決定するために、 `モジュール` JSON-RPC メソッドを呼び出すことができます。 の例 `rpc` インターフェイス:
 
 **IPC**
 
@@ -39,7 +39,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 ```
 
-will give all enabled modules including the version number:
+はバージョン番号を含むすべての有効なモジュールを与えます:
 
 ```
 {
