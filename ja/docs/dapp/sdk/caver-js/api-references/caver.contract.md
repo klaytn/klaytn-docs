@@ -1,8 +1,8 @@
 # caver.contract
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
+`caver.contract` オブジェクトを使用すると、Klaytn ブロックチェーンプラットフォーム上のスマートコントラクトと簡単にやり取りできます。 新しいコントラクトオブジェクトを作成するとき。 そのスマートコントラクトと caver-js には、JSON インターフェイスを提供する必要があります。これにより、javascript 内のコントラクトオブジェクトを使用したすべてのコールが自動的にRPC経由で低レベルの ABI コールに変換されます。
 
-This allows you to interact with smart contracts as if they were JavaScript objects.
+これにより、JavaScript オブジェクトであるかのようにスマートコントラクトとやり取りできます。
 
 ## caver.contract.create <a href="#caver-contract-create" id="caver-contract-create"></a>
 
@@ -10,19 +10,19 @@ This allows you to interact with smart contracts as if they were JavaScript obje
 caver.contract.create(jsonInterface [, address] [, options])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object. This function works the same as [new caver.contract](caver.contract.md#new-contract).
+JSON インターフェイスオブジェクトで定義されているすべてのメソッドとイベントを使用して、新しいコントラクトインスタンスを作成します。 この関数は、 [new caver.contract](caver.contract.md#new-contract) と同じように動作します。
 
-**NOTE** `caver.contract.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `caver.contract.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-See the [new caver.contract](caver.contract.md#new-contract).
+[new caver.contract](caver.contract.md#new-contract) を参照してください。
 
-**Return Value**
+**戻り値**
 
-See the [new caver.contract](caver.contract.md#new-contract).
+[new caver.contract](caver.contract.md#new-contract) を参照してください。
 
-**Example**
+**例**
 
 ```javascript
 const contract = caver.contract.create([
@@ -36,7 +36,7 @@ const contract = caver.contract.create([
         type: 'function',
     },
     ...
-  ], '0x{address in hex}')
+  ]、'0x{address in hex}')
 ```
 
 ## caver.contract <a href="#new-contract" id="new-contract"></a>
@@ -45,35 +45,35 @@ const contract = caver.contract.create([
 new caver.contract(jsonInterface [, address] [, options])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object.
+JSON インターフェイスオブジェクトで定義されているすべてのメソッドとイベントを使用して、新しいコントラクトインスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type   | Description                                                                                                              |
-| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| jsonInterface | object | The JSON interface for the contract to instantiate                                                                       |
-| address       | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | object | (optional) The options of the contract. See the table below for the details.                                             |
+| 名前            | タイプ    | Description                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------- |
+| jsonInterface | object | インスタンス化するコントラクトの JSON インターフェイス                                         |
+| address       | 文字列    | (オプション) 通話するスマートコントラクトのアドレス。 `myContract.options.address = '0x1234..'` |
+| オプション         | object | (オプション) 契約のオプション。 詳細は以下の表をご覧ください。                                      |
 
-The options object contains the following:
+options オブジェクトには次のものが含まれています。
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                        |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string  | (optional) The address from which transactions should be made.                                                                                                                                                                                                                                     |
-| gasPrice      | string  | (optional) The gas price in peb to use for transactions.                                                                                                                                                                                                                                           |
-| gas           | number  | (optional) The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                 |
-| data          | string  | (optional) The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                    |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
-| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| 名前            | タイプ     | Description                                                                                                                                         |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | 文字列     | (オプション) トランザクションを行うべきアドレス。                                                                                                                          |
+| gasPrice      | 文字列     | (オプション) 取引に使用するペブ内のガス価格。                                                                                                                            |
+| ガス            | 数値      | (オプション) 取引に提供される最大ガス(ガス制限)。                                                                                                                         |
+| data          | 文字列     | (オプション) コントラクトのバイトコード。 コントラクトがデプロイされるときに使用されます。                                                                                                     |
+| feeDelegation | boolean | (オプション) 手数料委譲トランザクションを使用するかどうか。                                                                                                                     |
+| feePayer      | 文字列     | (オプション) 取引手数料を支払う手数料支払者の住所。 `feeDelegation` が `true`の場合、この値はトランザクションの `feePayer` フィールドに設定されます。                                                      |
+| 手数料比          | 文字列     | (オプション) 手数料支払者が負担する取引手数料の割合。 `feeDelegation` が `true` で、 `feeRatio` が有効な値に設定されている場合、部分的な手数料委任トランザクションが使用されます。 有効範囲は1~99です。 0、または100以上の比率は許可されていません。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                            |
-| ------ | ------------------------------------------------------ |
-| object | The contract instance with all its methods and events. |
+| タイプ    | Description                   |
+| ------ | ----------------------------- |
+| object | すべてのメソッドとイベントを持つコントラクトインスタンス。 |
 
-**Example**
+**例**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
@@ -85,25 +85,25 @@ const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '
 myContract.options
 ```
 
-The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feePayer` and `feeRatio` are used as fallback values when sending transactions.
+コントラクトインスタンスの `オプション` オブジェクト。 `from`, `gas`, `gasPrice`, `feePayer` and `feeRatio` are used as fallback values when sending transactions.
 
-**Properties**
+**プロパティー**
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                        |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                        |
-| jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                |
-| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
-| gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                      |
-| gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                            |
-| data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                               |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
-| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| 名前            | タイプ     | Description                                                                                                                                         |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | 文字列     | コントラクトがデプロイされているアドレス。                                                                                                                               |
+| jsonInterface | 行列      | コントラクトの JSON インターフェイス。                                                                                                                              |
+| from          | 文字列     | コントラクトのデプロイ/実行トランザクションが送信されるデフォルトのアドレス。 トランザクションを作成する際に、 `の` アドレスが定義されていない場合、この `myContract.options.from` は常にトランザクションを作成するために使用されます。                |
+| gasPrice      | 文字列     | 取引に使用するペブ内のガス価格。                                                                                                                                    |
+| ガス            | 数値      | 取引に提供される最大ガス (ガス限度)。                                                                                                                                |
+| data          | 文字列     | 契約のバイトコード コントラクトがデプロイされるときに使用されます。                                                                                                                  |
+| feeDelegation | boolean | (オプション) 手数料委譲トランザクションを使用するかどうか。                                                                                                                     |
+| feePayer      | 文字列     | (オプション) 取引手数料を支払う手数料支払者の住所。 `feeDelegation` が `true`の場合、この値はトランザクションの `feePayer` フィールドに設定されます。                                                      |
+| 手数料比          | 文字列     | (オプション) 手数料支払者が負担する取引手数料の割合。 `feeDelegation` が `true` で、 `feeRatio` が有効な値に設定されている場合、部分的な手数料委任トランザクションが使用されます。 有効範囲は1~99です。 0、または100以上の比率は許可されていません。 |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `feeDelegation`, `feePayer` と `feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Example**
+**例**
 
 ```javascript
 > myContract.options
@@ -133,21 +133,21 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 myContract.options.address
 ```
 
-The address used for this contract instance `myContract`. All transactions generated by caver-js from this contract will contain this address as the `to` of the transaction.
+このコントラクトインスタンスに使用されるアドレス `myContract`. この契約からcaver-jsによって生成されたすべてのトランザクションは、トランザクションの `〜` としてこのアドレスを含みます。
 
-**Property**
+**属性**
 
-| Name    | Type      | Description                                                            |
-| ------- | --------- | ---------------------------------------------------------------------- |
-| address | string \ | `null` | The address for this contract or `null` if it is not yet set. |
+| 名前      | タイプ    | Description                                                            |
+| ------- | ------ | ---------------------------------------------------------------------- |
+| address | 文字列 \ | `null` | The address for this contract or `null` if it is not yet set. |
 
-**Example**
+**例**
 
 ```javascript
 >  myContract.options.address
 '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
 
-// set a contract address
+// コントラクトアドレスを設定
 >  myContract.options.address = '0x1234FFDD...'
 ```
 
@@ -157,15 +157,15 @@ The address used for this contract instance `myContract`. All transactions gener
 myContract.options.jsonInterface
 ```
 
-The JSON interface object derived from the ABI of this contract `myContract`.
+この契約 `myContract` の ABI から派生した JSON インターフェイスオブジェクト。
 
-**Property**
+**属性**
 
-| Name          | Type  | Description                                                                                                            |
-| ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
+| 名前            | タイプ | Description                                                        |
+| ------------- | --- | ------------------------------------------------------------------ |
+| jsonInterface | 行列  | このコントラクトの JSON インターフェイス。 これを再設定すると、コントラクトインスタンスのメソッドとイベントが再生成されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.options.jsonInterface
@@ -204,27 +204,27 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 myContract.clone([contractAddress])
 ```
 
-Clones the current contract instance.
+現在のコントラクトインスタンスを複製します。
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type   | Description                                                                                                                                          |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
+| 名前         | タイプ | Description                                                                       |
+| ---------- | --- | --------------------------------------------------------------------------------- |
+| コントラクトアドレス | 文字列 | (オプション) 新規契約の住所。 省略された場合、元のインスタンス内のアドレスに設定されます (例: `myContract.options.address`)。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| object | The new cloned contract instance. |
+| タイプ    | Description        |
+| ------ | ------------------ |
+| object | 新しい複製コントラクトインスタンス。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.clone()
 Contract {
   currentProvider: [Getter/Setter],
-  ...
+...
   _keyrings: KeyringContainer { ... }
 }
 ```
@@ -235,35 +235,35 @@ Contract {
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](caver.contract.md#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
+コントラクトを Klaytn ネットワークにデプロイします。 デプロイが正常に完了すると、Promiseは新しいコントラクトインスタンスで解決されます。 既存の [myContract.deploy](caver.contract.md#mycontract-deploy) 関数のユーザビリティとは異なり、この関数はトランザクションを Klaytn ネットワークに直接送信します。 返されるオブジェクトで `send()` を呼び出す必要はありません。
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `myContract.deploy` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `myContract.deploy` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                                                                                                          |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
-| byteCode   | string | The byte code of the contract.                                                                                                       |
-| parameters | Mixed  | (optional) The parameters that get passed to the constructor on deployment.                                                          |
+| 名前       | タイプ    | Description                                                                                           |
+| -------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| オプション    | object | 送信に使用するオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のテーブルを参照してください。 |
+| byteCode | 文字列    | 契約のバイトコード                                                                                             |
+| パラメータ    | 混在しました | (オプション) デプロイ時にコンストラクタに渡されるパラメータ。                                                                      |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `PromiEvent`: The promise will be resolved with the new contract instance.
+`Promise` が `PromiEvent`を返す。Promiseは新しいコントラクトインスタンスで解決されます。
 
-| Type       | Description                                                                                                                                                                                                            |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
+| タイプ        | Description                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- |
+| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能であるときに解決されます。 `send()` が `myContract.deploy()`から呼び出された場合、promiseは新しいコントラクトインスタンスで解決されます。 |
 
-For PromiEvent, the following events are available:
+PromiEvent の場合、次のイベントを使用できます。
 
-* `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生します。 その型は `文字列` です。
+* `領収書`: 領収書が入手可能な場合に発行されます。 詳細は [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `オブジェクト` です。
+* `error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。 その型は `エラー` です。
 
-**Example**
+**例**
 
 ```javascript
 // Deploy a smart contract without constructor arguments
@@ -334,41 +334,41 @@ For PromiEvent, the following events are available:
 myContract.deploy(options)
 ```
 
-Returns the object used when deploying the smart contract to the Klaytn. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. After a successful deployment, the promise will be resolved with a new contract instance.
+スマートコントラクトを Klaytn にデプロイするときに使用されるオブジェクトを返します。 `myContract.deploy({ data, arguments }).send(options)` を呼び出すことで、スマートコントラクトデプロイトランザクションを送信できます。 デプロイが正常に完了すると、Promiseは新しいコントラクトインスタンスで解決されます。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                                                          |
-| ------- | ------ | ------------------------------------------------------------------------------------ |
-| options | object | The options object used for deployment. See the below table to find the description. |
+| 名前    | タイプ    | Description                                     |
+| ----- | ------ | ----------------------------------------------- |
+| オプション | object | デプロイに使用される options オブジェクト。 詳細については、以下の表をご覧ください。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name      | Type   | Description                                                                |
-| --------- | ------ | -------------------------------------------------------------------------- |
-| data      | string | The byte code of the contract.                                             |
-| arguments | Array  | (optional) The arguments that get passed to the constructor on deployment. |
+| 名前   | タイプ | Description                   |
+| ---- | --- | ----------------------------- |
+| data | 文字列 | 契約のバイトコード                     |
+| 引数   | 行列  | (オプション) デプロイ時にコンストラクタに渡される引数。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| object | An object in which arguments and functions for contract distribution are defined. See the below table to find the description. |
+| タイプ    | Description                                      |
+| ------ | ------------------------------------------------ |
+| object | コントラクト配布の引数と関数が定義されたオブジェクト。 詳細については、以下の表をご覧ください。 |
 
-The object contains the following:
+オブジェクトには次のものが含まれています:
 
-| Name                                                                  | Type     | Description                                                                                                                                                        |
-| --------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                                             | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
-| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
-| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
-| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
+| 名前                                                                    | タイプ | Description                                                                     |
+| --------------------------------------------------------------------- | --- | ------------------------------------------------------------------------------- |
+| 引数                                                                    | 行列  | `options.arguments` で渡される引数。                                                    |
+| [送信](caver.contract.md#methods-methodname-send)                       | 関数  | コントラクトをKlaytnにデプロイする関数。 この関数の結果としての Promise は、新しいコントラクトインスタンスで解決されます。           |
+| [sign](caver.contract.md#methods-methodname-sign)                     | 関数  | 送信者としてスマートコントラクトデプロイトランザクションに署名する機能。 sign関数は署名されたトランザクションを返します。                 |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | 関数  | 手数料支払者としてスマートコントラクトデプロイトランザクションに署名する機能。 signAsFeePayer 関数は署名されたトランザクションを返します。   |
+| [推定ガス](caver.contract.md#methods-methodname-estimategas)              | 関数  | 展開に使用されるガスを推定する機能。 この関数の実行はコントラクトをデプロイしません。                                     |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | 関数  | デプロイメントの ABI をエンコードする関数、つまりコントラクトデータ + コンストラクタパラメータです。 この関数の実行はコントラクトをデプロイしません。 |
 
-**NOTE** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `myContract.deploy({ data, arguments }).sign(options)` と `myContract.deploy({ data, arguments }).signAsFeePayer(options)` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Example**
+**例**
 
 ```javascript
 > myContract.deploy({
@@ -428,42 +428,42 @@ The object contains the following:
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Submits a transaction to execute the function of the smart contract. This can alter the smart contract state.
+スマートコントラクトの機能を実行するためのトランザクションを送信します。 これはスマートコントラクト状態を変更することができます。
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.send`, `feeDelegation` and `feePayer` should be set properly.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 `myContract.send`, `feeDelegation` , `feePayer` を正しく設定する必要があります。
 
-* `feeDelegation` is not defined or defined to `false`: [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
-* `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
-* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+* `feeDelegation` が `false`に定義されていないか、定義されていません : [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` は `true`に定義されていますが、 `feePayer` は定義されていません: エラーをスローします。
+* `feeDelegation` は `true` と `feePayer` が定義されていますが、 `feeRatio` が定義されていません: [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` は `true` と `feePayer` と `feeRatio` が定義されています: [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `myContract.send` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `myContract.send` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                                                                                                          |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
-| methodName | string | The method name of the contract function to execute.                                                                                 |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                            |
+| 名前         | タイプ    | Description                                                                                           |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| オプション      | object | 送信に使用するオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のテーブルを参照してください。 |
+| methodName | 文字列    | 実行するコントラクト関数のメソッド名。                                                                                   |
+| パラメータ      | 混在しました | (オプション) スマートコントラクト機能に渡されるパラメータ。                                                                       |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `PromiEvent`
+`Promise` は `PromiEvent` を返します
 
-| Type       | Description                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
+| タイプ        | Description                                                                      |
+| ---------- | -------------------------------------------------------------------------------- |
+| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能であるときに解決されます。 Promiseは新しいコントラクトインスタンスで解決されます。 |
 
-For PromiEvent, the following events are available:
+PromiEvent の場合、次のイベントを使用できます。
 
-* `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生します。 その型は `文字列` です。
+* `領収書`: 領収書が入手可能な場合に発行されます。 詳細は [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `オブジェクト` です。
+* `error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。 その型は `エラー` です。
 
-**Example**
+**例**
 
 ```javascript
 // Send a SmartContractExecution and use the promise
@@ -491,10 +491,10 @@ For PromiEvent, the following events are available:
   events: {...}
 }
 
-// Send a SmartContractExecution and use the event emitter
-> myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123)
+// SmartContractExecutionを送信し、イベントエミッタを使用
+> myContract. end({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123)
   .on('transactionHash', function(hash) {
-    ...
+...
   })
   .on('receipt', function(receipt) {
     console.log(receipt)
@@ -574,33 +574,33 @@ For PromiEvent, the following events are available:
 myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract.
+送信者としてスマートコントラクトトランザクションに署名し、スマートコントラクトを展開したり、スマートコントラクトの機能を実行したりします。
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
+スマートコントラクトがデプロイされた場合、methodName に 'constructor' を入力することができます。例えば `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 `myContract.sign`, `feeDelegation` を `true` と定義する必要があります。
 
-* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
-* `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-* `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+* `feeDelegation` は `false`に定義されていません。 [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` は `true`に定義されていますが、 `feeRatio` は定義されていません: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` は `true` と `feeRatio` が定義されています: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `myContract.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `myContract.sign` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                                                                                                                                                      |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details.                                             |
-| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
+| 名前         | タイプ    | Description                                                                                           |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| オプション      | object | 送信に使用するオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のテーブルを参照してください。 |
+| methodName | 文字列    | 実行するコントラクト関数のメソッド名。 スマートコントラクトをデプロイするためのトランザクションに署名したい場合は、メソッド名の代わりに 'constructor' 文字列を使用してください。      |
+| パラメータ      | 混在しました | (オプション) スマートコントラクト機能に渡されるパラメータ。 スマートコントラクトデプロイトランザクションに署名したい場合は、byteCode と constructor パラメータを渡します。    |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - 署名されたスマートコントラクトトランザクション。
 
-**Example**
+**例**
 
 ```javascript
 // Sign a SmartContractDeploy
@@ -725,34 +725,34 @@ FeeDelegatedSmartContractExecutionWithRatio {
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract.
+料金支払者としてスマートコントラクト取引に署名し、スマートコントラクトを展開したり、スマートコントラクトの機能を実行したりします。
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. また、手数料支払者のアドレスは、 `feePayer` フィールドに定義する必要があります。
 
-* `feeDelegation` is not defined : Throws an error.
-* `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` が定義されていません : エラーを投げます。
+* `feeDelegation` が定義されているが、 `feePayer` が定義されていない: エラーを投げる。
 * `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
 * `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `myContract.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注** `myContract.signAsFeePayer` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降サポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                                                                                                                                                      |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details.                                             |
-| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
+| 名前         | タイプ    | Description                                                                                           |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| オプション      | object | 送信に使用するオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のテーブルを参照してください。 |
+| methodName | 文字列    | 実行するコントラクト関数のメソッド名。 スマートコントラクトをデプロイするためのトランザクションに署名したい場合は、メソッド名の代わりに 'constructor' 文字列を使用してください。      |
+| パラメータ      | 混在しました | (オプション) スマートコントラクト機能に渡されるパラメータ。 スマートコントラクトデプロイトランザクションに署名したい場合は、byteCode と constructor パラメータを渡します。    |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - 署名されたスマートコントラクトトランザクション。
 
-**Example**
+**例**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy
@@ -830,7 +830,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
   _gas: '0xf4240',
   _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
   _feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
-  _feePayerSignatures: [ SignatureData { _v: '0x4e44', _r: '0xeb78d...', _s: '0x2864d...' } ],
+  _feePayerSignatures: [ SignatureData { _v: '0x4e44', _r: '0xeb78d...', _s: '0x2864d...' } ]、
   _feeRatio: '0x1e',
   _to: '0x4a9d979707aede18fa674711f3b2fe110fac4e7e',
   _value: '0x0',
@@ -848,30 +848,30 @@ myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+トランザクションを送信することなく、定数メソッドを呼び出し、Klaytn Virtual Machine内でスマートコントラクトメソッドを実行します。 通話はスマートコントラクトの状態を変更できません。
 
-**NOTE** `myContract.call` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `myContract.call` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                                                                                                                     |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | (optional) The options used for calling. See the table in [methods.methodName.call](caver.contract.md#methods-methodname-call) for the details. |
-| methodName | string | The method name of the contract function to call.                                                                                               |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                                       |
+| 名前         | タイプ    | Description                                                                                                    |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| オプション      | object | (オプション) 通話に使用するオプション。 詳細は [methods.methodName.call](caver.contract.md#methods-methodname-call) のテーブルを参照してください。 |
+| methodName | 文字列    | 呼び出すコントラクト関数のメソッド名。                                                                                            |
+| パラメータ      | 混在しました | (オプション) スマートコントラクト機能に渡されるパラメータ。                                                                                |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
+`Promise` return `Mixed` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合はそのまま返されます。 複数の戻り値がある場合は、プロパティとインデックスを持つオブジェクトを返します。
 
-**Example**
+**例**
 
 ```javascript
 > myContract.call('methodName').then(console.log)
 Jasmine
 
 > myContract.call({ from: '0x{address in hex}' }, 'methodName', 123).then(console.log)
-Test Result
+テスト結果
 ```
 
 ## myContract.decodeFunctionCall <a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
@@ -880,26 +880,26 @@ Test Result
 myContract.decodeFunctionCall(functionCall)
 ```
 
-Decodes a function call and returns parameters.
+関数呼び出しをデコードし、パラメータを返します。
 
-**NOTE** `myContract.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注** `myContract.decodeFunctionCall` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type   | Description                       |
-| ------------ | ------ | --------------------------------- |
-| functionCall | string | The encoded function call string. |
+| 名前   | タイプ | Description         |
+| ---- | --- | ------------------- |
+| 関数通話 | 文字列 | エンコードされた関数の呼び出し文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                                                   |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+| タイプ    | Description                                                             |
+| ------ | ----------------------------------------------------------------------- |
+| object | プレーンなパラメータを含むオブジェクト。 `結果[0]` は、パラメータの順序で配列のようにアクセスするために提供されているため使用できます。 |
 
-**Examples**
+**例**
 
 ```javascript
-// The myContract variable is instantiated with the below abi.
+// The myContract variable is instantiated with the belower abi.
 // [
 //   {
 //     constant: true,
@@ -937,22 +937,21 @@ myContract.methods.methodName([param1 [, param2 [, ...]]])
 myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 
-Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
+そのメソッドのトランザクションオブジェクトを作成します。このオブジェクトは、sent、推定、ABI エンコードと呼ばれます。
 
-The methods of this smart contract are available via:
+このスマートコントラクトのメソッドは以下で利用できます：
 
 * Method name: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
 * Method prototype: `myContract.methods['methodName(uint256)'](123)`
-* Method signature: `myContract.methods['0x58cf5f10'](123)`
+* メソッドシグネチャ: `myContract.methods['0x58cf5f10'](123)`
 
-This allows calling functions with the same name but different parameters from the JavaScript contract object.
+これにより、同じ名前の関数を呼び出すことができますが、JavaScript コントラクトオブジェクトとは異なるパラメータを呼び出すことができます。
 
-## cf) \*function signature (function selector) <a href="#cf-function-signature-function-selector" id="cf-function-signature-function-selector"></a>
+## cf) \*関数シグネチャ（関数セレクタ） <a href="#cf-function-signature-function-selector" id="cf-function-signature-function-selector"></a>
 
-The first four bytes of the call data for a function call specifies the function to be called.\
-It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
+関数呼び出しのコールデータの最初の4バイトは、呼び出される関数を指定します。 これは、関数の署名の Keccak-256 (SHA-3) ハッシュの最初の4バイト(左、大エンディアンでは高次)です。
 
-The function signature can be given via 2 different methods.\
+関数署名は、2つの異なるメソッドを介して与えることができます。 \
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
@@ -966,27 +965,27 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Parameters**
+**パラメータ**
 
-Parameters of any method that belongs to this smart contract, defined in the JSON interface.
+このスマートコントラクトに属するメソッドのパラメータは、JSON インターフェイスで定義されます。
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
+`Promise` returning `object` - コントラクト実行のための引数と関数が定義されたオブジェクト。
 
-| Name                                                                  | Type     | Description                                                                                                                                                                      |
-| --------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| arguments                                                             | Array    | The arguments passed to this method.                                                                                                                                             |
-| [call](caver.contract.md#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
-| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                         |
-| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                            |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                  |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
+| 名前                                                                    | タイプ | Description                                                                           |
+| --------------------------------------------------------------------- | --- | ------------------------------------------------------------------------------------- |
+| 引数                                                                    | 行列  | このメソッドに渡された引数。                                                                        |
+| [通話](caver.contract.md#methods-methodname-call)                       | 関数  | Klaytn Virtual Machine上のスマートコントラクトで一定のメソッドを呼び出して実行する関数(スマートコントラクトの状態を変更することはできません)。   |
+| [送信](caver.contract.md#methods-methodname-send)                       | 関数  | トランザクションをKlaytnに送信し、そのメソッドを実行する関数(スマートコントラクト状態を変更することができます)。                          |
+| [sign](caver.contract.md#methods-methodname-sign)                     | 関数  | 送信者としてトランザクションに署名する関数。 sign関数は署名されたトランザクションを返します。                                     |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | 関数  | 手数料支払者として取引に署名する機能。 signAsFeePayer 関数は署名されたトランザクションを返します。                             |
+| [推定ガス](caver.contract.md#methods-methodname-estimategas)              | 関数  | その関数は、実行に使用されるガスを推定します。                                                               |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | 関数  | このメソッドのABIをエンコードする関数。 これはトランザクションを使ってメソッドを呼び出したり、別のスマートコントラクトメソッドに引数として渡したりすることができます。 |
 
-**NOTE** `sign` and `signAsFeePayer` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `記号` と `signAsFeePayer` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Example**
+**例**
 
 ```javascript
 // Calling a method
@@ -1006,10 +1005,10 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
     from: '0x{address in hex}',
     ...
   }).on('transactionHash', function(hash) {
-      ...
+...
   })
   .on('receipt', function(receipt) {
-      ...
+...
   })
   .on('error', console.error)
 
@@ -1041,11 +1040,11 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
     ...
   }).then(function(signedTx) { ... })
 
-// sign the fee delegation transaction
+// 手数料委任トランザクションに署名
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
-    ...
+...
   }).then(function(signedTx) { ... })
 
 // sign the partial fee delegation transaction
@@ -1078,37 +1077,37 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
-myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
+myContract.methods['methodName']([param1 [, param2 [, ...]]).call(options [, callback])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](caver.contract.md#mycontract-call) provided as a short-cut function.
+トランザクションを送信することなく、定数メソッドを呼び出し、Klaytn Virtual Machine内でスマートコントラクトメソッドを実行します。 通話はスマートコントラクトの状態を変更できません。 ショートカット関数として提供されている [myContract.call](caver.contract.md#mycontract-call) を使用することをお勧めします。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                                          |
-| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for calling. See the table below for the details.                                                                                        |
-| callback | function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                                              |
+| -------- | ------ | ---------------------------------------------------------------------------------------- |
+| オプション    | object | (オプション) 通話に使用するオプション。 詳細は以下の表をご覧ください。                                                    |
+| callback | 関数     | (オプション) このコールバックは、2 番目の引数としてスマートコントラクトメソッドの実行の結果で発行されます。 または error オブジェクトを最初の引数として指定します。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name     | Type   | Description                                                                |
-| -------- | ------ | -------------------------------------------------------------------------- |
-| from     | string | (optional) The address which calling contract methods should be made from. |
-| gasPrice | string | (optional) The gas price in peb to use for this call.                      |
-| gas      | number | (optional) The maximum gas provided for this call (gas limit).             |
+| 名前       | タイプ | Description                        |
+| -------- | --- | ---------------------------------- |
+| from     | 文字列 | (オプション) コントラクトメソッドを呼び出すアドレス。       |
+| gasPrice | 文字列 | (オプション) この呼び出しに使用するペブ内のガス価格。       |
+| ガス       | 数値  | (オプション) この呼び出しのために提供される最大ガス(ガス制限)。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
+`Promise` return `Mixed` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合はそのまま返されます。 複数の戻り値がある場合は、プロパティとインデックスを持つオブジェクトを返します。
 
-**Example**
+**例**
 
 ```javascript
 // using the promise
 > myContract.methods.methodName(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
-      ...
+...
   })
 ```
 
@@ -1143,7 +1142,7 @@ contract MyContract {
 
 ```javascript
 > var MyContract = new caver.contract(abi, address)
-> MyContract.methods.myfunction().call().then(console.log)
+> MyContract.methods.myfunction().then(console.log)
 "Hello!%"
 ```
 
@@ -1151,58 +1150,58 @@ contract MyContract {
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
-myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, callback])
+myContract.methods['methodName']([param1 [, param2 [, ...]]).send(options [, callback])
 ```
 
-Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. It is recommended to use [myContract.send](caver.contract.md#mycontract-send) provided as a short-cut function.
+スマートコントラクトを展開するトランザクションを送信するか、スマートコントラクトの機能を実行します。 これはスマートコントラクト状態を変更することができます。 ショートカット関数として提供されている [myContract.send](caver.contract.md#mycontract-send) を使用することをお勧めします。
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`, but it is recommended to use the [myContract.deploy](caver.contract.md#mycontract-deploy2) function.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 `methods.methodName.send`, `feeDelegation` , `feePayer` を正しく設定してください。
 
-* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
-* `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` は `false`に定義されていません。 [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` は `true`に定義されていますが、 `feePayer` は定義されていません: エラーをスローします。
 * `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
 * `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                             |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The options used for sending. See the table below for the details.                                                      |
-| callback | function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                                      |
+| -------- | ------ | -------------------------------------------------------------------------------- |
+| オプション    | object | 送信に使用するオプション 詳細は以下の表をご覧ください。                                                     |
+| callback | 関数     | (オプション) このコールバックは、最初に "transactionHash" を使用するか、最初の引数として error オブジェクトを使用して実行されます。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name          | Type      | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string    | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                 |
-| gas           | number    | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
-| gasPrice      | string    | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                               |
-| value         | number \ | string \| BN \| Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                      |
-| feeDelegation | boolean   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
-| feePayer      | string    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
-| feeRatio      | string    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
+| 名前            | タイプ     | Description                                                                                                                                                                                         |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | 文字列     | トランザクションを送信するアドレス 省略した場合は、 `myContract.options.from` が使用されます。                                                                                                                                       |
+| ガス            | 数値      | この取引に提供される最大ガス (ガス限度額)。                                                                                                                                                                             |
+| gasPrice      | 文字列     | (オプション) この取引に使用するペブ内のガス価格。                                                                                                                                                                          |
+| 値             | 数 \    | 文字列 \| BN \| Bignumber | (任意) このトランザクションによってスマートコントラクトのアドレスに転送されるpebの値。                                                                                                                           |
+| feeDelegation | boolean | (オプション、デフォルト `false`) 手数料委託トランザクションを使用するかどうか。 省略した場合は、 `myContract.options.feeDelegation` が使用されます。                                                                                                  |
+| feePayer      | 文字列     | (オプション) 取引手数料を支払う手数料支払者の住所。 `feeDelegation` が `true`の場合、この値はトランザクションの `feePayer` フィールドに設定されます。 省略した場合は、 `myContract.options.feePayer` が使用されます。                                                      |
+| 手数料比          | 文字列     | (オプション) 手数料支払者が負担する取引手数料の割合。 `feeDelegation` が `true` で、 `feeRatio` が有効な値に設定されている場合、部分的な手数料委任トランザクションが使用されます。 有効範囲は1~99です。 0、または100以上の比率は許可されていません。 省略した場合は、 `myContract.options.feeRatio` が使用されます。 |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `feeDelegation`, `feePayer` と `feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `PromiEvent`
+`Promise` は `PromiEvent` を返します
 
-| Type       | Description                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
+| タイプ        | Description                                                                      |
+| ---------- | -------------------------------------------------------------------------------- |
+| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能であるときに解決されます。 Promiseは新しいコントラクトインスタンスで解決されます。 |
 
-For PromiEvent, the following events are available:
+PromiEvent の場合、次のイベントを使用できます。
 
-* `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-* `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+* `transactionHash`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生します。 その型は `文字列` です。
+* `領収書`: 領収書が入手可能な場合に発行されます。 詳細は [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `オブジェクト` です。
+* `error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。 その型は `エラー` です。
 
-**Example**
+**例**
 
 ```javascript
 // using the promise
@@ -1220,7 +1219,7 @@ For PromiEvent, the following events are available:
   .on('receipt', function(receipt) {
     console.log(receipt)
   })
-  .on('error', console.error) // If there is an out-of-gas error, the second parameter is the receipt.
+  .on('error', console.error) // ガス不足のエラーがある場合、2 番目のパラメータは領収書です。
 
 // receipt example
 {
@@ -1253,47 +1252,47 @@ For PromiEvent, the following events are available:
     "MyOtherEvent": {
       ...
     },
-    "MyMultipleEvent":[{...}, {...}] // If there are multiples of the same events, they will be in an array.
+    "MyMultipleEvent":[{...}, {...}] // もし同じイベントの複数がある場合、配列になります。
   }
 }
 
-// Deploy the contract
+// コントラクトをデプロイ
 > myContract.methods.constructor('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
-> myContract.methods['constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
+> myContract.methods['0x constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
 ```
 
 ## methods.methodName.sign <a href="#methods-methodname-sign" id="methods-methodname-sign"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).sign(options)
-myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
+myContract.methods['methodName']([param1 [, param2 [, ...]]).sign(options)
 ```
 
-Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.sign](caver.contract.md#mycontract-sign) provided as a short-cut function.
+送信者としてスマートコントラクトトランザクションに署名し、スマートコントラクトを展開したり、スマートコントラクトの機能を実行したりします。 ショートカット関数として提供されている [myContract.sign](caver.contract.md#mycontract-sign) を使用することをお勧めします。
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+スマートコントラクトがデプロイされた場合、'constructor' は `myContract.methods.constructor` や `myContract.methods['constructor']` などのメソッド名に入力できます。
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 `methods.methodName.sign`, `feeDelegation` を `true` と定義する必要があります。
 
-* `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
-* `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-* `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+* `feeDelegation` は `false`に定義されていません。 [SmartContractDeploy](caver.transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` は `true`に定義されていますが、 `feeRatio` は定義されていません: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` は `true` と `feeRatio` が定義されています: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `methods.methodName.sign` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                                                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| 名前    | タイプ    | Description                                                                                                    |
+| ----- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| オプション | object | 取引の作成に使用されるオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のパラメータテーブルを参照してください。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - 署名されたスマートコントラクトトランザクション。
 
-**Example**
+**例**
 
 ```javascript
 // Sign a SmartContractDeploy transaction
@@ -1380,35 +1379,35 @@ FeeDelegatedSmartContractExecution {
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(options)
-myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
+myContract.methods['methodName']([param1 [, param2 [, ...]]).signAsFeePayer(options)
 ```
 
-Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.signAsFeePayer](caver.contract.md#mycontract-signasfeepayer) provided as a short-cut function.
+料金支払者としてスマートコントラクト取引に署名し、スマートコントラクトを展開したり、スマートコントラクトの機能を実行したりします。 ショートカット関数として [myContract.signAsFeePayer](caver.contract.md#mycontract-signasfeepayer) を使用することをお勧めします。
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+スマートコントラクトがデプロイされた場合、'constructor' は `myContract.methods.constructor` や `myContract.methods['constructor']` などのメソッド名に入力できます。
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
+この関数で使用されるトランザクションタイプは、 `オプション` または `myContract.options` で定義された値によって異なります。 The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. また、手数料支払者のアドレスは、 `feePayer` フィールドに定義する必要があります。
 
-* `feeDelegation` is not defined : Throws an error.
-* `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+* `feeDelegation` が定義されていません : エラーを投げます。
+* `feeDelegation` が定義されているが、 `feePayer` が定義されていない: エラーを投げる。
 * `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
 * `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
-**NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `methods.methodName.signAsFeePayer` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                                                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| 名前    | タイプ    | Description                                                                                                    |
+| ----- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| オプション | object | 取引の作成に使用されるオプション 詳細は [methods.methodName.send](caver.contract.md#methods-methodname-send) のパラメータテーブルを参照してください。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` returning [Transaction](caver.transaction/) - 署名されたスマートコントラクトトランザクション。
 
-**Example**
+**例**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy transaction
@@ -1456,40 +1455,40 @@ The transaction type used for this function depends on the `options` or the valu
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
+Klaytn Virtual Machineで実行される場合、メソッド実行がかかるガスを推定します。 見積もりは、後で取引を送るときに使用される実際のガスと異なる場合があります。 その時点でスマートコントラクトの状態は異なります
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for calling. See the table below for the details.                                                                       |
-| callback | function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
+| 名前       | タイプ    | Description                                                              |
+| -------- | ------ | ------------------------------------------------------------------------ |
+| オプション    | object | (オプション) 通話に使用するオプション。 詳細は以下の表をご覧ください。                                    |
+| callback | 関数     | (オプション) このコールバックは、第2引数としてのガス推定の結果で発生します。 または error オブジェクトを最初の引数として指定します。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name  | Type      | Description                                                                                                                                                                                          |
-| ----- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from  | string    | (optional) The address from which calling the contract method should be made.                                                                                                                        |
-| gas   | number    | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number.                       |
-| value | number \ | string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
+| 名前   | タイプ  | Description                                                                                              |
+| ---- | ---- | -------------------------------------------------------------------------------------------------------- |
+| from | 文字列  | (オプション) コントラクトメソッドを呼び出すアドレス。                                                                             |
+| ガス   | 数値   | (オプション) この呼び出しのために提供される最大ガス(ガス制限)。 特定の値を設定すると、ガスエラーを検出するのに役立ちます。 すべてのガスが使用されている場合は、同じ数を返します。             |
+| 値    | 数 \ | string \| BN \| Bignumber | (任意) このコントラクト関数を実行するためのトランザクションがKlaytnに送信された場合、スマートコントラクトのアドレスに転送されるpebの値。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `number`
+`Promise` は `番号` を返します。
 
-| Type   | Description                                      |
-| ------ | ------------------------------------------------ |
-| number | The used gas for the simulated call/transaction. |
+| タイプ | Description                    |
+| --- | ------------------------------ |
+| 数値  | シミュレートされたコール/トランザクションに使用されるガス。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.methods.methodName(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(gasAmount) {
-    ...
+...
   })
   .catch(function(error) {
-    ...
+...
   })
 ```
 
@@ -1499,23 +1498,23 @@ The options object can contain the following:
 myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 ```
 
-Encodes the ABI for this method. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
+ABI をこのメソッドのエンコードします。 これはトランザクションを送信したりメソッドを呼び出したり、引数として別のスマートコントラクトメソッドに渡すために使用できます。
 
-**Parameters**
+**パラメータ**
 
-Parameters of any method that belongs to this smart contract, defined in the JSON interface.
+このスマートコントラクトに属するメソッドのパラメータは、JSON インターフェイスで定義されます。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| string | The encoded ABI byte code to send via a transaction or call. |
+| タイプ | Description                              |
+| --- | ---------------------------------------- |
+| 文字列 | トランザクションまたはコールを介して送信するエンコードされたABIバイトコード。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.methods.methodName(123).encodeABI()
-'0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
+'0x58cf5f10000000000000000000000000000000000000000000000007B'
 ```
 
 ## myContract.once <a href="#mycontract-once" id="mycontract-once"></a>
@@ -1524,28 +1523,28 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 myContract.once(event [, options], callback)
 ```
 
-Subscribes to an event and unsubscribes immediately after the first event or error. Will only fire for a single event.
+イベントを購読し、最初のイベントまたはエラーの直後に購読を解除します。 単一のイベントに対してのみ発火します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                                                                                       |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                          |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                                                |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
+| 名前       | タイプ    | Description                                                                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント     | 文字列    | すべてのイベントを取得するには、コントラクト内のイベントの名前、 `allEvents` を指定します。                                                                                          |
+| オプション    | object | (オプション) サブスクリプションに使用されるオプション。 詳細は以下の表をご覧ください。                                                                                                 |
+| callback | 関数     | このコールバックは、最初のイベントを 2 番目の引数として、または 1 番目の引数としてエラーが発生します。 イベント構造の詳細については、 [myContract.getPastEvents](caver.contract.md#getpastevents) を参照してください。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name   | Type   | Description                                                                                                                                                           |
-| ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 名前    | タイプ    | Description                                                                                                                                     |
+| ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| トピック  | 行列     | (オプション) イベントフィルタのトピックを手動で設定できます。 フィルター プロパティとイベント署名が与えられた場合、 `トピック[0]` は自動的に設定されません。                                                            |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
+`Promise` は `オブジェクトを返します。` - イベントオブジェクト。 イベントオブジェクトの詳細については、 [myContract.getPastEvents](caver.contract.md#getpastevents) を参照してください。
 
-**Example**
+**例**
 
 ```javascript
 > myContract.once('eventName', {
@@ -1580,32 +1579,32 @@ The options object can contain the following:
 myContract.subscribe(event [, options], callback)
 ```
 
-Subscribes to an event. This function works same as [myContract.events.eventName](caver.contract.md#mycontract-events).
+Subscribes to an event. この関数は [myContract.events.eventName](caver.contract.md#mycontract-events) と同じように動作します。
 
-You can unsubscribe an event by calling the `unsubscribe` function of the subscription object returned by the `subscribe` function.
+`subscribe` 関数によって返されるサブスクリプションオブジェクトの `unsubscribe` 関数を呼び出すことで、イベントの配信を停止することができます。
 
-**NOTE** `myContract.subscribe` is supported since caver-js [v1.9.1-rc.1](https://www.npmjs.com/package/caver-js/v/1.9.1-rc.1).
+**注意** `myContract.subscribe` は caver-js [v1.9.1-rc.1](https://www.npmjs.com/package/caver-js/v/1.9.1-rc.1) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                                                                                                       |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                          |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                                                |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
+| 名前       | タイプ    | Description                                                                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント     | 文字列    | すべてのイベントを取得するには、コントラクト内のイベントの名前、 `allEvents` を指定します。                                                                                          |
+| オプション    | object | (オプション) サブスクリプションに使用されるオプション。 詳細は以下の表をご覧ください。                                                                                                 |
+| callback | 関数     | このコールバックは、最初のイベントを 2 番目の引数として、または 1 番目の引数としてエラーが発生します。 イベント構造の詳細については、 [myContract.getPastEvents](caver.contract.md#getpastevents) を参照してください。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name   | Type   | Description                                                                                                                                                           |
-| ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 名前    | タイプ    | Description                                                                                                                                     |
+| ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| トピック  | 行列     | (オプション) イベントフィルタのトピックを手動で設定できます。 フィルター プロパティとイベント署名が与えられた場合、 `トピック[0]` は自動的に設定されません。                                                            |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
+`Promise` は `オブジェクトを返します。` - イベントオブジェクト。 イベントオブジェクトの詳細については、 [myContract.getPastEvents](caver.contract.md#getpastevents) を参照してください。
 
-**Example**
+**例**
 
 ```javascript
 > const subscription = myContract.subscribe('eventName', {
@@ -1641,51 +1640,51 @@ myContract.events.eventName([options][, callback])
 
 Subscribes to an event.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                      |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                               |
-| callback | function | (optional) This callback will be fired for each event as the second argument, or an error as the first argument. |
+| 名前       | タイプ    | Description                                                    |
+| -------- | ------ | -------------------------------------------------------------- |
+| オプション    | object | (オプション) サブスクリプションに使用されるオプション。 詳細は以下の表をご覧ください。                  |
+| callback | 関数     | (オプション) このコールバックは、2 番目の引数として各イベントに対して、または 1 番目の引数としてエラーが発生します。 |
 
-The options object can contain the following:
+optionsオブジェクトには以下を含めることができます:
 
-| Name      | Type   | Description                                                                                                                                                           |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| fromBlock | number | (optional) The block number from which to get events.                                                                                                                 |
-| topics    | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 名前     | タイプ    | Description                                                                                                                                     |
+| ------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター  | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| ブロックから | 数値     | (オプション) イベントを取得するブロック番号。                                                                                                                        |
+| トピック   | 行列     | (オプション) イベントフィルタのトピックを手動で設定できます。 フィルター プロパティとイベント署名が与えられた場合、 `トピック[0]` は自動的に設定されません。                                                            |
 
-**Return Value**
+**戻り値**
 
 `EventEmitter`: The event emitter has the following events:
 
-| Name      | Type   | Description                                                                               |
-| --------- | ------ | ----------------------------------------------------------------------------------------- |
-| data      | object | Fires on each incoming event with the event object as an argument.                        |
-| connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
-| error     | object | Fires when an error in the subscription occurs.                                           |
+| 名前   | タイプ    | Description                                     |
+| ---- | ------ | ----------------------------------------------- |
+| data | object | 受信する各イベントに event オブジェクトを引数として発生します。             |
+| 接続済み | 文字列    | サブスクリプションが正常に接続された後、一度発生します。 サブスクリプションIDを返します。  |
+| エラー  | object | Fires when an error in the subscription occurs. |
 
-**NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**注意** `接続した` は caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7) で利用できます。
 
-The structure of the returned event `object` looks as follows:
+返されるイベント `オブジェクト` の構造は、次のようになります。
 
-| Name             | Type           | Description                                                                                                                               |
-| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string         | The event name.                                                                                                                           |
-| signature        | string \      | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
-| address          | string         | Address which from this event originated.                                                                                                 |
-| returnValues     | object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                        |
-| logIndex         | number         | Integer of the event index position in the block.                                                                                         |
-| transactionIndex | number         | Integer of the transaction's index position where the event was created.                                                                  |
-| transactionHash  | 32-byte string | Hash of the transaction this event was created in. `null` when it is still pending.                                                       |
-| blockHash        | 32-byte string | Hash of the block this event was created in. `null` when it is still pending.                                                             |
-| blocknumber      | number         | The block number this log was created in. `null` when still pending.                                                                      |
-| raw.data         | string         | The data containing non-indexed log parameter.                                                                                            |
-| raw.topics       | Array          | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                   |
-| id               | string         | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| 名前               | タイプ      | Description                                                                                                                               |
+| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント             | 文字列      | The event name.                                                                                                                           |
+| 署名               | 文字列 \   | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
+| address          | 文字列      | Address which from this event originated.                                                                                                 |
+| returnValues     | object   | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                        |
+| logIndex         | 数値       | Integer of the event index position in the block.                                                                                         |
+| transactionIndex | 数値       | Integer of the transaction's index position where the event was created.                                                                  |
+| transactionHash  | 32バイト文字列 | このイベントが作成されたトランザクションのハッシュ。 `null` when it is still pending.                                                                               |
+| blockHash        | 32バイト文字列 | Hash of the block this event was created in. `null` when it is still pending.                                                             |
+| blocknumber      | 数値       | The block number this log was created in. `null` when still pending.                                                                      |
+| raw.data         | 文字列      | The data containing non-indexed log parameter.                                                                                            |
+| raw.topics       | 行列       | 最大 4 つの 32 バイトのトピックと、topic 1-3 の配列には、イベントのインデックス付きパラメータが含まれます。                                                                            |
+| id               | 文字列      | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.events.eventName({
@@ -1729,7 +1728,7 @@ The structure of the returned event `object` looks as follows:
 myContract.events.allEvents([options] [, callback])
 ```
 
-Same as [myContract.events](caver.contract.md#mycontract-events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
+[myContract.events](caver.contract.md#mycontract-events) と同じですが、このスマートコントラクトからすべてのイベントを受信します。 Optionally, the filter property can filter those events.
 
 ## getPastEvents <a href="#getpastevents" id="getpastevents"></a>
 
@@ -1739,43 +1738,43 @@ myContract.getPastEvents(event [, options] [, callback])
 
 Gets past events for this contract.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| event    | string   | The name of the event in the contract, or `"allEvents"` to get all events.                                                    |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                            |
-| callback | function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
+| 名前       | タイプ    | Description                                                                |
+| -------- | ------ | -------------------------------------------------------------------------- |
+| イベント     | 文字列    | The name of the event in the contract, or `"allEvents"` to get all events. |
+| オプション    | object | (オプション) サブスクリプションに使用されるオプション。 詳細は以下の表をご覧ください。                              |
+| callback | 関数     | (オプション) このコールバックは、2 番目の引数としてイベントログの配列、または 1 番目の引数としてエラーが発生します。             |
 
 To options object can contain the following:
 
-| Name      | Type   | Description                                                                                                                                                        |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
-| fromBlock | number | (optional) The block number from which to get events.                                                                                                              |
-| toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                                          |
-| topics    | Array  | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 名前      | タイプ    | Description                                                                                                                                     |
+| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター   | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| ブロックから  | 数値     | (オプション) イベントを取得するブロック番号。                                                                                                                        |
+| toBlock | 数値     | (オプション) イベントを最大にするためのブロック番号 (デフォルトは `"latest"`)。                                                                                                |
+| トピック    | 行列     | (オプション) イベントフィルタのトピックを手動で設定できます。 フィルター プロパティとイベント署名が与えられた場合、 `トピック[0]` は自動的に設定されません。                                                            |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Array` - An array with the past event objects, matching the given event name and filter.
+`Promise` は `Array` を返します。
 
-An event object can contain the following:
+イベントオブジェクトには以下を含めることができます:
 
-| Name             | Type      | Description                                                                                                                                                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string    | The event name.                                                                                                                                                                                               |
-| signature        | string \ | `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                              |
-| address          | string    | Address this event originated from.                                                                                                                                                                           |
-| returnValues     | object    | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
-| logIndex         | number    | The event index position in the block.                                                                                                                                                                        |
-| transactionIndex | number    | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | string    | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | string    | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
-| blockNumber      | number    | The block number this log was created in. null when still pending.                                                                                                                                            |
-| raw              | object    | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| 名前               | タイプ    | Description                                                                                                                                     |
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント             | 文字列    | The event name.                                                                                                                                 |
+| 署名               | 文字列 \ | `null` | 匿名イベントの場合はイベントシグネチャ、 `null` です。                                                                                                        |
+| address          | 文字列    | このイベントの発信元にアドレスを指定します。                                                                                                                          |
+| returnValues     | object | イベントからの戻り値、例: {myVar: 1, myVar2: '0x234...'}。                                                                                                   |
+| logIndex         | 数値     | ブロック内のイベントインデックスの位置。                                                                                                                            |
+| transactionIndex | 数値     | イベントが作成されたトランザクションのインデックス位置。                                                                                                                    |
+| transactionHash  | 文字列    | このイベントが作成されたトランザクションのハッシュ。                                                                                                                      |
+| blockHash        | 文字列    | このイベントが作成されたブロックのハッシュ。保留中の場合は null です。                                                                                                          |
+| blockNumber      | 数値     | このログが作成されたブロック番号。保留中はnullです。                                                                                                                    |
+| raw              | object | オブジェクトは、 `データ` と `トピック` を定義します。 `インデックスされていないログパラメータを含む raw.data`。 `raw.topic` は最大 4 つの 32 バイトのトピックを持つ配列で、topic 1-3 はイベントのインデックス付きパラメータを含んでいます。 |
 
-**Example**
+**例**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
