@@ -1,90 +1,90 @@
-# Connecting MetaMask
+# メタマスクを接続中
 
-> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Klaytn due to the identical address structures. Klaytn also has a browser extension wallet called [Kaikas](../developer-tools/#kaikas), so it basically provides the same features as MetaMask, except for Remix.
+> **注**: MetaMaskは主にEthereum用のウォレットとして使用されています。 しかし、同一のアドレス構造により、Klaytnと互換性があります。 Klaytnには [Kaikas](../developer-tools/#kaikas)と呼ばれるブラウザ拡張ウォレットもありますので、Remixを除いて基本的にMetaMaskと同じ機能を提供します。
 
-## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask"></a>
+## ステップ1. メタマスクをインストール <a href="#install-metamask" id="install-metamask"></a>
 
-* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en\_us/chrome/))
-*   Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
+* この例ではChromeブラウザを使用します。 ([**Chrome をインストール**](https://www.google.com/intl/en\_us/chrome/))
+*   [**MetaMask 拡張機能**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) を Chrome に追加します。
 
-    > **Note:** You may need additional installations if you are using another browser.
-* You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
+    > **注意:** 別のブラウザを使用している場合は、追加インストールが必要になる場合があります。
+* メタマスクを起動するには、Chromeブラウザの右上隅にあるアイコンをクリックします。
 
-## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask"></a>
+## ステップ 2. メタマスクウォレットを生成 <a href="#generate-a-metamask" id="generate-a-metamask"></a>
 
-![Create a Wallet](../../bapp/tutorials/img/new-to-metamask.png)
+![ウォレットを作成](../../bapp/tutorials/img/new-to-metamask.png)
 
-* Click on \[Create a Wallet].
-* Set a password.
-*   You will be given a 12 word seed phrase; back it up somewhere secure.
+* \format@@0 をクリックします。
+* パスワードを設定
+*   12語のシードフレーズが与えられます。安全な場所に戻してください。
 
-    > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
+    > **注意:** シードフレーズでのみウォレットを復元できます。 シードフレーズを他の人と共有すると、あなたのすべての資金が失われる可能性があります。 したがって、手動で書き留めるか、オフラインのデバイスに保存することをお勧めします。
 
-![Seed phrase and Wallet](../../bapp/tutorials/img/metamask-secret-backup.png)
+![シードフレーズとウォレット](../../bapp/tutorials/img/metamask-secret-backup.png)
 
-## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
+## ステップ3 Klaytn Cypress Network(メインネット)に接続します <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
 
-> Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
+> 簡単な方法があります [Klaytn Cypress Network(メインネット)](https://chainlist.org/chain/8217) にウォレットを接続します。
 
-* Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
-* Enter the Endpoint Node (EN) data of the Klaytn chain.
+* デフォルトでEthereum Mainnetにある上部ネットワークタブをクリックし、\format@@0を選択します。
+* Klaytn チェーンのエンドポイント ノード (EN) データを入力します。
   * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * ネットワーク名: Klaytn Cypress
+    * 新しい RPC URL: (デフォルト: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
     * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * Chain ID: 8217
-    * Currency Symbol: KLAY
-* Click \[Save] to add Klaytn Cypress Network.
+    * チェーン ID: 8217
+    * 通貨記号: KLY
+* \[Save] をクリックして、Klaytn Cypress Networkを追加します。
 
-![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
+![ネットワーク設定とカスタムRPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![ネットワーク設定とカスタムRPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
 
-## Step 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
+## ステップ4 KLAYを送る <a href="#send-klay" id="send-klay"></a>
 
-**Note:** The following steps require KLAY.
+**注意:** 以下の手順では、KLAYが必要です。
 
-* Click \[Send] on the main page and enter the recipient address and the amount of KLAY.
+* メインページの \[Send] をクリックし、受信者のアドレスとKLAYの金額を入力します。
 
-![Send KLAY 1](img/metamask-send-klay-1.png)
+![KLAY1を送信](img/metamask-send-klay-1.png)
 
-**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+**注意:** KLAYを送信するには、KLAYが必要なトランザクションが必要です。
 
-* Since Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
-* So you don't have to set the fixed gas fee manually.
-* Check the amount to send and the transaction fee and click \[Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
-* Click \[Activity] on the main page to confirm the transaction history.
+* Klaytn v1.9.0以降、 [動的ガス料金メカニズム](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) が既存の固定価格ポリシーを置き換えました。
+* したがって、固定ガス料金を手動で設定する必要はありません。
+* 送金する金額と手数料を確認し、\[Confirm] をクリックしてKLAY送金を完了します。 その後メインページにリダイレクトされます。
+* メインページの \[Activity] をクリックして取引履歴を確認します。
 
-![Send KLAY 2](img/metamask-send-klay-2.png)
+![KLAY2を送信](img/metamask-send-klay-2.png)
 
-## Connect to Klaytn Baobab Network (Testnet) <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
+## Klaytn Baobab ネットワーク（テストネット）に接続する <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
 
-### Obtain KLAY to make a transaction
+### KLAYを取得してトランザクションを作成する
 
-> **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
+> **注意:** このチュートリアルでは、ネットワークに接続するためにTestnet(Baobab)のPublic ENを使用します。 テストを実行しているときは必ずBaobabを使用してください。
 
-> Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
+> 簡単な方法があります [Klaytn Baobab ネットワーク(テストネット)](https://chainlist.org/chain/1001) に財布を接続します。
 
 * Baobab
-  * Network Name: Klaytn Baobab
+  * ネットワーク名: Klaytn Baobab
   * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
   * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-  * Chain ID: 1001
-  * Currency Symbol: KLAY
-* Click \[Save] to add Klaytn Baobab Network.
+  * チェーン ID: 1001
+  * 通貨記号: KLY
+* \[Save] をクリックしてKlaytn Baobab Networkを追加します。
 
-![Network Setup](img/connect-testnet-1.png)
+![ネットワーク設定](img/connect-testnet-1.png)
 
-* To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
-* Click on the kebab menu (three dots) in the upper right corner and select \[Account details].
-* Click \[Export Private Key] to obtain your private key.
+* Klaytn Walletの接続をテストするには、KLAYが必要なトランザクションを作成する必要があります。
+* 右上隅のケバブメニュー(3つのドット)をクリックし、\format@@0を選択します。
+* 秘密鍵を取得するには、\[Export Private Key]をクリックしてください。
 
-![Export Private Key](img/connect-testnet-2.png)
+![プライベートキーをエクスポート](img/connect-testnet-2.png)
 
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-* Enter your private key on Klaytn Wallet and log in by clicking \[Access]. (Attach 0x in front of the private key.)
-* Click \[Run Faucet]. 150 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
+* Baobab Testnetを使用する場合、 [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet) でTest Klayを入手できます。
+* Klaytn Walletの秘密鍵を入力し、\[Access] をクリックしてログインします。 (秘密鍵の前に0xを取り付けます。
+* Click \[Run Faucet]. 150 Testnet KLAYがあなたのアカウントに送信され、残高はそれに応じて更新されます。 Testnet KLAYは、アカウントごとに24時間ごとにFaucetから請求することができます。
 
-![Obtain KLAY from Faucet](img/connect-testnet-3.png)
+![FaucetでKLAYを入手](img/connect-testnet-3.png)
 
-* Come back to MetaMask and confirm the KLAY that you received.
+* メタマスクに戻り、受け取ったKLAYを確認してください。
 
-![Check your balance](img/connect-testnet-4.png)
+![残高を確認する](img/connect-testnet-4.png)
