@@ -1,19 +1,19 @@
-# Disk management - Chaindata Migration <a id="disk-management-2"></a>
+# ディスク管理 - Chainda移行 <a id="disk-management-2"></a>
 
 
 <aside>
-💡 Run migration only for PN and EN nodes (not CN)
+💡 PNノードとENノード(CNではない)に対してのみ移行を実行します。
 
 </aside>
 
-## Things to know before this job <a id="things-to-know-before-this-job"></a>
-- It needs m5.8xlarges spec (32 cores and 128GB memory) or higher
-- 7 days for full progress (Migration is divided in 2 parts)
-    - Part 1 - Migrate DB to a new directory (The message “State migration is completed”  appears)
-    - Part 2 - New Block generation on new directory (old directory will be deleted after this)
-- 500GB free space should be available
+## この仕事の前に知っておくべきこと <a id="things-to-know-before-this-job"></a>
+- m5.8xlarges仕様(32コアと128GBメモリ)以上が必要です
+- 完了までの7日間（移転は2つのパートに分かれています）
+    - パート 1 - DB を新しいディレクトリに移行します (「状態の移行が完了しました」というメッセージが表示されます)
+    - パート2 - 新しいディレクトリの新しいブロック生成(この後古いディレクトリは削除されます)
+- 500GBの空き容量が必要です
 
-## Go to Klaytn Console
+## Klaytn コンソールへ移動
 
 ```bash
 $ kpn attach klay.ipc
