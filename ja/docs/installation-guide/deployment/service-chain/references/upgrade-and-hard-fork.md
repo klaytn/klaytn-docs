@@ -1,73 +1,73 @@
-# Upgrade & Hard Fork
+# アップグレード & ハードフォーク
 
-Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
+KlaytnとそのServiceChainは、常に新しい機能を開発し、バグを修正するための新しいバージョンをリリースしています。 このページは、ServiceChainバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
 
-## Upgrade <a href="#upgrade" id="upgrade"></a>
+## アップグレードする <a href="#upgrade" id="upgrade"></a>
 
-This section shows how to upgrade the ServiceChain binary.
+このセクションでは、ServiceChainバイナリをアップグレードする方法を示します。
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details. For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+**注意** ServiceChainバイナリをアップグレードすることは不可逆的であり、後方互換性がないため、古いバージョンにダウングレードすることはできません。 詳細については、リリースノートを参照してください。 たとえば、 [Klaytn v1.9.0 リリースノート](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) は次のように述べています。
 
-> NOTE: This version updates the version of the database to support snapshot sync. You cannot downgrade to the older versions with existing data after updating to v1.9.0.
+> 注意: このバージョンは、スナップショットの同期をサポートするためにデータベースのバージョンを更新します。 v1.9.0にアップデートしてから、既存のデータを含む古いバージョンにダウングレードすることはできません。
 
-You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
+KlaytnおよびServiceChainの最新バージョンのバイナリは、以下のいずれかのリンクから入手できます。
 
 * [Klaytn Docs](../../download/)
 * [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
-To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
+ServiceChainバイナリをアップグレードするには、ServiceChainノードを停止し、バイナリを置き換えます。 たとえば、以下のコマンドを使用して SCN ノードを停止し、バイナリを新しいものに置き換えることができます。
 
 ```bash
 $ kscnd stop
-Shutting down kscnd: OK
+shuting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-You may restart the ServiceChain node after the upgrade. However, if you are planning to activate hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](upgrade-and-hard-fork.md#hard-fork) for instructions of ServiceChain hard fork.
+アップグレード後、ServiceChainノードを再起動できます。 ただし、ServiceChainでハードフォークを有効にする予定である場合は、ServiceChainノードを抑制する必要があります。 ServiceChainハードフォークの手順については、 [ハードフォーク](upgrade-and-hard-fork.md#hard-fork) を参照してください。
 
 ```bash
 $ kscnd start
 ```
 
-## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
+## ハードフォーク <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../../../misc/klaytn-history.md) to ServiceChain.
+このセクションでは、Klaytn [ハードフォーク](../../../../misc/klaytn-history.md) を ServiceChain に適用する手順について説明します。
 
-To apply the hard fork to the ServiceChain, you need to:
+ハードフォークをServiceChainに適用するには、次のようにする必要があります。
 
-1. Pick an appropriate block number for the hard fork
-2. Upgrade the ServiceChain binary to a version that supports the hard fork
-3. Set the hard fork block number in the ServiceChain
+1. ハードフォークの適切なブロック番号を選択してください
+2. ServiceChainバイナリをハードフォークをサポートするバージョンにアップグレードします
+3. ServiceChainでハードフォークブロック番号を設定する
 
-### 1. Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. ハードフォークの適切なブロック番号を選択してください <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
-In the Javascript console of the ServiceChain, you can check the current block number as shown below.
+ServiceChain の Javascript コンソールで、以下のように現在のブロック番号を確認できます。
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X.X
  datadir: ~/kscnd_home
- modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+ modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 klay:1.0 klay:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > klay.blockNumber
 1234
 ```
 
-Now, you have to choose an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
+今、あなたはハードフォークをアクティブにするために適切なブロック番号を選択する必要があります。 現在のブロックとハードフォークのブロックの間に十分な数のブロックがあることを確認してください(毎秒生成されます)。
 
-### 2. Upgrade the ServiceChain binary <a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
+### 2. ServiceChainバイナリをアップグレード <a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
 
-Refer to the [Upgrade](upgrade-and-hard-fork.md#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
+ServiceChainバイナリのアップグレード方法については、このページの [Upgrade](upgrade-and-hard-fork.md#upgrade) セクションを参照してください。 今のところ、ServiceChainノードをダウンさせる(または停止する)ことを確認してください。 ハードフォークのブロック番号を設定した後、再起動します。
 
-### 3. Set the Hard Fork Block Number <a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
+### 3. ハードフォークブロック番号を設定する <a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
 
-If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can set the hard fork block number in the ServiceChain by re-initializing the chain config with updated genesis.
+所望のハードフォークをサポートするバージョンで ServiceChain バイナリをアップグレードした場合 更新されたジェネシスでチェーン設定を再初期化することで、ServiceChain内のハードフォークブロック番号を設定できます。
 
-#### Update genesis and re-initialize chain config for all ServiceChain nodes <a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
+#### ジェネシスを更新し、すべてのServiceChainノードのチェーン設定を再初期化します <a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
-First, specify the hard fork number in the `config` field of `genesis.json`. For example, if you are trying to activate the Magma hard fork in your ServiceChain, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
+まず、 `genesis.json` の `config` フィールドにハードフォーク番号を指定します。 たとえば、ServiceChainでMagmaハードフォークをアクティブにしようとしている場合。 `magmaCompatibleBlock` は `config` フィールドに以下のように指定する必要があります。
 
 ```json
 {
@@ -76,15 +76,15 @@ First, specify the hard fork number in the `config` field of `genesis.json`. For
     "istanbulCompatibleBlock": 0,
     ...
     "magmaCompatibleBlock": 1500,
-    ...
+...
   },
   ...
 }
 ```
 
-To enable a hard fork in the chain config, previous hard forks should be enabled. That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled. If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
+チェーン構成でハードフォークを有効にするには、以前のハードフォークを有効にする必要があります。 つまり、マグマハードフォークを有効にするには、EthTxTypeハードフォークがすでに有効になっている必要があります。 チェーン構成で先行するハードフォークの互換性のあるブロック番号のフィールドがない場合は、それらも追加する必要があります。
 
-For example, if you want to set Magma hard fork block number and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
+たとえば、マグマのハードフォークブロック番号と `遺伝子を設定したい場合などです。 son <code> は` の `ethTxTypeCompatibleBlock` を `config` フィールドに以下のように持っていません:
 
 ```json
 {
@@ -102,7 +102,7 @@ For example, if you want to set Magma hard fork block number and if your `genesi
 }
 ```
 
-You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlock` in the `config` field, like below.
+`ethTxTypeCompatibleBlock` も追加しなければなりません。 `config` フィールドに `magmaCompatibleBlock` を追加する場合は、以下のようにします。
 
 ```json
 {
@@ -122,75 +122,75 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../../misc/klaytn-history.md).
+Klaytn ハードフォークの歴史は、 [Klaytn Docs](../../../../misc/klaytn-history.md) にあります。
 
-If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
+必要なハードフォークで `genesis.json` を更新した場合は、チェーン設定を再初期化して変更を適用します。
 
 ```bash
 $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
 ```
 
-**NOTE** It is normal that the following error log is printed when you re-initialize the chain config.
+**注意** チェーンの設定を再初期化すると、以下のエラーログが出力されるのは普通です。
 
 ```
-ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Skip writing governance index  newIdx=0 govIdxes=[0]
+ERROR[08/02,09:12:39 Z] [48] ガバナンス指数は同じまたはそれ以上の最近のものが存在します。 ガバナンスインデックスの書き込み newIdx=0 govIdxes=[0]
 ```
 
-#### Confirm the updated chain config <a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
+#### 更新されたチェーン設定を確認する <a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
 
-Now, restart the ServiceChain node. For example, you can restart a SCN node with the following command.
+次に、ServiceChainノードを再起動します。 たとえば、SCN ノードを以下のコマンドで再起動できます。
 
 ```bash
 $ kscnd start
 ```
 
-Then, in the Javascript console of SCN, you can check the updated chain config.
+次に、SCN の Javascript コンソールで、更新されたチェーン構成を確認できます。
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+インスタンス: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
  datadir: ~/kscnd_home
- modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+ modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 klay:1.0 klay:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
-> governance.chainConfig.magmaCompatibleBlock
+> goverance.chainConfig.magmaCompatibleBlock
 1500
 ```
 
-## Some Hard Fork specifics <a href="#some-hard-fork-specifics" id="some-hard-fork-specifics"></a>
+## いくつかのハードフォークの詳細 <a href="#some-hard-fork-specifics" id="some-hard-fork-specifics"></a>
 
-This section describes some details for a specific hard fork.
+このセクションでは、特定のハードフォークの詳細について説明します。
 
 ### Magma <a href="#magma" id="magma"></a>
 
-The Magma hard fork introduces the KIP-71, dynamic gas fee. It includes the upper and lower bound of the gas price.
+マグマハードフォークは、KIP-71、動的ガス料金を導入します。 これは、ガス価格の上限と下限を含みます。
 
-By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../../dapp/json-rpc/api-references/governance.md). Obviously, lower bound cannot exceed the upper bound.
+デフォルトでは、上限は `75000000000000` に設定されており、下限値は `250000000000000`に設定されています。 SCN ノードの Javascript コンソールで、 [governance API](../../../../dapp/json-rpc/api-references/governance.md) を使用してこれらの境界を変更することができます。 明らかに、下限は上限を超えることはできません。
 
-To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
+ガス価格を静的な値に設定する ガス価格の上限と下限を同じ値に設定する必要があります たとえば、SCN ノードの Javascript コンソールで `0` `governance.vote` API を使用して、ガス価格を format@@4 に設定できます。
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
  datadir: ~/kscnd_home
- modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+ modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1. net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > governance.vote("kip71.lowerboundbasefee", 0)
-"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
-> governance.vote("kip71.upperboundbasefee", 0)
-"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
+"あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
+> goverance.vote("kip71.upperboundbasefee", 0)
+"あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
 ```
 
-**NOTE** The governance voting and its update are available regardless of the activation of the Magma hard fork. That is, the governance voting can be also done prior to the Magma hard fork activation.
+**注** マグマのハードフォークの有効化にかかわらず、ガバナンス投票とその更新が利用可能です。 つまり、ガバナンス投票はマグマのハードフォークの活性化の前に行うこともできます。
 
-If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
+ガス価格の上限と下限を更新するための投票が成功した場合 これらの変更は、2 istanbulエポック(エポックはブロック番号の値を持つ)の後に有効になります。
 
-For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800. In detail, the votes will be finalized when their first epoch was reached at the block #7200, and the changes are applied at the second epoch (block #10800).
+たとえば、エポックが3600の場合 ガソリン価格の上限と下限を更新するための投票は#4000ブロックに配置されています ブロック#10800から始まる変更が有効になります。 詳細には、ブロック#7200で最初のエポックに達したときに投票が確定されます。 変更は2番目のエポック(ブロック#10800)に適用されます。
 
-To check the epoch, you can use the `governanace.itemsAt` API, like below.
+エポックを確認するには、以下のように `goveranace.itemsAt` API を使用します。
 
 ```javascript
 > governance.itemsAt(klay.blockNumber)
@@ -214,11 +214,11 @@ To check the epoch, you can use the `governanace.itemsAt` API, like below.
 }
 ```
 
-You can see that the `istanbul.epoch` has a value of 3600 blocks, which would normally take an hour to pass.
+`istanbul.epoch` には3600ブロックの値があり、通常は1時間かかります。
 
-You can change the epoch too, using the `governance.vote` API.
+時期も、 `governance.vote` API を使用して変更できます。
 
 ```javascript
-> governance.vote("istanbul.epoch", 60)
-"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
+> goverance.vote("istanbul.epoch", 60)
+"あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
 ```
