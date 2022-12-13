@@ -1,52 +1,52 @@
-# caver.wallet.keyring <a id="caver-wallet-keyring"></a>
+# caver.wallet.keyring
 
 `caver.wallet.keyring` is a package that provides functionality related to Keyring which includes address and private key(s).
 
-## Class <a id="class"></a>
+## Class <a href="#class" id="class"></a>
 
 `Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
-`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
+`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
-- [SingleKeyring]: User signs with a private key
-- [MultipleKeyring]: User signs with private keys
-- [RoleBasedKeyring]: User signs with the private key(s) by role
+* [SingleKeyring](keyring.md#singlekeyring): User signs with a private key
+* [MultipleKeyring](keyring.md#multiplekeyring): User signs with private keys
+* [RoleBasedKeyring](keyring.md#rolebasedkeyring): User signs with the private key(s) by role
 
-### SingleKeyring <a id="singlekeyring"></a>
+### SingleKeyring <a href="#singlekeyring" id="singlekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 ```
 
-`SingleKeyring` is a class that stores the `address` of the account and a `private key`. To create a SingleKeyring instance with a private key string, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`SingleKeyring` is a class that stores the `address` of the account and a `private key`. To create a SingleKeyring instance with a private key string, please refer to [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create).
 
 `SingleKeyring` uses a private key with which no roles assigned.
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account. |
-| key | [PrivateKey] | An instance of [PrivateKey] containing one private key inside. |
+| Name    | Type                                | Description                                                                           |
+| ------- | ----------------------------------- | ------------------------------------------------------------------------------------- |
+| address | string                              | The address of the account.                                                           |
+| key     | [PrivateKey](keyring.md#privatekey) | An instance of [PrivateKey](keyring.md#privatekey) containing one private key inside. |
 
-### MultipleKeyring <a id="multiplekeyring"></a>
+### MultipleKeyring <a href="#multiplekeyring" id="multiplekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 ```
 
-`MultipleKeyring` is a class that stores the `address` of the account and the multiple `private keys`. To create a MultipleKeyring instance with private key strings, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`MultipleKeyring` is a class that stores the `address` of the account and the multiple `private keys`. To create a MultipleKeyring instance with private key strings, please refer to [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create).
 
 `MultipleKeyring` uses private keys with which no roles assigned.
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account. |
-| keys | Array | An array of [PrivateKey] instances containing one private key inside. |
+| Name    | Type   | Description                                                                                  |
+| ------- | ------ | -------------------------------------------------------------------------------------------- |
+| address | string | The address of the account.                                                                  |
+| keys    | Array  | An array of [PrivateKey](keyring.md#privatekey) instances containing one private key inside. |
 
-### RoleBasedKeyring <a id="rolebasedkeyring"></a>
+### RoleBasedKeyring <a href="#rolebasedkeyring" id="rolebasedkeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
@@ -54,25 +54,24 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 `RoleBasedKeyring` is a class that stores the `address` of the account and the `private keys` to be used for each role in the form of an array.
 
-`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
+`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../../../klaytn/design/accounts.md#roles). The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | The address of the account. |
-| keys | Array | A two-dimensional array that defines the keys used for each [role]. Each [role] includes [PrivateKey] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| Name    | Type   | Description                                                                                                                                                                                                                                                                                                                                                                       |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | The address of the account.                                                                                                                                                                                                                                                                                                                                                       |
+| keys    | Array  | A two-dimensional array that defines the keys used for each [role](../../../../../klaytn/design/accounts.md#roles). Each [role](../../../../../klaytn/design/accounts.md#roles) includes [PrivateKey](keyring.md#privatekey) instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
 
 Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| roleTransactionKey | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
-| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property. |
-| roleFeePayerKey | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property. |
+| Name                 | Type  | Description                                                                                                                                                                       |
+| -------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| roleTransactionKey   | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
+| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                              |
+| roleFeePayerKey      | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                         |
 
-
-### PrivateKey <a id="privatekey"></a>
+### PrivateKey <a href="#privatekey" id="privatekey"></a>
 
 ```javascript
 const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
@@ -82,12 +81,11 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type   | Description             |
+| ---------- | ------ | ----------------------- |
 | privateKey | string | The private key string. |
 
-
-### SignatureData <a id="signaturedata"></a>
+### SignatureData <a href="#signaturedata" id="signaturedata"></a>
 
 `SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
 
@@ -97,13 +95,13 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 
 **properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| v | String | ECDSA recovery id. |
-| r | String | ECDSA signature r. |
-| s | String | ECDSA signature s. |
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| v    | String | ECDSA recovery id. |
+| r    | String | ECDSA signature r. |
+| s    | String | ECDSA signature s. |
 
-## caver.wallet.keyring.generate <a id="caver-wallet-keyring-generate"></a>
+## caver.wallet.keyring.generate <a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
 
 ```javascript
 caver.wallet.keyring.generate([entropy])
@@ -113,15 +111,15 @@ Generates a SingleKeyring instance with a randomly generated private key.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description                                     |
+| ------- | ------ | ----------------------------------------------- |
 | entropy | string | (optional) A random string to increase entropy. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [SingleKeyring] | A randomly generated single keyring instance is returned. |
+| Type                                      | Description                                               |
+| ----------------------------------------- | --------------------------------------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | A randomly generated single keyring instance is returned. |
 
 **Example**
 
@@ -133,7 +131,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.generateSingleKey <a id="caver-wallet-keyring-generatesinglekey"></a>
+## caver.wallet.keyring.generateSingleKey <a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.generateSingleKey([entropy])
@@ -143,14 +141,14 @@ Generates a private key string.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description                                     |
+| ------- | ------ | ----------------------------------------------- |
 | entropy | string | (optional) A random string to increase entropy. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
 | string | The private key string is returned. |
 
 **Example**
@@ -160,7 +158,7 @@ Generates a private key string.
 '0x{private key}'
 ```
 
-## caver.wallet.keyring.generateMultipleKeys <a id="caver-wallet-keyring-generatemultiplekeys"></a>
+## caver.wallet.keyring.generateMultipleKeys <a href="#caver-wallet-keyring-generatemultiplekeys" id="caver-wallet-keyring-generatemultiplekeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
@@ -170,15 +168,15 @@ Generates private key strings.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| num | number | The number of private key strings. |
+| Name    | Type   | Description                                     |
+| ------- | ------ | ----------------------------------------------- |
+| num     | number | The number of private key strings.              |
 | entropy | string | (optional) A random string to increase entropy. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                             |
+| ----- | ------------------------------------------------------- |
 | Array | An array that includes private key strings is returned. |
 
 **Example**
@@ -192,26 +190,26 @@ Generates private key strings.
 ]
 ```
 
-## caver.wallet.keyring.generateRoleBasedKeys <a id="caver-wallet-keyring-generaterolebasedkeys"></a>
+## caver.wallet.keyring.generateRoleBasedKeys <a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ```
 
-Generates a 2D array of which each array element contains keys defined for each [role].
+Generates a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| numArray | Array | An array containing the number of keys for each [role]. |
-| entropy | string | (optional) A random string to increase entropy. |
+| Name     | Type   | Description                                                                                             |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| numArray | Array  | An array containing the number of keys for each [role](../../../../../klaytn/design/accounts.md#roles). |
+| entropy  | string | (optional) A random string to increase entropy.                                                         |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| Array | A 2D array of which each array element contains keys defined for each [role] is returned. |
+| Type  | Description                                                                                                                               |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Array | A 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles) is returned. |
 
 **Example**
 
@@ -233,28 +231,28 @@ Generates a 2D array of which each array element contains keys defined for each 
 ]
 ```
 
-## caver.wallet.keyring.create <a id="caver-wallet-keyring-create"></a>
+## caver.wallet.keyring.create <a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
 
 ```javascript
 caver.wallet.keyring.create(address, key)
 ```
 
-Creates a Keyring instance with parameters. 
+Creates a Keyring instance with parameters.
 
-If `key` is a private key string, a [SingleKeyring] instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring] instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring] instance is created.
+If `key` is a private key string, a [SingleKeyring](keyring.md#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](keyring.md#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](keyring.md#rolebasedkeyring) instance is created.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | An address of keyring. |
-| key | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role]. |
+| Name    | Type            | Description                                                                                                                                                                       |
+| ------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string          | An address of keyring.                                                                                                                                                            |
+| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../klaytn/design/accounts.md#roles). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| `Keyring` | The keyring instance is returned. Depending on the `key` parameter, it can be [SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring].|
+| Type      | Description                                                                                                                                                                                                                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Keyring` | The keyring instance is returned. Depending on the `key` parameter, it can be [SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring). |
 
 **Example**
 
@@ -302,25 +300,25 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromPrivateKey <a id="caver-wallet-keyring-createfromprivatekey"></a>
+## caver.wallet.keyring.createFromPrivateKey <a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey].
+Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| key | string | This parameter can be either a private key or [KlaytnWalletKey]. |
+| Name | Type   | Description                                                                                                                         |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [SingleKeyring] | The SingleKeyring instance is returned. |
+| Type                                      | Description                             |
+| ----------------------------------------- | --------------------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
 
 **Example**
 
@@ -340,25 +338,25 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromKlaytnWalletKey <a id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
+## caver.wallet.keyring.createFromKlaytnWalletKey <a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KlaytnWalletKey] string.
+Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| klaytnWalletKey | string | The [KlaytnWalletKey] string. |
+| Name            | Type   | Description                                                                                      |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------ |
+| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [SingleKeyring] | The SingleKeyring instance is returned. |
+| Type                                      | Description                             |
+| ----------------------------------------- | --------------------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
 
 **Example**
 
@@ -370,7 +368,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithSingleKey <a id="caver-wallet-keyring-createwithsinglekey"></a>
+## caver.wallet.keyring.createWithSingleKey <a href="#caver-wallet-keyring-createwithsinglekey" id="caver-wallet-keyring-createwithsinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithSingleKey(address, key)
@@ -380,16 +378,16 @@ Creates a `SingleKeyring` instance from an address and a private key string.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name    | Type   | Description                                   |
+| ------- | ------ | --------------------------------------------- |
 | address | string | An address to be used for creating a keyring. |
-| key | string | A private key string. |
+| key     | string | A private key string.                         |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [SingleKeyring] | The SingleKeyring instance is returned. |
+| Type                                      | Description                             |
+| ----------------------------------------- | --------------------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
 
 **Example**
 
@@ -401,7 +399,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithMultipleKey <a id="caver-wallet-keyring-createwithmultiplekey"></a>
+## caver.wallet.keyring.createWithMultipleKey <a href="#caver-wallet-keyring-createwithmultiplekey" id="caver-wallet-keyring-createwithmultiplekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithMultipleKey(address, key)
@@ -411,16 +409,16 @@ Creates a `MultipleKeyring` instance from an address and private key strings.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | An address of keyring. |
-| keyArray | Array | An array of private key strings. |
+| Name     | Type   | Description                      |
+| -------- | ------ | -------------------------------- |
+| address  | string | An address of keyring.           |
+| keyArray | Array  | An array of private key strings. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [MultipleKeyring] | The MultipleKeyring instance is returned. |
+| Type                                          | Description                               |
+| --------------------------------------------- | ----------------------------------------- |
+| [MultipleKeyring](keyring.md#multiplekeyring) | The MultipleKeyring instance is returned. |
 
 **Example**
 
@@ -435,26 +433,26 @@ MultipleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithRoleBasedKey <a id="caver-wallet-keyring-createwithrolebasedkey"></a>
+## caver.wallet.keyring.createWithRoleBasedKey <a href="#caver-wallet-keyring-createwithrolebasedkey" id="caver-wallet-keyring-createwithrolebasedkey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 ```
 
-Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role].
+Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| address | string | An address of keyring. |
-| roledBasedKeyArray | Array | A two-dimensional array containing arrays of private key strings for each role. |
+| Name               | Type   | Description                                                                     |
+| ------------------ | ------ | ------------------------------------------------------------------------------- |
+| address            | string | An address of keyring.                                                          |
+| roledBasedKeyArray | Array  | A two-dimensional array containing arrays of private key strings for each role. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [RoleBasedKeyring] | The RoleBasedKeyring instance is returned. |
+| Type                                            | Description                                |
+| ----------------------------------------------- | ------------------------------------------ |
+| [RoleBasedKeyring](keyring.md#rolebasedkeyring) | The RoleBasedKeyring instance is returned. |
 
 **Example**
 
@@ -484,7 +482,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.decrypt <a id="caver-wallet-keyring-decrypt"></a>
+## caver.wallet.keyring.decrypt <a href="#caver-wallet-keyring-decrypt" id="caver-wallet-keyring-decrypt"></a>
 
 ```javascript
 caver.wallet.keyring.decrypt(keystore, password)
@@ -494,16 +492,16 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type   | Description                       |
+| -------- | ------ | --------------------------------- |
 | keystore | object | The keystore v3 or v4 to decrypt. |
 | password | string | The password used for encryption. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| `Keyring` | The decrypted keyring instance ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). |
+| Type      | Description                                                                                                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Keyring` | The decrypted keyring instance ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring)). |
 
 **Example**
 
@@ -706,26 +704,25 @@ SingleKeyring {
 }
 ```
 
-## keyring.getPublicKey <a id="keyring-getpublickey"></a>
+## keyring.getPublicKey <a href="#keyring-getpublickey" id="keyring-getpublickey"></a>
 
 ```javascript
 keyring.getPublicKey()
 ```
 
-Returns the public key string(s). If `keyring` is an instance of [SingleKeyring], getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring], getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring], getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
-
+Returns the public key string(s). If `keyring` is an instance of [SingleKeyring](keyring.md#singlekeyring), getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring](keyring.md#multiplekeyring), getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring](keyring.md#rolebasedkeyring), getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type    | Description                                                        |
+| ---------- | ------- | ------------------------------------------------------------------ |
 | compressed | boolean | (optional) Whether in compressed format or not (default: `false`). |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| string &#124; Array | The public key of the keyring. |
+| Type            | Description                    |
+| --------------- | ------------------------------ |
+| string \| Array | The public key of the keyring. |
 
 **Example**
 
@@ -747,7 +744,7 @@ Returns the public key string(s). If `keyring` is an instance of [SingleKeyring]
 ]
 ```
 
-## keyring.copy <a id="keyring-copy"></a>
+## keyring.copy <a href="#keyring-copy" id="keyring-copy"></a>
 
 ```javascript
 keyring.copy()
@@ -755,12 +752,11 @@ keyring.copy()
 
 Returns a copied keyring instance.
 
-
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| `Keyring` | A copied keyring instance ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). |
+| Type      | Description                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Keyring` | A copied keyring instance ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring)). |
 
 **Example**
 
@@ -803,7 +799,7 @@ RoleBasedKeyring {
 }
 ```
 
-## keyring.sign <a id="keyring-sign"></a>
+## keyring.sign <a href="#keyring-sign" id="keyring-sign"></a>
 
 ```javascript
 keyring.sign(transactionHash, chainId, role [, index])
@@ -811,22 +807,22 @@ keyring.sign(transactionHash, chainId, role [, index])
 
 Signs with transactionHash with the private key(s) and returns signature(s). If the user has not defined an index parameter, `keyring.sign` signs transaction using all the private keys used by the role. If `index` is defined, the `keyring.sign` signs transaction using only one private key at the index. The role used in caver-js can be checked through `caver.wallet.keyring.role`.
 
-When signing transactions, it is recommended to use [caver.wallet.sign] or [transaction.sign].
+When signing transactions, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign).
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionHash | string | The hash string of a transaction to sign. |
-| chainId | string &#124; number | The chain id of the Klaytn blockchain platform. |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| Name            | Type             | Description                                                                                                                                                                                                                    |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transactionHash | string           | The hash string of a transaction to sign.                                                                                                                                                                                      |
+| chainId         | string \| number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                |
+| role            | number           | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
+| index           | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| Array | An array of [SignatureData]. |
+| Type  | Description                                            |
+| ----- | ------------------------------------------------------ |
+| Array | An array of [SignatureData](keyring.md#signaturedata). |
 
 **Example**
 
@@ -871,7 +867,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign] or [tran
 ]
 ```
 
-## keyring.ecsign <a id="keyring-ecsign"></a>
+## keyring.ecsign <a href="#keyring-ecsign" id="keyring-ecsign"></a>
 
 ```javascript
 keyring.ecsign(hash, role [, index])
@@ -879,22 +875,21 @@ keyring.ecsign(hash, role [, index])
 
 Signs with hashed data using the private key and returns a signature where V is 0 or 1 (parity of the y-value of a the secp256k1 curve).
 
-This function is only used for certain transaction types.
-Therefore, it is recommended to use [caver.wallet.sign] or [transaction.sign] when signing a transaction.
+This function is only used for certain transaction types. Therefore, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign) when signing a transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| hash | string | The hash string to sign. |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
+| Name  | Type   | Description                                                                                                                                                                                                                    |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hash  | string | The hash string to sign.                                                                                                                                                                                                       |
+| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| Array | An array of [SignatureData]. |
+| Type  | Description                                            |
+| ----- | ------------------------------------------------------ |
+| Array | An array of [SignatureData](keyring.md#signaturedata). |
 
 **Example**
 
@@ -905,7 +900,7 @@ Therefore, it is recommended to use [caver.wallet.sign] or [transaction.sign] wh
 ]
 ```
 
-## keyring.signMessage <a id="keyring-signmessage"></a>
+## keyring.signMessage <a href="#keyring-signmessage" id="keyring-signmessage"></a>
 
 ```javascript
 keyring.signMessage(message, role [, index])
@@ -921,25 +916,25 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message | string | The message to sign. |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| Name    | Type   | Description                                                                                                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message | string | The message to sign.                                                                                                                                                                                                           |
+| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
+| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                    |
+| ------ | ---------------------------------------------- |
 | object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| messageHash | string | The hash of message with Klaytn-specific prefix. |
-| signatures | Array | An array of [SignatureData]. |
-| message | string | The message to sign. |
+| Name        | Type   | Description                                            |
+| ----------- | ------ | ------------------------------------------------------ |
+| messageHash | string | The hash of message with Klaytn-specific prefix.       |
+| signatures  | Array  | An array of [SignatureData](keyring.md#signaturedata). |
+| message     | string | The message to sign.                                   |
 
 **Example**
 
@@ -965,7 +960,7 @@ The returned object contains the following:
 }
 ```
 
-## keyring.getKeyByRole <a id="keyring-getkeybyrole"></a>
+## keyring.getKeyByRole <a href="#keyring-getkeybyrole" id="keyring-getkeybyrole"></a>
 
 ```javascript
 keyring.getKeyByRole(role)
@@ -975,15 +970,15 @@ Returns the private key(s) used by the role entered as a parameter.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Type   | Description                                                                       |
+| ---- | ------ | --------------------------------------------------------------------------------- |
 | role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [PrivateKey] &#124; Array | An instance of [PrivateKey] or an array containing the [PrivateKey] instances used by the role. |
+| Type                                         | Description                                                                                                                                   |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [PrivateKey](keyring.md#privatekey) \| Array | An instance of [PrivateKey](keyring.md#privatekey) or an array containing the [PrivateKey](keyring.md#privatekey) instances used by the role. |
 
 **Example**
 
@@ -1040,19 +1035,19 @@ PrivateKey { _privateKey: '0x{private key}' }
 ]
 ```
 
-## keyring.getKlaytnWalletKey <a id="keyring-getklaytnwalletkey"></a>
+## keyring.getKlaytnWalletKey <a href="#keyring-getklaytnwalletkey" id="keyring-getklaytnwalletkey"></a>
 
 ```javascript
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey] string for the keyring. With [MultipleKeyring] or [RoleBasedKeyring], [KlaytnWalletKey] cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
+Returns the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring), [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](keyring.md#keyring-encrypt).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| string | The [KlaytnWalletKey] of the keyring. |
+| Type   | Description                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------- |
+| string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) of the keyring. |
 
 **Example**
 
@@ -1061,32 +1056,33 @@ Returns the [KlaytnWalletKey] string for the keyring. With [MultipleKeyring] or 
 '0x{private key}0x{type}0x{address in hex}'
 ```
 
-## keyring.toAccount <a id="keyring-toaccount"></a>
+## keyring.toAccount <a href="#keyring-toaccount" id="keyring-toaccount"></a>
 
 ```javascript
 keyring.toAccount([options])
 ```
 
-Returns the [Account] instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account] instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../../getting-started.md#account-update).
+Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../getting-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
+Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
 
-Depending on the type of the private key(s) in the keyring, the returned [Account] instances can be classified as follows.
-- When the keyring contains a private key string: Return an [Account] instance that includes the address in the keyring and an instance of [AccountKeyPublic]
-- When the keyring contains private key strings: Return an [Account] instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig]
-- When the keyring contains the different private key strings by role: Return an [Account] instance that includes the address in the keyring and an instance of [AccountKeyRoleBased]
+Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
+
+* When the keyring contains a private key string: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyPublic](../caver.account.md#accountkeypublic)
+* When the keyring contains private key strings: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
+* When the keyring contains the different private key strings by role: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| options | [WeightedMultiSigOptions] &#124; Array | (optional) [WeightedMultiSigOptions] instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions] instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions] with the threshold of 1 and the weight of 1 for each key will be used. |
+| Name    | Type                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \| Array | (optional) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) with the threshold of 1 and the weight of 1 for each key will be used. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| [Account] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
+| Type                                   | Description                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Account](../caver.account.md#account) | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
 
 **Example**
 
@@ -1194,7 +1190,7 @@ Account {
 }
 ```
 
-## keyring.encrypt <a id="keyring-encrypt"></a>
+## keyring.encrypt <a href="#keyring-encrypt" id="keyring-encrypt"></a>
 
 ```javascript
 keyring.encrypt(password [, options])
@@ -1204,25 +1200,25 @@ Encrypts a keyring and returns a keystore v4 standard. For more information, ple
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name     | Type   | Description                                                                                          |
+| -------- | ------ | ---------------------------------------------------------------------------------------------------- |
 | password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt. |
+| options  | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                |
+| ------ | -------------------------- |
 | object | The encrypted keystore v4. |
 
 The returned object contains the following:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| version | number | The version of keystore. |
-| id | string | The id of keystore. |
-| address | string | The address in the encrypted [Keyring]. |
-| keyring | Array | The encrypted private key(s). |
+| Name    | Type   | Description                                               |
+| ------- | ------ | --------------------------------------------------------- |
+| version | number | The version of keystore.                                  |
+| id      | string | The id of keystore.                                       |
+| address | string | The address in the encrypted [Keyring](keyring.md#class). |
+| keyring | Array  | The encrypted private key(s).                             |
 
 For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
@@ -1342,37 +1338,37 @@ For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIP
 }
 ```
 
-## keyring.encryptV3 <a id="keyring-encryptv3"></a>
+## keyring.encryptV3 <a href="#keyring-encryptv3" id="keyring-encryptv3"></a>
 
 ```javascript
 keyring.encryptV3(password [, options])
 ```
 
-Encrypts an instance of [SingleKeyring] and returns a keystore v3 standard.
+Encrypts an instance of [SingleKeyring](keyring.md#singlekeyring) and returns a keystore v3 standard.
 
-Note that [MultipleKeyring] and [RoleBasedKeyring] cannot use encryptV3. In this case, please use [keyring.encrypt](#keyring-encrypt) with a keystore V4 standard.
+Note that [MultipleKeyring](keyring.md#multiplekeyring) and [RoleBasedKeyring](keyring.md#rolebasedkeyring) cannot use encryptV3. In this case, please use [keyring.encrypt](keyring.md#keyring-encrypt) with a keystore V4 standard.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| Name     | Type   | Description                                                                                                     |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
+| options  | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                |
+| ------ | -------------------------- |
 | object | The encrypted keystore v3. |
 
 The returned object contains the following:
 
-| Name | Type | Description |
-| --- | --- | --- |
-| version | number | The version of keystore. |
-| id | string | The id of keystore. |
-| address | string | The address of encrypted [Keyring]. |
-| crypto | object | The encrypted private key. |
+| Name    | Type   | Description                                           |
+| ------- | ------ | ----------------------------------------------------- |
+| version | number | The version of keystore.                              |
+| id      | string | The id of keystore.                                   |
+| address | string | The address of encrypted [Keyring](keyring.md#class). |
+| crypto  | object | The encrypted private key.                            |
 
 **Example**
 
@@ -1399,7 +1395,7 @@ The returned object contains the following:
 }
 ```
 
-## keyring.isDecoupled <a id="keyring-isdecoupled"></a>
+## keyring.isDecoupled <a href="#keyring-isdecoupled" id="keyring-isdecoupled"></a>
 
 ```javascript
 keyring.isDecoupled()
@@ -1409,8 +1405,8 @@ Returns `true` if keyring has decoupled key.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type    | Description                          |
+| ------- | ------------------------------------ |
 | boolean | `true` if keyring has decoupled key. |
 
 **Example**
@@ -1422,20 +1418,3 @@ true
 > keyring.isDecoupled()
 false
 ```
-
-
-[role]: ../../../../../klaytn/design/accounts.md#roles
-[PrivateKey]: #privatekey
-[Keyring]: #class
-[SingleKeyring]: #singlekeyring
-[MultipleKeyring]: #multiplekeyring
-[RoleBasedKeyring]: #rolebasedkeyring
-[KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[caver.wallet.sign]: ./README.md#caver-wallet-sign
-[transaction.sign]: ../caver.transaction/README.md#transaction-sign
-[Account]: ../caver.account.md#account
-[AccountKeyPublic]: ../caver.account.md#accountkeypublic
-[AccountKeyWeigthedMultiSig]: ../caver.account.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../caver.account.md#accountkeyrolebased
-[WeightedMultiSigOptions]: ../caver.account.md#weightedmultisigoptions
-[SignatureData]: #signaturedata
