@@ -1,21 +1,21 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+  名前空間 'net' の Klaytn API への JavaScript ラッパー。
 ---
 
 # caver.klay.net <a id="caver-klay-net"></a>
 
-The `caver-klay-net` package allows you to interact with the Klaytn nodes' network properties.
+`caver-klay-net` パッケージにより、Klaytn ノードの ネットワークプロパティと対話することができます。
 
 ```javascript
 var Net = require('caver-klay-net');
 
-// "Personal.providers.givenProvider" will be set if in a Klaytn supported browser.
+// "Personal.providers.givenProvider" will be set if in a Klaytn supportedブラウザ.
 var net = new Net(Net.givenProvider || 'ws://some.local-or-remote.node:8552');
 
 // or using the caver package
 var Caver = require('caver');
-var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:8552');
+var caver = new Caver(Caver. ivenProvider || 'ws://some.local-or-remote.node:8552');
 // -> caver.klay.net
 ```
 
@@ -26,19 +26,19 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 caver.klay.net.getId([callback])
 ```
 
-Gets the current network ID.
+現在のネットワークIDを取得します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Number` - The network ID.
+`Promise` は `Number` - ネットワークIDを返します。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -52,19 +52,19 @@ Gets the current network ID.
 caver.klay.net.isListening([callback])
 ```
 
-Checks if the node is listening for peers.
+ノードがピアを待ち受けているかどうかを確認します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Boolean` - `true` if the node is listening for peers, `false` otherwise.
+`Promise` は `Boolean` - `true` ノードがピアを待ち受けている場合、 `false` を返します。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
@@ -78,19 +78,19 @@ true
 caver.klay.net.getPeerCount([callback])
 ```
 
-Gets the number of peers connected to.
+接続しているピアの数を取得します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Number` - The number of peers connected to.
+`Promise` は `Number` - 接続されたピアの数を返します。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
@@ -103,19 +103,19 @@ Gets the number of peers connected to.
 caver.klay.net.peerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+接続されたノードの数を type とキーと値のペアを持つ接続されたノードの合計数で返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Object` - The number of connected peers by type as well as the total number of connected peers.
+`Promise` は `Object` - 接続されたピアの数と、接続されたピアの総数を返します。
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
