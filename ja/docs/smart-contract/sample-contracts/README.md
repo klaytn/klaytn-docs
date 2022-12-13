@@ -1,2 +1,2 @@
-# Sample Contracts <a id="sample-contracts"></a>
+# サンプル契約 <a id="sample-contracts"></a>
 
