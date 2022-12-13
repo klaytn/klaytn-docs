@@ -1,28 +1,28 @@
-# Go Runtime Tracing <a id="go-runtime-tracing"></a>
+# ランタイムトレース <a id="go-runtime-tracing"></a>
 
 ## debug_goTrace <a id="debug_gotrace"></a>
 
-Turns on Go runtime tracing for the given duration and writes trace data to disk.
+指定した期間のGoランタイムトレースをオンにし、 トレースデータをディスクに書き込みます。
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.goTrace(file, seconds)`                            |
-|   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
+| クライアント | メソッドの呼び出し                                                 |
+|:------:| --------------------------------------------------------- |
+| コンソール  | `debug.goTrace(file, seconds)`                            |
+|  RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                        |
-| ------- | ------ | ---------------------------------- |
-| file    | string | The filename for the trace output. |
-| seconds | int    | The tracing duration in seconds.   |
+| 名前   | タイプ | Description       |
+| ---- | --- | ----------------- |
+| ファイル | 文字列 | トレース出力のファイル名。     |
+| 秒    | int | トレース時間を秒単位で指定します。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.goTrace("go.trace", 5)
 null
@@ -30,64 +30,64 @@ null
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_goTrace","params":["go.trace",5],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_goTrace","params":["go.trace",5],"id":1} https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
 ## debug_startGoTrace <a id="debug_startgotrace"></a>
 
-Starts writing a Go runtime trace to the given file.
+指定されたファイルにGoランタイムトレースを書き始めます。
 
-| Client  | Method Invocation                                      |
-|:-------:| ------------------------------------------------------ |
-| Console | `debug.startGoTrace(file)`                             |
-|   RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
+| クライアント | メソッドの呼び出し                                              |
+|:------:| ------------------------------------------------------ |
+| コンソール  | `debug.startGoTrace(file)`                             |
+|  RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description                          |
-| ---- | ------ | ------------------------------------ |
-| file | string | The filename for the tracing output. |
+| 名前   | タイプ | Description   |
+| ---- | --- | ------------- |
+| ファイル | 文字列 | トレース出力のファイル名。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.startGoTrace("go.trace")
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startGoTrace","params":["go.trace"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startGoTrace","params":["go.trace"],"id":1} https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
 ## debug_stopGoTrace <a id="debug_stopgotrace"></a>
 
-Stops writing the Go runtime trace.
+Goランタイムトレースの書き込みを停止します。
 
-| Client  | Method Invocation                               |
-|:-------:| ----------------------------------------------- |
-| Console | `debug.stopGoTrace()`                           |
-|   RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
+| クライアント | メソッドの呼び出し                                       |
+|:------:| ----------------------------------------------- |
+| コンソール  | `debug.stopGoTrace()`                           |
+|  RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.stopGoTrace()
 null
