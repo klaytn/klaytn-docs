@@ -1,15 +1,15 @@
 ---
 description: >-
-  APIs related to accounts, blocks, transactions, and nodes.
+  アカウント、ブロック、トランザクション、およびノードに関連する API 。
 ---
 
-# Namespace klay <a id="namespace-klay"></a>
+# ネームスペースのklay <a id="namespace-klay"></a>
 
-The namespace `klay` provides functions related to accounts, blocks, transactions, configurations of networks or nodes, filters, and so on. The list below enumerates the API functions that are currently supported in Klaytn.
+名前空間 `klay` は、アカウント、ブロック、トランザクション、 ネットワークまたはノードの構成、フィルターなどに関連する関数を提供します。 以下のリストは、Klaytnで現在サポートされているAPI関数を列挙しています。
 
 
-### [Account](./klay/account.md) <a id="account"></a>
-- [klay_accountCreated](./klay/account.md#klay_accountcreated)
+### [アカウント](./klay/account.md) <a id="account"></a>
+- [klay_account作成済み](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_encodeAccountKey](./klay/account.md#klay_encodeaccountkey)
 - [klay_decodeAccountKey](./klay/account.md#klay_decodeaccountkey)
@@ -22,7 +22,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [Block](./klay/block.md) <a id="block"></a>
+### [ブロック](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getHeaderByNumber](./klay/block.md#klay_getheaderbynumber)
 - [klay_getHeaderByHash](./klay/block.md#klay_getheaderbyhash)
@@ -33,7 +33,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_getBlockTransactionCountByHash](./klay/block.md#klay_getblocktransactioncountbyhash)
 - [klay_getBlockWithConsensusInfoByHash](./klay/block.md#klay_getblockwithconsensusinfobyhash)
 - [klay_getBlockWithConsensusInfoByNumber](./klay/block.md#klay_getblockwithconsensusinfobynumber)
-- [klay_getCommittee](./klay/block.md#klay_getcommittee)
+- [klay_getCommit](./klay/block.md#klay_getcommittee)
 - [klay_getCommitteeSize](./klay/block.md#klay_getcommitteesize)
 - [klay_getCouncil](./klay/block.md#klay_getcouncil)
 - [klay_getCouncilSize](./klay/block.md#klay_getcouncilsize)
@@ -41,7 +41,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [Transaction](./klay/transaction.md) <a id="transaction"></a>
+### [トランザクション](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
@@ -59,7 +59,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
 
 
-### [Configuration](./klay/config.md) <a id="configuration"></a>
+### [構成](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
 - [klay_clientVersion](./klay/config.md#klay_clientversion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
@@ -69,11 +69,11 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_protocolVersion](./klay/config.md#klay_protocolversion)
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
 
-### [Gas](./klay/gas.md) <a id="gas"></a>
+### [ガス](./klay/gas.md) <a id="gas"></a>
 - [klay_feeHistory](./klay/gas.md#klay_feehistory)
 - [klay_maxPriorityFeePerGas](./klay/gas.md#klay_maxpriorityfeepergas)
 
-### [Filter](./klay/filter.md) <a id="filter"></a>
+### [フィルター](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./klay/filter.md#klay_getfilterlogs)
 - [klay_getLogs](./klay/filter.md#klay_getlogs)
@@ -85,6 +85,6 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_unsubscribe](./klay/filter.md#klay_unsubscribe)
 
 
-### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
+### [その他](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
 
