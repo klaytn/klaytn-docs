@@ -1,50 +1,50 @@
-# System Requirements <a id="system-requirements"></a>
+# システム要件 <a id="system-requirements"></a>
 
-## H/W Specification <a id="h-w-specification"></a>
+## H/W仕様 <a id="h-w-specification"></a>
 
-The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically \(increasing hardware capacity\). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
+ネットワーク性能は、ネットワーク内の最悪のハードウェア仕様に基づいて測定されます。 ブロックチェーンのネットワーク構造によれば、縦方向にスケールアップすることが可能です(ハードウェア容量を増やすこと)。 したがって、ネットワーク内のすべてのノードは、少なくともお互いに同様の仕様を持つ最高のハードウェアを持つことをお勧めします。
 
-The following sections show the recommended specifications for both CNs and PNs.
+次のセクションでは、CNとPNの両方について推奨される仕様を示します。
 
-### Bare-metal Server <a id="bare-metal-server"></a>
+### ベアメタルサーバー <a id="bare-metal-server"></a>
 
-| Category | Specification                                                                                                                                                               |
-|:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Server   | Intel® Server System R2312WFTZS                                                                                                                                             |
-| CPU      | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                                    |
-| Memory   | 256GB \(32GB \* 8\)                                                                                                                                                     |
-| Storage  | 3TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Klaytn Team for more information.) |
+| カテゴリ  | 仕様                                                                                                |
+|:----- |:------------------------------------------------------------------------------------------------- |
+| サーバー  | インテル® サーバー システム R2312WFTZS                                                                        |
+| CPU   | インテル® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40 core/80-thread\)           |
+| メモリ   | 256GB \(32GB \* 8\)                                                                           |
+| ストレージ | 3TB (またはそれ以上のサイズ) SSD (推奨されるストレージサイズと構成はチェーンデータサイズによって異なる可能性があります。 詳細については、Klaytn チームにお問い合わせください。 |
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+これは正確な要件ではなく、CNおよびPNの推奨ハードウェア仕様であることに注意してください。 同様のハードウェア構成を持つ物理マシンは、CNまたはPNを操作するのに十分です。
 
-### Cloud VM <a id="cloud-vm"></a>
+### クラウド VM <a id="cloud-vm"></a>
 
-#### Recommended Specification for AWS<a id="recommended-specification-for-aws"></a>
+#### AWSの推奨仕様<a id="recommended-specification-for-aws"></a>
 
-| Node Type |    Model    | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
-|:---------:|:-----------:|:----:|:----------------:|:----------------------:|:------------------------:|:-------------------------------:|
-|    CN     | c5.18xlarge |  72  |       144        |    3,000 (Minimum)     |     3,000 (Minimum)      |              3.456              |
-|    PN     | m5.8xlarge  |  32  |       128        |    3,000 (Minimum)     |     3,000 (Minimum)      |              1.888              |
+| ノードタイプ |     モデル     | vCPU | Memory \(GiB\) | Storage size \(GiB\) | ストレージ速度 \(IOPS\) | 価格\（ソウル地方、USD/h\） |
+|:------:|:-----------:|:----:|:----------------:|:----------------------:|:------------------:|:-------------------:|
+|   CN   | c5.18xlarge |  72  |       144        |       3,000 (最小)       |     3,000 (最小)     |        3.456        |
+|   PN   | m5.8xlarge  |  32  |       128        |       3,000 (最小)       |     3,000 (最小)     |        1.888        |
 
-This storage specification is derived from AWS EBS SSD (gp2) specification.
+このストレージ仕様は、AWS EBS SSD (gp2) 仕様に基づいています。
 
-The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+上記の情報は [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) および [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) から取得しており、AWSによって変更される場合があります。
 
-#### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
+#### Azure の推奨仕様<a id="recommended-specification-for-azure"></a>
 
-| Node Type |  Model  | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Korea Central, USD/h\) |
-|:---------:|:-------:|:----:|:----------------:|:----------------------:|:------------------------:|:--------------------------------:|
-|    CN     | F72s v2 |  72  |       144        |       P50 (4096)       |           7500           |              3.456               |
-|    PN     | D32s v5 |  32  |       128        |       P50 (4096)       |           7500           |              1.625               |
+| ノードタイプ |   モデル   | vCPU | Memory \(GiB\) | ストレージタイプ \(GiB\) | ストレージ速度 \(IOPS\) | 価格 \(Korea Central, USD/h\' |
+|:------:|:-------:|:----:|:----------------:|:------------------:|:------------------:|:-----------------------------:|
+|   CN   | F72s v2 |  72  |       144        |     P50 (4096)     |        7500        |             3.456             |
+|   PN   | D32s v5 |  32  |       128        |     P50 (4096)     |        7500        |             1.625             |
 
-This storage specification is derived from Azure Premium Disk specification.
+このストレージ仕様は、Azure Premium Disk の仕様に基づいています。
 
-The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
+The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft
 
-## Storage Requirements <a id="storage-requirements"></a>
+## ストレージの要件 <a id="storage-requirements"></a>
 
-Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is about 2.5 GB/day \(=300x100x86400\).
+平均して100TPSを仮定すると、平均300バイトのトランザクションサイズ、および1秒のブロック待ち時間が想定され、1日あたりのストレージ要件は約2.5GB/日 \(=300x100x86400\)です。
 
-## Operating System <a id="operating-system"></a>
+## オペレーティング システム <a id="operating-system"></a>
 
-Recommended environment is compatible with RHEL (7.8 or later). Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose.
+推奨環境はRHEL(7.8以降)と互換性があります。 Klaytn バイナリは Amazon Linux 2 で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。 macOS バイナリも開発目的で提供されています。
