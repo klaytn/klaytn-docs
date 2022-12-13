@@ -3,7 +3,7 @@ This section covers how to set up a multi-node ServiceChain. We will set up a 4-
 ![](../images/sc-4scn-arch.png)
 
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件 <a id="prerequisites"></a>
  - Download packages for `kscn`, `homi` binary from [Download](../references/download/README.md).
  - 4 Linux or MacOS servers
  - Minimum hardware requirements
@@ -179,7 +179,7 @@ Now the 4-node ServiceChain is up and running. We will execute a value transfer 
 
 ```console
 $ kscn account import --datadir ~/data ~/homi-output/keys_test/testkey1
-Your new account is locked with a password. Please give a password. Do not forget this password.
+Your new account is locked with a password. パスワードを入力してください。 このパスワードを忘れないでください。
 Passphrase:
 Repeat passphrase:
 Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
