@@ -1,6 +1,6 @@
-# Getting Started <a id="getting-started"></a>
+# はじめに <a id="getting-started"></a>
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件 <a id="prerequisites"></a>
 
 ### Dependencies <a id="dependencies"></a>
 
@@ -18,7 +18,7 @@ The following packages are required to use the caver-js library.
 
 If you are already using a different version of the Node \(for example, Node v12\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
-### Installation <a id="installation"></a>
+### インストール <a id="installation"></a>
 
 To try it out, install caver-js with npm using the following command:
 
@@ -46,7 +46,7 @@ $ node
 > const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
-If you are running an EN, you can connect it to your own node by changing the host and port like below:
+ENを実行している場合は、以下のようにホストとポートを変更することで、独自のノードに接続できます。
 
 ```text
 $ node
@@ -54,9 +54,9 @@ $ node
 > const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## Managing Accounts <a id="managing-accounts"></a>
+## アカウントの管理 <a id="managing-accounts"></a>
 
-### Creating an Account <a id="creating-an-account"></a>
+### アカウントの作成 <a id="creating-an-account"></a>
 
 You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account).
 
@@ -123,15 +123,15 @@ You can use your account easily by using the in-memory wallet provided by caver-
 
 The account added to the caver-js wallet can be used for `sendTransaction`.
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## トランザクションの送信 <a id="sending-a-transaction"></a>
 
 This section will show you how to send a KLAY using caver-js on the Baobab network.
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Baobab Faucet経由でKLAYを取得する <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 秘密鍵またはキーストアファイルを使用してKlaytn Walletにログインし、テスト用の蛇口からテストネットKLAYを受け取ります。
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### 価値転送トランザクションの送信 <a id="sending-a-value-transfer-transaction"></a>
 
 You can use a caver-js wallet to generate a signature of a transaction. If you have an account in the caver-js wallet, the signature generation will be done with the private key inside the caver-js wallet when you execute `caver.klay.sendTransaction`. Note that `caver.klay.sendTransaction` performs both signature generation and submission of the transaction at once.
 
@@ -194,7 +194,7 @@ You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.acc
 
 As shown in the example above, you can send a request and use the event emitter to get the hash of the submitted transaction by calling `.on('transactionHash', console.log)`.
 
-### Checking Receipts <a id="checking-receipts"></a>
+### 領収書の確認 <a id="checking-receipts"></a>
 
 You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) or [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction).
 
@@ -271,11 +271,11 @@ As described in the example above, you can get the result of sending a transacti
 
 The result of the transaction can be found through the status of the receipt. For a detailed description of the return values, see [getTransactionReceipt][]. If a transaction is failed, you can check the detailed error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
 
-## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
+## 他のトランザクションタイプの実行 <a id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../../klaytn/design/transactions/README.md). This section describes various examples that can be used with caver-js.
+Klaytnは拡張性とパフォーマンスのためのさまざまなトランザクションタイプを提供します。 For more information, see [Transactions](../../../../klaytn/design/transactions/README.md). This section describes various examples that can be used with caver-js.
 
-### Fee Delegation <a id="fee-delegation"></a>
+### 手数料のデリゲーション <a id="fee-delegation"></a>
 
 Klaytn provides [Fee Delegation][] feature. Here's an example code.
 
@@ -319,7 +319,7 @@ With the signed RLP-encoded transaction object \(`rawTransaction`\), the fee pay
 
 **NOTE**: The fee payer's account must be in the caver-js wallet.
 
-### Account Update <a id="account-update"></a>
+### アカウントの更新 <a id="account-update"></a>
 
 If you want to change the key of the account, send a transaction as shown below. Please check [Account Update][] for the transaction field according to the key type.
 
@@ -336,9 +336,9 @@ If you want to change the key of the account, send a transaction as shown below.
 }).then(console.log);
 ```
 
-### Smart Contract <a id="smart-contract"></a>
+### スマート契約 <a id="smart-contract"></a>
 
-The [caver.klay.Contract][] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The [caver.klay.Contract][] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. これにより、JavaScript オブジェクトであるかのようにスマートコントラクトとやり取りできます。
 
 First, we start by compiling a smart contract to get its bytecode and ABI.
 
@@ -397,7 +397,7 @@ The deployed contract address can be found in `contractAddress` of the transacti
 
 One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION][].
 
-To transact with a smart contract:
+スマートコントラクトで取引するには:
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
@@ -422,7 +422,7 @@ To transact with a smart contract:
 }
 ```
 
-To call a smart contract:
+スマートコントラクトを呼び出すには:
 
 ```text
 > contractInstance.methods.getBlockNumber().call().then(console.log)
@@ -431,7 +431,7 @@ To call a smart contract:
 
 See [caver.klay.Contract][] for details.
 
-## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
+## さまざまなAccountKey 型の使用 <a id="using-various-accountkey-types"></a>
 
 caver-js introduces new classes to support the various types of [AccountKey][] supported by the platform.
 
@@ -466,7 +466,7 @@ If you see the output of console.log, proceed with the steps below.
 
 **NOTE** Those classes are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-### Account <a id="account"></a>
+### アカウント <a id="account"></a>
 Account is a class containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
 
 The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
@@ -502,11 +502,11 @@ The printAccount above shows how to use the properties of the Account instance. 
 
 | Property Name  | Description                                                                                                                                                                                                                                                                                                             |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address        | The address of the account.                                                                                                                                                                                                                                                                                             |
+| address        | アカウントのアドレス                                                                                                                                                                                                                                                                                                              |
 | privateKey     | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
 | accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
 | accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
-| keys           | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                        |
+| キー             | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                        |
 | transactionKey | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                     |
 | updateKey      | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                        |
 | feePayerKey    | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                               |
@@ -779,12 +779,12 @@ You are now ready to use the updated account in caver-js.
 
 If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can be different.
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+このセクションでは、複数の署名者がいる場合に署名を収集し、トランザクションを送信する方法について説明します。
 
 ### Sequential sign <a id="sequential-sign"></a>
 The result object of [caver.klay.accounts.signTransaction][] has a rawTransaction field.
 
-The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` は、取引が手数料委任トランザクションである場合にのみ含まれる。
 
 The following example shows how to sign a transaction sequentially with multiple private keys. Assume the account's transactionKey has two private key strings.
 
@@ -833,7 +833,7 @@ console.log(receipt)
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. See the example below.
+If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. 以下の例を参照してください。
 
 ```javascript
 const tx = {
@@ -958,7 +958,7 @@ Sample projects for development of dApps \(Decentralized Applications\) using ca
 * [Count DApp](../../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
 
-## Links <a id="links"></a>
+## リンク <a id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
