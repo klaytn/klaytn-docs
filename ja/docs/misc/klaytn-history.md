@@ -1,34 +1,34 @@
 # Klaytn Hard Fork History
 
-This page shows all the hard forks to the Klaytn blockchain.
+このページは、Klaytnブロックチェーンへのすべてのハードフォークを示しています。
 
 ## Magma
-| ``           | Baobab                        | Cypress                       |
-| ------------ | ----------------------------- | ----------------------------- |
-| Date         | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
-| Block number | `#98,347,376`                 | `#99,841,497`                 |
+| ``     | Baobab                     | Cypress                     |
+| ------ | -------------------------- | --------------------------- |
+| 日付     | 2022年8月8日 11:01:20 / UTC+9 | 2022年8月29日 11:51:00 / UTC+9 |
+| ブロック番号 | `#98,347,376`              | `#99,841,497`               |
 
 ### Summary
 
-Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)
+[v1.9.0 リリース](https://github.com/klaytn/klaytn/releases/tag/v1.9.0) でマグマハードフォークが導入されました。 動的なガス料金の価格設定メカニズムが含まれています。 [#1493](https://github.com/klaytn/klaytn/pull/1493)) そして [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71) の実装です。
 
 ## EthTxType
 
-| ``           | Baobab                        | Cypress                       |
-| ------------ | ----------------------------- | ----------------------------- |
-| Date         | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
-| Block number | `#86,513,895`                 | `#86,816,005`                 |
+| ``     | Baobab                     | Cypress               |
+| ------ | -------------------------- | --------------------- |
+| 日付     | 2022年3月27日23:56:31 / UTC+9 | 2022 12:14:39 / UTC+9 |
+| ブロック番号 | `#86,513,895`              | `#86,816,005`         |
 
 ### Summary
 
-Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158))
+EthereumのEthTxTypeの変更は、 [v1.8.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.8.0)で導入されました。 それはEthereumトランザクションタイプをサポートする新しいトランザクションタイプを含みます: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158))
 
-## London EVM
+## ロンドン EVM
 
-| ``           | Baobab                        | Cypress                       |
-| ------------ | ----------------------------- | ----------------------------- |
-| Date         | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
-| Block number | `#80,295,291`                 | `#86,816,005`                 |
+| ``     | Baobab                      | Cypress               |
+| ------ | --------------------------- | --------------------- |
+| 日付     | 2022年1月14日 11:02:55 / UTC+9 | 2022 12:14:39 / UTC+9 |
+| ブロック番号 | `#80,295,291`               | `#86,816,005`         |
 
 ### Summary
 
@@ -36,10 +36,10 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ## Istanbul EVM
 
-| ``           | Baobab                        | Cypress                      |
-| ------------ | ----------------------------- | ---------------------------- |
-| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+ |
-| Block number | `#75,373,312`                 | `#86,816,005`                |
+| ``     | Baobab                            | Cypress                   |
+| ------ | --------------------------------- | ------------------------- |
+| 日付     | 2021 年 11 月 17 日 23:42:13 / UTC+9 | 2022年3月31日12:14:39 / UTC+ |
+| ブロック番号 | `#75,373,312`                     | `#86,816,005`             |
 
 ### Summary
 
