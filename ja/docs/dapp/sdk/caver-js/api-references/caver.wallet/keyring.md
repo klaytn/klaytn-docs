@@ -1,50 +1,50 @@
 # caver.wallet.keyring
 
-`caver.wallet.keyring` is a package that provides functionality related to Keyring which includes address and private key(s).
+`caver.wallet.keyring` は、アドレスとプライベートキーを含むキーリングに関連する機能を提供するパッケージです。
 
-## Class <a href="#class" id="class"></a>
+## クラス <a href="#class" id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
+`キーリング` は、口座のアドレスと秘密鍵を含む構造体です。 これはcaver-jsのクラスで、ユーザは自分の [Klaytnのアカウント](../../../../../klaytn/design/accounts.md#klaytn-accounts)を使ってサインオンできます。
 
 `Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
-* [SingleKeyring](keyring.md#singlekeyring): User signs with a private key
-* [MultipleKeyring](keyring.md#multiplekeyring): User signs with private keys
-* [RoleBasedKeyring](keyring.md#rolebasedkeyring): User signs with the private key(s) by role
+* [SingleKeyring](keyring.md#singlekeyring): 秘密鍵を持つユーザーの署名
+* [マルチプレキーリング](keyring.md#multiplekeyring): 秘密鍵のあるユーザー記号
+* [RoleBasedKeyring](keyring.md#rolebasedkeyring): ロール別の秘密鍵でユーザーが署名
 
 ### SingleKeyring <a href="#singlekeyring" id="singlekeyring"></a>
 
 ```javascript
-const keyring = new caver.wallet.keyring.singleKeyring(address, key)
+const keyring = new caver.wallet.keyring.singing.singleKeyring(address, key)
 ```
 
-`SingleKeyring` is a class that stores the `address` of the account and a `private key`. To create a SingleKeyring instance with a private key string, please refer to [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create).
+`SingleKeyring` はアカウントの `アドレス` と `秘密キー` を格納するクラスです。 秘密鍵文字列を使用した SingleKeyring インスタンスを作成するには、 [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create) を参照してください。
 
-`SingleKeyring` uses a private key with which no roles assigned.
+`SingleKeyring` はプライベートキーを使用し、ロールが割り当てられていない。
 
-**properties**
+**プロパティ**
 
-| Name    | Type                                | Description                                                                           |
-| ------- | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| address | string                              | The address of the account.                                                           |
-| key     | [PrivateKey](keyring.md#privatekey) | An instance of [PrivateKey](keyring.md#privatekey) containing one private key inside. |
+| 名前      | タイプ                                 | Description                                               |
+| ------- | ----------------------------------- | --------------------------------------------------------- |
+| address | 文字列                                 | アカウントのアドレス                                                |
+| キー      | [PrivateKey](keyring.md#privatekey) | 内部に1つの秘密鍵を含む [PrivateKey](keyring.md#privatekey) のインスタンス。 |
 
-### MultipleKeyring <a href="#multiplekeyring" id="multiplekeyring"></a>
+### マルチプレキーリング <a href="#multiplekeyring" id="multiplekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 ```
 
-`MultipleKeyring` is a class that stores the `address` of the account and the multiple `private keys`. To create a MultipleKeyring instance with private key strings, please refer to [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create).
+`MultipleKeyring` は、アカウントの `アドレス` と複数の `秘密鍵` を格納するクラスです。 秘密鍵の文字列を持つマルチプレキーのインスタンスを作成するには、 [caver.wallet.keyring.create](keyring.md#caver-wallet-keyring-create) を参照してください。
 
-`MultipleKeyring` uses private keys with which no roles assigned.
+`MultipleKeyring` は、ロールが割り当てられていない秘密鍵を使用します。
 
-**properties**
+**プロパティ**
 
-| Name    | Type   | Description                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------- |
-| address | string | The address of the account.                                                                  |
-| keys    | Array  | An array of [PrivateKey](keyring.md#privatekey) instances containing one private key inside. |
+| 名前      | タイプ | Description                                                 |
+| ------- | --- | ----------------------------------------------------------- |
+| address | 文字列 | アカウントのアドレス                                                  |
+| キー      | 行列  | 内部に1つの秘密鍵を含む [PrivateKey](keyring.md#privatekey) インスタンスの配列。 |
 
 ### RoleBasedKeyring <a href="#rolebasedkeyring" id="rolebasedkeyring"></a>
 
@@ -52,24 +52,24 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 ```
 
-`RoleBasedKeyring` is a class that stores the `address` of the account and the `private keys` to be used for each role in the form of an array.
+`RoleBasedKeyring` は、アカウントの `アドレス` と、配列の形で役割ごとに使用される `秘密キー` を格納するクラスです。
 
 `RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../../../klaytn/design/accounts.md#roles). The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
 
-**properties**
+**プロパティ**
 
-| Name    | Type   | Description                                                                                                                                                                                                                                                                                                                                                                       |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account.                                                                                                                                                                                                                                                                                                                                                       |
-| keys    | Array  | A two-dimensional array that defines the keys used for each [role](../../../../../klaytn/design/accounts.md#roles). Each [role](../../../../../klaytn/design/accounts.md#roles) includes [PrivateKey](keyring.md#privatekey) instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| 名前      | タイプ | Description                                                                                                                                                                                                                                                                                |
+| ------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | 文字列 | アカウントのアドレス                                                                                                                                                                                                                                                                                 |
+| キー      | 行列  | [ロール](../../../../../klaytn/design/accounts.md#roles) ごとに使用されるキーを定義する二次元配列。 各 [ロール](../../../../../klaytn/design/accounts.md#roles) には、 [PrivateKey](keyring.md#privatekey) インスタンスが含まれます。 最初の要素は `roleTransactionKey` です。 2 番目の要素は `roleAccountUpdateKey` です。 最後の要素は `roleFeePayerKey` です。 |
 
-Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
+以下は、各ロールに定義されたキーを直感的に使用するためのキーリングで定義されたゲッターです。 各ロールに使用されるキーは、以下のゲッターからより簡単にアクセスできます。
 
-| Name                 | Type  | Description                                                                                                                                                                       |
-| -------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| roleTransactionKey   | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
-| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                              |
-| roleFeePayerKey      | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                         |
+| 名前                   | タイプ | Description                                                                                                                 |
+| -------------------- | --- | --------------------------------------------------------------------------------------------------------------------------- |
+| roleTransactionKey   | 行列  | ロールTransactionKey はトランザクションに署名するために使用されます(アカウントの更新のためのトランザクションを除く)。 `keyring.roleTransactionkey` は `keys` プロパティの最初の要素を返します。 |
+| roleAccountUpdateKey | 行列  | ロールAccountUpdateKey は、アカウントの更新取引に署名するために使用されます。 `keyring.roleAccountUpdateKey` は `keys` プロパティの 2 番目の要素を返します。                |
+| roleFeePayerKey      | 行列  | roleFeePayerKey は、手数料支払い者としてトランザクションに署名するために使用されます。 `keyring.roleFeePayerKey` は `keys` プロパティの thrid 要素を返します。                |
 
 ### PrivateKey <a href="#privatekey" id="privatekey"></a>
 
@@ -77,29 +77,29 @@ Below is a getter defined in keyring to intuitively use the key defined for each
 const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 ```
 
-`PrivateKey` is a class that contains a private key string. The private key to be used for each role in Keyring is defined as this `PrivateKey` instance.
+`PrivateKey` は秘密鍵文字列を含むクラスです。 Keyringで役割ごとに使用される秘密鍵は、この `PrivateKey` インスタンスとして定義されます。
 
-**properties**
+**プロパティ**
 
-| Name       | Type   | Description             |
-| ---------- | ------ | ----------------------- |
-| privateKey | string | The private key string. |
+| 名前         | タイプ | Description |
+| ---------- | --- | ----------- |
+| privateKey | 文字列 | 秘密キー文字列。    |
 
 ### SignatureData <a href="#signaturedata" id="signaturedata"></a>
 
-`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
+`SignatureData` は内部に署名データを含むクラスである。 `sign` または `signMessage` の結果である署名は、signatureDataとして返されます。 signatureData がどのように署名を含んでいるかを以下のように確認できます。
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
 ```
 
-**properties**
+**プロパティ**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| v    | String | ECDSA recovery id. |
-| r    | String | ECDSA signature r. |
-| s    | String | ECDSA signature s. |
+| 名前 | タイプ | Description  |
+| -- | --- | ------------ |
+| v  | 文字列 | ECDSAリカバリID。 |
+| r  | 文字列 | ECDSA 署名 r.  |
+| s  | 文字列 | ECDSA 署名 s.  |
 
 ## caver.wallet.keyring.generate <a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
 
@@ -107,21 +107,21 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 caver.wallet.keyring.generate([entropy])
 ```
 
-Generates a SingleKeyring instance with a randomly generated private key.
+ランダムに生成された秘密鍵で SingleKeyring インスタンスを生成します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                     |
-| ------- | ------ | ----------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名前     | タイプ | Description                   |
+| ------ | --- | ----------------------------- |
+| エントロピー | 文字列 | (オプション) エントロピーを増加させるランダムな文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                      | Description                                               |
-| ----------------------------------------- | --------------------------------------------------------- |
-| [SingleKeyring](keyring.md#singlekeyring) | A randomly generated single keyring instance is returned. |
+| タイプ                                       | Description                     |
+| ----------------------------------------- | ------------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | ランダムに生成された単一のキーリングインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.generate()
@@ -137,21 +137,21 @@ SingleKeyring {
 caver.wallet.keyring.generateSingleKey([entropy])
 ```
 
-Generates a private key string.
+秘密キー文字列を生成します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                     |
-| ------- | ------ | ----------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名前     | タイプ | Description                   |
+| ------ | --- | ----------------------------- |
+| エントロピー | 文字列 | (オプション) エントロピーを増加させるランダムな文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
-| string | The private key string is returned. |
+| タイプ | Description    |
+| --- | -------------- |
+| 文字列 | 秘密キー文字列が返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.generateSingleKey()
@@ -164,22 +164,22 @@ Generates a private key string.
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ```
 
-Generates private key strings.
+秘密鍵の文字列を生成します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                     |
-| ------- | ------ | ----------------------------------------------- |
-| num     | number | The number of private key strings.              |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名前     | タイプ | Description                   |
+| ------ | --- | ----------------------------- |
+| num    | 数値  | 秘密鍵の文字列の数。                    |
+| エントロピー | 文字列 | (オプション) エントロピーを増加させるランダムな文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                             |
-| ----- | ------------------------------------------------------- |
-| Array | An array that includes private key strings is returned. |
+| タイプ | Description        |
+| --- | ------------------ |
+| 行列  | 秘密鍵文字列を含む配列が返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.generateMultipleKeys(3)
@@ -196,22 +196,22 @@ Generates private key strings.
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ```
 
-Generates a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
+それぞれの配列要素が [ロール](../../../../../klaytn/design/accounts.md#roles) ごとに定義されたキーを含む2D配列を生成します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                                             |
-| -------- | ------ | ------------------------------------------------------------------------------------------------------- |
-| numArray | Array  | An array containing the number of keys for each [role](../../../../../klaytn/design/accounts.md#roles). |
-| entropy  | string | (optional) A random string to increase entropy.                                                         |
+| 名前       | タイプ | Description                                                             |
+| -------- | --- | ----------------------------------------------------------------------- |
+| numArray | 行列  | それぞれの [ロール](../../../../../klaytn/design/accounts.md#roles) のキーの数を含む配列。 |
+| エントロピー   | 文字列 | (オプション) エントロピーを増加させるランダムな文字列。                                           |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                                                                                               |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | A 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles) is returned. |
+| タイプ | Description                                                                               |
+| --- | ----------------------------------------------------------------------------------------- |
+| 行列  | 各 [ロール](../../../../../klaytn/design/accounts.md#roles) に対して定義されたキーを含む各配列要素の 2D 配列が返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.generateRoleBasedKeys([2, 1, 3])
@@ -237,24 +237,24 @@ Generates a 2D array of which each array element contains keys defined for each 
 caver.wallet.keyring.create(address, key)
 ```
 
-Creates a Keyring instance with parameters.
+パラメータ付きキーリングインスタンスを作成します。
 
-If `key` is a private key string, a [SingleKeyring](keyring.md#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](keyring.md#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](keyring.md#rolebasedkeyring) instance is created.
+`キー` が秘密鍵文字列の場合、1 つの秘密鍵を使用する [SingleKeyring](keyring.md#singlekeyring) インスタンスが作成されます。 `key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](keyring.md#multiplekeyring) インスタンスが作成されます。 If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](keyring.md#rolebasedkeyring) instance is created.
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type      | Description                                                                                                                                                                               |
-| ------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string    | An address of keyring.                                                                                                                                                                    |
-| key     | string \ | Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../klaytn/design/accounts.md#roles). |
+| 名前      | タイプ    | Description                                                                                               |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| address | 文字列    | キーリングのアドレス。                                                                                               |
+| キー      | 文字列 \ | Array | 秘密キーストリング、秘密キーの配列 または [ロール](../../../../../klaytn/design/accounts.md#roles) ごとに使用するキーを各要素に含む2D配列。 |
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                                                                                                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Keyring` | The keyring instance is returned. Depending on the `key` parameter, it can be [SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring). |
+| タイプ     | Description                                                                                                                                                                   |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `キーリング` | キーリングインスタンスが返されます。 `キー` パラメータに応じて、 [シングルキーリング](keyring.md#singlekeyring)、 [マルチプレキーリング](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring) になります。 |
 
-**Example**
+**例**
 
 ```javascript
 // Create singleKeyring which uses one private key
@@ -306,21 +306,21 @@ RoleBasedKeyring {
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
+秘密鍵文字列または `KlaytnWalletKey` から [SingleKeyring](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) インスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description                                                                                                                         |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| 名前 | タイプ | Description                                                                                                         |
+| -- | --- | ------------------------------------------------------------------------------------------------------------------- |
+| キー | 文字列 | このパラメータは秘密鍵または [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)のいずれかにすることができます。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                      | Description                             |
-| ----------------------------------------- | --------------------------------------- |
-| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
+| タイプ                                       | Description                |
+| ----------------------------------------- | -------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | SingleKeyringインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 // Create singleKeyring from private key string
@@ -344,24 +344,24 @@ SingleKeyring {
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string.
+`KlaytnWalletKey` 文字列から [SingleKeyring](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) インスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type   | Description                                                                                      |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
+| 名前              | タイプ | Description                                                                               |
+| --------------- | --- | ----------------------------------------------------------------------------------------- |
+| klaytnWalletKey | 文字列 | [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                      | Description                             |
-| ----------------------------------------- | --------------------------------------- |
-| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
+| タイプ                                       | Description                |
+| ----------------------------------------- | -------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | SingleKeyringインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
-> caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+> caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0 x{address in hex}')
 SingleKeyring {
     _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
     _key: PrivateKey { _privateKey: '0x{private key}' }
@@ -374,22 +374,22 @@ SingleKeyring {
 caver.wallet.keyring.createWithSingleKey(address, key)
 ```
 
-Creates a `SingleKeyring` instance from an address and a private key string.
+アドレスと秘密キー文字列から `SingleKeyring` インスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                   |
-| ------- | ------ | --------------------------------------------- |
-| address | string | An address to be used for creating a keyring. |
-| key     | string | A private key string.                         |
+| 名前      | タイプ | Description         |
+| ------- | --- | ------------------- |
+| address | 文字列 | キーリングの作成に使用されるアドレス。 |
+| キー      | 文字列 | 秘密キー文字列。            |
 
-**Return Value**
+**戻り値**
 
-| Type                                      | Description                             |
-| ----------------------------------------- | --------------------------------------- |
-| [SingleKeyring](keyring.md#singlekeyring) | The SingleKeyring instance is returned. |
+| タイプ                                       | Description                |
+| ----------------------------------------- | -------------------------- |
+| [SingleKeyring](keyring.md#singlekeyring) | SingleKeyringインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
@@ -405,22 +405,22 @@ SingleKeyring {
 caver.wallet.keyring.createWithMultipleKey(address, key)
 ```
 
-Creates a `MultipleKeyring` instance from an address and private key strings.
+アドレスと秘密キー文字列から `MultipleKeyring` インスタンスを作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                      |
-| -------- | ------ | -------------------------------- |
-| address  | string | An address of keyring.           |
-| keyArray | Array  | An array of private key strings. |
+| 名前       | タイプ | Description |
+| -------- | --- | ----------- |
+| address  | 文字列 | キーリングのアドレス。 |
+| keyArray | 行列  | 秘密鍵の文字列の配列。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                          | Description                               |
-| --------------------------------------------- | ----------------------------------------- |
-| [MultipleKeyring](keyring.md#multiplekeyring) | The MultipleKeyring instance is returned. |
+| タイプ                                      | Description                  |
+| ---------------------------------------- | ---------------------------- |
+| [マルチプレキーリング](keyring.md#multiplekeyring) | MultipleKeyringインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', ['0x{private key1}', '0x{private key2}' ])
@@ -439,22 +439,22 @@ MultipleKeyring {
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 ```
 
-Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role](../../../../../klaytn/design/accounts.md#roles).
+`RoleBasedKeyring` インスタンスをアドレスと各配列要素がそれぞれの [ロール](../../../../../klaytn/design/accounts.md#roles) に定義されたキーを含む2D配列から作成します。
 
-**Parameters**
+**パラメータ**
 
-| Name               | Type   | Description                                                                     |
-| ------------------ | ------ | ------------------------------------------------------------------------------- |
-| address            | string | An address of keyring.                                                          |
-| roledBasedKeyArray | Array  | A two-dimensional array containing arrays of private key strings for each role. |
+| 名前                 | タイプ | Description              |
+| ------------------ | --- | ------------------------ |
+| address            | 文字列 | キーリングのアドレス。              |
+| roledBasedKeyArray | 行列  | ロールごとの秘密鍵文字列の配列を含む二次元配列。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                            | Description                                |
-| ----------------------------------------------- | ------------------------------------------ |
-| [RoleBasedKeyring](keyring.md#rolebasedkeyring) | The RoleBasedKeyring instance is returned. |
+| タイプ                                             | Description                   |
+| ----------------------------------------------- | ----------------------------- |
+| [RoleBasedKeyring](keyring.md#rolebasedkeyring) | RoleBasedKeyringインスタンスが返されます。 |
 
-**Example**
+**例**
 
 ```javascript
 > const roleBasedKeys = [
@@ -488,22 +488,22 @@ RoleBasedKeyring {
 caver.wallet.keyring.decrypt(keystore, password)
 ```
 
-Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
+キーストア v3 または v4 JSON を復号化し、復号化された Keyring インスタンスを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                       |
-| -------- | ------ | --------------------------------- |
-| keystore | object | The keystore v3 or v4 to decrypt. |
-| password | string | The password used for encryption. |
+| 名前       | タイプ    | Description           |
+| -------- | ------ | --------------------- |
+| keystore | object | 復号するキーストア v3 または v4 。 |
+| パスワード    | 文字列    | 暗号化に使用されるパスワード        |
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                                                                                                                                                   |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Keyring` | The decrypted keyring instance ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring)). |
+| タイプ     | Description                                                                                                                                                        |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `キーリング` | 復号されたキーリングインスタンス ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring) ) 。 |
 
-**Example**
+**例**
 
 ```javascript
 // Decrypt keystroe v4 (encrypted single keyring)
@@ -710,21 +710,21 @@ SingleKeyring {
 keyring.getPublicKey()
 ```
 
-Returns the public key string(s). If `keyring` is an instance of [SingleKeyring](keyring.md#singlekeyring), getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring](keyring.md#multiplekeyring), getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring](keyring.md#rolebasedkeyring), getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
+公開鍵文字列を返します。 `keyring` が [SingleKeyring](keyring.md#singlekeyring)のインスタンスである場合、getPublicKey は公開鍵文字列を返します。 `keyring` が [MultipleKeyring](keyring.md#multiplekeyring)のインスタンスである場合、getPublicKey は公開鍵文字列の配列を返します。 `キーリング` が [RoleBasedKeyring](keyring.md#rolebasedkeyring)のインスタンスの場合 getPublicKey は、各ロールに使用される公開キーが配列として定義される二次元配列を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type    | Description                                                        |
-| ---------- | ------- | ------------------------------------------------------------------ |
-| compressed | boolean | (optional) Whether in compressed format or not (default: `false`). |
+| 名前 | タイプ     | Description                       |
+| -- | ------- | --------------------------------- |
+| 圧縮 | boolean | (オプション) 圧縮形式かどうか(デフォルト: `false`)。 |
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                            |
-| --------- | -------------------------------------- |
-| string \ | Array | The public key of the keyring. |
+| タイプ    | Description        |
+| ------ | ------------------ |
+| 文字列 \ | Array | キーリングの公開鍵。 |
 
-**Example**
+**例**
 
 ```javascript
 // Get public key with singleKeyring
@@ -750,15 +750,15 @@ Returns the public key string(s). If `keyring` is an instance of [SingleKeyring]
 keyring.copy()
 ```
 
-Returns a copied keyring instance.
+コピーされたキーリングインスタンスを返します。
 
-**Return Value**
+**戻り値**
 
-| Type      | Description                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Keyring` | A copied keyring instance ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring)). |
+| タイプ     | Description                                                                                                                                                         |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `キーリング` | コピーされたキーリングインスタンス ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring) ) 。 |
 
-**Example**
+**例**
 
 ```javascript
 // When keyring is an instance of SingleKeyring
@@ -805,26 +805,26 @@ RoleBasedKeyring {
 keyring.sign(transactionHash, chainId, role [, index])
 ```
 
-Signs with transactionHash with the private key(s) and returns signature(s). If the user has not defined an index parameter, `keyring.sign` signs transaction using all the private keys used by the role. If `index` is defined, the `keyring.sign` signs transaction using only one private key at the index. The role used in caver-js can be checked through `caver.wallet.keyring.role`.
+トランザクション付きのサインプライベートキーでハッシュし、署名を返します。 ユーザーがインデックスパラメータを定義していない場合、 `keyring.sign` はロールによって使用されるすべての秘密鍵を使用してトランザクションに署名します。 `index` が定義されている場合、 `keyring.sign` はインデックスで秘密鍵を 1 つだけ使用してトランザクションに署名します。 caver-jsで使用される役割は、 `caver.wallet.keyring.role` を通して確認することができます。
 
-When signing transactions, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign).
+トランザクションに署名するときは、 [caver.wallet.sign](./#caver-wallet-sign) または [transaction.sign](../caver.transaction/#transaction-sign) を使用することをお勧めします。
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type      | Description                                                                                                                                                                                                                    |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transactionHash | string    | The hash string of a transaction to sign.                                                                                                                                                                                      |
-| chainId         | string \ | number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                       |
-| role            | number    | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index           | number    | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 名前              | タイプ    | Description                                                                                                  |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| transactionHash | 文字列    | 署名するトランザクションのハッシュ文字列。                                                                                        |
+| chainId         | 文字列 \ | number | KlaytnブロックチェーンプラットフォームのチェーンID。                                                                      |
+| ロール             | 数値     | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。                                                             |
+| インデックス          | 数値     | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                            |
-| ----- | ------------------------------------------------------ |
-| Array | An array of [SignatureData](keyring.md#signaturedata). |
+| タイプ | Description                                   |
+| --- | --------------------------------------------- |
+| 行列  | [SignatureData](keyring.md#signaturedata) の配列 |
 
-**Example**
+**例**
 
 ```javascript
 // Using roleBasedKeyring which has two private key in roleTransactionKey
@@ -832,10 +832,10 @@ When signing transactions, it is recommended to use [caver.wallet.sign](./#caver
 [
     SignatureData { _v: '0x5044', _r: '0x7a8b6...', _s: '0x17139...' },
     SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
-]
+] ]
 
 // Using roleBasedKeyring which has two private key in roleTransactionKey with index
-> keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleTransactionKey, 1)
+> keyring. ign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.roleTransactionKey, 1)
 [
     SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
 ]
@@ -845,10 +845,10 @@ When signing transactions, it is recommended to use [caver.wallet.sign](./#caver
 [
     SignatureData { _v: '0x5044', _r: '0xdbce8...', _s: '0x039a6...' },
     SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
-]
+] ]
 
 // Using roleBasedKeyring which has two private key in roleAccountUpdateKey with index
-> keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleAccountUpdateKey, 1)
+> keyring. ign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.roleAccountUpdateKey, 1)
 [
     SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
 ]
@@ -873,28 +873,28 @@ When signing transactions, it is recommended to use [caver.wallet.sign](./#caver
 keyring.ecsign(hash, role [, index])
 ```
 
-Signs with hashed data using the private key and returns a signature where V is 0 or 1 (parity of the y-value of a the secp256k1 curve).
+秘密鍵を使用してハッシュされたデータを持つサインインし、V が 0 または 1 (secp256k1 曲線の y 値のパリティ) の署名を返します。
 
-This function is only used for certain transaction types. Therefore, it is recommended to use [caver.wallet.sign](./#caver-wallet-sign) or [transaction.sign](../caver.transaction/#transaction-sign) when signing a transaction.
+この関数は特定のトランザクションタイプにのみ使用されます。 したがって、トランザクションに署名する際には、 [caver.wallet.sign](./#caver-wallet-sign) または [transaction.sign](../caver.transaction/#transaction-sign) を使用することをお勧めします。
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type   | Description                                                                                                                                                                                                                    |
-| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| hash  | string | The hash string to sign.                                                                                                                                                                                                       |
-| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 名前     | タイプ | Description                                                                                                  |
+| ------ | --- | ------------------------------------------------------------------------------------------------------------ |
+| hash   | 文字列 | 署名するハッシュ文字列。                                                                                                 |
+| ロール    | 数値  | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。                                                             |
+| インデックス | 数値  | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                            |
-| ----- | ------------------------------------------------------ |
-| Array | An array of [SignatureData](keyring.md#signaturedata). |
+| タイプ | Description                                   |
+| --- | --------------------------------------------- |
+| 行列  | [SignatureData](keyring.md#signaturedata) の配列 |
 
-**Example**
+**例**
 
 ```javascript
-> keyring.ecsign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', caver.wallet.keyring.role.roleTransactionKey)
+> keyring.ecsign('0xe9a11d9ef95fb437f75d07ce768d43e74f158d54b106e7d3746ce29d545b550', caver.wallet.keyring.role.transactionKey)
 [
     SignatureData { _v: '0x00', _r: '0x7a8b6...', _s: '0x17139...' }
 ]
@@ -906,37 +906,37 @@ This function is only used for certain transaction types. Therefore, it is recom
 keyring.signMessage(message, role [, index])
 ```
 
-Signs message with Klaytn-specific prefix. This calculates a Klaytn-specific signature with:
+Klaytn固有の接頭辞でメッセージにサインします。 これは、Klaytn 固有の署名を次のように計算します。
 
 ```
-sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(kecchak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-If the user has not defined the index parameter, `keyring.signMessage` signs message with all the private keys used by the role. If the index parameter is given, `keyring.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found through `caver.wallet.keyring.role`.
+ユーザーがindexパラメータを定義していない場合、 `keyring.signMessage` はロールによって使用されるすべての秘密鍵でメッセージに署名します。 index パラメータが与えられた場合、 `keyring.signMessage` は指定されたインデックスで一つの秘密鍵だけを使ってメッセージに署名します。 caver-js で使用される役割は `caver.wallet.keyring.role` から見つけることができます。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type   | Description                                                                                                                                                                                                                    |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message | string | The message to sign.                                                                                                                                                                                                           |
-| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 名前      | タイプ | Description                                                                                                  |
+| ------- | --- | ------------------------------------------------------------------------------------------------------------ |
+| message | 文字列 | 署名するメッセージ。                                                                                                   |
+| ロール     | 数値  | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。                                                             |
+| インデックス  | 数値  | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                    |
-| ------ | ---------------------------------------------- |
-| object | An object that includes the result of signing. |
+| タイプ    | Description     |
+| ------ | --------------- |
+| object | 署名の結果を含むオブジェクト。 |
 
-The returned object contains the following:
+返されたオブジェクトには以下のものが含まれています:
 
-| Name        | Type   | Description                                            |
-| ----------- | ------ | ------------------------------------------------------ |
-| messageHash | string | The hash of message with Klaytn-specific prefix.       |
-| signatures  | Array  | An array of [SignatureData](keyring.md#signaturedata). |
-| message     | string | The message to sign.                                   |
+| 名前          | タイプ | Description                                   |
+| ----------- | --- | --------------------------------------------- |
+| messageHash | 文字列 | メッセージのハッシュと Klaytn 固有の接頭辞。                    |
+| signatures  | 行列  | [SignatureData](keyring.md#signaturedata) の配列 |
+| message     | 文字列 | 署名するメッセージ。                                    |
 
-**Example**
+**例**
 
 ```javascript
 // Sign with roleTransactionKey
@@ -966,25 +966,25 @@ The returned object contains the following:
 keyring.getKeyByRole(role)
 ```
 
-Returns the private key(s) used by the role entered as a parameter.
+パラメータとして入力されたロールによって使用される秘密キーを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description                                                                       |
-| ---- | ------ | --------------------------------------------------------------------------------- |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
+| 名前  | タイプ | Description                                      |
+| --- | --- | ------------------------------------------------ |
+| ロール | 数値  | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                   | Description                                                                                                                                           |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [PrivateKey](keyring.md#privatekey) \ | Array | An instance of [PrivateKey](keyring.md#privatekey) or an array containing the [PrivateKey](keyring.md#privatekey) instances used by the role. |
+| タイプ                                   | Description                                                                                                          |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [PrivateKey](keyring.md#privatekey)\ | Array | [PrivateKey](keyring.md#privatekey) のインスタンス、またはロールによって使用される [PrivateKey](keyring.md#privatekey) インスタンスを含む配列。 |
 
-**Example**
+**例**
 
 ```javascript
-// getKeyByRole with singleKeyring. 
-// The singleKeyring will return the single same PrivateKey intance regardless of role.
+// singleKeyringでのgetKeyByRole。 
+// SingleKeyringは役割に関係なく同じPrivateKeyインテンスを返します。
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 PrivateKey { _privateKey: '0x{private key}' }
 
@@ -1041,15 +1041,15 @@ PrivateKey { _privateKey: '0x{private key}' }
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring), [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](keyring.md#keyring-encrypt).
+キーリングの [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 文字列を返します。 [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring), [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) は使用できません。 この場合、 [keyring.encrypt](keyring.md#keyring-encrypt) を使用します。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                              |
-| ------ | -------------------------------------------------------------------------------------------------------- |
-| string | The [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) of the keyring. |
+| タイプ | Description                                                                                  |
+| --- | -------------------------------------------------------------------------------------------- |
+| 文字列 | キーリングの [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)。 |
 
-**Example**
+**例**
 
 ```javascript
 > keyring.getKlaytnWalletKey()
@@ -1062,29 +1062,29 @@ Returns the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wa
 keyring.toAccount([options])
 ```
 
-Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../getting-started.md#account-update).
+[Klaytn アカウント](../caver.account.md#account) の [AccountKey](../../../../../klaytn/design/accounts.md#account-key) を更新するための [アカウント](../../../../../klaytn/design/accounts.md#klaytn-accounts) インスタンスを返します。 [アカウント](../caver.account.md#account) インスタンスには公開鍵を含むことができる [AccountKey](../caver.account.md#accountkeylegacy) インスタンスがあります これはKlaytn Networkに送信され、トランザクションの検証に使用されます。 [アカウント](../caver.account.md#account)についての詳細は、 [アカウント更新](../../getting-started.md#account-update) を参照してください。
 
-Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
+Klaytn に保存されている [アカウント](../../../../../klaytn/design/accounts.md#account-key) の [AccountKey](../../../../../klaytn/design/accounts.md#klaytn-accounts) を更新した場合に注意してください。 古い秘密鍵はもう使えません 返された [アカウント](../../getting-started.md#account-update) インスタンスの使用方法については、 [Klaytn アカウント](../caver.account.md#account) の [Klaytn アカウント](../../../../../klaytn/design/accounts.md#klaytn-accounts) の情報を更新する方法を参照してください。
 
-Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
+キーリング内の秘密鍵の種類によって、返される [アカウント](../caver.account.md#account) インスタンスは以下のように分類されます。
 
-* When the keyring contains a private key string: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyPublic](../caver.account.md#accountkeypublic)
-* When the keyring contains private key strings: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
-* When the keyring contains the different private key strings by role: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
+* キーリングに秘密鍵文字列が含まれている場合: キーリングにアドレスを含む [アカウント](../caver.account.md#account) インスタンスと [AccountKeyPublic](../caver.account.md#accountkeypublic) のインスタンスを返します
+* キーリングに秘密鍵が含まれている場合: キーリングにアドレスを含む [アカウント](../caver.account.md#account) インスタンスと [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig) インスタンスを返します。
+* キーリングにロール別の秘密鍵文字列が含まれている場合: キーリング内のアドレスと [AccountKeyRoleベース](../caver.account.md#account) のインスタンスを含む [アカウント](../caver.account.md#accountkeyrolebased)インスタンスを返す
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \ | Array | (optional) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) with the threshold of 1 and the weight of 1 for each key will be used. |
+| 名前    | タイプ                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ----- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オプション | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions)\ | Array | (任意) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) インスタンスには、既存のアカウントをいくつかの秘密鍵を持つアカウントに更新する際に定義される情報が含まれています。 キーリングが各ロールに異なる秘密鍵を使用する場合、配列内の各ロールに対して [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) インスタンスを定義する必要があります。 キーリングが複数の秘密鍵を使用し、オプションパラメータが定義されていない場合、 デフォルトの [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) にしきい値が 1 で、各キーの重みが 1 になります。 |
 
-**Return Value**
+**戻り値**
 
-| Type                                   | Description                                                                                                                                                                                                                                                                                                                                         |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Account](../caver.account.md#account) | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
+| タイプ                                  | Description                                                                                                                                                                                                       |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [アカウント](../caver.account.md#account) | ユーザーが Klaytn で自分のアカウントの AccountKey を更新したときに使用するアカウントインスタンス。 既存のキーリング(または既存の秘密鍵)を新しいキーリング(または新しい秘密鍵)に置き換えたい場合は、アカウントの新しい秘密鍵(または新しい秘密鍵)を置き換えることに注意してください。 アカウント更新トランザクションを事前に Klaytn に送信して、AccountKey を更新する必要があります。 |
 
-**Example**
+**例**
 
 ```javascript
 // Get account with singleKeyring
@@ -1133,7 +1133,7 @@ Account {
                 _weightedPublicKeys: [
                     WeightedPublicKey { _weight: 1, _publicKey: '0x65b51...' },
                     WeightedPublicKey { _weight: 1, _publicKey: '0x8d85c...' }
-                ]
+                ] ]
             },
             AccountKeyWeightedMultiSig {
                 _threshold: 1,
@@ -1169,14 +1169,14 @@ Account {
                 _weightedPublicKeys: [
                     WeightedPublicKey { _weight: 2, _publicKey: '0x65b51...' },
                     WeightedPublicKey { _weight: 3, _publicKey: '0x8d85c...' }
-                ]
+                ] ]
             },
             AccountKeyWeightedMultiSig {
                 _threshold: 2,
                 _weightedPublicKeys: [
                     WeightedPublicKey { _weight: 1, _publicKey: '0x66899...' },
                     WeightedPublicKey { _weight: 1, _publicKey: '0x7705d...' }
-                ]
+                ] ]
             },
             AccountKeyWeightedMultiSig {
                 _threshold: 5,
@@ -1196,33 +1196,33 @@ Account {
 keyring.encrypt(password [, options])
 ```
 
-Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
+キーリングを暗号化し、キーストア v4 標準を返します。 詳細については、 [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3) を参照してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                                          |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options  | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
+| 名前    | タイプ | Description                                       |
+| ----- | --- | ------------------------------------------------- |
+| パスワード | 文字列 | 暗号化に使用するパスワード 暗号化された鍵ストアは、このパスワードで復号することができます。    |
+| オプション | 文字列 | (オプション) `オプション` パラメーターでは、暗号化を使用するときに使用する値を指定できます。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                |
-| ------ | -------------------------- |
-| object | The encrypted keystore v4. |
+| タイプ    | Description     |
+| ------ | --------------- |
+| object | 暗号化されたキーストア v4。 |
 
-The returned object contains the following:
+返されたオブジェクトには以下のものが含まれています:
 
-| Name    | Type   | Description                                               |
-| ------- | ------ | --------------------------------------------------------- |
-| version | number | The version of keystore.                                  |
-| id      | string | The id of keystore.                                       |
-| address | string | The address in the encrypted [Keyring](keyring.md#class). |
-| keyring | Array  | The encrypted private key(s).                             |
+| 名前      | タイプ | Description                             |
+| ------- | --- | --------------------------------------- |
+| バージョン   | 数値  | キーストアのバージョン。                            |
+| id      | 文字列 | キーストアのID。                               |
+| address | 文字列 | 暗号化された [キーリング](keyring.md#class) のアドレス。 |
+| keyring | 行列  | 暗号化された秘密鍵。                              |
 
-For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
+詳細については、 [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3) を参照してください。
 
-**Example**
+**例**
 
 ```javascript
 // Encrypt singleKeyring
@@ -1344,33 +1344,33 @@ For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIP
 keyring.encryptV3(password [, options])
 ```
 
-Encrypts an instance of [SingleKeyring](keyring.md#singlekeyring) and returns a keystore v3 standard.
+[SingleKeyring](keyring.md#singlekeyring) のインスタンスを暗号化し、キーストア v3 標準を返します。
 
-Note that [MultipleKeyring](keyring.md#multiplekeyring) and [RoleBasedKeyring](keyring.md#rolebasedkeyring) cannot use encryptV3. In this case, please use [keyring.encrypt](keyring.md#keyring-encrypt) with a keystore V4 standard.
+[MultipleKeyring](keyring.md#multiplekeyring) と [RoleBasedKeyring](keyring.md#rolebasedkeyring) はencryptV3を使用できないことに注意してください。 この場合、 [keyring.encrypt](keyring.md#keyring-encrypt) をキーストア V4 標準で使用してください。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                                                     |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
-| options  | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| 名前    | タイプ | Description                                             |
+| ----- | --- | ------------------------------------------------------- |
+| パスワード | 文字列 | 暗号化に使用するパスワード 暗号化された鍵ストアは、このパスワードで復号することができます。          |
+| オプション | 文字列 | (オプション) 暗号化に使用するパスワード。 暗号化された鍵ストアは、このパスワードで復号することができます。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                |
-| ------ | -------------------------- |
-| object | The encrypted keystore v3. |
+| タイプ    | Description     |
+| ------ | --------------- |
+| object | 暗号化されたキーストア v3。 |
 
-The returned object contains the following:
+返されたオブジェクトには以下のものが含まれています:
 
-| Name    | Type   | Description                                           |
-| ------- | ------ | ----------------------------------------------------- |
-| version | number | The version of keystore.                              |
-| id      | string | The id of keystore.                                   |
-| address | string | The address of encrypted [Keyring](keyring.md#class). |
-| crypto  | object | The encrypted private key.                            |
+| 名前      | タイプ    | Description                             |
+| ------- | ------ | --------------------------------------- |
+| バージョン   | 数値     | キーストアのバージョン。                            |
+| id      | 文字列    | キーストアのID。                               |
+| address | 文字列    | 暗号化された [キーリング](keyring.md#class) のアドレス。 |
+| crypto  | object | 暗号化された秘密鍵。                              |
 
-**Example**
+**例**
 
 ```javascript
 > keyring.encryptV3('password')
@@ -1401,15 +1401,15 @@ The returned object contains the following:
 keyring.isDecoupled()
 ```
 
-Returns `true` if keyring has decoupled key.
+キーがデカップリングされている場合、 `true` を返します。
 
-**Return Value**
+**戻り値**
 
-| Type    | Description                          |
-| ------- | ------------------------------------ |
-| boolean | `true` if keyring has decoupled key. |
+| タイプ     | Description      |
+| ------- | ---------------- |
+| boolean | `` キーが分離されている場合。 |
 
-**Example**
+**例**
 
 ```javascript
 > keyring.isDecoupled()
