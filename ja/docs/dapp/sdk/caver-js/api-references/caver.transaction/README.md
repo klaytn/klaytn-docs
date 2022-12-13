@@ -1,45 +1,45 @@
 # caver.transaction
 
-`caver.transaction` is a package that provides functionality related to Transaction.
+`caver.transaction` はトランザクションに関連する機能を提供するパッケージです。
 
-## Class <a href="#class" id="class"></a>
+## クラス <a href="#class" id="class"></a>
 
-Each transaction class is described in detail with the table below:
+各トランザクションクラスは以下の表で詳細に説明されています。
 
-|                        | Basic                                                     | Fee Delegation                                                                             | Partial Fee Delegation                                                                                               |
+|                        | 基本                                                        | 手数料のデリゲーション                                                                                | 部分手数料のデリゲーション                                                                                                        |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | N/A                                                                                        | N/A                                                                                                                  |
+| 従来の取引                  | [従来の取引](basic.md#legacytransaction)                       | 該当なし                                                                                       | 該当なし                                                                                                                 |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
-| ValueTransferMemo      | [ValueTransferMemo](basic.md#valuetransfermemo)           | [FeeDelegatedValueTransferMemo](fee-delegation.md#feedelegatedvaluetransfermemo)           | [FeeDelegatedValueTransferMemoWithRatio](partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio)           |
+| ValueTransferMemo      | [ValueTransferMemo](basic.md#valuetransfermemo)           | [手数料委任値TransferMemo](fee-delegation.md#feedelegatedvaluetransfermemo)                      | [FeeDelegatedValueTransferMemoWithRatio](partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio)           |
 | SmartContractDeploy    | [SmartContractDeploy](basic.md#smartcontractdeploy)       | [FeeDelegatedSmartContractDeploy](fee-delegation.md#feedelegatedsmartcontractdeploy)       | [FeeDelegatedSmartContractDeployWithRatio](partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)       |
 | SmartContractExecution | [SmartContractExecution](basic.md#smartcontractexecution) | [FeeDelegatedSmartContractExecution](fee-delegation.md#feedelegatedsmartcontractexecution) | [FeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) |
-| AccountUpdate          | [AccountUpdate](basic.md#accountupdate)                   | [FeeDelegatedAccountUpdate](fee-delegation.md#feedelegatedaccountupdate)                   | [FeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#feedelegatedaccountupdatewithratio)                   |
-| Cancel                 | [Cancel](basic.md#cancel)                                 | [FeeDelegatedCancel](fee-delegation.md#feedelegatedcancel)                                 | [FeeDelegatedCancelWithRatio](partial-fee-delegation.md#feedelegatedcancelwithratio)                                 |
+| アカウント更新                | [アカウント更新](basic.md#accountupdate)                         | [FeeDelegatedAccountUpdate](fee-delegation.md#feedelegatedaccountupdate)                   | [FeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#feedelegatedaccountupdatewithratio)                   |
+| キャンセル                  | [キャンセル](basic.md#cancel)                                  | [手数料委任キャンセル](fee-delegation.md#feedelegatedcancel)                                         | [FeeDelegatedCancelWithRatio](partial-fee-delegation.md#feedelegatedcancelwithratio)                                 |
 | ChainDataAnchoring     | [ChainDataAnchoring](basic.md#chaindataanchoring)         | [FeeDelegatedChainDataAnchoring](fee-delegation.md#feedelegatedchaindataanchoring)         | [FeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)         |
-| EthereumAccessList     | [EthereumAccessList](basic.md#ethereumaccesslist)         | N/A                                                                                        | N/A                                                                                                                  |
-| EthereumDynamicFee     | [EthereumDynamicFee](basic.md#ethereumdynamicfee)         | N/A                                                                                        | N/A                                                                                                                  |
+| EthereumAccessList     | [EthereumAccessList](basic.md#ethereumaccesslist)         | 該当なし                                                                                       | 該当なし                                                                                                                 |
+| EthereumDynamicFee     | [EthereumDynamicFee](basic.md#ethereumdynamicfee)         | 該当なし                                                                                       | 該当なし                                                                                                                 |
 
 ## caver.transaction.decode <a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
 
 ```javascript
-caver.transaction.decode(rlpEncoded)
+caver.transaction.decode(rlpEncode)
 ```
 
-Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](./#class) instance.
+RLPエンコードされたトランザクション文字列、生トランザクションをデコードし、 [トランザクション](./#class) インスタンスを返します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type   | Description                                 |
-| ---------- | ------ | ------------------------------------------- |
-| rlpEncoded | string | A RLP-encoded transaction string to decode. |
+| 名前          | タイプ | Description                     |
+| ----------- | --- | ------------------------------- |
+| rlpEncodeed | 文字列 | デコードする RLP エンコードされたトランザクション文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
-| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
+| タイプ    | Description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| object | [トランザクション](./#class) のインスタンス 各トランザクションの詳細については、 [トランザクション](./#class) を参照してください。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.transaction.decode('0x08f87...')
@@ -63,25 +63,25 @@ ValueTransfer {
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Queries a transaction from Klaytn and converts to a caver transaction instance.
+Klaytnからトランザクションを問い合わせ、キャバートランザクションインスタンスに変換します。
 
-**NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.getTransactionByHash` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name            | Type   | Description                                       |
-| --------------- | ------ | ------------------------------------------------- |
-| transactionHash | string | The transaction hash string to query from Klaytn. |
+| 名前              | タイプ | Description                    |
+| --------------- | --- | ------------------------------ |
+| transactionHash | 文字列 | Klaytnから問い合わせるトランザクションハッシュ文字列。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `object`: An instance of [Transaction](./#class). If it fails to receive a transaction object from Klaytn, an error occurs.
+`Promise` が `object`を返す : [Transaction](./#class) のインスタンス。 Klaytn からのトランザクションオブジェクトの受信に失敗した場合、エラーが発生します。
 
-| Type   | Description                                                                                                |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
-| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
+| タイプ    | Description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| object | [トランザクション](./#class) のインスタンス 各トランザクションの詳細については、 [トランザクション](./#class) を参照してください。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.transaction.getTransactionByHash('0x30575f5a76a4477502aa1e5e707e47f05b92c3450132529cf55764cc94f780b0').then(console.log)
@@ -108,23 +108,23 @@ LegacyTransaction {
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `signatures` field of the given transaction.
+指定されたトランザクションの `署名` フィールドから公開鍵文字列を復元します。
 
-**NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.recoverPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type   | Description                                                                  |
-| ----- | ------ | ---------------------------------------------------------------------------- |
-| rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
+| 名前    | タイプ | Description                                 |
+| ----- | --- | ------------------------------------------- |
+| rawTx | 文字列 | `署名` から公開鍵を回復するための RLP エンコードされたトランザクション文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                  |
-| ----- | ------------------------------------------------------------ |
-| Array | An array containing public keys recovered from `signatures`. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 行列  | `署名` から回収された公開鍵を含む配列。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.transaction.recoverPublicKeys('0x08f9010e808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee0194f21460730845e3652aa3cc9bc13b345e4f53984af8d5f845820feaa02b5934c6d26bb3e65edf099d79c57c743d2f70744ca09d3ba9a1099edff9f173a00797886edff4b449c1a599943e3a6003ae9e46b3f3f34862ced327e43fba3a6af845820fe9a063177648732ef855f800eb9f80f68501abb507f84c0d660286a6e0801334a1d2a0620a996623c114f2df35b11ec8ac4f3758d3ad89cf81ba13614e51908cfe9218f845820fe9a086c8ecbfd892be41d48443a2243274beb6daed3f72895045965a3baede4c350ea069ea748aff6e4c106d3a8ba597d8f134745b76f12dacb581318f9da07351511a')
@@ -141,23 +141,23 @@ Recovers the public key strings from `signatures` field of the given transaction
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `feePayerSignatures` field of the given transaction.
+指定されたトランザクションの `feePayerSignatures` フィールドから公開鍵文字列を復元します。
 
-**NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.recoverFeePayerPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type   | Description                                                                                                                                                                                                                |
-| ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
+| 名前    | タイプ | Description                                                                                                                                  |
+| ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTx | 文字列 | `feePayerSignatures` から公開鍵を回復するための RLP エンコードされたトランザクション文字列。 手数料支払者の公開鍵を復元するには、トランザクションは `feePayerSignatures` フィールド内の手数料委任トランザクションである必要があります。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                          |
-| ----- | -------------------------------------------------------------------- |
-| Array | An array containing public keys recovered from `feePayerSignatures`. |
+| タイプ | Description                           |
+| --- | ------------------------------------- |
+| 行列  | `feePayerSignatures` から回収された公開鍵を含む配列。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.transaction.recoverFeePayerPublicKeys('0x09f901fa808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee019407a9a76ef778676c3bd2b334edcf581db31a85e5f8d5f845820feaa0cb2bbf04a12ec3a06163c30ce8782739ec4745a53e265aa9443f1c0d678bb871a07dd348c7d8fce6be36b661f116973d1c36cc92a389ad4a1a4053bd486060a083f845820fe9a06d5dfca992d6833c0da272578bc6ea941be45f44fb2fa114310ebe18d673ed52a04dc5cd7985c9ce7d44d46d65e65c995a4a8c97159a1eed8b2efb0510b981ab7cf845820feaa0945151edf556fbcebf832092d4534b9a3b1f3d46f85bce09e7d7211070cb57bea01617c8f918f96970baddd12f240a9824eca6b29d91eb7333adacb987f2dcd8dd94b5db72925b1b6b79299a1a49ae226cd7861083acf8d5f845820feaa086fd17d788e89a6e0639395b3c0a04f916103debd6cbe639d6f4ff5034dde3e8a00795551c551d9096234c290689767f34f2d409c95166ab18d216dbc93845ba16f845820feaa00653b6d1cdb90462094b089ce8e2fed0e3b8ec2c44125965e1a5af286644c758a0259b10e3bf594d48535fd0d95e15d095897c8d075c01dd56e7417d5943b0d53af845820fe9a0ce8d051427adab10d1dc93de49123aeab18ba8aadedce0d57ef5b7fa451b1f4fa04fe2a845d92ff48abca3e1d59637fab5f4a4e3172d91772d9bfce60760edc506')
@@ -174,27 +174,27 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 transaction.sign(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
+`キーリング` 内の秘密鍵を使用してトランザクション送信者として署名し、トランザクションオブジェクトに `署名` を追加します。
 
-For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+[アカウント更新](basic.md#accountupdate) トランザクションの場合は、 [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles)を使用するか、またはそれ以外の場合は、 [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring) で [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) を使用してください。 If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. `index` が定義されている場合、 `transaction.sign` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number    | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                               |
-| hasher  | Function  | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名前      | タイプ       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | オブジェクト \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). 秘密キー文字列または [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) がパラメータとして渡されると、キーリングインスタンスは内部的に作成されます。 |
+| インデックス  | 数値        | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。                                                                                                                                                                                                                                                                                                                                                                                                |
+| ハッシャー   | 関数        | (オプション) トランザクションのハッシュを取得するハッシュ関数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `object`: The signed transaction.
+`Promise` が `object`を返す: 署名されたトランザクション。
 
-| Type   | Description                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.signatures`. |
+| タイプ    | Description                                                         |
+| ------ | ------------------------------------------------------------------- |
+| object | [トランザクション](./#class) のインスタンス。 署名が `transaction.signations` に追加されます。 |
 
-**Example**
+**例**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -280,36 +280,36 @@ ValueTransfer {
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
+トランザクションにトランザクション `手数料支払人` として署名し、 `キーリング` 内の秘密鍵を持つトランザクションオブジェクトに `feePayerSignatures`を追加します。
 
-For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../klaytn/design/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
+手数料支払者としてトランザクションに署名するには、 [keyring](../../../../../klaytn/design/accounts.md#roles) で `roleFeePayerKey` を使用してください。 If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. `index` が定義されている場合、 `transaction.signAsFeePayer` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
 
-If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
+`transaction.feePayer` が定義されていない場合、与えられたキーリングのアドレスは `transaction.feePayer` に設定されます。
 
 If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/#caver-wallet-signasfeepayer).
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意** この関数は、「手数料委任」トランザクションまたは「レシオ付き手数料委任」トランザクションでのみ動作します。
 
-**Parameters**
+**パラメータ**
 
-| Name    | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number    | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                               |
-| hasher  | Function  | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名前      | タイプ       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | オブジェクト \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). 秘密キー文字列または [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) がパラメータとして渡されると、キーリングインスタンスは内部的に作成されます。 |
+| インデックス  | 数値        | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。                                                                                                                                                                                                                                                                                                                                                                                                |
+| ハッシャー   | 関数        | (オプション) トランザクションのハッシュを取得するハッシュ関数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `object`: The signed transaction.
+`Promise` が `object`を返す: 署名されたトランザクション。
 
-| Type   | Description                                                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.feePayerSignatures`. |
+| タイプ    | Description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| object | [トランザクション](./#class) のインスタンス。 署名は `transaction.feePayerSignatures` に追加されます。 |
 
-**Example**
+**例**
 
 ```javascript
-// This example uses the FeeDelegatedValueTransfer transaction.
+// This example uses the FeeDelegatedValueTransfer transactions.
 > const transaction = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
     to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
@@ -400,15 +400,15 @@ FeeDelegatedValueTransfer {
 transaction.appendSignatures(signatures)
 ```
 
-Appends `signatures` to the transaction.
+トランザクションに `の署名` を追加します。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type      | Description                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signatures | object \ | Array | The signatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 名前         | タイプ       | Description                                                                                                                                                                                                                                            |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| signatures | オブジェクト \ | Array | トランザクションに追加されるシグネチャ。 [SignatureData](../caver.wallet/keyring.md#signaturedata) インスタンス、または [SignatureData](../caver.wallet/keyring.md#signaturedata) インスタンスを含む配列。 それぞれの'v'、'r'の配列。 そして 's' は文字列フォーマットとして順番に定義され、配列を含む2次元配列もパラメータとして受け取ることができます。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -420,43 +420,43 @@ Appends `signatures` to the transaction.
 transaction.appendFeePayerSignatures(signatures)
 ```
 
-Appends `feePayerSignatures` to the transaction.
+`feePayerSignatures` をトランザクションに追加する。
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意** この関数は、「手数料委任」トランザクションまたは「レシオ付き手数料委任」トランザクションでのみ動作します。
 
-**Parameters**
+**パラメータ**
 
-| Name               | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feePayerSignatures | object \ | Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 名前                 | タイプ       | Description                                                                                                                                                                                                                                                                             |
+| ------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| feePayerSignatures | オブジェクト \ | Array | feePayerSignatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) インスタンス、または [SignatureData](../caver.wallet/keyring.md#signaturedata) インスタンスを含む配列。 それぞれの'v'、'r'の配列。 そして 's' は文字列フォーマットとして順番に定義され、配列を含む2次元配列もパラメータとして受け取ることができます。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.combineSignedRawTransactions <a href="#transaction-combinesignatures" id="transaction-combinesignatures"></a>
+## transaction.combineSignedRawTransaction <a href="#transaction-combinesignatures" id="transaction-combinesignatures"></a>
 
 ```javascript
 transaction.combineSignedRawTransactions(rlpEncodedTxs)
 ```
 
-Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
+指定された配列内の RLP エンコードされた各トランザクション文字列のサインを収集します。 それらをトランザクションインスタンスと組み合わせて、すべてのサインを含むRLPエンコードされたトランザクション文字列を返します。 トランザクションインスタンスは必ずしも事前に署名されていないことに注意してください。 トランザクションが「手数料委任」または「手数料委任」のいずれかのタイプの場合。 `feePayerSignatures` もマージされ、出力のRLPエンコードトランザクション文字列に含まれる。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type  | Description                                         |
-| ------------- | ----- | --------------------------------------------------- |
-| rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
+| 名前            | タイプ | Description                |
+| ------------- | --- | -------------------------- |
+| rlpEncodedTxs | 行列  | RLPエンコードされたトランザクション文字列の配列。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                                                                                  |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
+| タイプ | Description                                                                                                           |
+| --- | --------------------------------------------------------------------------------------------------------------------- |
+| 文字列 | すべての `署名` (および `feePayerSignatures` )を含む RLP エンコードされたトランザクション文字列。トランザクションが「手数料が引き渡された」または「レシオ付き手数料が委任された」いずれかのタイプの場合。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.combineSignedRawTransactions(['0x09f88...'])
@@ -469,17 +469,17 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 transaction.getRLPEncoding()
 ```
 
-Returns a RLP-encoded transaction string.
+RLP でエンコードされたトランザクション文字列を返します。
 
-For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
+各トランザクションタイプの RLP エンコードされた文字列の作成方法については、 [Klaytn Design - トランザクション](../../../../../klaytn/design/transactions/) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| string | A RLP-encoded transaction string. |
+| タイプ | Description               |
+| --- | ------------------------- |
+| 文字列 | RLP でエンコードされたトランザクション文字列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getRLPEncoding()
@@ -492,19 +492,19 @@ For information on how to make the RLP-encoded string for each transaction type,
 transaction.getRawTransaction()
 ```
 
-Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](./#transaction-getrlpencoding).
+`rawTransaction` 文字列 (RLPエンコードされたトランザクション文字列) を返します。 この関数は [transaction.getRPEncoding](./#transaction-getrlpencoding) と同じです。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| string | A RLP-encoded transaction string. |
+| タイプ | Description               |
+| --- | ------------------------- |
+| 文字列 | RLP でエンコードされたトランザクション文字列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getRawTransaction()
-'0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
+'0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bbb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a06829c057055faa78b54b7967bcf42b6aaaaaae12beaf933e56
 ```
 
 ## transaction.getTransactionHash <a href="#transaction-gettransactionhash" id="transaction-gettransactionhash"></a>
@@ -513,17 +513,17 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 transaction.getTransactionHash()
 ```
 
-Returns a `transactionHash`.
+`transactionHash` を返します。
 
-For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
+トランザクションタイプごとにトランザクションハッシュを作成する方法については、 [Klaytn Design - トランザクション](../../../../../klaytn/design/transactions/) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description        |
-| ------ | ------------------ |
-| string | A transactionHash. |
+| タイプ | Description   |
+| --- | ------------- |
+| 文字列 | トランザクションハッシュ。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getTransactionHash()
@@ -536,19 +536,19 @@ For information on how to make the transaction hash for each transaction type, s
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) of transaction.
+トランザクションの [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) を返します。
 
 The [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](./#transaction-gettransactionhash) and [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) are the same for basic transactions.
 
-For information on how to make the [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
+各トランザクションタイプの [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) を作成する方法については、 [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description     |
-| ------ | --------------- |
-| string | A senderTxHash. |
+| タイプ | Description   |
+| --- | ------------- |
+| 文字列 | senderTxHash。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getSenderTxHash()
@@ -561,21 +561,21 @@ For information on how to make the [senderTxHash](../../../../../klaytn/design/t
 transaction.getRLPEncodingForSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+トランザクション送信者の署名を行うための RLP エンコードされたトランザクション文字列を返します。 返された RLP エンコードされたトランザクション文字列は、署名とともに追加されず、この署名を生成するために使用されることに注意してください。
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
+各トランザクションタイプのトランザクション送信者の署名を生成するために、RLPエンコードされたトランザクション文字列を作成する方法についての情報。 see [Klaytn Design - トランザクション](../../../../../klaytn/design/transactions/).
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| タイプ | Description                        |
+| --- | ---------------------------------- |
+| 文字列 | 署名が添付されていないRLPエンコードされたトランザクション文字列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getRLPEncodingForSignature()
-'0xf83fb838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d08207e38080'
+'0xf83fb838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a9404b16113ebe8f57071f839b002cbcbf7d08207e380'
 ```
 
 ## transaction.getRLPEncodingForFeePayerSignature <a href="#transaction-getrlpencodingforfeepayersignature" id="transaction-getrlpencodingforfeepayersignature"></a>
@@ -584,23 +584,23 @@ For information on how to make a RLP-encoded transaction string to generate the 
 transaction.getRLPEncodingForFeePayerSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+手数料支払者の署名を行うための RLP エンコードされたトランザクション文字列を返します。 返された RLP エンコードされたトランザクション文字列は、署名とともに追加されず、この署名を生成するために使用されることに注意してください。
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
+各トランザクションタイプに対する手数料支払者の署名を生成するために、RLPエンコードされたトランザクション文字列を作成する方法についての情報。 see [Klaytn Design - トランザクション](../../../../../klaytn/design/transactions/).
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意** この関数は、「手数料委任」トランザクションまたは「レシオ付き手数料委任」トランザクションでのみ動作します。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| タイプ | Description                        |
+| --- | ---------------------------------- |
+| 文字列 | 署名が添付されていないRLPエンコードされたトランザクション文字列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.getRLPEncodingForFeePayerSignature()
-'0xf840b838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0808207e38080'
+'0xf840b838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404b16113ebe8f57071f839b002cbcbf7d0808207e38080'
 ```
 
 ## transaction.fillTransaction <a href="#transaction-filltransaction" id="transaction-filltransaction"></a>
@@ -609,17 +609,17 @@ For information on how to make a RLP-encoded transaction string to generate the 
 transaction.fillTransaction()
 ```
 
-Fills in the optional variables in transaction.
+トランザクション内の任意の変数で塗りつぶします。
 
-If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Klaytn Node.
+`gasPrice`, `nonce`, またはトランザクションの `chainId` が定義されていない場合 このメソッドは、これらのオプション変数のデフォルト値を要求し、接続された Klaytn Node に JSON RPC 呼び出しを送信することによってプリセットします。
 
 Use [caver.rpc.klay.getGasPrice](../caver.rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver.rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `void`
+`Promise` `void` を返す
 
-**Example**
+**例**
 
 ```javascript
 > transaction.fillTransaction()
@@ -631,17 +631,17 @@ Use [caver.rpc.klay.getGasPrice](../caver.rpc/klay.md#caver-rpc-klay-getgasprice
 transaction.recoverPublicKeys()
 ```
 
-Recovers the public key strings from `signatures` field.
+`署名` フィールドから公開鍵文字列を復元します。
 
-**NOTE** `transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `transaction.recoverPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                  |
-| ----- | ------------------------------------------------------------ |
-| Array | An array containing public keys recovered from `signatures`. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 行列  | `署名` から回収された公開鍵を含む配列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.recoverPublicKeys()
@@ -658,17 +658,17 @@ Recovers the public key strings from `signatures` field.
 transaction.recoverFeePayerPublicKeys()
 ```
 
-Recovers the public key strings from `feePayerSignatures` field.
+`feePayerSignatures` フィールドから公開鍵文字列を復元する。
 
-**NOTE** `transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `transaction.recoverFeePayerPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                          |
-| ----- | -------------------------------------------------------------------- |
-| Array | An array containing public keys recovered from `feePayerSignatures`. |
+| タイプ | Description                           |
+| --- | ------------------------------------- |
+| 行列  | `feePayerSignatures` から回収された公開鍵を含む配列。 |
 
-**Example**
+**例**
 
 ```javascript
 > transaction.recoverFeePayerPublicKeys()
@@ -685,21 +685,21 @@ Recovers the public key strings from `feePayerSignatures` field.
 transaction.suggestGasPrice()
 ```
 
-Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](./#transaction-fillTransaction).
+リターンは、ガス価格を提案した。 この関数は、 [fillTransaction](./#transaction-fillTransaction) に gasPrice 項目を設定するために使用されます。
 
-Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network. After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
+マグマハードフォークの前に `suggestGasPrice` はネットワークの単価を返します。 マグマハードフォークの後、 `suggestGasPrice` は gasPrice として使用することを推奨する `baseFee * 2` を返します。
 
-**NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+**注意** `transaction.suggestGasPrice` は caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0) からサポートされています。
 
-**Return Value**
+**戻り値**
 
-`Promise` returning `string`: The suggested gas price in hexadecimal string.
+`Promise` returning `string`: 16進数文字列で提案されたガス価格。
 
-| Type   | Description              |
-| ------ | ------------------------ |
-| string | The suggested gas price. |
+| タイプ | Description |
+| --- | ----------- |
+| 文字列 | ガス価格が提案された。 |
 
-**Example**
+**例**
 
 ```javascript
 > tx.suggestGasPrice().then(console.log)
