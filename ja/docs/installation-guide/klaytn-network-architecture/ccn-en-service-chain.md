@@ -1,4 +1,4 @@
-# CCN(CN+PN) + EN + Service Chain <a id="ccn-en-service-chain"></a>
+# CN(CN+PN) + EN + サービスチェーン <a id="ccn-en-service-chain"></a>
 
 
 
