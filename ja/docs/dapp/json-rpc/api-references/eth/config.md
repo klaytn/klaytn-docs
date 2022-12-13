@@ -1,18 +1,18 @@
 ## eth_coinbase <a id="eth_coinbase"></a>
 
-Returns the client coinbase address.
+クライアントのコインベースアドレスを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                   |
-| ------------ | ----------------------------- |
-| 20-byte DATA | The current coinbase address. |
+| タイプ        | Description     |
+| ---------- | --------------- |
+| 20 バイトのデータ | 現在のコインベースのアドレス。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -29,19 +29,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
-Returns the client etherbase address.
+クライアントのイーサベースアドレスを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                    |
-| ------------ | ------------------------------ |
-| 20-byte DATA | The current etherbase address. |
+| タイプ        | Description    |
+| ---------- | -------------- |
+| 20 バイトのデータ | 現在のイーサベースアドレス。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -58,19 +58,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_chainId <a id="eth_chainid"></a>
 
-Return current chainId set on the requested node.
+リクエストされたノードに現在の chainId セットを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                         |
-| -------- | ----------------------------------- |
-| QUANTITY | Chain id set on the requested node. |
+| タイプ | Description               |
+| --- | ------------------------- |
+| 品質  | 要求されたノードにチェーンIDがセットされました。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -87,21 +87,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_gasPrice <a id="eth_gasprice"></a>
 
-Returns the current price per gas in peb.
+ペブ内のガス当たりの現在の価格を返します。
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**注**: このAPIはEthereumとは異なる動作をしており、 Ethereumのようにガス価格を提案するのではなく、Klaytnのガス価格を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| タイプ | Description     |
+| --- | --------------- |
+| 品質  | ペブ内の現在のガス価格の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
