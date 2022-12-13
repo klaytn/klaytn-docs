@@ -1,4 +1,4 @@
-# Metrics <a id="metrics"></a>
+# メトリック <a id="metrics"></a>
 
 
 
