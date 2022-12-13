@@ -1,4 +1,4 @@
-# 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
+# 5. フロントエンドコードの概要 <a id="5-frontend-code-overview"></a>
 
 1\) `src/index.js` - Entry point of our app  
 2\) `static/index.html` - index.html  
@@ -12,9 +12,9 @@
 import ReactDOM from 'react-dom'
 
 import App from './App'
-import renderRoutes from './routes'
+import renderRoute from './routes'
 
-import './index.scss'
+import './index.scs'
 
 // Render App(root component).
 ReactDOM.render(
@@ -32,9 +32,9 @@ if (module.hot) {
 }
 ```
 
-`'index.js'` is main javascript file for our tutorial app. It is the entry point of our app.
+`'index.js'` はチュートリアルアプリ用のメインの javascript ファイルです。 アプリのエントリポイントです。
 
-It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
+与えられた container\('\#root'\' のDOMにReact 要素をレンダリングし、コンポーネントへの参照を返すために、'react-dom' ライブラリを使用します。 要するに、「react-dom」を通じて、チュートリアルアプリのDOMは `<div id="root"></div>` `public/index.html` ファイルに表示されます。
 
 ## 2\) `static/index.html`: <a id="2-static-index-html"></a>
 
@@ -51,24 +51,24 @@ It uses 'react-dom' library to render a React element into the DOM in the suppli
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div> <!-- DOM will be populated into here. -->
+    <div id="root"></div> <!-- DOM がここに入力されます。 -->
     <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+      この HTML ファイルはテンプレートです。
+      ブラウザで直接開くと、空のページが表示されます。
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      このファイルにwebfonts、metaタグ、または解析を追加できます。
+      ビルドステップでは、バンドルされたスクリプトが <body> タグに配置されます。
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+      開発を開始するには、`npm start` または `yarn start` を実行します。
+      プロダクションバンドルを作成するには、`npm run build` または `yarn build` を使用します。
     -->
   </body>
 </html>
 ```
 
-`index.html` is a HTML file for rendering our tutorial app.
+`index.html` はチュートリアルアプリをレンダリングするための HTML ファイルです。
 
-For further information, visit React official site [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
+詳細については、React の公式サイトを参照してください [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
@@ -140,7 +140,7 @@ class App extends Component {
 export default App
 ```
 
-`'App.js'` is the root component of our tutorial app.
+`'App.js'` はチュートリアルアプリのルートコンポーネントです。
 
 ```javascript
 render() {
@@ -161,8 +161,8 @@ If your browser's url path is `/`, it will render `<Count />` component.
 ```javascript
 componentWillMount() {
   /**
-   * sessionStorage is internet browser's feature which stores data
-   * until the browser tab is closed.
+   * sessionStorage は、ブラウザータブが閉じられるまでデータ
+   * を格納するインターネットブラウザーの機能です。
    */
   const walletFromSession = sessionStorage.getItem('walletInstance')
 
@@ -185,15 +185,15 @@ Otherwise, `walletInstance` session will exist as a JSON string, if so, it attem
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
 For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#wallet-add)
 
-cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
+cf\) `JSON.parse` は `walletInstance` セッションが JSON 文字列として格納されているため必要です。
 
 ## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**
- * caver-js library make a connection with klaytn node.
- * You could connect to specific klaytn node by changing 'rpcURL' value.
- * If you are running a klaytn full node, set rpcURL to your node's URL.
+ * caver-js ライブラリは klaytn ノードと接続します。
+ * 'rpcURL' の値を変更することで特定の klaytn ノードに接続できます。
+ * klaytn フルノードを実行している場合は、rpcURL にノードの URL を設定します。
  * ex) rpcURL: 'http://localhost:8551'
  */
 import Caver from 'caver-js'
@@ -210,9 +210,9 @@ export default cav
 `caver-js` library makes a connection to a Klaytn node.  
 After the connection is made, you can get the current block number from the node and invoke contract methods.
 
-You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
+「rpcURL」で特定の Klaytn ノードに接続することができます。
 
-* If you are running a Klaytn full node, you can set rpcURL to your node's URL.
+* Klaytnフルノードを実行している場合は、rpcURLをノードのURLに設定できます。
 
-  for example, `rpcURL: 'http://localhost:8551'`  
+  例えば、 `rpcURL: 'http://localhost:8551'`  
 
