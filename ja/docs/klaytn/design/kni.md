@@ -1,33 +1,33 @@
 # KNI <a id="KNI"></a>
 
-**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. Its syntax is shown below:
+**KNI (Klaytn Network Identifier)** は、Klaytn ノードを識別するための URL スキームです。 構文は以下の通りである。
 ```
-kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
+knif://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
 ![KNI scheme](../images/kni_scheme.png)
 
-**nodeID** is a 512-bit public key corresponding to the node's private key. It is used to verify communication with peers on p2p network.
+**nodeID** は、ノードの秘密鍵に対応する 512 ビットの公開鍵です。 これは、p2pネットワーク上のピアとの通信を検証するために使用されます。
 
-**hostname** describes the address of a node, located between `@` and `:`. The address format can be one of the following:
-* IPv4 dotted decimal (`192.0.2.1`)
+**ホスト名** は `@` と `:` の間にあるノードのアドレスを記述する。 アドレスの書式は次のいずれかになります:
+* IPv4 ドットdecimal (`192.0.2.1`)
 * IPv6 (`[2001:db8::68]`)
-* IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
-* Domain name (`your.node.com`)
+* IPv4 マップIPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
+* ドメイン名 (`your.node.com`)
 
-**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**ポート** は、TCP を介してピアノードとの接続に使用されます。 Klaytn では、デフォルトの `ポート` は `32323` で、デフォルト `サブポート` は `32324` です。 デフォルトの `サブポート` は `kend.conf` で `ポート + 1` として設定されていることに注意してください。 TCPリスニングポートの数に応じて、Klaytnは2つの [タイプのコネクション](./multiport.md)を提供します。
 
-**discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port. By default, the UDP port, or `discport`, uses the same port with the TCP port. If the node uses a different port for `discport`, it can be specified by the `discport` query parameter.
+**discport** は、既知の隣人が到達可能な klaytn ノードであるかどうかをチェックし、新しい接続のために隣人のアドレスをフェッチするために使われる。 これはUDPポートであることに注意してください。 デフォルトでは、UDP ポートまたは `discport`は、TCP ポートと同じポートを使用します。 ノードが `discport`に別のポートを使用する場合、 `discport` クエリパラメータによって指定することができます。
 
 The following two URLs shows a KNI example of a node having IP address `10.0.0.1` and TCP listening port `32323` and `32324`. If `discport` is omitted, it is set to the UDP port of `32323`, same as the value of `port`.
 ```
-kni://a979...163c@10.0.0.1:32323                 # either single-channel or multi-channel peer with omitted subport
-kni://a979...163c@10.0.0.1:32323?subport=32324   # multi-channel peer
+knif://a979...163c@10.0.0.0.1:32323 # シングルチャネルまたはマルチチャネルのピアが省略されたサブポート
+kn://a979...163c@10.0.0.0.1:32323?subport=32324 # マルチチャネルのピア
 ```
 
-The next two shows KNI examples of nodes having `discport` of `30301`.
+次の 2 つは、 `discport` の `30301` を持つノードの KNI例です。
 ```
-kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-channel or multi-channel peer with omitted subport
-kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
+kni://a979...163c@10.0.0.0.1:32323?discport=30301 # 単一チャンネルまたはマルチチャンネルピアのいずれかを省略したサブポート
+kn://a979...163c@10.0.0.0.1:32323?subport=32324&discport=30301 # multi-channel peer
 ```
 
-If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../../node/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation). The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) and etc.
+ノードのKNIの生成方法を知りたい場合は、 [ノードキー & ノードURI作成](../../node/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation) を参照してください。 The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) and etc.
