@@ -1,239 +1,239 @@
 # Klaytnscope <a id="klaytnscope"></a>
 
-Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
+Klaytnscopeは、Klaytn Networkのブロックエクスプローラです。 Klaytnscopeは、ネットワークの健全性を監視し、Klaytnネットワークのさまざまな統計情報を提供することで、Klaytnネットワークに関する洞察を提供します。 また、ブロックとトランザクションデータ、Klaytnネットワーク上のスマートコントラクトのリストを調べることもできます。
 
-* For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
-* For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
+* Baobabネットワークについては、 [https://baob.scope.klaytn.com](https://baobab.scope.klaytn.com) をご覧ください。
+* メインネットについては、 [https://scope.klaytn.com](https://scope.klaytn.com) を参照してください。
 
 ![](img/scope_01_main.png)
 
-## Major Features <a id="major-features"></a>
+## 主な機能 <a id="major-features"></a>
 
-Please note that some of the features are under development.
+一部の機能は開発中ですのでご注意ください。
 
-* Overview of the network
-* Block search
-* Transaction search
-* Account search
-* Event logs search
-* Block proposer information
+* ネットワークの概要
+* 検索をブロック
+* トランザクション検索
+* アカウント検索
+* イベントログ検索
+* 提案者情報をブロック
 
-In the subsequent sections, we will visit the major functions and screenshots of Klaytnscope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+その後のセクションでは、Klaytnscopeの主要な機能とスクリーンショットをご覧ください。 ダッシュボード、リストビュー、詳細ビュー、検索の4つのカテゴリで関数をグループ化します。
 
-## Dashboard <a id="dashboard"></a>
+## ダッシュボード <a id="dashboard"></a>
 
-Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
+ネットワーク情報はダッシュボードに表示されます。 情報には、平均ブロック生成時間、ブロック内の平均取引数、コンセンサスノード数、およびトランザクションの最新トレンドが含まれます。
 
 ![](img/scope_02_main_indicator.png)
 
-* Block Height: The latest block height. It shows that how many blocks have been generated since the genesis.
-* Network Performance: It shows Klaytn's network performance with four indicators.
-  * Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process.
-  * Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
-  * Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
-  * Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
-* Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+* ブロック高さ: 最新のブロック高さ。 これは、遺伝子から生成されたブロックの数を示しています。
+* ネットワークパフォーマンス: 4つのインジケータでKlaytnのネットワークパフォーマンスを示します。
+  * コンセンサスノード:上の図は、合意プロセスに15ノードが参加していることを示しています。
+  * 平均ブロック時間 \(1時間\): 直近1時間の平均ブロック生成時間を示します。
+  * 平均ブロック時間\(24時間\): 直近24時間の平均ブロック生成時間を示します。
+  * ブロックごとの平均取引数 \(24時間\): 過去24時間にわたって1ブロックに含まれる平均取引数。
+* トランザクション履歴 \(14 日間\): グラフは、過去 14 日間の毎日のトランザクション数を示しています。 過去2週間の取引量でトレンドを確認できます。
 
-### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
+### 最近のブロック & 取引 <a id="recent-blocks-transactions"></a>
 
-These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](klaytnscope.md#list-view).
+これらのリストは、最近作成されたブロックとトランザクションをそれぞれ表示します。 画面の右上隅にある更新ボタンをクリックすると、最新の情報を取得できます。 リストの一番下にある「すべて表示」ボタンをクリックすると、 [リストビュー](klaytnscope.md#list-view)に移動します。
 
 ![](img/scope_03_main_list.png)
 
-### Network Status & Network Selector <a id="network-status-network-selector"></a>
+### ネットワークの状態 & ネットワークの選択 <a id="network-status-network-selector"></a>
 
 ![](img/network_status.gif)
 
-On the upper-right corner of the site, there are network status indicator and the network selector drop down.
+サイトの右上隅には、ネットワークステータスインジケーターとネットワークセレクターのドロップダウンがあります。
 
-* Network Status Indicator
-  * Network is healthy: Klaytnscope is healthy and fully operational. The network status is normal.
-  * Data latency: Klaytnscope is undergoing system maintenance. Data is in a delayed state.
-  * Data accuracy: Klaytnscope is synchronizing data, please wait.
-* Network Selector Drop Down
-  * You can choose Klaytn mainnet and Baobab testnet from the menu.
+* ネットワーク状態インジケーター：
+  * ネットワークは健康的です: Klaytnscopeは健康で完全に動作します。 ネットワークの状態は正常です。
+  * データのレイテンシ: Klaytnscopeはシステムメンテナンス中です。 データは遅延状態です。
+  * データの精度: Klaytnscope はデータを同期しています。お待ちください。
+* ネットワークセレクターのドロップ ダウン
+  * メニューからKlaytn mainnetとBaobab testnetを選択できます。
 
-## List View <a id="list-view"></a>
+## 一覧表示 <a id="list-view"></a>
 
-If you want to get a closer look at the status of the Klaytn network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+Klaytnネットワークの状況を詳しく確認したい場合。 最近生成されたブロックとトランザクションのリストを確認できます。 リストページにアクセスするには、画面の左側にあるナビゲーションバーのボタンをクリックします。
 
-### Blocks <a id="blocks"></a>
+### ブロック <a id="blocks"></a>
 
 ![](img/scope_04_block_list.png)
 
-A list of recently generated blocks. To update the information, please click the refresh.
+最近生成されたブロックのリスト。 情報を更新するには、更新をクリックしてください。
 
-* Block: The unique number of the block. Starting from zero \(the genesis block\), it is given sequentially each time a block is generated.
-* Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
-* Total TXs: The total number of transactions included in the block.
-* Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-* Reward: Aggregation of newly minted KLAY \(6.4 KLAY\) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy][].
-* Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
+* ブロック: ブロックの一意の数。 0 \(genesis block\) から始まり、ブロックが生成されるたびに順番に与えられます。
+* 時間: ブロックが生成されてからの時間。 これにカーソルを合わせると、正確な日時を確認できます。
+* Total TXs: ブロックに含まれるトランザクションの合計数。
+* ブロック提案:ブロックを提案したコンセンサスノードをランダムで決定的に選択しました。 アドレスをクリックすると、簡単に詳細ページに移動できます。
+* 報酬: 新しく鋳造された KLAY\(6.4 KLAY\' の集計とブロックで使用された取引手数料。 このリストには、Klaytn Governance Council Reward、Proof Contribution、Klaytn Improvement Reserveの合計のみが表示されます。 ブロックの詳細ページのブロック報酬セクションにカーソルを合わせると、詳細な情報が表示されます。 ブロック報酬分配システムの詳細は、 [Klaytn Token Economy][] を参照してください。
+* サイズ: バイト単位で測定されたブロックのサイズ。 トランザクションが多いほど、ブロックサイズが大きくなります。
 
-### Transactions <a id="transactions"></a>
+### 取引 <a id="transactions"></a>
 
 ![](img/scope_05_tx_list.png)
 
-A list of recently executed transactions. To update the information, please click the refresh.
+最近実行されたトランザクションのリスト。 情報を更新するには、更新をクリックしてください。
 
-* TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-* Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
-* Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
-* From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-* TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions][].
-* Amount: The amount of value transferred through the transaction.
-* TX Fee: The actual cost used to process transaction.
+* TX ハッシュ : トランザクションの一意の識別子 詳細については、ハッシュをクリックして詳細ページに移動します。 トランザクションに失敗すると、その隣に赤い感嘆符が表示されます。
+* Block \#: このトランザクションを含むブロックの数。 数字をクリックすると、ブロックの詳細ページに移動します。
+* 時間: トランザクションが実行されてからの期間。 これにカーソルを合わせると、正確な日時を確認できます。
+* From -&gt; To: The addresses of sender and receiver. アドレスをクリックすると、簡単に詳細ページに移動できます。 ファイルアイコンがアドレスの横に表示されている場合、アドレスがコントラクトであることを意味します。
+* TX の種類: トランザクションのタイプ。 特定のタイプのトランザクションを取得するためにフィルターを適用できます。 詳細については、 [トランザクション][] をご覧ください。
+* 金額: トランザクションを通じて転送される値の量。
+* TX手数料: トランザクションの処理に使用される実際のコスト。
 
-## Detail View <a id="detail-view"></a>
+## 詳細表示 <a id="detail-view"></a>
 
-Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
+ブロック、取引、アカウント、契約に関する詳細は、このページをご覧ください。 詳細ビューに移動するには、検索バーからエンティティを検索するか、リストビューから項目をクリックします。
 
-### Block <a id="block"></a>
+### ブロック <a id="block"></a>
 
 ![](img/scope_08_block_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概要 <a id="overview"></a>
 
-Overall information about the block.
+ブロックの全体的な情報。
 
-* Time: Elapsed time since the block generation. Exact datetime is also displayed next to it.
-* Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
-* Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
-* Total TXs: The total number of transactions included in the block.
-* Block Reward: Aggregation of the newly minted KLAY \(6.4 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy][].
-* Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
+* 時間: ブロック生成からの経過時間 その隣には正確なdatetimeも表示されます。
+* ハッシュ: ブロックの一意の識別子。 コピーボタンを押すと簡単にハッシュをコピーできます。
+* 親ハッシュ: 前のブロックの一意の識別子。 ハッシュをクリックすると、親ハッシュの詳細ビューが表示されます。
+* Total TXs: ブロックに含まれるトランザクションの合計数。
+* ブロック報酬: 新しく鋳造された KLAY\(6.4 KLAY\' の集計と、ブロック内に集められた取引手数料。 ホバリングすると、Klaytn Governance Council Reward、Proof Contribution and Klaytn Improvement Reserveの詳細情報が表示されます。 ブロック報酬分配システムの詳細については、 [Klaytn Token Economy][] を参照してください。
+* ブロックサイズ:バイト単位で測定されたブロックサイズ。 トランザクションが多いほど、ブロックサイズが大きくなります。
 
-#### Committee <a id="committee"></a>
+#### 委員会 <a id="committee"></a>
 
-List of consensus nodes that proposed and validated the block.
+ブロックを提案し、検証したコンセンサスノードのリスト。
 
-* Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
-* Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
+* Block Proposer: ブロックを提案したコンセンサスノードをランダムで決定的に選択しました。 アドレスをクリックすると、ノードの詳細ビューに簡単に移動できます。
+* Validators: ブロックを検証したコンセンサスノード。 アドレスをクリックすると、ノードの詳細ビューに簡単に移動できます。
 
-#### Transactions <a id="transactions"></a>
+#### 取引 <a id="transactions"></a>
 
-List of transactions included in the block.
+ブロックに含まれるトランザクションのリストです。
 
-### Transaction <a id="transaction"></a>
+### 取引 <a id="transaction"></a>
 
 ![](img/scope_09_tx_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概要 <a id="overview"></a>
 
-Overall information about the transaction.
+トランザクションに関する全体的な情報。
 
-* Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
-* TX Type: Type of the transaction. For more information, please see [Transactions][].
-* Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
-* From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
-* Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
-* Time: Elapsed time since the transaction was executed.
-* Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
-* Amount: The amount of value transferred in this transaction.
-* Gas Price: Cost per gas measured in KLAY. In Klaytn network, Gas Price is fixed.
-* Gas Used: Exact gas that was used to execute the transaction.
-* Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
-* TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
-* TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
-* TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
+* ステータスインジケータ:右上隅にあります。 トランザクションが成功したかどうかを示します。
+* TX の種類: トランザクションのタイプ。 詳細については、 [トランザクション][] を参照してください。
+* Block \#: このトランザクションを含むブロックの数。 数字をクリックすると、ブロックの詳細ビューに移動します。
+* From -&gt; To: The addresses of sender and receiver. アドレスをクリックすると、アカウントの詳細ビューに移動できます。 アドレスの横にファイルアイコンが表示されている場合は、アドレスがコントラクトであることを意味します。
+* 手数料支払者:TXタイプが手数料委任または手数料比率委任のいずれかの場合に表示されます。 手数料支払者のアドレスをクリックすると、アカウントの詳細ビューに移動できます。
+* 時間: トランザクションが実行されてからの経過時間
+* format@@0: 送信者のアドレスから送信されたトランザクションの番号。 ゼロから開始すると、トランザクションが送信されるたびに順次増加します。
+* 金額: このトランザクションで転送される値の量。
+* ガス価格:KLAYで測定されたガス当たりのコスト。 Klaytnネットワークでは、ガス価格が固定されています。
+* 使用ガス:トランザクションの実行に使用された正確なガス。
+* ガス制限:送信者がこの取引に支払う意思がある最大ガス。
+* TX手数料: トランザクションの処理に使用される実際のコスト。 ガス価格をガス使用量で掛け算して計算します。
+* 送信者によるTX手数料:TXタイプが手数料比率で委任された場合に表示されます。 送信者が支払うTX手数料の一部。
+* 手数料別TX手数料 支払者:TXタイプが手数料で委任された場合に表示されます。 手数料支払者によって支払われるTX手数料の部分。
 
 #### Input Data <a id="input-data"></a>
 
-Extra data provided by the sender or contract.
+送信者またはコントラクトによって提供される追加データ。
 
-### Account <a id="account"></a>
+### アカウント <a id="account"></a>
 
 ![](img/scope_10_account_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概要 <a id="overview"></a>
 
-Overall information about the account.
+アカウントの全体的な情報。
 
-* Address \(Hex\): The unique address of the account.
-* Balance: The total amount of KLAY that this account has.
-* Total TXs: The total number of transactions that this account sent or received.
-* HRA: It informs whether this account type is HRA or not. \(TBD\)
+* アドレス \(Hex\): アカウントの固有のアドレス。
+* 残高: この口座が持つKLAYの合計金額。
+* Total TXs: このアカウントが送受信した取引の合計数。
+* HRA: このアカウントの種類がHRAかどうかを通知します。 \(TBD\)
 
-#### Transactions <a id="transactions"></a>
+#### 取引 <a id="transactions"></a>
 
-The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
+このアカウントに関連する取引のリスト。 矢印の色は、アカウントが送信者または受信者であるかどうかを示します。
 
-### Contract <a id="contract"></a>
+### 契約 <a id="contract"></a>
 
 ![](img/scope_11_contract_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概要 <a id="overview"></a>
 
-Overall information about the contract.
+契約に関する全体的な情報。
 
-* Account \(Hex\): The unique address of the contract.
-* Balance: The total amount of KLAY that this contract has.
-* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
-* Total TXs: The total number of transactions that this contract received.
-* Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-* HRA: It informs whether the contract account type is HRA or not. \(TBD\)
+* アカウント \(Hex\): コントラクトの固有のアドレス。
+* バランス: このコントラクトが持つKLAYの合計金額。
+* Contract Creator: この契約をデプロイしたアカウント。 アドレスをクリックすると、アカウントの詳細ビューに移動できます。
+* Total TXs: この契約が受領した取引の合計数。
+* コントラクト作成TX: このコントラクトをデプロイしたトランザクション。 ハッシュをクリックすると、トランザクションの詳細ビューに移動します。
+* HRA: 口座タイプがHRAかどうかを通知します。 \(TBD\)
 
-#### Transactions <a id="transactions"></a>
+#### 取引 <a id="transactions"></a>
 
-The list of transactions related to this contract.
+この契約に関連する取引のリスト。
 
-## Search <a id="search"></a>
+## 検索 <a id="search"></a>
 
-Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+Klaytnscopeを通じて、口座、契約、取引、ブロックに関する情報を検索できます。 検索バーはすべてのページに配置され、簡単にアクセスできます。 有効なキーワードを入力すると、エンティティの詳細ビューに移動します。
 
 ![](img/scope_06_search.png)
 
-### Search Keyword <a id="search-keyword"></a>
+### キーワードを検索 <a id="search-keyword"></a>
 
-In the mainnet version, searchable keywords are as follows:
+メインネット版では、検索可能なキーワードは以下のとおりです。
 
-* Block \#
-* TX Hash
-* Address \(Account, Contract\)
+* ブロック \#
+* TXハッシュ
+* アドレス \(アカウント、契約者)
 * Human Readable Address \(.klaytn\) \(TBD\)
 
 ### Keyword Format <a id="keyword-format"></a>
 
-The unique characteristics that distinguish each keyword are as follows:
+それぞれのキーワードを区別する固有の特性は以下の通りです。
 
-#### Block <a id="block"></a>
+#### ブロック <a id="block"></a>
 
-* Decimal numbers only \[0~9\]
+* 小数点のみ \[0~9\]
 
-#### TX Hash <a id="tx-hash"></a>
+#### TXハッシュ <a id="tx-hash"></a>
 
-* 66 characters long
-* Starts with a prefix `0x`
-* Hexadecimal number only \[0~9, a~f\]
+* 66文字以上
+* プレフィックス `0x`で開始
+* 16進数のみ \[0~9, a~f\]
 
-#### Address <a id="address"></a>
+#### 住所 <a id="address"></a>
 
-* 42 characters long
-* Start with a prefix `0x`
-* Hexadecimal number only \[0~9, a~f\]
+* 42文字以上
+* プレフィックス `0x`で開始
+* 16進数のみ \[0~9, a~f\]
 
 #### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
 
-* 12~20 characters long
-* Ends in `.klaytn`
+* 12〜20文字以上
+* `.klaytn` で終了
 
-### Search Errors <a id="search-errors"></a>
+### 検索エラー <a id="search-errors"></a>
 
 ![](img/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+指定された形式に合致しないキーワードや情報がまだ生成されていないキーワードを検索すると、結果ページは表示されません。
 
-#### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
+#### 間違ったフォーマット \(TXハッシュ/アドレス\) <a id="wrong-format-tx-hash-address"></a>
 
-* Wrong number of characters
-* Doesn't start with a prefix `0x`
-* Contains special characters or non-hexadecimal characters \[g~z\]
+* 不正な文字数
+* プレフィックス `0x`で始まりません
+* 特殊文字または16進数でない文字 \[g~z\] が含まれています
 
-#### Doesn't Exist <a id="doesn-t-exist"></a>
+#### 存在しない <a id="doesn-t-exist"></a>
 
-* Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
+* ブロックはまだ生成されていません \（入力されたブロック番号が最近生成されたブロック番号よりも高い場合）
 * Non-existent TX Hash
 
 
-[Transactions]: ../klaytn/design/transactions/README.md
+[トランザクション]: ../klaytn/design/transactions/README.md
 [Klaytn Token Economy]: ../klaytn/design/token-economy.md
