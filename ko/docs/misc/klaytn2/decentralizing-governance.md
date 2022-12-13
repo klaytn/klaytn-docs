@@ -1,4 +1,4 @@
-# Decentralizing Governance
+# 거버넌스 탈중앙화
 
 ## 안정적인 탈중앙화를 위한 특별한 거버넌스 구조
 
