@@ -1,32 +1,32 @@
-# Frequently used Klaytn Command <a id="klaytn-command"></a>
+# よく使われるKlaytnコマンド <a id="klaytn-command"></a>
 
 
 
-## How to find the Klaytn Directory (Normally “Klaytn DIR”)
+## Klaytn Directoryの検索方法 (通常は「Klaytn DIR」)
 
 ---
-You can check Klaytn directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
+Klaytn ディレクトリは `kcn` または `kpn` の設定で確認できます。 Config ファイルは `/etc/kcnd/conf` または `/etc/kpnd/conf` の下にあります。
 
 ```bash
-cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
+cat /etc/kcnd/conf/kcnd.conf (または /etc/kpnd/conf/kpnd.conf)
 
-# Find DATA_DIR and LOG_DIR path as below example
-DATA_DIR=/var/kcnd/data/
+# 以下の例として、DATA_DIRとLOG_DIRのパスを見つける
+DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## How to connect to Klaytn Console
+## Klaytn コンソールに接続する方法
 
 ---
-Connect to Klaytn API to check node and network status.
+ノードとネットワークの状態を確認するには、Klaytn APIに接続してください。
 
 ```bash
-# execute the command below in the Klaytn DATA_DIR Path
+# 以下のコマンドを Klaytn DATA_DIR パスで実行
 $ sudo kcn attach klay.ipc
 > 
 ```
 
-## Useful APIs
+## 便利な API
 
 ```bash
 # Check current block Number
@@ -46,7 +46,7 @@ $ sudo kcn attach klay.ipc
   > admin.removePeer("kni")
 ```
 
-## How to get the API Result only
+## API 結果のみを取得する方法
 
 ```jsx
 # execute the command below in the Klaytn DATA_DIR Path
