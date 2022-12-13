@@ -10,7 +10,7 @@ caver.rpc.net.getNetworkId([callback])
 
 Returns the network identifier (network ID) of the Klaytn Node.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ caver.rpc.net.isListening([callback])
 
 Returns `true` if the Klaytn Node is actively listening for network connections.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -70,7 +70,7 @@ caver.rpc.net.getPeerCount([callback])
 
 Returns the number of peers currently connected to the Klaytn Node.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -100,7 +100,7 @@ caver.rpc.net.getPeerCountByType([callback])
 
 유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
