@@ -6,7 +6,7 @@ Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서�
 
 TxTypeLegacyTransaction은 Klaytn에 있는 기존 트랜잭션 타입입니다. 이 트랜잭션 타입은 호환을 위해 존재합니다. 더 자세한 정보는 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction)을 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름    | 타입            | 설명                                                                                                                         |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 TxTypeValueTransfer는 사용자가 KLAY를 전송할 때 사용됩니다. 더 자세한 정보는 [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                                                                                                         |
 | ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -100,7 +100,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransfer입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -167,7 +167,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransfer입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -236,7 +236,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 KLAY를 보내려고 할 때 사용됩니다. 더 자세한 정보는 [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                                                                                                         |
 | ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -289,7 +289,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransferMemo입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferMemo](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -359,7 +359,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransferMemo입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -430,7 +430,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 더 자세한 정보는 [TxTypeAccountUpdate](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                                                                                                              |
 | ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -479,7 +479,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 트랜잭션 수수료 위임 개념을 도입한 TxTypeAccountUpdate입니다. 더 자세한 정보는 [TxTypeFeeDelegatedAccountUpdate](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)를 참고하십시오.
 
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -545,7 +545,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeAccountUpdate입니다. 더 자세한 정보는 [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)를 참고하십시오.
 
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -612,7 +612,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeSmartContractDeploy는 지정된 주소에 스마트 컨트랙트를 배포합니다. 더 자세한 정보는 [TxTypeSmartContractDeploy](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입            | 설명                                                                                                                            |
 | ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -669,7 +669,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractDeploy입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractDeploy](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy)를 참고하시기 바랍니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입            | 설명                                                                                                                                                                                |
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -743,7 +743,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractDeploy입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)를 참고하시기 바랍니다.
 
-**Parameters**
+**파라미터**
 
 | 이름            | 타입            | 설명                                                                                                                                                                                |
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -819,7 +819,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`에 입력된 데이터를 이용합니다. 더 자세한 정보는 [TxTypeSmartContractExecution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution)을 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                                                                                                         |
 | ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -872,7 +872,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractExecution입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution)을 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -942,7 +942,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractExecution입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)을 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1014,7 +1014,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 더 자세한 내용은 [TxTypeCancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel)을 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                                                                                                         |
 | ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -1061,7 +1061,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeCancel입니다. 더 자세한 정보는 [TxTypeFeeDelegatedCancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1125,7 +1125,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeCancel입니다. 더 자세한 정보는 [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)를 참고하십시오.
 
-**Parameters**
+**파라미터**
 
 | 이름       | 타입            | 설명                                                                                                                                                                                |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
