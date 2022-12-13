@@ -1,26 +1,26 @@
 # Startup the CN <a id="startup-the-cn"></a>
 
-## CN Start/Stop  <a id="cn-start-stop"></a>
+## CN 開始/停止  <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+以下の `systemctl` コマンドで Klaytn サービスを開始/停止できます。
 
-**Note**: This requires root privileges.
+**メモ**: root 権限が必要です。
 
-**start**
+**開始**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-**stop**
+**停止する**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**ステータス**
 
 ```bash
 $ systemctl status kcnd.service
@@ -29,13 +29,13 @@ $ systemctl status kcnd.service
 
 ## Troubleshooting <a id="troubleshooting"></a>
 
-If you meet the following error,
+次のエラーに遭遇した場合
 
 ```bash
-Failed to start kcnd.service: Unit not found.
+kcnd.service: ユニットが見つかりません。
 ```
 
-reload the systemd manager configuration with the following command.
+systemdマネージャの設定を以下のコマンドで再読み込みしてください。
 
 ```bash
 $ systemctl daemon-reload
