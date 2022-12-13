@@ -1,14 +1,14 @@
 ---
 description: >-
-  APIs used to inspect and debug node state and blockchain data at run time.
+  実行時にノード状態とブロックチェーンデータを検査およびデバッグするために使用されるAPI。
 ---
 
-# Namespace debug <a id="namespace-debug"></a>
+# ネームスペースのデバッグ <a id="namespace-debug"></a>
 
-The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
+名前空間 `debug` を使用すると、いくつかの非標準RPCメソッドにアクセスできます。 実行時に特定のデバッグフラグを検査、デバッグ、設定できます。
 
 
-## [Logging](./debug/logging.md) <a id="logging"></a>
+## [ログ記録](./debug/logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
@@ -34,14 +34,14 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_writeMutexProfile](./debug/profile.md#debug_writemutexprofile)
 
 
-## [Runtime Tracing](./debug/go_trace.md) <a id="runtime-tracing"></a>
+## [ランタイムトレース](./debug/go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./debug/go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./debug/go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./debug/go_trace.md#debug_stopgotrace)
 
 
-## [Runtime Debugging](./debug/runtime.md) <a id="runtime-debugging"></a>
+## [ランタイムデバッグ](./debug/runtime.md) <a id="runtime-debugging"></a>
 
 - [debug_freeOSMemory](./debug/runtime.md#debug_freeosmemory)
 - [debug_gcStats](./debug/runtime.md#debug_gcstats)
@@ -51,7 +51,7 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_stacks](./debug/runtime.md#debug_stacks)
 
 
-## [VM Tracing](./debug/tracing.md) <a id="vm-tracing"></a>
+## [VM トレース](./debug/tracing.md) <a id="vm-tracing"></a>
 
 - [debug_traceBadBlock](./debug/tracing.md#debug_tracebadblock)
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
@@ -61,18 +61,18 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
-- [Tracing Options](./debug/tracing.md#tracing-options)
-- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
+- [トレースオプション](./debug/tracing.md#tracing-options)
+- [JavaScript ベースのトレース](./debug/tracing.md#javascript-based-tracing)
 
 
-## [VM Standard Tracing](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
+## [VM の標準トレース](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
+- [標準トレーシングオプション](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [Blockchain Inspection](./debug/blockchain.md) <a id="blockchain-inspection"></a>
+## [ブロックチェーン検査](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_dumpStateTrie](./debug/blockchain.md#debug_dumpstatetrie)
