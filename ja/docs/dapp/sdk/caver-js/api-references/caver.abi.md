@@ -1,6 +1,6 @@
 # caver.abi <a id="caver-abi"></a>
 
-The `caver.abi` package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
+`caver.abi` パッケージでは、パラメータを ABI (Application Binary Interface) でデコードおよびエンコードできます。 これはデプロイされたスマートコントラクトの関数を呼び出すために使用されます。
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -8,21 +8,21 @@ The `caver.abi` package allows you to decode and encode parameters with an ABI (
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including parameter types.
+関数署名を ABI 署名にエンコードします。これは、パラメータ型を含む関数名の sha3 ハッシュの最初の 4 バイトです。
 
-**Parameters**
+**パラメータ**
 
-| Name              | Type                 | Description                                                                                                                                                                                                |
-| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | string &#124; object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| 名前         | タイプ               | Description                                                                                                                                    |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| function署名 | 文字列 &#124; オブジェクト | エンコードする関数の関数シグネチャまたは JSON インターフェイスオブジェクト。 これが文字列の場合、 `function(type, type,...)`の形式でなければなりません。例えば: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
-| string | The ABI signature of the function. |
+| タイプ | Description |
+| --- | ----------- |
+| 文字列 | 関数の ABI 署名。 |
 
-**Examples**
+**例**
 
 ```javascript
 // From a JSON interface object
@@ -50,21 +50,21 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input parameter types.
+イベント署名を ABI 署名にエンコードします。これは、input パラメータ型を含むイベント名の sha3 ハッシュです。
 
-**Parameters**
+**パラメータ**
 
-| Name           | Type                 | Description                                                                                                                                                                                   |
-| -------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | string &#124; object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| 名前      | タイプ               | Description                                                                                                                              |
+| ------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| event署名 | 文字列 &#124; オブジェクト | エンコードするイベントのイベント署名または JSON インターフェイスオブジェクト。 これが文字列の場合、 `event(type,type,...)`の形式でなければなりません。例えば: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| string | The ABI signature of the event. |
+| タイプ | Description |
+| --- | ----------- |
+| 文字列 | イベントのABI署名。 |
 
-**Examples**
+**例**
 
 ```javascript
 // From a JSON interface object
@@ -92,24 +92,24 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 caver.abi.encodeParameter(type, parameter)
 ```
 
-Encodes a parameter based on its type to its ABI representation.
+ABI 表現にそのタイプに基づいてパラメータをエンコードします。
 
-**Parameters**
+**パラメータ**
 
-| Name      | Type                 | Description                                                                                                                             |
-| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | string &#124; object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
-| parameter | Mixed                | The actual parameter to encode.                                                                                                         |
+| 名前    | タイプ               | Description                                                                                     |
+| ----- | ----------------- | ----------------------------------------------------------------------------------------------- |
+| タイプ   | 文字列 &#124; オブジェクト | 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html)  を参照してください。 |
+| パラメータ | 混在しました            | エンコードする実際のパラメータ。                                                                                |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `タプル` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `タプル` 型についての詳細は、 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                |
-| ------ | -------------------------- |
-| string | The ABI encoded parameter. |
+| タイプ | Description        |
+| --- | ------------------ |
+| 文字列 | ABI エンコードされたパラメータ。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.encodeParameter('uint256', '2345675643')
@@ -138,30 +138,30 @@ Encodes a parameter based on its type to its ABI representation.
 '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001'
 ```
 
-## encodeParameters <a id="encodeparameters"></a>
+## エンコードパラメータ <a id="encodeparameters"></a>
 
 ```javascript
 caver.abi.encodeParameters(typesArray, parameters)
 ```
 
-Encodes function parameters based on its JSON interface object.
+JSON インターフェイスオブジェクトに基づいて関数パラメータをエンコードします。
 
-**Parameters**
+**パラメータ**
 
-| Name       | Type                | Description                                                                                                                                                        |
-| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array &#124; object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| parameters | Array               | The parameters to encode.                                                                                                                                          |
+| 名前         | タイプ              | Description                                                                                                              |
+| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | 配列 &#124; オブジェクト | 関数の型またはJSONインターフェイスを持つ配列。 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
+| パラメータ      | 行列               | エンコードするパラメータ                                                                                                             |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `タプル` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `タプル` 型についての詳細は、 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                 |
-| ------ | --------------------------- |
-| string | The ABI encoded parameters. |
+| タイプ | Description        |
+| --- | ------------------ |
+| 文字列 | ABI エンコードされたパラメータ。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.encodeParameters(['uint256','string'], ['2345675643', 'Hello!%'])
@@ -206,22 +206,22 @@ Encodes function parameters based on its JSON interface object.
 caver.abi.encodeFunctionCall(jsonInterface, parameters)
 ```
 
-Encodes a function call using its JSON interface object and given parameters.
+JSONインターフェースオブジェクトと与えられたパラメータを使用して関数呼び出しをエンコードします。
 
-**Parameters**
+**パラメータ**
 
-| Name          | Type   | Description                              |
-| ------------- | ------ | ---------------------------------------- |
-| jsonInterface | object | The JSON interface object of a function. |
-| parameters    | Array  | The parameters to encode.                |
+| 名前            | タイプ    | Description              |
+| ------------- | ------ | ------------------------ |
+| jsonInterface | object | 関数の JSON インターフェイスオブジェクト。 |
+| パラメータ         | 行列     | エンコードするパラメータ             |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                 |
-| ------ | --------------------------------------------------------------------------- |
-| string | The ABI encoded function call, which means function signature + parameters. |
+| タイプ | Description                                 |
+| --- | ------------------------------------------- |
+| 文字列 | ABI エンコードされた関数呼び出し。これは、関数シグネチャとパラメータを意味します。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.encodeFunctionCall({
@@ -235,7 +235,7 @@ Encodes a function call using its JSON interface object and given parameters.
         name: 'mystring'
     }]
 }, ['2345675643', 'Hello!%'])
-'0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000'
+'0x24ee009700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000748656c6c6f2125000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 ```
 
 ## decodeFunctionCall <a id="decodefunctioncall"></a>
@@ -244,24 +244,24 @@ Encodes a function call using its JSON interface object and given parameters.
 caver.abi.decodeFunctionCall(abi, functionCall)
 ```
 
-Decodes a function call from its abi object of a function or function abi string and returns parameters.
+関数または関数 abi 文字列の abi オブジェクトから関数呼び出しをデコードし、パラメータを返します。
 
-**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.abi.decodeFunctionCall` は、caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) からサポートされています。
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type   | Description                       |
-| ------------ | ------ | --------------------------------- |
-| abi          | object | The abi object of a function.     |
-| functionCall | string | The encoded function call string. |
+| 名前   | タイプ    | Description         |
+| ---- | ------ | ------------------- |
+| abi  | object | 関数のabiオブジェクト。       |
+| 関数通話 | 文字列    | エンコードされた関数の呼び出し文字列。 |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                                                                   |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+| タイプ    | Description                                                             |
+| ------ | ----------------------------------------------------------------------- |
+| object | プレーンなパラメータを含むオブジェクト。 `結果[0]` は、パラメータの順序で配列のようにアクセスするために提供されているため使用できます。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.decodeFunctionCall({
@@ -290,31 +290,31 @@ Result {
 caver.abi.decodeParameter(type, hexstring)
 ```
 
-Decodes an ABI encoded parameter to its JavaScript type.
+ABI エンコードされたパラメータを JavaScript 型にデコードします。
 
-**Parameters**
+**パラメータ**
 
-| Name      | Type               | Description                                                                                                                            |
-| --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | string&#124;object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring | Array              | The ABI byte code to decode.                                                                                                           |
+| 名前        | タイプ             | Description                                                                                    |
+| --------- | --------------- | ---------------------------------------------------------------------------------------------- |
+| タイプ       | 文字列&#124;オブジェクト | 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
+| hexstring | 行列              | デコードするABIバイトコード。                                                                               |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `タプル` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `タプル` 型についての詳細は、 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type  | Description            |
-| ----- | ---------------------- |
-| Mixed | The decoded parameter. |
+| タイプ    | Description   |
+| ------ | ------------- |
+| 混在しました | デコードされたパラメータ。 |
 
-**Examples**
+**例**
 
 ```javascript
-> caver.abi.decodeParameter('uint256', '0x0000000000000000000000000000000000000000000000000000000000000010')
+> caver.abi.decodeParameter('uint256', '0x00000000000000000000000000000000000000000000000000000000000010')
 '16'
 
-> caver.abi.decodeParameter('string', '0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
-'Hello!%!'
+> caver.abi.decodeParameter('string', '0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000')
+'Hello!%')
 
 > caver.abi.decodeParameter('tuple(bytes32,bool)', '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001')
 [ '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true ]
@@ -341,23 +341,23 @@ Decodes an ABI encoded parameter to its JavaScript type.
 caver.abi.decodeParameters(typesArray, hexstring)
 ```
 
-Decodes ABI encoded parameters to its JavaScript types.
+ABI エンコードされたパラメータを JavaScript 型にデコードします。
 
-**Parameters**
-| Name       | Type                | Description                                                                                                                                                            |
-| ---------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array &#124; object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring  | string              | The ABI byte code to decode.                                                                                                                                           |
+**パラメータ**
+| 名前         | タイプ              | Description                                                                                                                     |
+| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | 配列 &#124; オブジェクト | 型またはJSONインターフェースの配列を持つ配列が出力されます。 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
+| hexstring  | 文字列              | デコードするABIバイトコード。                                                                                                                |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `タプル` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `タプル` 型についての詳細は、 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| object | The result object containing the decoded parameters. |
+| タイプ    | Description              |
+| ------ | ------------------------ |
+| object | デコードされたパラメータを含む結果オブジェクト。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.decodeParameters(['string', 'uint256'], '0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000ea000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
@@ -435,22 +435,22 @@ Result {
 caver.abi.decodeLog(inputs, hexstring, topics)
 ```
 
-Decodes ABI encoded log data and indexed topic data.
+ABI エンコードされたログ データとインデックス付きトピックデータをデコードします。
 
-**Parameters**
-| Name      | Type   | Description                                                                                                                                        |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | Array  | An array of JSON interface inputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types.     |
-| hexstring | string | The ABI byte code in the `data` field of a log.                                                                                                    |
-| topics    | Array  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
+**パラメータ**
+| 名前        | タイプ | Description                                                                                                        |
+| --------- | --- | ------------------------------------------------------------------------------------------------------------------ |
+| inputs    | 行列  | JSON インターフェイス入力の配列。 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
+| hexstring | 文字列 | ログの `データ` フィールドのABIバイトコード。                                                                                         |
+| トピック      | 行列  | ログのインデックスパラメータトピックの配列。 この配列は、非匿名のイベントである場合、トピック[0] がありません。または、それ以外の場合、トピック[0] です。                                  |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                    |
-| ------ | ---------------------------------------------- |
-| object | The result object containing the decoded logs. |
+| タイプ    | Description           |
+| ------ | --------------------- |
+| object | デコードされたログを含む結果オブジェクト。 |
 
-**Examples**
+**例**
 
 ```javascript
 > caver.abi.decodeLog([{
@@ -483,22 +483,22 @@ Result {
 caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 ```
 
-Encodes smart contract bytecode with the arguments of the constructor.
+コンストラクタの引数でスマートコントラクトバイトコードをエンコードします。
 
-**Parameters**
-| Name          | Type   | Description                                      |
-| ------------- | ------ | ------------------------------------------------ |
-| jsonInterface | Array  | The JSON interface of the contract.              |
-| hexstring     | string | A bytecode of smart contract to be deployed.     |
-| params        | Mixed  | (optional) Arguments to pass to the constructor. |
+**パラメータ**
+| 名前            | タイプ    | Description               |
+| ------------- | ------ | ------------------------- |
+| jsonInterface | 行列     | コントラクトの JSON インターフェイス。    |
+| hexstring     | 文字列    | デプロイされるスマートコントラクトのバイトコード。 |
+| params        | 混在しました | (オプション) コンストラクタに渡す引数。     |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                                                              |
-| ------ | -------------------------------------------------------------------------------------------------------- |
-| string | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
+| タイプ | Description                                                            |
+| --- | ---------------------------------------------------------------------- |
+| 文字列 | コンストラクタ引数を使用した ABI エンコードされたスマートコントラクトのデプロイメントは、byteCode + パラメータを意味します。 |
 
-**Examples**
+**例**
 
 ```javascript
 // There is no argument for constructor
