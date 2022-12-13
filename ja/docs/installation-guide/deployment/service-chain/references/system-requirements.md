@@ -1,7 +1,7 @@
-# System Requirements <a id="system-requirements"></a>
+# システム要件 <a id="system-requirements"></a>
 
-The system requirements depend on the performance your need. For the commercial use, you can refer to the recommended specifications of the Endpoint Node and the Core Cell.
+システム要件は、必要なパフォーマンスによって異なります。 商用利用については、Endpoint NodeとCore Cellの推奨仕様を参照してください。
 
-- [Endpoint Node System Requirements](../../endpoint-node/system-requirements.md)
-- [Core Cell System Requirements](../../core-cell/system-requirements.md)
+- [エンドポイントノードシステム要件](../../endpoint-node/system-requirements.md)
+- [コアセルシステム要件](../../core-cell/system-requirements.md)
 
