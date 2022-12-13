@@ -1,25 +1,25 @@
-# Logging <a id="logging"></a>
+# ログ <a id="logging"></a>
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
-Sets the logging backtrace location. When a backtrace location is set and a log message is emitted at that location, the stack of the goroutine executing the log statement will be printed to `stderr`.
+ロギングバックトレースの場所を設定します。 When a backtrace location is set and a log message is emitted at that location, the stack of the goroutine executing the log statement will be printed to `stderr`.
 
-| Client  | Method Invocation                                     |
-|:-------:| ----------------------------------------------------- |
-| Console | `debug.backtraceAt(location)`                         |
-|   RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
+| クライアント | メソッドの呼び出し                                             |
+|:------:| ----------------------------------------------------- |
+| コンソール  | `debug.backtraceAt(location)`                         |
+|  RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                  |
-| -------- | ------ | ---------------------------------------------------------------------------- |
-| location | string | The logging backtrace location specified as `<filename>:<line>`. |
+| 名前 | タイプ | Description                                             |
+| -- | --- | ------------------------------------------------------- |
+| 場所 | 文字列 | `<filename>:<line>` として指定されたロギングバックトレースの場所。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
 ``` javascript
 > debug.backtraceAt("server.go:443")
@@ -29,35 +29,35 @@ null
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_backtraceAt","params":["server.go:443"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_backtraceAt","params":["server.go:443"],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
 ## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
-Sets the output target of vmlog precompiled contract.  When the output target is a file, logs from `vmlog` calls in smart contracts will be written to `DATADIR/log/vm.log`.  Here `DATADIR` is the directory specified by `--datadir` when launching `klay`.  On the other hand, the output target is `stdout`, logs will be displayed like a debug message on the standard output.
+vmlog プリコンパイル済みコントラクトの出力ターゲットを設定します。  When the output target is a file, logs from `vmlog` calls in smart contracts will be written to `DATADIR/log/vm.log`.  ここで `DATADIR` は、 `--datadir` で `klay` を起動するときに指定されたディレクトリです。  一方、出力ターゲットは `stdout`であり、logs は標準出力のデバッグメッセージのように表示されます。
 
-| Client  | Method Invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `debug.setVMLogTarget(target)`                           |
-|   RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
+| クライアント | メソッドの呼び出し                                                |
+|:------:| -------------------------------------------------------- |
+| コンソール  | `debug.setVMLogTarget(target)`                           |
+|  RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name   | Type | Description                                                                |
-| ------ | ---- | -------------------------------------------------------------------------- |
-| target | int  | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
+| 名前     | タイプ | Description                                                                |
+| ------ | --- | -------------------------------------------------------------------------- |
+| target | int | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
 
-**Return Value**
+**戻り値**
 
-| Type   | Description                                                              |
-| ------ | ------------------------------------------------------------------------ |
-| string | The output target.  See the examples below for the actual return values. |
+| タイプ | Description                                   |
+| --- | --------------------------------------------- |
+| 文字列 | The output target.  実際の戻り値については以下の例を参照してください。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.setVMLogTarget(0)
 "no output"
@@ -81,36 +81,36 @@ Error: target should be between 0 and 3
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setVMLogTarget","params":[3],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"both file and stdout"}
+{"jsonrpc":"2.0","id":1,"result":"file and stdout"}
 ```
 
 
 ## debug_verbosity <a id="debug_verbosity"></a>
 
-Sets the logging verbosity ceiling. Log messages with level up to and including the given level will be printed.
+ロギング冗長性の天井を設定します。 指定されたレベルまでのレベル を含むログメッセージが表示されます。
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(レベル : 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.verbosity(level)`                          |
-|   RPC   | `{"method": "debug_vmodule", "params": [number]}` |
+| クライアント | メソッドの呼び出し                                         |
+|:------:| ------------------------------------------------- |
+| コンソール  | `debug.verbosity(level)`                          |
+|  RPC   | `{"method": "debug_vmodule", "params": [number]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type | Description                  |
-| ----- | ---- | ---------------------------- |
-| level | int  | The logging verbosity level. |
+| 名前  | タイプ | Description |
+| --- | --- | ----------- |
+| レベル | int | ロギングの詳細レベル。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.verbosity(3)
 null
@@ -123,118 +123,118 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByName <a id="debug_verbositybyname"></a>
 
-Sets the verbosity of log module with given name. Please note that VerbosityByName only works with zapLogger.
+指定された名前でログモジュールの詳細度を設定。 VerbosityByNameはzapLoggerでのみ動作することに注意してください。
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(レベル : 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
 
-| Client  | Method Invocation                                                 |
-|:-------:| ----------------------------------------------------------------- |
-| Console | `debug.verbosityByName(name, level)`                              |
-|   RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+| クライアント | メソッドの呼び出し                                                         |
+|:------:| ----------------------------------------------------------------- |
+| コンソール  | `debug.verbosityByName(name, level)`                              |
+|  RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type   | Description                  |
-| ----- | ------ | ---------------------------- |
-| name  | string | The module name.             |
-| level | int    | The logging verbosity level. |
+| 名前  | タイプ | Description |
+| --- | --- | ----------- |
+| 名前  | 文字列 | モジュール名      |
+| レベル | int | ロギングの詳細レベル。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.verbosityByName("name", 3)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
 ## debug_verbosityByID <a id="debug_verbositybyid"></a>
 
-Sets the verbosity of log module with given ModuleID. Please note that VerbosityByID only works with zapLogger.
+与えられた ModuleID でログモジュールの詳細度を設定します。 VerbosityByIDはzapLoggerでのみ動作することに注意してください。
 
-(ModuleID : Please refer to the code on the [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
+(ModuleID: [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go) のコードを参照してください。 )
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(レベル : 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
 
-| Client  | Method Invocation                                               |
-|:-------:| --------------------------------------------------------------- |
-| Console | `debug.verbosityByID(id, level)`                                |
-|   RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+| クライアント | メソッドの呼び出し                                                       |
+|:------:| --------------------------------------------------------------- |
+| コンソール  | `debug.verbosityByID(id, level)`                                |
+|  RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type | Description                  |
-| ----- | ---- | ---------------------------- |
-| id    | int  | The module id.               |
-| level | int  | The logging verbosity level. |
+| 名前  | タイプ | Description |
+| --- | --- | ----------- |
+| id  | int | モジュール id    |
+| レベル | int | ロギングの詳細レベル。 |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > debug.verbosityById(1, 3)
 null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 
-Sets the logging verbosity pattern.
+ログの詳細パターンを設定します。
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.vmodule(module)`                           |
-|   RPC   | `{"method": "debug_vmodule", "params": [string]}` |
+| クライアント | メソッドの呼び出し                                         |
+|:------:| ------------------------------------------------- |
+| コンソール  | `debug.vmodule(module)`                           |
+|  RPC   | `{"method": "debug_vmodule", "params": [string]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name   | Type   | Description                  |
-| ------ | ------ | ---------------------------- |
-| module | string | The module name for logging. |
+| 名前    | タイプ | Description |
+| ----- | --- | ----------- |
+| モジュール | 文字列 | ログのモジュール名   |
 
-**Return Value**
+**戻り値**
 
-None
+なし
 
-**Example**
+**例**
 
-Console
+コンソール
 
-If you want to see messages from a particular Go package (directory) and all subdirectories, use
+特定の Go パッケージ (ディレクトリ) とすべてのサブディレクトリからのメッセージを見たい場合は、
 
 ```javascript
 > debug.vmodule("p2p/*=5")
 ```
 
-If you want to restrict messages to a particular package (*e.g.*, p2p) but exclude subdirectories, use
+メッセージを特定のパッケージ (*など) に制限したい場合、*, p2p) サブディレクトリを除外する場合は、
 
 ```javascript
 > debug.vmodule("p2p=4")
 ```
 
-If you want to see log messages from a particular source file, use
+特定のソースファイルからのログメッセージを表示したい場合は、
 
 ```javascript
 > debug.vmodule("server.go=3")
@@ -243,7 +243,7 @@ If you want to see log messages from a particular source file, use
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_vmodule","params":["p2p=4"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_vmodule","params":["p2p=4"],"id":1} https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
