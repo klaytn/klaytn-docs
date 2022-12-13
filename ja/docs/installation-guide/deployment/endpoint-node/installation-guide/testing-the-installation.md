@@ -1,14 +1,14 @@
-# Testing the Installation <a id="testing-the-installation"></a>
+# インストールのテスト <a id="testing-the-installation"></a>
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+エンドポイントノードが正常にインストールされ、インストール後に期待どおりに動作していることを確認します。
 
-## Process Status <a id="process-status"></a>
+## プロセスの状態 <a id="process-status"></a>
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+ステータスコマンド `systemctl` と `kend` を使用して、ENのプロセスの状態をチェックすることができます。
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+`systemctl` がRPMとともにインストールされ、ENの状態を以下のように確認することができます。
 
 ```bash
 $ systemctl status kend.service
@@ -21,27 +21,27 @@ $ systemctl status kend.service
    CGroup: /system.slice/kend.service
            └─29641 /usr/local/bin/ken --networkid 1000 --datadir /kend_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Starting kend: [  OK  ]
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: 開始 (null) ...
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Starting kend: [ OK ]
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+上記の例では、 `Active: active (running)` のような現在のステータスを確認できます。
 
 ### kend <a id="kend"></a>
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+`kend` はパッケージとともにインストールされ、ENの状態を以下のように確認することができます。
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Logs <a id="logs"></a>
+## ログ <a id="logs"></a>
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. ノードが正常に動作すると、各ブロックが以下のようにインポートされます。
 
-Example:
+例
 
 ```bash
 $ tail kend.out
@@ -57,34 +57,34 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries <a id="queries"></a>
+## クエリ <a id="queries"></a>
 
-### ken console <a id="ken-console"></a>
+### kenコンソール <a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+KlaytnはCLIクライアントを提供します: `kenコンソール`。 クライアントを使用するもう一つの方法は、IPC(プロセス間通信)を介してプロセスに接続することです。 IPCファイル `klay.ipc` は ENの `data` ディレクトリにあります。
 
-Please execute the following command and check out the result.
+以下のコマンドを実行し、結果を確認してください。
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
  datadir: /var/kend/data
- modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+ modules: admin:1.0 debug:1.0 governance:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
 ```
 
-You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
+使用可能なコマンドは [API ドキュメント](../../../dapp/json-rpc/README.md) で確認できます。
 
-The useful APIs to check the status of EN:
+ENの状態を確認するのに役立つAPI:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (最新のブロック番号を取得する)
+* `net.peerCount` (現在接続されている Klaytn ノードの数を取得する)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+最新のブロック番号を取得して、ブロックが正しく伝播されているかどうかを確認できます。
 
 ```text
 > klay.blockNumber
@@ -98,7 +98,7 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+上記のコマンドラインは、ENが接続するノードの数を返します。
 
 
 
