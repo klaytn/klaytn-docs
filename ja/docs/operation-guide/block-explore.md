@@ -1,4 +1,4 @@
-# Block Explore (Scope & Finder) <a id="block-explore"></a>
+# ブロックエクスプローラー（スコープ & ファインダー） <a id="block-explore"></a>
 
 
 
