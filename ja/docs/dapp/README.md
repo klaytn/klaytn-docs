@@ -1,7 +1,7 @@
 ---
 description: >-
-  This chapter contains the resources for dApp development - back-end/front-end APIs, tools, and useful tutorials. Go to "Smart Contract" for the details of contract development.
+  この章では、dApp開発のためのリソース、バックエンド/フロントエンドAPI、ツール、便利なチュートリアルが含まれています。 契約開発の詳細については、「スマートコントラクト」をご覧ください。
 ---
 
-# Overview <a id="overview"></a>
+# 概要 <a id="overview"></a>
 
