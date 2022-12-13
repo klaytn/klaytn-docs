@@ -1,14 +1,14 @@
 ---
 - >-
 
-- APIs error codes
+- APIエラーコード
 ---
 
-# API Error Codes <a id="api-error-codes"></a>
+# API エラー コード <a id="api-error-codes"></a>
 
-Klaytn provides an `error` field in the API response to give developers more information about the reason for the failed API execution. This field exists only if the API execution fails. This field contains `error code` and `error message`.
+Klaytn は API レスポンスに `エラー` 項目を提供し、開発者に失敗した API 実行の理由についての詳細情報を提供します。 この項目は、API の実行に失敗した場合にのみ存在します。 このフィールドには、 `error code` と `error message` が含まれます。
 
-Example Response
+応答例
 ```
 {
  "jsonrpc":"2.0",
@@ -21,40 +21,40 @@ Example Response
 ```
 
 ---
-HTTP Errors
+HTTP エラー
 > **NOTE**
 > 
-> Only HTTP errors that are explicitly returned on Klaytn are listed. Please refer to [**FastHTTP repository**](https://github.com/valyala/fasthttp/blob/5d73da31aed12047d2625e86bf405a0cd1f77f2b/status.go) for all status codes.
+> Klaytn で明示的に返される HTTP エラーのみがリストされます。 すべてのステータスコードについては、 [**FastHTTP リポジトリ**](https://github.com/valyala/fasthttp/blob/5d73da31aed12047d2625e86bf405a0cd1f77f2b/status.go) を参照してください。
 
-| Status Code | Error                       | Message Example                                            |
-|:----------- |:--------------------------- |:---------------------------------------------------------- |
-| 403         | StatusForbidden             | "invalid host specified"                                   |
-| 404         | StatusNotFound              | "404 page not found"                                       |
-| 405         | StatusMethodNotAllowed      | "method not allowed"                                       |
-| 413         | StatusRequestEntityTooLarge | "content length too large n > 524288"                      |
-| 415         | StatusUnsupportedMediaType  | "invalid content type, only application/json is supported" |
+| ステータスコード： | エラー                         | メッセージの例                                    |
+|:--------- |:--------------------------- |:------------------------------------------ |
+| 403       | StatusForbidden             | "不正なホストが指定されました"                           |
+| 404       | StatusNotFound              | "404 page not found"                       |
+| 405       | StatusMethodNotAllowed      | "methodnot allowed"                        |
+| 413       | StatusRequestEntityTooLarge | "Content length too large n > 524288"      |
+| 415       | StatusUnsupportedMediaType  | "無効なコンテンツタイプ、application/jsonのみサポートされています" |
 
 ---
 
-Standard JSON-RPC Errors
+標準JSON-RPCエラー
 
 > **NOTE**
 > 
-> Although there are various types of errors for each status code, only one of each has been written for the purpose of brevity.
+> ステータスコードごとにさまざまな種類のエラーがあるが、簡潔性のために書かれているのはそれぞれ1つだけである。
 
-| Error Code | Error                    | Message Example                                                                  |
-|:---------- |:------------------------ |:-------------------------------------------------------------------------------- |
-| -32000     | WSRPCNotRunningError     | "WebSocket RPC not running"                                                      |
-|            | InvalidNodeIdError       | "invalid kni: invalid node ID (wrong length, want 128 hex chars)"                |
-|            | BlockNotFoundError       | "block #1 not found"                                                             |
-|            | BlockNotExistError       | "the block does not exist (block number: 1)"                                     |
-|            | BlockDoesNotExistError   | "the block does not exist (block hash: 0xf...f)"                                 |
-|            | UnknownAccountError      | "unknown account"                                                                |
-|            | TransactionNotFoundError | "transaction 0xf...f not found"                                                  |
-|            | ShutDownError            | "server is shutting down"                                                        |
-| -32600     | InvalidRequestError      | "server requests exceed the limit"                                               |
-| -32601     | MethodNotFoundError      | "The method does not exist/is not available"                                     |
-| -32602     | InvalidParamsError       | "missing value for required argument 0"                                          |
-|            |                          | "invalid argument 0: hex string without 0x prefix"                               |
-|            |                          | "invalid argument 0: json: cannot unmarshal string into Go value of type uint64" |
-| -32700     | InvalidMessageError      | "unexpected end of JSON input"                                                   |
+| エラーコード | エラー                      | メッセージの例                                                                        |
+|:------ |:------------------------ |:------------------------------------------------------------------------------ |
+| -32000 | WSRPCNotRunningError     | "WebSocket RPCが実行されていません"                                                      |
+|        | InvalidNodeIdError       | "無効なナイフ: 不正なノードID(長さが間違っています。128ヘックス文字が必要です)"                                  |
+|        | BlockNotFoundError       | "block #1 not found"                                                           |
+|        | BlockNotExistError       | 「ブロックが存在しません（ブロック番号：1）」                                                        |
+|        | BlockDoesNotExistError   | 「ブロックが存在しません（ブロックハッシュ：0xf...f）」                                                |
+|        | UnknownAccountError      | "不明なアカウント"                                                                     |
+|        | TransactionNotFoundError | "トランザクション 0xf...f が見つかりません"                                                    |
+|        | ShutDownError            | "サーバーがシャットダウンしています"                                                            |
+| -32600 | InvalidRequestError      | "サーバーリクエストが制限を超えています"                                                          |
+| -32601 | MethodNotFoundError      | "メソッドが存在しません/利用できません"                                                          |
+| -32602 | InvalidParamsError       | "必須引数0の欠落値                                                                     |
+|        |                          | "invalid argument 0: hex文字列, without 0x prefix"                                |
+|        |                          | "invalid argument 0: json: cannot marchal string into Go value of type uint64" |
+| -32700 | InvalidMessageError      | "JSON入力の予期しない終了"                                                               |
