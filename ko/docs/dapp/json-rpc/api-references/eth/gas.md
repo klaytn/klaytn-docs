@@ -2,7 +2,7 @@
 
 Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
 
-**Parameters**
+**파라미터**
 
 | 이름                | 타입                  | 설명                                                                                                                                                                                                                          |
 | ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -163,7 +163,7 @@ Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
 
 **NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
-**Parameters**
+**파라미터**
 
 없음
 
