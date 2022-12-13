@@ -4,7 +4,7 @@
 caver.klay.defaultBlock
 ```
 
-The default block is used for certain methods.  You can override it by passing in the defaultBlock as the last parameter.  The default value is `"latest"`.
+The default block is used for certain methods.  You can override it by passing in the defaultBlock as the last parameter.  デフォルト値は `"latest"` です。
 
 - [caver.klay.getBalance()](./account.md#getbalance)
 - [caver.klay.getCode()](./account.md#getcode)
@@ -13,7 +13,7 @@ The default block is used for certain methods.  You can override it by passing i
 - [caver.klay.call()](./transaction.md#call)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 
-**Property**
+**属性**
 
 Default block parameters can be one of the following:
 
@@ -23,7 +23,7 @@ Default block parameters can be one of the following:
 
 Default is `"latest"`.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.defaultBlock;
@@ -41,17 +41,17 @@ caver.klay.getBlockNumber([callback])
 
 Returns the current block number.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - The number of the most recent block.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getBlockNumber().then(console.log);
@@ -65,40 +65,40 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 ```
 Returns a block matching the block hash or block number.
 
-**Parameters**
+**パラメータ**
 
-| Name                     | Type                 | Description                                                                                                                                                  |
+| 名前                       | タイプ                  | Description                                                                                                                                                  |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, or `"latest"`.                                                                                    |
 | returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
-| callback                 | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| callback                 | 関数                   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                           |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Object` - The block object:
 
-| Name             | Type            | Description                                                                                                        |
-| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                            |
-| extraData        | String          | The "extra data" field of this block.                                                                              |
-| gasUsed          | Number          | The total used gas by all transactions in this block.                                                              |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                               |
-| hash             | 32-byte String  | Hash of the block. `null` when it is a pending block.                                                              |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                     |
-| number           | Number          | The block number. `null` when it is a pending block.                                                               |
-| parentHash       | 32-byte String  | Hash of the parent block.                                                                                          |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                        |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                               |
-| size             | Number          | Integer the size of this block in bytes.                                                                           |
-| stateRoot        | 32-byte String  | The root of the final state trie of the block.                                                                     |
-| timestamp        | Number          | The unix timestamp for when the block was collated.                                                                |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                         |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                     |
-| transactions     | Array           | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
-| transactionsRoot | 32-byte String  | The root of the transaction trie of the block.                                                                     |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                        |
+| 名前               | タイプ             | Description                                                                     |
+| ---------------- | --------------- | ------------------------------------------------------------------------------- |
+| blockScore       | 品質              | 以前の困難。 常にBFTコンセンサスエンジンの1                                                        |
+| extraData        | 文字列             | このブロックの「追加データ」フィールド。                                                            |
+| gasUsed          | Number          | このブロック内のすべてのトランザクションによって使用された合計ガス。                                              |
+| governanceData   | データ             | RLPエンコードされたガバナンス設定                                                              |
+| hash             | 32-byte String  | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                                              |
+| logsBloom        | 256-byte String | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                                       |
+| 数値               | Number          | ブロック番号 `保留中のブロックの場合は null` です。                                                  |
+| parentHash       | 32-byte String  | 親ブロックのハッシュ。                                                                     |
+| receiptsRoot     | 32バイトのデータ       | ブロックのレシートのルートは試してみました。                                                          |
+| 報酬               | 20 バイトのデータ      | ブロック報酬が与えられた受益者の住所。                                                             |
+| サイズ              | Number          | このブロックのサイズをバイト単位で整数にします。                                                        |
+| stateRoot        | 32-byte String  | ブロックの最後の状態のルート。                                                                 |
+| timestamp        | Number          | ブロックがCollatedされたときの unix タイムスタンプ。                                               |
+| timestampFoS     | 品質              | ブロックが冷却されたときのタイムスタンプの秒数。                                                        |
+| totalBlockScore  | 品質              | 合計ブロックの整数このブロックまでチェーンのスコア。                                                      |
+| 取引               | 行列              | トランザクションオブジェクトの配列、または `returnTransactionObjects` パラメータに応じて、32 バイトのトランザクションハッシュ。 |
+| transactionsRoot | 32-byte String  | ブロックのトランザクションのルート。                                                              |
+| voteData         | データ             | 提案者のRLPエンコードされたガバナンス投票                                                          |
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getBlock(19097).then(console.log);
@@ -131,19 +131,19 @@ caver.klay.getBlockReceipts(blockHash [, callback])
 ```
 Returns a list of transaction receipts included in a block identified by the given block hash.
 
-**Parameters**
+**パラメータ**
 
-| Name      | Type     | Description                                                                                                |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHash | String   | Hash of a block.                                                                                           |
-| callback  | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前        | タイプ | Description                                                        |
+| --------- | --- | ------------------------------------------------------------------ |
+| blockHash | 文字列 | ブロックのハッシュ。                                                         |
+| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
-**Return Value**
+**戻り値**
 
-`Promise` returns `Array` - Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
+`Promise` returns `Array` - Receipts included in a block.  ターゲットブロックにトランザクションがない場合、空の配列 `[]` が返されます。
 
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getBlockReceipts('0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283').then(console.log);
@@ -188,18 +188,18 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
 Returns the number of transaction in a given block.
 
-**Parameters**
+**パラメータ**
 
-| Name                   | Type                 | Description                                                                                                |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, or `"latest"`.                                        |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前                     | タイプ                  | Description                                                         |
+| ---------------------- | -------------------- | ------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, or `"latest"`. |
+| callback               | 関数                   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。  |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - The number of transactions in the given block.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -215,41 +215,41 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 Returns a block with consensus information matched by the given block hash or block number.
 
-**Parameters**
+**パラメータ**
 
-| Name                   | Type                 | Description                                                                                                |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`.                                   |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前                     | タイプ                  | Description                                                              |
+| ---------------------- | -------------------- | ------------------------------------------------------------------------ |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
+| callback               | 関数                   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。       |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
-| Name             | Type            | Description                                                                                                                                           |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
-| committee        | Array           | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
-| extraData        | String          | The "extra data" field of this block.                                                                                                                 |
-| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                 |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                                                                  |
-| hash             | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                 |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                        |
-| number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                  |
-| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
-| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                    |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                           |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                  |
-| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                              |
-| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                        |
-| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                   |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                        |
-| transactions     | Array           | Array of transaction objects.                                                                                                                         |
-| transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                        |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                           |
+| 名前               | タイプ             | Description                                                                                                            |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | 品質              | 以前の困難。 常にBFTコンセンサスエンジンの1                                                                                               |
+| 委員会              | 行列              | このブロックの委員会メンバーのアドレスの配列。 The committee is a subset of validators participated in the consensus protocol for this block. |
+| extraData        | 文字列             | このブロックの「追加データ」フィールド。                                                                                                   |
+| gasUsed          | 品質              | このブロック内のすべてのトランザクションによって使用された合計ガス。                                                                                     |
+| governanceData   | データ             | RLPエンコードされたガバナンス設定                                                                                                     |
+| hash             | 32バイトのデータ       | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                                                                                     |
+| logsBloom        | 256-byte String | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                                                                              |
+| 数値               | 品質              | ブロック番号 `保留中のブロックの場合は null` です。                                                                                         |
+| parentHash       | 32バイトのデータ       | 親ブロックのハッシュ。                                                                                                            |
+| 提案               | 20 バイトのデータ      | ブロック提案者のアドレス。                                                                                                          |
+| receiptsRoot     | 32バイトのデータ       | ブロックのレシートのルートは試してみました。                                                                                                 |
+| 報酬               | 20 バイトのデータ      | ブロック報酬が与えられた受益者の住所。                                                                                                    |
+| サイズ              | 品質              | このブロックのサイズをバイト単位で整数にします。                                                                                               |
+| stateRoot        | 32バイトのデータ       | ブロックの最後の状態のルート。                                                                                                        |
+| timestamp        | 品質              | ブロックがCollatedされたときの unix タイムスタンプ。                                                                                      |
+| timestampFoS     | 品質              | ブロックが冷却されたときのタイムスタンプの秒数。                                                                                               |
+| totalBlockScore  | 品質              | 合計ブロックの整数このブロックまでチェーンのスコア。                                                                                             |
+| 取引               | 行列              | トランザクションオブジェクトの配列。                                                                                                     |
+| transactionsRoot | 32バイトのデータ       | ブロックのトランザクションのルート。                                                                                                     |
+| voteData         | データ             | 提案者のRLPエンコードされたガバナンス投票                                                                                                 |
 
-**Examples**
+**例**
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -313,20 +313,20 @@ Returns a block with consensus information matched by the given block hash or bl
 caver.klay.getCommittee([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
+指定されたブロックの委員会内のすべてのバリデータのリストを返します。 If the parameter is not set, returns a list of all validators in the committee at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| 名前           | タイプ           | Description                                                                                                                 |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Array` - Addresses of all validators in the committee.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getCommittee().then(console.log);
@@ -344,20 +344,20 @@ Returns a list of all validators in the committee at the specified block. If the
 caver.klay.getCommitteeSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
+指定したブロックの委員会のサイズを返します。 If the parameter is not set, returns the size of the committee at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| 名前           | タイプ           | Description                                                                                                                 |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - The size of the committee.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getCommitteeSize().then(console.log);
@@ -371,20 +371,20 @@ Returns the size of the committee at the specified block. If the parameter is no
 caver.klay.getCouncil([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
+指定されたブロックにある評議会のすべての検証者のリストを返します。 If the parameter is not set, returns a list of all validators of the council at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| 名前           | タイプ           | Description                                                                                                                 |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Array` - Addresses of all validators of the council.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getCouncil().then(console.log);
@@ -402,20 +402,20 @@ Returns a list of all validators of the council at the specified block. If the p
 caver.klay.getCouncilSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+指定されたブロックにある評議会のサイズを返します。 If the parameter is not set, returns the size of the council at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| 名前           | タイプ           | Description                                                                                                                 |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Number` - The size of the council.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getCouncilSize().then(console.log);
@@ -430,20 +430,20 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
 Gets the storage at a specific position of an address.
 
-**Parameters**
+**パラメータ**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the storage from.                                                                                        |
-| position     | Number               | The index position of the storage.                                                                                          |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| 名前           | タイプ           | Description                                                                                                                 |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| address      | 文字列           | ストレージを取得するためのアドレス                                                                                                           |
+| 位置           | Number        | ストレージのインデックス位置。                                                                                                             |
+| defaultBlock | 数値 &#124; 文字列 | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                          |
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `String` - The value in storage at the given position.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0).then(console.log);
@@ -457,20 +457,20 @@ Gets the storage at a specific position of an address.
 caver.klay.isMining([callback])
 ```
 
-Returns `true` if client is actively mining new blocks.
+クライアントが新しいブロックを積極的にマイニングしている場合、 `true` を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Boolean` - `true` if the client is mining, otherwise `false`.
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.isMining().then(console.log);
@@ -485,26 +485,26 @@ caver.klay.isSyncing([callback])
 
 Checks if the node is currently syncing and returns either a syncing object or `false`.
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名前       | タイプ | Description                                                        |
+| -------- | --- | ------------------------------------------------------------------ |
+| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
 
 
-**Return Value**
+**戻り値**
 
 `Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
 
-| Name          | Type   | Description                                                                 |
+| 名前            | タイプ    | Description                                                                 |
 | ------------- | ------ | --------------------------------------------------------------------------- |
 | startingBlock | Number | The block number where the sync started.                                    |
 | currentBlock  | Number | The block number where at which block the node currently synced to already. |
 | highestBlock  | Number | The estimated block number to sync to.                                      |
-| knownStates   | Number | The estimated states to download.                                           |
+| 既知の状態         | Number | The estimated states to download.                                           |
 | pulledStates  | Number | The already downloaded states.                                              |
 
-**Example**
+**例**
 
 ```javascript
 > caver.klay.isSyncing().then(console.log);
