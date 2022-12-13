@@ -1,5 +1,5 @@
 ---
 description: >-
-  Namespaces related to "Service Chain".
+  「サービスチェーン」に関連する名前空間
 ---
 
