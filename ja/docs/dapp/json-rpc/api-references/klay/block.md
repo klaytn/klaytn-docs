@@ -1,30 +1,30 @@
-## The Default Block Parameter <a id="the-default-block-parameter"></a>
+## デフォルトのブロックパラメータ <a id="the-default-block-parameter"></a>
 
-When requests are made that act on the state of Klaytn, the last default block parameter determines the height of the block.
+Klaytnの状態でリクエストが行われると、最後のデフォルトのブロック パラメータがブロックの高さを決定します。
 
-The following options are possible for the `defaultBlock` parameter:
+`defaultBlock` パラメータには、以下のオプションがあります。
 
-- `HEX String` - an integer block number
-- `String "earliest"` for the earliest/genesis block
-- `String "latest"` - for the latest mined block
-- `String "pending"` - for the pending state/transactions
+- `HEX文字列` - 整数ブロック数
+- `アーチスト/ジェネシスブロックの文字列 "firmaryest"`
+- `String "latest"` - 最新の採掘ブロック用
+- `文字列 "保留中"` - 保留中の状態/トランザクション用
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
 
-Returns the number of most recent block.
+直近のブロックの数を返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| QUANTITY | Integer of the current block number the client is on. |
+| タイプ | Description                  |
+| --- | ---------------------------- |
+| 品質  | クライアントがオンになっている現在のブロック番号の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -41,21 +41,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
 
-**NOTE**: This API is supported from Klaytn v1.7.0.
+**注意**: この API は Klaytn v1.7.0 でサポートされています。
 
-Returns information about a header by number. This API works only on RPC call, not on JavaScript console.
+ヘッダに関する情報を数値で返します。 この API は RPC 呼び出しでのみ動作し、JavaScript コンソールでは動作しません。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                   |
+| タイプ                 | Description                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
-**Return Value**
+**戻り値**
 
-See [klay_getHeaderByHash](#klay_getheaderbyhash)
+[klay_getHeaderByHashを参照](#klay_getheaderbyhash)
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -87,39 +87,39 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
 
-**NOTE**: This API is supported from Klaytn v1.7.0.
+**注意**: この API は Klaytn v1.7.0 でサポートされています。
 
-Returns information about a header by hash. This API works only on RPC call, not on JavaScript console.
+ヘッダーに関する情報をハッシュで返します。 この API は RPC 呼び出しでのみ動作し、JavaScript コンソールでは動作しません。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 32-byte DATA | Hash of a block. |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ。  |
 
-**Return Value**
+**戻り値**
 
-`Object` - A header object, or `error` when no header was found:
+`オブジェクト` - ヘッダーが見つからない場合、ヘッダーオブジェクト、または `エラー`。
 
-| Name             | Type          | Description                                                                                                 |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| number           | QUANTITY      | The block number. `null` when it is pending block.                                                          |
-| parentHash       | 32-byte DATA  | The hash of the parent block.                                                                               |
-| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                |
-| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                              |
-| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                              |
-| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                 |
-| reward           | 20-byte DATA  | The address of the beneficiary to whom the block rewards were given.                                        |
-| blockScore       | QUANTITY      | Former difficulty. Always 1 in the BFT consensus engine                                                     |
-| extraData        | DATA          | The "extra data" field of this block.                                                                       |
-| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                       |
-| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                         |
-| timestampFoS     | QUANTITY      | The fraction of a second of the timestamp for when the block was collated.                                  |
-| governanceData   | DATA          | RLP encoded governance configuration                                                                        |
-| voteData         | DATA          | RLP encoded governance vote of the proposer                                                                 |
-| baseFeePerGas    | QUANTITY      | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| 名前               | タイプ        | Description                                                               |
+| ---------------- | ---------- | ------------------------------------------------------------------------- |
+| 数値               | 品質         | ブロック番号 `ブロック保留中の場合は null`                                                 |
+| parentHash       | 32バイトのデータ  | 親ブロックのハッシュ。                                                               |
+| logsBloom        | 256バイトのデータ | ブロックのログのブルームフィルタ。 `ブロック保留中の場合は null`                                      |
+| transactionsRoot | 32バイトのデータ  | ブロックのトランザクションのルート。                                                        |
+| stateRoot        | 32バイトのデータ  | ブロックの最後の状態のルート。                                                           |
+| receiptsRoot     | 32バイトのデータ  | ブロックのレシートのルートは試してみました。                                                    |
+| 報酬               | 20 バイトのデータ | ブロック報酬が与えられた受益者の住所。                                                       |
+| blockScore       | 品質         | 以前の困難。 常にBFTコンセンサスエンジンの1                                                  |
+| extraData        | データ        | このブロックの「追加データ」フィールド。                                                      |
+| gasUsed          | 品質         | このブロック内のすべてのトランザクションによって使用された合計ガス。                                        |
+| timestamp        | 品質         | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                                        |
+| timestampFoS     | 品質         | ブロックが冷却されたときのタイムスタンプの秒数。                                                  |
+| governanceData   | データ        | RLPエンコードされたガバナンス設定                                                        |
+| voteData         | データ        | 提案者のRLPエンコードされたガバナンス投票                                                    |
+| baseFeePerGas    | 品質         | ガス1回あたりの基本料金。 EthTxTypeCompatibleとMagma hardforkがアクティブになったときに意味のある値を持ちます。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -152,24 +152,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
+ブロック番号でブロックに関する情報を返します。 この API は RPC 呼び出しでのみ動作し、JavaScript コンソールでは動作しません。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                   |
+| タイプ                 | Description                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
-| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| Boolean             | `true` の場合、トランザクションのハッシュのみが `false` の場合、完全なトランザクションオブジェクトを返します。                                                                                               |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-See [klay_getBlockByHash](#klay_getblockbyhash)
+[klay_getBlockByHash](#klay_getblockbyhash) を参照
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -206,42 +206,42 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
-Returns information about a block by hash. This API works only on RPC call, not on JavaScript console.
+ハッシュでブロックに関する情報を返します。 この API は RPC 呼び出しでのみ動作し、JavaScript コンソールでは動作しません。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                                                                                        |
-| ------------ | -------------------------------------------------------------------------------------------------- |
-| 32-byte DATA | Hash of a block.                                                                                   |
-| Boolean      | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
+| タイプ       | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| 32バイトのデータ | ブロックのハッシュ。                                                      |
+| Boolean   | `true` の場合、トランザクションのハッシュのみが `false` の場合、完全なトランザクションオブジェクトを返します。 |
 
-**Return Value**
+**戻り値**
 
-`Object` - A block object, or `error` when no block was found:
+`Object` - ブロックが見つからない場合、ブロックオブジェクト、または `エラー`。
 
-| Name             | Type          | Description                                                                                                 |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| number           | QUANTITY      | The block number. `null` when it is pending block.                                                          |
-| hash             | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                         |
-| parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                   |
-| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                |
-| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                              |
-| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                              |
-| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                 |
-| reward           | 20-byte DATA  | The address of the beneficiary to whom the block rewards were given.                                        |
-| blockScore       | QUANTITY      | Former difficulty. Always 1 in the BFT consensus engine                                                     |
-| totalBlockScore  | QUANTITY      | Integer of the total blockScore of the chain until this block.                                              |
-| extraData        | DATA          | The "extra data" field of this block.                                                                       |
-| size             | QUANTITY      | Integer the size of this block in bytes.                                                                    |
-| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                       |
-| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                         |
-| timestampFoS     | QUANTITY      | The fraction of a second of the timestamp for when the block was collated.                                  |
-| transactions     | Array         | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.          |
-| governanceData   | DATA          | RLP encoded governance configuration                                                                        |
-| voteData         | DATA          | RLP encoded governance vote of the proposer                                                                 |
-| baseFeePerGas    | QUANTITY      | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| 名前               | タイプ        | Description                                                               |
+| ---------------- | ---------- | ------------------------------------------------------------------------- |
+| 数値               | 品質         | ブロック番号 `ブロック保留中の場合は null`                                                 |
+| hash             | 32バイトのデータ  | ブロックのハッシュ。 `ブロック保留中の場合は null`                                             |
+| parentHash       | 32バイトのデータ  | 親ブロックのハッシュ。                                                               |
+| logsBloom        | 256バイトのデータ | ブロックのログのブルームフィルタ。 `ブロック保留中の場合は null`                                      |
+| transactionsRoot | 32バイトのデータ  | ブロックのトランザクションのルート。                                                        |
+| stateRoot        | 32バイトのデータ  | ブロックの最後の状態のルート。                                                           |
+| receiptsRoot     | 32バイトのデータ  | ブロックのレシートのルートは試してみました。                                                    |
+| 報酬               | 20 バイトのデータ | ブロック報酬が与えられた受益者の住所。                                                       |
+| blockScore       | 品質         | 以前の困難。 常にBFTコンセンサスエンジンの1                                                  |
+| totalBlockScore  | 品質         | 合計ブロックの整数このブロックまでチェーンのスコア。                                                |
+| extraData        | データ        | このブロックの「追加データ」フィールド。                                                      |
+| サイズ              | 品質         | このブロックのサイズをバイト単位で整数にします。                                                  |
+| gasUsed          | 品質         | このブロック内のすべてのトランザクションによって使用された合計ガス。                                        |
+| timestamp        | 品質         | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                                        |
+| timestampFoS     | 品質         | ブロックが冷却されたときのタイムスタンプの秒数。                                                  |
+| 取引               | 行列         | トランザクションオブジェクトの配列、または最後に指定されたパラメータに応じて32バイトのトランザクションハッシュを行います。            |
+| governanceData   | データ        | RLPエンコードされたガバナンス設定                                                        |
+| voteData         | データ        | 提案者のRLPエンコードされたガバナンス投票                                                    |
+| baseFeePerGas    | 品質         | ガス1回あたりの基本料金。 EthTxTypeCompatibleとMagma hardforkがアクティブになったときに意味のある値を持ちます。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -278,18 +278,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
-Returns receipts included in a block identified by block hash.
+ブロックハッシュで識別されたブロックに含まれるレシートを返します。
 
-**Parameters**
-| Type         | Description |
-| ------------ | ----------- |
-| 32-byte DATA | Block hash  |
+**パラメータ**
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ハッシュをブロック   |
 
-**Return Value**
+**戻り値**
 
-Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
+ブロックに含まれる領収書。  ターゲットブロックにトランザクションが含まれていない場合、 空の配列 `[] []` が返されます。
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -327,25 +327,25 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
-Returns the number of transactions in a block matching the given block number.
+指定されたブロック番号に一致するブロック内のトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                                           |
+| タイプ                 | Description                                                                                                                                                           |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -362,21 +362,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
-Returns the number of transactions in a block from a block that matches the given hash.
+指定されたハッシュに一致するブロックから、ブロック内のトランザクション数を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description     |
-| ------------ | --------------- |
-| 32-byte DATA | Hash of a block |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ   |
 
-**Return Value**
+**戻り値**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| タイプ | Description           |
+| --- | --------------------- |
+| 品質  | このブロック内のトランザクション数の整数。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -392,23 +392,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 
 ## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
-Returns a block with consensus information that matches the given block number.
+与えられたブロック番号に一致する合意形成情報を持つブロックを返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                | Description                                                                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| タイプ                 | Description                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| QUANTITY &#124; Tag | 整数または16進ブロック番号、または `` または `"latest"` の文字列 [デフォルトブロックパラメータ](block.md#the-default-block-parameter) のように。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-See [klay_getBlockWithConsensusInfoByHash](#klay_getblockwithconsensusinfobyhash)
+[klay_getBlockWithConsensusInfoByHashを参照してください](#klay_getblockwithconsensusinfobyhash)
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -484,38 +484,38 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
-Returns a block with consensus information that matches the given hash.
+与えられたハッシュと一致するコンセンサス情報を持つブロックを返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 32-byte DATA | Hash of a block. |
+| タイプ       | Description |
+| --------- | ----------- |
+| 32バイトのデータ | ブロックのハッシュ。  |
 
-**Return Value**
+**戻り値**
 
 `Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
-| Name             | Type         | Description                                                                                                                                           |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY     | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
-| totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
-| committee        | Array        | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
-| gasUsed          | QUANTITY     | The total used gas by all transactions in this block.                                                                                                 |
-| hash             | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
-| number           | QUANTITY     | The block number. `null` when it is pending block.                                                                                                    |
-| parentHash       | 32-byte DATA | Hash of the parent block.                                                                                                                             |
-| proposer         | 20-byte DATA | The address of the block proposer.                                                                                                                    |
-| receiptsRoot     | 32-byte DATA | The root of the receipts trie of the block.                                                                                                           |
-| size             | QUANTITY     | Integer the size of this block in bytes.                                                                                                              |
-| stateRoot        | 32-byte DATA | The root of the final state trie of the block.                                                                                                        |
-| timestamp        | QUANTITY     | The Unix timestamp for when the block was collated.                                                                                                   |
-| timestampFoS     | QUANTITY     | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| transactions     | Array        | Array of transaction objects.                                                                                                                         |
-| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
-| baseFeePerGas    | QUANTITY     | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated.                                           |
+| 名前               | タイプ        | Description                                                                                                            |
+| ---------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | 品質         | 以前の困難。 常にBFTコンセンサスエンジンの1                                                                                               |
+| totalBlockScore  | 品質         | 合計ブロックの整数このブロックまでチェーンのスコア。                                                                                             |
+| 委員会              | 行列         | このブロックの委員会メンバーのアドレスの配列。 The committee is a subset of validators participated in the consensus protocol for this block. |
+| gasUsed          | 品質         | このブロック内のすべてのトランザクションによって使用された合計ガス。                                                                                     |
+| hash             | 32バイトのデータ  | ブロックのハッシュ。 `ブロック保留中の場合は null`                                                                                          |
+| 数値               | 品質         | ブロック番号 `ブロック保留中の場合は null`                                                                                              |
+| parentHash       | 32バイトのデータ  | 親ブロックのハッシュ。                                                                                                            |
+| 提案               | 20 バイトのデータ | ブロック提案者のアドレス。                                                                                                          |
+| receiptsRoot     | 32バイトのデータ  | ブロックのレシートのルートは試してみました。                                                                                                 |
+| サイズ              | 品質         | このブロックのサイズをバイト単位で整数にします。                                                                                               |
+| stateRoot        | 32バイトのデータ  | ブロックの最後の状態のルート。                                                                                                        |
+| timestamp        | 品質         | Unixタイムスタンプ。ブロックがコールされたときのタイムスタンプ。                                                                                     |
+| timestampFoS     | 品質         | ブロックが冷却されたときのタイムスタンプの秒数。                                                                                               |
+| 取引               | 行列         | トランザクションオブジェクトの配列。                                                                                                     |
+| transactionsRoot | 32バイトのデータ  | ブロックのトランザクションのルート。                                                                                                     |
+| baseFeePerGas    | 品質         | ガス1回あたりの基本料金。 EthTxTypeCompatibleとMagma hardforkがアクティブになったときに意味のある値を持ちます。                                              |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -589,28 +589,28 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getCommittee <a id="klay_getcommittee"></a>
-Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
+## klay_getCommit <a id="klay_getcommittee"></a>
+指定されたブロックの委員会内のすべてのバリデータのリストを返します。 If the parameter is not set, returns a list of all validators in the committee at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 名前                   | タイプ          | Description                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; Tag | block number | (オプション) 整数または16進数のブロック番号、 `` または `"latest"` [デフォルトブロックパラメータ](block.md#the-default-block-parameter) のような文字列 </a> です。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-`Array` - Array of addresses of all validators in the committee, or `null` when no committee was found:
+`Array` - 委員会内のすべてのバリデータの住所の配列、または委員会が見つからない場合は `null`。
 
-| Type                  | Description                                   |
-| --------------------- | --------------------------------------------- |
-| Array of 20-byte DATA | Addresses of all validators in the committee. |
+| タイプ          | Description          |
+| ------------ | -------------------- |
+| 20 バイトデータの配列 | 委員会内のすべてのバリデータのアドレス。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -629,27 +629,27 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
-Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
+指定したブロックの委員会のサイズを返します。 If the parameter is not set, returns the size of the committee at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 名前                   | タイプ          | Description                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; Tag | block number | (オプション) 整数または16進数のブロック番号、 `` または `"latest"` [デフォルトブロックパラメータ](block.md#the-default-block-parameter) のような文字列 </a> です。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-`Integer` - The size of the committee, or `-1` when no committee was found:
+`Integer` - 委員会の規模、もしくは、委員会が見つからない場合は `-1` です。
 
-| Type     | Description             |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | 評議会の大きさ     |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -664,29 +664,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCouncil <a id="klay_getcouncil"></a>
-Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
+指定されたブロックにある評議会のすべての検証者のリストを返します。 If the parameter is not set, returns a list of all validators of the council at the latest block.
 
-**NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
+**注意**: `klay_getValidators` はこのメソッドに置き換えられており、もうサポートされていません。
 
-**Parameters**
+**パラメータ**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 名前                   | タイプ          | Description                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; Tag | block number | (オプション) 整数または16進数のブロック番号、 `` または `"latest"` [デフォルトブロックパラメータ](block.md#the-default-block-parameter) のような文字列 </a> です。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-`Array` - Array of validator addresses of the council, or `null` when no council was found:
+`Array` - Councilのバリデーターアドレスの配列、 `null` 評議会が見つからなかった場合:
 
-| Type                  | Description                                 |
-| --------------------- | ------------------------------------------- |
-| Array of 20-byte DATA | Addresses of all validators of the council. |
+| タイプ          | Description       |
+| ------------ | ----------------- |
+| 20 バイトデータの配列 | 評議会のすべての検証者のアドレス。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -705,27 +705,27 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
-Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+指定されたブロックにある評議会のサイズを返します。 If the parameter is not set, returns the size of the council at the latest block.
 
-**Parameters**
+**パラメータ**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 名前                   | タイプ          | Description                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; Tag | block number | (オプション) 整数または16進数のブロック番号、 `` または `"latest"` [デフォルトブロックパラメータ](block.md#the-default-block-parameter) のような文字列 </a> です。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-`Integer` - The size of the council, or `-1` when no council was found:
+`Integer` - 評議会の規模、評議会が見つからない場合は `-1`。
 
-| Type     | Description             |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | 評議会の大きさ     |
 
-**Example**
+**例**
 
 ```shell
 // Request
@@ -741,29 +741,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getStorageAt <a id="klay_getstorageat"></a>
 
-Returns the value from a storage position at a given address.
+指定されたアドレスの格納位置から値を返します。
 
-**Parameters**
+**パラメータ**
 
-| Type                            | Description                                                                                                                                                                          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 20-byte DATA                    | Address of the storage.                                                                                                                                                              |
-| QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
+| タイプ                             | Description                                                                                                                                      |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 20 バイトのデータ                      | ストレージのアドレス。                                                                                                                                      |
+| 品質                              | ストレージ内の位置の整数。                                                                                                                                    |
+| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
- **Return Value**
+ **戻り値**
 
-| Type | Description                         |
-| ---- | ----------------------------------- |
-| DATA | The value at this storage position. |
+| タイプ | Description   |
+| --- | ------------- |
+| データ | このストレージの位置の値。 |
 
-**Example**
+**例**
 
-Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+正しい位置を計算することは、取得するストレージによって異なります。 `0x295a70b2de5e3953354a6a8344e616ed314d7251` にアドレス `0x391694e7e0b0cce554cb130d723a9d27458f9298` でデプロイされる以下のコントラクトを考えてみましょう。
 
 ```
 contract Storage {
@@ -777,31 +777,31 @@ contract Storage {
 }
 ```
 
-Retrieving the value of `pos0` is straight forward:
+`pos0` の値を取得することは、まっすぐに進みます。
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}) https://apbaibab.klaytn.net:8651
 
-{"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
+{"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
-Retrieving an element of the map is harder. The position of an element in the map is calculated with:
+マップの要素を取得するのは難しいです。 マップ内の要素の位置は、次のように計算されます。
 ```javascript
-keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
+ケックケーキ(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
-This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
+つまり、 `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` 次の位置を計算する必要があります：
 ```javascript
-keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
+kecchak(decodeHex("00000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000001"))
 ```
-The Klaytn console which comes with the `klay` library can be used to make the calculation
+`klay` ライブラリに付属のKlaytnコンソールを使用して計算を行うことができます。
 ```javascript
-> var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
+> var key = "0000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Now to fetch the storage:
+次に、ストレージを取得します。
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
 
@@ -811,25 +811,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 ## klay_syncing <a id="klay_syncing"></a>
 
-Returns an object with data about the sync status or `false`.
+同期ステータスまたは `false`のデータを持つオブジェクトを返します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-`Object|Boolean`, an object with sync status data or `false` when not syncing:
+`Object|Boolean`、同期しない場合は `false` の状態データを持つオブジェクト。
 
-| Name          | Type     | Description                                                                                                        |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
-| currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
-| highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
-| pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
-| knownStates   | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
+| 名前            | タイプ | Description                                      |
+| ------------- | --- | ------------------------------------------------ |
+| startingBlock | 品質  | インポートを開始したブロック（同期がヘッドに達した後にのみリセットされます）。          |
+| currentBlock  | 品質  | 現在のブロックは `klay_blockNumber` と同じです。               |
+| highestBlock  | 品質  | 推定最高ブロック。                                        |
+| pulledStates  | 品質  | 現在までに処理された状態項目の数。  同期モードが「高速」でない場合、ゼロが返されます。     |
+| 既知の状態         | 品質  | プルする必要がある既知の状態エントリの数。  同期モードが「高速」でない場合、ゼロが返されます。 |
 
-**Example**
+**例**
 
 ```shell
 // Request
