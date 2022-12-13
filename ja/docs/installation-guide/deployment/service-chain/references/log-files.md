@@ -1,1 +1,1 @@
-# Log Files <a id="log-files"></a>
+# ログ ファイル <a id="log-files"></a>
