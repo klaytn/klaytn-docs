@@ -1,8 +1,8 @@
-# Getting Started <a id="getting-started"></a>
+# はじめに <a id="getting-started"></a>
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件 <a id="prerequisites"></a>
 
-### Dependency <a id="dependency"></a>
+### 依存関係 <a id="dependency"></a>
 
 **maven**
 
@@ -17,93 +17,93 @@
 **gradle**
 
 ```groovy
-implementation 'com.klaytn.caver:core:1.4.0'
+実装 'com.klaytn.caver:core:1.4.0'
 ```
 
-If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
+Android 依存関係を使用したい場合は、バージョン 文字列の末尾に -android を追加してください。 \(e.g. 1.0.1-android\)
 
-If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
+JSON-RPC リクエストとレスポンスの詳細を見たい場合は、プロジェクトに [LOGBack](https://logback.qos.ch/) の依存関係を含めてください。 以下は Gradle ビルドファイルの例です。 依存関係を Maven にも追加できます。 caver-javaは [SLF4J](http://www.slf4j.org/) ロギングファサードを使用するため、LOGBackの代わりに好みのロギングフレームワークに切り替えることができます。
 
 ```groovy
-implementation "ch.qos.logback:logback-classic:1.2.3"
+実装 "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
+**注**: 中央リポジトリでは、RC、Android、Java のバージョンが一緒にリストされています。 ワイルドカードを使用してバージョンを取得する場合、あなたのプラットフォームに適していないバージョンを使用している可能性があります。
 
-### Installation <a id="installation"></a>
+### インストール <a id="installation"></a>
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
+スマートコントラクトに関連するトランザクションを生成するには、Solidityコンパイラとcaver-javaコマンドラインツールを最初にインストールする必要があります。
 
 #### Solidity Compiler <a id="solidity-compiler"></a>
 
-You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
+You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). KlaytnはSolidityバージョンを0.4.24または0.5.6にインストールすることをお勧めします。 macOS ユーザーの場合は、Homebrew を使用してバージョンをインストールできます。
 
 ```text
-$ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
-$ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
+$ brew install klaytn/klaytn/solidity@0.4.24 # version 0.4.24
+$ brew install klaytn/klaytn/solidity@0.5.6 # version 0.5.6
 ```
 
-#### Command-line Tool <a id="command-line-tool"></a>
+#### コマンドラインツール <a id="command-line-tool"></a>
 
-The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
+コマンドラインツールを使用すると、コマンドラインからSolidityスマートコントラクト機能ラッパーを生成できます。
 
-**Installation \(Homebrew\)**
+**インストール \(Homebrew\)**
 
-Java 1.8+ is required to install this.
+これをインストールするにはJava 1.8以上が必要です。
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-After installation you can run command 'caver-java' like below:
+インストール後は、以下のような 'caver-java' コマンドを実行できます。
 
 ```text
-$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+$ caver-Java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**Installation \(Other\)**
+**インストール \(Other\)**
 
-Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
+現在、他のパッケージマネージャーはサポートしていません。 別の解決策として、以下の CLI を構築する方法を提供します。
 
-* Download or fork caver-java.
-* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
+* caver-javaをダウンロードまたはフォークします。
+* Gradle を使用してコンソールモジュールの 'shadowDistZip' タスクを実行します。 その結果、console/build/distributions/console-shadow-{version}.zipが生成されます。
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-* Unzip the zip file in the build directory
+* ビルド ディレクトリの zip ファイルを解凍します
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
+* バイナリファイルを実行して、以下のようなコマンドラインツールを実行します。 macOS ユーザ向けのシェルスクリプトファイルと、Window ユーザ向けのバッチファイルを見つけることができます。
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Managing Accounts <a id="managing-accounts"></a>
+## アカウントの管理 <a id="managing-accounts"></a>
 
-### Creating an Account <a id="creating-an-account"></a>
+### アカウントの作成 <a id="creating-an-account"></a>
 
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
+トランザクションに署名するには、EC \(Elliptic Curve\) キーペアまたは Klaytn キーストアファイルを使用する必要があります。
 
-#### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
+#### ECキーペアの使用 <a id="using-an-ec-key-pair"></a>
 
-You can create a Klaytn account using an EC key pair like below:
+以下のような EC 鍵ペアを使用して Klaytn アカウントを作成できます。
 
 ```java
-KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
-String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey()); 
+KlayCredentials資格情報 = KlayCredentials.create(Keys.createECKeyPair());
+String privateKey = Numeric.toHexStringWithPrefix(credentials.getECKeyPair()); 
 String address = credentials.getAddress();
 ```
 
-#### Using a Keystore File <a id="using-a-keystore-file"></a>
+#### キーストアファイルの使用 <a id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet][]):
+キーストアファイルを使用して新しいアカウントを作成する場合 ( [Klaytn Wallet][] で新しいキーストアファイルを作成することもできます):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -112,31 +112,31 @@ KlayWalletUtils.generateNewWalletFile(
 );
 ```
 
-To load an account using a keystore file like below:
+以下のようなキーストアファイルを使用してアカウントを読み込むには:
 
 ```java
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## トランザクションの送信 <a id="sending-a-transaction"></a>
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Baobab Faucet経由でKLAYを取得する <a id="getting-klay-via-baobab-faucet"></a>
 
-After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). The received testnet KLAY will be used for transaction fee later.
+アカウントを作成すると、Baobab Faucet経由でBaobab testnet KLAYを受け取ることができます。 [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/) で入手できます。 受信されたtestnet KLAYは後で取引手数料として使用されます。
 
-### Connecting to Baobab <a id="connecting-to-baobab"></a>
+### Baobabに接続中 <a id="connecting-to-baobab"></a>
 
-You can connect to the Baobab network like below:
+Baobabのネットワークには以下のように接続できます。
 
 ```java
-Caver caver  = Caver.build(https://your.baobab.en.url:8651);
+Caver caver = Caver.build(https://your.baobab.en.url:8651);
 ```
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### 価値転送トランザクションの送信 <a id="sending-a-value-transfer-transaction"></a>
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation][]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+`TransactionManager` が導入され、トランザクションタイプの複雑さが非表示になります。 例えば、 `FeeDelegatedValueTransferTransaction` オブジェクトは `ValueTransferTransaction` オブジェクトから変換できます。 詳細については、 [手数料委任][] を参照してください。 手数料委任に加えて、 `TransactionManager` は `GetNonceProcessor`、 `ErrorHandler`、および `TransactionReceiptProcessor` で使用できます。
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -156,7 +156,7 @@ TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransaction
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(transactionHash);
 ```
 
-If you use `ValueTransfer` class, you can more easily compose and send a transaction. This is because `ValueTransfer` class makes the processes above simple like below:
+`ValueTransfer` クラスを使えば、より簡単にトランザクションを作成して送信できます。 これは、 `ValueTransfer` クラスが上記のプロセスを以下のように簡単にするためです。
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt
@@ -169,9 +169,9 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### Checking Receipts <a id="checking-receipts"></a>
+### 領収書の確認 <a id="checking-receipts"></a>
 
-If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
+`sendFunds`経由でトランザクションを送信した場合、caver-javaはデフォルトでトランザクションレシートを取得しようとします。 領収書を受け取った後、コンソールに次のログを見ることができます。
 
 ```javascript
 {
@@ -205,13 +205,13 @@ If you send a transaction via `sendFunds`, caver-java tries to get a transaction
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError][].
+このレシートでは、トランザクションの実行状況を確認できます。 領収書の 'status' フィールドが "0x1" の場合、トランザクションが正常に処理されたことを意味します。 そうでない場合、トランザクションは失敗しました。 詳細なエラーメッセージは `txError` フィールドに表示されます。 詳細については、 [txError][] を参照してください。
 
-## Sending Other Transaction Types <a id="sending-other-transaction-types"></a>
+## 他のトランザクションタイプの送信 <a id="sending-other-transaction-types"></a>
 
-### Account Update <a id="account-update"></a>
+### アカウントの更新 <a id="account-update"></a>
 
-If you want to update the key of the given account to a new [AccountKeyPublic][] key:
+指定されたアカウントのキーを新しい [AccountKeyPublic][] キーに更新したい場合:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -225,23 +225,23 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey][].
+アカウント キーは、口座に関連付けられたキー構造を表します。 Klaytnアカウントキーの詳細と種類を取得するには、 [AccountKey][] をご覧ください。
 
-### Smart Contract <a id="smart-contract"></a>
+### スマート契約 <a id="smart-contract"></a>
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler][].
-
-```text
-$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
-```
-
-Then, generate the wrapper code using caver-java’s [command-line tool][].
+caver-javaはスマートコントラクトラッパーコードの自動生成をサポートしています。 ラッパーを使用すると、スマートコントラクトを簡単にデプロイして実行できます。 ラッパーコードを生成する前に、まずスマートコントラクトをコンパイルする必要があります。 注: これは、Solidity コンパイラがコンピュータにインストールされている場合にのみ機能します。 [Solidity Compiler][] を参照してください。
 
 ```text
-$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+$ solc <contract>.sol --bin -abi --optimize -o <output-dir>/
 ```
 
-Above command will output `<smartContract>`.java. After generating the wrapper code, you can deploy your smart contract like below:
+次に、caver-javaの [コマンドラインツール][]を使用してラッパーコードを生成します。
+
+```text
+$ caver-Java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+```
+
+上記のコマンドは `<smartContract>`.javaを出力します。 ラッパーコードを生成したら、以下のようにスマートコントラクトをデプロイできます。
 
 ```java
 <smartContract> contract = <smartContract>.deploy(
@@ -249,7 +249,7 @@ Above command will output `<smartContract>`.java. After generating the wrapper c
         <param1>, ..., <paramN>).send();
 ```
 
-After the smart contract has been deployed, you can create a smart contract instance like below:
+スマートコントラクトがデプロイされると、以下のようなスマートコントラクトインスタンスを作成できます。
 
 ```java
 <smartContract> contract = <smartContract>.load(
@@ -257,7 +257,7 @@ After the smart contract has been deployed, you can create a smart contract inst
 );
 ```
 
-To transact with a smart contract:
+スマートコントラクトで取引するには:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
@@ -265,15 +265,15 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMet
         ...).send();
 ```
 
-To call a smart contract:
+スマートコントラクトを呼び出すには:
 
 ```java
 <type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
-#### Example <a id="example"></a>
+#### 例 <a id="example"></a>
 
-This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
+このセクションでは、Baobab testnet でスマートコントラクトをデプロイして実行する方法について説明します。 この例では、スマート契約 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) を使用しています。 コントラクトのデプロイが失敗し、空のコントラクトアドレスが返されると、RuntimeExceptionがスローされます。
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.deploy(
@@ -286,39 +286,39 @@ ERC20Mock erc20Mock = ERC20Mock.deploy(
 String deployedContractAddress = erc20Mock.getContractAddress();
 ```
 
-To create an instance of the deployed ERC20Mock contract:
+デプロイされた ERC20Mock コントラクトのインスタンスを作成するには、次のようにします。
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.load(
         deployedContractAddress, 
         caver, credentials, 
-        ChainId.BAOBAB_TESTNET,  // chainId 
-        new DefaultGasProvider()  // gasProvider
+        ChainId.BAOBAB_TESTNET, // chainId 
+        new DefaultGasProvider() // gasProvider
 );
 ```
 
-If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
+指定されたアドレス \(例: `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\) にトークンを10個転送する場合は、次のコードを使用します。
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a",  // toAddress
-        BigInteger.valueOf(10)  // value
+        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a", // toAddress
+        BigInteger.valueOf(10) value
 ).send();
 ```
 
-To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
+受信者の残高をチェックするには \(例: `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), 以下のコードを使用します:
 
 ```java
 BigInteger balance = erc20Mock.balanceOf(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a"  // owner
+        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a" // owner
 ).send();
 ```
 
-### Fee Delegation <a id="fee-delegation"></a>
+### 手数料のデリゲーション <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation][] feature which allows service providers to pay transaction fees instead of the users.
+Klaytnは [手数料委任][] 機能を提供しており、サービスプロバイダはユーザーの代わりに手数料を支払うことができます。
 
-#### Value Transfer <a id="value-transfer"></a>
+#### 値の転送 <a id="value-transfer"></a>
 
 On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
 
@@ -334,21 +334,21 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
+`senderRawTransaction`が生成されます。 今、送信者は代わりに手数料を支払う手数料支払者にトランザクションを配信します。 送信者と手数料支払者の間でトランザクションを転送することはKlaytnネットワーク上で行われません。 プロトコルは自分で定義する必要があります。
 
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
+手数料支払者が送信者から取引を受け取った後、手数料支払者は以下のように `FeePayerManager` クラスを使用して取引を送信できます。 `FeePayerManager.executeTransaction()` は、受信したトランザクションに手数料支払者の秘密鍵で署名し、トランザクションを Klaytn ネットワークに送信します。
 
 ```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
+KlayCredentials fePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
+FeePayerManager feePayerManager = new FeePayerManager.Builder(caer, feePayer)
         .setChainId(ChainId.BAOBAB_TESTNET)
         .build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-#### Smart Contract Execution <a id="smart-contract-execution"></a>
+#### スマートコントラクト実行 <a id="smart-contract-execution"></a>
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract][].
+手数料委任されたスマートコントラクトの実行と上記の手数料委任された値の転送の違いは、スマートコントラクトの関数を呼び出すために入力データが必要であることです。 送信者は、以下に示すように、手数料委任されたスマートコントラクト実行トランザクションを生成できます。 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) は `TxTypeFeeDelegatedSmartContractExecution` オブジェクトを 2 番目のパラメータに `true` を渡した場合に返すことに注意してください。 以下の例では、 `Smart Contract` で説明されている [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) コントラクトの [transfer][] メソッドを呼び出します。
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -376,39 +376,39 @@ String senderRawTransaction = transactionManager.sign(smartContractExecution, tr
 After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer][] above:
 
 ```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
+KlayCredentials fePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
 FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
-## Using various AccountKey Types <a id="using-various-account-key-type"></a>
+## さまざまなAccountKey 型の使用 <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey][] supported by the platform. This feature is supported starting with version 1.2.0.
+caver-javaは、プラットフォームでサポートされているさまざまなタイプの [AccountKey][] をサポートする新しいクラスを導入しています。 この機能は、バージョン 1.2.0 以降でサポートされています。
 
 ### AccountKey  <a id="account-key"></a>
 
-To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`. See [Account Update](#account-update) for how to update an Account.
+Klaytnプラットフォームのアカウントキーを更新するには、caver-javaは `AccountKey` インターフェイスを提供します。 以下では、 `AccountKey` の実装、 `AccountKeyPublic`、 `AccountKeyWeightedMultiSig`、および `AccountKeyRoleBased` について説明します。 アカウントを更新する方法については、 [アカウント更新](#account-update) を参照してください。
 
 ### AccountKeyPublic <a id="account-key-public"></a>
 
-`AccountKeyPublic` is an implementation of `AccountKey` with one public key. You can create it like this:
+`AccountKeyPublic` は 1 つの公開鍵を持つ `AccountKey` の実装です。 次のように作成できます。
 
 ```java
 ECKeyPair newKeyPair = Keys.createEcKeyPair();
 AccountKeyPublic newAccountKey = AccountKeyPublic.create(newKeyPair.getPublicKey());
 ```
 
-To use the account updated with `AccountKeyPublic`, you need to create `KlayCredentials` as follows:
+`AccountKeyPublic`で更新されたアカウントを使用するには、 `KlayCredentials` を次のように作成する必要があります。
 
 ```java
-KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials.getAddress());
+KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials. etAddress());
 
-// Because the account address is decoupled from the AccountKeyPublic (public key), you can't use the account if you create the credentials without address as below.
-KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
+// Because the account address is decoupled from the AccountKeyPublic (public key), 以下のアドレスがない場合はアカウントを使用できません。
+KlayCredentials invalidCredentils = KlayCredentials.create(newKeyPair);
 ```
 
 ### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
 
-`AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
+`AccountKeyWeightedMultiSig` は、さまざまな重みを持つ複数の公開鍵を含むアカウント鍵です。 `AccountKeyWeightedMultiSig` は、アカウントを使用するために署名する必要がある鍵の重みの閾値を定義します。 サポートされているキーの最大数は 10 です。 `AccountKeyWeightedMultiSig` を以下のように作成できます:
 
 ```java
 List<AccountKeyWeightedMultiSig.WeightedPublicKey> weightedTransactionPublicKeys = new ArrayList<>();
@@ -438,7 +438,7 @@ AccountKeyWeightedMultiSig newAccountKey = AccountKeyWeightedMultiSig.create(
 );
 ```
 
-To use the account updated with `AccountKeyWeightedMultiSig`, you can create `KlayCredentials` as follows:
+`AccountKeyWeightedMultiSig`で更新されたアカウントを使用するには、 `KlayCredentials` を次のように作成できます。
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
@@ -446,12 +446,12 @@ List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
 transactionECKeyPairList.add(ecKeyPair1);
 transactionECKeyPairList.add(ecKeyPair2);
 
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, address);
+KlayCredentials newCredentials = KlayCredentials.create(transactionECKeyPairList, address);
 ```
 
-### AccountKeyRoleBased <a id="account-key-role-based"></a>
+### AccountKeyRoleベース <a id="account-key-role-based"></a>
 
-`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,`AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
+`AccountKeyRoleBased` は `AccountKey` のリストです。 各 `AccountKey` は、その位置に応じて特定の役割に割り当てられます。 AccountKey は `AccountKeyPublic`、`AccountKeyWeightedMultiSig`、または `AccountKeyFail` にすることができます。 `AccountKeyNil` が特定の役割に使用される場合。 その役割に対してキーは更新されず、既存の AccountKey が使用されます。 `AccountKeyFail` が使用されている場合、ロールの署名は常に失敗しますので、AccountKeyFailを使用するように注意してください。
 
 ```java
 List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
@@ -468,27 +468,27 @@ roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()))
 newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
 ```
 
-To use the account updated with `AccountKeyRoleBased`, you can create `KlayCredentials` as follows:
+`AccountKeyRoleBased`で更新されたアカウントを使用するには、 `KlayCredentials` を次のように作成できます。
 
 ```java
-List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
+List<ECKeyPair> transactionECKeyPairList = Array.asList(newKeyPair1);
 List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
-List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
+List<ECKeyPair> feePayerECKeyPairList = Array.asList(newKeyPair3);
 
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
+KlayCredentials Credentials newKeyCredentials = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-If the account does not have a key for a specific role, pass an empty List as an argument.
+アカウントに特定のロールのキーがない場合は、空のリストを引数として渡します。
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
-List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
+List<ECKeyPair> updateECKeyPairList = Array.asList(newKeyPair2);
 List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
+KlayCredentials newCredentials newCredentials = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-If the account has multiple keys for a specific role, you can pass the multiple keys as follows.
+特定のロールに複数のキーを持つアカウントは、以下のように複数のキーを渡すことができます。
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
@@ -498,20 +498,20 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
+## 複数の署名者と取引を送信する <a id="sending-a-transaction-with-multiple-signers"></a>
 
-If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
+アカウントにAccountKeyMultiSigまたはAccountKeyRoleBasedがある場合は、各キーを異なる人によって管理できます。
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+このセクションでは、複数の署名者がいる場合に署名を収集し、トランザクションを送信する方法について説明します。
 
-### Sequential sender signing <a id="sequential-sender-signing"></a>
+### 連続送信者署名 <a id="sequential-sender-signing"></a>
 
-The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+`rawTransaction` は `txSignatures` と `feePayerSignatures` の両方を含むRLPエンコードトランザクションを持っています。 `feePayerSignature` は、取引が手数料委任トランザクションである場合にのみ含まれる。
 
-In the absence of a fee payer, the process of repeatedly signing and executing a transaction can be divided into three parts. 1. RLP-encode the transaction and send it to the signer in the form of rawTransaction. 2. Signer signs with its own key for the received rawTransaction. 3. Sending the signed rawTransaction to EN. Step 2 can be repeated if there are multiple signers.
+手数料支払者が存在しない場合、トランザクションの署名と実行を繰り返し行うプロセスは、3つの部分に分けることができます。 1. RLPはトランザクションを符号化し、rawTransactionの形で署名者に送信します。 2. 受信した rawTransaction に対して、独自の鍵を持つ署名者の署名。 3. 署名されたrawTransaction を EN に送信します。 ステップ2は、複数の署名者がいる場合に繰り返すことができます。
 
 ```java
-//// 1. Alice creates a transaction, signs it, and sends it to Bob.
+//// 1. アリスは取引を作成し、それに署名し、ボブにそれを送ります。
 //// Alice Side
 ValueTransferTransaction transactionTransformer = ValueTransferTransaction.create(from, to, BigInteger.ONE, GAS_LIMIT);
 
@@ -522,7 +522,7 @@ TransactionManager transactionManager_alice = new TransactionManager.Builder(cav
 
 String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTransformer).getValueAsString();
 
-//// 2. Bob signs the received transaction and sends it to Charlie.
+//// 2. ボブは受け取った取引に署名し、それをチャーリーに送ります。
 //// Bob Side
             TransactionManager transactionManager_bob = new TransactionManager.Builder(caver, senderCredential_bob)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -531,22 +531,22 @@ String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTr
 
 String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
-//// Charlie Side
+//// 3. Charlieは受け取った取引に署名し、それをKlaytn ENに送信します。
+//// チャーリーサイド
 TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setTransactionReceipProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
                     .setChaindId(LOCAL_CHAIN_ID)
                     .build();
 
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
+KlayTransactionReceipt.TransactionReceipt actionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
+### 連続課金者署名 <a id="sequential-fee-payer-signing"></a>
 
-Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
+手数料支払者の署名は、連続的に追加することもできます。 `FeePayerManager` で署名 `feePayerSignatures` をトランザクションに蓄積します。 署名命令は重要ではありません。 `TransactionManager`で署名すると、 `txSignature` が追加されます。 `FeePayerManger`で署名すると、 `feePayerSignatures` が生のトランザクションに追加されます。
 
 ```java
-//// 1. Bob receives a transaction from Alice and signs the transaction as a fee payer.
+//// 1. Bob は Alice から取引を受け取り、手数料支払い者として取引に署名します。
 //// Bob Side
 FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePayerCredentials_bob)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -555,19 +555,19 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
-//// Charlie Side
-FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
+//// 2. Charlieは受け取った取引に署名し、それをKlaytn ENに送信します。
+//// チャーリーサイド
+FeePayerManager_charlie = new FeePayerManager.Builder(caer, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
                     .setChainId(LOCAL_CHAIN_ID)
                     .build();
 
-KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
+KlayTransactionReceipt.TransactionReceipt transactionReceipt = feePayerManager_charlie.executeTransaction(Transaction(rawTransaction_signed_alice_and_bob);
 ```
 
 ## Thanks to <a id="thanks-to"></a>
 
-The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
+インスピレーションのための [web3j](https://github.com/web3j/web3j) プロジェクト。 🙂
 
 
 [Klaytn Wallet]: ../../../../toolkit/klaytn-wallet.md
@@ -575,8 +575,8 @@ The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 [AccountKeyPublic]: ../../../../klaytn/design/accounts.md#accountkeypublic
 [AccountKey]: ../../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
-[command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
-[Smart Contract]: #smart-contract
+[コマンドラインツール]: #command-line-tool
+[手数料委任]: ../../../../klaytn/design/transactions/README.md#fee-delegation
+[transfer]: #smart-contract
 [fee-delegated value transfer]: #value-transfer
 
