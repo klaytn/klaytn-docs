@@ -10,7 +10,7 @@
 |  콘솔   | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
 |  RPC  | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                            |
 | ------- | ------------- | --------------------------------------------- |
@@ -47,7 +47,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 |  콘솔   | `debug.standardTraceBlockToFile(hash, [options])`                    |
 |  RPC  | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입            | 설명                                            |
 | ------- | ------------- | --------------------------------------------- |
