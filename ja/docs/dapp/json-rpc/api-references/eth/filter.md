@@ -1,33 +1,23 @@
 ## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+フィルタのポーリングメソッド。最後のpoll以降に発生したログの配列を返します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type     | Description                           |
-| ---- | -------- | ------------------------------------- |
-| id   | QUANTITY | The filter id (*e.g.*, "0x16" // 22). |
+| 名前 | タイプ | Description                      |
+| -- | --- | -------------------------------- |
+| id | 品質  | フィルター id (*e.g.*, "0x16" // 22). |
 
-**Return Value**
+**戻り値**
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
-- For filters created with [eth_newBlockFilter](#eth_newblockfilter), the return are block hashes (32-byte DATA), *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [eth_newFilter](#eth_newfilter), logs are objects with following parameters:
+`Array` - ログオブジェクトの配列、または最後のpoll以降に何も変更されていない場合は空の配列。
+- [eth_newBlockFilter](#eth_newblockfilter)で作成されたフィルタの場合、戻り値はブロックハッシュ(32バイトDATA)です。 *例:*, `["0x3454645634534..."]`.
+- [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter)で作成されたフィルタの場合、戻り値はトランザクション ハッシュ（32バイトDATA） *例:*, `["0x6345343454645..."]` です。
+- [eth_newFilter](#eth_newfilter)で作成されたフィルタの場合、ログは以下のパラメータを持つオブジェクトです。インデックス付きログ引数の0~4バイトのデータ配列。 (Solidity: 最初のトピックは、イベント (*など) の署名のハッシュです。 * ,*, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> </tbody> </table> 
 
-| Name             | Type          | Description                                                                                                                                                                                                                                  |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| transactionIndex | QUANTITY      | Integer of the transactions index position log was created from. `null` when pending.                                                                                                                                                        |
-| transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+**例**
 
-**Example**
+
 
 ```shell
 // Request
@@ -53,25 +43,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
+
+
+
 ## eth_getFilterLogs <a id="eth_getfilterlogs"></a>
 
-Returns an array of all logs matching filter with given id, which has been obtained using [eth_newFilter](#eth_newfilter).  Note that filter ids returned by other filter creation functions, such as [eth_newBlockFilter](#eth_newblockfilter) or [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), cannot be used with this function.
+与えられたIDで一致するすべてのログフィルタの配列を返します。 これは [eth_newFilter](#eth_newfilter) を使用して取得されました。  他のフィルター作成関数によって返されるフィルター id に注意してください。 例: eth_newBlockFilter [](#eth_newblockfilter) または [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), はこの関数では使用できません。
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+この API の実行は Klaytn ノードのリソースを安全に管理するための 2 つのノード構成によって制限することができます。
 
-**Parameters**
+- 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
+- 1つのクエリの実行時間制限(デフォルト: 10秒)。
 
-| Name | Type     | Description   |
-| ---- | -------- | ------------- |
-| id   | QUANTITY | The filter id |
+**パラメータ**
 
-**Return Value**
+| 名前 | タイプ | Description |
+| -- | --- | ----------- |
+| id | 品質  | フィルター ID    |
 
-See [eth_getFilterChanges](#eth_getfilterchanges)
 
-**Example**
+**戻り値**
+
+[eth_getFilterChanges](#eth_getfilterchanges) を参照
+
+**例**
+
+
 
 ```shell
 // Request
@@ -96,31 +93,38 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
+
+
+
 ## eth_getLogs <a id="eth_getlogs"></a>
 
-Returns an array of all logs matching a given filter object.
+与えられたフィルタオブジェクトに一致するすべてのログの配列を返します。
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+この API の実行は Klaytn ノードのリソースを安全に管理するための 2 つのノード構成によって制限することができます。
 
-**Parameters**
+- 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
+- 1つのクエリの実行時間制限(デフォルト: 10秒)。
 
-`Object` - The filter options:
+**パラメータ**
 
-| Name      | Type                      | Description                                                                                                                                                                                                                                                                                                      |
-| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
-| blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+`オブジェクト` - フィルタのオプション:
 
-**Return Value**
+| 名前        | タイプ                 | Description                                                                                                                                                                                           |
+| --------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ブロックから    | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
+| トピック      | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
+| blockHash | 32バイトのデータ           | (オプション) 32 バイトのハッシュブロックハッシュで単一のブロックに返されるログを制限するフィルタオプション。 blockHashを使用することはfromBlock = toBlock = ハッシュブロックハッシュを持つブロック番号と同等です。 フィルタ条件にblockHashが存在する場合は、fromBlockもtoBlockも許可されません。                      |
 
-See [eth_getFilterChanges](#eth_getfilterchanges)
 
-**Examples**
+**戻り値**
+
+[eth_getFilterChanges](#eth_getfilterchanges) を参照
+
+**例**
+
+
 
 ```shell
 // Request
@@ -178,6 +182,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
   ]
 }
 ```
+
+
+
 
 ```shell
 // Request
@@ -237,21 +244,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 ```
 
 
+
+
+
 ## eth_newBlockFilter <a id="eth_newblockfilter"></a>
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
+ノードにフィルタを作成し、新しいブロックが到着したときに通知します。 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | フィルタID。     |
 
-**Example**
+
+**例**
+
+
 
 ```shell
 // Request
@@ -266,41 +279,52 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
+
+
+
 ## eth_newFilter <a id="eth_newfilter"></a>
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
-- To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
-- To obtain all logs matching the filter created by `eth_newFilter`, call [eth_getFilterLogs](#eth_getfilterlogs).
+フィルターオプションに基づいてフィルターオブジェクトを作成し、状態が変更されたときに通知します (ログ)。
 
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
-* `[]` "anything"
-* `[A]` "A in first position (and anything after)"
-* `[null, B]` "anything in first position AND B in second position (and anything after)"
-* `[A, B]` "A in first position AND B in second position (and anything after)"
-* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+- 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
+- `eth_newFilter`によって作成されたフィルタに一致するすべてのログを取得するには、 [eth_getFilterLogs](#eth_getfilterlogs) を呼び出します。
 
-**Parameters**
+**トピックフィルタの指定に関する注意:** トピックは順序に依存します。 トピック `[A, B]` を含むログを持つトランザクションは以下のトピックフィルタによって一致されます:
 
-`Object` - The filter options:
+* `[]` "何か"
+* `[A]` "A in first position (and after anything)"
+* `[null, B]` "最初の位置にあるものと2番目の位置にあるもの（およびその後のもの）"
+* `[A, B]` "A in first position AND B in second position(and anything)"
+* `[[A, B], [A, B]]` "(A OR B) in first position, AND (A OR B) in second position (and anything)"
 
-| Name      | Type                      | Description                                                                                                                                                                                           |
-| --------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                  |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                                                                       |
+**パラメータ**
+
+`オブジェクト` - フィルタのオプション:
+
+| 名前      | タイプ                 | Description                                                                                                                                                                                           |
+| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ブロックから  | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
+| トピック    | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
+
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+
+注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。 
+
 {% endhint %}
 
-**Return Value**
+**戻り値**
 
-| Type     | Description |
-| -------- | ----------- |
-| QUANTITY | A filter id |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | フィルター ID    |
 
-**Example**
+
+**例**
+
+
 
 ```shell
 // Request
@@ -311,21 +335,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 ```
 
 
+
+
+
 ## eth_newPendingTransactionFilter <a id="eth_newpendingtransactionfilter"></a>
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
+新しい保留中のトランザクションが到着したときに通知するために、ノードにフィルタを作成します。 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type     | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| タイプ | Description |
+| --- | ----------- |
+| 品質  | フィルタID。     |
 
-**Example**
+
+**例**
+
+
 
 ```shell
 // Request
@@ -334,34 +364,38 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 // Result
 {
   "jsonrpc":"2.0",
-  "id":73,
-  "result":"0x90cec22a723fcc725fb2462733c2880f"
+  "id":73",
+  "result":"0x90cec22a723fc725fb2462733c2880f"
 }
 ```
 
+
+
+
 ## eth_subscribe <a id="eth_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+RPCのPub/Sub-over WebSocketsまたはHTTPを介したフィルタを使用して、特定のイベントに新しいサブスクリプションを作成します。 クライアントは、ポーリングの代わりにイベントを待つことができます。
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+ノードは作成された各サブスクリプションのサブスクリプション ID を返します。 契約に一致するイベントごとに、関連データを含む通知がサブスクリプション ID と一緒に送信されます。 接続が閉じられている場合、接続経由で作成されたすべての契約が削除されます。
 
-**Parameters**
+**パラメータ**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
+`Object` - 通知タイプ: `"newHeads"` または `"logs"`.
+
+`"newHeads"` はブロックチェーンに追加された各ブロックを通知します。 `"logs"` は新しいブロックに含まれるログを通知します。 この型には、フィルターオプションを指定する 2 番目のパラメーターが必要です。 詳細については、 [eth_newFilter > parameters](./filter#eth_newfilter) を参照してください。
+
+**戻り値**
+
+| タイプ | Description                                                        |
+| --- | ------------------------------------------------------------------ |
+| 品質  | サブスクリプションが作成されたときのサブスクリプション ID 契約に一致するイベントごとに、関連するデータを含む通知も配信されます。 |
 
 
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [eth_newFilter > parameters](./filter#eth_newfilter).
+**例**
 
-**Return Value**
-
-| Type     | Description                                                                                                                                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
 
 
-**Example**
-
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
@@ -372,6 +406,9 @@ wscat -c http://localhost:8551
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
 < {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
+
+
+
 
 ```shell
 // Request
@@ -384,23 +421,30 @@ wscat -c http://localhost:8551
 ```
 
 
+
+
+
 ## eth_uninstallFilter <a id="eth_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [eth_getFilterChanges](#eth_getfilterchanges) for a period of time.
+与えられたIDでフィルターをアンインストールします。 時計がもはや必要ではないときに常に呼び出される必要があります。 さらに、一定期間 [eth_getFilterChanges](#eth_getfilterchanges) で要求されなかった場合のフィルタータイムアウト。
 
-**Parameters**
+**パラメータ**
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
-| filter | QUANTITY | A filter id. |
+| 名前    | タイプ | Description |
+| ----- | --- | ----------- |
+| フィルター | 品質  | フィルタID。     |
 
-**Return Value**
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+**戻り値**
 
-**Example**
+| タイプ     | Description                                      |
+| ------- | ------------------------------------------------ |
+| Boolean | `フィルタが正常にアンインストールされていれば、true` 、それ以外の場合は `false`。 |
+
+
+**例**
+
+
 
 ```shell
 // Request
@@ -415,26 +459,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
+
+
+
 ## eth_unsubscribe <a id="eth_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+RPC Pub/Sub over WebSocketsまたはHTTP経由のフィルタを使用して、特定のサブスクリプション IDでサブスクリプションをキャンセルします。 サブスクリプションを作成した接続のみが登録解除できます。
 
-**Parameters**
+**パラメータ**
 
-| Type     | Description        |
-| -------- | ------------------ |
-| QUANTITY | A subscription id. |
-
-**Return Value**
-
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+| タイプ | Description  |
+| --- | ------------ |
+| 品質  | サブスクリプションID。 |
 
 
-**Example**
+**戻り値**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+| タイプ     | Description                                                          |
+| ------- | -------------------------------------------------------------------- |
+| Boolean | `true` if the subscription was successfully canceled, other `false`. |
+
+
+**例**
+
+この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
+
+
 
 ```shell
 // Request
