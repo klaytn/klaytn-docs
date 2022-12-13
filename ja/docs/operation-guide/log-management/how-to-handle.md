@@ -1,4 +1,4 @@
-# How to process attributes in the log message <a id="how-to-handle"></a>
+# ログメッセージの属性を処理する方法 <a id="how-to-handle"></a>
 
 
 
