@@ -1,24 +1,24 @@
 ---
 description: >-
-  This page contains the list of development tools to help you build Decentralized Applications on Klaytn.
+  このページには、Klaytnで分散アプリケーションを構築するのに役立つ開発ツールのリストがあります。
 ---
 
-# Developer Tools <a id="developer-tools"></a>
+# 開発ツール <a id="developer-tools"></a>
 
 #### Kaikas <a id="kaikas"></a>
 
-* Kaikas is a secure, developer-friendly wallet for the Klaytn Network that is seamlessly integrated into the web as a browser extension. Kaikas empowers you to store and interact with KLAY/Klaytn-based tokens, and to sign transactions from Klaytn dApps (Decentralized Applications) on the web in realtime.
+* Kaikasは、ブラウザ拡張機能としてWebにシームレスに統合されているKlaytn Network用の安全な開発者向けウォレットです。 Kaikasは、KLAY/Klaytnベースのトークンを保存および相互作用し、Klaytn dApps(Decentralized Applications)からのトランザクションにリアルタイムで署名することができます。
 
-#### Klaytn Wallet  <a id="klaytn-wallet"></a>
+#### Klaytn ウォレット  <a id="klaytn-wallet"></a>
 
-* Klaytn Wallet is a browser-based account management tool for the dApp (Decentralized Application) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
+* Klaytn Walletはブラウザベースのアカウント管理ツールで、DApp(Decentralized Application)開発者向けです。 アカウントの作成/読み込み、アカウント残高の確認、KLAY転送ができます。 基本的な動作をテストするために、独自のKlaytnトークンを登録することもできます。
 
 #### Klaytnscope <a id="klaytnscope"></a>
 
-* Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
+* Klaytnscopeは、Klaytn Networkのブロックエクスプローラです。 トランザクションはブラウザで閲覧および検査できます。
 
 #### Covalent API <a id="Covalent"></a>
 
-* Covalent aggregates information from across dozens of sources including nodes, chains, and data feeds. This Covalent RESTful API allows you to pull detailed, granular and historical blockchain transaction data from Klaytn (and other blockchains) with no code. The Covalent API allows you to create entirely new applications or augment existing ones without configuring or maintaining blockchain infrastructure.
+* 共有は、ノード、チェーン、およびデータフィードを含む数十のソースからの情報を集約します。 この共有RESTful APIを使用すると、Klaytn(および他のブロックチェーン)から詳細で詳細なブロックチェーントランザクションデータをコードなしで引き出すことができます。 共有APIを使用すると、ブロックチェーンインフラストラクチャを設定または維持することなく、全く新しいアプリケーションを作成したり、既存のアプリケーションを拡張したりできます。
 
-* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId. For more information, see [Covalent Docs](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
+* サポートされているエンドポイント- すべてのクラス エンドポイントは、Klaytn mainnet サイプレスとKlaytn testnet Baobabでサポートされています。 chainIdを変更することで、統一API経由でいずれかのネットワークに問い合わせることができます。 詳細については、 [Covant Docs](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints) を参照してください。
