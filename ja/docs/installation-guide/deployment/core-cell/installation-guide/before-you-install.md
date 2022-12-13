@@ -1,22 +1,22 @@
-# Before You Install <a id="before-you-install"></a>
+# インストールする前に <a id="before-you-install"></a>
 
-Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. The Kgen package is provided for CC operators, please follow the steps in the order shown below.
+Klaytn パッケージをインストールする前に、ノード URI を登録するために関連付けられたノード情報を作成する必要があります。 CC演算子にはKgenパッケージが用意されていますので、以下の手順に従ってください。
 
-1. Download `kgen` Package
-2. Node Key & Node URI Creation
-3. Node URI Enrollment
+1. `kgen` パッケージをダウンロード
+2. ノードキー & ノード URI 作成
+3. ノード URI 登録
 
-## Download `kgen` Package <a id="download-kgen-package"></a>
+## `kgen` パッケージをダウンロード <a id="download-kgen-package"></a>
 
-First of all, you can download the latest version of `kgen` package depending on your operating systems on [Download](download.md) page.
+まず、オペレーティングシステムに応じて、最新バージョンの `kgen` パッケージを [ダウンロード](download.md) ページでダウンロードできます。
 
-You can find the `kgen` binary file under the `bin` directory.
+`kgen` のバイナリファイルは `bin` ディレクトリの下にあります。
 
-## Node Key & Node URI Creation <a id="node-key-node-uri-creation"></a>
+## ノードキー & ノード URI 作成 <a id="node-key-node-uri-creation"></a>
 
-The node key and the node URI are created only once at the beginning. The node URI must be shared with other Core Cells of the Core Cell Network. A CN connects to other CNs and a PN connects to a CN and some PNs using the created node URI. A node URI is created based on the node key by using the downloaded `kgen`. The below command line creates `nodekey` as well as `node_info.json`.
+ノードキーとノード URI は最初に一度だけ作成されます。 ノード URI は、コア セル ネットワークの他のコア セルと共有する必要があります。 CNは他のCNと接続し、PNはCNと一部のPNは作成されたノードURIを使用して接続します。 ダウンロードした `kgen` を使用してノードキーに基づいてノード URI が作成されます。 以下のコマンドラインは `nodekey` と `node_info.json` を作成します。
 
-`kgen` takes the associated IP and Port number as follows.
+`kgen` は、関連するIPとポート番号を以下のように取ります。
 
 ```text
 $ kgen --ip "123.456.789.012" --port 32323 --file
@@ -24,23 +24,23 @@ $ ls
 nodekey node_info.json
 ```
 
-The `nodekey` is a 64-byte hexadecimal string which is a private key used in the node internally. This private key must be present at the Klaytn data directory and be careful not to lose it.
+`nodekey` は 64 バイトの 16 進数文字列で、内部的にノードで使用される秘密鍵です。 この秘密鍵は Klaytn データディレクトリに存在し、それを失わないように注意してください。
 
 ```text
 $ cat nodekey
-f08f2118c455a6c9c9b5e035d3571e570a719ea61771e268546e796a264acc2b
+f08f2118c455a6c9b5e035d3571e570a719ea61771e268546e796a264acc2b
 $ mv nodekey ~/kcnd_home
 ```
 
-The created file `node_info.json` includes the following contents.
+作成されたファイル `node_info.json` には以下の内容が含まれます。
 
-| Key Name    | Description                          | Example                                                                                                                                                                 |
-|:----------- |:------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NodeAddress | an address of the associated node    | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
-| NodeKey     | the node key \(a.k.a private key\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
-| NodeURI     | node URI                             | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0 |
+| キー名         | Description                   | 例                                                                                                                                                                       |
+|:----------- |:----------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NodeAddress | 関連付けられたノードのアドレス               | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
+| NodeKey     | ノードキー \(a.k.a private key\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
+| NodeURI     | node URI                      | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0 |
 
-`node_info.json` contains the node information in a JSON format as follows.
+`node_info.json` には以下のように JSON 形式のノード情報が含まれています。
 
 ```text
 $ cat node_info.json
@@ -51,16 +51,16 @@ $ cat node_info.json
 }
 ```
 
-## Node URI Enrollment <a id="node-uri-enrollment"></a>
+## ノード URI 登録 <a id="node-uri-enrollment"></a>
 
-The created node URI should be enrolled to participate in the Core Cell Network \(CCN\). The process of the enrollment is as follows.
+作成されたノード URI は、Core Cell Network \(CCN\) に参加するために登録する必要があります。 入学手続きは以下のとおりです。
 
-1. Create a node URI using `kgen` \(`node_info.json`\) which contains the associated IP and Port number.
-2. Send the information to the official Klaytn email address \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
+1. `kgen` \(`node_info.json`\) に関連する IP とポート番号を含むノード URI を作成します。
+2. 情報を公式のKlaytnメールアドレス\(`bootstrap@klaytn.com` の Cypress または `baob@klaytn.com` の Baobab\) に送信します。
 
-The enrolled information should be sent to the official Klaytn email address. The format is as follows.
+登録された情報は、公式のKlaytnメールアドレスに送信されます。 フォーマットは以下の通りです。
 
-In case of CN,
+CNの場合
 
 ```text
 Company: Kakao
@@ -68,7 +68,7 @@ CN URI : kni://
 4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0
 ```
 
-In case of PN,
+PNの場合
 
 ```text
 Company: Kakao
