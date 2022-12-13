@@ -9,7 +9,7 @@
 |  콘솔   | `debug.freeOSMemory()`             |
 |  RPC  | `{"method": "debug_freeOSMemory"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -40,7 +40,7 @@ GC 통계를 반환합니다.
 |  콘솔   | `debug.gcStats()`                           |
 |  RPC  | `{"method": "debug_gcStats", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -78,7 +78,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.memStats()`                           |
 |  RPC  | `{"method": "debug_memStats", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -127,7 +127,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.metrics(raw)`                           |
 |  RPC  | `{"method": "debug_metrics", "params": [raw]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름  | 타입   | 설명                                                     |
 | --- | ---- | ------------------------------------------------------ |
@@ -208,7 +208,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
 
-**Parameters**
+**파라미터**
 
 | 이름      | 타입      | 설명            |
 | ------- | ------- | ------------- |
@@ -250,7 +250,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 |  콘솔   | `debug.stacks()`                           |
 |  RPC  | `{"method": "debug_stacks", "params": []}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
