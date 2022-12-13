@@ -100,12 +100,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **리턴값**
 
-| 이름      | 타입     | 설명           |
-| ------- | ------ | ------------ |
-| URL     | string | 지갑 URL입니다.   |
-| Status  | string | 잠금 상태입니다.    |
-| Failure | string | 오류 조건입니다.    |
-| 계정      | string | 계정 주소 목록입니다. |
+| 이름       | 타입     | 설명           |
+| -------- | ------ | ------------ |
+| URL      | string | 지갑 URL입니다.   |
+| Status   | string | 잠금 상태입니다.    |
+| Failure  | string | 오류 조건입니다.    |
+| Accounts | string | 계정 주소 목록입니다. |
 
 **예시**
 
