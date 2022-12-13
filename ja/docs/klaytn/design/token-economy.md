@@ -1,75 +1,75 @@
-# Token Economy <a id="token-economy"></a>
+# トークン経済 <a id="token-economy"></a>
 
-## Overview <a id="overview"></a>
+## 概要 <a id="overview"></a>
 
-Klaytn’s token economy is designed to create sustainable funding structures for empowering its ecosystem, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
+Klaytnのトークンエコノミーは、エコシステム、成長イニシアチブ、および戦略的投資を可能にする持続可能な資金調達構造を作成するように設計されています。 多くのパブリックブロックチェーンプロジェクトには、ノードのオペレータを単にインセンティブとする金銭システムがあります。\(鉱夫またはブロック生成者\) ネットワークメンテナンスの技術的側面だけに焦点を当てています ただし、 そのようなデザインは、ネットワークのトークン経済の成長に貢献したり、長期的な成長見通しに投資する他のタイプの参加者にインセンティブを与えることの重要性を見逃しています。 対照的に、Klaytnのトークンエコノミーは、より広い範囲の参加者からのより多様な貢献を補うように設計されています。 そして、将来の成長イニシアチブやブロックチェーンノードの維持に加えて戦略的に調達された投資プロジェクトを促進するために持続的なリソースを調達するための資金構造を内蔵しています。
 
-## Funding Structure <a id="funding-structure"></a>
+## 資金調達構造 <a id="funding-structure"></a>
 
-Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
+Klaytnの資金調達構造は、Klaytnネットワークのブロック生成によって継続的に実行されます。 すべての新しいブロックで 新しく発行されたKLAYとブロック\（総称して「ブロック報酬」と呼ばれる）で使用される取引手数料の合計は、所定の比率に従って、以下の3つの宛先口座に集約され、分配されます。
 
-* Klaytn Governance Council Reward: 50%
-* Klaytn Growth Fund \(KGF\): 40%
-* Klaytn Improvement Reserve \(KIR\): 10%
+* Klaytn Governance Council 報酬: 50%
+* Klaytn Growth Fund\(KGF\): 40%
+* Klaytn改良備蓄\(KIR\): 10%
 
-6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+6.4 KLAYは新しいブロックごとに発行されます。 これは、年間約2億KLAYが鋳造されることを意味します。 これは、発生時に発行される100億KLAYに対して2%の年間インフレに相当します(クラインガバナンスプロセスを通じて年間インフレ率が変化する可能性があります)。 トランザクション手数料はOPCODEごとに課金され、トランザクション手数料表に従って課金されます。 取引手数料表の詳細については、 [取引手数料](transaction-fees/transaction-fees.md) を参照してください。
 
-## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
+## Klaytn Governance Council 報酬 <a id="klaytn-governance-council-reward"></a>
 
-Klaytn Governance Council is the collective group of Core Cell Operators \(CCOs\). Council members are responsible for maintaining Core Cells \(CCs\), which makes the Council an essential body in the Klaytn ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Klaytn Governance Process and must stake at least 5 million KLAY. The Klaytn Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Klaytn ecosystem.
+Klaytn Governance Councilは、コアセル演算子\(CCOs\)の集団グループです。 評議会メンバーはコアセル\(CCs\)を維持する責任があります。 これにより、協議会は、基盤となるインフラストラクチャを提供する責任を負うKlaytnエコシステムの不可欠な機関になります。 理事会のメンバーになるには、候補者は、Klaytn Governance Process によって資格審査を受け、少なくとも500万KLAYを投資する必要があります。 Klaytn Governance Council Rewardは、評議会のメンバーがKlaytnエコシステムの安定した基盤を提供し続けるように奨励するための構造です。
 
-### Klaytn Governance Council Reward Mechanism <a id="klaytn-governance-council-reward-mechanism"></a>
+### Klaytn Governance Council 報酬メカニズム <a id="klaytn-governance-council-reward-mechanism"></a>
 
-For every block, a Committee composed of randomly selected Council members is formed. Each Committee has one member assigned the role of Proposer; all other Committee members assume the role of Validators. When a block is successfully created and added to the Klaytn blockchain, the Proposer of the said block is rewarded with 100% of the block reward. The probability of a Council member being selected a Proposer is proportional to the amount of KLAY staked by the member; that is, the more KLAY a member stakes, the more likely that the member will be selected as a Proposer and potentially claim the block reward.
+各ブロックについて、ランダムに選択された評議会メンバーで構成された委員会が形成されます。 各委員会には提案者の役割を1名ずつ割り当てられており、他の委員はすべて検証者の役割を担っています。 ブロックが正常に作成され、Klaytnブロックチェーンに追加された場合 上記のブロックの提案には、ブロック報酬の100%が付与されます。 理事会メンバーが提案者を選択する確率は、メンバーが投資したKLAYの金額に比例します。 つまりKLAYが加入すればするほど メンバーが提案者として選択され、ブロック報酬を受け取る可能性が高くなります。
 
-As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
+最小5百万KLAYステーキング要件が満たされている限り、 Klaytnガバナンス評議会のメンバーは自由に自らのKLAYを賭けたり、解除したりすることができます。 ステーキング情報は86,400ブロックごとに更新され、新たにステークされたKLAYはステーキングが完了した時点から2回のアップデートサイクル後に情報効果をもたらします。 ステークされたKLAYの撤回には、悪意のあるメンバーが直ちに終了するのを防ぐために1週間の遅延が必要です。
 
-To prevent monopolized claiming of Klaytn Governance Council Reward by small groups of highly invested Council members, Gini coefficient may be used to adjust the effective amount of staked KLAY. The application formula is as follows, where G stands for gini coefficient of Governance Council's KLAY staking distribution:
+高く投資された評議会メンバーの少人数グループによるKlaytnガバナンス評議会報酬の主張の独占を防ぐため。 ジニ係数は、ステークKLAYの有効量を調整するために使用することができます。 Gはガバナンス協議会のKLAYステーキングディストリビューションのジニ係数を表しています。
 
-* _Adjusted staking amount = \(Council member's staking amount\)^\(1/1+G\)_
+* _ステーキング量を調整する = \(理事会メンバーのステーキング金額\)^\(1/1+G\)_
 
 
-### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>
+### 不正行為評議会のメンバーに対するペナルティ <a id="penalty-for-misbehaving-council-members"></a>
 
-A Council member may be subject to penalties for conducting misbehaviors defined below. In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
+評議会のメンバーは、以下に定義された誤った行為を行うための罰則の対象となることができます。 将来的には、Klaytnガバナンスプロセスを通じて、より多くのペナルティルールを確立し、改善することができます。
 
-Causing Safety Failure:
+安全の原因:
 
-* A Council member selected as Proposer may not create more than one block in the same height
-* A Council member selected as Proposer may not intentionally omit certain transactions
+* 提案者として選択された評議会メンバーは、同じ高さで複数のブロックを作成することはできません
+* 提案者として選択された評議会メンバーは、意図的に特定の取引を省略してはいけません。
 
-Causing Liveness Failure:
+生存率の失敗原因:
 
-* A Council member selected as Proposer must create a valid block
-* A Council member selected as Validator must validate the block proposed by the Proposer
+* 提案者として選択された評議会メンバーは有効なブロックを作成する必要があります
+* 検証者として選択された評議会メンバーは、提案者によって提案されたブロックを検証しなければなりません
 
 ## Klaytn Growth Fund <a id="klaytn-growth-fund"></a>
 
-### Background
+### 背景
 
-Klaytn's token economy operates and develops through the activities of Klaytn's economic entities. The growth of the economy will help improve the stability of the platform and help the ecosystem last. Therefore, Klaytn has an incentive system that fosters the economic entities' activities in order to help maintain and strengthen the economic growth of Klaytn.
-
-
-### General Concept
-The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of legal contracts, local storage, etc. And KGF is intended to solve these problems. KGF will support various programs for promoting the adoption of Klaytn across all industries, such as rewarding those who show proof-of-contribution on-chain and investing in early-stage dApps. It will be constantly financed through a certain percentage of block rewards (refer to [Funding Structure](token-economy.md#funding-structure)).
+Klaytnのトークンエコノミーは、Klaytnの経済主体の活動を通じて運営、開発を行っています。 経済の成長は、プラットフォームの安定性を改善し、生態系が最後になるのを助ける。 したがって、Klaytnは、Klaytnの経済成長の維持と強化を支援するために、経済主体の活動を促進するインセンティブシステムを持っています。
 
 
-## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
-
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such as:
-
+### 一般コンセプト
+Klaytn Growth Fund(KGF)は、Klaytn経済に貢献する様々な組織や個人に助成金や投資を提供することで、Klaytn経済を前進させることを目指しています。 Klaytnのテクノロジーは、世界中の人々が簡単かつ最小限のコストでデータと価値を保存、転送、交換する巨大な機会を提供します。 オープンネットワークなので、誰でもアクセス権を得ずにアプリケーションを構築することができます。 しかし、この技術はまだ初期段階にあるため、ブロックチェーンのより広範な採用が妨げられています。 価値やデータのほとんどは今でも伝統的な方法で管理されています 法的契約や地域の保管などです そして、KGFはこれらの問題を解決することを意図しています。 KGFは、すべての業界でKlaytnの採用を促進するための様々なプログラムをサポートします。 例えば、チェーン上の貢献の証明や初期段階のdAppsへの投資を示す人々に報酬を与えるなど。 一定の割合のブロック報酬を通じて絶えず融資されます（ [資金調達構造](token-economy.md#funding-structure) を参照）。
 
 
-| Category                        | Details                                                                                                                            |
-|:------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
-| **Development**                 | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li>                             |
-| **Infrastructure**              | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li>                           |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li>                                                     |
-| **Monitoring & Analytics**      | <ul><li>Monitoring</li><li>Analytics</li>                                                     |
-| **Education & Activity**        | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
-| **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
+## Klaytn Melhoria Reserve <a id="klaytn-improvement-reserve"></a>
+
+技術が向上し続けるにつれて、ユーザーのニーズは時間とともに変化します 我々のプラットフォームには新しい状況に素早く適応する能力が必要だ そのような変化に対応するためには、サービスだけでなく、Klaytnのエコシステムを維持するために様々な活動を行う必要があります。 例えば、より良い技術のための研究開発、あるいはエコシステムの全体的な成長に貢献するプロジェクトは、これらの活動の一部である可能性があります。 これらの活動は、Klaytnが継続的に進歩するために必要である。 Klaytn Improvement Reserve (KIR) は、以下のような Klaytn エコシステムを改善する活動に展開されます。
 
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
 
-For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/).
+| カテゴリ             | 詳細                                                                                                                                 |
+|:---------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| **開発**           | <ul><li>IDE & エディター</li><li>Oracle</li><li>契約ライブラリ</li>                             |
+| **インフラストラクチャ**   | <ul><li>ローカルテストネット</li><li>分散ファイルシステム</li><li>マルチVM</li>                           |
+| **テスト、デバッグ、展開**  | <ul><li>テストおよび展開ツール</li><li>セキュリティ＆監査ツール</li>                                                     |
+| **モニタリング & 分析**  | <ul><li>モニタリング</li><li>分析</li>                                                     |
+| **教育 & アクティビティ** | <ul><li>ドキュメント</li><li>教材について</li><li>コミュニティビル</li><li>オープンソースアクティビティ（バグ・バウンティを含む）</li> |
+| **研究**           | <ul><li>セキュリティ、スケーラビリティ、暗号など。</li></ul>                                                                                                         |
+
+
+KIRの提案は、Klaytnのエコシステムに参加するすべての参加者によって作成できます。 KIR支出の提案はKIRガバナンスプロセスに従って処理されます。 手順の詳細については、 [Klaytn 改善予備審査プロセス](governance.md#klaytn-improvement-reserve-review-process) を参照してください。 支出の提案が合格すると、KLAYはプロジェクトの進捗レベルに基づいて所定の合計金額から定期的に配布されます。 このプロセスは、プロジェクトの規模に応じて変更される場合がありますが、毎月処理される予定です。
+
+詳細については、 [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/) をご覧ください。
