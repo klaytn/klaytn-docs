@@ -1,4 +1,4 @@
-# Klaytn on k8s <a id="klaytn-on-k8s"></a>
+# K8s で Klaytn <a id="klaytn-on-k8s"></a>
 
 ## (TBD)
 
