@@ -1,36 +1,36 @@
-# Transaction Error Codes <a id="transaction-error-codes"></a>
+# トランザクションエラー コード <a id="transaction-error-codes"></a>
 
-Klaytn provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
+Klaytnはトランザクション受領にフィールド `txError` を提供し、失敗したトランザクション実行の理由について開発者に詳細な情報を提供します。 この項目はトランザクションの実行に失敗した場合にのみ存在します。 ストレージとネットワーク帯域幅を節約するには、 `txError` に整数値が含まれています。 以下の表は、 `txError` の値の意味を示しています。
 
-| Error Code | Description                                                               |
-|:---------- |:------------------------------------------------------------------------- |
-| 0x02       | VM error occurs while running smart contract                              |
-| 0x03       | max call depth exceeded                                                   |
-| 0x04       | contract address collision                                                |
-| 0x05       | contract creation code storage out of gas                                 |
-| 0x06       | evm: max code size exceeded                                               |
-| 0x07       | out of gas                                                                |
-| 0x08       | evm: write protection                                                     |
-| 0x09       | evm: execution reverted                                                   |
-| 0x0a       | reached the opcode computation cost limit \(100000000\) for tx          |
-| 0x0b       | account already exists                                                    |
-| 0x0c       | not a program account \(e.g., an account having code and storage\)      |
-| 0x0d       | Human-readable address is not supported now                               |
-| 0x0e       | fee ratio is out of range \[1, 99\]                                     |
-| 0x0f       | AccountKeyFail is not updatable                                           |
-| 0x10       | different account key type                                                |
-| 0x11       | AccountKeyNil cannot be initialized to an account                         |
-| 0x12       | public key is not on curve                                                |
-| 0x13       | key weight is zero                                                        |
-| 0x14       | key is not serializable                                                   |
-| 0x15       | duplicated key                                                            |
-| 0x16       | weighted sum overflow                                                     |
-| 0x17       | unsatisfiable threshold. Weighted sum of keys is less than the threshold. |
-| 0x18       | length is zero                                                            |
-| 0x19       | length too long                                                           |
-| 0x1a       | nested composite type                                                     |
-| 0x1b       | a legacy transaction must be with a legacy account key                    |
-| 0x1c       | deprecated feature                                                        |
-| 0x1d       | not supported                                                             |
-| 0x1e       | smart contract code format is invalid                                     |
+| エラーコード | Description                                  |
+|:------ |:-------------------------------------------- |
+| 0x02   | スマートコントラクトの実行中にVMエラーが発生しました                  |
+| 0x03   | 最大通話深度を超えました                                 |
+| 0x04   | コントラクトアドレスが衝突しました                            |
+| 0x05   | ガスからコントラクト作成コードを保管する                         |
+| 0x06   | evm: 最大コードサイズを超えました                          |
+| 0x07   | ガス欠だ                                         |
+| 0x08   | (エドワード)書き込み保護                                |
+| 0x09   | 実行が取り消されました                                  |
+| 0x0a   | txのオペコードの計算コスト制限\(100000000\)に達しました        |
+| 0x0b   | アカウントは既に存在します                                |
+| 0x0c   | プログラムアカウント \(例えば、コードとストレージを持つアカウント) ではありません |
+| 0x0d   | 人間が読めるアドレスは現在サポートされていません                     |
+| 0x0e   | 手数料比率が範囲外です \[1, 99\]                      |
+| 0x0f   | AccountKeyFail は更新できません                      |
+| 0x10   | 異なるアカウントキーの種類                                |
+| 0x11   | AccountKeyNil はアカウントに初期化できません                |
+| 0x12   | 公開鍵は曲線上にありません                                |
+| 0x13   | キーの重量がゼロです                                   |
+| 0x14   | キーはシリアライズできません                               |
+| 0x15   | 重複したキー                                       |
+| 0x16   | 加重合計オーバーフロー                                  |
+| 0x17   | 不十分な閾値です 鍵の加重合計はしきい値より小さい。                   |
+| 0x18   | 長さはゼロです                                      |
+| 0x19   | 長すぎます                                        |
+| 0x1a   | ネストされた複合タイプ                                  |
+| 0x1b   | レガシートランザクションはレガシーアカウントキーでなければなりません           |
+| 0x1c   | 非推奨の機能                                       |
+| 0x1d   | 対応していません                                     |
+| 0x1e   | スマートコントラクトコード形式が無効です                         |
 
