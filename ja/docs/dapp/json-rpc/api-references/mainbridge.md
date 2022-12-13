@@ -1,27 +1,27 @@
 ---
 description: >-
-  APIs related to main chain ENs connected with a service chain.
+  メインチェーンに関連する API サービスチェーンに接続された EN。
 ---
 
-# Namespace mainbridge <a id="namespace-mainbridge"></a>
+# ネームスペース メインブリッジ <a id="namespace-mainbridge"></a>
 
-The namespace `mainbridge` provides functions related to Service Chain. To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
+名前空間 `メインブリッジ` は、Service Chainに関連する関数を提供します。 この名前空間で関数を使用するには メインチェーン(メインネットまたはバオバブテストネット)に接続されているENで、 `メインブリッジ` を有効にする必要があります。
 
 ## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A mainbridge node can connect to a subbrige node via the KNI.
+ノードのKNI(Klaytn Network Identifier)を含むブリッジノード情報を返します。 mainbridge ノードは KBI 経由でサブブリージュノードに接続できます。
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                  |
-| ----------- | ---------------------------- |
-| JSON string | the bridge node information. |
+| タイプ     | Description |
+| ------- | ----------- |
+| JSON文字列 | ブリッジノードの情報  |
 
-**Example**
+**例**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -54,28 +54,28 @@ None
 ```
 
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
-Returns `true` if adding a subbridge peer is done successfully.
+サブブリッジピアの追加が正常に完了した場合、 `true` を返します。
 
-It Adds a new remote node to the peer list. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+It ピア・リストに新しいリモート・ノードを追加します。 ノードは常にこれらのノードへの接続を維持しようとします リモート接続が切断された場合、 をしばらく毎に再接続します。 このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` を返します。追跡のためにピアが受け入れられたか、エラーが発生したかを示します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 名前  | タイプ | Description     |
+| --- | --- | --------------- |
+| URL | 文字列 | ピアの  `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| タイプ  | Description                          |
+| ---- | ------------------------------------ |
+| bool | `ピアが受け入れられた場合には true` `false` となります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
-> mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
+> mainbridge.addPeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
 true
 ```
 HTTP RPC
@@ -86,28 +86,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
-Returns `true` if removing the peer is done successfully.
+ピアの削除が成功した場合、 `true` を返します。
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+`removePeer` メソッドは、トラッキングされた静的ノードのリスト内のリモートノードを切断して削除します。 このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` は、ピアが 追跡のために受け入れられたか、またはエラーが発生したかを示します。
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 名前  | タイプ | Description     |
+| --- | --- | --------------- |
+| URL | 文字列 | ピアの  `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the peer was removed, `false` otherwise. |
+| タイプ  | Description                               |
+| ---- | ----------------------------------------- |
+| bool | `ピアが削除された場合は true` で、それ以外の場合は `false` です。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
-> mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
+> mainbridge.removePeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
 true
 ```
 
@@ -118,46 +118,46 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
+## mainbridge_getChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+`mainbridge_getChainIndexingEnabled` は、アンカートランザクションが有効かどうかを示す。
 
-**Parameters**
+**パラメータ**
 
-none
+なし
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                            |
-| ---- | ------------------------------------------------------ |
-| bool | `true` if the indexing was enabled, `false` otherwise. |
+| タイプ  | Description                              |
+| ---- | ---------------------------------------- |
+| bool | `インデックスが有効になっている場合は true` `false` でなければ。 |
 
-**Example**
+**例**
 
 ```javascript
-> mainbridge.getChildChainIndexingEnabled()
+> mainbridge.getChainIndexingEnabled()
 true
 ```
 
 ## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
-Returns the anchoring transaction hash of the given child chain block hash.
+与えられた子チェーンブロックハッシュのアンカートランザクションハッシュを返します。
 
-**Parameters**
+**パラメータ**
 
-| Type         | Description                 |
-| ------------ | --------------------------- |
-| 32-byte DATA | The child chain block hash. |
+| タイプ       | Description     |
+| --------- | --------------- |
+| 32バイトのデータ | 子チェーンのブロックハッシュ。 |
 
-**Return Value**
+**戻り値**
 
-| Type         | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| 32-byte DATA | The anchoring transaction hash that includes the child chain block information. |
+| タイプ       | Description                      |
+| --------- | -------------------------------- |
+| 32バイトのデータ | 子チェーンブロック情報を含むトランザクションハッシュのアンカー。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
@@ -167,7 +167,7 @@ Console
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a6e0d1880"],"id":1}' https://api.baobab.klaytn.net:8651
+{"jsonrpc":"2.0","id":1,"id":0x9a68591c0faa7870a790c5623a6e0d
 ```
 
