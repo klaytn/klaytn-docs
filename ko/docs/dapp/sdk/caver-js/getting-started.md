@@ -1,4 +1,4 @@
-# Getting Started
+# 시작하기
 
 이 문서는 caver-js 1.5.0 또는 상위 버전을 사용하는 개발자를 위해 작성되었습니다. If you are using an older version, see [Getting Started (\~v1.4.1)](v1.4.1/getting-started\_1.4.1.md).
 
