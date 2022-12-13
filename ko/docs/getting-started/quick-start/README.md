@@ -16,14 +16,14 @@
 
 이 튜토리얼의 첫 번째 부분에서는 EN을 시작하고, 새 계정을 만들고, Baobab Klaytn Wallet의 Faucet으로 계정에 토큰을 받는 방법에 대해 설명합니다.
 
-* [Launch an Endpoint Node](launch-an-en.md)
-* [Top up your Account](top-up-your-account.md)
+* [엔드포인트 노드 실행](launch-an-en.md)
+* [계정에 자금 추가하기](top-up-your-account.md)
 
 ## 2. 스마트 컨트랙트 배포: KlaytnGreeter <a id="2-deploying-a-smart-contract-klaytngreeter"></a>
 
 이 가이드의 두 번째 부분은 스마트 컨트랙트를 생성하고 이를 Klaytn Baobab 네트워크에 배포하는 방법을 보여줍니다. 스마트 컨트랙트를 개발하기 전에, 개발 도구를 설정하고 caver-js 및 트러플을 설치해야 합니다.
 
-* [Install Development Tools](install-development-tools.md)
-* [Deploy a Smart Contract](deploy-a-smart-contract.md)
-* [Check the Deployment](check-the-deployment.md)
+* [개발 도구 설치하기](install-development-tools.md)
+* [스마트 컨트랙트 배포](deploy-a-smart-contract.md)
+* [배포 확인](check-the-deployment.md)
 
