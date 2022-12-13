@@ -1,6 +1,6 @@
 # Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
 
-## Overview <a id="overview"></a>
+## 概要 <a id="overview"></a>
 
 The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
 
@@ -61,7 +61,7 @@ The following tables summarize the symbols used in the KLVM specification.
 
 | Symbol            | Description                                                                                                                              |
 |:----------------- |:---------------------------------------------------------------------------------------------------------------------------------------- |
-| `A`               | Address                                                                                                                                  |
+| `A`               | 住所                                                                                                                                       |
 | `A_code_owner`    | The address of the account that owns the executing code                                                                                  |
 | `A_tx_sender`     | The sender address of the transaction that originated the current execution                                                              |
 | `A_code_executor` | the address of the account that initiated code execution; if the execution agent is a transaction, this would be the transaction sender. |
@@ -90,17 +90,17 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 
 #### Fee Schedule <a id="fee-schedule"></a>
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../../../transaction-fees.md#klaytns-gas-table)
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. `プリコンパイル済み契約` および `口座`のような他の表については、 [このドキュメント](../../../transaction-fees.md#klaytns-gas-table) を参照してください。
 
 {% hint style="success" %}
-NOTE: Fee has been changed after `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+注: `イスタンブールEVM` プロトコルのアップグレード、または「ハードフォーク」後に手数料が変更されました。 前のドキュメントをご希望の場合は、 [前のドキュメント](klaytn-virtual-machine-previous.md) をご参照ください。
 
 `IstanbulEVM` protocol upgrade block number is as follows.
 * Baobab Testnet: `#75373312`
 * Cypress Mainnet: `#86816005`
 {% endhint %}
 
-| Name              | Value | Description                                                                                                     |
+| 名前                | Value | Description                                                                                                     |
 |:----------------- | -----:|:--------------------------------------------------------------------------------------------------------------- |
 | `G_zero`          |     0 | Nothing paid for operations of the set `W_zero`                                                                 |
 | `G_base`          |     2 | Amount of gas paid for operations of the set `W_base`                                                           |
