@@ -1,14 +1,14 @@
-# Testing the Core Cell <a id="testing-the-core-cell"></a>
+# コアセルのテスト <a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+コアセルが正常にインストールされ、インストール後に期待どおりに動作していることを確認します。
 
-## Process Status <a id="process-status"></a>
+## プロセスの状態 <a id="process-status"></a>
 
-It is possible to check the status of CN/PN's process using the status commands `systemctl` and `kcnd/kpnd`.
+ステータスコマンド `systemctl` と `kcnd/kpnd` を使用して、CN/PNのプロセスの状態をチェックすることができます。
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of CN/PN can be checked as follows.
+`systemctl` がRPMとともにインストールされ、CN/PNの状態を以下のように確認することができます。
 
 ```bash
 $ systemctl status kcnd.service
@@ -21,27 +21,27 @@ $ systemctl status kcnd.service
    CGroup: /system.slice/kcnd.service
            └─29641 /usr/local/bin/kcn --networkid 1000 --datadir /kcnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kcnd[29636]: Starting kcnd: [  OK  ]
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: 開始 (null) ...
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.computee.internal kcnd[29636]: Starting kcnd: [ OK ]
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+上記の例では、 `Active: active (running)` のような現在のステータスを確認できます。
 
 ### kcnd (kpnd) <a id="kcnd-kpnd"></a>
 
-`kcnd` (or `kpnd`) is installed along with the package and the status of CN/PN can be checked as follows.
+`kcnd` (または `kpnd`) がパッケージとともにインストールされ、CN/PNの状態を以下のように確認することができます。
 
 ```bash
 $ kcnd status
 kcnd is running
 ```
 
-## Logs <a id="logs"></a>
+## ログ <a id="logs"></a>
 
-The log is stored in `kcnd.out` (or `kpnd.out`) file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` (or `kpnd.conf`) file. When the node works properly, you can see that each block is created per second as follows.
+The log is stored in `kcnd.out` (or `kpnd.out`) file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` (or `kpnd.conf`) file. ノードが正常に動作すると、各ブロックが以下のように作成されます。
 
-Example:
+例
 
 ```bash
 $ tail kcnd.out
@@ -59,29 +59,29 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ## kcn console (kpn console) <a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console` (or `kpn console`). However, a CN/PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Klaytn は CLI クライアントを提供します: `kcn コンソール` (または `kpn コンソール` ) 。 しかし、CN/PNはセキュリティ上の理由により、クライアントのRPCインターフェイスを無効にすることがあります。 クライアントを使用するもう一つの方法は、IPC(プロセス間通信)を介してプロセスに接続することです。
 
-The IPC file `klay.ipc` is located in the `data` directory on a CN/PN.
+IPCファイル `klay.ipc` は、CN/PNの `データ` ディレクトリにあります。
 
-Please execute the following command and check out the result.
+以下のコマンドを実行し、結果を確認してください。
 
-In case of a CN,
+CNの場合
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Klaytn JavaScript コンソールへようこそ!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
  datadir: /var/kend/data
- modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+ modules: admin:1.0 debug:1.0 governance:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
 ```
 
-In case of a PN,
+PNの場合
 
 ```bash
  $ kpn attach /var/kpnd/data/klay.ipc
- Welcome to the Klaytn JavaScript console!
+ Klaytn JavaScript コンソールへようこそ!
 
  instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
@@ -91,16 +91,16 @@ In case of a PN,
   >
 ```
 
-You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
+使用可能なコマンドは [API ドキュメント](../../../dapp/json-rpc/README.md) で確認できます。
 
-The useful APIs to check the status of a CN/PN:
+CN/PNのステータスを確認するのに役立つAPI:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (最新のブロック番号を取得する)
+* `net.peerCount` (現在接続されている Klaytn ノードの数を取得する)
 
 ### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+最新のブロック番号を取得して、ノードタイプに基づいてブロックが作成されたかどうかを確認したり、(CNとPNの場合)正しく伝播したりすることができます。
 
 ```javascript
 > klay.blockNumber
@@ -114,10 +114,10 @@ You can get the latest block number to see if blocks are created (for CNs) or pr
 14
 ```
 
-The above command line returns a different value based on the node type.
+上記のコマンドラインは、ノードの型に基づいて異なる値を返します。
 
-* CN: the number of connected CNs + the number of connected PNs.
-* PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+* CN:接続されているCNの数+接続されているPNの数。
+* PN:接続されたCNの数 + 接続されたPNの数 + 接続されたENの数。
 
 
 
