@@ -1,35 +1,35 @@
 ---
 description: >-
-  APIs to control Klaytn node.
+  Klaytnノードを制御するためのAPI。
 ---
 
-# Namespace admin <a id="namespace-admin"></a>
+# ネームスペース管理者 <a id="namespace-admin"></a>
 
-The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
+名前空間 `管理者` を使用すると、いくつかの非標準RPCメソッドにアクセスできます。 これらは、ネットワークピアとRPC エンドポイント管理を含むがこれらに限定されない、Klaytnインスタンスに対する 細かい制御を可能にします。
 
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
+`nodeInfo` の管理プロパティは、ネットワークの粒度で Klaytn ノードを実行していることがわかっているすべての情報を照会することができます。 These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `admin.nodeInfo`               |
-|   RPC   | `{"method": "admin_nodeInfo"}` |
+| クライアント | メソッドの起動                        |
+|:------:| ------------------------------ |
+| コンソール  | `admin.nodeInfo`               |
+|  RPC   | `{"method": "admin_nodeInfo"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description           |
-| ----------- | --------------------- |
-| JSON string | The node information. |
+| タイプ     | Description |
+| ------- | ----------- |
+| JSON文字列 | ノード情報       |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
 > admin.nodeInfo
 {
@@ -74,26 +74,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir <a id="admin_datadir"></a>
 
-The `datadir` administrative property can be queried for the absolute path the running Klaytn node currently uses to store all its databases. The default path is different depending on the node types (kcn, kpn, and ken) and the OS type.
+`datadir` の管理プロパティは、現在実行されている Klaytn ノード がすべてのデータベースを保存するために使用する絶対パスを照会できます。 デフォルトのパスは、ノードタイプ (kcn, kpn, ken) と OS タイプによって異なります。
 
-| Client  | Method invocation             |
-|:-------:| ----------------------------- |
-| Console | `admin.datadir`               |
-|   RPC   | `{"method": "admin_datadir"}` |
+| クライアント | メソッドの起動                       |
+|:------:| ----------------------------- |
+| コンソール  | `admin.datadir`               |
+|  RPC   | `{"method": "admin_datadir"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type   | Description         |
-| ------ | ------------------- |
-| string | The `datadir` path. |
+| タイプ | Description    |
+| --- | -------------- |
+| 文字列 | `datadir` のパス。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.datadir
@@ -109,26 +109,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
+`ピア` の管理プロパティは、ネットワーク粒度の接続された リモートノードについて知られているすべての情報について照会できます。 These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
 
-| Client  | Method invocation           |
-|:-------:| --------------------------- |
-| Console | `admin.peers`               |
-|   RPC   | `{"method": "admin_peers"}` |
+| クライアント | メソッドの起動                     |
+|:------:| --------------------------- |
+| コンソール  | `admin.peers`               |
+|  RPC   | `{"method": "admin_peers"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type        | Description                                |
-| ----------- | ------------------------------------------ |
-| JSON string | The information about all connected peers. |
+| タイプ     | Description          |
+| ------- | -------------------- |
+| JSON文字列 | 接続されているすべてのピアに関する情報。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.peers
@@ -174,42 +174,42 @@ Console
 ```
 HTTP RPC
 
-**NOTE**: All IP addresses below are shown as examples. Please replace them with the actual IP addresses in your execution environment.
+**注**: 以下に示すすべてのIPアドレスを例として示します。 実行環境の実際のIPアドレスに置き換えてください。
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":[{"id":"144af69d2bb030c6a2a5ceee7445dc613e200f19358547cffc353d56e6c8a5b4186a6953c028b6afd0ab3c2bfc4c86f24b0bf855d0686b964ec65cefd3deec37","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.1:49355","remoteAddress":"10.0.0.1:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"a875620f67f0b12edb97d0ec269e7940f2505b1f62576f39858c37e1d7f956318c3a619239f03f806a79ccaa8e7e9b5def343c24a9fd2e9d715964e0952dd995","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"networks":[{"localAddress":"10.0.10.2:49353","remoteAddress":"10.0.0.2:32323","inbound":false,"trusted":false,"static":true}],"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"e18d6d4e0ffac0a51028a8d49a548295ac8ac50d064f3581600799a3ae761a61f0b39c38b4195e163e01f30db616debf61b5b2ddea716bc8fb1c907ce7a1de26","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.3:49354","remoteAddress":"10.0.0.3:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285900,"head":"0x2e228a45c7c9b9e6729b6c66b31957d6cb62ce53e32cedf156615a4e8a2e253a"}}}]}
+{"jsonrpc":"2.0","id":1,"result":[{"id":"144af69d2bb030c6a2a5eee7445dc613e200f19358547c35d56e6c8a5b4186a6953c028b6afd0ab3c2bfc4c86f24b0b0f8656fd6651fd3de
 ```
 
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down.
+`addPeer` は、追跡された静的な ノードのリストに新しいリモートノードを追加するよう要求する管理方法です。 ノードは常にこれらのノードへの接続を維持しようとします リモート接続が切断された場合、 をしばらく毎に再接続します。
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+このメソッドは単一の引数ナイフを受け取り、これは「Klaytn Network Identifier」を意味します。 これは、 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) のゲスの概念に似ています。 トラッキングを開始するリモートピアの URL です。 `BOOL` は、ピアが トラッキングのために受け入れられたか、またはエラーが発生したかを示します。
 
-| Client  | Method invocation                              |
-|:-------:| ---------------------------------------------- |
-| Console | `admin.addPeer(url)`                           |
-|   RPC   | `{"method": "admin_addPeer", "params": [url]}` |
+| クライアント | メソッドの起動                                        |
+|:------:| ---------------------------------------------- |
+| コンソール  | `admin.addPeer(url)`                           |
+|  RPC   | `{"method": "admin_addPeer", "params": [url]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| 名前  | タイプ | Description    |
+| --- | --- | -------------- |
+| URL | 文字列 | ピアの `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| タイプ  | Description                          |
+| ---- | ------------------------------------ |
+| bool | `ピアが受け入れられた場合には true` `false` となります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
-> admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
+> admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //これは例アドレスです。
 true
 ```
 HTTP RPC
@@ -222,32 +222,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-The `removePeer` is an administrative method that requests removing a node from the list of tracked static nodes.
+`removePeer` は、追跡された静的な ノードのリストからノードを削除するよう要求する管理方法です。
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
+このメソッドは単一の引数ナイフを受け取り、これは「Klaytn Network Identifier」を意味します。 これは、 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) のゲスの概念に似ています。 リストから削除されるリモートピアの URL で、ピアが削除されたか、または何らかのエラーが発生したかを示す `BOOL` を返します。
 
-| Client  | Method invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `admin.removePeer(url)`                           |
-|   RPC   | `{"method": "admin_removePeer", "params": [url]}` |
+| クライアント | メソッドの起動                                           |
+|:------:| ------------------------------------------------- |
+| コンソール  | `admin.removePeer(url)`                           |
+|  RPC   | `{"method": "admin_removePeer", "params": [url]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| 名前  | タイプ | Description    |
+| --- | --- | -------------- |
+| URL | 文字列 | ピアの `kni` URL。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| タイプ  | Description                          |
+| ---- | ------------------------------------ |
+| bool | `ピアが受け入れられた場合には true` `false` となります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 ```javascript
-> admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
+> admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:323") //これは例アドレスです。
 true
 ```
 HTTP RPC
@@ -259,35 +259,35 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startHTTP <a id="admin_starthttp"></a>
 
-**NOTE**: This API replaces `admin_startRPC`. The `admin_startRPC` will be deprecated soon.
+**注意**: この API は `admin_startRPC` を置き換えます。 `admin_startRPC` はまもなく廃止されます。
 
-The `startHTTP` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startHTTP` は HTTP ベースの [JSON RPC](http://www.jsonrpc.org/specification) クライアントのリクエストを処理する API ウェブサーバーを開始する管理メソッドです。
 
-The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
+このメソッドは、HTTP RPCリスナーが開かれたかどうかを指定するブーリアンフラグを返します。 注意:HTTPエンドポイントはいつでも有効にすることができます。
 
-| Client  | Method invocation                                                   |
-|:-------:| ------------------------------------------------------------------- |
-| Console | `admin.startHTTP(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
+| クライアント | メソッドの起動                                                             |
+|:------:| ------------------------------------------------------------------- |
+| コンソール  | `admin.startHTTP(host, port, cors, apis)`                           |
+|  RPC   | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description                                                                                                                             |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                                       |
+| 名前   | タイプ | Description                                                                                                                             |
+| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| ホスト  | 文字列 | (オプション) リスナーソケットを開くためのネットワークインターフェイス (デフォルト:  `"localhost"`)。                                                                           |
+| ポート  | int | (オプション) ネットワークポートでリスナーソケットを開きます (デフォルト:  `8551`).                                                                                       |
+| cors | 文字列 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
+| apis | 文字列 | (オプション) このインターフェイス上で提供する API モジュール (デフォルト:  `"klay,net,rpc"`)。                                                                          |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                                 |
-| ---- | ----------------------------------------------------------- |
-| bool | `true` if the HTTP RPC listener was opened, `false` if not. |
+| タイプ  | Description                                |
+| ---- | ------------------------------------------ |
+| bool | `HTTP RPCリスナーが開かれた場合、` true `false` でない場合。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.startHTTP("127.0.0.1", 8551)
@@ -295,35 +295,35 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"HTTP RPC already running on 127.0.0.1:8551"}}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.01", 8551, "", "klay"]}' https://api.baobab.klaytn.net:8651
+{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":":"HTTPRPCはすでに127.0.0.11:8551"}}
 ```
 
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
 
-**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
+**注意**: この API は `admin_stopRPC` を置き換えます。 `admin_stopRPC` はまもなく廃止されます。
 
-The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopHTTP` は、現在開いている HTTP RPC エンドポイントを閉じる管理方法です。 ノードは単一の HTTP エンドポイントしか実行できないため、このメソッドはパラメータを取りません。 エンドポイントが閉じられているかどうかの真偽値を返します。
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `admin.stopHTTP()`             |
-|   RPC   | `{"method": "admin_stopHTTP"}` |
+| クライアント | メソッドの起動                        |
+|:------:| ------------------------------ |
+| コンソール  | `admin.stopHTTP()`             |
+|  RPC   | `{"method": "admin_stopHTTP"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| タイプ  | Description                                 |
+| ---- | ------------------------------------------- |
+| bool | `エンドポイントが閉じられた場合は true` 、 そうでない場合は `false`。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.stopHTTP()
@@ -338,33 +338,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startWS` はクライアントのリクエストを処理するために WebSocket ベースの [JSON RPC](http://www.jsonrpc.org/specification) API Webserver を開始する管理メソッドです。
 
-The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
+このメソッドは、WebSocket RPCリスナーが開かれたかどうかを指定するブーリアンフラグを返します。 ご注意ください。WebSocketエンドポイントはいつでも有効にすることができます。
 
-| Client  | Method invocation                                                 |
-|:-------:| ----------------------------------------------------------------- |
-| Console | `admin.startWS(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
+| クライアント | メソッドの起動                                                           |
+|:------:| ----------------------------------------------------------------- |
+| コンソール  | `admin.startWS(host, port, cors, apis)`                           |
+|  RPC   | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name | Type   | Description                                                                                                                             |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
+| 名前   | タイプ | Description                                                                                                                             |
+| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| ホスト  | 文字列 | (オプション) リスナーソケットを開くためのネットワークインターフェイス (デフォルト:  `"localhost"`)。                                                                           |
+| ポート  | int | (オプション) ネットワークポートでリスナーソケットを開きます (デフォルト:  `8552`)。                                                                                       |
+| cors | 文字列 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
+| apis | 文字列 | (オプション) このインターフェイスを介して提供する API モジュール (デフォルト:  `"klay,net,personal"`).                                                                   |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                                      |
-| ---- | ---------------------------------------------------------------- |
-| bool | `true` if the WebSocket RPC listener was opened, `false` if not. |
+| タイプ  | Description                                     |
+| ---- | ----------------------------------------------- |
+| bool | `WebSocket RPCリスナーが開かれた場合、` true `false` でない場合。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.startWS("127.0.0.1", 8552)
@@ -372,33 +372,33 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopWS` は現在開いているWebSocket RPCエンドポイントを閉じる管理方法です。 ノードが実行できるのは単一のWebSocketエンドポイントのみです。 このメソッドはパラメータを取りません。エンドポイントが閉じているかどうかに関わらず、真偽値を返します。
 
-| Client  | Method invocation            |
-|:-------:| ---------------------------- |
-| Console | `admin.stopWS()`             |
-|   RPC   | `{"method": "admin_stopWS"}` |
+| クライアント | メソッドの起動                      |
+|:------:| ---------------------------- |
+| コンソール  | `admin.stopWS()`             |
+|  RPC   | `{"method": "admin_stopWS"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| タイプ  | Description                                 |
+| ---- | ------------------------------------------- |
+| bool | `エンドポイントが閉じられた場合は true` 、 そうでない場合は `false`。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.stopWS()
@@ -413,28 +413,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` is an administrative method that exports the blockchain to a file.
+`exportChain` は、ブロックチェーンをファイルにエクスポートする管理方法です。
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.exportChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| クライアント | メソッドの起動                                                  |
+|:------:| -------------------------------------------------------- |
+| コンソール  | `admin.exportChain(fileName)`                            |
+|  RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                 |
-| -------- | ------ | --------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file where the blockchain must be exported. |
+| 名前       | タイプ | Description                           |
+| -------- | --- | ------------------------------------- |
+| fileName | 文字列 | ブロックチェーンをエクスポートする必要があるファイルへの完全修飾パスです。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was exported, `false` if not. |
+| タイプ  | Description                             |
+| ---- | --------------------------------------- |
+| bool | `チェーンがエクスポートされた場合、` true `false` になります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
@@ -442,35 +442,35 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` is an administrative method that imports an exported chain from a file into a node. This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
+`importChain` は、エクスポートされたチェーンをファイルからノードにインポートする管理方法です。 このメソッドは、Klaytn ノードに存在しないブロックのみをインポートします。 このメソッドは、既存のチェーンのデータを削除しません。
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.importChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| クライアント | メソッドの起動                                                  |
+|:------:| -------------------------------------------------------- |
+| コンソール  | `admin.importChain(fileName)`                            |
+|  RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                               |
-| -------- | ------ | ------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file containing the chain to be imported. |
+| 名前       | タイプ | Description                  |
+| -------- | --- | ---------------------------- |
+| fileName | 文字列 | インポートされるチェーンを含むファイルへの完全修飾パス。 |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was imported, `false` if not. |
+| タイプ  | Description                            |
+| ---- | -------------------------------------- |
+| bool | `チェーンがインポートされた場合、` true `false` になります。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.importChain("/tmp/chain.txt")
@@ -478,34 +478,34 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}) https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
+`importChainFromString` は、ブロックの RLP エンコードされた文字列から Klaytn ノードにチェーンをインポートする管理メソッドです。 これは、Klaytn ノードに既存のチェーンがない場合にのみ機能します。 このメソッドは、既存のチェーンのデータを削除しません。
 
-| Client  | Method invocation                                                          |
-|:-------:| -------------------------------------------------------------------------- |
-| Console | `admin.importChainFromString(blockRlp)`                                    |
-|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+| クライアント | メソッドの起動                                                                    |
+|:------:| -------------------------------------------------------------------------- |
+| コンソール  | `admin.importChainFromString(blockRlp)`                                    |
+|  RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
-**Parameters**
+**パラメータ**
 
-| Name     | Type   | Description                                                                                                           |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
-| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`) |
+| 名前       | タイプ | Description                                                     |
+| -------- | --- | --------------------------------------------------------------- |
+| blockRlp | 文字列 | インポートするブロックを表す RLP エンコードされた文字列。 ( `debug.getBlockRlp` の戻り値に等しい) |
 
-**Return Value**
+**戻り値**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if a chain was imported, or `false` if not. |
+| タイプ  | Description                                       |
+| ---- | ------------------------------------------------- |
+| bool | `チェーンがインポートされた場合は true` を、そうでない場合は `false` を返します。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.importChainFromString("f9071...080c0")
@@ -519,26 +519,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+`startStateMigration` は、ステートの移行を開始し、古いstate/storage trieノードを削除する管理メソッドです。 これにより、Klaytn ノードのストレージスペースを節約できます。 状態移行の開始に失敗した場合は、メソッドはエラーを返します。開始に成功した場合は `null` です。 注: ステートの移行後、ノードは以前の状態で API を提供することはできません。
 
-| Client  | Method invocation                         |
-|:-------:| ----------------------------------------- |
-| Console | `admin.startStateMigration()`             |
-|   RPC   | `{"method": "admin_startStateMigration"}` |
+| クライアント | メソッドの起動                                   |
+|:------:| ----------------------------------------- |
+| コンソール  | `admin.startStateMigration()`             |
+|  RPC   | `{"method": "admin_startStateMigration"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                            |
-| ----- | ---------------------------------------------------------------------- |
-| Error | `null` if the state migration has started, or an error message if not. |
+| タイプ | Description                                        |
+| --- | -------------------------------------------------- |
+| エラー | `null` 状態の移行が開始されている場合、またはそうでない場合にエラーメッセージが表示されます。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.startStateMigration()
@@ -554,27 +554,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an administrative method that stops the currently running state migration. This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+`stopStateMigration` は現在実行中の状態移行を停止する管理方法です。 このメソッドはパラメータを取らず、 `null` を返すか、状態の移行が停止したかどうかにかかわらずエラーを返します。
 
-| Client  | Method invocation                        |
-|:-------:| ---------------------------------------- |
-| Console | `admin.stopStateMigration()`             |
-|   RPC   | `{"method": "admin_stopStateMigration"}` |
+| クライアント | メソッドの起動                                  |
+|:------:| ---------------------------------------- |
+| コンソール  | `admin.stopStateMigration()`             |
+|  RPC   | `{"method": "admin_stopStateMigration"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                   |
-| ----- | ------------------------------------------------------------- |
-| Error | `null` if the state migration is stopped, or an error if not. |
+| タイプ | Description                                |
+| --- | ------------------------------------------ |
+| エラー | `null` 状態の移行が停止された場合、またはそうでない場合にエラーが発生します。 |
 
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.stopStateMigration()
@@ -588,32 +588,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. This method takes no parameters and returns the status of the currently running state migration.
+`stateMigrationStatus` は、状態移行の状態情報を返す管理メソッドです。 このメソッドはパラメータを取らず、現在実行中の状態マイグレーションの状態を返します。
 
-| Client  | Method invocation                          |
-|:-------:| ------------------------------------------ |
-| Console | `admin.stateMigrationStatus`               |
-|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
+| クライアント | メソッドの起動                                    |
+|:------:| ------------------------------------------ |
+| コンソール  | `admin.stateMigrationStatus`               |
+|  RPC   | `{"method": "admin_stateMigrationStatus"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Name                 | Type    | Description                                                                                        |
-| -------------------- | ------- | -------------------------------------------------------------------------------------------------- |
-| committed            | int     | `committed` is the number of trie nodes that have been copied by the state migration.              |
-| err                  | Error   | `null` if the state migration finished well, or an error if not.                                   |
-| isMigration          | bool    | `true` if the state migration is running, or `false` if not.                                       |
-| migrationBlockNumber | uint64  | a blockNumber which the state migration started at. (`0` if the state migration is not running.)   |
-| pending              | int     | `pending` represents the number of trie nodes that have not been processed by the state migration. |
-| progress             | float64 | `progress` is the progress of the state migration calculated in percent.                           |
-| read                 | int     | `read` represents the number of trie nodes that have been read by the state migration.             |
+| 名前                   | タイプ     | Description                                      |
+| -------------------- | ------- | ------------------------------------------------ |
+| コミット済み               | int     | `commited` は状態の移行によってコピーされたtrieノードの数です。          |
+| Err                  | エラー     | `null` 状態の移行が正常に完了した場合、またはそうでない場合にエラーが発生します。     |
+| isMigration          | bool    | `状態の移行が実行されている場合は true` 、そうでない場合は `false` にします。  |
+| migrationBlockNumber | uint64  | 状態の移行が開始された blockNumber (`0 0` 状態の移行が実行されていない場合。 |
+| pending              | int     | `保留中` は状態の移行によって処理されていないトライノードの数を表す。             |
+| 進行状況                 | float64 | `進捗状況` がパーセントで計算された状態移行の進捗状況です。                  |
+| 既読にする                | int     | `read` は、状態の移行によって読み取られたトリエノードの数を表します。           |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.stateMigrationStatus
@@ -630,31 +630,31 @@ Console
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
+{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigrationBlockNumber":32630836,"pending":19699,"progress":25,"read:14997777}}
 ```
 
 ## admin_saveTrieNodeCacheToDisk <a id="admin_saveTrieNodeCacheToDisk"></a>
 
-The `saveTrieNodeCacheToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+`saveTrieNodeCacheToDisk` は、キャッシュされた trie ノードをディスクに保存し、ノードの再起動時に再利用する管理方法です。 キャッシュされたトライノードデータは  `$DATA_DIR/fastcache` に格納され、ロードされます。 このメソッドは、保存プロセスがすでにトリガーされている場合や、trieノードキャッシュが無効になっている場合にエラーを返します。 この機能は Klaytn 1.5.3 以降でサポートされています。
 
-| Client  | Method invocation                             |
-|:-------:| --------------------------------------------- |
-| Console | `admin.saveTrieNodeCacheToDisk()`             |
-|   RPC   | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
+| クライアント | メソッドの起動                                       |
+|:------:| --------------------------------------------- |
+| コンソール  | `admin.saveTrieNodeCacheToDisk()`             |
+|  RPC   | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
-**Parameters**
+**パラメータ**
 
-None
+なし
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                             |
-| ----- | ----------------------------------------------------------------------- |
-| Error | `null` if saving the trie node has started, or an error message if not. |
+| タイプ | Description                                        |
+| --- | -------------------------------------------------- |
+| エラー | `true ノードの保存が開始されている場合は null` またはそうでない場合はエラーメッセージ。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.saveTrieNodeCacheToDisk()
@@ -669,28 +669,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn` は、単一の WebSocket 接続あたりの最大許容数を設定する管理方法です。 例えば、 最大数が5に設定され、ユーザーが `klay_subscribe` APIを通じて5つ以上のサブスクリプションを要求する場合 「WebSocket接続には最大5件のサブスクリプションが許可されています」というエラーメッセージが表示されます。 この機能は Klaytn 1.6.0 以降でサポートされています。
 
-| Client  | Method invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `admin.setMaxSubscriptionPerWSConn(limit)`        |
-|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+| クライアント | メソッドの起動                                           |
+|:------:| ------------------------------------------------- |
+| コンソール  | `admin.setMaxSubscriptionPerWSConn(limit)`        |
+|  RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
-**Parameters**
+**パラメータ**
 
-| Name  | Type | Description                                                                  |
-| ----- | ---- | ---------------------------------------------------------------------------- |
-| limit | int  | The maximum allowed number of subscriptions per single WebSocket connection. |
+| 名前 | タイプ | Description                          |
+| -- | --- | ------------------------------------ |
+| 制限 | int | 単一の WebSocket 接続あたりのサブスクリプションの最大許容数。 |
 
-**Return Value**
+**戻り値**
 
-| Type  | Description                                                                      |
-| ----- | -------------------------------------------------------------------------------- |
-| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
+| タイプ | Description                                    |
+| --- | ---------------------------------------------- |
+| エラー | `null` もし制限が正常に設定されていれば、それ以外の場合はエラーメッセージを返します。 |
 
-**Example**
+**例**
 
-Console
+コンソール
 
 ```javascript
 > admin.setMaxSubscriptionPerWSConn(5)
