@@ -19,7 +19,7 @@ Namespace `txpool` API는 몇몇 비표준 RPC 메서드에 접근하여 현재 
 |  콘솔   | `txpool.content`               |
 |  RPC  | `{"method": "txpool_content"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -144,7 +144,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 |  콘솔   | `txpool.inspect`               |
 |  RPC  | `{"method": "txpool_inspect"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
@@ -225,7 +225,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 |  콘솔   | `txpool.status`               |
 |  RPC  | `{"method": "txpool_status"}` |
 
-**Parameters**
+**파라미터**
 
 없음
 
