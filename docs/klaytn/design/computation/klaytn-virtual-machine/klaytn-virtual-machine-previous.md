@@ -1,7 +1,7 @@
 # Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
 
 {% hint style="success" %}
-NOTE: This document is written based on the initial EVM used before the activation of the protocol upgrade.
+NOTE: This document contains the KLVM used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
 {% endhint %}
 

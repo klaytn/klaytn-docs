@@ -19,8 +19,7 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: This document is written based on the latest EVM which have been used since the `Kore` hardfork.
-If you want the previous document, please refer to [previous document](computation-cost-previous.md).
+NOTE: Computation costs have changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 
 `Kore` hardfork block numbers are as follows.
 * Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)

@@ -1,7 +1,7 @@
 # Transaction Fees <a id="transaction-fees"></a>
 
 {% hint style="success" %}
-NOTE: This document is written based on the initial EVM used before the activation of the protocol upgrade.
+NOTE: This document contains the transaction fee used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](transaction-fees.md).
 {% endhint %}
 

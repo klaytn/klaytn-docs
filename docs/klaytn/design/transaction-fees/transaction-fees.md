@@ -1,7 +1,6 @@
 # Transaction Fees <a id="transaction-fees"></a>
 {% hint style="success" %}
-NOTE: This document is written based on the latest EVM which have been used since the `Kore` hardfork.
-If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
+NOTE: The transaction fee has changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
 `Kore` hardfork block number is as follows.
 * Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)
