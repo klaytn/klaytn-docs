@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/test_header2.png
+cover: .gitbook/assets/test_header3.png
 coverY: 0
 layout: landing
 ---
