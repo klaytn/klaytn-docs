@@ -4,7 +4,7 @@
 
 ## - <a href="#content" id="content"></a>
 
-* [클레이튼 개요](klaytn/README.md)
+* [Klaytn 개요](klaytn/README.md)
   * [왜 클레이튼일까요?](klaytn/why-klaytn.md)
   * [클레이튼 디자인](klaytn/design/README.md)
     * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
@@ -288,6 +288,15 @@
   * [개발자 도구](dapp/developer-tools/README.md)
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
+    * [Klaytn Safe](toolkit/klaytn-safe/intro.md)
+        * [Klaytn Safe Design](toolkit/klaytn-safe/design.md)
+        * [Create a Safe](toolkit/klaytn-safe/create-a-safe.md)
+        * [Add assets](toolkit/klaytn-safe/add-assets.md)
+        * [Send assets](toolkit/klaytn-safe/send-assets.md)
+        * [Contract Interaction](toolkit/klaytn-safe/contract-interaction.md)
+        * [Transaction Builder](toolkit/klaytn-safe/tx-builder.md)
+        * [Points to Note](toolkit/klaytn-safe/points.md)
+        * [Frequently Asked Questions](toolkit/klaytn-safe/faqs.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
     * [Covalent API](toolkit/covalent.md)
 
