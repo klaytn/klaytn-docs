@@ -3,7 +3,7 @@
 ## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. 環境設定](1.-environment-setup.md)
-* [2. Klaystagram DAppを複製](2.-clone-klaystagram-dapp.md)
+* [2. Clone Klaystagram DApp](2.-clone-klaystagram-dapp.md)
 * [3. ディレクトリ構造](3.-directory-structure.md)
 * [4. Klaystagramスマートコントラクトを書く](4.-write-klaystagram-smart-contract.md)
 * [5. コントラクトを展開](5.-deploy-contract.md)
