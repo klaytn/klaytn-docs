@@ -1,4 +1,4 @@
-# メタマスクを接続中
+# Connecting MetaMask
 
 > **注**: MetaMaskは主にEthereum用のウォレットとして使用されています。 しかし、同一のアドレス構造により、Klaytnと互換性があります。 Klaytnには [Kaikas](../developer-tools/#kaikas)と呼ばれるブラウザ拡張ウォレットもありますので、Remixを除いて基本的にMetaMaskと同じ機能を提供します。
 
