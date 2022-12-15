@@ -6,7 +6,7 @@
 
 各トランザクションクラスは以下の表で詳細に説明されています。
 
-|                        | 基本                                                        | 手数料のデリゲーション                                                                                | 部分手数料のデリゲーション                                                                                                        |
+|                        | 基本                                                        | 料金 委託                                                                                      | 一部手数料の委譲                                                                                                             |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | 従来の取引                  | [従来の取引](basic.md#legacytransaction)                       | 該当なし                                                                                       | 該当なし                                                                                                                 |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
