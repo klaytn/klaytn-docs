@@ -77,10 +77,6 @@ Pocket supports dozens of blockchains, with more being added all the time.
 * The most private, censorship-resistant option
 * Hands-on developer support
 
-### URL
-
-RPC: https://klaytn-rpc.gateway.pokt.network/
-
 ### References
 
 * [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
@@ -96,10 +92,6 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 * 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
 * Discord and Support Portal for the free plan, and dedicated support for the premium.
 * WebSocket is available for the premium plan.
-
-### URL
-
-* Klaytn Mainnet: https://rpc.ankr.com/klaytn
 
 ### References
 
