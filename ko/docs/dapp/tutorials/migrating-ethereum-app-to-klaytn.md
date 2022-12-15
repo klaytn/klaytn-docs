@@ -1,4 +1,4 @@
-# 이더리움 애플리케이션을 Klaytn으로 이전하기
+# Migrating Ethereum App to Klaytn
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
