@@ -1,4 +1,4 @@
-# 리믹스(Remix) 연동하기
+# Connecting Remix
 
 ## 리믹스(Remix)란? <a href="#what-is-remix" id="what-is-remix"></a>
 
