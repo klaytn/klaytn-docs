@@ -1,4 +1,4 @@
-# 메타마스크 연동하기
+# Connecting MetaMask
 
 > **참고**: MetaMask는 주로 이더리움 지갑으로서 사용되지만, 동일한 주소 구조를 지닌 Klaytn과도 호환 가능합니다. Klaytn also has a browser extension wallet called [Kaikas](../developer-tools/#kaikas), so it basically provides the same features as MetaMask, except for Remix.
 
