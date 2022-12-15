@@ -1,4 +1,4 @@
-# 手数料委任例
+# Fee Delegation Example
 
 ## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
 
