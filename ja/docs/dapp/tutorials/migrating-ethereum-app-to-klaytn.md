@@ -1,4 +1,4 @@
-# イーサリアムアプリをKlaytnに移行
+# Migrating Ethereum App to Klaytn
 
 ## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
 
