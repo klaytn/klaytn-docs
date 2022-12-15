@@ -1,4 +1,4 @@
-# リミックスに接続中
+# Connecting Remix
 
 ## リミックスとは <a href="#what-is-remix" id="what-is-remix"></a>
 
