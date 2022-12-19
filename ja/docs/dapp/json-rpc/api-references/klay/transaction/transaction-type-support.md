@@ -1,10 +1,10 @@
 # Klaytn トランザクションタイプの操作 <a id="working-with-klaytn-transaction-types"></a>
-Klaytnにはさまざまな種類のトランザクションがあり、それぞれのトランザクションタイプは異なるフィールドで構成されています。 そのため、トランザクションの種類を理解し、トランザクションの送受信時に正しいものを指定する必要があります。 Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
+Klaytnには様々な種類のトランザクションがあり、それぞれのトランザクションは異なるフィールドで構成されています。 したがって、ユーザーはトランザクションの種類を理解し、トランザクションの送信と署名の際に正しいものを指定する必要があります。 Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction は、Klaytnで以前に存在したトランザクションのタイプを表します。 このトランザクションタイプは互換性をサポートするために存在します。 詳細については、 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) を参照してください。
+TxTypeLegacyTransaction は、Klaytn に以前から存在したトランザクションの種類を表す。 このトランザクションタイプは互換性をサポートするために存在します。 詳細については、 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) を参照してください。
 
 **パラメータ**
 
