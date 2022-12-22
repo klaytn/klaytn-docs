@@ -4,7 +4,7 @@
 
 `caver.kct.kip17` は KIP-17 トークン契約を実装するために [caver.contract](../caver.contract.md) を継承します。 `caver.kct.kip17` は `caver.contract` と同じプロパティを保持しますが、追加の機能を実装する追加の方法があります。 この節では、新たに追加された `caver.kct.kip17` のバインド方法についてのみ紹介する。
 
-caver-js の KIP-17 を実装するコードは [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17) で利用できます。
+The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17). KIP-17 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
 
 KIP-17 についての詳細は、 [Klaytn Improvation Proposals](https://kips.klaytn.foundation/KIPs/kip-17) を参照してください。
 
@@ -40,6 +40,28 @@ tokenInfo オブジェクトには以下を含める必要があります:
 | transactionHash   | 文字列    | トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生します。                                                                                                             |
 | レシート|領収書|領収書|受信する | object | 取引の領収書が有効なときに発行されます。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] を参照してください。 KIP17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が abi を介して解析されます。 |
 | エラー               | エラー    | 送信中にエラーが発生した場合に発生します。                                                                                                                                    |
+
+
+**Token Enrollment**
+
+1. To enroll a token on a block explorer, the contract creator must fill out a submission request form. Make note of the specified information required on the form.
+
+2. Smart Contract Environment
+
+   - Compiler Type: Solidity
+
+   - Compiler version: v0.8.4+commit.c7e474f2
+
+   - Open Source License Type: MIT
+
+3. Smart Contract Detail
+
+   - Optimization: --optimize-run 200
+
+   - Source code: [KIP17 Contracts Github Link](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kip17Token.sol).
+
+4. ABI-encoded Value: [kip17JsonInterface at dev · klaytn/caver-js · GitHub](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
+
 
 **例**
 
@@ -99,7 +121,7 @@ KIP17 {
 ```javascript
 caver.kct.kip17.detectInterface(contractAddress)
 ```
-トークンコントラクトによって実装されたインターフェイスの情報を返します。 この静的関数は [kip17.detectInterface](#kip17-detectinterface) を使用します。
+Returns the information of the interface implemented by the token contract. This static function will use [kip17.detectInterface](#kip17-detectinterface).
 
 **パラメータ**
 
@@ -109,7 +131,7 @@ caver.kct.kip17.detectInterface(contractAddress)
 
 **戻り値**
 
-`Promise` は、各 `KIP-17 インターフェイス` が実装されているかどうかにかかわらず、boolean 値を含む [オブジェクト](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) を返します。
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **例**
 
@@ -131,17 +153,17 @@ caver.kct.kip17.detectInterface(contractAddress)
 ```javascript
 caver.kct.kip17.create([tokenAddress])
 ```
-バインドされたメソッドとイベントで新しい KIP17 インスタンスを作成します。 この関数は、 [new KIP17](#new-kip17) と同じ動作をします。
+Creates a new KIP17 instance with its bound methods and events. This function works the same as [new KIP17](#new-kip17).
 
-**注意** `caver.kct.kip17.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降サポートされています。
+**NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **パラメータ**
 
-[新しい KIP17](#new-kip17) を参照してください。
+See the [new KIP17](#new-kip17).
 
 **戻り値**
 
-[新しい KIP17](#new-kip17) を参照してください。
+See the [new KIP17](#new-kip17).
 
 **例**
 
@@ -159,7 +181,7 @@ caver.kct.kip17.create([tokenAddress])
 ```javascript
 new caver.kct.kip17([tokenAddress])
 ```
-バインドされたメソッドとイベントで新しい KIP17 インスタンスを作成します。
+Creates a new KIP17 instance with its bound methods and events.
 
 **パラメータ**
 
@@ -190,7 +212,7 @@ new caver.kct.kip17([tokenAddress])
 ```javascript
 kip17.clone([tokenAddress])
 ```
-現在のKIP17インスタンスをクローンします。
+Clones the current KIP17 instance.
 
 **パラメータ**
 
@@ -222,7 +244,7 @@ kip17.clone([tokenAddress])
 ```javascript
 kip17.detectInterface()
 ```
-トークンコントラクトによって実装されたインターフェイスの情報を返します。
+Returns the information of the interface implemented by the token contract.
 
 **パラメータ**
 
@@ -230,7 +252,7 @@ kip17.detectInterface()
 
 **戻り値**
 
-`Promise` は、各 `KIP-17 インターフェイス` が実装されているかどうかにかかわらず、boolean 値を含む [オブジェクト](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) を返します。
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **例**
 
@@ -253,7 +275,7 @@ kip17.detectInterface()
 ```javascript
 kip17.supportsInterface(interfaceId)
 ```
-このコントラクトが `interfaceId` で定義されたインターフェイスを実装している場合、 `true` を返します。
+Returns `true` if this contract implements the interface defined by `interfaceId`.
 
 **パラメータ**
 
@@ -263,7 +285,7 @@ kip17.supportsInterface(interfaceId)
 
 **戻り値**
 
-`Promise` は `boolean`: `true` を返します。このコントラクトが `interfaceId` で定義されたインターフェイスを実装している場合。
+`Promise` returns `boolean`: `true` if this contract implements the interface defined by `interfaceId`.
 
 **例**
 
@@ -281,7 +303,7 @@ false
 ```javascript
 kip17.name()
 ```
-トークンの名前を返します。
+Returns the name of the token.
 
 **パラメータ**
 
@@ -289,7 +311,7 @@ kip17.name()
 
 **戻り値**
 
-`Promise` は `文字列`: トークンの名前。
+`Promise` returns `string`: The name of the token.
 
 **例**
 
@@ -304,7 +326,7 @@ Jasmine
 ```javascript
 kip17.symbol()
 ```
-トークンのシンボルを返します。
+Returns the symbol of the token.
 
 **パラメータ**
 
@@ -312,7 +334,7 @@ kip17.symbol()
 
 **戻り値**
 
-`Promise` は `文字列`: トークンのシンボル。
+`Promise` returns `string`: The symbol of the token.
 
 **例**
 
@@ -327,7 +349,7 @@ NAS
 ```javascript
 kip17.totalSupply()
 ```
-コントラクトによって生成されたトークンの合計数を返します。
+Returns the total number of tokens minted by the contract.
 
 **パラメータ**
 
@@ -335,7 +357,7 @@ kip17.totalSupply()
 
 **戻り値**
 
-`Promise` は `BigNumber`: トークンの総数を返します。
+`Promise` returns `BigNumber`: The total number of tokens.
 
 **例**
 
@@ -350,7 +372,7 @@ kip17.totalSupply()
 ```javascript
 kip17.tokenURI(tokenId)
 ```
-与えられたトークン ID の URI を返します。
+Returns the URI for a given token id.
 
 **パラメータ**
 
@@ -358,11 +380,11 @@ kip17.tokenURI(tokenId)
 | ------- | ------------------------------------- | ----------- |
 | tokenId | BigNumber &#124; string &#124; number | トークンのID。    |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `文字列`: 与えられたトークンの URI を返します。
+`Promise` returns `string`: The URI of the given token.
 
 **例**
 
@@ -377,7 +399,7 @@ https://kip17.example/uri-ex-caver.json
 ```javascript
 kip17.tokenOfOwnerByIndex(owner, index)
 ```
-指定されたインデックスの `所有者`のトークンリストを検索します。 を選択すると、一致するものがある場合は、リスト内の一致するインデックスに配置されたトークンのトークン ID を返します。
+Searches the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
 
 **パラメータ**
 
@@ -386,11 +408,11 @@ kip17.tokenOfOwnerByIndex(owner, index)
 | 所有者    | 文字列                                   | トークンを所有するアカウントの住所。        |
 | インデックス | BigNumber &#124; string &#124; number | オーナーのトークンリストのトークンのインデックス。 |
 
-**注意** `index` パラメータは `number` 型を受け付けますが、与えられた値が数値によって上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `BigNumber`: トークンのID。
+`Promise` returns `BigNumber`: The id of the token.
 
 **例**
 
@@ -405,7 +427,7 @@ kip17.tokenOfOwnerByIndex(owner, index)
 ```javascript
 kip17.tokenByIndex(index)
 ```
-指定されたインデックスに対して、このコントラクト内のすべてのトークンのリストを検索します。 を選択すると、一致するものがある場合は、リスト内の一致するインデックスに配置されたトークンのトークン ID を返します。 インデックスがトークンの合計数以上である場合は、元に戻します。
+Searches the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
 
 **パラメータ**
 
@@ -413,11 +435,11 @@ kip17.tokenByIndex(index)
 | ------ | ------------------------------------- | ------------------ |
 | インデックス | BigNumber &#124; string &#124; number | クエリされるトークンのインデックス。 |
 
-**注意** `index` パラメータは `number` 型を受け付けますが、与えられた値が数値によって上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `BigNumber`: トークンのID。
+`Promise` returns `BigNumber`: The id of the token.
 
 **例**
 
@@ -432,7 +454,7 @@ kip17.tokenByIndex(index)
 ```javascript
 kip17.balanceOf(address)
 ```
-指定されたアカウントアドレスの残高を返します。 KIP-17の口座残高は、口座が所有するNFT(Non-Fungible Tokens)の合計数です。
+Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
 
 **パラメータ**
 
@@ -442,7 +464,7 @@ kip17.balanceOf(address)
 
 **戻り値**
 
-`Promise` は `BigNumber`: アカウントの残高を返します。
+`Promise` returns `BigNumber`: The account balance.
 
 **例**
 
@@ -457,7 +479,7 @@ kip17.balanceOf(address)
 ```javascript
 kip17.ownerOf(tokenId)
 ```
-指定したトークン id の所有者のアドレスを返します。
+Returns the address of the owner of the specified token id.
 
 **パラメータ**
 
@@ -465,11 +487,11 @@ kip17.ownerOf(tokenId)
 | ------- | ------------------------------------- | ----------- |
 | tokenId | BigNumber &#124; string &#124; number | トークンのID。    |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `文字列`を返します: 与えられたトークンを所有するアカウントのアドレス。
+`Promise` returns `string`: The address of the account that owns the given token.
 
 **例**
 
@@ -484,7 +506,7 @@ kip17.ownerOf(tokenId)
 ```javascript
 kip17.getApproved(tokenId)
 ```
-アドレスが承認されていない場合、このトークンを転送することが許可されたアドレス、または「ゼロ」アドレスを返します。 与えられたトークンIDが存在しない場合、これは元に戻ります。
+Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
 
 **パラメータ**
 
@@ -492,11 +514,11 @@ kip17.getApproved(tokenId)
 | ------- | ------------------------------------- | ----------- |
 | tokenId | BigNumber &#124; string &#124; number | トークンのID。    |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `文字列`を返します: 与えられたトークンを転送する権限を持つアカウントのアドレス。
+`Promise` returns `string`: The address of the account that has the right to transfer the given token.
 
 **例**
 
@@ -516,7 +538,7 @@ kip17.getApproved(tokenId)
 ```javascript
 kip17.isApprovedForAll(owner, operator)
 ```
-`true` `演算子` が承認されて、 `所有者` に属するすべてのトークンを転送する場合に返します。
+Returns `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
 
 **パラメータ**
 
@@ -527,7 +549,7 @@ kip17.isApprovedForAll(owner, operator)
 
 **戻り値**
 
-`Promise` は `boolean`: `true` もし `演算子` が `所有者` に属するすべてのトークンを送信することが承認されている場合。
+`Promise` returns `boolean`: `true` if an `operator` is approved to send all tokens that belong to the `owner`.
 
 **例**
 
@@ -545,7 +567,7 @@ true
 ```javascript
 kip17.isMinter(address)
 ```
-指定された口座がKIP-17に準拠した現在の契約で新しいトークンを発行できるミンターの場合、 `true` を返します。
+Returns `true` if the given account is a minter who can issue new tokens in the current contract conforming to KIP-17.
 
 **パラメータ**
 
@@ -555,7 +577,7 @@ kip17.isMinter(address)
 
 **戻り値**
 
-`Promise` は `boolean`: `true` アカウントがマイナーな場合に返します。
+`Promise` returns `boolean`: `true` if the account is a minter.
 
 **例**
 
@@ -573,7 +595,7 @@ false
 ```javascript
 kip17.paused()
 ```
-コントラクトが一時停止されている場合は `true` を、それ以外の場合は `false` を返します。
+Returns `true` if the contract is paused, and `false` otherwise.
 
 **パラメータ**
 
@@ -581,7 +603,7 @@ kip17.paused()
 
 **戻り値**
 
-`Promise` は `boolean`: `true` を返します。
+`Promise` returns `boolean`: `true` if the contract is paused.
 
 **例**
 
@@ -599,7 +621,7 @@ false
 ```javascript
 kip17.isPauser(address)
 ```
-指定されたアカウントが転送トークンを一時停止できるPauserの場合、 `true` を返します。
+Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **パラメータ**
 
@@ -609,7 +631,7 @@ kip17.isPauser(address)
 
 **戻り値**
 
-`Promise` は `boolean`: `true` アカウントがPauserの場合に返します。
+`Promise` returns `boolean`: `true` if the account is a pauser.
 
 **例**
 
@@ -627,9 +649,9 @@ false
 ```javascript
 kip17.approve(to, tokenId [, sendParam])
 ```
-指定されたトークンIDのトークンを転送するために別のアドレスを承認します。 ゼロアドレスは承認されたアドレスがないことを示します。 トークンごとに承認されたアドレスは1つだけです。 このメソッドは、トークン所有者または承認されたオペレーターのみが呼び出すことができます。
+Approves another address to transfer a token of the given token id. The zero address indicates there is no approved address. There can only be one approved address per token. This method is allowed to call only by the token owner or an approved operator.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -639,9 +661,9 @@ kip17.approve(to, tokenId [, sendParam])
 | tokenId   | BigNumber &#124; string &#124; number | 送金者が使用できるトークンのID。                            |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-sendParamオブジェクトには以下を含めることができます:
+The sendParam object can contain the following:
 
 | 名前            | タイプ                                             | Description                                                                                                                                                                                    |
 | ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -657,7 +679,7 @@ sendParamオブジェクトには以下を含めることができます:
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -720,9 +742,9 @@ sendParamオブジェクトには以下を含めることができます:
 ```javascript
 kip17.setApprovalForAll(to, approved [, sendParam])
 ```
-指定された演算子 `を`に承認するか、指定された演算子が所有者のトークンをすべて転送することを許可します。
+Approves the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
 
-setApprovalForAllメソッドは、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -734,7 +756,7 @@ setApprovalForAllメソッドは、Klaytnネットワークにトランザクシ
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -797,9 +819,9 @@ setApprovalForAllメソッドは、Klaytnネットワークにトランザクシ
 ```javascript
 kip17.transferFrom(from, to, tokenId [, sendParam])
 ```
-与えられたトークンIDのトークン、 `tokenId` をトークン所有者の残高から別のアドレスに転送します。 トークン所有者のトークン(演算子)またはトークン所有者のhim/selfを送信する権限を与えられたアドレスは、このトークン転送トランザクションを実行することが期待されます。 Thus, an authorized account or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. `sendParam.from` と `kip17Instance.options.from` の両方が指定されていない限り、エラーが発生します。 このメソッドの代わりに可能な限り [safeTransferFrom](#kip17-safetransferfrom) を使用することをお勧めします。
+Transfers the token of the given token id, `tokenId` from the token owner's balance to another address. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized account or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur. It is recommended to use [safeTransferFrom](#kip17-safetransferfrom) whenever possible instead of this method.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -810,11 +832,11 @@ kip17.transferFrom(from, to, tokenId [, sendParam])
 | tokenId   | BigNumber &#124; string &#124; number | 転送するトークンのID。                                                                              |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -877,11 +899,11 @@ kip17.transferFrom(from, to, tokenId [, sendParam])
 ```javascript
 kip17.safeTransferFrom(from, tokenId [, data] [, sendParam])
 ```
-与えられたトークンID `tokenId` のトークンをトークン所有者の残高から別のアドレスに安全に転送します。 トークン所有者のトークン(演算子)またはトークン所有者のhim/selfを送信する権限を与えられたアドレスは、このトークン転送トランザクションを実行することが期待されます。 Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. `sendParam.from` と `kip17Instance.options.from` の両方が指定されていない限り、エラーが発生します。
+Safely transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
 
-`to` がコントラクトアドレスの場合、 [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface) を実装する必要があります。 でなければ転送は取り消されます
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -893,11 +915,11 @@ kip17.safeTransferFrom(from, tokenId [, data] [, sendParam])
 | data      | バッファ &#124; 文字列 &#124; 番号             | (オプション) 通話とともに送信する任意のデータ。                                                                 |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -963,9 +985,9 @@ kip17.safeTransferFrom(from, tokenId [, data] [, sendParam])
 ```javascript
 kip17.addMinter(account [, sendParam])
 ```
-トークンを鋳造することが許可されているマイナーとしてアカウントを追加します。
+Adds an account as a minter, who are permitted to mint tokens.
 
-addMinterメソッドはトランザクションをKlaytnネットワークに送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -974,11 +996,11 @@ addMinterメソッドはトランザクションをKlaytnネットワークに�
 | アカウント     | 文字列    | マイナーとして追加されるアカウントのアドレス。                                                                   |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `sendParam.from` または `kip17.options.from` が指定された場合は、minter でなければなりません。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1038,9 +1060,9 @@ addMinterメソッドはトランザクションをKlaytnネットワークに�
 kip17.renounceMinter([sendParam])
 ```
 
-トークンを鋳造する権利を放棄します。 ミンターアドレスのみがミント権限を放棄できます。
+Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
-放棄されたMinterメソッドはKlaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1048,11 +1070,11 @@ kip17.renounceMinter([sendParam])
 | --------- | ------ | ----------------------------------------------------------------------------------------- |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-`sendParam.from` または `kip17.options.from` が与えられた場合は、MinterRole を使ったminter である必要があります。
+If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1111,9 +1133,9 @@ kip17.renounceMinter([sendParam])
 ```javascript
 kip17.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
-与えられた uri でトークンを作成し、指定されたアカウントに割り当てます。 このメソッドは、このトークンの総供給量を増加させます。
+Creates a token with the given uri and assigns them to the given account. This method increases the total supply of this token.
 
-mintWithTokenURIメソッドは、トランザクション手数料を送信者に請求するKlaytnネットワークにトランザクションを送信することに注意してください。
+Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1124,13 +1146,13 @@ mintWithTokenURIメソッドは、トランザクション手数料を送信者�
 | tokenURI  | 文字列                                   | 分割されるトークンの uri 文字列。                                                                       |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**注意** `sendParam.from` または `kip17.options.from` が与えられた場合は、MinterRole を使ったminter でなければなりません。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1193,9 +1215,9 @@ mintWithTokenURIメソッドは、トランザクション手数料を送信者�
 ```javascript
 kip17.burn(tokenId [, sendParam])
 ```
-与えられたトークンIDのトークンを破壊します。 `sendParam.from` または `kip17.options.from` が指定されていない場合、エラーが発生します。
+Destroys the token of the given token id. Without `sendParam.from` nor `kip17.options.from` being provided, an error would occur.
 
-burn メソッドはトランザクションをKlaytnネットワークに送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1204,11 +1226,11 @@ burn メソッドはトランザクションをKlaytnネットワークに送信
 | tokenId   | BigNumber &#124; string &#124; number | 破棄するトークンのID。                                                                              |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `tokenId` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1271,9 +1293,9 @@ burn メソッドはトランザクションをKlaytnネットワークに送信
 ```javascript
 kip17.pause([sendParam])
 ```
-トークンの送信に関連する機能を一時停止します。
+Suspends functions related to sending tokens.
 
-pauseメソッドはKlaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1281,11 +1303,11 @@ pauseメソッドはKlaytnネットワークにトランザクションを送信
 | --------- | ------ | ----------------------------------------------------------------------------------------- |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `sendParam.from` または `kip17.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1344,9 +1366,9 @@ pauseメソッドはKlaytnネットワークにトランザクションを送信
 ```javascript
 kip17.unpause([sendParam])
 ```
-一時停止した契約を再開します。
+Resumes the paused contract.
 
-unpauseメソッドは、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1354,11 +1376,11 @@ unpauseメソッドは、Klaytnネットワークにトランザクションを�
 | --------- | ------ | ----------------------------------------------------------------------------------------- |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `sendParam.from` または `kip17.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1417,9 +1439,9 @@ unpauseメソッドは、Klaytnネットワークにトランザクションを�
 ```javascript
 kip17.addPauser(account [, sendParam])
 ```
-契約を一時停止する権利を有するアカウントを追加します。
+Adds an account as a pauser that has the right to suspend the contract.
 
-addPauserメソッドは、トランザクションをKlaytnネットワークに送信し、トランザクション手数料を送信者に請求します。
+Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1428,11 +1450,11 @@ addPauserメソッドは、トランザクションをKlaytnネットワーク�
 | アカウント     | 文字列    | 新しいポーザルにするアカウントのアドレス                                                                      |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `sendParam.from` または `kip17.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
@@ -1491,9 +1513,9 @@ addPauserメソッドは、トランザクションをKlaytnネットワーク�
 ```javascript
 kip17.renouncePauser([sendParam])
 ```
-契約を一時停止する権利を放棄します。 Pauserアドレスのみが権利停止を放棄できます。
+Renounces the right to pause the contract. Only a pauser address can renounce its own pausing right.
 
-放棄Pauserメソッドは、トランザクションをKlaytnネットワークに送信し、トランザクション手数料を送信者に請求します。
+Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1501,11 +1523,11 @@ kip17.renouncePauser([sendParam])
 | --------- | ------ | ----------------------------------------------------------------------------------------- |
 | sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認][]のパラメータの説明を参照してください。 |
 
-**注意** `sendParam.from` または `kip17.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP-17 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **例**
 
