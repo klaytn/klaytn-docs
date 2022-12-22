@@ -29,9 +29,9 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Deploying KlaytnGreeter using Klaytn IDE <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
+## Deploying KlaytnGreeter using Remix Online IDE <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Please visit the [Klaytn IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
+* Please visit the [Remix Online IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
 * Prepare your account which will be used to deploy the contract. 
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create)
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
@@ -40,9 +40,9 @@ contract KlaytnGreeter is Mortal {
 
 ## References <a id="references"></a>
 
-For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents. 
+For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents. 
 
-* [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
+* [Remix Online IDE](../ide-and-tools/README.md#klaytn-ide)
 * [Truffle](../ide-and-tools/README.md#truffle)
 * [Deploy Guide](../deploy-guide.md)
 

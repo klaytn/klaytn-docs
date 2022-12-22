@@ -6,10 +6,9 @@ description: >-
 
 # IDE and Tools <a id="ide-and-tools"></a>
 
-#### [Klaytn IDE] <a id="klaytn-ide"></a>
+#### [Remix Online IDE] <a id="remix-ide"></a>
 
-* Klaytn IDE is a browser-based compiler and IDE for the Klaytn smart contracts. Klaytn IDE is forked from Remix 0.7.7.
-You can write, compile, deploy and execute smart contracts from Klaytn IDE. 
+* Remix Online IDE is a powerful toolset for developing, deploying, debugging, and testing Ethereum and EVM-compatible smart contracts. It requires no setup and has a flexible, intuitive user interface. You can write, compile, deploy and execute smart contracts from Remix IDE. 
 
 #### [Truffle]  <a id="truffle"></a>
 
@@ -28,7 +27,7 @@ You can write, compile, deploy and execute smart contracts from Klaytn IDE.
 * Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
 
 
-[Klaytn IDE]: ../../toolkit/klaytn-ide.md 
+[Remix Online IDE]: ../../toolkit/klaytn-ide.md 
 [Truffle]: ../../toolkit/truffle.md
 [Kaikas]: ../../toolkit/kaikas.md
 [Klaytn Wallet]: ../../toolkit/klaytn-wallet.md 
