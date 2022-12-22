@@ -1,10 +1,10 @@
-# KlaytnGreeter <a id="klaytngreeter"></a>
+# KlaytnGreeter
 
-`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed. 
+`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
 
-## Writing KlaytnGreeter <a id="writing-klaytngreeter"></a>
+## Writing KlaytnGreeter <a href="#writing-klaytngreeter" id="writing-klaytngreeter"></a>
 
-```text
+```
 pragma solidity 0.5.6;
 contract Mortal {
     /* Define variable owner of the type address */
@@ -29,22 +29,19 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Deploying KlaytnGreeter using Remix Online IDE <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
+## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Please visit the [Remix Online IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
-* Prepare your account which will be used to deploy the contract. 
-  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create)
+* Please visit [Remix Online IDE](https://remix.ethereum.org/) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
+* Prepare your account which will be used to deploy the contract.
+  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
-* Deploy the contract with initial parameter, a greeting message. 
+* Deploy the contract with initial parameter, a greeting message.
 * After deploying, you can invoke `greet` from the IDE.
 
-## References <a id="references"></a>
+## References <a href="#references" id="references"></a>
 
-For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents. 
+For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-* [Remix Online IDE](../ide-and-tools/README.md#klaytn-ide)
-* [Truffle](../ide-and-tools/README.md#truffle)
+* [Remix Online IDE](../ide-and-tools/#klaytn-ide)
+* [Truffle](../ide-and-tools/#truffle)
 * [Deploy Guide](../deploy-guide.md)
-
-
-
