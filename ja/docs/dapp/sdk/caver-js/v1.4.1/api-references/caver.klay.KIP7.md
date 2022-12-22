@@ -40,7 +40,7 @@ tokenInfo オブジェクトには以下を含める必要があります:
 | decimals      | Number       | トークンが使用する小数点以下の桁数。                                                      |
 | initialSupply | BigNumber \ | String \| Number | The total amount of token to be supplied initially. |
 
-**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -166,7 +166,7 @@ kip7Instance.clone([tokenAddress])
 kip7Instance.supportsInterface(interfaceId)
 ```
 
-このコントラクトが `interfaceId` で定義されたインターフェイスを実装している場合、 `true` を返します。
+Returns `true` if this contract implements the interface defined by `interfaceId`.
 
 **パラメータ**
 
@@ -193,7 +193,7 @@ false
 kip7Instance.name()
 ```
 
-トークンの名前を返します。
+Returns the name of the token.
 
 **パラメータ**
 
@@ -216,7 +216,7 @@ Jasmine
 kip7Instance.symbol()
 ```
 
-トークンのシンボルを返します。
+Returns the symbol of the token.
 
 **パラメータ**
 
@@ -270,7 +270,7 @@ Returns the total token supply.
 
 **戻り値**
 
-`Promise` は `BigNumber`: トークンの総数を返します。
+`Promise` returns `BigNumber`: The total number of tokens.
 
 **例**
 
@@ -285,7 +285,7 @@ Returns the total token supply.
 kip7Instance.balanceOf(address)
 ```
 
-指定されたアカウントアドレスの残高を返します。
+Returns the balance of the given account address.
 
 **パラメータ**
 
@@ -295,7 +295,7 @@ kip7Instance.balanceOf(address)
 
 **戻り値**
 
-`Promise` は `BigNumber`: アカウントの残高を返します。
+`Promise` returns `BigNumber`: The account balance.
 
 **例**
 
@@ -367,7 +367,7 @@ false
 kip7Instance.isPauser(address)
 ```
 
-指定されたアカウントが転送トークンを一時停止できるPauserの場合、 `true` を返します。
+Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **パラメータ**
 
@@ -395,7 +395,7 @@ false
 kip7Instance.paused()
 ```
 
-コントラクトが一時停止されている場合は `true` を、それ以外の場合は `false` を返します。
+Returns `true` if the contract is paused, and `false` otherwise.
 
 **パラメータ**
 
@@ -433,9 +433,9 @@ kip7Instance.approve(spender, amount [, sendParam])
 | 金額        | BigNumber \ | String \| Number | The amount of token the spender is allowed to use.                   |
 | sendParam | Object       | \(optional\) An object holding parameters that are required for sending a transaction. |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-`sendParam` オブジェクトには以下のものが含まれています:
+The `sendParam` object contains the following:
 
 | 名前       | タイプ       | Description                                                                                                                                                                                                                              |
 |:-------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -504,7 +504,7 @@ kip7Instance.transfer(recipient, amount [, sendParam])
 
 Transfers the given `amount` of token from the token owner's balance to the `recipient`. トークンの所有者は、自分の手でこのトークン転送を実行する必要があります。 Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -514,7 +514,7 @@ Transfers the given `amount` of token from the token owner's balance to the `rec
 | 金額        | BigNumber \ | String \| Number | The amount of token to be transferred.                                                                                                                                                  |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -576,9 +576,9 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 
 Safely transfers the given `amount` of token from the token owner's balance to the `recipient`. トークンの所有者は、自分の手でこのトークン転送を実行する必要があります。 Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 そうでなければ、転送は元に戻されます。
+受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -589,7 +589,7 @@ Safely transfers the given `amount` of token from the token owner's balance to t
 | data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -654,7 +654,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 
 Transfers the given `amount` of token from the token owner's balance to the `recipient`. トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -665,7 +665,7 @@ Transfers the given `amount` of token from the token owner's balance to the `rec
 | 金額        | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -750,9 +750,9 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 Safely transfers the given `amount` of token from the token owner's balance to the `recipient`. トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 そうでなければ、転送は元に戻されます。
+受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -764,7 +764,7 @@ Safely transfers the given `amount` of token from the token owner's balance to t
 | data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -852,7 +852,7 @@ kip7Instance.mint(account, amount [, sendParam])
 
 トークンの `金額` を作成し、 `アカウント`に発行し、トークンの総供給量を増やします。
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -862,7 +862,7 @@ kip7Instance.mint(account, amount [, sendParam])
 | 金額        | BigNumber \ | String \| Number | The amount of token to be minted.                                                                                                                                                       |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a minter with MinterRole.
 
@@ -924,9 +924,9 @@ kip7Instance.mint(account, amount [, sendParam])
 kip7Instance.addMinter(account [, sendParam])
 ```
 
-トークンを鋳造することが許可されているマイナーとしてアカウントを追加します。
+Adds an account as a minter, who are permitted to mint tokens.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -991,9 +991,9 @@ kip7Instance.addMinter(account [, sendParam])
 kip7Instance.renounceMinter([sendParam])
 ```
 
-トークンを鋳造する権利を放棄します。 ミンターアドレスのみがミント権限を放棄できます。
+Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1059,7 +1059,7 @@ kip7Instance.burn(amount [, sendParam])
 
 送信者の残高内のトークンの `金額` を削除します。 Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1068,7 +1068,7 @@ kip7Instance.burn(amount [, sendParam])
 | 金額        | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -1130,7 +1130,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 
 `アカウント` から指定されたトークン数を破壊します。 The allowance of the sender specified in `sendParam.from` or `kip7Instance.options.from` is reduced alongside the balance of `account`.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1140,7 +1140,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 | 金額        | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -1223,9 +1223,9 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 kip7Instance.addPauser(account [, sendParam])
 ```
 
-契約を一時停止する権利を有するアカウントを追加します。
+Adds an account as a pauser that has the right to suspend the contract.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1290,9 +1290,9 @@ kip7Instance.addPauser(account [, sendParam])
 kip7Instance.renouncePauser([sendParam])
 ```
 
-契約を一時停止する権利を放棄します。 Pauser アドレスのみが一時停止権限を放棄できます。
+Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1356,9 +1356,9 @@ kip7Instance.renouncePauser([sendParam])
 kip7Instance.pause([sendParam])
 ```
 
-トークンの送信に関連する機能を一時停止します。
+Suspends functions related to sending tokens.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1422,9 +1422,9 @@ kip7Instance.pause([sendParam])
 kip7Instance.unpause([sendParam])
 ```
 
-一時停止した契約を再開します。
+Resumes the paused contract.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
