@@ -35,7 +35,7 @@ tokenInfo オブジェクトには以下を含める必要があります:
 | decimals      | 数値                                    | トークンが使用する小数点以下の桁数。 |
 | initialSupply | BigNumber &#124; string &#124; number | 最初に提供されるトークンの合計量。  |
 
-**注意** `initialSupply` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `initialSupply` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
@@ -111,7 +111,7 @@ KIP7 {
 ```javascript
 caver.kct.kip7.detectInterface(contractAddress)
 ```
-トークンコントラクトによって実装されたインターフェイスの情報を返します。 この静的関数は [kip7.detectInterface](#kip7-detectinterface) を使用します。
+Returns the information of the interface implemented by the token contract. この静的関数は [kip7.detectInterface](#kip7-detectinterface) を使用します。
 
 **パラメータ**
 
@@ -234,7 +234,7 @@ kip7.clone([tokenAddress])
 ```javascript
 kip7.detectInterface()
 ```
-トークンコントラクトによって実装されたインターフェイスの情報を返します。
+Returns the information of the interface implemented by the token contract.
 
 **パラメータ**
 
@@ -262,7 +262,7 @@ kip7.detectInterface()
 ```javascript
 kip7.supportsInterface(interfaceId)
 ```
-このコントラクトが `interfaceId` で定義されたインターフェイスを実装している場合、 `true` を返します。
+Return `true` if this contract implements the interface defined by `interfaceId`.
 
 **パラメータ**
 
@@ -298,7 +298,7 @@ kip7.name()
 
 **戻り値**
 
-`Promise` は `文字列`: トークンの名前。
+`Promise` returns `string`: The name of the token.
 
 **例**
 
@@ -321,7 +321,7 @@ kip7.symbol()
 
 **戻り値**
 
-`Promise` は `文字列`: トークンのシンボル。
+`Promise` returns `string`: The symbol of the token.
 
 **例**
 
@@ -367,7 +367,7 @@ kip7.totalSupply()
 
 **戻り値**
 
-`Promise` は `BigNumber`: トークンの総数を返します。
+`Promise` returns `BigNumber`: The total number of tokens.
 
 **例**
 
@@ -392,7 +392,7 @@ kip7.balanceOf(address)
 
 **戻り値**
 
-`Promise` は `BigNumber`: アカウントの残高を返します。
+`Promise` returns `BigNumber`: The account balance.
 
 **例**
 
@@ -530,9 +530,9 @@ kip7.approve(spender, amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 使用できるトークンの量。                              |
 | sendParam | object                                | (オプション) トランザクションを送信するために必要なオブジェクト保持パラメータ。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-`sendParam` オブジェクトには以下のものが含まれています:
+The `sendParam` object contains the following:
 
 | 名前            | タイプ                                             | Description                                                                                                                                                                                   |
 | ------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -548,7 +548,7 @@ kip7.approve(spender, amount [, sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -613,7 +613,7 @@ kip7.transfer(受信者, amount [, sendParam])
 ```
 トークン所有者の残高から与えられた `amount` を `受信者` に転送します。 トークンの所有者は、自分の手でこのトークン転送を実行する必要があります。 したがって、トークンの所有者は、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者である必要があります。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -623,11 +623,11 @@ kip7.transfer(受信者, amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -691,9 +691,9 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 トークン所有者の残高から与えられた `金額` を `受信者`に安全に転送します。 トークンの所有者は、自分の手でこのトークン転送を実行する必要があります。 したがって、トークンの所有者は、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者である必要があります。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
 
-受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 そうでなければ、転送は元に戻されます。
+受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -704,11 +704,11 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 | data      | バッファ &#124; 文字列 &#124; 番号             | (オプション) 通話とともに送信する任意のデータ。                                                                              |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
 
 **例**
 
@@ -776,7 +776,7 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
 トークン所有者の残高から与えられた `amount` を `受信者` に転送します。 トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 従って、承認されたものは、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者でなければなりません。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -787,11 +787,11 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -878,9 +878,9 @@ kip7.safeTransferFrom(送信者、受信者、金額 [, データ] [, sendParam]
 ```
 トークン所有者の残高から与えられた `金額` を `受信者`に安全に転送します。 トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 従って、承認されたものは、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者でなければなりません。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
 
-受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 そうでなければ、転送は元に戻されます。
+受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
 
-このトランザクションを送信すると、トランザクションの送信者にトランザクション手数料が課金されます。
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **パラメータ**
 
@@ -892,11 +892,11 @@ kip7.safeTransferFrom(送信者、受信者、金額 [, データ] [, sendParam]
 | data      | バッファ &#124; 文字列 &#124; 番号             | (オプション) 通話とともに送信する任意のデータ。                                                                              |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
 
 **例**
 
@@ -986,7 +986,7 @@ kip7.mint(account, amount [, sendParam])
 ```
 トークンの `金額` を作成し、 `アカウント`に発行し、トークンの総供給量を増やします。
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -996,13 +996,13 @@ kip7.mint(account, amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 発行するトークンの量。                                                                                            |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、MinterRole を使ったminter でなければなりません。
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1065,9 +1065,9 @@ kip7.mint(account, amount [, sendParam])
 ```javascript
 kip7.addMinter(account [, sendParam])
 ```
-トークンを鋳造することが許可されているマイナーとしてアカウントを追加します。
+Adds an account as a minter, who are permitted to mint tokens.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1080,7 +1080,7 @@ kip7.addMinter(account [, sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1139,9 +1139,9 @@ kip7.addMinter(account [, sendParam])
 ```javascript
 kip7.renounceMinter([sendParam])
 ```
-トークンを鋳造する権利を放棄します。 ミンターアドレスのみがミント権限を放棄できます。
+Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1153,7 +1153,7 @@ kip7.renounceMinter([sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1214,7 +1214,7 @@ kip7.burn(amount [, sendParam])
 ```
 送信者の残高内のトークンの `金額` を削除します。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1223,11 +1223,11 @@ kip7.burn(amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 破棄するトークンの量。                                                                                            |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1292,7 +1292,7 @@ kip7.burnFrom(account, amount [, sendParam])
 ```
 `アカウント` から指定されたトークン数を破壊します。 `sendParam.from` または `kip7.options.from` で指定された送信者の引当金は、 `アカウント` の残高とともに引き下げられます。
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1302,11 +1302,11 @@ kip7.burnFrom(account, amount [, sendParam])
 | 金額        | BigNumber &#124; string &#124; number | 破棄するトークンの量。                                                                                            |
 | sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 この場合、 `BigNumber` 型、特に `uint256` サイズの数値入力値を使用することをお勧めします。
+**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1392,9 +1392,9 @@ kip7.burnFrom(account, amount [, sendParam])
 ```javascript
 kip7.addPauser(account [, sendParam])
 ```
-契約を一時停止する権利を有するアカウントを追加します。
+Adds an account as a pauser that has the right to suspend the contract.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1407,7 +1407,7 @@ kip7.addPauser(account [, sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1466,9 +1466,9 @@ kip7.addPauser(account [, sendParam])
 ```javascript
 kip7.renouncePauser([sendParam])
 ```
-契約を一時停止する権利を放棄します。 Pauser アドレスのみが一時停止権限を放棄できます。
+Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1480,7 +1480,7 @@ kip7.renouncePauser([sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1539,9 +1539,9 @@ kip7.renouncePauser([sendParam])
 ```javascript
 kip7.pause([sendParam])
 ```
-トークンの送信に関連する機能を一時停止します。
+Suspends functions related to sending tokens.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1553,7 +1553,7 @@ kip7.pause([sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
@@ -1612,9 +1612,9 @@ kip7.pause([sendParam])
 ```javascript
 kip7.unpause([sendParam])
 ```
-一時停止した契約を再開します。
+Resumes the paused contract.
 
-この方法は、Klaytnネットワークにトランザクションを送信し、トランザクション手数料を送信者に請求することに注意してください。
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **パラメータ**
 
@@ -1626,7 +1626,7 @@ kip7.unpause([sendParam])
 
 **戻り値**
 
-`Promise` は `オブジェクトを返します。` - トランザクション実行の結果を含む領収書。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] の説明を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
 **例**
 
