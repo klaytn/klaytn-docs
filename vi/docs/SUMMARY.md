@@ -289,7 +289,7 @@
   * [Developer Tools](dapp/developer-tools/README.md)
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
-    * [Klaytn Safe](toolkit/klaytn-safe/intro.md)
+    * [Klaytn Safe](toolkit/klaytn-safe/klaytn-safe.md)
         * [Klaytn Safe Design](toolkit/klaytn-safe/design.md)
         * [Create a Safe](toolkit/klaytn-safe/create-a-safe.md)
         * [Add assets](toolkit/klaytn-safe/add-assets.md)
