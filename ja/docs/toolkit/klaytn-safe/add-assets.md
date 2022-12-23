@@ -53,7 +53,7 @@ Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by follo
 You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
 
 * Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-* Navigate to an NFT you want to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
+* Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
 * On the next page, click on the transfer button.
 * Paste the safe address in the text box and transfer to safe
 * Under Assets section in Klaytn Safe you can find NFT’s from OpenSea.
