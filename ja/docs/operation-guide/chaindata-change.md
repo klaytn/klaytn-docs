@@ -11,7 +11,7 @@
 
 ### 新しいディスクを作成
 
-1. 新しいディスク(2,500GBディスク)を準備したり、現在のディスクに新しいパスを作成したりします (2,500GBが利用可能である必要があります)。
+1. Preparing new disk (3,500GB disk) or creating new path on the current disk (It must have 3,500GB available.)
 
 <aside>
 💡 新しいパスが `/var/kcnd2` であると仮定する
@@ -24,12 +24,12 @@
 
 ```bash
 $ lsblk
-NAME MAJ:MIN RM SIZE RO型 MOUNTPOINT
-nvme2n1 259:0 0 2500G 0 disk **# New Disk**
-nvme1n1 259:0 0 4000G 0 disk /var/kcnd
-nvme0n1 259:2 0 8G 0 disk
-├─nvme0n1p1 259:3 0 8G 0 part /
-└─nvme0n1p128 259:4 0 1M 0 part
+NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+nvme2n1       259:0    0  3500G  0 disk **# New Disk**
+nvme1n1       259:0    0  4000G  0 disk /var/kcnd
+nvme0n1       259:2    0    8G  0 disk
+├─nvme0n1p1   259:3    0    8G  0 part /
+└─nvme0n1p128 259:4    0    1M  0 part
 ```
 
 2. 以下のプロセスに従ってマウントします。
