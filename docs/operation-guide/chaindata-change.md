@@ -11,7 +11,7 @@
 
 ### Create new disk
 
-1. Preparing new disk (2,500GB disk) or creating new path on the current disk (It must have 2,500GB available.)
+1. Preparing new disk (3,500GB disk) or creating new path on the current disk (It must have 3,500GB available.)
 
 <aside>
 💡 Assuming that the new path is `/var/kcnd2`
@@ -25,7 +25,7 @@
 ```bash
 $ lsblk
 NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-nvme2n1       259:0    0  2500G  0 disk **# New Disk**
+nvme2n1       259:0    0  3500G  0 disk **# New Disk**
 nvme1n1       259:0    0  4000G  0 disk /var/kcnd
 nvme0n1       259:2    0    8G  0 disk
 ├─nvme0n1p1   259:3    0    8G  0 part /
