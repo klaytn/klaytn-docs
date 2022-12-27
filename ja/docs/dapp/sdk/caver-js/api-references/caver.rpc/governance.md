@@ -225,7 +225,7 @@ caver.rpc.governance.getChainConfig([callback])
 caver.rpc.goverance.getNodeAddress([callback])
 ```
 
-ユーザーが使用しているノードのアドレスを提供します。 これは、nodekey から派生し、コンセンサスメッセージに署名するために使用されます。 そして、"goveringnode" の値は、バリデータのノードアドレスの 1 つでなければなりません。
+ユーザーが使用しているノードのアドレスを提供します。 It is derived from the nodekey and used to sign consensus messages. そして、"goveringnode" の値は、バリデータのノードアドレスの 1 つでなければなりません。
 
 **パラメータ**
 
@@ -254,7 +254,7 @@ caver.rpc.goverance.getNodeAddress([callback])
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-特定のブロックのガバナンス項目を返します。 これは、ブロックの以前の投票の結果であり、指定されたブロック番号のチェーンの構成として使用されます。
+特定のブロックのガバナンス項目を返します。 It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
 **パラメータ**
 
@@ -305,7 +305,7 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 caver.rpc.goverance.getPendingChanges([callback])
 ```
 
-十分な票数を受け取ったがまだ確定していないアイテムのリストを返します。 現在の時代の終わりには、これらの変更が完了し、結果は次の時期の後にエポックから有効になります。
+十分な票数を受け取ったがまだ確定していないアイテムのリストを返します。 At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
 **パラメータ**
 
@@ -334,7 +334,7 @@ caver.rpc.goverance.getPendingChanges([callback])
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-メモリーキャッシュ内の現在の idxCache の配列を返します。 idxCache にはガバナンスの変更が発生したブロック番号が含まれています。 キャッシュは、デフォルトで最大1000個のブロック番号をメモリ内に持つことができます。
+メモリーキャッシュ内の現在の idxCache の配列を返します。 idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
 **パラメータ**
 
@@ -449,7 +449,7 @@ null
 caver.rpc.governance.getVotes([callback])
 ```
 
-エポック内のすべてのノードから投票を返します。 これらの投票は各ブロックのヘッダーから集められます。
+エポック内のすべてのノードから投票を返します。 These votes are gathered from the header of each block.
 
 **パラメータ**
 
