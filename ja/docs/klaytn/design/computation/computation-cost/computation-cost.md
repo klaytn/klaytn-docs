@@ -53,7 +53,7 @@ NOTE: Computation costs have changed with the `IstanbulEVM` protocol upgrade, or
 | SHR            |             498 |
 | SAR            |             834 |
 | SHA3           |            2465 |
-| アドレス           |             284 |
+| ADDRESS        |             284 |
 | BALANCE        |            1407 |
 | ORIGIN         |             210 |
 | CALLER         |             188 |
