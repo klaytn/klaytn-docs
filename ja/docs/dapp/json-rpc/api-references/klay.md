@@ -39,6 +39,7 @@ description: >-
 - [klay_getCouncilSize](./klay/block.md#klay_getcouncilsize)
 - [klay_getStorageAt](./klay/block.md#klay_getstorageat)
 - [klay_syncing](./klay/block.md#klay_syncing)
+- [klay_getRewards](./klay/block.md#klay_getrewards)
 
 
 ### [トランザクション](./klay/transaction.md) <a id="transaction"></a>
