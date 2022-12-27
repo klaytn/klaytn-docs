@@ -7,6 +7,16 @@ description: >-
 
 The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
 
+**NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public.
+We recommend you to provide the debug namespace APIs to authorized users only.
+However, if you want to maintain a public EN and provide debug namespace APIs to the public,
+we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
+that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
+The enabled APIs are as follows:
+- [VM Tracing](./debug/tracing) APIs, however with limited functionality (only [pre-defined tracers](./debug/tracing#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 
 ## [Logging](./debug/logging.md) <a id="logging"></a>
 
