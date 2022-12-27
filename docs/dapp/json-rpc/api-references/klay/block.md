@@ -860,3 +860,50 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": false
 }
 ```
+
+## klay_getRewards <a id="klay_getrewards"></a>
+
+Returns the reward distribution result about a block by block number, including the rewardees and their shares.
+If the parameter is not set, it returns the reward distribution at the latest block.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**Return Value**
+
+| Type | Description |
+| --- | ---|
+| JSON | Reward distribution result |
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getRewards", "params": ["0x1000"], "id": 1}' https://api.baobab.klaytn.net:8651
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "minted": 6400000000000000000,
+    "totalFee": 0,
+    "burntFee": 0,
+    "proposer": 640000000000000000,
+    "stakers": 2560000000000000000,
+    "kgf": 2560000000000000000,
+    "kir": 640000000000000000,
+    "rewards": {
+      "0x0000000000000000000000000000000000008000": 512000000000000000,
+      "0x0000000000000000000000000000000000008001": 512000000000000000,
+      "0x0000000000000000000000000000000000008002": 512000000000000000,
+      "0x0000000000000000000000000000000000008003": 512000000000000000,
+      "0x0000000000000000000000000000000000008004": 512000000000000000,
+      "0x241dabb87a018fb582cacebcaf74490a6d421a03": 640000000000000000,
+      "0x271b57742f6ed1478eb767361f5a92dad2fa048f": 640000000000000000,
+      "0xcdf3df6ad5cfc142c1477503aae5c5b0afaa5ccb": 2560000000000000000
+    }
+  }
+}
+```

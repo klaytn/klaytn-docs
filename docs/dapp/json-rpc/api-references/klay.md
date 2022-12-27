@@ -41,6 +41,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_getCouncilSize](./klay/block.md#klay_getcouncilsize)
 - [klay_getStorageAt](./klay/block.md#klay_getstorageat)
 - [klay_syncing](./klay/block.md#klay_syncing)
+- [klay_getRewards](./klay/block.md#klay_getrewards)
 
 
 ### [Transaction](./klay/transaction.md) <a id="transaction"></a>
