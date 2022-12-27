@@ -50,7 +50,7 @@ NOTE: This document contains computation costs used before the activation of the
 | SHR            |            1346 |
 | SAR            |            1815 |
 | SHA3           |            2465 |
-| アドレス           |             284 |
+| ADDRESS        |             284 |
 | BALANCE        |            1407 |
 | ORIGIN         |             210 |
 | CALLER         |             188 |
