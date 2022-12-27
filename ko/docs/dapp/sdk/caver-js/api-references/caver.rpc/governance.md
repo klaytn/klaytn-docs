@@ -225,7 +225,7 @@ caver.rpc.governance.getChainConfig([callback])
 caver.rpc.governance.getNodeAddress([callback])
 ```
 
-사용자의 노드 주소를 제공합니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 "governingnode"의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
+사용자의 노드 주소를 제공합니다. It is derived from the nodekey and used to sign consensus messages. 그리고 "governingnode"의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
 
 **파라미터**
 
@@ -254,7 +254,7 @@ caver.rpc.governance.getNodeAddress([callback])
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
+특정 블록에서의 거버넌스 항목을 반환합니다. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
 **파라미터**
 
@@ -305,7 +305,7 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 caver.rpc.governance.getPendingChanges([callback])
 ```
 
-pendingChanges은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
+pendingChanges은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
 **파라미터**
 
@@ -334,7 +334,7 @@ pendingChanges은 충분한 표를 받았지만, 아직 확정되지 않은 항�
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-메모리 캐시 내 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
+메모리 캐시 내 현재 idxCache 배열을 반환합니다. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
 **파라미터**
 
@@ -449,7 +449,7 @@ null
 caver.rpc.governance.getVotes([callback])
 ```
 
-투표 주기 내 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
+투표 주기 내 모든 노드의 투표 상태를 반환합니다. These votes are gathered from the header of each block.
 
 **파라미터**
 
