@@ -19,6 +19,7 @@ COMMANDS:
    dumpconfig  Show configuration values
    dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
    init        Bootstrap and initialize a new genesis block
+   snapshot    A set of commands based on the snapshot
    version     Show version number
    help, h     Shows a list of commands or help for one command
 ```
