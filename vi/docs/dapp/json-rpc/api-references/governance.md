@@ -214,7 +214,11 @@ None
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
+The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration. However, due to its confusing name, it is updated since Klaytn v1.10.0. To query the initial chain configuration, use `chainConfigAt(0)` instead.
+{% endhint %}
 
 **Parameters**
 
@@ -234,6 +238,7 @@ None
   chainId: 1001,
   deriveShaImpl: 2,
   governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
     governanceMode: "ballot",
     governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
     kip71: {
@@ -245,6 +250,7 @@ None
     },
     reward: {
       deferredTxFee: true,
+      kip82ratio: "20/80",
       minimumStake: 5000000,
       mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
@@ -259,12 +265,70 @@ None
     sub: 1
   },
   istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
   londonCompatibleBlock: 0,
   magmaCompatibleBlock: 0,
   unitPrice: 25000000000
 }
 ```
 
+## governance_chainConfigAt <a id="governance_chainconfigat"></a>
+
+The `chainConfigAt` returns the chain configuration at specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+**Return Value**
+
+| Type | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
+
+**Example**
+
+```javascript
+> governance.chainConfigAt()
+{
+  chainId: 1001,
+  deriveShaImpl: 2,
+  governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
+    governanceMode: "ballot",
+    governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
+    reward: {
+      deferredTxFee: true,
+      kip82ratio: "20/80",
+      minimumStake: 5000000,
+      mintingAmount: 6400000000000000000,
+      proposerUpdateInterval: 3600,
+      ratio: "50/40/10",
+      stakingUpdateInterval: 20,
+      useGiniCoeff: false
+    }
+  },
+  istanbul: {
+    epoch: 20,
+    policy: 2,
+    sub: 1
+  },
+  istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
+  londonCompatibleBlock: 0,
+  magmaCompatibleBlock: 0,
+  unitPrice: 25000000000
+}
+```
 
 ## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
