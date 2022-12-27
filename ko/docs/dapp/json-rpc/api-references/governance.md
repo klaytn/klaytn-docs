@@ -214,7 +214,11 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-`chainConfig` 속성은 초기 체인 환경설정을 제공합니다. 이 속성은 초기 환경설정만 저장하기 때문에 투표에 의해 거버넌스에 변경 사항이 있다면 `chainConfig`의 결과는 현재 상태와 달라질 것입니다. 현재 정보를 확인하려면 `itemsAt`을 사용하세요.
+The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration. However, due to its confusing name, it is updated since Klaytn v1.10.0. To query the initial chain configuration, use `chainConfigAt(0)` instead.
+{% endhint %}
 
 **파라미터**
 
@@ -234,6 +238,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
   chainId: 1001,
   deriveShaImpl: 2,
   governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
     governanceMode: "ballot",
     governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
     kip71: {
@@ -245,6 +250,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
     },
     reward: {
       deferredTxFee: true,
+      kip82ratio: "20/80",
       minimumStake: 5000000,
       mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
@@ -259,16 +265,74 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
     sub: 1
   },
   istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
   londonCompatibleBlock: 0,
   magmaCompatibleBlock: 0,
   unitPrice: 25000000000
 }
 ```
 
+## governance_chainConfigAt <a id="governance_chainconfigat"></a>
+
+The `chainConfigAt` returns the chain configuration at specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+**파라미터**
+
+| 타입                  | 설명                                                                                                                                                                         |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+**리턴값**
+
+| 타입   | 설명                                            |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
+
+**예시**
+
+```javascript
+> governance.chainConfigAt()
+{
+  chainId: 1001,
+  deriveShaImpl: 2,
+  governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
+    governanceMode: "ballot",
+    governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
+    reward: {
+      deferredTxFee: true,
+      kip82ratio: "20/80",
+      minimumStake: 5000000,
+      mintingAmount: 6400000000000000000,
+      proposerUpdateInterval: 3600,
+      ratio: "50/40/10",
+      stakingUpdateInterval: 20,
+      useGiniCoeff: false
+    }
+  },
+  istanbul: {
+    epoch: 20,
+    policy: 2,
+    sub: 1
+  },
+  istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
+  londonCompatibleBlock: 0,
+  magmaCompatibleBlock: 0,
+  unitPrice: 25000000000
+}
+```
 
 ## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
-`nodeAddress` 속성은 사용자가 사용하고 있는 노드의 주소를 제공합니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 `"governingnode"`의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
+The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
 
 **파라미터**
 
@@ -276,9 +340,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 타입      | 설명                  |
-| ------- | ------------------- |
-| ADDRESS | 노드의 20바이트 길이 주소입니다. |
+| 타입      | 설명                        |
+| ------- | ------------------------- |
+| ADDRESS | 20 BYTE address of a node |
 
 **예시**
 
@@ -289,23 +353,23 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-`itemsAt`은 특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
+The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
 **파라미터**
 
-| 타입                  | 설명                                                                                                                                                            |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 파라미터에 대한 자세한 설명은 [기본 블록 파라미터](klay/block.md#the-default-block-parameter)를 참고하세요. |
+| 타입                  | 설명                                                                                                                                                                         |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
 {% endhint %}
 
-**반환값**
+**Return Value**x
 
-| 타입   | 설명           |
-| ---- | ------------ |
-| JSON | 거버넌스 항목들입니다. |
+| 타입   | 설명               |
+| ---- | ---------------- |
+| JSON | governance items |
 
 **예시**
 
@@ -334,7 +398,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
-`pendingChanges`은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
+The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
 **파라미터**
 
@@ -342,9 +406,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 타입        | 설명                          |
-| --------- | --------------------------- |
-| Vote List | 현재 보류 중인 변경 항목들의 키-밸류 쌍입니다. |
+| 타입        | 설명                                                    |
+| --------- | ----------------------------------------------------- |
+| Vote List | Currently pending changes composed of keys and values |
 
 **예시**
 ```javascript
@@ -357,7 +421,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_votes <a id="governance_votes"></a>
 
-`votes`는 투표 주기 중 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
+The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
 **파라미터**
 
@@ -365,9 +429,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 타입        | 설명                            |
-| --------- | ----------------------------- |
-| Vote List | 키, 값, 노드 주소로 구성된 현재 투표 정보입니다. |
+| 타입        | 설명                                                        |
+| --------- | --------------------------------------------------------- |
+| Vote List | Current votes composed of keys, values and node addresses |
 
 **예시**
 ```javascript
@@ -384,7 +448,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-`idxCache` 속성은 메모리 캐시 내의 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
+The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
 **파라미터**
 
@@ -392,9 +456,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 타입        | 설명                        |
-| --------- | ------------------------- |
-| uint64 배열 | 거버넌스 내용이 변경되었던 블록의 번호입니다. |
+| 타입           | 설명                                             |
+| ------------ | ---------------------------------------------- |
+| uint64 array | Block numbers where governance change happened |
 
 **예시**
 ```javascript
@@ -403,7 +467,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-`idxCacheFromDb`는 거버넌스 내용 변경이 이루어졌던 모든 블록 번호를 배열로 반환합니다. `idxCacheFromDb`의 결과의 길이는 `idxCache`보다 길거나 같습니다.
+The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
 **파라미터**
 
@@ -411,9 +475,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 타입        | 설명                           |
-| --------- | ---------------------------- |
-| uint64 배열 | 거버넌스 내용이 변경되었던 모든 블록의 번호입니다. |
+| 타입           | 설명                                                   |
+| ------------ | ---------------------------------------------------- |
+| uint64 array | Every block numbers where governance change happened |
 
 **예시**
 ```javascript
@@ -422,19 +486,19 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
-`itemCacheFromDb`는 특정 블록에 저장된 거버넌스 정보를 반환합니다. 해당 블록에 변경 사항이 저장되어 있지 않다면 함수는 `null`을 반환합니다.
+The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
 **파라미터**
 
-| 타입     | 설명                                |
-| ------ | --------------------------------- |
-| uint64 | 거버넌스 내용 변경이 이루어졌는지 확인할 블록의 번호입니다. |
+| 타입     | 설명                                                               |
+| ------ | ---------------------------------------------------------------- |
+| uint64 | A block number to query the governance change made in the block. |
 
 **리턴값**
 
-| 타입   | 설명                          |
-| ---- | --------------------------- |
-| JSON | 입력으로 받은 블록에 저장된 거버넌스 정보입니다. |
+| 타입   | 설명                                             |
+| ---- | ---------------------------------------------- |
+| JSON | Stored governance information at a given block |
 
 **예시**
 ```javascript
@@ -457,7 +521,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-`getStakingInfo`는 특정 블록의 예치(staking) 정보를 반환합니다. 결과값에는 다음과 같은 정보들이 포함되어 있습니다.
+The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
 - `BlockNum`: 예치 정보가 조회되는 블록 번호
 - `CouncilNodeAddrs`: 컨센서스 노드 주소
 - `CouncilRewardAddrs`: 관련 노드들의 블록 보상이 제공되는 주소
@@ -468,19 +532,19 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
 - `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
 
-각 주소 순서와 스테이킹 양은 대응됩니다.
+Note that the order of all addresses and the staking amounts are matched.
 
 **파라미터**
 
-| 타입                  | 설명                                                                                                                                                                           |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 파라미터에 대한 자세한 설명은 [default block parameter](./klay/block.md#the-default-block-parameter)를 참고하세요. |
+| 타입                  | 설명                                                                                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **리턴값**
 
-| 타입   | 설명          |
-| ---- | ----------- |
-| JSON | 스테이킹 정보입니다. |
+| 타입   | 설명                  |
+| ---- | ------------------- |
+| JSON | Staking information |
 
 **예시**
 
