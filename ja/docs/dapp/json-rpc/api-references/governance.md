@@ -214,7 +214,11 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-`chainConfig` プロパティは最初のチェーン構成を提供します。 最初の構成だけが保存されているので、投票によって行われたガバナンスの変更があった場合。 `chainConfig` の結果は現在の状態と異なります。 現在の情報を見るには、 `itemsAt` を使用してください。
+The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration. However, due to its confusing name, it is updated since Klaytn v1.10.0. To query the initial chain configuration, use `chainConfigAt(0)` instead.
+{% endhint %}
 
 **パラメータ**
 
@@ -234,6 +238,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
   chainId: 1001,
   deriveShaImpl: 2,
   governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
     governanceMode: "ballot",
     governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
     kip71: {
@@ -245,6 +250,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
     },
     reward: {
       deferredTxFee: true,
+      kip82ratio: "20/80",
       minimumStake: 5000000,
       mintingAmount: 6400000000000000000,
       proposerUpdateInterval: 3600,
@@ -259,16 +265,74 @@ Klaytnには3つの異なるガバナンスモードがあります。
     sub: 1
   },
   istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
   londonCompatibleBlock: 0,
   magmaCompatibleBlock: 0,
   unitPrice: 25000000000
 }
 ```
 
+## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-## Governance_nodeAddress <a id="governance_nodeaddress"></a>
+The `chainConfigAt` returns the chain configuration at specific block. If the parameter is not set, it returns the chain configuration at the latest block.
 
-`nodeAddress` プロパティは、ユーザーが使用しているノードのアドレスを提供します。 これは、nodekey から派生し、コンセンサスメッセージに署名するために使用されます。 `"governingnode"` の値は、バリデータのノードアドレスの 1 つでなければなりません。
+**パラメータ**
+
+| タイプ                 | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+**戻り値**
+
+| タイプ  | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
+
+**例**
+
+```javascript
+> governance.chainConfigAt()
+{
+  chainId: 1001,
+  deriveShaImpl: 2,
+  governance: {
+    govParamContract: "0x0000000000000000000000000000000000000000",
+    governanceMode: "ballot",
+    governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
+    reward: {
+      deferredTxFee: true,
+      kip82ratio: "20/80",
+      minimumStake: 5000000,
+      mintingAmount: 6400000000000000000,
+      proposerUpdateInterval: 3600,
+      ratio: "50/40/10",
+      stakingUpdateInterval: 20,
+      useGiniCoeff: false
+    }
+  },
+  istanbul: {
+    epoch: 20,
+    policy: 2,
+    sub: 1
+  },
+  istanbulCompatibleBlock: 0,
+  koreCompatibleBlock: 0,
+  londonCompatibleBlock: 0,
+  magmaCompatibleBlock: 0,
+  unitPrice: 25000000000
+}
+```
+
+## governance_nodeAddress <a id="governance_nodeaddress"></a>
+
+The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
 
 **パラメータ**
 
@@ -276,9 +340,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ  | Description       |
-| ---- | ----------------- |
-| アドレス | ノードの 20 BYTE アドレス |
+| タイプ     | Description               |
+| ------- | ------------------------- |
+| ADDRESS | 20 BYTE address of a node |
 
 **例**
 
@@ -289,7 +353,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-`itemsAt` は、特定のブロックのガバナンス項目を返します。 これは、ブロックの以前の投票の結果であり、指定されたブロック番号のチェーンの構成として使用されます。
+The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
 **パラメータ**
 
@@ -301,11 +365,11 @@ Klaytnには3つの異なるガバナンスモードがあります。
 注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
 {% endhint %}
 
-**戻り値**x
+**Return Value**x
 
-| タイプ  | Description |
-| ---- | ----------- |
-| JSON | ガバナンス項目     |
+| タイプ  | Description      |
+| ---- | ---------------- |
+| JSON | governance items |
 
 **例**
 
@@ -334,7 +398,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
-`pendingChanges` は、十分な票数を受け取ったがまだ確定していない項目のリストを返します。 現在の時代の終わりには、これらの変更が完了し、結果は次の時期の後にエポックから有効になります。
+The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
 **パラメータ**
 
@@ -342,9 +406,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ  | Description            |
-| ---- | ---------------------- |
-| 投票一覧 | 現在保留中の変更はキーと値で構成されています |
+| タイプ  | Description                                           |
+| ---- | ----------------------------------------------------- |
+| 投票一覧 | Currently pending changes composed of keys and values |
 
 **例**
 ```javascript
@@ -355,9 +419,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 }
 ```
 
-## governance_vote <a id="governance_votes"></a>
+## governance_votes <a id="governance_votes"></a>
 
-`は` に投票し、エポック内のすべてのノードから投票を返します。 これらの投票は各ブロックのヘッダーから集められます。
+The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
 **パラメータ**
 
@@ -365,9 +429,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ  | Description             |
-| ---- | ----------------------- |
-| 投票一覧 | キー、値、ノードアドレスで構成された現在の投票 |
+| タイプ  | Description                                               |
+| ---- | --------------------------------------------------------- |
+| 投票一覧 | Current votes composed of keys, values and node addresses |
 
 **例**
 ```javascript
@@ -384,7 +448,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-`idxCache` プロパティは、メモリーキャッシュ内の現在の idxCache の配列を返します。 idxCache にはガバナンスの変更が発生したブロック番号が含まれています。 キャッシュは、デフォルトで最大1000個のブロック番号をメモリ内に持つことができます。
+The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
 **パラメータ**
 
@@ -392,9 +456,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ          | Description         |
-| ------------ | ------------------- |
-| uint64 array | ガバナンスの変更が起こったブロック番号 |
+| タイプ          | Description                                    |
+| ------------ | ---------------------------------------------- |
+| uint64 array | Block numbers where governance change happened |
 
 **例**
 ```javascript
@@ -403,7 +467,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-`idxCacheFromdb` は、ガバナンスが変更されたすべてのブロック番号を含む配列を返します。 `idxCacheFromdb` の結果は `idxCache` と同じまたはそれ以上です。
+The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
 **パラメータ**
 
@@ -411,9 +475,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ          | Description         |
-| ------------ | ------------------- |
-| uint64 array | ガバナンスの変更が起こったブロック番号 |
+| タイプ          | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| uint64 array | Every block numbers where governance change happened |
 
 **例**
 ```javascript
@@ -421,20 +485,20 @@ Klaytnには3つの異なるガバナンスモードがあります。
 [0, 30]
 ```
 
-## governance_itemCacheFromdb <a id="governance_itemcachefromdb"></a>
-`itemCacheFromdb` は、与えられたブロックに格納されたガバナンス情報を返します。 与えられたブロックに変更が保存されていない場合、関数は `null` を返します。
+## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
+The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
 **パラメータ**
 
-| タイプ    | Description                       |
-| ------ | --------------------------------- |
-| uint64 | ブロック内で行われたガバナンスの変更を照会するためのブロック番号。 |
+| タイプ    | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
+| uint64 | A block number to query the governance change made in the block. |
 
 **戻り値**
 
-| タイプ  | Description          |
-| ---- | -------------------- |
-| JSON | 特定のブロックに格納されたガバナンス情報 |
+| タイプ  | Description                                    |
+| ---- | ---------------------------------------------- |
+| JSON | Stored governance information at a given block |
 
 **例**
 ```javascript
@@ -457,7 +521,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-`getStakingInfo` は特定のブロックにステーキング情報を返します。 結果には以下の情報が含まれます。
+The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
 - `BlockNum`: ステーキング情報が与えられるブロック番号。
 - `CouncilNodeAdds`: コンセンサスノードのアドレス。
 - `CouncilRewardAdrs`: 関連するノードのブロック報酬が送信されるアドレス。
@@ -468,7 +532,7 @@ Klaytnには3つの異なるガバナンスモードがあります。
 - `PoCAddr`: KGFのコントラクトアドレス。 PoCはKGFの以前の名前です。
 - `UseGini`: ジニ係数を使用するかどうかの真偽値。
 
-すべての住所の順序と投資金額が一致していることに注意してください。
+Note that the order of all addresses and the staking amounts are matched.
 
 **パラメータ**
 
@@ -478,9 +542,9 @@ Klaytnには3つの異なるガバナンスモードがあります。
 
 **戻り値**
 
-| タイプ  | Description |
-| ---- | ----------- |
-| JSON | ステーキング情報    |
+| タイプ  | Description         |
+| ---- | ------------------- |
+| JSON | Staking information |
 
 **例**
 
