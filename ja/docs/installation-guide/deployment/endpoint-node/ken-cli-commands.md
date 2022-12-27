@@ -18,9 +18,10 @@ COMMANDS:
    console インタラクティブな JavaScript environment
    dumpconfig 設定値を表示します。
    dumpgenesis ブロックの JSON 設定を標準出力に変換します (このコマンドは Klaytn v1 から取って代わられます。 .0.)
-   initブートストラップと新しいジェネシスブロックの初期化
-   バージョン バージョン番号を表示する
-   ヘルプを表示する h 1つのコマンドのコマンドまたはヘルプの一覧を表示します
+   init        Bootstrap and initialize a new genesis block
+   snapshot    A set of commands based on the snapshot
+   version     Show version number
+   help, h     Shows a list of commands or help for one command
 ```
 
 各コマンドの詳細な使用ガイドラインを取得するには、 `-h` オプションを指定します。
