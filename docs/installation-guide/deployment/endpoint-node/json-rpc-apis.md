@@ -73,7 +73,7 @@ that are unsafe/unappropriate to be opened to the public and enable only a subse
 
 The enabled APIs are as follows:
 
-- [VM Tracing](../../../dapp/json-rpc/api-references/debug/tracing) APIs, however with limited functionality (only [pre-defined tracers](../../../dapp/json-rpc/api-references/debug/tracing#tracing-options) are allowed)
+- [VM Tracing](../../../dapp/json-rpc/api-references/debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](../../../dapp/json-rpc/api-references/debug/tracing.md#tracing-options) are allowed)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
