@@ -123,6 +123,7 @@
         * [업그레이드 및 하드포크](installation-guide/deployment/service-chain/references/upgrade-and-hard-fork.md)
       * [How-To 가이드](installation-guide/deployment/service-chain/howto/README.md)
     * [다운로드](installation-guide/download/README.md)
+      * [v1.10.0](installation-guide/download/v1.10.0.md)
       * [v1.9.1](installation-guide/download/v1.9.1.md)
       * [v1.9.0](installation-guide/download/v1.9.0.md)
       * [v1.8.4](installation-guide/download/v1.8.4.md)
