@@ -2,9 +2,7 @@
 
 ## What is Remix <a href="#what-is-remix" id="what-is-remix"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/#klaytn-ide), which was derived from Remix.
-
-> Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
+Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
 
 ## Setup EVM version <a href="#setup-evm-version" id="setup-evm-version"></a>
 
