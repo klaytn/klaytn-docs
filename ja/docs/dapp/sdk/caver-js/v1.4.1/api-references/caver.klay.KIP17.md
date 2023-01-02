@@ -8,7 +8,7 @@ description: A caver-js object used to interact with a smart contract for KIP17.
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
 
-The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17).
+The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/token/KIP17).
 
 KIP-17 についての詳細は、 [Klaytn Improvation Proposals](https://kips.klaytn.foundation/KIPs/kip-17) を参照してください。
 
