@@ -2,9 +2,9 @@
 
 There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
-## Klaytn IDE <a id="klaytn-ide"></a>
+## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to https://ide.klaytn.foundation  
+Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
 
 
 - Add a new file.
