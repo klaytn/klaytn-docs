@@ -180,7 +180,7 @@ end-user requests regardless of intermittent network traffic spikes.
 
 ## Block Rewards <a id="block-rewards"></a>
 
-For each round, block reward (which is the sum of 9.6 newly minted KLAY and
+For each round, block reward (which is the sum of 6.4 newly minted KLAY and
 transaction fees paid to process the block) will be distributed to
 the network participants according to preset distribution ratios. The proposer
 of the newly created block will receive 100% of the reward to be awarded to

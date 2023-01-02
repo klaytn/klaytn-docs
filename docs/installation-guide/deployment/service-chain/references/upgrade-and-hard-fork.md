@@ -1,20 +1,21 @@
-Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs.
-This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
+# Upgrade & Hard Fork
 
-# Upgrade <a id="upgrade"></a>
+Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
+
+## Upgrade <a href="#upgrade" id="upgrade"></a>
 
 This section shows how to upgrade the ServiceChain binary.
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details.
-For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details. For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+
 > NOTE: This version updates the version of the database to support snapshot sync. You cannot downgrade to the older versions with existing data after updating to v1.9.0.
 
 You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
-- [Klaytn Docs](../../download/README.md)
-- [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
-To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
-For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
+* [Klaytn Docs](../../download/)
+* [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
+
+To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
 
 ```bash
 $ kscnd stop
@@ -22,24 +23,26 @@ Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-You may restart the ServiceChain node after the upgrade. However, if you are planning to activate hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](#hard-fork) for instructions of ServiceChain hard fork.
+You may restart the ServiceChain node after the upgrade. However, if you are planning to activate hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](upgrade-and-hard-fork.md#hard-fork) for instructions of ServiceChain hard fork.
 
 ```bash
 $ kscnd start
 ```
 
-# Hard Fork <a id="hard-fork"></a>
+## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../../../klaytn-history/README.md) to ServiceChain.
+This section describes the steps for applying Klaytn [hard forks](../../../../misc/klaytn-history.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
+
 1. Pick an appropriate block number for the hard fork
 2. Upgrade the ServiceChain binary to a version that supports the hard fork
 3. Set the hard fork block number in the ServiceChain
 
-## 1. Pick an appropriate block number for the hard fork <a id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 In the Javascript console of the ServiceChain, you can check the current block number as shown below.
+
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
@@ -51,20 +54,20 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 > klay.blockNumber
 1234
 ```
+
 Now, you have to choose an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
 
-## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
+### 2. Upgrade the ServiceChain binary <a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
 
-Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
+Refer to the [Upgrade](upgrade-and-hard-fork.md#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
 
-## 3. Set the Hard Fork Block Number <a id="3-set-the-hard-fork-block-number"></a>
+### 3. Set the Hard Fork Block Number <a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
 
 If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can set the hard fork block number in the ServiceChain by re-initializing the chain config with updated genesis.
 
-### Update genesis and re-initialize chain config for all ServiceChain nodes <a id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
+#### Update genesis and re-initialize chain config for all ServiceChain nodes <a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
-First, specify the hard fork number in the `config` field of `genesis.json`.
-For example, if you are trying to activate the Magma hard fork in your ServiceChain, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
+First, specify the hard fork number in the `config` field of `genesis.json`. For example, if you are trying to activate the Magma hard fork in your ServiceChain, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
 
 ```json
 {
@@ -79,9 +82,7 @@ For example, if you are trying to activate the Magma hard fork in your ServiceCh
 }
 ```
 
-To enable a hard fork in the chain config, previous hard forks should be enabled.
-That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled.
-If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
+To enable a hard fork in the chain config, previous hard forks should be enabled. That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled. If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
 
 For example, if you want to set Magma hard fork block number and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
 
@@ -121,7 +122,7 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../../klaytn-history/README.md).
+You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../../misc/klaytn-history.md).
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
@@ -131,14 +132,13 @@ $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
 
 **NOTE** It is normal that the following error log is printed when you re-initialize the chain config.
 
-```text
+```
 ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Skip writing governance index  newIdx=0 govIdxes=[0]
 ```
 
-### Confirm the updated chain config <a id="confirm-the-updated-chain-config"></a>
+#### Confirm the updated chain config <a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
 
-Now, restart the ServiceChain node.
-For example, you can restart a SCN node with the following command.
+Now, restart the ServiceChain node. For example, you can restart a SCN node with the following command.
 
 ```bash
 $ kscnd start
@@ -158,16 +158,15 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 1500
 ```
 
-# Some Hard Fork specifics <a id="some-hard-fork-specifics"></a>
+## Some Hard Fork specifics <a href="#some-hard-fork-specifics" id="some-hard-fork-specifics"></a>
 
 This section describes some details for a specific hard fork.
 
-## Magma <a id="magma"></a>
+### Magma <a href="#magma" id="magma"></a>
 
 The Magma hard fork introduces the KIP-71, dynamic gas fee. It includes the upper and lower bound of the gas price.
 
-By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../../dapp/json-rpc/api-references/governance.md).
-Obviously, lower bound cannot exceed the upper bound.
+By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../../dapp/json-rpc/api-references/governance.md). Obviously, lower bound cannot exceed the upper bound.
 
 To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
 
@@ -189,8 +188,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
 
-For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800.
-In detail, the votes will be finalized when their first epoch was reached at the block #7200, and the changes are applied at the second epoch (block #10800).
+For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800. In detail, the votes will be finalized when their first epoch was reached at the block #7200, and the changes are applied at the second epoch (block #10800).
 
 To check the epoch, you can use the `governanace.itemsAt` API, like below.
 

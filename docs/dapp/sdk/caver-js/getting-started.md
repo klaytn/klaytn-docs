@@ -1,10 +1,10 @@
-# Getting Started <a id="getting-started"></a>
+# Getting Started
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
+This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](v1.4.1/getting-started\_1.4.1.md).
 
-## Prerequisites <a id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-### Dependencies <a id="dependencies"></a>
+### Dependencies <a href="#dependencies" id="dependencies"></a>
 
 The following packages are required to use the caver-js library.
 
@@ -14,16 +14,17 @@ The following packages are required to use the caver-js library.
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 **Note** caver-js can run on Node.js versions 12 and 14. The recommended versions are as follows:
-- lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
-- lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([nvm](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+* lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
+* lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-### Installation <a id="installation"></a>
+If you use a different version of the Node (for example, Node v15), utilize the Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) to install and use the version supported by caver-js.
+
+### Installation <a href="#installation" id="installation"></a>
 
 To try it out, install caver-js with npm using the following command:
 
-```text
+```
 $ npm install caver-js
 ```
 
@@ -31,11 +32,11 @@ $ npm install caver-js
 
 To install a specific version of caver-js, try the following command:
 
-```text
+```
 $ npm install caver-js@X.X.X
 ```
 
-## Starting with caver-js <a id="starting-with-caver-js"></a>
+## Starting with caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
 
 Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
 
@@ -44,9 +45,11 @@ To practice the examples below, first create a test file in the working director
 ```bash
 $ touch test.js
 ```
+
 You can see the `test.js` file created in the working directory.
 
 Write the following code in test.js.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -69,7 +72,7 @@ Klaytn/v1.4.0/linux-amd64/go1.14.1
 
 If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
 
-### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Klaytn Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
 You can import the caver-js module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
@@ -85,21 +88,21 @@ const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
 
-[Keyring] is a structure that contains the address of the Klaytn account and the private key(s). 
+[Keyring](api-references/caver.wallet/keyring.md) is a structure that contains the address of the Klaytn account and the private key(s).
 
-[Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
+[Keyring](api-references/caver.wallet/keyring.md) can be classified into three types depending on the type of key being stored: [SingleKeyring](api-references/caver.wallet/keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
-[SingleKeyring] defines `key` property inside, and this `key` store one private key.
+[SingleKeyring](api-references/caver.wallet/keyring.md#singlekeyring) defines `key` property inside, and this `key` store one private key.
 
-[MultipleKeyring] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-The `keys` property defined in [RoleBasedKeyring] is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+The `keys` property defined in [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring) is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../klaytn/design/accounts.md#roles). The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### Creating a Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### Generating a SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
 
 You can randomly generate a single keyring as shown below.
 
@@ -128,7 +131,7 @@ SingleKeyring {
 
 The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### Creating a SingleKeyring from private key <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
 
 Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
@@ -156,9 +159,9 @@ SingleKeyring {
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring] instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
+The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api-references/caver.wallet/keyring.md#singlekeyring) instance with an address defined inside it and a \[PrivateKey] instance in `keyring.key`.
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
 If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
@@ -194,9 +197,9 @@ SingleKeyring {
 }
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### Creating a MultipleKeyring with multiple private keys <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring] using an address and multiple private keys. The below examples show how to create a [MultipleKeyring] with multiple private keys.
+If you want to use multiple private keys, you can create a [MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) using an address and multiple private keys. The below examples show how to create a [MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) with multiple private keys.
 
 ```javascript
 // test.js
@@ -227,10 +230,9 @@ MultipleKeyring {
 
 As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
 
+#### Creating a RoleBasedKeyring with private keys <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
-
-To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring]. The example below shows how to create a [RoleBasedKeyring] instance from different keys for each role.
+To use different private key(s) for each [role](../../../klaytn/design/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring). The example below shows how to create a [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring) instance from different keys for each role.
 
 ```javascript
 // test.js
@@ -273,9 +275,9 @@ RoleBasedKeyring {
 
 Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring]) or wallet ([caver.wallet]) do not affect the actual Klaytn blockchain platform (Klaytn).
+**Note**: Calling functions related to keyring ([caver.wallet.keyring](api-references/caver.wallet/keyring.md)) or wallet ([caver.wallet](api-references/caver.wallet/)) do not affect the actual Klaytn blockchain platform (Klaytn).
 
-### Adding Keyrings to caver-js <a id="adding-keyrings-to-caver-js"></a>
+### Adding Keyrings to caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
 
 You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file generated by [Klaytn Wallet](https://wallet.klaytn.com/).
 
@@ -336,7 +338,7 @@ SingleKeyring {
 
 Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet] via [caver.wallet.newKeyring].
+If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet](api-references/caver.wallet/) via [caver.wallet.newKeyring](api-references/caver.wallet/#caver-wallet-newkeyring).
 
 ```javascript
 // test.js
@@ -402,30 +404,30 @@ RoleBasedKeyring {
 
 `caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
 This section will show you how to send KLAY using caver-js on the Baobab network.
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
 If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
 You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
 1. Sign a transaction
-	- If the keyring you want to use is added to [caver.wallet], you can use `caver.wallet.sign` function to sign.
-	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+   * If the keyring you want to use is added to [caver.wallet](api-references/caver.wallet/), you can use `caver.wallet.sign` function to sign.
+   * If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
 2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough number of KLAY.
 
 #### Sign a transaction
 
-Before sending a transaction to Klaytn, you should sign a transaction first. 
+Before sending a transaction to Klaytn, you should sign a transaction first.
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet].
+Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api-references/caver.wallet/).
 
 ```javascript
 // test.js
@@ -455,7 +457,7 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. 
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
 
 Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
@@ -541,9 +543,9 @@ testFunction()
 
 When the above code is executed, the receipt of the transaction is printed like the previous example.
 
-### Checking Receipts <a id="checking-receipts"></a>
+### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction].
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction](api-references/caver.rpc/klay.md#caver-rpc-klay-sendrawtransaction).
 
 The following example shows how to get a receipt using promises and event emitters.
 
@@ -559,7 +561,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
 
 ```javascript
 // test.js
@@ -602,15 +604,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
 
-## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
+## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/). This section describes some examples that can be used with caver-js.
 
-### Fee Delegation <a id="fee-delegation"></a>
+### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -728,7 +730,7 @@ $ node ./test.js
 }
 ```
 
-### Account Update <a id="account-update"></a>
+### Account Update <a href="#account-update" id="account-update"></a>
 
 If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
@@ -744,11 +746,11 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
-Please check [Account Update] for the details.
+Please check [Account Update](api-references/caver.transaction/basic.md#accountupdate) for the details.
 
-To change your AccountKey, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the Klaytn account and the AccountKey to be updated.
+To change your AccountKey, you must provide an [Account](api-references/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api-references/caver.account.md) instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic]. Don't forget to prepare your new private key(s).
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic](../../../klaytn/design/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
 
 ```javascript
 // test.js
@@ -814,10 +816,9 @@ new private key string: 0x{private key}
 }
 ```
 
+Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api-references/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api-references/caver.account.md) instance with multiple public keys via [caver.account.create](api-references/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-Here comes how to update AccountKey of your Klaytn account with multiple [AccountKeys]? The example below explains how to create an [Account] instance with multiple private keys that what you want to use (You can create an [Account] instance with multiple public keys via [caver.account.create]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
-
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -830,7 +831,7 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
+Now let's update AccountKey using [AccountKeyRoleBased](../../../klaytn/design/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../klaytn/design/accounts.md#accountkeyrolebased) is an `AccountKey` type that defines the key to use for each [role](../../../klaytn/design/accounts.md#roles).
 
 ```javascript
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -840,7 +841,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -859,7 +860,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction.
+If you want to update AccountKey to [AccountKeyLegacy](../../../klaytn/design/accounts.md#accountkeylegacy) or [accountKeyFail](../../../klaytn/design/accounts.md#accountkeyfail), create an Account instance as shown below and assign it to the `account` field of the transaction.
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -869,9 +870,9 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Smart Contract <a id="smart-contract"></a>
+### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
-The [caver.contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The [caver.contract](api-references/caver.contract.md) package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
 
@@ -891,7 +892,7 @@ contract KVstore {
 
 Now we can compile a smart contract to get its bytecode and ABI.
 
-```text
+```
 > solc --abi --bin ./test.sol
 ======= ./test.sol:KVstore =======
 Binary: 
@@ -902,7 +903,7 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
-For the smart contract deployment, you can use [caver.contract] to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy], [caver.transaction.feeDelegatedSmartContractDeploy] or [caver.transaction.feeDelegatedSmartContractDeployWithRatio] transaction. Here is an example of using [caver.contract].
+For the smart contract deployment, you can use [caver.contract](api-references/caver.contract.md) to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy](api-references/caver.transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) or [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Here is an example of using [caver.contract](api-references/caver.contract.md).
 
 You can create a contract instance as below using the result of compiling the smart contract.
 
@@ -1029,7 +1030,7 @@ Since this contract instance received the address of the smart contract, it stor
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
 
-Note that [caver.contract] sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
+Note that [caver.contract](api-references/caver.contract.md) sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
 
 ```javascript
 // test.js
@@ -1206,8 +1207,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution], or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio].
-To send a transaction for executing a smart contract:
+A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution](api-references/caver.transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution), or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). To send a transaction for executing a smart contract:
 
 ```javascript
 // test.js
@@ -1414,22 +1414,21 @@ $ node ./test.js
 testValue
 ```
 
-To find more information, see [caver.contract].
+To find more information, see [caver.contract](api-references/caver.contract.md).
 
-## Sending a Transaction with multiple signers<a id="sending-a-transaction-with-multiple-signers"></a>
+## Sending a Transaction with multiple signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
 If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your Klaytn account.
+To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](getting-started.md#account-update) for how to update your Klaytn account.
 
-### Signing sequentially <a id="signing-sequentially"></a>
+### Signing sequentially <a href="#signing-sequentially" id="signing-sequentially"></a>
 
 When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
-The following example shows how to sign a transaction sequentially with multiple private keys.
-Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
+The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
 
 In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
 
@@ -1459,7 +1458,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData] is an object that stores a signature.
+Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api-references/caver.wallet/keyring.md#signaturedata) is an object that stores a signature.
 
 ```bash
 $ node ./test.js
@@ -1526,7 +1525,7 @@ When all users have signed, send a transaction to the network through `await cav
 
 If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
-### Combining signed raw transactions <a id="combining-signed-rawtransactions"></a>
+### Combining signed raw transactions <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
 
 If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
 
@@ -1565,19 +1564,20 @@ $ node ./test.js
 
 Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
 
-When executing `combineSignedRawTransactions `, the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
+When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
 The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
-## Detecting implementation of KCT interfaces <a id="detecting-implementation-of-kct-interfaces"></a>
+## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
 `caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
 
-### Detecting KIP-7 interfaces <a id="detecting-kip-7-interfaces"></a>
+### Detecting KIP-7 interfaces <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
 
 Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using static methods provided in `caver.kct.kip7`.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1605,6 +1605,7 @@ $ node ./test.js
 ```
 
 Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using member method of KIP7.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1632,11 +1633,12 @@ $ node ./test.js
 }
 ```
 
-### Detecting KIP-17 interfaces <a id="detecting-kip-17-interfaces"></a>
+### Detecting KIP-17 interfaces <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
 
 Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using static methods provided in `caver.kct.kip17`.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1666,6 +1668,7 @@ $ node ./test.js
 ```
 
 Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using member method of KIP17.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1695,11 +1698,12 @@ $ node ./test.js
 }
 ```
 
-### Detecting KIP-37 interfaces <a id="detect-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
 
 Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using static methods provided in `caver.kct.kip37`.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1727,6 +1731,7 @@ $ node ./test.js
 ```
 
 Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using member method of KIP37.
+
 ```javascript
 // test.js
 const Caver = require('caver-js')
@@ -1754,82 +1759,45 @@ $ node ./test.js
 }
 ```
 
-## Sample Projects <a id="sample-projects"></a>
+## Sample Projects <a href="#sample-projects" id="sample-projects"></a>
 
-The DApp \(Blockchain Application\) Development sample projects using caver-js are the following:
+The DApp (Blockchain Application) Development sample projects using caver-js are the following:
 
-* [Count DApp](../../tutorials/count-dapp/README.md)
-* [Klaystagram](../../tutorials/klaystagram/README.md)
+* [Count DApp](../../tutorials/count-dapp/)
+* [Klaystagram](../../tutorials/klaystagram/)
 
-## Troubleshooting <a id="troubleshooting"></a>
+## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 
-* **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
-   - Add the following webpack configuration.
-   ```
-   module.exports = {
-		...
-		node: {
-			fs: 'empty',
-		},
-		...
-	}
-   ```
-   If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
-   ```
-   module.exports = {
-		webpack: (config, { isServer }) => {
-			if (!isServer) {
-				config.node = {
-					fs: 'empty'
-				}
-			}
-			return config
-		}
-	}
-   ```
+*   **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
 
-## Links <a id="links"></a>
+    * Add the following webpack configuration.
+
+    ```
+    module.exports = {
+     	...
+     	node: {
+     		fs: 'empty',
+     	},
+     	...
+     }
+    ```
+
+    If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
+
+    ```
+    module.exports = {
+     	webpack: (config, { isServer }) => {
+     		if (!isServer) {
+     			config.node = {
+     				fs: 'empty'
+     			}
+     		}
+     		return config
+     	}
+     }
+    ```
+
+## Links <a href="#links" id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
-
-
-
-[caver.contract]: api-references/caver.contract.md
-
-[caver.account]: api-references/caver.account.md
-[Account]: api-references/caver.account.md
-[AccountKey]: ../../../klaytn/design/accounts.md#account-key
-[AccountKeyLegacy]: ../../../klaytn/design/accounts.md#accountkeylegacy
-[AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[AccountKeyFail]: ../../../klaytn/design/accounts.md#accountkeyfail
-[AccountKeyWeightedMultiSig]: ../../../klaytn/design/accounts.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../../../klaytn/design/accounts.md#accountkeyrolebased
-[role]: ../../../klaytn/design/accounts.md#roles
-[caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
-[caver.account.create]: api-references/caver.account.md#caver-account-create
-
-[caver.wallet]: api-references/caver.wallet/README.md
-[caver.wallet.newKeyring]: api-references/caver.wallet/README.md#caver-wallet-newkeyring
-[caver.wallet.keyring]: api-references/caver.wallet/keyring.md
-[Keyring]: api-references/caver.wallet/keyring.md
-[SingleKeyring]: api-references/caver.wallet/keyring.md#singlekeyring
-[MultipleKeyring]: api-references/caver.wallet/keyring.md#multiplekeyring
-[RoleBasedKeyring]: api-references/caver.wallet/keyring.md#rolebasedkeyring
-[KlaytnWalletKey]: ../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[SignatureData]: api-references/caver.wallet/keyring.md#signaturedata
-
-[caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
-[getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
-[caver.rpc.klay.sendRawTransaction]: api-references/caver.rpc/klay.md#caver-rpc-klay-sendrawtransaction
-
-[txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
-
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
-[Account Update]: api-references/caver.transaction/basic.md#accountupdate
-[caver.transaction.smartContractDeploy]: api-references/caver.transaction/basic.md#smartcontractdeploy
-[caver.transaction.feeDelegatedSmartContractDeploy]: api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
-[caver.transaction.feeDelegatedSmartContractDeployWithRatio]: api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
-[caver.transaction.smartContractExecution]: api-references/caver.transaction/basic.md#smartcontractexecution
-[caver.transaction.feeDelegatedSmartContractExecution]: api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
-[caver.transaction.feeDelegatedSmartContractExecutionWithRatio]: api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio

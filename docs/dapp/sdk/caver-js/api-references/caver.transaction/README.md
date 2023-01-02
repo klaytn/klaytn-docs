@@ -1,44 +1,43 @@
-# caver.transaction <a id="caver-transaction"></a>
+# caver.transaction
 
 `caver.transaction` is a package that provides functionality related to Transaction.
 
-## Class <a id="class"></a>
+## Class <a href="#class" id="class"></a>
 
 Each transaction class is described in detail with the table below:
 
-|  | Basic | Fee Delegation | Partial Fee Delegation |
-| :--- | :--- | :--- | :--- |
-| LegacyTransaction | [LegacyTransaction](basic.md#legacytransaction) | N/A | N/A |
-| ValueTransfer | [ValueTransfer](basic.md#valuetransfer) | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer) | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio) |
-| ValueTransferMemo | [ValueTransferMemo](basic.md#valuetransfermemo) | [FeeDelegatedValueTransferMemo](fee-delegation.md#feedelegatedvaluetransfermemo) | [FeeDelegatedValueTransferMemoWithRatio](partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio) |
-| SmartContractDeploy | [SmartContractDeploy](basic.md#smartcontractdeploy) | [FeeDelegatedSmartContractDeploy](fee-delegation.md#feedelegatedsmartcontractdeploy) | [FeeDelegatedSmartContractDeployWithRatio](partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) |
+|                        | Basic                                                     | Fee Delegation                                                                             | Partial Fee Delegation                                                                                               |
+| ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | N/A                                                                                        | N/A                                                                                                                  |
+| ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
+| ValueTransferMemo      | [ValueTransferMemo](basic.md#valuetransfermemo)           | [FeeDelegatedValueTransferMemo](fee-delegation.md#feedelegatedvaluetransfermemo)           | [FeeDelegatedValueTransferMemoWithRatio](partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio)           |
+| SmartContractDeploy    | [SmartContractDeploy](basic.md#smartcontractdeploy)       | [FeeDelegatedSmartContractDeploy](fee-delegation.md#feedelegatedsmartcontractdeploy)       | [FeeDelegatedSmartContractDeployWithRatio](partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)       |
 | SmartContractExecution | [SmartContractExecution](basic.md#smartcontractexecution) | [FeeDelegatedSmartContractExecution](fee-delegation.md#feedelegatedsmartcontractexecution) | [FeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) |
-| AccountUpdate | [AccountUpdate](basic.md#accountupdate) | [FeeDelegatedAccountUpdate](fee-delegation.md#feedelegatedaccountupdate) | [FeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#feedelegatedaccountupdatewithratio) |
-| Cancel | [Cancel](basic.md#cancel) | [FeeDelegatedCancel](fee-delegation.md#feedelegatedcancel) | [FeeDelegatedCancelWithRatio](partial-fee-delegation.md#feedelegatedcancelwithratio) |
-| ChainDataAnchoring | [ChainDataAnchoring](basic.md#chaindataanchoring) | [FeeDelegatedChainDataAnchoring](fee-delegation.md#feedelegatedchaindataanchoring) | [FeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)|
-| EthereumAccessList | [EthereumAccessList](basic.md#ethereumaccesslist) | N/A | N/A |
-| EthereumDynamicFee | [EthereumDynamicFee](basic.md#ethereumdynamicfee) | N/A | N/A |
+| AccountUpdate          | [AccountUpdate](basic.md#accountupdate)                   | [FeeDelegatedAccountUpdate](fee-delegation.md#feedelegatedaccountupdate)                   | [FeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#feedelegatedaccountupdatewithratio)                   |
+| Cancel                 | [Cancel](basic.md#cancel)                                 | [FeeDelegatedCancel](fee-delegation.md#feedelegatedcancel)                                 | [FeeDelegatedCancelWithRatio](partial-fee-delegation.md#feedelegatedcancelwithratio)                                 |
+| ChainDataAnchoring     | [ChainDataAnchoring](basic.md#chaindataanchoring)         | [FeeDelegatedChainDataAnchoring](fee-delegation.md#feedelegatedchaindataanchoring)         | [FeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)         |
+| EthereumAccessList     | [EthereumAccessList](basic.md#ethereumaccesslist)         | N/A                                                                                        | N/A                                                                                                                  |
+| EthereumDynamicFee     | [EthereumDynamicFee](basic.md#ethereumdynamicfee)         | N/A                                                                                        | N/A                                                                                                                  |
 
-
-## caver.transaction.decode <a id="caver-transaction-decode"></a>
+## caver.transaction.decode <a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
 
 ```javascript
 caver.transaction.decode(rlpEncoded)
 ```
 
-Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction] instance.
+Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](./#class) instance.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name       | Type   | Description                                 |
+| ---------- | ------ | ------------------------------------------- |
 | rlpEncoded | string | A RLP-encoded transaction string to decode. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| object | An instance of [Transaction]. For details of each transaction, refer to [Transaction]. |
+| Type   | Description                                                                                                |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
 
 **Example**
 
@@ -58,7 +57,7 @@ ValueTransfer {
 }
 ```
 
-## caver.transaction.getTransactionByHash <a id="caver-transaction-gettransactionbyhash"></a>
+## caver.transaction.getTransactionByHash <a href="#caver-transaction-gettransactionbyhash" id="caver-transaction-gettransactionbyhash"></a>
 
 ```javascript
 caver.transaction.getTransactionByHash('0x{transaction hash}')
@@ -70,17 +69,17 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name            | Type   | Description                                       |
+| --------------- | ------ | ------------------------------------------------- |
 | transactionHash | string | The transaction hash string to query from Klaytn. |
 
 **Return Value**
 
-`Promise` returning `object`: An instance of [Transaction]. If it fails to receive a transaction object from Klaytn, an error occurs.
+`Promise` returning `object`: An instance of [Transaction](./#class). If it fails to receive a transaction object from Klaytn, an error occurs.
 
-| Type | Description |
-| --- | --- |
-| object | An instance of [Transaction]. For details of each transaction, refer to [Transaction]. |
+| Type   | Description                                                                                                |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
 
 **Example**
 
@@ -103,7 +102,7 @@ LegacyTransaction {
 }
 ```
 
-## caver.transaction.recoverPublicKeys <a id="caver-transaction-recoverpublickeys"></a>
+## caver.transaction.recoverPublicKeys <a href="#caver-transaction-recoverpublickeys" id="caver-transaction-recoverpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
@@ -115,14 +114,14 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name  | Type   | Description                                                                  |
+| ----- | ------ | ---------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                  |
+| ----- | ------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `signatures`. |
 
 **Example**
@@ -136,7 +135,7 @@ Recovers the public key strings from `signatures` field of the given transaction
 ]
 ```
 
-## caver.transaction.recoverFeePayerPublicKeys <a id="caver-transaction-recoverfeepayerpublickeys"></a>
+## caver.transaction.recoverFeePayerPublicKeys <a href="#caver-transaction-recoverfeepayerpublickeys" id="caver-transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
@@ -148,14 +147,14 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name  | Type   | Description                                                                                                                                                                                                                |
+| ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                          |
+| ----- | -------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **Example**
@@ -169,7 +168,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 ]
 ```
 
-## transaction.sign <a id="transaction-sign"></a>
+## transaction.sign <a href="#transaction-sign" id="transaction-sign"></a>
 
 ```javascript
 transaction.sign(keyring [, index] [, hasher])
@@ -177,23 +176,23 @@ transaction.sign(keyring [, index] [, hasher])
 
 Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
 
-For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use [roleTransactionKey] in [RoleBasedKeyring]. If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of Keyring ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If a private key string or a [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher | Function | (optional) The hash function to get the hash of the transaction. |
+| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
+| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 **Return Value**
 
 `Promise` returning `object`: The signed transaction.
 
-| Type | Description |
-| --- | --- |
-| object | An instance of signed [Transaction]. The signature is appended to the `transaction.signatures`. |
+| Type   | Description                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.signatures`. |
 
 **Example**
 
@@ -275,7 +274,7 @@ ValueTransfer {
 }
 ```
 
-## transaction.signAsFeePayer <a id="transaction-signasfeepayer"></a>
+## transaction.signAsFeePayer <a href="#transaction-signasfeepayer" id="transaction-signasfeepayer"></a>
 
 ```javascript
 transaction.signAsFeePayer(keyring [, index] [, hasher])
@@ -283,29 +282,29 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
 
-For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
+For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../klaytn/design/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
 
 If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
 
-If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
+If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/#caver-wallet-signasfeepayer).
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of Keyring ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If the private key string or [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher | Function | (optional) The hash function to get the hash of the transaction. |
+| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
+| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 **Return Value**
 
 `Promise` returning `object`: The signed transaction.
 
-| Type | Description |
-| --- | --- |
-| object | An instance of signed [Transaction]. The signature is appended to the `transaction.feePayerSignatures`. |
+| Type   | Description                                                                                                       |
+| ------ | ----------------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.feePayerSignatures`. |
 
 **Example**
 
@@ -395,7 +394,7 @@ FeeDelegatedValueTransfer {
 }
 ```
 
-## transaction.appendSignatures <a id="transaction-appendsignatures"></a>
+## transaction.appendSignatures <a href="#transaction-appendsignatures" id="transaction-appendsignatures"></a>
 
 ```javascript
 transaction.appendSignatures(signatures)
@@ -405,9 +404,9 @@ Appends `signatures` to the transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData] instance or an array containing [SignatureData] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| Name       | Type            | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | object \| Array | The signatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **Example**
 
@@ -415,7 +414,7 @@ Appends `signatures` to the transaction.
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.appendFeePayerSignatures <a id="transaction-appendfeepayersignatures"></a>
+## transaction.appendFeePayerSignatures <a href="#transaction-appendfeepayersignatures" id="transaction-appendfeepayersignatures"></a>
 
 ```javascript
 transaction.appendFeePayerSignatures(signatures)
@@ -427,9 +426,9 @@ Appends `feePayerSignatures` to the transaction.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| feePayerSignatures | object &#124; Array | The feePayerSignatures to be appended to the transaction. [SignatureData] instance or an array containing [SignatureData] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| Name               | Type            | Description                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| feePayerSignatures | object \| Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **Example**
 
@@ -437,7 +436,7 @@ Appends `feePayerSignatures` to the transaction.
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.combineSignedRawTransactions <a id="transaction-combinesignatures"></a>
+## transaction.combineSignedRawTransactions <a href="#transaction-combinesignatures" id="transaction-combinesignatures"></a>
 
 ```javascript
 transaction.combineSignedRawTransactions(rlpEncodedTxs)
@@ -447,14 +446,14 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Name          | Type  | Description                                         |
+| ------------- | ----- | --------------------------------------------------- |
 | rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                                                                                                                                  |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
 **Example**
@@ -464,7 +463,7 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getRLPEncoding <a id="transaction-getrlpencoding"></a>
+## transaction.getRLPEncoding <a href="#transaction-getrlpencoding" id="transaction-getrlpencoding"></a>
 
 ```javascript
 transaction.getRLPEncoding()
@@ -472,12 +471,12 @@ transaction.getRLPEncoding()
 
 Returns a RLP-encoded transaction string.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions].
+For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | A RLP-encoded transaction string. |
 
 **Example**
@@ -487,18 +486,18 @@ For information on how to make the RLP-encoded string for each transaction type,
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getRawTransaction <a id="transaction-getrawtransaction"></a>
+## transaction.getRawTransaction <a href="#transaction-getrawtransaction" id="transaction-getrawtransaction"></a>
 
 ```javascript
 transaction.getRawTransaction()
 ```
 
-Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](#transaction-getrlpencoding).
+Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](./#transaction-getrlpencoding).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | A RLP-encoded transaction string. |
 
 **Example**
@@ -508,7 +507,7 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getTransactionHash <a id="transaction-gettransactionhash"></a>
+## transaction.getTransactionHash <a href="#transaction-gettransactionhash" id="transaction-gettransactionhash"></a>
 
 ```javascript
 transaction.getTransactionHash()
@@ -516,12 +515,12 @@ transaction.getTransactionHash()
 
 Returns a `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions].
+For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description        |
+| ------ | ------------------ |
 | string | A transactionHash. |
 
 **Example**
@@ -531,22 +530,22 @@ For information on how to make the transaction hash for each transaction type, s
 '0x8ac53afbba014201b02398545653683fe0536c49707fe302c59423012c0e8697'
 ```
 
-## transaction.getSenderTxHash <a id="transaction-getsendertxhash"></a>
+## transaction.getSenderTxHash <a href="#transaction-getsendertxhash" id="transaction-getsendertxhash"></a>
 
 ```javascript
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash] of transaction. 
+Returns a [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) of transaction.
 
-The [senderTxHash] is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash] are the same for basic transactions.
+The [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](./#transaction-gettransactionhash) and [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) are the same for basic transactions.
 
-For information on how to make the [senderTxHash] for each transaction type, see [Klaytn Design - Transactions].
+For information on how to make the [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description     |
+| ------ | --------------- |
 | string | A senderTxHash. |
 
 **Example**
@@ -556,7 +555,7 @@ For information on how to make the [senderTxHash] for each transaction type, see
 '0xb61cc1ddadb6f2ec34c9f9e6a7b6cf0a606422654d649d998587c77daa3c31fe'
 ```
 
-## transaction.getRLPEncodingForSignature <a id="transaction-getrlpencodingforsignature"></a>
+## transaction.getRLPEncodingForSignature <a href="#transaction-getrlpencodingforsignature" id="transaction-getrlpencodingforsignature"></a>
 
 ```javascript
 transaction.getRLPEncodingForSignature()
@@ -564,12 +563,12 @@ transaction.getRLPEncodingForSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions].
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
 | string | A RLP-encoded transaction string without any signature attached. |
 
 **Example**
@@ -579,7 +578,7 @@ For information on how to make a RLP-encoded transaction string to generate the 
 '0xf83fb838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d08207e38080'
 ```
 
-## transaction.getRLPEncodingForFeePayerSignature <a id="transaction-getrlpencodingforfeepayersignature"></a>
+## transaction.getRLPEncodingForFeePayerSignature <a href="#transaction-getrlpencodingforfeepayersignature" id="transaction-getrlpencodingforfeepayersignature"></a>
 
 ```javascript
 transaction.getRLPEncodingForFeePayerSignature()
@@ -587,14 +586,14 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions].
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type   | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
 | string | A RLP-encoded transaction string without any signature attached. |
 
 **Example**
@@ -604,17 +603,17 @@ For information on how to make a RLP-encoded transaction string to generate the 
 '0xf840b838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0808207e38080'
 ```
 
-## transaction.fillTransaction <a id="transaction-filltransaction"></a>
+## transaction.fillTransaction <a href="#transaction-filltransaction" id="transaction-filltransaction"></a>
 
 ```javascript
 transaction.fillTransaction()
 ```
 
-Fills in the optional variables in transaction. 
+Fills in the optional variables in transaction.
 
 If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Klaytn Node.
 
-Use [caver.rpc.klay.getGasPrice] to get `gasPrice`, [caver.rpc.klay.getTransactionCount] to get `nonce` and [caver.rpc.klay.getChainId] call to get `chainId`.
+Use [caver.rpc.klay.getGasPrice](../caver.rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver.rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
 
 **Return Value**
 
@@ -626,7 +625,7 @@ Use [caver.rpc.klay.getGasPrice] to get `gasPrice`, [caver.rpc.klay.getTransacti
 > transaction.fillTransaction()
 ```
 
-## transaction.recoverPublicKeys <a id="transaction-recoverpublickeys"></a>
+## transaction.recoverPublicKeys <a href="#transaction-recoverpublickeys" id="transaction-recoverpublickeys"></a>
 
 ```javascript
 transaction.recoverPublicKeys()
@@ -638,8 +637,8 @@ Recovers the public key strings from `signatures` field.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                  |
+| ----- | ------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `signatures`. |
 
 **Example**
@@ -653,7 +652,7 @@ Recovers the public key strings from `signatures` field.
 ]
 ```
 
-## transaction.recoverFeePayerPublicKeys <a id="transaction-recoverfeepayerpublickeys"></a>
+## transaction.recoverFeePayerPublicKeys <a href="#transaction-recoverfeepayerpublickeys" id="transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 transaction.recoverFeePayerPublicKeys()
@@ -665,8 +664,8 @@ Recovers the public key strings from `feePayerSignatures` field.
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
+| Type  | Description                                                          |
+| ----- | -------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **Example**
@@ -680,16 +679,15 @@ Recovers the public key strings from `feePayerSignatures` field.
 ]
 ```
 
-## transaction.suggestGasPrice <a id="transaction-suggestGasPrice"></a>
+## transaction.suggestGasPrice <a href="#transaction-suggestgasprice" id="transaction-suggestgasprice"></a>
 
 ```javascript
 transaction.suggestGasPrice()
 ```
 
-Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
+Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](./#transaction-fillTransaction).
 
-Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network.
-After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
+Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network. After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
 
 **NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
@@ -697,8 +695,8 @@ After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is reco
 
 `Promise` returning `string`: The suggested gas price in hexadecimal string.
 
-| Type | Description |
-| --- | --- |
+| Type   | Description              |
+| ------ | ------------------------ |
 | string | The suggested gas price. |
 
 **Example**
@@ -707,20 +705,3 @@ After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is reco
 > tx.suggestGasPrice().then(console.log)
 0xba43b7400
 ```
-
-[Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
-[senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
-[Account Update]: ./basic.md#accountupdate
-[roleTransactionKey]: ../../../../../klaytn/design/accounts.md#roles
-[roleAccountUpdateKey]: ../../../../../klaytn/design/accounts.md#roles
-[roleFeePayerKey]: ../../../../../klaytn/design/accounts.md#roles
-[Transaction]: #class
-[Keyring]: ../caver.wallet/keyring.md
-[KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[SingleKeyring]: ../caver.wallet/keyring.md#singlekeyring
-[MultipleKeyring]: ../caver.wallet/keyring.md#multiplekeyring
-[RoleBasedKeyring]: ../caver.wallet/keyring.md#rolebasedkeyring
-[SignatureData]: ../caver.wallet/keyring.md#signaturedata
-[caver.rpc.klay.getGasPrice]: ../caver.rpc/klay.md#caver-rpc-klay-getgasprice
-[caver.rpc.klay.getTransactionCount]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount
-[caver.rpc.klay.getChainId]: ../caver.rpc/klay.md#caver-rpc-klay-getchainid
