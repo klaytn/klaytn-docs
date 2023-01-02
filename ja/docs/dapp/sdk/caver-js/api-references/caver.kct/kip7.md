@@ -6,7 +6,7 @@
 
 caver.kct.kip7 で使用されている abi とバイトコードは [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) の例を使用して実装されました。
 
-caver-js の KIP-7 を実装するコードは [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7) で利用できます。
+The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/KIP/token/KIP7).
 
 KIP-7 の詳細については、 [Klaytn Improvation Proposals](https://kips.klaytn.foundation/KIPs/kip-7) を参照してください。
 
