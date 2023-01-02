@@ -22,8 +22,8 @@ The below table shows the computation cost of EVM opcodes. The computation cost 
 NOTE: Computation costs have changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 
 `Kore` hardfork block numbers are as follows.
-* Baobab Testnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L79)
-* Cypress Mainnet: please refer [this](https://github.com/klaytn/klaytn/blob/b01f8f3b7aa69afc1f7693e652adc5f2d8fa4ab6/params/config.go#L49)
+* Baobab Testnet: please refer to this [link](https://github.com/klaytn/klaytn/blob/dev/params/config.go#L79)
+* Cypress Mainnet: please refer to this [link](https://github.com/klaytn/klaytn/blob/dev/params/config.go#L49)
 {% endhint %}
 
 | Opcode | ComputationCost |
