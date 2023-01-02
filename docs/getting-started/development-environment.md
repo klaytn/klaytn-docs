@@ -13,7 +13,7 @@
 
 **Smart Contract Development**
 
-* [Remix Online IDE](https://remix.ethereum.org/) - A browser-based compiler and IDE with Klaytn Plugin.
+* [Klaytn Plugin for Remix](https://ide.klaytn.foundation) - Klaytn Plugin for Remix, a browser-based compiler and IDE.
 * [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 
 **Klaytn SDKs**
