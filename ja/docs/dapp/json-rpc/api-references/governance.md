@@ -30,25 +30,25 @@ Klaytnには3つの異なるガバナンスモードがあります。
 - `Key` : 変更する設定の名前。 キーは `domain.field` のフォームを持っています
 - `値` : 各キーの値の種類。
 
-| キー                                  | Description                                                                                                                  |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.goverancemode"`        | `STRING`. 三つのガバナンスモードの一つ。 `"none"`, `"single"`, `"ballot"`                                                                   |
-| `"governance.governingnode"`        | `アドレス`. 指定された管理ノードのアドレス。 ガバナンスモードが `"single"` などの場合にのみ動作します。`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                   |
-| `"governance.unitprice"`            | `NUMBER`. ユニットガスの価格。 例えば、 `25000000000`                                                                                      |
-| `"governance.addvalidator"`         | `アドレス`. 新しいバリデータ候補のアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                  |
-| `"governance.removevalidator"`      | `アドレス`. 削除する必要がある現在のバリデータのアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                           |
-| `"istanbul.epoch"`                  | `NUMBER`. 投票がブロックに集められる期間。 エポックが終了すると、まだ合格していないすべての投票がクリアされます。 例： `86400`                                                    |
-| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a commitage.(`sub` in chain configuration) e. `7`                                      |
-| `"reward.mintingamount"`            | `STRING`. ブロックが生成されたときに生成されるペブの量。 値には二重引用符が必要です。 例えば、 `"960000000000000"`                                                    |
-| `"reward.ratio"`                    | `STRING`. CN/KGF/KIR の分布率は `"/"` で区切られています。 すべての値の合計は `100` でなければなりません。 例えば、 `"50/40/10"` は CN 50%、KGF 40%、KIR 10% を意味します    |
-| `"reward.useginicoeff"`             | `BOOL`. ジニ係数を使用するかどうか。 `true`, `false`                                                                                       |
-| `"reward.deferredtxfee"`            | `BOOL`. 提案者に取引手数料を与える方法。 trueの場合、tx手数料がブロック報酬と合計され、提案者、KIR、KGFに配布されることを意味します。 そうでない場合は、すべてのtx手数料が提案者に与えられます。 `true`, `false` |
-| `"reward.minimumstake"`             | `STRING`. Klay の量は CN (コンセンサスノード) である必要があります。 値には二重引用符が必要です。 例: `"5000000"`                                                  |
-| `"kip71.lowerboundbasefee"`         | `NUMBER`. 最低限の基本料金。 詳細は [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) を参照してください。 例えば、 `25000000000`    |
-| `"kip71.upperboundbasefee"`         | `NUMBER`. 可能な限り最高の基本料金。 例: `750000000000`                                                                                    |
-| `"kip71.gastarget"`                 | `NUMBER`. 基本料金が達成したいブロックガス。 親ブロックにガスターゲット以上のものが含まれている場合は基本料金が増加し、親ブロックにガスターゲット以下のものが含まれている場合は減少します。 例えば、 `3000万`             |
-| `"kip71.basefeedenominator"`        | `NUMBER`. 基本手数料の変更速度を制御します。 例: `20`                                                                                          |
-| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. 基本料金計算で認識される最大ブロックガス。 例えば、 `60000000`                                                                              |
+| キー                                  | Description                                                                                                                       |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.goverancemode"`        | `STRING`. 三つのガバナンスモードの一つ。 `"none"`, `"single"`, `"ballot"`                                                                        |
+| `"governance.governingnode"`        | `アドレス`. 指定された管理ノードのアドレス。 ガバナンスモードが `"single"` などの場合にのみ動作します。`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                        |
+| `"governance.unitprice"`            | `NUMBER`. ユニットガスの価格。 例えば、 `25000000000`                                                                                           |
+| `"governance.addvalidator"`         | `アドレス`. 新しいバリデータ候補のアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                       |
+| `"governance.removevalidator"`      | `アドレス`. 削除する必要がある現在のバリデータのアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                |
+| `"istanbul.epoch"`                  | `NUMBER`. 投票がブロックに集められる期間。 エポックが終了すると、まだ合格していないすべての投票がクリアされます。 例： `86400`                                                         |
+| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a commitage.(`sub` in chain configuration) e. `7`                                           |
+| `"reward.mintingamount"`            | `STRING`. ブロックが生成されたときに生成されるペブの量。 値には二重引用符が必要です。 例えば、 `"960000000000000"`                                                         |
+| `"reward.ratio"`                    | `STRING`. CN/KGF/KIR の分布率は `"/"` で区切られています。 すべての値の合計は `100` でなければなりません。 例えば、 `"50/40/10"` は CN 50%、KGF 40%、KIR 10% を意味します         |
+| `"reward.useginicoeff"`             | `BOOL`. ジニ係数を使用するかどうか。 `true`, `false`                                                                                            |
+| `"reward.deferredtxfee"`            | `BOOL`. 提案者に取引手数料を与える方法。 trueの場合、tx手数料がブロック報酬と合計され、提案者、KIR、KGFに配布されることを意味します。 そうでない場合は、すべてのtx手数料が提案者に与えられます。 `true`, `false`      |
+| `"reward.minimumstake"`             | `STRING`. Klay の量は CN (コンセンサスノード) である必要があります。 値には二重引用符が必要です。 例: `"5000000"`                                                       |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. 最低限の基本料金。 See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. 例えば、 `25000000000` |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. 可能な限り最高の基本料金。 例: `750000000000`                                                                                         |
+| `"kip71.gastarget"`                 | `NUMBER`. 基本料金が達成したいブロックガス。 親ブロックにガスターゲット以上のものが含まれている場合は基本料金が増加し、親ブロックにガスターゲット以下のものが含まれている場合は減少します。 例えば、 `3000万`                  |
+| `"kip71.basefeedenominator"`        | `NUMBER`. 基本手数料の変更速度を制御します。 例: `20`                                                                                               |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. 基本料金計算で認識される最大ブロックガス。 例えば、 `60000000`                                                                                   |
 
 
 **戻り値**
