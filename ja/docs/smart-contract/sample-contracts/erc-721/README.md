@@ -35,5 +35,5 @@ In this tutorial, you are going to implement `MyERC721Card.sol` which implements
   - 1.1 `MyERC721Card` コード全体の `MyERC721Card` の全体構造
   - 1.2 重要な関数を見る
 * [2. スマートコントラクトの導入](./2-erc721.md)
-  - 2.1 Klaytn IDE を使用したスマートコントラクトの導入
+  - 2.1 Deploying smart contract using Remix Online IDE
   - 2.2 トリュフを使用したスマートコントラクトの導入
