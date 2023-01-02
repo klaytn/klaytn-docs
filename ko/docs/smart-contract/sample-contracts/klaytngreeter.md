@@ -1,10 +1,10 @@
-# KlaytnGreeter <a id="klaytngreeter"></a>
+# KlaytnGreeter
 
 `KlaytnGreeter`는 인사말 메시지를 반환하는 간단한 컨트랙트입니다. 컨트랙트가 배포될 때 인사말 메시지가 설정됩니다.
 
-## KlaytnGreeter 작성 <a id="writing-klaytngreeter"></a>
+## KlaytnGreeter 작성 <a href="#writing-klaytngreeter" id="writing-klaytngreeter"></a>
 
-```text
+```
 pragma solidity 0.5.6;
 contract Mortal {
     /* address 타입의 owner변수 정의 */
@@ -29,22 +29,19 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Klaytn IDE를 사용하여 KlaytnGreeter 배포 <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
+## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Please visit the [Klaytn IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. 완전한 소스 코드는 위에서 주어졌습니다.
+* Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. 완전한 소스 코드는 위에서 주어졌습니다.
 * 컨트랙트를 배포하는 데 사용할 계정을 준비하세요.
-  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create)
+  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * 초기 파라미터에 인사말 메시지를 넣어 컨트랙트를 배포하세요.
 * 배포 후 IDE에서 `greet`를 호출할 수 있습니다.
 
-## 참고 <a id="references"></a>
+## 참고 <a href="#references" id="references"></a>
 
-컨트랙트 배포 및 Klaytn IDE 사용 가이드에 대한 자세한 내용은 다음 문서를 참조하세요.
+For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-* [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
-* [트러플(Truffle)](../ide-and-tools/README.md#truffle)
+* [Remix Online IDE](../ide-and-tools/#klaytn-ide)
+* [트러플(Truffle)](../ide-and-tools/#truffle)
 * [배포 가이드](../deploy-guide.md)
-
-
-
