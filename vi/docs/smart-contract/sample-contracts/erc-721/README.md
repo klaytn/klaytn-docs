@@ -35,5 +35,5 @@ The rest of this tutorial is organized as follows.
   - 1.1 Overall structure of `MyERC721Card` code with whole `MyERC721Card` code
   - 1.2 Take a look at important functions
 * [2. Deploying smart contract](./2-erc721.md)
-  - 2.1 Deploying smart contract using Klaytn IDE
+  - 2.1 Deploying smart contract using Remix Online IDE
   - 2.2 Deploying smart contract using truffle
