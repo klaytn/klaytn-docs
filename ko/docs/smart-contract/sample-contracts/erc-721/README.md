@@ -35,5 +35,5 @@ function supportsInterface(bytes4 interfaceID) external view returns (bool);
   - 1.1 전체 `MyERC721Card` 코드와 `MyERC721Card` 코드의 전체 구조
   - 1.2 중요 함수 살펴보기
 * [2. 스마트 컨트랙트 배포](./2-erc721.md)
-  - 2.1 Klaytn IDE를 사용하여 스마트 컨트랙트 배포
+  - 2.1 Deploying smart contract using Remix Online IDE
   - 2.2 truffle을 사용하여 스마트 컨트랙트 배포
