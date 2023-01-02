@@ -2,9 +2,9 @@
 
 Klaytnにスマートコントラクトを展開するにはさまざまな方法があります。 このドキュメントでは、さまざまなツールを使用してサンプルコントラクトをデプロイするためのステップバイステップガイドを提供します。 取引手数料を支払うのに十分な KLAYを備えた Klaytn アカウントがあることを前提としています。 アカウントを作成するには、 [Klaytn Wallet](../toolkit/klaytn-wallet.md) を参照してください。
 
-## Klaytn IDE <a id="klaytn-ide"></a>
+## Remix Online IDE <a id="remix-ide"></a>
 
-インターネットブラウザを開き、https://ide.klaytn.foundにアクセスしてください
+Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
 
 
 - 新規ファイルを追加
