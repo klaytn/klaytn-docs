@@ -59,7 +59,7 @@ function renouncePauser() external;
 
 詳細については、公式の [KIP-7 ドキュメント](https://kips.klaytn.foundation/KIPs/kip-7) を参照してください。
 
-* 実装例は [https://github.com/klaytn-contrits/blob/master/contrits/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/KIP/token/KIP7/KIP7.sol) で入手できます。
+* An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
 
 ## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -125,7 +125,7 @@ function renouncePauser() public;
 
 詳細については、公式の [KIP-17 ドキュメント](https://kips.klaytn.foundation/KIPs/kip-17) を参照してください。
 
-* 実装例は [https://github.com/klaytn-contrits/blob/master/contrits/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/KIP/token/KIP17/KIP17.sol) で入手できます。
+* An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
 ## Klaytn Service Chainのトークン規格 <a id="token-standards-for-klaytn-service-chain"></a>
 
