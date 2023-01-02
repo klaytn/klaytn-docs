@@ -2,9 +2,9 @@
 
 클레이튼에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
 
-## Klaytn IDE <a id="klaytn-ide"></a>
+## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to https://ide.klaytn.foundation
+Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
 
 
 - 새 파일을 추가하세요.
