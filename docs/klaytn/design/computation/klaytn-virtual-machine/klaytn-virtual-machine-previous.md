@@ -173,7 +173,7 @@ Gas = number of signatures * ValidateSenderGas
 #### Gas calculation during contract execution <a id="gas-calculation-during-contract-execution"></a>
 The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method. 
 
-Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
+Below is a brief explanation of the gas calculation logic during contract execution using the fee schedule variables defined above. As it assumes a general situation, unusual situations such as revert appears is not considered.
 
 * add `constantGas` defined in each opcode to gas
   * e.g. if an opcode is `MUL`, add `G_low` to gas
