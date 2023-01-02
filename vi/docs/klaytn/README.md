@@ -48,8 +48,7 @@ In this section, we will describe the network topology of Klaytn main chain. A t
 Before we go over the Klaytn main chain network topology, we need to get familiar with the different types of Klaytn nodes.
 
 #### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
-
-A Core Cell (CC) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**. Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+A Core Cell (CC) is composed of a single <strong>Consensus Node (CN)<strong> and two <strong>Proxy Nodes (PNs)<strong>. Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
 
 > If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
