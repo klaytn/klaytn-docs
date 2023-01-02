@@ -162,4 +162,4 @@ $ node kip7-transfer-2step-erc20-interface.js
 現在、Klaytnチームが提供するブリッジコントラクトは、トークン転送のために `requestERC20Transfer()` と `requestERC721Transfer()` のみをサポートしています。 対応する KIP-7 と KIP-17 のリクエスト関数は、まもなくサポートされる予定です。 実装が完了する前に、上記のように、ERC-20インターフェースを使用してKIP-7トークンを転送できます。
 
 ## ERC-721、KIP-17、KLAYの値転送 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
-ERC-721、KIP-17、KLAYのワークフローは上記と同じです。 [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/klay) ディレクトリには対応するソースコード例が含まれています。
+ERC-721、KIP-17、KLAYのワークフローは上記と同じです。 [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay) directories contain corresponding example source code.
