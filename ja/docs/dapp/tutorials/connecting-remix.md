@@ -2,9 +2,7 @@
 
 ## リミックスとは <a href="#what-is-remix" id="what-is-remix"></a>
 
-Remix は、Solidity コントラクトを開発するためのブラウザベースの IDE (Integrated Development Environment) です。 このドキュメントでは、Remix と Klaytn の接続について説明します。 Remixの使い方についてもっと知りたい場合[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) または [**Klaytn IDE**](../../smart-contract/ide-and-tools/#klaytn-ide)を参照してください。 Remixから派生したものです
-
-> Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
+Remix は、Solidity コントラクトを開発するためのブラウザベースの IDE (Integrated Development Environment) です。 このドキュメントでは、Remix と Klaytn の接続について説明します。 If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
 
 ## EVMバージョンのセットアップ <a href="#setup-evm-version" id="setup-evm-version"></a>
 
@@ -93,7 +91,7 @@ Remixを使用してKlaytnネットワークに接続するにはローカルプ
 
 * Solidity Compile タブで \[Compile KlaytnGreeter.sol] を選択し、コントラクトコードをコンパイルします。
 
-> 「自動コンパイル」オプションをオンにすることをお勧めします。
+> It is better to turn on the 'Auto compile' option.
 
 * Deploy & Run Transactions タブで、\[Deploy] をクリックしてコンパイルされたコントラクトをデプロイします。
 
