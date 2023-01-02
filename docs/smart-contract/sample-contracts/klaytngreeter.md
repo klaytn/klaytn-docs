@@ -31,7 +31,7 @@ contract KlaytnGreeter is Mortal {
 
 ## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Please visit [Remix Online IDE](https://remix.ethereum.org/) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
+* Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
 * Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
