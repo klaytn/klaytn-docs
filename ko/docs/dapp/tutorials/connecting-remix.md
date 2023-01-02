@@ -2,9 +2,7 @@
 
 ## 리믹스(Remix)란? <a href="#what-is-remix" id="what-is-remix"></a>
 
-Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 리믹스와 클레이튼의 연동에 대해서만 다루고 있습니다. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/#klaytn-ide), which was derived from Remix.
-
-> Remix IDE : [https://remix.ethereum.org/](https://remix.ethereum.org/)
+Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 리믹스와 클레이튼의 연동에 대해서만 다루고 있습니다. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
 
 ## EVM 버전 설정하기 <a href="#setup-evm-version" id="setup-evm-version"></a>
 
