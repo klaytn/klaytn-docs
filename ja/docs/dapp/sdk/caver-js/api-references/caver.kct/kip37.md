@@ -6,7 +6,6 @@
 
 The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
 
-
 KIP-37についての詳細は、 [Klaytn Improvation Proposals](https://kips.klaytn.foundation/KIPs/kip-37) を参照してください。
 
 **注意** `caver.kct.kip37` は caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7) でサポートされています。
