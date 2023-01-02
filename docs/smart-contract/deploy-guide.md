@@ -4,7 +4,7 @@ There are various ways of deploying a smart contract on Klaytn. This document pr
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to [Remix Online IDE](https://remix.ethereum.org/).
+Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
 
 
 - Add a new file.
