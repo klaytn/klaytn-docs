@@ -1,10 +1,10 @@
-# KlaytnGreeter <a id="klaytngreeter"></a>
+# KlaytnGreeter
 
 `KlaytnGreeter` は挨拶メッセージを返すシンプルなコントラクトです。 コントラクトがデプロイされると挨拶メッセージが設定されます。
 
-## KlaytnGreeter を書く <a id="writing-klaytngreeter"></a>
+## KlaytnGreeter を書く <a href="#writing-klaytngreeter" id="writing-klaytngreeter"></a>
 
-```text
+```
 pragma solidity 0.5.6;
 contract Mortal {
     /* Define variable owner of the type address */
@@ -29,22 +29,19 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Klaytn IDE を使用して KlaytnGreeter をデプロイする <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
+## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* [Klaytn IDE のウェブサイト](https://ide.klaytn.foundation) にアクセスして `KlaytnGreeter` 契約を作成してください。 完全なソースコードは上記のとおりです。
+* Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. 完全なソースコードは上記のとおりです。
 * コントラクトを展開するために使用されるアカウントを準備します。
-  * まだアカウントをお持ちでない場合は、 [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) でアカウントを作成してください。
+  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * 蛇口からKLAYテストを受ける - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * 最初のパラメータである挨拶メッセージを使用してコントラクトをデプロイします。
 * デプロイ後、IDEから `挨拶` を呼び出すことができます。
 
-## 参照 <a id="references"></a>
+## 参照 <a href="#references" id="references"></a>
 
-コントラクトデプロイメントの詳細と、Klaytn IDEの使用ガイドラインについては、以下のドキュメントを参照してください。
+For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-* [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
-* [Truffle](../ide-and-tools/README.md#truffle)
+* [Remix Online IDE](../ide-and-tools/#klaytn-ide)
+* [Truffle](../ide-and-tools/#truffle)
 * [導入ガイド](../deploy-guide.md)
-
-
-
