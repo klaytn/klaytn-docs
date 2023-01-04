@@ -1,4 +1,4 @@
-# Token Economy <a id="token-economy"></a>
+# Token Economy
 
 ## Overview <a id="overview"></a>
 

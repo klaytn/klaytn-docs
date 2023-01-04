@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Klaytn Design
 
 Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability. Key design goals are;
@@ -25,7 +21,7 @@ Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com), on Jun/27/2019
 
 Klaytn can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn ecosystem.
 
-![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](../images/images/klaytn\_network\_overview.png)
+![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](/images/klaytn_network_overview.png)
 
 ### Core Cell Network (CCN) <a href="#core-cell-network-ccn" id="core-cell-network-ccn"></a>
 

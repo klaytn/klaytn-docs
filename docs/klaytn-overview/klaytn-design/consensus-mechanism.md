@@ -1,4 +1,4 @@
-# Consensus Mechanism <a id="consensus-mechanism"></a>
+# Consensus Mechanism
 
 A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. The performance of blockchain networks relies on the performance of the adopted consensus mechanisms, and it has a significant impact on the perceived usability of the Blockchain Applications.
 

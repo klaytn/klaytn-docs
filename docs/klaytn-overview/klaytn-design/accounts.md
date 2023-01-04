@@ -1,4 +1,4 @@
-# Accounts <a id="accounts"></a>
+# Accounts
 
 ## Klaytn Accounts <a id="klaytn-accounts"></a>
 

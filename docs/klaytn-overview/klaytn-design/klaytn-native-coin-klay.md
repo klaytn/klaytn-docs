@@ -1,4 +1,4 @@
-# Klaytn native coin - KLAY <a id="klaytn-native-coin-klay"></a>
+# Klaytn native coin - KLAY
 
 ## KLAY <a id="klay"></a>
 
