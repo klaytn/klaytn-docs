@@ -81,4 +81,4 @@ $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 데이터 추출 후 PN을 정상적으로 시작할 수 있습니다.
 
-You can refer to detailed information in the [Chaindata change](../../../../../operation-guide/chaindata-change)
+더 자세한 내용은 [Chaindata change](../../../../../operation-guide/chaindata-change)를 참고하세요.
