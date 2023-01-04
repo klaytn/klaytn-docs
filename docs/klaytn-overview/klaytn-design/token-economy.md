@@ -62,11 +62,11 @@ As technology continues to improve and the needs of users change over time, our 
 
 | Category | Details |
 | :--- | :--- |
-| **Development** | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li> |
-| **Infrastructure** | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li> |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li> |
-| **Monitoring & Analytics** | <ul><li>Monitoring</li><li>Analytics</li> |
-| **Education & Activity** | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
+| **Development** | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li></ul> |
+| **Infrastructure** | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li></ul> |
+| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li></ul> |
+| **Monitoring & Analytics** | <ul><li>Monitoring</li><li>Analytics</li></ul> |
+| **Education & Activity** | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li></ul> |
 | **Research** | <ul><li>Security, Scalability, Cryptography, etc.</li></ul> |
 
 
