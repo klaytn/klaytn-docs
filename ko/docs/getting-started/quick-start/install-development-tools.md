@@ -10,7 +10,7 @@ $ mkdir $HOME/klaytn
 
 > 계속 진행하기 위해 `npm`과 `node.js` 설치가 요구됩니다. 시스템에 설치하기 위해 [get-npm](https://www.npmjs.com/get-npm)과 [node.js](https://nodejs.org/en/)를 참조해 주시길 바랍니다.
 
-​[caver-js](../../dapp/sdk/caver-js/README.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). caver-js를 설치하기 전에, `npm init`을 통해 `package.json`을 생성해야 합니다. 이후 caver-js를 설치하기 위해 `npm install caver-js`를 입력하세요.
+​[caver-js](../../dapp/sdk/caver-js/README.md)는 Klaytn 네트워크를 위한JSON RPC 프레임워크입니다\(이더리움 네트워크의 web3.js와 동일\). caver-js를 설치하기 전에, `npm init`을 통해 `package.json`을 생성해야 합니다. 이후 caver-js를 설치하기 위해 `npm install caver-js`를 입력하세요.
 
 ```bash
 $ npm init # klaytn 프로젝트 디렉토리에서 npm 초기화
