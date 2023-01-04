@@ -15,10 +15,9 @@
 
 본 튜토리얼은 이더리움 애플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 애플리케이션을 통해 어떻게 이더리움 애플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
-여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. If you need details on creating a Klaytn dApp, Please refer to [CountDApp Tutorial](count-dapp/).
+여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn dApp을 만드는 것에 대한 자세한 내용은 [CountDApp 튜토리얼](count-dapp/)을 참고하세요.
 
-> **Source Code**\
-  Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### 튜토리얼 대상 <a href="#intended-audience" id="intended-audience"></a>
 
@@ -27,7 +26,7 @@
 
 #### 테스트 환경 <a href="#testing-environment" id="testing-environment"></a>
 
-CountDApp is tested in the following environment.
+CountDApp은 다음의 환경에서 테스트 되었습니다.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 (LTS)
@@ -40,7 +39,7 @@ Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리�
 
 ## 3. 이더리움에서 Klaytn으로 노드 연결 변경 <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다. (FYI. [The Ropsten testnet in ethereum will be shut down in Q4 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
+우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다. (참고: [이더리움의 Ropsten 테스트넷은 Q4 2022에 종료됩니다.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
 * 이더리움
   * `web3` 라이브러리는 이더리움 노드에 연결하고 통신합니다.
