@@ -17,4 +17,4 @@ Klaytn 서비스체인은 다음 기능을 제공합니다.
 ![](../../../klaytn/images/sc_connection.png)
 
 
-Read the [Klaytn Scaling Solution](../../../klaytn/scaling-solutions.md) for more details about the Service Chain.
+서비스체인에 대한 자세한 내용은 [Klaytn Scaling Solution](../../../klaytn/scaling-solutions.md)를 참고해주세요.
