@@ -1,17 +1,17 @@
-## Contract Interaction <a id="Contract Interaction"></a>
+## 컨트랙트 상호작용<a id="Contract Interaction"></a>
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Baobab using our newly created multisig wallet.
+이 섹션에서는 멀티시그 월렛을 사용하여 Baobab에 배포된 단순한 컨트랙트의 트랜잭션을 전송하고 상호작용해볼 것입니다.
 
-**Pre-requisites**
+**요구 사항**
 * [Metamask](https://metamask.io/download/) & [Klaytn Metamask Config](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#send-klay)
 * [Remix](https://remix.ethereum.org/) & [Klaytn Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Obtain test KLAY from the [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받으세요.
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+**Step 1:** [Remix](https://remix.ethereum.org/)로 이동합니다.
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+**Step 2:** 예시 **storage contract**를 컴파일하고 배포합니다.
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint “number” variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+멀티시그 월렛과 상호작용하기 전에 컨트랙트가 이미 배포되어 있어야 합니다. 해당 샘플 컨트랙트는 단순한 uint "number" 변수를 포함하고 있으며, **store** 메서드를 통해 업데이트될 수 있으며, **retrieve** 메서드를 통해 반환될 수 있습니다.
 
 ![](../img/klaytn-safe/12_remixDep.gif)
 
