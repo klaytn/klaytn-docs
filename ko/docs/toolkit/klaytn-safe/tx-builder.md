@@ -7,45 +7,45 @@
 
 **예시**
 
-Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+여러 개의 일련의 주소들에 토큰을 에어드랍 하는 상황을 생각해봅시다. 예를 들어 10개의 주소에 100 DRIP 토큰이라고 해보겠습니다. 트랜잭션 10개를 생성하여 하나하나 검증, 실행하는 대신 트랜잭션 빌더를 사용하여 이 모든 전송 거래들을 단일 트랜잭션 하나에 담을 수 있습니다.
 
-In this guide, we have minted DRIP tokens to the Safe address for illustrative purpose.
+이 예시에서는 DRIP 토큰을 Safe 주소에 민팅했습니다.
 
-Let’s get started with this example using Transaction Builder!
+트랜잭션 빌더를 사용해 예시를 들어보겠습니다.
 
 
 
-**Step 1:** Open Safe Apps.
+**Step 1:** Safe App을 열어주세요.
 
 ![](../img/klaytn-safe/15_safeApps.png)
 
-**Step 2:** Open the Transaction Builder Safe app
+**Step 2:** 트랜잭션 빌더 Safe 앱을 열어주세요.
 
 ![](../img/klaytn-safe/16_safeTxBuilder.png)
 
-**Step 3:** Enter your token contract address and ABI. In this example, DRIP contract address and ABI will be used. You can copy and paste your ABI into the “Enter ABI” field.
+**Step 3:** 토큰 컨트랙트 주소와 ABI를 입력합니다. 이 예시에서는 DRIP 컨트랙트 주소와 ABI를 사용합니다. ABI를 “Enter ABI” 필드에 붙여 넣습니다.
 
 ![](../img/klaytn-safe/17_safeTxBatchAddrAbi.gif)
 
-**Step 4:** Select a method and fill the transaction information
+**Step 4:** 메서드를 선택하고 트랜잭션 정보를 기입합니다.
 
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
+드랍다운에서 메서드를 선택할 수 있습니다. 여기에서는 **transfer** 메서드를 사용하겠습니다. 이 단계가 완료되기 위해서는 **to(address)**와 **amount(uint256)** 같은 트랜잭션 정보를 기입해야 합니다.
 
 
-Note: The value is an unsigned integer without any decimals. In this example, the DRIP token has 18 decimals. So if you want to send 1 DRIP, you have to enter 1000000000000000000.
+참고: 소수점이 없는 unsigned interger입니다. 이 예시에서는 DRIP 토큰의 소수점은 18자리입니다. 따라서 1 DRIP을 보내고 싶다면, 1000000000000000000을 입력해야 합니다.
 
 ![](../img/klaytn-safe/18_safeTxBatchTxInfo.gif)
 
-**Step 5:** Click **Add transaction**
+**Step 5:** **Add transaction**을 클릭합니다.
 
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
+각 수신자 주소에 대해 **4**, **5**, **6**을 반복합니다.
 
-**Step 7:** Once you added all operations to the batch click **Create Batch**
+**Step 7:** 이 모든 작업을 추가한 뒤 **Create Batch**를 클릭합니다.
 
 ![](../img/klaytn-safe/19_safeTxBatch.gif)
 
-**Step 8:** Review and submit transaction
+**Step 8:** 트랜잭션을 검토하고 전송합니다
 
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+전체 배치를 확인할 수 있습니다. 준비가 되었으면, 다른 Safe 트랜잭션과 마찬가지로 **Send Batch**를 클릭하여 트랜잭션을 전송하고 실행해주세요.
 
 ![](../img/klaytn-safe/20_safeTxBuildExec.gif)
