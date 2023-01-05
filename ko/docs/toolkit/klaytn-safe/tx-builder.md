@@ -1,11 +1,11 @@
 
-## Transaction Builder <a id="Transaction Builder"></a>
+## 트랜잭션 빌더<a id="Transaction Builder"></a>
 
-This is a custom app in Klaytn Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+트랜잭션 빌더는 트랜잭션 배치화를 위한 Klaytn Safe 내의 커스텀 앱입니다.  배치화라는 것은 여러 개의 트랜잭션을 하나하나 검증하는 대신 하나로 모을 수 있다는 것입니다. 단 한번만 검증하고 실행하면 됩니다.
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+트랜잭션 빌더를 사용하면 토큰 전송이나 복잡한 컨트랙트 사용까지 트랜잭션들을 생성하여 하나의 트랜잭션으로 배치화할 수 있습니다.
 
-**Illustration**
+**예시**
 
 Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
 
