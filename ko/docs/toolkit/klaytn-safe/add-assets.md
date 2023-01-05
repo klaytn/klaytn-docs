@@ -1,64 +1,64 @@
-In this section, we will see how to add your assets (KLAY, FT, NFT)  to your safe account and keep your funds safe.
+이 섹션에서는 Safe 계정에 KLAY, FT, NFT 등 자산을 추가하고 안정하게 관리하는 방법을 알아보겠습니다.
 
-## KLAY Deposits
+## KLAY 예치
 
-Below are the steps to add **‘KLAY’** to your safe account
+아래 방법에 따라 **‘KLAY’**를 Safe 계정에 추가할 수 있습니다.
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Step 1:** 계정 대시보드에서 Safe 주소를 복사합니다.
 
 ![](../img/klaytn-safe/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask wallet and click **"send”** to send asset to your safe account. Note that there are different ways to send assets to your Safe account. You can send from your [hardware wallet](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [web wallet](https://docs.ethhub.io/using-ethereum/wallets/web/), or even a smart contract. In this case, we're making use of a web wallet called MetaMask.
+**Step 2:** 메타마스크 지갑을 열고 **"send”**를 클릭하여 Safe 계정으로 자산을 보냅니다. Safe 계정에 자산을 보내는 방법은 여러가지가 있습니다. [하드웨어 지갑](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [웹 지갑](https://docs.ethhub.io/using-ethereum/wallets/web/) 또는 스마트 컨트랙트에서 보낼 수 있습니다. 여기에서는 메타마스크라는 웹 지갑을 사용하겠습니다.
 
 
 ![](../img/klaytn-safe/f2_sendBtn.png)
 
-**Step 3:** Paste your safe address in the search field as seen below.
+**Step 3:** 아래와 같이 검색창에 Safe 주소를 붙여넣기 합니다.
 
 ![](../img/klaytn-safe/f3_searchAddr.png)
 
-**Step 4:** Input **amount** and click **next**.
+**Step 4:** **액수(amount)**를 입력하고 **next**를 클릭합니다.
 
 ![](../img/klaytn-safe/f4_amountNext.png)
 
-**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Klaytn Safe account.
+**Step 5:** 트랜잭션을 확인하고 애셋 대시보드를 확인해주세요. 메타마스크 계정에서 Klaytn Safe 계정으로 금액이 이동한 것을 볼 수 있습니다.
 
 ![](../img/klaytn-safe/f5_sendDone.png)
 
-## KIP-7 Deposits
+## KIP-7 예치
 
-Now we will see how to deposit KIP7 (fungible tokens) to our safe by following the below steps.
+이제 KIP-7 토큰을 Safe에 보관하는 법을 보겠습니다.
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Step 1:** 계정 대시보드에서 Safe 주소를 복사합니다.
 
 ![](../img/klaytn-safe/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask Wallet and navigate to **“assets”** tab.
+**Step 2:** 메타마스크 지갑을 열고 **“assets”** 탭으로 이동합니다.
 
 ![](../img/klaytn-safe/ft2_assetTst.png)
 
-**Step 3:** Select the token you will love to send and click **“send”**.
+**Step 3:** 보내고 싶은 토큰을 선택하고 **“send”**를 클릭해주세요.
 
-Step 4: Repeat step **3**, **4**, **5** of **KLAY** Deposits.
+Step 4: KLAY 예치 **3**, **4**, **5** 단계를 반복해주세요.
 
-Step 5: View your assets dashboard, you can see the KIP7 tokens being transferred to your safe account. Similarly you can transfer any Fungible token to your safe account.
+Step 5: 자산 대시보드에서 KIP7 토큰이 Safe 계정으로 이동한 것을 볼 수 있습니다. 어떤 토큰이든 Safe 계정으로 이동시킬 수 있습니다.
 
 ![](../img/klaytn-safe/ft3_tstDone.png)
 
 
-* KIP-17 Tokens (NFTs)
+* KIP-17 토큰 (NFT)
 
-Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by following the below steps.
+이제 Safe에 KIP17을 보관하는 법을 보겠습니다.
 
-You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
+다음과 같은 다양한 방법으로 NFT를 Safe 계정으로 이동시킬 수 있습니다. [OpenSea](https://opensea.io/about)를 사용하여 Safe 계정으로 NFT를 전송하는 예시를 살펴 보겠습니다.
 
-* Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-* Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
-* On the next page, click on the transfer button.
-* Paste the safe address in the text box and transfer to safe
-* Under Assets section in Klaytn Safe you can find NFT’s from OpenSea.
+* [OpenSea 계정](https://testnets.opensea.io/account) 프로필 페이지로 이동합니다
+* 전송하고 싶은 NFT로 이동합니다. Klaytn 네트워크(Cypress나 Baobab)에서 NFT를 선택해주세요.
+* 다음 페이지에서 "transfer" 버튼을 눌러주세요.
+* 텍스트 상자에 Safe 주소를 붙여넣기하고 Safe로 이동시킵니다.
+* Klaytn Safe의 Assets 섹션에서 OpenSea의 NFT를 찾을 수 있습니다.
 
 ![](../img/klaytn-safe/sendNFTOpensea.gif)
 
-Please refer to this [guide](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee) from OpenSea for more details on transferring NFTs.
+NFT 전송에 대한 더 자세한 정보는 OpenSea의 이 [가이드](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee)를 참고해주세요.
 
