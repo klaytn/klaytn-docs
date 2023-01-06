@@ -4,8 +4,8 @@
   <ShortName>Klaytn Docs</ShortName>
   <Description>Search Klaytn Docs</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://localhost:3000/ko/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://localhost:3000/ko/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://localhost:3000/ko/opensearch.xml" />
-  <moz:SearchForm>https://localhost:3000/ko/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://localhost:3000/klaytn-docs/ko/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://localhost:3000/klaytn-docs/ko/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://localhost:3000/klaytn-docs/ko/opensearch.xml" />
+  <moz:SearchForm>https://localhost:3000/klaytn-docs/ko/</moz:SearchForm>
 </OpenSearchDescription>
