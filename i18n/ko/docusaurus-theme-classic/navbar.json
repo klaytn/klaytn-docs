@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Klaytn Docs",
+    "description": "The title in the navbar"
+  },
+  "item.label.Documents": {
+    "message": "Documents",
+    "description": "Navbar item with label Documents"
+  },
+  "item.label.Dev Forum": {
+    "message": "Dev Forum",
+    "description": "Navbar item with label Dev Forum"
+  },
+  "item.label.Dev Hub": {
+    "message": "Dev Hub",
+    "description": "Navbar item with label Dev Hub"
+  }
+}

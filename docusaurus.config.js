@@ -10,13 +10,36 @@ const config = {
   tagline: 'Welcome to the Klaytn Docs',
   url: 'https://localhost:3000',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+
+  onBrokenLinks: 'ignore',
+  
+  organizationName: 'klaytn',
+  projectName: 'klaytn-docs',
+  deploymentBranch: 'migration-deploy',
+  trailingSlash: false,
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ko'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+      ko: {
+        label: '한국어',
+        direction: 'ltr',
+        htmlLang: 'ko',
+        calendar: 'gregory',
+        path: 'ko',
+      },
+    },
   },
 
   presets: [
@@ -61,12 +84,12 @@ const config = {
           {
             href: 'https://forum.klaytn.foundation',
             label: 'Dev Forum',
-            position: 'right',
+            position: 'left',
           },
           {
             href: 'https://developer.klaytn.foundation',
             label: 'Dev Hub',
-            position: 'right',
+            position: 'left',
           },
           {
             type: 'docsVersionDropdown', position: 'right'

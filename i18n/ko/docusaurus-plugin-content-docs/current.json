@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.클레이튼 개요": {
+    "message": "클레이튼 개요",
+    "description": "The label for category 클레이튼 개요 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.클레이튼 디자인": {
+    "message": "클레이튼 디자인",
+    "description": "The label for category 클레이튼 디자인 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.클레이튼 2.0": {
+    "message": "클레이튼 2.0",
+    "description": "The label for category 클레이튼 2.0 in sidebar tutorialSidebar"
+  }
+}

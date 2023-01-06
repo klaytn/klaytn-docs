@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Why Klaytn
 
 ## Klaytn as a trust layer of metaverse

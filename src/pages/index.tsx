@@ -8,6 +8,8 @@ import bannerImg from '../images/banner.png'
 import { View } from '../components'
 import HomepageFeatures from '../components/HomepageFeatures'
 
+import Translate, { translate } from '@docusaurus/Translate'
+
 const StyledHeaderBox = styled(View)`
   background-image: url(${bannerImg});
   padding: 60px 0;
@@ -16,10 +18,16 @@ const StyledHeaderBox = styled(View)`
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
+  const title = siteConfig.title
+  const tagline = siteConfig.tagline
   return (
     <StyledHeaderBox>
-      <h1 style={{ color: 'white' }}>{siteConfig.title}</h1>
-      <p style={{ color: 'white' }}>{siteConfig.tagline}</p>
+      <h1 style={{ color: 'white' }}>
+        <Translate values={{ title: title }}>{'{title}'}</Translate>
+      </h1>
+      <p style={{ color: 'white' }}>
+        <Translate values={{ tagline: tagline }}>{'{tagline}'}</Translate>
+      </p>
     </StyledHeaderBox>
   )
 }

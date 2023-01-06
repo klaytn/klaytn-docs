@@ -13,8 +13,10 @@ import View from '../View'
 import style from '@site/src/consts/style'
 import FormBgImg from '../FormBgImg'
 
+import Translate, { translate } from '@docusaurus/Translate'
+
 type FeatureType = {
-  title: string
+  title: JSX.Element
   imgSrc: string
   description: JSX.Element
   to: string
@@ -42,39 +44,39 @@ const StyledImgBox = styled(View)`
 
 const featureList: FeatureType[] = [
   {
-    title: 'Klaytn Overview',
+    title: <Translate>Klaytn Overview</Translate>,
     imgSrc: img1,
-    description: <>Want to know about Klaytn?</>,
+    description: <Translate>Want to know about Klaytn?</Translate>,
     to: '/docs/intro',
   },
   {
-    title: 'Getting Started',
+    title: <Translate>Getting Started</Translate>,
     imgSrc: img2,
-    description: <>Want to start building on Klaytn?</>,
+    description: <Translate>Want to start building on Klaytn?</Translate>,
     to: '/docs/intro',
   },
   {
-    title: 'Node Operators',
+    title: <Translate>Node Operators</Translate>,
     imgSrc: img3,
-    description: <>Instructions on running Klaytn's nodes</>,
+    description: <Translate>Instructions on running Klaytn's nodes</Translate>,
     to: '/docs/intro',
   },
   {
-    title: 'Awesome Klaytn',
+    title: <Translate>Awesome Klaytn</Translate>,
     imgSrc: img3,
-    description: <>Klaytn's vast ecosystem</>,
+    description: <Translate>Klaytn's vast ecosystem</Translate>,
     to: '/docs/intro',
   },
   {
-    title: 'Klaytn Developer Hub',
+    title: <Translate>Klaytn Developer Hub</Translate>,
     imgSrc: img3,
-    description: <>Klaytn's Developer portal</>,
+    description: <Translate>Klaytn's Developer portal</Translate>,
     to: '/docs/intro',
   },
   {
-    title: 'Klaytn Developer Forum',
+    title: <Translate>Klaytn Developer Forum</Translate>,
     imgSrc: img3,
-    description: <>Got a question? Visit our forum!</>,
+    description: <Translate>Got a question? Visit our forum!</Translate>,
     to: '/docs/intro',
   },
 ]
