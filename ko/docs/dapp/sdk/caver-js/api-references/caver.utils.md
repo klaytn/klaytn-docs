@@ -77,9 +77,9 @@ caver.utils.toBN(number)
 
 **파라미터**
 
-| 이름     | 타입        | 설명                                          |
-| ------ | --------- | ------------------------------------------- |
-| number | string \ | number | number to convert to a big number. |
+| 이름     | 타입        | 설명                        |
+| ------ | --------- | ------------------------- |
+| number | string \ | number | 큰 숫자로 변환할 숫자입니다. |
 
 **리턴값**
 
@@ -165,7 +165,7 @@ caver.utils.keccak256(str) // ALIAS
 
 입력의 sha3을 계산합니다.
 
-**NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](caver.utils.md#soliditysha3).
+**참고**: 솔리디티의 sha3를 모방하려면 [caver.utils.soliditySha3](caver.utils.md#soliditysha3)를 사용합니다.
 
 **파라미터**
 
@@ -301,7 +301,7 @@ false
 caver.utils.isHexStrict(hex)
 ```
 
-주어진 문자열이 HEX 문자열인지 확인합니다. Difference to [caver.utils.isHex](caver.utils.md#ishex) is that it expects HEX to be prefixed with `0x`.
+주어진 문자열이 HEX 문자열인지 확인합니다. [caver.utils.isHex](caver.utils.md#ishex)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
 
 **파라미터**
 
@@ -437,9 +437,9 @@ caver.utils.toHex(mixed)
 
 **파라미터**
 
-| 이름    | 타입        | 설명                                                         |
-| ----- | --------- | ---------------------------------------------------------- |
-| mixed | string \ | number \| BN \| BigNumber | The input to convert to HEX. |
+| 이름    | 타입        | 설명                                          |
+| ----- | --------- | ------------------------------------------- |
+| mixed | string \ | number \| BN \| BigNumber | HEX로 변환할 입력값. |
 
 **리턴값**
 
@@ -501,7 +501,7 @@ caver.utils.hexToNumber(hex)
 
 주어진 HEX 값을 숫자로 반환합니다.
 
-**NOTE**: This is not useful for big numbers, rather use [caver.utils.toBN](caver.utils.md#tobn).
+**참고**: 큰 숫자에는 유용하지 않으며, [caver.utils.toBN](caver.utils.md#tobn)를 대신 사용합니다.
 
 **파라미터**
 
@@ -532,9 +532,9 @@ caver.utils.numberToHex(number)
 
 **파라미터**
 
-| 이름     | 타입        | 설명                                                          |
-| ------ | --------- | ----------------------------------------------------------- |
-| number | string \ | number \| BN \| BigNumber | A number as string or number. |
+| 이름     | 타입        | 설명                                             |
+| ------ | --------- | ---------------------------------------------- |
+| number | string \ | number \| BN \| BigNumber | 문자열 또는 숫자로 된 숫자. |
 
 **리턴값**
 
@@ -727,14 +727,14 @@ caver.utils.convertToPeb(number [, unit])
 
 | 이름     | 타입        | 설명                         |
 | ------ | --------- | -------------------------- |
-| number | string \ | number \| BN | The value. |
-| unit   | string    | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:<br>- <code>peb</code>: '1'<br>- <code>kpeb</code>: '1000'<br>- <code>Mpeb</code>: '1000000'<br>- <code>Gpeb</code>: '1000000000'<br>- <code>Ston</code>: '1000000000'<br>- <code>uKLAY</code>: '1000000000000'<br>- <code>mKLAY</code>: '1000000000000000'<br>- <code>KLAY</code>: '1000000000000000000'<br>- <code>kKLAY</code>: '1000000000000000000000'<br>- <code>MKLAY</code>: '1000000000000000000000000'<br>- <code>GKLAY</code>: '1000000000000000000000000000'<br></p> |
+| number | string \ | number \| BN | 해당 값       |
+| unit   | string    | <p>(선택 사항, 기본값은 <code>"KLAY"</code>) 변환하려고 하는 KLAY입니다. <code>number</code>에는 주어진 단위에 대해 다음 승수 중 하나가 곱해집니다:<br>- <code>peb</code>: '1' <br> - <code>kpeb</code>: '1000' <br> - <code>Mpeb</code>: '1000000' <br> - <code>Gpeb</code>: '1000000000' <br> - <code>Ston</code>: '1000000000' <br> - <code>uKLAY</code>: '1000000000000' <br> - <code>mKLAY</code>: '1000000000000000' <br> - <code>KLAY</code>: '1000000000000000000' <br> - <code>kKLAY</code>: '1000000000000000000000' <br> - <code>MKLAY</code>: '1000000000000000000000000' <br> - <code>GKLAY</code>: '1000000000000000000000000000'<br></p> |
 
 **리턴값**
 
-| 타입        | 설명                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| string \ | BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+| 타입        | 설명                                                                                                     |
+| --------- | ------------------------------------------------------------------------------------------------------ |
+| string \ | BN | 만약 숫자 파라미터가 [BN](https://github.com/indutny/bn.js/) 인스턴스인 경우 BN 인스턴스를 반환하며, 그렇지 않은 경우 문자열을 반환합니다. |
 
 **예제**
 
@@ -756,10 +756,10 @@ caver.utils.convertFromPeb(number [, unit])
 
 **파라미터**
 
-| 이름     | 타입        | 설명                                              |
-| ------ | --------- | ----------------------------------------------- |
-| number | string \ | number \| BN \| BigNumber | The value in peb. |
-| unit   | string    | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:<br>- <code>peb</code>: '1'<br>- <code>kpeb</code>: '1000'<br>- <code>Mpeb</code>: '1000000'<br>- <code>Gpeb</code>: '1000000000'<br>- <code>Ston</code>: '1000000000'<br>- <code>uKLAY</code>: '1000000000000'<br>- <code>mKLAY</code>: '1000000000000000'<br>- <code>KLAY</code>: '1000000000000000000'<br>- <code>kKLAY</code>: '1000000000000000000000'<br>- <code>MKLAY</code>: '1000000000000000000000000'<br>- <code>GKLAY</code>: '1000000000000000000000000000'<br></p>                      |
+| 이름     | 타입        | 설명                                       |
+| ------ | --------- | ---------------------------------------- |
+| number | string \ | number \| BN \| BigNumber | peb로 표시된 값 |
+| unit   | string    | <p>(선택 사항, 기본값은 <code>"KLAY"</code>) KLAY로 변환하려고 하는 "peb"입니다. <code>number</code>에는 주어진 단위에 대해 다음 승수 중 하나로 나누어 집니다:<br>- <code>peb</code>: '1' <br> - <code>kpeb</code>: '1000' <br> - <code>Mpeb</code>: '1000000' <br> - <code>Gpeb</code>: '1000000000' <br> - <code>Ston</code>: '1000000000' <br> - <code>uKLAY</code>: '1000000000000' <br> - <code>mKLAY</code>: '1000000000000000' <br> - <code>KLAY</code>: '1000000000000000000' <br> - <code>kKLAY</code>: '1000000000000000000000' <br> - <code>MKLAY</code>: '1000000000000000000000000' <br> - <code>GKLAY</code>: '1000000000000000000000000000'<br></p>               |
 
 **리턴값**
 
