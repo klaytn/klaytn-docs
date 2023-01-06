@@ -8,12 +8,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 const config = {
   title: 'Klaytn Docs',
   tagline: 'Welcome to the Klaytn Docs',
-  url: 'https://localhost:3000',
-  baseUrl: '/',
+  
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   onBrokenLinks: 'ignore',
+
+  baseUrl: '/klaytn-docs/',
+  url: 'https://localhost:3000',
   
   organizationName: 'klaytn',
   projectName: 'klaytn-docs',
