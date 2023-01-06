@@ -1,8 +1,8 @@
 # caver.validator
 
-The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
+`caver.validator` 패키지는 Klaytn에 애플리케이션을 구현할 때 사용되는 검증 함수를 제공합니다.
 
-**NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.validator`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 이후로 제공됩니다.
 
 ## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
@@ -10,7 +10,7 @@ The `caver.validator` package provides validation functions that should be used 
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
+서명에서 복구된 퍼블릭 키를 Klaytn 계정의 계정 키와 비교하여 서명된 메시지를 검증합니다.
 
 **파라미터**
 
