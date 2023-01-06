@@ -64,5 +64,5 @@ Common Packages
 Klaytn v1.10.1 is a hotfix version fixing two kinds of panic issues. A few Klaytn nodes operated in a specific environment has experienced panic issues with v1.10.0, so we quickly release a new fixed version. All Baobab node operators should update their node to v1.10.1 instead of v1.10.0 before Kore hardfork date (10 Jan, 10:00 AM UTC+9). In case of Cypress network, either v1.9.1 or v1.10.1 is available because Kore hardfork date in Cypress is not settled yet.
 
 ## Fixes
-- Fixed Governance config related panic issue that can be triggered by node client downgrade (#1749)
-- Fixed fasthttp handler panic during parsing a user’s RPC request body (#1752)
+- Revived chainConfig in Governance struct to maintain backward compatibility in miscDB (#1749)
+- Disabled StreamRequestBody option for fasthttp server to avoid panic in fasthttp handler (#1752)
