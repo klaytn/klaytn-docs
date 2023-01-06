@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://localhost:3000/klaytn-docs/ko/blog</id>
+    <title>Klaytn Docs Blog</title>
+    <updated>2023-01-03T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://localhost:3000/klaytn-docs/ko/blog"/>
+    <subtitle>Klaytn Docs Blog</subtitle>
+    <icon>https://localhost:3000/klaytn-docs/ko/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Klaytn 2022: 1년 회고]]></title>
+        <id>/2023/01/03/hello-klaytn3</id>
+        <link href="https://localhost:3000/klaytn-docs/ko/blog/2023/01/03/hello-klaytn3"/>
+        <updated>2023-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test3 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*YFBrInhHVpNSdPYZ.webp" alt="text for image" class="img_ev3q"></p><p>2022년은 Klaytn에게 자랑스러운 해였습니다! 기술 업그레이드에서 생태계 성장에 이르기까지 우리는 메타버스에 대한 비전을 발전시키는 데 상당한 진전을 이루었습니다.</p><ol><li>기술 발전</li></ol><p>🏆 올해 3월에 V 1.8.0이 도입되면서 Klaytn은 이제 이더리움과 동등하므로 개발자는 EVM과 동등한 도구와 인터페이스를 쉽게 사용할 수 있습니다.</p><p>🏆 사용자 경험은 메타버스의 핵심이므로 평균 트랜잭션 대기 시간을 2.13초(L1 블록체인 중에서 가장 낮은 것 중 하나)로 낮게 유지했습니다.</p><p>🏆 네트워크 남용을 방지하면서 네트워크를 안정적이고 빠르게 유지하기 위해 동적 가스 가격 정책을 도입했습니다.</p>]]></content>
+        <author>
+            <name>Klaytn Sentinel</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="클레이튼" term="클레이튼"/>
+        <category label="회고" term="회고"/>
+        <category label="2022" term="2022"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Klaytn에서 오라클 사용하기 — VRF를 통한 난수 생성]]></title>
+        <id>/2023/01/02/hello-klaytn2</id>
+        <link href="https://localhost:3000/klaytn-docs/ko/blog/2023/01/02/hello-klaytn2"/>
+        <updated>2023-01-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test2 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*cbm7dgSu27jTnQPk.webp" alt="text for image" class="img_ev3q"></p><p>탈중앙 오라클이 제공하는 VRF(Verifiable Random Functions)을 사용하면 쉽고 안전하게 난수를 생성할 수 있습니다. VRF는 변조 방지 난수 생성을 통해 다양한 블록체인 게임 및 희귀한 NFT를 구현할 수 있게 해줌으로써 많은 블록체인 애플리케이션에 필수적인 기능이 되었습니다.</p><p>이 튜토리얼에서는 Klaytn 블록체인에서 Chainlink VRF v2를 사용하여 구독(subscription)을 생성하고 프로그래밍 방식으로 consumer 컨트랙트를 추가하고 난수를 생성해 보겠습니다.</p><p>VRF가 필요한 이유
+이전에는 온체인에서 난수를 얻는 것이 까다로운 일이었으며, 프로토콜 갈취가 종종 발생하는 부분이기도 했습니다. 기존의 난수 생성(RNG) 방법들과 그 단점들을 간략히 알아보겠습니다.</p><p>블록 변수 사용</p><p>block.number, block.timestamp 또는 block.difficulty와 같은 블록 변수를 사용하여 임의성을 생성하는 것은 어느 정도 예측 가능성이 있으므로 위험합니다.</p>]]></content>
+        <author>
+            <name>Klaytn Security</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="클레이튼" term="클레이튼"/>
+        <category label="오라클" term="오라클"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Klaytn SDK caver-js/java v1.10.0 출시]]></title>
+        <id>/2023/01/01/hello-klaytn1</id>
+        <link href="https://localhost:3000/klaytn-docs/ko/blog/2023/01/01/hello-klaytn1"/>
+        <updated>2023-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test1 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*Zol0ss3r_1Fwt0G1.webp" alt="text for image" class="img_ev3q"></p><h1>[공지]<!-- --> Klaytn SDK caver-js v1.10.0 출시</h1><p>Klaytn v1.10.0 이 릴리즈 됨에 따라 노드에서 변경된 내용을 caver-js에서도 지원하기 위해 변경사항들이 반영되었습니다. 이번 Klaytn v1.10.0 릴리즈에는 Kore Hardfork가 포함되어 있는데요, 이중 블록 보상과 관련된 정보(kip82Ratio)를 확인할 수 있는 API가 추가되었습니다. 또한 RPC 서비스의 governance namespace에서 활용도가 높은 API가 klay namespace 에서도 지원되도록 추가되었습니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="v1100의-신규-기능-719-721">v1.10.0의 신규 기능 (#719, #721)<a class="hash-link" href="#v1100의-신규-기능-719-721" title="제목으로 바로 가기">​</a></h2><ul><li><p><a href="https://kips.klaytn.foundation/KIPs/kip-82" target="_blank" rel="noopener noreferrer">KIP-82</a> Gini계수 사용 종료로 새로운 GC보상 구조가 도입됨에 따라서 각 블록별로 보상 관련된 정보를 조회할 수 있는 klay.getRewards API가 추가되었습니다.</p></li><li><p>특정 블럭에서의 체인정보를 확인하는 governance.getChainConfigAt API가 추가되었습니다.</p></li><li><p>governance namespace에만 있던 getStakingInfo, getNodeAddress, getChainConfig, getChainConfigAt API가 klay namespace에서도 사용될 수 있도록 추가되었습니다.</p></li><li><p>klay.getGovParams, klay.getGovParamsAt API가 추가되었으며 기존 governance.getItemsAt과 기능적으로 동일합니다.</p></li></ul>]]></content>
+        <author>
+            <name>Klaytn Knight</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="클레이튼" term="클레이튼"/>
+        <category label="sdk" term="sdk"/>
+        <category label="출시" term="출시"/>
+    </entry>
+</feed>

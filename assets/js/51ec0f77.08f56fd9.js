@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkklaytn_docs_test=self.webpackChunkklaytn_docs_test||[]).push([[8848],{260:a=>{a.exports=JSON.parse('{"label":"oracle","permalink":"/klaytn-docs/blog/tags/oracle","allTagsPath":"/klaytn-docs/blog/tags","count":1}')}}]);

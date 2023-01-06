@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkklaytn_docs_test=self.webpackChunkklaytn_docs_test||[]).push([[6735],{1961:t=>{t.exports=JSON.parse('{"label":"klaytn","permalink":"/klaytn-docs/blog/tags/klaytn","allTagsPath":"/klaytn-docs/blog/tags","count":3}')}}]);

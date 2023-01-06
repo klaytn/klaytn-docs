@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://localhost:3000/klaytn-docs/blog</id>
+    <title>Klaytn Docs Blog</title>
+    <updated>2023-01-03T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://localhost:3000/klaytn-docs/blog"/>
+    <subtitle>Klaytn Docs Blog</subtitle>
+    <icon>https://localhost:3000/klaytn-docs/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Klaytn 2022: A Year in Review]]></title>
+        <id>/2023/01/03/hello-klaytn3</id>
+        <link href="https://localhost:3000/klaytn-docs/blog/2023/01/03/hello-klaytn3"/>
+        <updated>2023-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test3 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*YFBrInhHVpNSdPYZ.webp" alt="text for image" class="img_ev3q"></p><p>2022 was a banner year for Klaytn, and we have a lot to be proud of! From tech upgrades to ecosystem growth, we’ve made significant strides in advancing our vision of the metaverse:</p><ol><li>Technology Advancements</li></ol><p>🏆 With V 1.8.0 introduced in March this year, Klaytn is now Ethereum-equivalent, so developers can easily use our EVM-equivalent tools and interfaces.</p><p>🏆 User experience is key in the metaverse, so we’ve kept our average transaction latency low at 2.13 seconds (one of the lowest among L1 blockchains).</p><p>🏆 We introduced a dynamic gas price policy to ensure our network remains stable and fast while preventing network abuse.</p>]]></content>
+        <author>
+            <name>Klaytn Sentinel</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="klaytn" term="klaytn"/>
+        <category label="review" term="review"/>
+        <category label="2022" term="2022"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to use oracles on Klaytn — VRF’s Explained]]></title>
+        <id>/2023/01/02/hello-klaytn2</id>
+        <link href="https://localhost:3000/klaytn-docs/blog/2023/01/02/hello-klaytn2"/>
+        <updated>2023-01-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test2 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*cbm7dgSu27jTnQPk.webp" alt="text for image" class="img_ev3q"></p><p>With the advent of Verifiable Random Functions (VRFs) provided by decentralized oracles, getting random numbers has never been more easy and secure. VRFs are essential to many blockchain applications, as having access to tamper-proof randomization enables exciting blockchain games, rare NFTs, and efficient unbiased outcomes.</p><p>In this article, you will create a subscription, add a consumer contract programmatically and get random values using Chainlink VRF v2 on the Klaytn Blockchain.</p><p>Why VRFs
+Before VRFs, getting random numbers on-chain was a major problem and has played a part in major protocol exploits. The following are the malicious or risky traditional random number generators (RNG) methods previously used and their shortcomings:</p><p>Using block variables</p><p>Using block variables such as block.number, block.timestamp, or block.difficulty to simulate randomness is risky as it can be predicted to some degree.</p>]]></content>
+        <author>
+            <name>Klaytn Security</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="klaytn" term="klaytn"/>
+        <category label="oracle" term="oracle"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Klaytn SDK caver-js/java v1.10.0 Release]]></title>
+        <id>/2023/01/01/hello-klaytn1</id>
+        <link href="https://localhost:3000/klaytn-docs/blog/2023/01/01/hello-klaytn1"/>
+        <updated>2023-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the test1 description]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://miro.medium.com/max/1400/0*Zol0ss3r_1Fwt0G1.webp" alt="text for image" class="img_ev3q"></p><h1>[Notice]<!-- --> Klaytn SDK caver-js v1.10.0 Release</h1><p>With the release of Klaytn v1.10.0, some changes have been applied to caver-js. Klaytn v1.10.0 includes Kore hardfork, with the addition of an API to request data regarding double block reward (kip82Ratio). For RPC service, some frequently used APIs from the governance name are now supported in klay namespace as well.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-new-in-v1100-719-721">What’s New in v.1.10.0 (#719, #721)<a class="hash-link" href="#whats-new-in-v1100-719-721" title="Direct link to heading">​</a></h2><ul><li><p>Added klay.getRewards API to retrieve reward related information by block with the new GC reward structure following the abolishment of the Gini coefficient KIP-82</p></li><li><p>Added governance.getChainConfigAt API to retrieve chain information for a certain block</p></li><li><p>getStakingInfo, getNodeAddress, getChainConfig, getChainConfigAt APIs, previously only available from governance namespace, is supported for klay namespace</p></li><li><p>Added klay.getGovParams, klay.getGovParamsAt APIs, which are functionally identical to governance.getItemsAt</p></li></ul>]]></content>
+        <author>
+            <name>Klaytn Knight</name>
+            <email>media@klaytn.foundation</email>
+            <uri>https://klaytn.foundation/contact-us/</uri>
+        </author>
+        <category label="klaytn" term="klaytn"/>
+        <category label="sdk" term="sdk"/>
+        <category label="release" term="release"/>
+    </entry>
+</feed>

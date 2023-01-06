@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkklaytn_docs_test=self.webpackChunkklaytn_docs_test||[]).push([[3232],{6380:s=>{s.exports=JSON.parse('{"label":"2022","permalink":"/klaytn-docs/blog/tags/2022","allTagsPath":"/klaytn-docs/blog/tags","count":1}')}}]);

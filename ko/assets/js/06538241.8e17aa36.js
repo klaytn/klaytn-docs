@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkklaytn_docs_test=self.webpackChunkklaytn_docs_test||[]).push([[1986],{1215:t=>{t.exports=JSON.parse('{"permalink":"/klaytn-docs/ko/blog/tags/\ud074\ub808\uc774\ud2bc","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
