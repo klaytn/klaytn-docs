@@ -14,5 +14,9 @@
   "item.label.Dev Hub": {
     "message": "Dev Hub",
     "description": "Navbar item with label Dev Hub"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
   }
 }

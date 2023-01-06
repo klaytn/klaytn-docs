@@ -49,6 +49,9 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        blog: {
+          showReadingTime: true
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl:
@@ -83,6 +86,7 @@ const config = {
             position: 'left',
             label: 'Documents',
           },
+          {to: 'blog', label:'Blog', position: 'left'},
           {
             href: 'https://forum.klaytn.foundation',
             label: 'Dev Forum',
