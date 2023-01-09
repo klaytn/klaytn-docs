@@ -1,27 +1,41 @@
 # Branch name will be changed
 
-We will change the `master` branch to `main` on Dec 15, 2022. 
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-After the branch policy change, please check your local or forked repository settings.
+### Installation
 
+```
+$ yarn
+```
 
-# The Klaytn Docs
+### Local Development
 
-[![Gitter](https://badges.gitter.im/klaytn/klaytn-docs.svg)](https://gitter.im/klaytn/klaytn-docs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+```
+$ yarn start
+```
 
-![Klaytn Docs](images/klaytn.png)
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-Klaytn Docs introduces [Klaytn](https://klaytn.foundation/), the blockchain of choice for web3 era with high performance and great user experience. In these documents you will find detailed explanations on Klaytn along with guidelines and instructions on how to use Klaytn and interact with the Klaytn network. More information on how to use Klaytn Docs is depicted on the [Klaytn Docs Wiki](https://github.com/klaytn/klaytn-docs/wiki)
+### Build
 
-## Want to Contribute to Klaytn Docs? <a id="want-to-contribute"></a>
+```
+$ yarn build
+```
 
-In line with our commitment to decentralization, all Klaytn codebase and its documentations are completely open source. Klaytn always welcomes your contribution. Anyone can view, edit, fix its contents and make suggestions. You can either create a pull request on GitHub or use GitBook. Make sure to sign our [Contributor License Agreement (CLA)](https://cla-assistant.io/klaytn/klaytn-docs) first and there are also a few guidelines our contributors would check out before contributing:
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-- [Contribution Guide](./CONTRIBUTING.md)
-- [License Section](https://github.com/klaytn/klaytn-docs/wiki#license)
-- [Code of Conducts](./code-of-conduct.md)
-- [Style Guide](./style-guide.md)
+### Deployment
 
-## Need Help? <a href="#need-help" id="need-help"></a>
+Using SSH:
 
-If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
