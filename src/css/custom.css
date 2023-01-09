@@ -6,13 +6,13 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #a2006ff8;
-  --ifm-color-primary-dark: #a2006ff8;
-  --ifm-color-primary-darker: #a2006ff8;
-  --ifm-color-primary-darkest: #a2006ff8;
-  --ifm-color-primary-light: #a2006ff8;
-  --ifm-color-primary-lighter: #a2006ff8;
-  --ifm-color-primary-lightest: #a2006ff8;
+  --ifm-color-primary: #cb0606f8;
+  --ifm-color-primary-dark: #cb0606f8;;
+  --ifm-color-primary-darker: #cb0606f8;;
+  --ifm-color-primary-darkest: #cb0606f8;;
+  --ifm-color-primary-light: #cb0606f8;;
+  --ifm-color-primary-lighter: #cb0606f8;;
+  --ifm-color-primary-lightest: #cb0606f8;;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
