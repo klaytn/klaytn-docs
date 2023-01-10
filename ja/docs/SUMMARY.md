@@ -123,6 +123,7 @@
         * [アップグレード & ハードフォーク](installation-guide/deployment/service-chain/references/upgrade-and-hard-fork.md)
       * [ハウツーガイド](installation-guide/deployment/service-chain/howto/README.md)
     * [ダウンロード](installation-guide/download/README.md)
+      * [v1.10.1](installation-guide/download/v1.10.1.md)
       * [v1.10.0](installation-guide/download/v1.10.0.md)
       * [v1.9.1](installation-guide/download/v1.9.1.md)
       * [v1.9.0](installation-guide/download/v1.9.0.md)
