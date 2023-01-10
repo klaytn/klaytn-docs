@@ -1,4 +1,4 @@
-# JSON-RPC Nodes
+# JSON-RPC Providers
 
 ## Public JSON RPC Endpoints
 
@@ -88,7 +88,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 - Gas price: Fixed at 250 ston
 [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
 
-## Node providers
+## Subscription-based JSON-RPC providers
 
 By using node services, you can focus on developing your application or product on Klaytn instead of spending your resources on node operation. Below is a list of node providers.
 
