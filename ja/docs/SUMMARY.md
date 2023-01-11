@@ -164,7 +164,7 @@
   * [Chaindaの移行](operation-guide/chaindata-migration.md)
 * [dApp開発者](dapp/README.md)
   * [JSON-RPC API](dapp/json-rpc/README.md)
-    * [JSON-RPC公開エンドポイント](dapp/json-rpc/public-en.md)
+    * [JSON-RPC Endpoints](dapp/json-rpc/public-en.md)
     * [API リファレンス](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
         * [注意](dapp/json-rpc/api-references/eth/caution.md)
