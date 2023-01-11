@@ -162,7 +162,7 @@
   * [Chaindata Migration](operation-guide/chaindata-migration.md)
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
-    * [Public JSON-RPC Endpoint](dapp/json-rpc/public-en.md)
+    * [JSON-RPC Endpoints](dapp/json-rpc/public-en.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
         * [Caution](dapp/json-rpc/api-references/eth/caution.md)
