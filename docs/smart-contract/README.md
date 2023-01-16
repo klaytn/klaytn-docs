@@ -1,7 +1,8 @@
 ---
+sidebar_position: 1
+---
 description: >-
-  This section covers the development resources for the Smart Contract
-  development.
+  This section covers the development resources for the Smart Contract evelopment.
 ---
 
 # Overview <a id="overview"></a>

@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 ## Service Chain <a id="service-chain"></a>
 Service chains in Klaytn are auxiliary blockchains independent from the Klaytn main chain,
 tailored for individual dApp requiring special node configurations, customized security levels,
