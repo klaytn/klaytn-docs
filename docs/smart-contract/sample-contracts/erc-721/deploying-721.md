@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # 2. Deploying Smart Contract
 
 You can use Remix Online IDE or use truffle to deploy above `MyERC721Card` smart contract.

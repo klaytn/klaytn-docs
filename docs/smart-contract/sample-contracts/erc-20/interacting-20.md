@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # 3. Interacting with ERC-20 token from Klaytn Wallet
