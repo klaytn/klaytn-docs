@@ -1,8 +1,3 @@
----
-description: >-
-  This page contains the list of development tools that is available to help
-  smart contract development on Klaytn.
----
 
 # IDE and Tools
 
