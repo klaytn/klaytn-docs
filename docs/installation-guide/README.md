@@ -1,1 +1,5 @@
-# Overview <a id="overview"></a>
+---
+sidebar_position: 5
+---
+
+# Installation Guide
