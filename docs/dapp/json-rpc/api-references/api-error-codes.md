@@ -1,9 +1,5 @@
----
-description: >-
-APIs error codes 
----
 
-# API Error Codes <a id="api-error-codes"></a>
+# API Error Codes
 
 Klaytn provides an `error` field in the API response to give developers more information about the reason for the failed API execution. This field exists only if the API execution fails. This field contains `error code` and `error message`.
 

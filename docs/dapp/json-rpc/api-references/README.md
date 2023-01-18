@@ -1,1 +1,5 @@
-# API References <a id="api-references"></a>
+---
+sidebar_position: 2
+---
+
+# API References

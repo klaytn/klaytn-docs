@@ -1,9 +1,5 @@
----
-description: >-
-  Cautions when using eth namespace apis in Klaytn.
----
 
-# Namespace caution <a id="namespace-caution"></a>
+# caution
 
 Klaytn supports `eth` namespace APIs, so developers using Ethereum based SDKs or tools now can easily migrate their
 existing projects to Klaytn.

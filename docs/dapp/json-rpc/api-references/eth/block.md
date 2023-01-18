@@ -1,4 +1,4 @@
-## The Default Block Parameter <a id="the-default-block-parameter"></a>
+## defaultBlock Parameter
 
   When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
 
@@ -10,7 +10,7 @@ The following options are possible for the `defaultBlock` parameter:
 - `String "pending"` - for pending state/transactions
 
 
-## eth_blockNumber <a id="eth_blocknumber"></a>
+## eth_blockNumber
 
 Returns the number of the most recent block.
 
@@ -39,7 +39,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getHeaderByNumber <a id="eth_getheaderbynumber"></a>
+## eth_getHeaderByNumber
 
 Returns information about a header by number.
 
@@ -88,7 +88,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
+## eth_getHeaderByHash
 
 Returns information about a header by hash.
 
@@ -219,7 +219,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
+## eth_getBlockByHash
 
 Returns information about a block by hash.
 
@@ -327,7 +327,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
+## eth_getUncleByBlockNumberAndIndex
 
 Returns information about a uncle of a block by number and the uncle's index position.
 As there are no uncles in Klaytn, it always returns `null`.
@@ -356,7 +356,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
+## eth_getBlockTransactionCountByNumber
 
 Returns the number of transactions in a block matching the given block number.
 

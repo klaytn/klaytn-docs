@@ -1,9 +1,8 @@
 ---
-description: >-
-  APIs used to query network configuration.
+sidebar_position: 3
 ---
 
-# Namespace net <a id="namespace-net"></a>
+# net
 
 The namespace `net` provides functions related to the Klaytn networks.
 

@@ -1,4 +1,4 @@
-# Profiling <a id="profiling"></a>
+# Profiling
 
 ## debug_blockProfile <a id="debug_blockprofile"></a>
 

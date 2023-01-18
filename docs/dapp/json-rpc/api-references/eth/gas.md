@@ -1,4 +1,4 @@
-## eth_feeHistory<a id="eth_feehistory"></a>
+## eth_feeHistory
 
 Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
 

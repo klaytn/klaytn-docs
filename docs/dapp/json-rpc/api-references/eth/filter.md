@@ -1,4 +1,4 @@
-## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
+## eth_getFilterChanges
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 

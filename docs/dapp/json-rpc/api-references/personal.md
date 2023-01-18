@@ -1,9 +1,8 @@
 ---
-description: >-
-  APIs to manage accounts and private keys in the node.
+sidebar_position: 6
 ---
 
-# Namespace personal <a id="namespace-personal"></a>
+# personal
 
 The namespace `personal` manages private keys in the key store.
 

@@ -1,4 +1,4 @@
-# VM Standard Tracing <a id="vm-standard-tracing"></a>
+# VM Standard Tracing
 
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 

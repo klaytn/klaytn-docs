@@ -1,9 +1,8 @@
 ---
-description: >-
-  APIs related to accounts, blocks, transactions, and nodes. 
+sidebar_position: 2
 ---
 
-# Namespace klay <a id="namespace-klay"></a>
+# klay
 
 The namespace `klay` provides functions related to accounts, blocks, transactions,
 configurations of networks or nodes, filters, and so on.

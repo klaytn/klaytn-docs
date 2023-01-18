@@ -1,5 +1,8 @@
+---
+sidebar_position: 8
+---
 
-# Namespace governance 
+# governance 
 
 For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
 

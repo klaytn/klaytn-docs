@@ -1,4 +1,4 @@
-# Logging <a id="logging"></a>
+# Logging
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 

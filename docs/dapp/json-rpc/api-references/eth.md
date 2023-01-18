@@ -1,5 +1,8 @@
+---
+sidebar_position: 1
+---
 
-# Namespace eth
+# eth
 
 The namespace `eth` provides functions related to accounts, blocks, transactions,
 configurations of networks or nodes, filters, and so on.

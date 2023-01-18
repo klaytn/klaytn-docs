@@ -1,4 +1,4 @@
-## eth_call <a id="eth_call"></a>
+## eth_call
 
 Executes a new message call immediately, without creating a transaction on the block chain. The eth_call method can be
 used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a

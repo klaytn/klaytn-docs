@@ -1,4 +1,4 @@
-## eth_hashrate <a id="eth_hashrate"></a>
+## eth_hashrate
 
 Returns the number of hashes per second that the node is mining with.
 

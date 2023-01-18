@@ -1,4 +1,4 @@
-# VM Tracing <a id="vm-tracing"></a>
+# VM Tracing
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 

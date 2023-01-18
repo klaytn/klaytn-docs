@@ -1,4 +1,4 @@
-## eth_coinbase <a id="eth_coinbase"></a>
+## eth_coinbase
 
 Returns the client coinbase address.
 

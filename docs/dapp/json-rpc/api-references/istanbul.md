@@ -1,8 +1,5 @@
----
-description: >- APIs related to the namespace "istanbul".
----
 
-# Namespace istanbul <a id="namespace-istanbul"></a>
+# Namespace istanbul
 
 The namespace `istanbul` provides functions related to consensus.
 

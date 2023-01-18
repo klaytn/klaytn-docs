@@ -1,4 +1,4 @@
-## eth_accounts <a id="eth_accounts"></a>
+## eth_accounts
 
 Returns a list of addresses owned by client.
 

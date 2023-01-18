@@ -1,4 +1,4 @@
-# Runtime Debugging <a id="runtime-debugging"></a>
+# Runtime Debugging
 
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
