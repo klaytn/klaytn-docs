@@ -1,11 +1,11 @@
 ---
 description: >-
-  Cautions when using eth namespace apis in Klaytn.
+  Klaytn에서 eth namespace apis를 사용할 때의 주의사항입니다.
 ---
 
-# Namespace caution <a id="namespace-caution"></a>
+# Namespace 주의사항 <a id="namespace-caution"></a>
 
-Klaytn supports `eth` namespace APIs, so developers using Ethereum based SDKs or tools now can easily migrate their existing projects to Klaytn. (e.g. You can replace the endpoint URL in the Ethereum tools to point to a Klaytn node.)
+Klaytn은 `eth` namespace APIs를 지원하며, 개발자들은 이더리움 기반의 SDKs 혹은 도구들을 사용하는 프로젝트를 쉽게 Klaytn으로 옮겨올 수 있습니다. (e.g. You can replace the endpoint URL in the Ethereum tools to point to a Klaytn node.)
 
 But due to the fundamental design differences existing between Klaytn and Ethereum, some APIs cannot be fully supported. (e.g. some fields have always zero value)
 
