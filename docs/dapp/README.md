@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
-sidebar_position: 3
-=======
 sidebar_position: 5
->>>>>>> d03acf0ab6c08639944e8d9071d5e254d98c0fc5
 ---
 
 # dApp Developers

@@ -1,12 +1,5 @@
 ---
-<<<<<<< HEAD:docs/smart-contract/README.md
-sidebar_position: 1
----
-description: >-
-  This section covers the development resources for the Smart Contract evelopment.
-=======
 sidebar_position: 3
->>>>>>> d03acf0ab6c08639944e8d9071d5e254d98c0fc5:docs/klaytn-2.0/smart-contract/README.md
 ---
 
 # Smart Contract
