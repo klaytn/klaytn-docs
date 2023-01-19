@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 sidebar_position: 4
+=======
+sidebar_position: 7
+>>>>>>> d03acf0ab6c08639944e8d9071d5e254d98c0fc5
 ---
 
 # Klaytn 2.0
