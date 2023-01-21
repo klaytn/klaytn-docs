@@ -64,9 +64,9 @@ Klaytn은 `eth` namespace APIs를 지원하며, 개발자들은 이더리움 기
 
 관련된 APIs: [eth_getTransactionByHash](./transaction.md/#eth_gettransactionbyhash), [eth_getTransactionByBlockHashAndIndex](./transaction.md/#eth_gettransactionbyblockhashandindex), [eth_getTransactionByBlockNumberAndIndex](./transaction.md/#eth_gettransactionbyblocknumberandindex), [eth_pendingTransactions](./transaction.md/#eth_pendingtransactions).
 
-Klaytn에는 많은 종류의 트랜잭션 타입이 있고, 데이터 구조의 필드는 타입에 따라 변합니다.
+Klaytn에는 많은 유형의 트랜잭션 타입이 있고, 데이터 구조의 필드는 유형에 따라 변합니다.
 
-따라서 다양한 종류의 Klaytn 트랜잭션이 어떻게 Ethereum 트랜잭션으로 변환되는지 확인하여야 합니다. 몇몇 필드는 변환 과정 중 무시되거나 zero 혹은 더미 값으로 추가될 수 있습니다. 이는 변환 과정 중 일부 중요한 정보(클레이튼의 관점에서)가 손실된다는 것을 의미합니다.
+따라서 다양한 유형의 Klaytn 트랜잭션이 어떻게 Ethereum 트랜잭션으로 변환되는지 확인하여야 합니다. 몇몇 필드는 변환 과정 중 무시되거나 zero 혹은 더미 값으로 추가될 수 있습니다. 이는 변환 과정 중 일부 중요한 정보(클레이튼의 관점에서)가 손실된다는 것을 의미합니다.
 
 본 문서에서는 [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718) 이전의 EthereumLegacyTransaction을 이더리움 트랜잭션 형식으로 정의하고 있음을 참고하십시오.
 
@@ -79,7 +79,7 @@ eth namespace JSON-RPC apis를 통해 Klaytn 트랜잭션들을 쿼리할 때, K
 
 ### 공통 영역
 
-공통 영역은 다양한 Klaytn 트랜잭션 종류와 무관합니다. 해당 장에서는 이더리움 기본 트랜잭션에서 공통 영역이 어떻게 제공되는지를 기술합니다.
+공통 영역은 다양한 Klaytn 트랜잭션 유형과 무관합니다. 해당 장에서는 이더리움 기본 트랜잭션에서 공통 영역이 어떻게 제공되는지를 기술합니다.
 
 | Ethereum 기본 트랜잭션 영역 | Klaytn 트랜잭션 영역                                                                     | 설명                                                                                                                                                                                     |
 | ------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -378,13 +378,13 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### Cancel
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn Cancel Transaction Field | 설명                                                                                                                                                                                             |
-| ------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input               | (added)                         | :warning: This field always has value `0x` which means empty input because this field does not exist in Klaytn Cancel transaction.                                                             |
-| to                  | (added)                         | :warning: This field always has same address with `from` because this field does not exist in Klaytn Cancel transaction and giving a value of this field as `from` address is most meaningful. |
-| value               | (added)                         | :warning: This field always has value `0x0` because this field does not exist in Klaytn Cancel transaction.                                                                                    |
+| Ethereum 기본 트랜잭션 영역 | Klaytn Cancel 트랜잭션 영역 | 설명                                                                                                               |
+| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| input               | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다.                                  |
+| to                  | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| value               | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
 
-**Klaytn Cancel Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn Cancel Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
 {
   "jsonrpc": "2.0",
@@ -420,14 +420,14 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ChainDataAnchoring
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn ChainDataAnchoring Transaction Field | 설명                                                                                                                                                                                                         |
-| ------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input               | input                                       | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                                  |
-|                     | inputJSON(omitted)                          | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                                     |
-| to                  | (added)                                     | :warning: This field always has same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction and giving a value of this field as `from` address is most meaningful. |
-| value               | (added)                                     | :warning: This field always has value `0x0` because this field does not exist in Klaytn ChainDataAnchoring transaction.                                                                                    |
+| Ethereum 기본 트랜잭션 영역 | Klaytn ChainDataAnchoring 트랜잭션 영역 | 설명                                                                                                                           |
+| ------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| input               | input                             | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                                                                                    |
+|                     | inputJSON(생략됨)                    | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                       |
+| to                  | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| value               | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
 
-**Klaytn ChainDataAnchoring Transaction** is served as Ethereum Legacy Transaction like below.
+**Klaytn ChainDataAnchoring Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
 {
   "jsonrpc": "2.0",
@@ -473,9 +473,9 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 ## Transaction Receipt <a id="transaction_receipt"></a>
 
-Related APIs: [eth_getTransactionReceipt](./transaction.md/#eth_gettransactionreceipt).
+관련된 APIs: [eth_getTransactionReceipt](./transaction.md/#eth_gettransactionreceipt).
 
-By default, the fields in the Klaytn Transaction Receipt are different depending on the transaction type. Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
+기본적으로, Klaytn Transaction Receipt의 영역들은 트랜잭션 유형에 따라 다릅니다. Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
 
 When you try to query Klaytn transaction receipts via eth namespace JSON-RPC apis, Klaytn TransactionReceipt will be returned as Ethereum Transaction Receipt.
 
@@ -486,7 +486,7 @@ This document describes the details of converting process (Klaytn Transaction Re
 
 ### 공통 영역
 
-공통 영역은 다양한 Klaytn 트랜잭션 종류와 무관합니다. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
+공통 영역은 다양한 Klaytn 트랜잭션 유형과 무관합니다. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
 
 This section describes how that common fields are served as Ethereum Transaction Receipt.
 
@@ -889,7 +889,7 @@ This section describes how that common fields for partialFeeDelegation(except fo
 | Ethereum Transaction Receipt Field | Klaytn ChainDataAnchoring Transaction Receipt Field | 설명                                                                                                                                                                                                                 |
 | ---------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |                                    | input(omitted)                                      | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                 |
-|                                    | inputJSON(omitted)                                  | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                 |
+|                                    | inputJSON(생략됨)                                      | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                 |
 | to                                 | (added)                                             | :warning: This field always has same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction receipt and giving a value of this field as `from` address is most meaningful. |
 
 **Klaytn ChainDataAnchoring Transaction Receipt** is served as Ethereum Transaction Receipt like below.
