@@ -1,6 +1,6 @@
 ---
 description: >-
-  Klaytn에서 eth namespace apis를 사용할 때의 주의사항입니다.
+  Klaytn에서 eth namespace API를 사용할 때의 주의사항입니다.
 ---
 
 # Namespace 주의사항 <a id="namespace-caution"></a>
