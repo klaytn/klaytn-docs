@@ -1,41 +1,21 @@
-# Branch name will be changed
+# Klaytn Docs
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+## Welcome to Klaytn Docs
 
-### Installation
+![Klaytn Docs](images/klaytn.png)
 
-```
-$ yarn
-```
+Klaytn Docs introduces Klaytn, the blockchain of choice for web3 era with high performance and great user experience. In these documents you will find detailed explanations on Klaytn along with guidelines and instructions on how to use Klaytn and interact with the Klaytn network. More information on how to use Klaytn Docs is depicted on the Klaytn Docs Wiki
 
-### Local Development
+## Want to Contribute to Klaytn Docs?
+Klaytn is open-source. Anyone can view, edit, fix its contents and make suggestions. Simply create a pull request on GitHub. Make sure to sign our Contributor License Agreement (CLA) first. and there are also a few guidelines our contributors would check out before contributing:
 
-```
-$ yarn start
-```
+- [Contribution Guide](./CONTRIBUTING.md)
+- [License Section](https://github.com/klaytn/klaytn-docs/wiki#license)
+- [Code of Conducts](./code-of-conduct.md)
+- [Style Guide](./style-guide.md)
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Need Help?
 
-### Build
+If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.com/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Proud Ambassadors
