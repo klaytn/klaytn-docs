@@ -18,4 +18,6 @@ Klaytn is open-source. Anyone can view, edit, fix its contents and make suggesti
 
 If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.com/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
 
-## Proud Ambassadors
+## Contributor Ambassadors
+
+
