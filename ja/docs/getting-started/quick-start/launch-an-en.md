@@ -27,7 +27,7 @@ $ mkdir -p ~/kend_home
 
 ## Configuring the EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../node/endpoint-node/operation-guide/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../operation-guide/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
