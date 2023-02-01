@@ -27,7 +27,7 @@ $ mkdir -p ~/kend_home
 
 ## EN 환경설정 <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-설정 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. 환경설정 가능한 매개 변수에 대한 자세한 내용은 [EN 환경설정 가이드](../../node/endpoint-node/operation-guide/configuration.md)를 참조하시면 됩니다. Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
+설정 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../operation-guide/configuration.md). Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
 
 ```
 # cypress, baobab은 NETWORK_ID를 명시하지 않은 경우에만 사용할 수 있습니다.
