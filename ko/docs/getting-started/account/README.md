@@ -62,7 +62,7 @@ $ ken account new --datadir "~/kend_home"
 
 자바스크립트 콘솔에 연결하려면, EN이 실행 상태에 있어야합니다. 자세한 내용은 [EN 시작하기](../quick-start/launch-an-en.md)를 살펴보세요. EN을 시작하고 다음과 같이 콘솔에 연결하세요.
 
-### 사용법 <a id="usage"></a>
+### Usage <a id="usage"></a>
 
 ```bash
 $ kend start
@@ -78,7 +78,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-**명령어**
+**Commands**
 
 `personal` 또는 `klay`를 입력해 사용 가능한 함수 목록을 가져옵니다. 이 튜토리얼에서는 다음 함수들을 확인할 수 있습니다.
 
@@ -90,7 +90,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 > klay.getBalance()
 ```
 
-### 데이터 디렉토리 <a id="data-directory"></a>
+### Data Directory <a id="data-directory"></a>
 
 계정을 만들 때 키스토어 파일은 `<DATADIR>/keystore`에 저장됩니다. `<DATADIR>`은 `kend.conf`에 설정된 `DATA_DIR`입니다. 주어진 예시와 함께 빠른 시작 가이드를 따랐다면, `~/kend_home`일 것입니다.
 
