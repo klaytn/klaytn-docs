@@ -48,7 +48,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 
 The configuration file has the following configurable properties. SCN, SPN and SEN configuration files have the same properties.
 
-| 名前                             | Description                                                                                                                                                                                                                                                                        |
+| Name                           | Description                                                                                                                                                                                                                                                                        |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NETWORK                        | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab")                                                                                                                                                                  |
 | NETWORK_ID                     | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks.  <br>8217 : Cypress (Main network) <br>1000 : Aspen test network <br>1001 : Baobab test network |
