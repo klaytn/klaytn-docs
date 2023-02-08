@@ -6,14 +6,14 @@
 
 **참고**: 이 함수는 몇 개의 최신 블록 번호(현재는 4개)의 상태를 올바르게 반환합니다.  더 이전의 블록 상태 검색은 커맨드라인 옵션 `--state.block-interval` (default: 128)에 설정된 값에 따라 제한됩니다.  즉, 이 함수는 state.block-interval의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 뜻입니다.  예를 들어, state.block-interval이 128일 경우, 이 함수는 "0x0", "0x80", "0x100", "0x180" 등의 블록 번호에 대한 상태를 반환합니다.  만약 블록 번호가 state.block-interval의 배수가 아닐 경우, 'missing trie node' 에러를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                              |
-|:-----:| --------------------------------------------------- |
-|  콘솔   | `debug.dumpBlock(number)`                           |
-|  RPC  | `{"method": "debug_dumpBlock", "params": [number]}` |
+| Client  | 메서드 호출                                              |
+|:-------:| --------------------------------------------------- |
+| Console | `debug.dumpBlock(number)`                           |
+|   RPC   | `{"method": "debug_dumpBlock", "params": [number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                   |
+| Name                 | Type                            | Description                                                                                                                                          |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
@@ -21,15 +21,15 @@
 참고: v1.7.0 이전 버전에서는 16진수 문자열 타입만 사용 가능합니다.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명        |
-| -------- | --------- |
-| JSON 문자열 | 블록 정보입니다. |
+| Type        | Description |
+| ----------- | ----------- |
+| JSON string | 블록 정보입니다.   |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.dumpBlock("0x80")
 {
@@ -70,26 +70,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 특정 상태 루트의 모든 상태/스토리지 트라이(trie)를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                                  |
-|:-----:| ------------------------------------------------------- |
-|  콘솔   | `debug.dumpStateTrie(number)`                           |
-|  RPC  | `{"method": "debug_dumpStateTrie", "params": [number]}` |
+| Client  | Method Invocation                                       |
+|:-------:| ------------------------------------------------------- |
+| Console | `debug.dumpStateTrie(number)`                           |
+|   RPC   | `{"method": "debug_dumpStateTrie", "params": [number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입  | 설명        |
-| ------ | --- | --------- |
-| number | int | 블록 번호입니다. |
+| Name   | Type | Description |
+| ------ | ---- | ----------- |
+| number | int  | 블록 번호입니다.   |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명               |
-| -------- | ---------------- |
-| JSON 문자열 | 덤프 상태 트라이 결과입니다. |
+| Type        | Description      |
+| ----------- | ---------------- |
+| JSON string | 덤프 상태 트라이 결과입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.dumpStateTrie(10)
 {
@@ -107,32 +107,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 블록 번호를 기분으로 RLP 인코딩된 블록을 검색하고 반환합니다.
 
-| 클라이언트 | 메서드 호출                                                |
-|:-----:| ----------------------------------------------------- |
-|  콘솔   | `debug.getBlockRlp(number)`                           |
-|  RPC  | `{"method": "debug_getBlockRlp", "params": [number]}` |
+| Client  | Method Invocation                                     |
+|:-------:| ----------------------------------------------------- |
+| Console | `debug.getBlockRlp(number)`                           |
+|   RPC   | `{"method": "debug_getBlockRlp", "params": [number]}` |
 
 [RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                   |
-| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| Name                 | Type                            | Description                                                                                                                                                                                  |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명              |
+| Type   | Description     |
 | ------ | --------------- |
 | string | RLP 인코딩된 블록입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.getBlockRlp(100)
 "f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0"
@@ -149,27 +149,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 블록 해시로 특정된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockHash` 값이 없으면 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
-| 클라이언트 | 메서드 호출                                                                                      |
-|:-----:| ------------------------------------------------------------------------------------------- |
-|  콘솔   | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
-|  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
+| Client  | Method Invocation                                                                           |
+|:-------:| ------------------------------------------------------------------------------------------- |
+| Console | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
+|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름             | 타입            | 설명                         |
+| Name           | Type          | Description                |
 | -------------- | ------------- | -------------------------- |
 | startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
-| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
+| endBlockHash   | 32-byte DATA  | (선택 사항) 범위 내 마지막 블록 해시입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                   |
-| -------- | ------------------------------------ |
-| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
+| Type        | Description                          |
+| ----------- | ------------------------------------ |
+| JSON string | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.getModifiedAccountsByHash("0x583a02df4222c82d4ffe5d3658d0f7ac233f4dc5de83f6430d74199038b606b6", "0x69833f0fc012dc36be910aa6909f5395cd35136dbeae29ed2170a7d4162a009c")
 
@@ -189,27 +189,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 블록 번호로 특정된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockNum` 값이 없으면 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
-| 클라이언트 | 메서드 호출                                                                                    |
-|:-----:| ----------------------------------------------------------------------------------------- |
-|  콘솔   | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
-|  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
+| Client  | Method Invocation                                                                         |
+|:-------:| ----------------------------------------------------------------------------------------- |
+| Console | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
+|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름            | 타입  | 설명                         |
-| ------------- | --- | -------------------------- |
-| startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
-| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
+| Name          | Type | Description                |
+| ------------- | ---- | -------------------------- |
+| startBlockNum | int  | 확인할 범위의 첫 번째 블록 번호입니다.     |
+| endBlockNum   | int  | (선택 사항) 범위 내 마지막 블록 번호입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                   |
-| -------- | ------------------------------------ |
-| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
+| Type        | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| JSON string | The list of addresses modified between the given range. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.getModifiedAccountsByNumber(171904, 172160)
 ["0x31b93ca83b5ad17582e886c400667c6f698b8ccd", "0xb7fe15c42e66bd71835b07dc6e7daee7729f6235", "0xe31a0edb11357dba71377e625fc6174da4ef4321", "0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5", "0xd3ec3c7e4cad042dbdcb6a7e0fdbc55a92276f12", "0xa4e0d726ce51572e66295756ad93206592c43a59", "0xf65e07b6626ab43ecea744803fa46bd4a89bfdb6", "0xaac56dfe44f9894d4f536cd17acfbc44bf81a843", "0x3855407fa65c4c5104648b3a9e495072df62b585", "0x61a7cbdd597848494fa85cbb76f9c63ad9c06cad", "0xa4845491cb0dad5bd6707a33c02af0d9db435c15", "0x026e8f70a26b6e5c8bec25e23869846edfdd6728", "0x3cf3e8caea91501321feee0f0692fcd98f1c6292", "0x18822790d7baf2fa6bbca6ad8baa46985abeb81b"]
@@ -227,27 +227,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 입력으로 받은 sha3 해시의 역상이 알려져 있다면 그 역상을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                           |
-|:-----:| ------------------------------------------------ |
-|  콘솔   | `debug.preimage(hash)`                           |
-|  RPC  | `{"method": "debug_preimage", "params": [hash]}` |
+| Client  | Method Invocation                                |
+|:-------:| ------------------------------------------------ |
+| Console | `debug.preimage(hash)`                           |
+|   RPC   | `{"method": "debug_preimage", "params": [hash]}` |
 
 
-**파라미터**
+**Parameters**
 
-| 이름 | 타입     | 설명          |
-| -- | ------ | ----------- |
-| 해시 | string | sha3 해시입니다. |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| hash | string | sha3 해시입니다. |
 
-**리턴값**
+**Return Value**
 
-| 이름       | 타입     | 설명                      |
+| Name     | Type   | Description             |
 | -------- | ------ | ----------------------- |
 | preimage | string | 입력으로 받은 sha3 해시의 역상입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.preimage("0xaf953a2d01f55cfe080c0c94150a60105e8ac3d51153058a1f03dd239dd08586")
 "0xdd738d9a7d987a98798123b2322d389470328420bb3d84023a8405a5523cc532235ba325235243242cb9a4758609a8604 ...  98bbd743053d0cbadaaccd4865cc0348685460ada874506ad984506ad80458ad69038fd6f908340fd9af68faf903760"
@@ -263,24 +263,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 네트워크에서 클라이언트가 확인한 가장 최신 'bad block' 목록을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                           |
-|:-----:| ------------------------------------------------ |
-|  콘솔   | `debug.getBadBlocks()`                           |
-|  RPC  | `{"method": "debug_getBadBlocks", "params": []}` |
+| Client  | Method Invocation                                |
+|:-------:| ------------------------------------------------ |
+| Console | `debug.getBadBlocks()`                           |
+|   RPC   | `{"method": "debug_getBadBlocks", "params": []}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 이름       | 타입   | 설명                 |
+| Name     | Type | Description        |
 | -------- | ---- | ------------------ |
 | badBlock | JSON | 블록 해시의 JSON 목록입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.getBadBlocks()
 []
@@ -295,30 +295,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 블록을 검색하여 출력된 양식대로 반환합니다.
 
-| 클라이언트 | 메서드 호출                                               |
-|:-----:| ---------------------------------------------------- |
-|  콘솔   | `debug.printBlock(number)`                           |
-|  RPC  | `{"method": "debug_printBlock", "params": [number]}` |
+| Client  | Method Invocation                                    |
+|:-------:| ---------------------------------------------------- |
+| Console | `debug.printBlock(number)`                           |
+|   RPC   | `{"method": "debug_printBlock", "params": [number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                   |
-| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| Name                 | Type                            | Description                                                                                                                                                                                  |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명             |
+| Type   | Description    |
 | ------ | -------------- |
 | string | 블록 구조체의 덤프입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.printBlock(65120)
 "(*types.Block)(0xc436fad3b0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:      e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:       0000000000000000000000000000000000000000\n\tRoot: ... 0xc3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebf\n\tS:       0x53d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n\tHex:      f863829d9280825208949619a83fcefc5647736cfd28845fcc4f716ff53b8080820fe7a0c3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebfa053d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n]\n}\n)\n"
@@ -339,25 +339,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. *각별히 주의* 하여 사용하세요.
 
-| 클라이언트 | 메서드 호출                                            |
-|:-----:| ------------------------------------------------- |
-|  콘솔   | `debug.setHead(number)`                           |
-|  RPC  | `{"method": "debug_setHead", "params": [number]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.setHead(number)`                           |
+|   RPC   | `{"method": "debug_setHead", "params": [number]}` |
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명                     |
+| Name   | Type   | Description            |
 | ------ | ------ | ---------------------- |
 | number | string | 16진수 문자열 형태의 블록 번호입니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.setHead("0x100")
 null
@@ -373,27 +373,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 블록의 시드 해시를 반환합니다.
 
 
-| 클라이언트 | 메서드 호출                                             |
-|:-----:| -------------------------------------------------- |
-|  콘솔   | `debug.seedHash(number)`                           |
-|  RPC  | `{"method": "debug_seedHash", "params": [number]}` |
+| Client  | Method Invocation                                  |
+|:-------:| -------------------------------------------------- |
+| Console | `debug.seedHash(number)`                           |
+|   RPC   | `{"method": "debug_seedHash", "params": [number]}` |
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명        |
-| ------ | ------ | --------- |
-| number | uint64 | 블록 번호입니다. |
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| number | uint64 | The block number. |
 
-**리턴값**
+**Return Value**
 
-| 이름       | 타입     | 설명           |
+| Name     | Type   | Description  |
 | -------- | ------ | ------------ |
 | seedHash | string | 블록 시드 해시입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.seedHash(100)
 "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -409,24 +409,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startWarmUp`은 가장 최신 상태 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
 
-| 클라이언트 | 메서드 호출                            |
-|:-----:| --------------------------------- |
-|  콘솔   | `debug.startWarmUp()`             |
-|  RPC  | `{"method": "debug_startWarmUp"}` |
+| Client  | Method invocation                 |
+|:-------:| --------------------------------- |
+| Console | `debug.startWarmUp()`             |
+|   RPC   | `{"method": "debug_startWarmUp"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+| Type  | Description                                              |
+| ----- | -------------------------------------------------------- |
+| Error | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > debug.startWarmUp()
@@ -441,28 +441,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. The iteration will be automatically stopped if 90% of the trie cache is full. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                                         |
-|:-----:| -------------------------------------------------------------- |
-|  콘솔   | `debug.startContractWarmUp(address)`                           |
-|  RPC  | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+| Client  | Method invocation                                              |
+|:-------:| -------------------------------------------------------------- |
+| Console | `debug.startContractWarmUp(address)`                           |
+|   RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명          |
+| Type          | Description |
 | ------------- | ----------- |
 | 20바이트 크기 DATA | 컨트랙트 주소입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+| Type  | Description                                         |
+| ----- | --------------------------------------------------- |
+| Error | `null` if a warm-up is started, or an error if not. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
@@ -479,24 +479,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `stopWarmUp`은 트리 캐시를 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 트리 캐시를 채우는 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
 
-| 클라이언트 | 메서드 호출                     |
-|:-----:| -------------------------- |
-|  콘솔   | `debug.stopWarmUp()`       |
-|  RPC  | `{"method": "stopWarmUp"}` |
+| Client  | Method invocation          |
+|:-------:| -------------------------- |
+| Console | `debug.stopWarmUp()`       |
+|   RPC   | `{"method": "stopWarmUp"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| Type  | Description                                              |
+| ----- | -------------------------------------------------------- |
+| Error | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > debug.stopWarmUp()
@@ -512,26 +512,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. 통계는 트리 전체, 깊이별 정보를 포함하여 종료 전 분 단위로 로그를 남깁니다. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                                              |
-|:-----:| ------------------------------------------------------------------- |
-|  콘솔   | `debug.startCollectingTrieStats(address)`                           |
-|  RPC  | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
+| Client  | Method invocation                                                   |
+|:-------:| ------------------------------------------------------------------- |
+| Console | `debug.startCollectingTrieStats(address)`                           |
+|   RPC   | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명          |
-| ------------- | ----------- |
-| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
+| Type         | Description      |
+| ------------ | ---------------- |
+| 20-byte DATA | Contract address |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                   |
-| -- | ---------------------------------------------------- |
-| 에러 | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
+| Type  | Description                                          |
+| ----- | ---------------------------------------------------- |
+| Error | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 // empty address to collect whole state trie statistics
