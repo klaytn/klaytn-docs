@@ -28,17 +28,17 @@ caver.klay.net.getId([callback])
 
 現在のネットワークIDを取得します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Number` - ネットワークIDを返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -54,17 +54,17 @@ caver.klay.net.isListening([callback])
 
 ノードがピアを待ち受けているかどうかを確認します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean` - `true` ノードがピアを待ち受けている場合、 `false` を返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
@@ -80,17 +80,17 @@ caver.klay.net.getPeerCount([callback])
 
 接続しているピアの数を取得します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Number` - 接続されたピアの数を返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
@@ -103,19 +103,19 @@ caver.klay.net.getPeerCount([callback])
 caver.klay.net.peerCountByType([callback])
 ```
 
-接続されたノードの数を type とキーと値のペアを持つ接続されたノードの合計数で返します。
+Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Object` - 接続されたピアの数と、接続されたピアの総数を返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
