@@ -30,7 +30,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 ### References
 
 * [Docs](https://apidoc.tatum.io/tag/Klaytn?\_gl=1\*1dhfv8u\*\_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*\_ga\_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
-* [価格](https://tatum.io/pricing)
+* [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
 ## BlockPi
