@@ -1,17 +1,17 @@
 # Migrating Ethereum App to Klaytn
 
-## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. 소개](migrating-ethereum-app-to-klaytn.md#1-introduction)
+* [1. Introduction](migrating-ethereum-app-to-klaytn.md#1-introduction)
 * [2. Klaytn의 이더리움과의 호환성](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
 * [3. 이더리움에서 Klaytn으로 노드 연결 변경](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
 * [4. Klaytn 노드와의 상호작용: `BlockNumber` 컴포넌트](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
 * [5. 컨트랙트와의 상호작용: `Count` 컴포넌트](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
   * [5-1. Klaytn에 Count 컨트랙트 배포](migrating-ethereum-app-to-klaytn.md#5-1-deploy-count-contract-on-klaytn)
   * [5-2. 컨트랙트 인스턴스 생성](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
-  * [5-3. 컨트랙트와의 상호작용](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
+  * [5-3. Interact with contract](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
 
-## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
+## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
 
 본 튜토리얼은 이더리움 애플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 애플리케이션을 통해 어떻게 이더리움 애플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
@@ -33,15 +33,15 @@ CountDApp은 다음의 환경에서 테스트 되었습니다.
 * npm 6.9.0
 * Python 2.7.10
 
-## 2. Klaytn의 이더리움과의 호환성 <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
+## 2. Klaytn has Ethereum compatibility <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
 
 Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리디티로 작성된 스마트 컨트랙트를 실행할 수 있습니다. Klaytn의 RPC API 및 기타 클라이언트 라이브러리들은 가능한 한 거의 동일하게 이더리움과 동일한 API 사양을 유지하고 있습니다. 따라서 이더리움 애플리케이션에서 Klaytn으로 이전하는 것은 매우 간단합니다. 이러한 점들은 개발자들이 새로운 블록체인 플랫폼으로 쉽게 옮길 수 있도록 합니다.
 
-## 3. 이더리움에서 Klaytn으로 노드 연결 변경 <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
+## 3. Change node connection from Ethereum to Klaytn <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
 우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다. (참고: [이더리움의 Ropsten 테스트넷은 Q4 2022에 종료됩니다.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
-* 이더리움
+* Ethereum
   * `web3` 라이브러리는 이더리움 노드에 연결하고 통신합니다.
   * `Ropsten testnet` URL이 'rpcURL'에 할당되어 있습니다.
 * Klaytn
@@ -67,7 +67,7 @@ const caver = new Caver(rpcURL)
 export default caver
 ```
 
-## 4. Klaytn 노드와의 상호작용: `BlockNumber` 컴포넌트 <a href="#4-interact-with-klaytn-node-blocknumber-component" id="4-interact-with-klaytn-node-blocknumber-component"></a>
+## 4. Interact with Klaytn node: `BlockNumber` component <a href="#4-interact-with-klaytn-node-blocknumber-component" id="4-interact-with-klaytn-node-blocknumber-component"></a>
 
 ![blocknumber 컴포넌트](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
 
@@ -99,7 +99,7 @@ export default BlockNumber
 
 For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknumber Component](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
-## 5. 컨트랙트와의 상호작용: `Count` 컴포넌트 <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
+## 5. Interact with the contract: `Count` component <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
 ![count 컴포넌트](../../bapp/tutorials/count-bapp/images/count-component.gif)
 
@@ -108,10 +108,10 @@ For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknu
 Let's learn step by step how to migrate `CountDApp` from Ethereum to Klaytn!
 
 * 5-1. Klaytn에 `Count` 컨트랙트 배포
-* 5-2. 컨트랙트 인스턴스 생성
-* 5-3. 컨트랙트와의 상호작용
+* 5-2. Create a contract instance
+* 5-3. Interact with contract
 
-### 5-1. Klaytn에 `Count` 컨트랙트 배포 <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
+### 5-1. Deploy `Count` contract on Klaytn <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
 
 첫 번째 단계는 Count 컨트랙트를 Klaytn에 배포하고 컨트랙트 주소를 가져오는 것입니다. 대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 자세한 내용은 [이더리움 컨트랙트 포팅](../../smart-contract/porting-ethereum-contract.md)을 참고하세요. 이 가이드에서는 트러플을 사용하여 컨트랙트를 배포하겠습니다.
 
@@ -162,7 +162,7 @@ module.exports = {
 
 For more details about deploying contracts, See [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
 
-### 5-2. 컨트랙트 인스턴스 생성 <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
+### 5-2. Create a contract instance <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
 
 `caver-js` API를 사용하여 컨트랙트 인스턴스를 생성할 수 있습니다. 컨트랙트 인스턴스는 `Count` 컨트랙트와의 연결을 생성합니다. 즉 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
 
@@ -191,7 +191,7 @@ class Count extends Component {
 export default Count
 ```
 
-### 5-3. 컨트랙트와의 상호작용 <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
+### 5-3. Interact with contract <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
 
 The `ABI` (Application Binary Interface) used to create the Count contract instance allows the `caver-js` to invoke contract's methods as below. 자바스크립트 객체처럼 Count 컨트랙트와 상호작용할 수 있습니다.
 
@@ -221,7 +221,7 @@ class Count extends Component {
     // ** 1. 컨트랙트 인스턴스 생성 **
     // 예시: new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     // 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
-    // 이제 `this.countContract` 변수로 이 인스턴스에 접근할 수 있습니다.
+    // Now you can access the instance by `this.countContract` variable.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
       && new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
@@ -235,13 +235,13 @@ class Count extends Component {
   intervalId = null
 
   getCount = async () => {
-    // ** 2. 컨트랙트 메서드 호출(CALL) **
-    // 예시: this.countContract.methods.methodName(arguments).call()
-    // 위와 같이 컨트랙트 메서드(CALL)를 호출할 수 있습니다.
-    // 예를 들어 컨트랙트에 `count`라는 메서드가 있을 때,
-    // 해당 메서드를 아래와 같이 호출할 수 있습니다.
-    // 예시: this.countContract.methods.count().call()
-    // 이는 프로미스를 반환하므로 .then() 또는 async-await으로 접근할 수 있습니다.
+    // ** 2. Call contract method (CALL) **
+    // ex:) this.countContract.methods.methodName(arguments).call()
+    // You can call contract method (CALL) like above.
+    // For example, your contract has a method called `count`.
+    // You can call it like below:
+    // ex:) this.countContract.methods.count().call()
+    // It returns promise, so you can access it by .then() or, use async-await.
     const count = await this.countContract.methods.count().call()
     const lastParticipant = await this.countContract.methods.lastParticipant().call()
     this.setState({
@@ -258,10 +258,10 @@ class Count extends Component {
 
     this.setState({ settingDirection: 'plus' })
 
-    // 3. ** 컨트랙트 메서드 호출 (SEND) **
-    // 예시: this.countContract.methods.methodName(arguments).send(txObject)
-    // 위와 같이 컨트랙트 메서드(SEND)를 호출할 수 있습니다.
-    // 예를 들어 컨트랙트에 `plus`라는 메서드가 있을 때,
+    // 3. ** Call contract method (SEND) **
+    // ex:) this.countContract.methods.methodName(arguments).send(txObject)
+    // You can call contract method (SEND) like above.
+    // For example, your contract has a method called `plus`.
     // You can call it like below:
     // ex:) this.countContract.methods.plus().send({
     //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // PUT YOUR ADDRESS
@@ -302,21 +302,21 @@ class Count extends Component {
 
     this.setState({ settingDirection: 'minus' })
 
-    // 3. ** 컨트랙트 메서드 호출 (SEND) **
-    // 예시: this.countContract.methods.methodName(arguments).send(txObject)
-    // 위와 같이 컨트랙트 메서드(SEND)를 호출할 수 있습니다.
-    // 예를 들어 컨트랙트에 `minus`라는 메서드가 있을 때,
-    // 해당 메서드를 다음과 같이 호출할 수 있습니다.
-    // 예시: this.countContract.methods.minus().send({
-    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // 본인의 주소를 적으세요.
+    // 3. ** Call contract method (SEND) **
+    // ex:) this.countContract.methods.methodName(arguments).send(txObject)
+    // You can call contract method (SEND) like above.
+    // For example, your contract has a method called `minus`.
+    // You can call it like below:
+    // ex:) this.countContract.methods.minus().send({
+    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // PUT YOUR ADDRESS
     //   gas: '200000',
     // })
 
-    // 이는 이벤트 이미터를 반환하므로 전송 후에 이벤트로 결과를 받아올 수 있습니다.
-    // .on('transactionHash') 이벤트를 사용하세요.
-    // : 트랜잭션을 전송한 후 로직을 처리하려는 경우
-    // .once('receipt') 이벤트를 사용하세요.
-    // : 트랜잭션이 블록에 포함된 후 로직을 처리하려는 경우
+    // It returns event emitter, so after sending, you can listen on event.
+    // Use .on('transactionHash') event,
+    // : if you want to handle logic after sending transaction.
+    // Use .once('receipt') event,
+    // : if you want to handle logic after your transaction is put into block.
     // ex:) .once('receipt', (data) => {
     //   console.log(data)
     // })
