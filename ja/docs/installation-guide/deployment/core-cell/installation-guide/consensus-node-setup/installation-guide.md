@@ -1,4 +1,4 @@
-# インストールガイド <a id="installation-guide"></a>
+# Installation Guide <a id="installation-guide"></a>
 
 `kcn`  の最新バージョンは [ダウンロード](../download.md) ページでダウンロードできます。
 
@@ -22,7 +22,7 @@
 | bin/kcnd       | CN開始/終了スクリプトファイル |
 | conf/kcnd.conf | CN設定ファイル         |
 
-### インストール <a id="installation"></a>
+### Installation <a id="installation"></a>
 
 インストールは、パッケージをインストールするダウンロードしたパッケージの圧縮を解除します。
 
@@ -30,7 +30,7 @@
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-または
+Or,
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
@@ -54,7 +54,7 @@ $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-または
+Or,
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
@@ -72,7 +72,7 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 インストールされたファイルは以下のとおりです。
 
-| ファイル名     | 場所                       |
+| File Name | 場所                       |
 |:--------- |:------------------------ |
 | kcn       | /usr/bin/kcn             |
 | kcnd.conf | /etc/kCND/conf/kcnd.conf |
