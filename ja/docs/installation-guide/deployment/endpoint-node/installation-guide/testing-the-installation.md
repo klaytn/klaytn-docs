@@ -1,8 +1,8 @@
-# インストールのテスト <a id="testing-the-installation"></a>
+# Testing the Installation <a id="testing-the-installation"></a>
 
 エンドポイントノードが正常にインストールされ、インストール後に期待どおりに動作していることを確認します。
 
-## プロセスの状態 <a id="process-status"></a>
+## Process Status <a id="process-status"></a>
 
 ステータスコマンド `systemctl` と `kend` を使用して、ENのプロセスの状態をチェックすることができます。
 
@@ -21,7 +21,7 @@ $ systemctl status kend.service
    CGroup: /system.slice/kend.service
            └─29641 /usr/local/bin/ken --networkid 1000 --datadir /kend_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: 開始 (null) ...
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Starting kend: [ OK ]
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
@@ -37,11 +37,11 @@ $ kend status
 kend is running
 ```
 
-## ログ <a id="logs"></a>
+## Logs <a id="logs"></a>
 
 The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. ノードが正常に動作すると、各ブロックが以下のようにインポートされます。
 
-例
+Example:
 
 ```bash
 $ tail kend.out
@@ -61,26 +61,26 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### kenコンソール <a id="ken-console"></a>
 
-KlaytnはCLIクライアントを提供します: `kenコンソール`。 クライアントを使用するもう一つの方法は、IPC(プロセス間通信)を介してプロセスに接続することです。 IPCファイル `klay.ipc` は ENの `data` ディレクトリにあります。
+KlaytnはCLIクライアントを提供します: `kenコンソール`。 Another way of using the client is to connect to the process via IPC (inter-process communication). IPCファイル `klay.ipc` は ENの `data` ディレクトリにあります。
 
-以下のコマンドを実行し、結果を確認してください。
+Please execute the following command and check out the result.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
-Klaytn JavaScript コンソールへようこそ!
+Welcome to the Klaytn JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
+instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
- modules: admin:1.0 debug:1.0 governance:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
 ```
 
-使用可能なコマンドは [API ドキュメント](../../../dapp/json-rpc/README.md) で確認できます。
+You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
 
 ENの状態を確認するのに役立つAPI:
 
-* `klay.blockNumber` (最新のブロック番号を取得する)
-* `net.peerCount` (現在接続されている Klaytn ノードの数を取得する)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
