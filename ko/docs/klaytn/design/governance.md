@@ -1,6 +1,6 @@
 # 거버넌스(Governance)<a id="governance"></a>
 
-## 개요 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 ### 클레이튼 거버넌스: 탈중앙화로 가는 첫 걸음<a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
