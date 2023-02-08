@@ -1,4 +1,4 @@
-# イーサリアムの互換性
+# Ethereum Compatibility
 
 ## 私たちはEthereumの等価性をサポートします
 
