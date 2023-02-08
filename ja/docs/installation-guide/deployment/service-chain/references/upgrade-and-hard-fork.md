@@ -1,4 +1,4 @@
-# アップグレード & ハードフォーク
+# Upgrade & Hard Fork
 
 KlaytnとそのServiceChainは、常に新しい機能を開発し、バグを修正するための新しいバージョンをリリースしています。 このページは、ServiceChainバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
 
@@ -39,13 +39,13 @@ $ kscnd start
 2. ServiceChainバイナリをハードフォークをサポートするバージョンにアップグレードします
 3. ServiceChainでハードフォークブロック番号を設定する
 
-### 1. ハードフォークの適切なブロック番号を選択してください <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 ServiceChain の Javascript コンソールで、以下のように現在のブロック番号を確認できます。
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Klaytn JavaScript コンソールへようこそ!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X.X
  datadir: ~/kscnd_home
@@ -148,7 +148,7 @@ $ kscnd start
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Klaytn JavaScript コンソールへようこそ!
+Welcome to the Klaytn JavaScript console!
 
 インスタンス: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
  datadir: ~/kscnd_home
@@ -172,7 +172,7 @@ Klaytn JavaScript コンソールへようこそ!
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Klaytn JavaScript コンソールへようこそ!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
  datadir: ~/kscnd_home
@@ -181,7 +181,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
 > governance.vote("kip71.lowerboundbasefee", 0)
 "あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
 > goverance.vote("kip71.upperboundbasefee", 0)
-"あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
+"あなたの投票は準備されています。 It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
 
 **注** マグマのハードフォークの有効化にかかわらず、ガバナンス投票とその更新が利用可能です。 つまり、ガバナンス投票はマグマのハードフォークの活性化の前に行うこともできます。
@@ -220,5 +220,5 @@ instance: Klaytn/vX.X.X/XXXX-XXXXXX/goX.X
 
 ```javascript
 > goverance.vote("istanbul.epoch", 60)
-"あなたの投票は準備されています。 ノードがプロポーザとしてブロックを生成したときにブロックヘッダに入れられるか、適用されます。 投票が重複している場合があります。
+"あなたの投票は準備されています。 It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
