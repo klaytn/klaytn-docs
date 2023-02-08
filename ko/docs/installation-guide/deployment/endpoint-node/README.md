@@ -1,6 +1,6 @@
 # Endpoint Node <a id="endpoint-node"></a>
 
-## 튜토리얼 대상 <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
 - 엔드포인트 노드를 통해 [Klaytn APIs](../../dapp/json-rpc/README.md)를 사용하여 트랜잭션을 보내거나 클레이튼 네트워크의 상태를 쿼리하려는 분을 대상으로 합니다.
 - 엔드포인트 노드는 Klaytn 네트워크의 인터페이스입니다.
