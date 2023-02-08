@@ -394,7 +394,7 @@ When `caver.wallet.newKeyring` is executed with a private key, a Keyring instanc
 
 ### Baobab Faucet経由でKLAYを取得する <a id="getting-klay-via-baobab-faucet"></a>
 
-テストに KLAYが必要な場合は、 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) から Baobab testnet KLAYを入手できます。 秘密鍵またはキーストアファイルを使用してKlaytn Walletにログインし、テスト用の蛇口からテストネットKLAYを受け取ります。
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 秘密鍵またはキーストアファイルを使用してKlaytn Walletにログインし、テスト用の蛇口からテストネットKLAYを受け取ります。
 
 ### 価値転送トランザクションの送信 <a id="sending-a-value-transfer-transaction"></a>
 
@@ -407,7 +407,7 @@ caver-javaウォレットを使用してトランザクションの署名を生�
 
 **注意:** 送信者は、転送するのに十分な数のKLAYを有し、取引手数料を支払う必要があります。
 
-#### 取引に署名する
+#### Sign a transaction
 
 Klaytnにトランザクションを送信する前に、まずトランザクションに署名する必要があります。
 
@@ -585,7 +585,7 @@ String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
 System.out.println(rlpEncoded);
 ```
 
-上記のコードが実行されると、RLPエンコードされた文字列が出力されます。 (以下に示す文字列出力とは異なる場合があります。
+上記のコードが実行されると、RLPエンコードされた文字列が出力されます。 (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
@@ -638,7 +638,7 @@ try {
 }
 ```
 
-トランザクションの結果は、領収書の `ステータス` から確認できます。 戻り値の詳細については、 `caver.rpc.klay.getTransactionReceipt` を参照してください。 トランザクションが失敗した場合は、領収書の `txError` で詳細を確認できます。 `txError`についての詳細は、[txError: Transaction Failuresの詳細情報]を参照してください。
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. `txError`についての詳細は、[txError: Transaction Failuresの詳細情報]を参照してください。
 
 ### アカウントの更新 <a id="account-update"></a>
 
@@ -853,7 +853,7 @@ ContractAddress : null
     }
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the code above gives you the following result.
 
 ```bash
 function set(string, string)
@@ -898,10 +898,10 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 スマートコントラクトは、トランザクションをデプロイするコントラクトの種類に応じて、次のいずれかのクラスを使用してデプロイできます。
-  - `Contract` class in the `caver.contract` package when the sender or the charge payer of a smartcontract transaction.
-  - `スマートコントラクトトランザクションの送信者が手数料を支払ったとき、` `caver.transaction` パッケージ内のSmartContractDeploy format@@4
-  - `スマートコントラクトトランザクションの手数料支払い者が手数料を支払う場合、` caver.transaction `パッケージ内の feeDelegatedSmartContractDeploy` クラス
-  - `スマートコントラクトトランザクションの手数料支払者が手数料を支払う場合、` caver.transaction `パッケージの feeDelegatedSmartContractDeployWithRatio` クラス
+  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+  - `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
 
 手数料委託取引を通じてスマートコントラクトを展開するには 以下の例のように、 `SendOptions` クラスの `feeDelegation` と `feePayer` フィールドを定義します。
@@ -1161,7 +1161,7 @@ String cid = caver.ipfs.add(data);
 System.out.println(cid);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
@@ -1191,7 +1191,7 @@ String multihash = caver.ipfs.toHex(cid);
 System.out.println(multihash);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
@@ -1205,7 +1205,7 @@ String cid = caver.ipfs.fromHex(multhash);
 System.out.println(cid);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
@@ -1250,7 +1250,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1267,11 +1267,11 @@ System.out.println(resultJson);
 
 KIP-17 トークンコントラクトに実装されているインターフェイスを検出するには、 `KIP17` クラスで `detectInterface()` を使用します。 KIP-17 インターフェイス識別子とインターフェイスサポート間のマッピングを返します。
 
-`detectInterface()` は静的メソッドとインスタンスメソッドの両方をサポートしているため、ニーズに合ったメソッドを選択して使用できます。
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
 `KIP17` の `detectInterface()` を介してインターフェイスが検出されます。
 
-| インターフェイス            | KIP-13 Identifier |
+| Interface           | KIP-13 Identifier |
 | ------------------- | ----------------- |
 | IKIP17              | 0x80ac58cd        |
 | IKIP17メタデータ         | 0x5b5e139f        |
@@ -1287,7 +1287,7 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
 
-//static メソッドを使用する。
+//using static method.
 Map<String, Boolean> resultStatic = caver.kct.kip17.detectInterface(caver, contractAddress);
 String resultJson = mapper.writerDefaultPrettyPrinter().writeValueAsString(resultStatic);
 System.out.println(resultJson);
@@ -1299,7 +1299,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1321,7 +1321,7 @@ KIP-37 トークンコントラクトに実装されているインターフェ�
 
 `KIP37` の `detectInterface()` によるインターフェイスの検出を以下の表に示します。
 
-| インターフェイス       | KIP-13 Identifier |
+| Interface      | KIP-13 Identifier |
 | -------------- | ----------------- |
 | IKIP37         | 0x6433ca1f        |
 | IKIP37メタデータ    | 0x0e89341c        |
@@ -1336,7 +1336,7 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
 
-//static メソッドを使用する。
+//using static method.
 Map<String, Boolean> resultStatic = caver.kct.kip37.detectInterface(contractAddress);
 String resultJson = mapper.writerDefaultPrettyPrinter().writeValueAsString(resultStatic);
 System.out.println(resultJson);
@@ -1348,7 +1348,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-上記のコードの実行結果を以下に示します。
+The execution result of the above code is shown below.
 
 ```java
 {
