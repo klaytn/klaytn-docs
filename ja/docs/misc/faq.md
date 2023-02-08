@@ -87,7 +87,7 @@ Baobab testnet:
 - Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 
-## Klaytn SDK はありますか? どの言語で？ <a id="klaytn-sdks"></a>
+## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 
 JavaScriptとJavaで公式のKlaytn SDKが提供されています。 [caver-js](../dapp/sdk/caver-js/README.md) と [caver-Java](../dapp/sdk/caver-java/README.md) を参照してください。 コミュニティの貢献は、他の言語で [Klaytn API](../dapp/json-rpc/README.md) を提供することで常に歓迎されます。
 
@@ -117,7 +117,7 @@ Klaytn SDK を使用して dApps をビルドする方法については、 [チ
 
 ## TruffleはKlaytnのスマートコントラクト開発に使用できますか? <a id="can-i-use-truffle"></a>
 
-はい Truffleは、 [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn) を使用して、Klaytn でスマートコントラクトを開発する際に使用できます。 [Truffle](../toolkit/truffle.md) を参照し、設定ガイドラインに従ってください。
+Yes. Truffleは、 [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn) を使用して、Klaytn でスマートコントラクトを開発する際に使用できます。 [Truffle](../toolkit/truffle.md) を参照し、設定ガイドラインに従ってください。
 
 Truffleを初めて使用する場合 Truffleで何ができるかについては、 [Testing Guide](../smart-contract/testing-guide.md) と [Deployment Guide](../smart-contract/deploy-guide.md) を参照してください。
 
