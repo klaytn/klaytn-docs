@@ -32,9 +32,9 @@ contract KlaytnGreeter is Mortal {
 ## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
 * Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. 完全なソースコードは上記のとおりです。
-* コントラクトを展開するために使用されるアカウントを準備します。
+* Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
-  * 蛇口からKLAYテストを受ける - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
+  * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * 最初のパラメータである挨拶メッセージを使用してコントラクトをデプロイします。
 * デプロイ後、IDEから `挨拶` を呼び出すことができます。
 
