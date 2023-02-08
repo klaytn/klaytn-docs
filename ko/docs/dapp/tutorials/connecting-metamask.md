@@ -61,14 +61,14 @@
 
 > **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 테스트 시에는 Baobab을 사용하세요.
 
-> 간단한 방법도 있습니다. [Klaytn Baobab 네트워크에 지갑을 연결하세요(Testnet)](https://chainlist.org/chain/1001).
+> Here's a simple way. [Klaytn Baobab 네트워크에 지갑을 연결하세요(Testnet)](https://chainlist.org/chain/1001).
 
 * Baobab
   * 네트워크 이름: Klaytn Baobab
   * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
   * 블록 탐색기 URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
   * 체인 ID: 1001
-  * 화폐 심볼: KLAY
+  * Currency Symbol: KLAY
 * [Save]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다.
 
 ![Network Setup](img/connect-testnet-1.png)
