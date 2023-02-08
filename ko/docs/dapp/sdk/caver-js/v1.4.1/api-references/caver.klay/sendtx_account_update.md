@@ -7,14 +7,14 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Account Update](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 네트워크에 전송합니다.
 
-**파라미터**
+**Parameters**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 이름                | 타입       | 설명                                                                   |
-| ----------------- | -------- | -------------------------------------------------------------------- |
-| transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
-| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `ACCOUNT_UPDATE` 타입의 트랜잭션 객체는 아래와 같은 구조를 가집니다. 새로운 키는 타입에 따라 아래 중 하나만 제공해야 한다는 점을 주의하세요. 둘 이상이 입력되면  'duplicated key' 오류가 발생합니다. caver-js v1.2.0부터는 `AccountForUpdate`객체를 생성하여 `key` 필드에 입력하는 것을 권장합니다.
 - key
@@ -24,13 +24,13 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 - roleTransactionKey, roleAccountUpdateKey, roleFeePayerKey
 - failKey
 
-| 이름                   | 타입     | 설명                                                                                                                                                                                                            |
+| Name                 | Type   | Description                                                                                                                                                                                                   |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식                   | String | 트랜잭션 타입. "ACCOUNT_UPDATE"                                                                                                                                                                                     |
+| type                 | String | 트랜잭션 타입. "ACCOUNT_UPDATE"                                                                                                                                                                                     |
 | from                 | String | 이 트랜잭션 발신자의 주소입니다. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                              |
 | gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
-| 가스 가격                | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
-| 논스                   | Number | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                                                                 |
+| gasPrice             | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                    |
+| nonce                | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                           |
 | key                  | Object | (선택사항) `AccountForUpdate` 인스턴스. 계정을 업데이트할 때 사용할 주소와 키가 포함된 인스턴스. 키 유형별 AccountForUpdate 인스턴스를 생성하는 방법은 [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate)를 참조하세요. |
 | legacyKey            | Bool   | (선택사항) 레거시 키를 가지도록 계정을 업데이트하는 경우 이 값을 true로 설정하세요.                                                                                                                                                            |
 | publicKey            | String | (선택사항) 공개키를 가지도록 계정을 업데이트하는 경우 64 바이트 공개키를 입력하세요.                                                                                                                                                             |
@@ -42,17 +42,17 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 `caver.klay.sendTransaction`로 위의  `ACCOUNT_UPDATE` 트랜잭션 객체를 호출하면, caver-js는 이 트랜잭션 객체를 인메모리 지갑 내부에 있는 발신자 계정(`from`)의 키로 서명한 후에 Klaytn 네트워크로 보낼 것입니다.
 
-**리턴값**
+**Return Value**
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
-- `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
-- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**예시**
+**Example**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
@@ -113,7 +113,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 3: Updating account with public key
 
@@ -141,7 +141,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 4: Updating account with fail key
 
@@ -169,7 +169,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 5: Updating account with weighted-multisig
 
@@ -213,7 +213,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 6: Updating account with role-based key
 
@@ -257,7 +257,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
 
@@ -277,53 +277,53 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 `caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
 
-**파라미터**
+**Parameters**
 
-sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
+The parameters of sendTransaction are a transaction object and a callback function.
 
-| 이름                | 타입       | 설명                                                                   |
-| ----------------- | -------- | -------------------------------------------------------------------- |
-| transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
-| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `FEE_DELEGATED_ACCOUNT_UPDATE` 트랜잭션 객체의 구조는 다음과 같습니다.
 
-| 이름                   | 타입     | 설명                                                                                                                                                                                                            |
-| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식                   | String | 트랜잭션 타입. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                     |
-| from                 | String | 이 트랜잭션 발신자의 주소입니다. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                              |
-| gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
-| 가스 가격                | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
-| 논스                   | Number | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                                                                 |
-| key                  | Object | (선택사항) `AccountForUpdate` 인스턴스. 계정을 업데이트할 때 사용할 주소와 키가 포함된 인스턴스. 키 유형별 AccountForUpdate 인스턴스를 생성하는 방법은 [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate)를 참조하세요. |
-| legacyKey            | Bool   | (선택사항) 레거시 키를 가지도록 계정을 업데이트하는 경우 이 값을 true로 설정하세요.                                                                                                                                                            |
-| publicKey            | String | (선택사항) 공개키를 가지도록 계정을 업데이트하는 경우 64 바이트 공개키를 입력하세요.                                                                                                                                                             |
-| multisig             | Object | (선택사항) 다중 서명 키를 가지도록 계정을 업데이트하는 경우 다중 서명을 구성하는 가중 공개 키 목록을 입력하세요. 다중 서명은 임계값도 정의합니다. 트랜잭션에 서명할 때 서명의 가중치 합계는 임계값 이상이어야 합니다.                                                                                   |
-| roleTransactionKey   | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleTransactionKey를 입력하세요. roleTransactionKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다.                                                            |
-| roleAccountUpdateKey | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleAccountUpdateKey를 입력하세요. roleAccountUpdateKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다.                                        |
-| roleFeePayerKey      | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleFeePayerKey를 입력하세요. roleFeePayerKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                                                           |
-| failKey              | Bool   | (선택사항) fail key를 가지도록 계정을 업데이트하는 경우 true로 설정하세요.                                                                                                                                                              |
+| Name                 | Type   | Description                                                                                                                                                                                                                                                                                          |
+| -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                 | String | 트랜잭션 타입. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                                                                                                            |
+| from                 | String | Address of this transaction sender. This account will be updated by this transaction.                                                                                                                                                                                                                |
+| gas                  | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                                                                                               |
+| gasPrice             | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                           |
+| nonce                | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                  |
+| key                  | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
+| legacyKey            | Bool   | (optional) if updating the account to have a legacy key, set this true.                                                                                                                                                                                                                              |
+| publicKey            | String | (optional) if updating the account to have a public key, write down the 64 bytes public key.                                                                                                                                                                                                         |
+| multisig             | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold.           |
+| roleTransactionKey   | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction.                                                                               |
+| roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction.                                                          |
+| roleFeePayerKey      | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer.                                                                          |
+| failKey              | Bool   | (optional) if updating the account to have a fail key, set this true.                                                                                                                                                                                                                                |
 
 위의 구조를 가진 `FEE_DELEGATED_ACCOUNT_UPDATE` 유형의 트랜잭션 오브젝트, 또는  `FEE_DELEGATED_ACCOUNT_UPDATE` 유형의 `RLP 인코딩된 트랜잭션`은 트랜잭션 발신자의 경우 [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction)의 매개 변수로, 수수료 납부자의 경우 [ caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)의 매개 변수로 사용할 수 있습니다.
 
 수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
 
-| 이름                   | 타입     | 설명                      |
-| -------------------- | ------ | ----------------------- |
-| feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
-| senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |
+| Name                 | Type   | Description                               |
+| -------------------- | ------ | ----------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction. |
+| senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션.                   |
 
-**리턴값**
+**Return Value**
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
-- `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
-- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**예시**
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -379,59 +379,59 @@ caver.klay.sendTransaction(transactionObject [, callback])
 수수료 납부자가 트랜잭션에 서명하고 네트워크에 보내는 방법은 두 가지가 있습니다.
 
 1. `caver.klay.sendTransaction`에 수수료 납부자가 사용하는 트랜잭션 형식(`senderRawTransaction`과 `feePayer`를 가진 객체)을 넘겨 호출하는 방법. 이 경우, 수수료 납부자 계정이 caver-js의 인메모리 지갑에 있어야 합니다.
-2. [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)로 서명하고 [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)로 네트워크로 전송하는 방법.
+2. Sign with [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and send to network via [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
 
-여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
+The example here only describes how to use `caver.klay.sendTransaction`.
 
-`caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
+For information on how to send using `caver.klay.accounts.feePayerSignTransaction` and `caver.klay.sendSignedTransaction`, see [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
 
-**파라미터**
+**Parameters**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 이름                | 타입       | 설명                                                                   |
-| ----------------- | -------- | -------------------------------------------------------------------- |
-| transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
-| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 트랜잭션 오브젝트는 아래와 같은 구조를 가집니다.
 
-| 이름                   | 타입     | 설명                                                                                                                                                                                                            |
-| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식                   | String | "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" 트랜잭션 타입.                                                                                                                                                        |
-| from                 | String | 이 트랜잭션 발신자의 주소입니다. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                              |
-| gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
-| 가스 가격                | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
-| 논스                   | Number | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                                                                 |
-| key                  | Object | (선택사항) `AccountForUpdate` 인스턴스. 계정을 업데이트할 때 사용할 주소와 키가 포함된 인스턴스. 키 유형별 AccountForUpdate 인스턴스를 생성하는 방법은 [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate)를 참조하세요. |
-| legacyKey            | Bool   | (선택사항) 레거시 키를 가지도록 계정을 업데이트하는 경우 이 값을 true로 설정하세요.                                                                                                                                                            |
-| publicKey            | String | (선택사항) 공개키를 가지도록 계정을 업데이트하는 경우 64 바이트 공개키를 입력하세요.                                                                                                                                                             |
-| multisig             | Object | (선택사항) 다중 서명 키를 가지도록 계정을 업데이트하는 경우 다중 서명을 구성하는 가중 공개 키 목록을 입력하세요. 다중 서명은 임계값도 정의합니다. 트랜잭션에 서명할 때 서명의 가중치 합계는 임계값 이상이어야 합니다.                                                                                   |
-| roleTransactionKey   | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleTransactionKey를 입력하세요. roleTransactionKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다.                                                            |
-| roleAccountUpdateKey | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleAccountUpdateKey를 입력하세요. roleAccountUpdateKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다.                                        |
-| roleFeePayerKey      | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleFeePayerKey를 입력하세요. roleFeePayerKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                                                           |
-| failKey              | Bool   | (선택사항) fail key를 가지도록 계정을 업데이트하는 경우 true로 설정하세요.                                                                                                                                                              |
+| Name                 | Type   | Description                                                                                                                                                                                                                                                                                          |
+| -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                 | String | "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" 트랜잭션 타입.                                                                                                                                                                                                                                               |
+| from                 | String | Address of this transaction sender. This account will be updated by this transaction.                                                                                                                                                                                                                |
+| gas                  | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                                                                                               |
+| gasPrice             | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                           |
+| nonce                | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                  |
+| key                  | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
+| legacyKey            | Bool   | (optional) if updating the account to have a legacy key, set this true.                                                                                                                                                                                                                              |
+| publicKey            | String | (optional) if updating the account to have a public key, write down the 64 bytes public key.                                                                                                                                                                                                         |
+| multisig             | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold.           |
+| roleTransactionKey   | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction.                                                                               |
+| roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction.                                                          |
+| roleFeePayerKey      | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer.                                                                          |
+| failKey              | Bool   | (optional) if updating the account to have a fail key, set this true.                                                                                                                                                                                                                                |
 
 위의 구조를 가진 `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 유형의 트랜잭션 오브젝트, 또는  `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 유형의 `RLP 인코딩된 트랜잭션`은 트랜잭션 발신자의 경우 [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction)의 매개 변수로, 수수료 납부자의 경우 [ caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)의 매개 변수로 사용할 수 있습니다.
 
-수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 이름                   | 타입     | 설명                      |
-| -------------------- | ------ | ----------------------- |
-| feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
-| senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-**리턴값**
+**Return Value**
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
-- `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
-- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**예시**
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
