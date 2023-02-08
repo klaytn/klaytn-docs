@@ -1,6 +1,6 @@
-# 시작하기 <a id="getting-started"></a>
+# Getting Started <a id="getting-started"></a>
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
 ### 의존성 <a id="dependency"></a>
 
@@ -20,15 +20,15 @@
 implementation 'com.klaytn.caver:core:1.4.0'
 ```
 
-안드로이드 의존성을 사용하려면, 버전 문자열 끝에 -android를 추가하세요. \(가령 1.0.1-android\)
+If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
 
-JSON-RPC 요청 및 응답에 대한 세부 사항을 보려면, [LOGBack](https://logback.qos.ch/) 의존성을 프로젝트에 포함하세요. 아래는 Gradle 빌드 파일 예제입니다. Maven에도 의존성을 추가할 수 있습니다. caver-java가 [SLF4J](http://www.slf4j.org/) 로깅 퍼사드(logging facade)를 사용하기 때문에, LOGBack 대신 선호하는 로깅 프레임워크로 전환할 수 있습니다.
+If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**참고**: 중앙 저장소에는 RC, Android 및 Java 버전이 함께 나열됩니다. 와일드 카드를 사용하여 버전을 얻어오면 플랫폼에 적합하지 않은 버전을 사용하게 될 수 있습니다.
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
 ### 설치 <a id="installation"></a>
 
@@ -43,43 +43,43 @@ $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### 커맨드라인 도구<a id="command-line-tool"></a>
+#### Command-line Tool <a id="command-line-tool"></a>
 
-커맨드라인 도구를 사용하면 커맨드라인에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
+The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
-**설치 \(Homebrew\)**
+**Installation \(Homebrew\)**
 
-이를 설치하려면 Java 1.8 이상이 필요합니다.
+Java 1.8+ is required to install this.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-설치 후 아래와 같이 'caver-java' 명령을 실행할 수 있습니다:
+After installation you can run command 'caver-java' like below:
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**설치 \(기타\)**
+**Installation \(Other\)**
 
-현재 다른 패키지 관리자는 지원하지 않습니다. 다른 솔루션으로, 아래 CLI를 구축하는 방법을 제공합니다.
+Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
 
-* caver-java를 다운로드하거나 포크(fork)하세요.
-* Gradle을 사용하여 콘솔 모듈에서 'shadowDistZip' 작업을 수행하세요. 그 결과 console/build/distributions/console-shadow-{version}.zip이 생성됩니다.
+* Download or fork caver-java.
+* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-* 빌드 디렉토리에서 zip 파일을 압축 해제하세요.
+* Unzip the zip file in the build directory
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* 바이너리 파일을 실행하여 아래와 같이 커맨드라인 도구를 실행하세요. macOS 사용자용 쉘 스크립트 파일과 Window 사용자용 배치 파일을 찾을 수 있습니다.
+* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
@@ -118,9 +118,9 @@ KlayWalletUtils.generateNewWalletFile(
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## 트랜잭션 전송하기 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
-### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
 After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). 수신된 테스트넷 KLAY는 나중에 트랜잭션 수수료로 사용될 것입니다.
 
@@ -132,7 +132,7 @@ After creating an account, you can receive some Baobab testnet KLAY for the Baob
 Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 ```
 
-### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
 `Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
@@ -169,7 +169,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### 영수증 확인<a id="checking-receipts"></a>
+### Checking Receipts <a id="checking-receipts"></a>
 
 `sendFunds`을 통해 트랜잭션을 보내는 경우, caver-java는 기본적으로 트랜잭션 영수증을 받으려 합니다. 영수증을 받으면 콘솔에 다음 로그가 표시됩니다.
 
@@ -209,7 +209,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
 
 ## 다른 트랜잭션 타입 보내기 <a id="sending-other-transaction-types"></a>
 
-### 계정 업데이트 <a id="account-update"></a>
+### Account Update <a id="account-update"></a>
 
 주어진 계정의 키를 새 [AccountKeyPublic][]으로 업데이트하려는 경우:
 
@@ -227,7 +227,7 @@ Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction
 
 계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [AccountKey][]를 읽으세요.
 
-### 스마트 컨트랙트 <a id="smart-contract"></a>
+### Smart Contract <a id="smart-contract"></a>
 
 caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. [Solidity Compiler][]를 참조하세요.
 
@@ -314,7 +314,7 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn은 서비스 제공자가 사용자 대신 트랜잭션 수수료를 지불할 수 있는 기능인 [수수료 위임][]을 제공합니다.
 
@@ -555,7 +555,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlie는 받은 트랜잭션에 서명하고 Klaytn EN으로 보냅니다.
+//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
 //// Charlie Side
 FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
