@@ -1,4 +1,4 @@
-# 메타버스 패키지
+# Metaverse Package
 
 ## 진입 장벽 낮추기<a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
 
