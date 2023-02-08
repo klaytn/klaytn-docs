@@ -2,17 +2,17 @@
 
 クライアントが所有するアドレスのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ          | Description      |
+| Type         | Description      |
 | ------------ | ---------------- |
 | 20 バイトデータの配列 | クライアントが所有するアドレス。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -31,20 +31,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 指定されたアドレスのアカウントの残高を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                        |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | 20 バイトのデータ                      | 残高を確認するアドレス。                                                                                                                                       |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                        |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | 20-byte DATA                    | 残高を確認するアドレス。                                                                                                                                       |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 品質  | ペブの現在の残高の整数。 |
+| Type | Description  |
+| ---- | ------------ |
+| 品質   | ペブの現在の残高の整数。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -62,20 +62,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 指定されたアドレスのコードを返します。
 
-**パラメータ**
+**Parameters**
 
-| タイプ                             | Description                                                                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | 住所                                                                                                                                                                                     |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description      |
-| --- | ---------------- |
-| データ | 指定されたアドレスからのコード。 |
+| Type | Description      |
+| ---- | ---------------- |
+| データ  | 指定されたアドレスからのコード。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -94,20 +94,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 アドレスから ** を送信したトランザクション数を返します。
 
-**パラメータ**
+**Parameters**
 
-| タイプ                             | Description                                                                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                |
-| --- | -------------------------- |
-| 品質  | このアドレスから送信されるトランザクション数の整数。 |
+| Type     | Description                |
+| -------- | -------------------------- |
+| QUANTITY | このアドレスから送信されるトランザクション数の整数。 |
 
-**例**
+**Example**
 
  ```shell
 // Request
@@ -133,20 +133,20 @@ sign(kecchak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **注**: 署名するアドレスのロックを解除する必要があります。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ        | Description |
-| ------- | ---------- | ----------- |
-| アカウント   | 20 バイトのデータ | 住所          |
-| message | Nバイトのデータ   | 署名するメッセージ   |
+| Name    | Type         | Description |
+| ------- | ------------ | ----------- |
+| アカウント   | 20-byte DATA | Address     |
+| message | Nバイトのデータ     | 署名するメッセージ   |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| データ | 署名          |
+| Type | Description |
+| ---- | ----------- |
+| DATA | 署名          |
 
-**例**
+**Example**
 
 ```shell
 // Request
