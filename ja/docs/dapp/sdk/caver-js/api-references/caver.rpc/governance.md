@@ -10,26 +10,26 @@ caver.rpc.goverance.vote(key, value [, callback])
 
 新しい投票を送信します。 ノードにガバナンスモードに基づいて投票する権利がある場合、投票を送信することができます。 そうでない場合、エラーが発生し、投票は無視されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ                          | Description                                                 |
+| Name     | Type                         | Description                                                 |
 | -------- | ---------------------------- | ----------------------------------------------------------- |
-| キー       | 文字列                          | 設定の名前を変更します。 キーには "domain.field" というフォームがあります。              |
-| 値        | 文字列 &#124; 番号 &#124; boolean | 各キーの値の様々なタイプ。                                               |
-| callback | 関数                           | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| key      | string                       | 設定の名前を変更します。 キーには "domain.field" というフォームがあります。              |
+| value    | 文字列 &#124; 番号 &#124; boolean | 各キーの値の様々なタイプ。                                               |
+| callback | function                     | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
 
 `キー` と `値` の `caver.rpc.goverance.vote`の詳細については、 [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote) を参照してください。
 
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 投票提出の結果     |
+| Type   | Description |
+| ------ | ----------- |
+| string | 投票提出の結果     |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.vote('governance.goverancemode', 'ballot').then(console.log)
@@ -44,21 +44,21 @@ caver.rpc.governance.showTally([callback])
 
 ガバナンス票の現在の集計を提供します。 これは、総承認率をパーセントで表示します。 料金が50%を超えると、提案された変更は通過しなければなりません。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Array` を返します。
 
-| タイプ | Description    |
-| --- | -------------- |
-| 行列  | 投票の値と承認率を含む行列。 |
+| Type  | Description    |
+| ----- | -------------- |
+| Array | 投票の値と承認率を含む行列。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.showTally().then(console.log)
@@ -77,23 +77,23 @@ caver.rpc.governance.showTally([callback])
 caver.rpc.goverance.getTotalVotingPower([callback])
 ```
 
-CNが持っているすべての投票権の合計を提供します。 各CNには1.0〜2.0の投票力があります。 「なし」および「シングル」ガバナンスモードでは、totalVotingPowerは情報を提供しません。
+CNが持っているすべての投票権の合計を提供します。 Each CN has 1.0 ~ 2.0 voting power. 「なし」および「シングル」ガバナンスモードでは、totalVotingPowerは情報を提供しません。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `番号` を返します。
+`Promise` returns `number`
 
-| タイプ | Description |
-| --- | ----------- |
-| 数値  | 総投票力        |
+| Type   | Description |
+| ------ | ----------- |
+| number | 総投票力        |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getTotalVotingPower().then(console.log)
@@ -108,21 +108,21 @@ caver.rpc.goverance.getMyVotingPower([callback])
 
 ノードの投票力を提供します。 投票力は1.0〜2.0の間でどこにでもすることができます。 「なし」および「シングル」ガバナンスモードでは、totalVotingPowerは情報を提供しません。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `番号` を返します。
+`Promise` returns `number`
 
-| タイプ | Description |
-| --- | ----------- |
-| 数値  | ノードの投票力。    |
+| Type   | Description |
+| ------ | ----------- |
+| number | ノードの投票力。    |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getMyVotingPower().then(console.log)
@@ -135,23 +135,23 @@ caver.rpc.goverance.getMyVotingPower([callback])
 caver.rpc.governance.getMyVotes([callback])
 ```
 
-エポックに投票情報を提供します。 ユーザーのノードが新しいブロックを生成すると、各投票はブロックに保存されます。 現在のエポックが終了すると、この情報はクリアされます。
+エポックに投票情報を提供します。 Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `Array` を返します。
+`Promise` returns `Array`
 
-| タイプ | Description      |
-| --- | ---------------- |
-| 行列  | 時限におけるノードの投票の状態。 |
+| Type  | Description      |
+| ----- | ---------------- |
+| Array | 時限におけるノードの投票の状態。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotes().then(console.log)
@@ -173,21 +173,21 @@ caver.rpc.governance.getChainConfig([callback])
 
 最初のチェーン構成を提供します。 最初の構成だけが保存されているので、投票によって行われたガバナンスの変更があった場合。 chainConfig の結果は現在の状態と異なります。 現在の情報を見るには、itemsAtを使用してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクト` を返す
 
-| タイプ    | Description |
+| Type   | Description |
 | ------ | ----------- |
 | object | 最初のチェーン構成   |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getChainConfig().then(console.log)
@@ -227,21 +227,21 @@ caver.rpc.goverance.getNodeAddress([callback])
 
 ユーザーが使用しているノードのアドレスを提供します。 It is derived from the nodekey and used to sign consensus messages. そして、"goveringnode" の値は、バリデータのノードアドレスの 1 つでなければなりません。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | ノードのアドレス    |
+| Type   | Description |
+| ------ | ----------- |
+| string | ノードのアドレス    |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getNodeAddress().then(console.log)
@@ -256,22 +256,22 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 
 特定のブロックのガバナンス項目を返します。 It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
-**パラメータ**
+**Parameters**
 
-| 名前               | タイプ           | Description                                                             |
-| ---------------- | ------------- | ----------------------------------------------------------------------- |
-| blockNumberOrTag | 番号 &#124; 文字列 | (オプション) ブロック番号、文字列 `最新の` または `最も早く`。 If omitted, `latest` will be used. |
-| callback         | 関数            | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。             |
+| Name             | Type                 | Description                                                                                                      |
+| ---------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrTag | number &#124; string | (オプション) ブロック番号、文字列 `最新の` または `最も早く`。 If omitted, `latest` will be used.                                          |
+| callback         | function             | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description |
+| Type   | Description |
 | ------ | ----------- |
 | object | ガバナンス項目です   |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemsAt().then(console.log)
@@ -307,21 +307,21 @@ caver.rpc.goverance.getPendingChanges([callback])
 
 十分な票数を受け取ったがまだ確定していないアイテムのリストを返します。 At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description             |
+| Type   | Description             |
 | ------ | ----------------------- |
 | object | 現在保留中の変更はキーと値で構成されています。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getPendingChanges().then(console.log)
@@ -336,21 +336,21 @@ caver.rpc.governance.getIdxCache([callback])
 
 メモリーキャッシュ内の現在の idxCache の配列を返します。 idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ | Description          |
-| --- | -------------------- |
-| 行列  | ガバナンスの変更が起こったブロック番号。 |
+| Type  | Description          |
+| ----- | -------------------- |
+| Array | ガバナンスの変更が起こったブロック番号。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getIdxCache().then(console.log)
@@ -365,21 +365,21 @@ caver.rpc.governance.getIdxCacheFromDb([callback])
 
 ガバナンスが変更されたすべてのブロック番号を含む配列を返します。 idxCacheFromDb の結果は [idxCache](#caver-rpc-governance-getidxcache) と同じまたはそれ以上です。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ | Description          |
-| --- | -------------------- |
-| 行列  | ガバナンスの変更が起こったブロック番号。 |
+| Type  | Description                                     |
+| ----- | ----------------------------------------------- |
+| Array | Block numbers where governance change happened. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getIdxCacheFromDb().then(console.log)
@@ -394,27 +394,27 @@ caver.rpc.governance.getItemCacheFromDb([callback])
 
 与えられたブロックに格納されているガバナンス情報を返します。 与えられたブロックに変更が保存されていない場合、関数は null を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ           | Description                                  |
-| ----------- | ------------- | -------------------------------------------- |
-| blockNumber | 番号 &#124; 文字列 | ブロック番号、またはブロックで行われたガバナンスの変更をクエリするための16進数文字列。 |
+| Name        | Type                 | Description                                  |
+| ----------- | -------------------- | -------------------------------------------- |
+| blockNumber | number &#124; string | ブロック番号、またはブロックで行われたガバナンスの変更をクエリするための16進数文字列。 |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description           |
+| Type   | Description           |
 | ------ | --------------------- |
 | object | 特定のブロックに保存されたガバナンス情報。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
@@ -451,21 +451,21 @@ caver.rpc.governance.getVotes([callback])
 
 エポック内のすべてのノードから投票を返します。 These votes are gathered from the header of each block.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ | Description              |
-| --- | ------------------------ |
-| 行列  | キー、値、ノードアドレスで構成された現在の投票。 |
+| Type  | Description              |
+| ----- | ------------------------ |
+| Array | キー、値、ノードアドレスで構成された現在の投票。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.goverance.getVotes().then(console.log)
@@ -488,22 +488,22 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 特定のブロックにステーキング情報を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前               | タイプ           | Description                                                             |
-| ---------------- | ------------- | ----------------------------------------------------------------------- |
-| blockNumberOrTag | 番号 &#124; 文字列 | (オプション) ブロック番号、文字列 `最新の` または `最も早く`。 If omitted, `latest` will be used. |
-| callback         | 関数            | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。             |
+| Name             | Type                 | Description                                                                                                      |
+| ---------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.              |
+| callback         | function             | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                                                |
+| Type   | Description                                                                                                                                |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | object | ステーキング情報。 戻り値の説明については、 [governance_getStakingInfo](../../../../json-rpc/api-references/governance.md#governance_getstakinginfo) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getStakingInfo().then(console.log)
