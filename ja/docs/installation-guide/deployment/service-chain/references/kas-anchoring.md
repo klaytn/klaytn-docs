@@ -1,6 +1,6 @@
 デザインセクションで説明したように、サービスチェーンデータを Klaytn メインチェーンにアンカーできます。 このページでは、 [KAS (Klaytn API Service)](https://www.klaytnapi.com) を介してデータアンカーを有効にする方法を紹介します。
 
-電源を入れたら。 サービスチェーン内のノードは、サービスチェーンの存在と不変性の証明として、チェーンデータ(ブロックデータ)を定期的にサイプレスまたはバオバブにアンカーすることができます。 これにより、サービスチェーンの安全性と信頼性が保証されます。
+電源を入れたら。 サービスチェーン内のノードは、サービスチェーンの存在と不変性の証明として、チェーンデータ(ブロックデータ)を定期的にサイプレスまたはバオバブにアンカーすることができます。 This ensures the security and credibility of the service chain.
 
 # KAS使用準備 <a id="preparation-with-kas"></a>
 このセクションでは、データアンカーにKASを使用するための前提条件を紹介します。
@@ -37,7 +37,7 @@ KASを介してサービスチェーンデータをアンカーするには、KA
 
 その後、以下のようにオペレータリストを確認できます。 サービスチェーンノードの設定には、オペレーターのアドレスが必要です。
 
-![演算子を作成](../images/kas-operator-list-en.png)
+![create operator](../images/kas-operator-list-en.png)
 
 ## サービスチェーンノードの設定 <a id="configure-service-chain-node"></a>
 API資格情報を取得した後、Anchor API情報 (APIエンドポイントとパラメータ) そして、KASでオペレータアカウントを作成し、次にサービスチェーンノードを設定します。 You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
