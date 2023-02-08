@@ -14,24 +14,24 @@ Namespace `txpool` API는 몇몇 비표준 RPC 메서드에 접근하여 현재 
 
 `pending`과 `queued` 등 두 개의 필드로 구성된 객체를 반환합니다. 각 필드는 연관 배열이며, 연관 배열의 각 항목은 발신자의 주소별로 대기 중인 트랜잭션 묶음을 보여줍니다. 트랜잭션 묶음 자체도 논스에 따른 각 트랜잭션의 내용으로 구성되어 있습니다.
 
-| 클라이언트 | 메서드 호출                         |
-|:-----:| ------------------------------ |
-|  콘솔   | `txpool.content`               |
-|  RPC  | `{"method": "txpool_content"}` |
+| Client  | Method invocation              |
+|:-------:| ------------------------------ |
+| Console | `txpool.content`               |
+|   RPC   | `{"method": "txpool_content"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명             |
-| -------- | -------------- |
-| JSON 문자열 | 트랜잭션 풀의 내용입니다. |
+| Type        | Description    |
+| ----------- | -------------- |
+| JSON string | 트랜잭션 풀의 내용입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > txpool.content
@@ -137,26 +137,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 `inspect` 검사 속성을 조회하여 다음 블록(들)에 포함되기 위해 현재 보류 중인 트랜잭션 뿐만 아니라 이후에 처리되기 위해 대기 중인 모든 트랜잭션의 요약본을 확인할 수 있습니다. 이 메서드는 개발자가 빠르게 트랜잭션 풀을 확인하고 잠재적인 문제를 찾을 수 있도록 만들어졌습니다.
 
-`pending`과 `queued` 등 두 개의 필드로 구성된 객체를 반환합니다. 각 필드는 연관 배열이며, 연관 배열의 각 항목은 발신자의 주소별로 대기 중인 트랜잭션 묶음을 보여줍니다. 트랜잭션 묶음 자체도 논스에 따른 각 트랜잭션의 내용으로 구성되어 있습니다.
+The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. 트랜잭션 묶음 자체도 논스에 따른 각 트랜잭션의 내용으로 구성되어 있습니다.
 
-| 클라이언트 | 메서드 호출                         |
-|:-----:| ------------------------------ |
-|  콘솔   | `txpool.inspect`               |
-|  RPC  | `{"method": "txpool_inspect"}` |
+| Client  | Method invocation              |
+|:-------:| ------------------------------ |
+| Console | `txpool.inspect`               |
+|   RPC   | `{"method": "txpool_inspect"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                            |
-| -------- | ----------------------------- |
-| JSON 문자열 | 보류 상태이거나 대기 상태인 트랜잭션들의 목록입니다. |
+| Type        | Description                   |
+| ----------- | ----------------------------- |
+| JSON string | 보류 상태이거나 대기 상태인 트랜잭션들의 목록입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > txpool.inspect
 {
@@ -220,25 +220,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 `pending`과 `queued` 등 두 개의 필드로 구성된 객체를 결과로 반환하며, 각 필드는 해당 상태의 트랜잭션 수를 나타냅니다.
 
-| 클라이언트 | 메서드 호출                        |
-|:-----:| ----------------------------- |
-|  콘솔   | `txpool.status`               |
-|  RPC  | `{"method": "txpool_status"}` |
+| Client  | Method invocation             |
+|:-------:| ----------------------------- |
+| Console | `txpool.status`               |
+|   RPC   | `{"method": "txpool_status"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 이름     | 타입  | 설명                  |
-| ------ | --- | ------------------- |
-| 보류     | int | 보류 상태인 트랜잭션의 개수입니다. |
-| queued | int | 대기 상태인 트랜잭션의 개수입니다. |
+| Name    | Type | Description         |
+| ------- | ---- | ------------------- |
+| pending | int  | 보류 상태인 트랜잭션의 개수입니다. |
+| queued  | int  | 대기 상태인 트랜잭션의 개수입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > txpool.status
