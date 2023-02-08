@@ -4,25 +4,25 @@
 
 주어진 시간 동안 Go 런타임 추적을 진행하며 추적 데이터를 디스크에 입력합니다.
 
-| 클라이언트 | 메서드 호출                                                    |
-|:-----:| --------------------------------------------------------- |
-|  콘솔   | `debug.goTrace(file, seconds)`                            |
-|  RPC  | `{"method": "debug_goTrace", "params": [string, number]}` |
+| Client  | Method Invocation                                         |
+|:-------:| --------------------------------------------------------- |
+| Console | `debug.goTrace(file, seconds)`                            |
+|   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명                  |
+| Name    | Type   | Description         |
 | ------- | ------ | ------------------- |
 | file    | string | 추적 결과 파일의 이름입니다.    |
 | seconds | int    | 초 단위로 표현된 추적 기간입니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.goTrace("go.trace", 5)
 null
@@ -39,24 +39,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 입력으로 받은 파일에 Go 런타임 추적 결과를 씁니다.
 
-| 클라이언트 | 메서드 호출                                                 |
-|:-----:| ------------------------------------------------------ |
-|  콘솔   | `debug.startGoTrace(file)`                             |
-|  RPC  | `{"method": "debug_startGoTrace", "params": [string]}` |
+| Client  | Method Invocation                                      |
+|:-------:| ------------------------------------------------------ |
+| Console | `debug.startGoTrace(file)`                             |
+|   RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름   | 타입     | 설명                  |
+| Name | Type   | Description         |
 | ---- | ------ | ------------------- |
 | file | string | 추적 결과를 쓸 파일의 이름입니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.startGoTrace("go.trace")
 null
@@ -72,22 +72,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Go 런타임 추적을 중지합니다.
 
-| 클라이언트 | 메서드 호출                                          |
-|:-----:| ----------------------------------------------- |
-|  콘솔   | `debug.stopGoTrace()`                           |
-|  RPC  | `{"method": "debug_stopGoTrace", "params": []}` |
+| Client  | Method Invocation                               |
+|:-------:| ----------------------------------------------- |
+| Console | `debug.stopGoTrace()`                           |
+|   RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.stopGoTrace()
 null
