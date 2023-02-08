@@ -1,6 +1,6 @@
 # ERC-721 例 <a id="erc-721-example"></a>
 
-## はじめに <a id="introduction"></a>
+## Introduction <a id="introduction"></a>
 
 This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-kip-17).
 
@@ -23,17 +23,17 @@ function isApprovedForAll(address _owner, address _operator) external view retur
 function supportsInterface(bytes4 interfaceID) external view returns (bool);
 ```
 
-上記のインターフェイスに基づいて、開発者は新しい機能とロジックを追加し、Klaytnネットワークにデプロイすることでトークンをカスタマイズできます。 詳細は公式 [ERC-721 仕様](https://eips.ethereum.org/EIPS/eip-721) を参照してください。
+Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Klaytn network. 詳細は公式 [ERC-721 仕様](https://eips.ethereum.org/EIPS/eip-721) を参照してください。
 
 In this tutorial, you are going to implement `MyERC721Card.sol` which implements a card-type non-fungible token, i.e. `MyERC721Card`,  which is an ERC-721 token. それぞれの `MyERC721Card` には名前とレベルがあります。例えば、レベル1の「キング」、レベル1の「クイーン」です。
 
 `MyERC721Card.sol` は OpenZeppelin の ERC721 実装に基づいています。 このチュートリアルのコードの大部分は、 [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0) からフォークされています。
 
-このチュートリアルの残りの部分は以下のように構成されています。
+The rest of this tutorial is organized as follows.
 
 * [1. ERC-721スマートコントラクトを書く](./1-erc721.md)
   - 1.1 `MyERC721Card` コード全体の `MyERC721Card` の全体構造
-  - 1.2 重要な関数を見る
-* [2. スマートコントラクトの導入](./2-erc721.md)
+  - 1.2 Take a look at important functions
+* [2. Deploying smart contract](./2-erc721.md)
   - 2.1 Deploying smart contract using Remix Online IDE
-  - 2.2 トリュフを使用したスマートコントラクトの導入
+  - 2.2 Deploying smart contract using truffle
