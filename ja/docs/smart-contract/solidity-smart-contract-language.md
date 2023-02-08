@@ -9,11 +9,11 @@
 Klaytnは **London** Ethereum Virtual Machine (EVM)バージョンと公式に互換性があります。 後方互換性は、Klaytnの他のEVMバージョンでは保証されません。 したがって、イスタンブールのターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。 [Solc の EVM バージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target) を参照してください。
 
 {% hint style="success" %}
-v1.7.0 Protocol Upgrade - **イスタンブール** ハードフォークアイテムと Klaytn 自身のアイテムを含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#75,373,312` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.7.3 プロトコルアップグレード - **ロンドン** のハードフォークからの基本料金を含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#80,295,291` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.8.0 プロトコルアップグレード - **ロンドン** ハードフォークからの基本手数料を含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#86,513,895` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
+v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}
 
 [Remix](https://remix.ethereum.org/) \(ブラウザベースのIDE\) や [Truffle](https://github.com/trufflesuite/truffle) \(開発フレームワーク\) などの開発ツールは、Klaytn のスマートコントラクトを開発する際に利用できます。 KlaytnチームはEthereumの開発ツールとKlaytnの間の互換性を維持しようとしますが、必要に応じて、Klaytnスマートコントラクト開発者にこれらのツールの拡張バージョンまたは更新バージョンを提供することを選択することができます。
@@ -123,7 +123,7 @@ NOTE: This section will be updated in the future.
 
 NOTE: This section will be updated in the future.
 
-## 参照 <a id="references"></a>
+## References <a id="references"></a>
 
 * [Solidity GitHub page](https://github.com/ethereum/solidity)
 * [Solidity ドキュメント](https://solidity.readthedocs.io/en/latest/index.html)
