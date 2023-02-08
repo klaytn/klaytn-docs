@@ -1,4 +1,4 @@
-# 테스트 가이드
+# Testing Guide
 
 이 장에서는 스마트 컨트랙트를 테스트하는 방법을 소개합니다. 블록체인의 트랜잭션은 되돌릴 수 없으므로 스마트 컨트랙트를 배포하기 전에 테스트하는 것이 매우 중요합니다.
 
@@ -239,7 +239,7 @@ Compiling your contracts...
   3 passing (158ms)
 ```
 
-축하합니다! 테스트가 통과되었습니다.
+Congratulations! Your test has passed.
 
 ### 4) 테스트 지정하기 <a href="#4-specifying-test" id="4-specifying-test"></a>
 
