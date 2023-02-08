@@ -30,7 +30,7 @@ I type my pass here
 ^D
 ```
 
-### 자바스크립트 콘솔 <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
 콘솔에서 다음 함수를 호출하여 계정을 만들 수 있습니다:
 
@@ -55,7 +55,7 @@ $ ken account import <keyfile> --datadir <DATADIR>
 $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### 자바스크립트 콘솔 <a id="javascript-console-1"></a>
+### JavaScript Console <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
