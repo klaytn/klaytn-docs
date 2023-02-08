@@ -15,19 +15,19 @@ caver.klay.abi.encodeFunctionSignature(functionSignature)
 
 Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ                  | Description                                                                                                                                               |
-| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| function署名 | String &#124; Object | エンコードする関数の関数シグネチャまたは JSON インターフェイスオブジェクト。 If String it has to be in the form `function(type,type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| Name              | Type                 | Description                                                                                                                                                                                    |
+| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | String &#124; Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form `function(type,type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 関数の ABI 署名。 |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| String | The ABI signature of the function. |
 
-**例**
+**Examples**
 
 ```javascript
 // From a JSON interface object
@@ -57,19 +57,19 @@ caver.klay.abi.encodeEventSignature(eventSignature)
 
 Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input types.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ                  | Description                                                                                                                                          |
-| ------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event署名 | String &#124; Object | エンコードするイベントのイベント署名または JSON インターフェイスオブジェクト。 If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| Name           | Type                 | Description                                                                                                                                                                        |
+| -------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | String &#124; Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | イベントのABI署名。 |
+| Type   | Description                     |
+| ------ | ------------------------------- |
+| String | The ABI signature of the event. |
 
-**例**
+**Examples**
 
 ```javascript
 // From a JSON interface object
@@ -97,22 +97,22 @@ caver.klay.abi.encodeEventSignature('myEvent(uint256,bytes32)')
 caver.klay.abi.encodeParameter(type, parameter)
 ```
 
-ABI 表現にそのタイプに基づいてパラメータをエンコードします。
+Encodes a parameter based on its type to its ABI representation.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ                  | Description                                                                                     |
-| ----- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| タイプ   | String &#124; Object | 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html)  を参照してください。 |
-| パラメータ | 混在しました               | エンコードする実際のパラメータ。                                                                                |
+| Name      | Type                 | Description                                                                                                                             |
+| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| type      | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| parameter | Mixed                | The actual parameter to encode.                                                                                                         |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description        |
-| --- | ------------------ |
-| 文字列 | ABI エンコードされたパラメータ。 |
+| Type   | Description                |
+| ------ | -------------------------- |
+| String | The ABI encoded parameter. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.encodeParameter('uint256', '2345675643')
@@ -128,28 +128,28 @@ caver.klay.abi.encodeParameter('bytes32[]', [caver.utils.rightPad('0xdf3234', 64
 > "00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002df32340000000000000000000000000000000000000000000000000000000000fdfd000000000000000000000000000000000000000000000000000000000000"
 ```
 
-## エンコードパラメータ <a id="encodeparameters"></a>
+## encodeParameters <a id="encodeparameters"></a>
 
 ```javascript
 caver.klay.abi.encodeParameters(typesArray, parameters)
 ```
 
-JSON インターフェイスオブジェクトに基づいて関数パラメータをエンコードします。
+Encodes function parameters based on its JSON interface object.
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ                                   | Description                                                                                                              |
-| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array<String&#124;Object>&#124;Object | 関数の型またはJSONインターフェイスを持つ配列。 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
-| パラメータ      | 行列                                    | エンコードするパラメータ                                                                                                             |
+| Name       | Type                                  | Description                                                                                                                                                        |
+| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| parameters | Array                                 | The parameters to encode.                                                                                                                                          |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description        |
-| --- | ------------------ |
-| 文字列 | ABI エンコードされたパラメータ。 |
+| Type   | Description                 |
+| ------ | --------------------------- |
+| String | The ABI encoded parameters. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.encodeParameters(['uint256','string'], ['2345675643', 'Hello!%'])
@@ -165,22 +165,22 @@ caver.klay.abi.encodeParameters(['uint8[]','bytes32'], [['34','255'], caver.util
 caver.klay.abi.encodeFunctionCall(jsonInterface, parameters)
 ```
 
-JSONインターフェースオブジェクトと与えられたパラメータを使用して関数呼び出しをエンコードします。
+Encodes a function call using its JSON interface object and given parameters.
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ    | Description              |
-| ------------- | ------ | ------------------------ |
-| jsonInterface | Object | 関数の JSON インターフェイスオブジェクト。 |
-| パラメータ         | 行列     | エンコードするパラメータ             |
+| Name          | Type   | Description                              |
+| ------------- | ------ | ---------------------------------------- |
+| jsonInterface | Object | The JSON interface object of a function. |
+| parameters    | Array  | The parameters to encode.                |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                 |
-| --- | ------------------------------------------- |
-| 文字列 | ABI エンコードされた関数呼び出し。これは、関数シグネチャとパラメータを意味します。 |
+| Type   | Description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| String | The ABI encoded function call, which means function signature + parameters. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.encodeFunctionCall({
@@ -203,22 +203,22 @@ caver.klay.abi.encodeFunctionCall({
 caver.klay.abi.decodeParameter(type, hexString)
 ```
 
-ABI エンコードされたパラメータを JavaScript 型にデコードします。
+Decodes an ABI encoded parameter to its JavaScript type.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                | Description                                                                                    |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------- |
-| タイプ       | String&#124;Object | 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
-| hexString | 行列                 | デコードするABIバイトコード。                                                                               |
+| Name      | Type               | Description                                                                                                                            |
+| --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| type      | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexString | Array              | The ABI byte code to decode.                                                                                                           |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description   |
-| ------ | ------------- |
-| 混在しました | デコードされたパラメータ。 |
+| Type  | Description            |
+| ----- | ---------------------- |
+| Mixed | The decoded parameter. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.decodeParameter('uint256', '0x0000000000000000000000000000000000000000000000000000000000000010')
@@ -234,21 +234,21 @@ caver.klay.abi.decodeParameter('string', '0x000000000000000000000000000000000000
 caver.klay.abi.decodeParameters(typesArray, hexString)
 ```
 
-ABI エンコードされたパラメータを JavaScript 型にデコードします。
+Decodes ABI encoded parameters to its JavaScript types.
 
-**パラメータ**
-| 名前         | タイプ                                   | Description                                                                                                                                           |
-| ---------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
-| hexString  | 文字列                                   | デコードするABIバイトコード。                                                                                                                                      |
+**Parameters**
+| Name       | Type                                  | Description                                                                                                                                                        |
+| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexString  | String                                | The ABI byte code to decode.                                                                                                                                       |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description              |
-| ------ | ------------------------ |
-| Object | デコードされたパラメータを含む結果オブジェクト。 |
+| Type   | Description                                          |
+| ------ | ---------------------------------------------------- |
+| Object | The result object containing the decoded parameters. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.decodeParameters(['string', 'uint256'], '0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000ea000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
@@ -275,22 +275,22 @@ caver.klay.abi.decodeParameters([{
 caver.klay.abi.decodeLog(inputs, hexString, topics)
 ```
 
-ABI エンコードされたログ データとインデックス付きトピックデータをデコードします。
+Decodes ABI encoded log data and indexed topic data.
 
-**パラメータ**
-| 名前        | タイプ | Description                                                                                                                      |
-| --------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | 行列  | A JSON interface inputs array. 型のリストについては、 [solidity ドキュメント](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。    |
-| hexString | 文字列 | ログの `データ` フィールドのABIバイトコード。                                                                                                       |
-| トピック      | 行列  | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0]. |
+**Parameters**
+| Name      | Type   | Description                                                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| inputs    | Array  | A JSON interface inputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexString | String | The ABI byte code in the `data` field of a log.                                                                                            |
+| topics    | Array  | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0].           |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description              |
-| ------ | ------------------------ |
-| Object | デコードされたパラメータを含む結果オブジェクト。 |
+| Type   | Description                                          |
+| ------ | ---------------------------------------------------- |
+| Object | The result object containing the decoded parameters. |
 
-**例**
+**Examples**
 
 ```javascript
 caver.klay.abi.decodeLog([{
@@ -325,20 +325,20 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 
 Encode smart contract bytecode with the arguments of the constructor.
 
-**パラメータ**
-| 名前            | タイプ    | Description                           |
-| ------------- | ------ | ------------------------------------- |
-| jsonInterface | 行列     | コントラクトの JSON インターフェイス。                |
-| hexString     | 文字列    | デプロイされるスマートコントラクトのバイトコード。             |
-| params        | 混在しました | Arguments to pass to the constructor. |
+**Parameters**
+| Name          | Type   | Description                                  |
+| ------------- | ------ | -------------------------------------------- |
+| jsonInterface | Array  | The JSON interface of the contract.          |
+| hexString     | String | A bytecode of smart contract to be deployed. |
+| params        | Mixed  | Arguments to pass to the constructor.        |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                                            |
-| --- | ---------------------------------------------------------------------- |
-| 文字列 | コンストラクタ引数を使用した ABI エンコードされたスマートコントラクトのデプロイメントは、byteCode + パラメータを意味します。 |
+| Type   | Description                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------- |
+| String | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
 
-**例**
+**Examples**
 
 ```javascript
 // There is no argument for constructor
