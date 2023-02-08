@@ -84,7 +84,7 @@ Klaytnは現在、単価を使用してトランザクションを交換する�
 | G\_sha3         | 30    | SHA3操作ごとに支払い済み                                     |
 | G\_sha3word     | 6     | SHA3操作にデータを入力するための単語ごとに支払い（切り上げ）                   |
 | G\_copy         | 3     | コピーした単語を掛けた\*COPY演算の部分的な支払いは、切り上げられます            |
-| G\_blockhash    | 20    | BLOCKHASHの支払い方法                                    |
+| G\_blockhash    | 20    | Payment for BLOCKHASH operation                    |
 | G\_extcodehash  | 400   | 契約コードの kecchak256 ハッシュを取得するための支払い済み                |
 | G\_create2      | 32000 | CREATEと同一に操作しますが、異なる引数を使用するオペコードCREATE2用に支払い済み     |
 
@@ -92,7 +92,7 @@ Klaytnは現在、単価を使用してトランザクションを交換する�
 
 事前にコンパイルされた契約は、通常、複雑な暗号計算を実行し、他の契約によって開始される特別な種類の契約です。
 
-| 項目                      | Gas       | Description                    |
+| Item                    | Gas       | Description                    |
 |:----------------------- |:--------- |:------------------------------ |
 | EcrecoverGas            | 3000      | ECRecover操作を実行                 |
 | Sha256BaseGas           | 60        | sha256 ハッシュ操作を実行します            |
@@ -125,7 +125,7 @@ TotalGas = 署名数 * ValidateSenderGas
 
 ### アカウント関連のガステーブル <a id="account-related-gas-table"></a>
 
-| 項目                         | Gas   | Description                    |
+| Item                       | Gas   | Description                    |
 |:-------------------------- |:----- |:------------------------------ |
 | TxAccountCreationGasPerKey | 20000 | キーペア作成に必要なガス                   |
 | TxValidationGasPerKey      | 15000 | 鍵検証に必要なガス                      |
@@ -147,19 +147,19 @@ GasPayload = number_of_bytes * TxDataGas
 
 | TxType                 | Gas                                                    |
 |:---------------------- |:------------------------------------------------------ |
-| 従来の取引                  | TxGas + PayloadGas + KeyValidationGas                  |
+| LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
 | ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
 | ValueTransferMemo      | TxGasValueTransfer + PayloadGas + KeyValidationGas     |
-| アカウント更新                | TxGasAccountUpdate + KeyCreationGas + KeyValidationGas |
+| AccountUpdate          | TxGasAccountUpdate + KeyCreationGas + KeyValidationGas |
 | SmartContractDeploy    | TxGasContractCreation + PayloadGas + KeyValidationGas  |
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
-| キャンセル                  | TxGasCancel + KeyValidationGas                         |
+| Cancel                 | TxGasCancel + KeyValidationGas                         |
 
 KeyValidationGas は、キーの型に基づいて以下のように定義されています。
 
 | キーの種類  | Gas                                               |
 |:------ |:------------------------------------------------- |
-| なし     | 該当なし                                              |
+| なし     | N/A                                               |
 | Legacy | 0                                                 |
 | 失敗     | 0                                                 |
 | 公開     | 0                                                 |
@@ -168,11 +168,11 @@ KeyValidationGas は、キーの型に基づいて以下のように定義され
 
 KeyCreationGas は、キーの型に基づいて以下のように定義されます。
 
-| キーの種類  | Gas                                                                                                                                                                                    |
-|:------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| なし     | 該当なし                                                                                                                                                                                   |
-| Legacy | 0                                                                                                                                                                                      |
-| 失敗     | 0                                                                                                                                                                                      |
-| 公開     | GasCreationPerKey \(20000\)                                                                                                                                                          |
-| マルチシグ  | \(keys\) \* GasCreationPerKey                                                                                                                                                      |
-| ロールベース | 各役割の鍵に基づいて計算されたガス料金。 例えば、GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
+| Key Type  | Gas                                                                                                                                                                                    |
+|:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nil       | N/A                                                                                                                                                                                    |
+| Legacy    | 0                                                                                                                                                                                      |
+| Fail      | 0                                                                                                                                                                                      |
+| Public    | GasCreationPerKey \(20000\)                                                                                                                                                          |
+| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                      |
+| RoleBased | 各役割の鍵に基づいて計算されたガス料金。 例えば、GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
