@@ -4,25 +4,25 @@
 
 指定された期間のブロックプロファイリングをオンにし、プロファイルデータを ディスクに書き込みます。 最も正確な情報にはプロファイルレート1を使用します。 異なる レートが必要な場合は、レートを設定し、 [debug_writeBlockProfile](#debug_writeblockprofile) を使用してプロファイルを手動で書き込みます。
 
-| クライアント | メソッドの呼び出し                                                      |
-|:------:| -------------------------------------------------------------- |
-| コンソール  | `debug.blockProfile(file, seconds)`                            |
-|  RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
+| Client  | Method Invocation                                              |
+|:-------:| -------------------------------------------------------------- |
+| Console | `debug.blockProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description           |
-| ---- | --- | --------------------- |
-| ファイル | 文字列 | プロファイリング結果のファイル名。     |
-| 秒    | int | プロファイリング期間を秒単位で指定します。 |
+| Name    | Type   | Description           |
+| ------- | ------ | --------------------- |
+| file    | string | プロファイリング結果のファイル名。     |
+| seconds | int    | プロファイリング期間を秒単位で指定します。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.blockProfile("block.profile", 10)
 null
@@ -38,25 +38,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 指定した期間の CPU プロファイリングをオンにし、プロファイルデータをディスクに書き込みます。
 
-| クライアント | メソッドの呼び出し                                                    |
-|:------:| ------------------------------------------------------------ |
-| コンソール  | `debug.cpuProfile(file, seconds)`                            |
-|  RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
+| Client  | Method Invocation                                            |
+|:-------:| ------------------------------------------------------------ |
+| Console | `debug.cpuProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description           |
-| ---- | --- | --------------------- |
-| ファイル | 文字列 | プロファイリング結果のファイル名。     |
-| 秒    | int | プロファイリング期間を秒単位で指定します。 |
+| Name    | Type   | Description                            |
+| ------- | ------ | -------------------------------------- |
+| file    | string | The filename for the profiling result. |
+| seconds | int    | The profiling duration in seconds.     |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.cpuProfile("block.profile", 10)
 null
@@ -69,27 +69,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_mutexProfile <a id="debug_mutexprofile"></a>
 
-nsec(ナノ秒)のミューテックスプロファイリングをオンにし、プロファイルデータをファイルに書き込みます。 最も正確な情報にはプロファイルレート1を使用します。 異なるレートが必要な場合は、レートを設定し、プロファイルを手動で記述します。
+nsec(ナノ秒)のミューテックスプロファイリングをオンにし、プロファイルデータをファイルに書き込みます。 It uses a profile rate of 1 for most accurate information. 異なるレートが必要な場合は、レートを設定し、プロファイルを手動で記述します。
 
-| クライアント | メソッドの呼び出し                                                      |
-|:------:| -------------------------------------------------------------- |
-| コンソール  | `debug.mutexProfile(file, seconds)`                            |
-|  RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+| Client  | Method Invocation                                              |
+|:-------:| -------------------------------------------------------------- |
+| Console | `debug.mutexProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description           |
-| ---- | --- | --------------------- |
-| ファイル | 文字列 | プロファイリング結果のファイル名。     |
-| 秒    | int | プロファイリング期間を秒単位で指定します。 |
+| Name    | Type   | Description                            |
+| ------- | ------ | -------------------------------------- |
+| file    | string | The filename for the profiling result. |
+| seconds | int    | The profiling duration in seconds.     |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.mutexProfile("mutex.profile", 10)
 null
@@ -105,24 +105,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 pprof HTTP サーバーが実行されている場合は `true` を、それ以外の場合は `false` を返します。
 
-| クライアント | メソッドの呼び出し                                          |
-|:------:| -------------------------------------------------- |
-| コンソール  | `debug.isPProfRunning()`                           |
-|  RPC   | `{"method": "debug_isPProfRunning", "params": []}` |
+| Client  | Method Invocation                                  |
+|:-------:| -------------------------------------------------- |
+| Console | `debug.isPProfRunning()`                           |
+|   RPC   | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                                         |
+| Type | Description                                         |
 | ---- | --------------------------------------------------- |
 | bool | `pprof HTTP サーバーが実行されている場合は` true `、そうでない場合は` が正しい。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.isPProfRunning()
 false
@@ -139,24 +139,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Goroutineブロックプロファイルデータ収集の速度(サンプル/秒)を設定します。 がゼロでない場合、ブロックプロファイリングを有効にし、ゼロに設定するとプロファイルが停止します。 収集されたプロファイルデータは、 [debug_writeBlockProfile](#debug_writeblockprofile) を使用して書き込むことができます。
 
-| クライアント | メソッドの呼び出し                                                     |
-|:------:| ------------------------------------------------------------- |
-| コンソール  | `debug.setBlockProfileRate(rate)`                             |
-|  RPC   | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
+| Client  | Method Invocation                                             |
+|:-------:| ------------------------------------------------------------- |
+| Console | `debug.setBlockProfileRate(rate)`                             |
+|   RPC   | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description             |
-| --- | --- | ----------------------- |
-| レート | int | プロファイリング速度（samples/sec） |
+| Name | Type | Description             |
+| ---- | ---- | ----------------------- |
+| レート  | int  | プロファイリング速度（samples/sec） |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.setBlockProfileRate(1)
 null
@@ -172,24 +172,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 CPU プロファイリングを無期限にオンにし、指定されたファイルに書き込みます。
 
-| クライアント | メソッドの呼び出し                                                 |
-|:------:| --------------------------------------------------------- |
-| コンソール  | `debug.startCPUProfile(file)`                             |
-|  RPC   | `{"method": "debug_startCPUProfile", "params": [string]}` |
+| Client  | Method Invocation                                         |
+|:-------:| --------------------------------------------------------- |
+| Console | `debug.startCPUProfile(file)`                             |
+|   RPC   | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description       |
-| ---- | --- | ----------------- |
-| ファイル | 文字列 | プロファイリング出力のファイル名。 |
+| Name | Type   | Description       |
+| ---- | ------ | ----------------- |
+| file | string | プロファイリング出力のファイル名。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > debug.startCPUProfile("cpu.profile")
@@ -206,22 +206,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 CPU プロファイリングをオフにします。
 
-| クライアント | メソッドの呼び出し                                          |
-|:------:| -------------------------------------------------- |
-| コンソール  | `debug.stopCPUProfile()`                           |
-|  RPC   | `{"method": "debug_stopCPUProfile", "params": []}` |
+| Client  | Method Invocation                                  |
+|:-------:| -------------------------------------------------- |
+| Console | `debug.stopCPUProfile()`                           |
+|   RPC   | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.stopCPUProfile()
 null
@@ -240,25 +240,25 @@ pprof HTTP サーバーを起動します。  実行中の pprof サーバは �
 - http://localhost:6060/memsize/ (for the memory size reports)
 - http://localhost:6060/debug/var (for the metrics)
 
-| クライアント | メソッドの呼び出し                                                    |
-|:------:| ------------------------------------------------------------ |
-| コンソール  | `debug.startPProf(address, port)`                            |
-|  RPC   | `{"method": "debug_startPProf", "params": [string, number]}` |
+| Client  | Method Invocation                                            |
+|:-------:| ------------------------------------------------------------ |
+| Console | `debug.startPProf(address, port)`                            |
+|   RPC   | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                                                |
-| ------- | --- | ---------------------------------------------------------- |
-| address | 文字列 | (オプション) pprof HTTP サーバーリスニングインターフェイス (デフォルト: "127.0.0.1")。 |
-| ポート     | int | (オプション) pprof HTTP サーバーのリスニングポート(デフォルト: 6060)。             |
+| Name    | Type   | Description                                                |
+| ------- | ------ | ---------------------------------------------------------- |
+| address | string | (オプション) pprof HTTP サーバーリスニングインターフェイス (デフォルト: "127.0.0.1")。 |
+| port    | int    | (オプション) pprof HTTP サーバーのリスニングポート(デフォルト: 6060)。             |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 # To start the pprof server at 127.0.0.1:6060
 > debug.startPProf()
@@ -281,22 +281,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 pprof HTTP サーバーを停止します。
 
-| クライアント | メソッドの呼び出し                                     |
-|:------:| --------------------------------------------- |
-| コンソール  | `debug.stopPProf()`                           |
-|  RPC   | `{"method": "debug_stopPProf", "params": []}` |
+| Client  | Method Invocation                             |
+|:-------:| --------------------------------------------- |
+| Console | `debug.stopPProf()`                           |
+|   RPC   | `{"method": "debug_stopPProf", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.stopPProf()
 null
@@ -313,24 +313,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 指定されたファイルにゴルーチンブロックプロファイルを書き込みます。
 
-| クライアント | メソッドの呼び出し                                                   |
-|:------:| ----------------------------------------------------------- |
-| コンソール  | `debug.writeBlockProfile(file)`                             |
-|  RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
+| Client  | Method Invocation                                           |
+|:-------:| ----------------------------------------------------------- |
+| Console | `debug.writeBlockProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description       |
-| ---- | --- | ----------------- |
-| ファイル | 文字列 | プロファイリング出力のファイル名。 |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.writeBlockProfile("block.profile")
 null
@@ -346,24 +346,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 割り当てプロファイルを指定したファイルに書き込みます。  プロファイリング率 は API では設定できないことに注意してください。 コマンドラインで `--memprofileate` フラグを使用して設定する必要があります。
 
-| クライアント | メソッドの呼び出し                                                 |
-|:------:| --------------------------------------------------------- |
-| コンソール  | `debug.writeMemProfile(file)`                             |
-|  RPC   | `{"method": "debug_writeMemProfile", "params": [string]}` |
+| Client  | Method Invocation                                         |
+|:-------:| --------------------------------------------------------- |
+| Console | `debug.writeMemProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description       |
-| ---- | --- | ----------------- |
-| ファイル | 文字列 | プロファイリング出力のファイル名。 |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.writeMemProfile("mem.profile")
 null
@@ -376,26 +376,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
 
-指定されたファイルにゴルーチンブロックプロファイルを書き込みます。
+Writes a goroutine blocking profile to the given file.
 
-| クライアント | メソッドの呼び出し                                                   |
-|:------:| ----------------------------------------------------------- |
-| コンソール  | `debug.writeMutexProfile(file)`                             |
-|  RPC   | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+| Client  | Method Invocation                                           |
+|:-------:| ----------------------------------------------------------- |
+| Console | `debug.writeMutexProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeMutexProfile", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description       |
-| ---- | --- | ----------------- |
-| ファイル | 文字列 | プロファイリング出力のファイル名。 |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.writeMutexProfile("mutex.profile")
 null
