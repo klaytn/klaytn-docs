@@ -7,39 +7,39 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 ネットワークに [スマートコントラクトデプロイ](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy) トランザクションを送信します。
 
-**パラメータ**
+**Parameters**
 
-sendTransaction のパラメータはトランザクションオブジェクトとコールバック関数です。
+The parameters of sendTransaction are a transaction object and a callback function.
 
-| 名前                | タイプ    | Description                                                        |
-| ----------------- | ------ | ------------------------------------------------------------------ |
-| transactionObject | Object | 送信するトランザクションオブジェクト。                                                |
-| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 種類 `SMART_CONTRACT_DEPLOY` のトランザクションオブジェクトには以下の構造があります:
 
-| 名前         | タイプ                                             | Description                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ        | 文字列                                             | トランザクションの種類 "MART_CONTRACT_DEPLOY"                                                                                                                                                                                                                                                                                                                                |
-| from       | 文字列                                             | このトランザクション送信者のアドレス。                                                                                                                                                                                                                                                                                                                                                 |
-| ガス         | Number                                          | 取引に支払うガスの最大額(使用されていないガスは返金されます)。                                                                                                                                                                                                                                                                                                                                    |
-| gasPrice   | Number                                          | (オプション) ペブで送信者が提供するガス価格。 gasPriceは、Klaytnノードで設定されているunitPriceと同じである必要があります。                                                                                                                                                                                                                                                                                         |
-| nonce      | Number                                          | (オプション) nonce の整数。 省略された場合、 `caver.klay.getTransactionCount` を呼び出すことで caver-js によって設定されます。                                                                                                                                                                                                                                                                          |
-| data       | 文字列                                             | デプロイされるスマートコントラクトのバイトコード。 スマートコントラクトのコンストラクタに引数を渡す必要がある場合。 「コンパイル済みバイトコード + 引数」の形式でデータを設定する必要があります。 コンパイルされたバイトコードが '0x123 ... 321' で、コンストラクタに 1 を渡す必要がある場合は、'0x123 ... 321' + '0000000000000000000000000000000000000000000001' を設定する必要があります。 [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) を使用して、パラメータを使用してバイトコードのエンコード値を取得します。 |
-| 値          | Number &#124; String &#124; BN &#124; BigNumber | このデプロイメントでコントラクトに転送される値。 値の転送を受け入れるには、コントラクトコンストラクタは 'payable' でなければなりません。 コントラクトコンストラクタが支払われない場合、値はゼロでなければなりません。                                                                                                                                                                                                                                                   |
-| codeFormat | 文字列                                             | (オプション、デフォルト: `"EVM"`) スマートコントラクトのコード形式。                                                                                                                                                                                                                                                                                                                            |
+| Name       | Type                                            | Description                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | String                                          | Transaction Type. "MART_CONTRACT_DEPLOY"                                                                                                                                                                                                                                                                                                                                             |
+| from       | String                                          | Address of this transaction sender.                                                                                                                                                                                                                                                                                                                                                    |
+| gas        | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                                                                                                                                                                                 |
+| gasPrice   | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                                                                                                             |
+| nonce      | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                                                                                                    |
+| data       | String                                          | A bytecode of smart contract to be deployed. スマートコントラクトのコンストラクタに引数を渡す必要がある場合。 「コンパイル済みバイトコード + 引数」の形式でデータを設定する必要があります。 コンパイルされたバイトコードが '0x123 ... 321' で、コンストラクタに 1 を渡す必要がある場合は、'0x123 ... 321' + '0000000000000000000000000000000000000000000001' を設定する必要があります。 [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) を使用して、パラメータを使用してバイトコードのエンコード値を取得します。 |
+| value      | Number &#124; String &#124; BN &#124; BigNumber | このデプロイメントでコントラクトに転送される値。 値の転送を受け入れるには、コントラクトコンストラクタは 'payable' でなければなりません。 コントラクトコンストラクタが支払われない場合、値はゼロでなければなりません。                                                                                                                                                                                                                                                                      |
+| codeFormat | String                                          | (オプション、デフォルト: `"EVM"`) スマートコントラクトのコード形式。                                                                                                                                                                                                                                                                                                                                               |
 
-**戻り値**
+**Return Value**
 
-`コールバック` は 32 バイトのトランザクションハッシュを返します。
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. 領収書が入手可能な場合には解決されます。 さらに、次のイベントが利用できます:
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
-- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
-- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
@@ -70,9 +70,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-...
+    ...
 })
-.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 
 // ケース 2: コンストラクタ引数を使用したスマートコントラクトの導入 (caver.klay.abi.encodeContractDeployを使用)。
@@ -111,9 +111,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-...
+    ...
 })
-.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
 
@@ -124,48 +124,48 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 ネットワークに [手数料委託スマートコントラクトデプロイ](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy) トランザクションを送信します。
 
-**パラメータ**
+**Parameters**
 
-sendTransaction のパラメータはトランザクションオブジェクトとコールバック関数です。
+The parameters of sendTransaction are a transaction object and a callback function.
 
-| 名前                | タイプ    | Description                                                        |
-| ----------------- | ------ | ------------------------------------------------------------------ |
-| transactionObject | Object | 送信するトランザクションオブジェクト。                                                |
-| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 タイプ `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` のトランザクションオブジェクト
 
-| 名前         | タイプ                                             | Description                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ        | 文字列                                             | トランザクションの種類 "FEE_DELEGATED_SMART_CONTRACT_DEPLOY"                                                                                                                                                                                                                                                                                                               |
-| from       | 文字列                                             | このトランザクション送信者のアドレス。                                                                                                                                                                                                                                                                                                                                                 |
-| ガス         | Number                                          | 取引に支払うガスの最大額(使用されていないガスは返金されます)。                                                                                                                                                                                                                                                                                                                                    |
-| gasPrice   | Number                                          | (オプション) ペブで送信者が提供するガス価格。 gasPriceは、Klaytnノードで設定されているunitPriceと同じである必要があります。                                                                                                                                                                                                                                                                                         |
-| nonce      | Number                                          | (オプション) nonce の整数。 省略された場合、 `caver.klay.getTransactionCount` を呼び出すことで caver-js によって設定されます。                                                                                                                                                                                                                                                                          |
-| data       | 文字列                                             | デプロイされるスマートコントラクトのバイトコード。 スマートコントラクトのコンストラクタに引数を渡す必要がある場合。 「コンパイル済みバイトコード + 引数」の形式でデータを設定する必要があります。 コンパイルされたバイトコードが '0x123 ... 321' で、コンストラクタに 1 を渡す必要がある場合は、'0x123 ... 321' + '0000000000000000000000000000000000000000000001' を設定する必要があります。 [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) を使用して、パラメータを使用してバイトコードのエンコード値を取得します。 |
-| 値          | Number &#124; String &#124; BN &#124; BigNumber | このデプロイメントでコントラクトに転送される値。 値の転送を受け入れるには、コントラクトコンストラクタは 'payable' でなければなりません。 コントラクトコンストラクタが支払われない場合、値はゼロでなければなりません。                                                                                                                                                                                                                                                   |
-| codeFormat | 文字列                                             | (オプション、デフォルト: `"EVM"`) スマートコントラクトのコード形式。                                                                                                                                                                                                                                                                                                                            |
+| Name       | Type                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_DEPLOY"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| from       | String                                          | Address of this transaction sender.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| gas        | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| gasPrice   | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| nonce      | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| data       | String                                          | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
+| value      | Number &#124; String &#124; BN &#124; BigNumber | The value that will be transferred to the contract with this deployment. To accept the value transfer, the contract constructor must be 'payable'. If the contract constructor is not payable, value must be zero.                                                                                                                                                                                                                                                                                                                      |
+| codeFormat | String                                          | (optional, default: `"EVM"`) The code format of smart contract.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 名前                   | タイプ | Description                        |
-| -------------------- | --- | ---------------------------------- |
-| feePayer             | 文字列 | このトランザクションの手数料支払者アドレス。             |
-| senderRawTransaction | 文字列 | 送信者によって署名された RLP エンコードされたトランザクション。 |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-**戻り値**
+**Return Value**
 
-`コールバック` は 32 バイトのトランザクションハッシュを返します。
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. 領収書が入手可能な場合には解決されます。 さらに、次のイベントが利用できます:
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
-- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
-- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -205,9 +205,9 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-...
+    ...
 })
-.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // コンストラクター引数でスマートコントラクトをデプロイする (caver.klay.abi.encodeContractDeploy)。
 
@@ -240,49 +240,49 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 ネットワークに [手数料委託スマートコントラクトを委託する](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio) トランザクションを送信する。
 
-**パラメータ**
+**Parameters**
 
-sendTransaction のパラメータはトランザクションオブジェクトとコールバック関数です。
+The parameters of sendTransaction are a transaction object and a callback function.
 
-| 名前                | タイプ    | Description                                                        |
-| ----------------- | ------ | ------------------------------------------------------------------ |
-| transactionObject | Object | 送信するトランザクションオブジェクト。                                                |
-| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name              | Type     | Description                                                                                                |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                            |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 タイプ `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO のトランザクションオブジェクト` には以下の構造があります。
 
-| 名前         | タイプ                                             | Description                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ        | 文字列                                             | トランザクションの種類 "FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO"                                                                                                                                                                                                                                                                                                  |
-| from       | 文字列                                             | このトランザクション送信者のアドレス。                                                                                                                                                                                                                                                                                                                                                 |
-| ガス         | Number                                          | 取引に支払うガスの最大額(使用されていないガスは返金されます)。                                                                                                                                                                                                                                                                                                                                    |
-| gasPrice   | Number                                          | (オプション) ペブで送信者が提供するガス価格。 gasPriceは、Klaytnノードで設定されているunitPriceと同じである必要があります。                                                                                                                                                                                                                                                                                         |
-| nonce      | Number                                          | (オプション) nonce の整数。 省略された場合、 `caver.klay.getTransactionCount` を呼び出すことで caver-js によって設定されます。                                                                                                                                                                                                                                                                          |
-| data       | 文字列                                             | デプロイされるスマートコントラクトのバイトコード。 スマートコントラクトのコンストラクタに引数を渡す必要がある場合。 「コンパイル済みバイトコード + 引数」の形式でデータを設定する必要があります。 コンパイルされたバイトコードが '0x123 ... 321' で、コンストラクタに 1 を渡す必要がある場合は、'0x123 ... 321' + '0000000000000000000000000000000000000000000001' を設定する必要があります。 [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) を使用して、パラメータを使用してバイトコードのエンコード値を取得します。 |
-| 値          | Number &#124; String &#124; BN &#124; BigNumber | このデプロイメントでコントラクトに転送される値。 値の転送を受け入れるには、コントラクトコンストラクタは 'payable' でなければなりません。 コントラクトコンストラクタが支払われない場合、値はゼロでなければなりません。                                                                                                                                                                                                                                                   |
-| codeFormat | 文字列                                             | (オプション、デフォルト: `"EVM"`) スマートコントラクトのコード形式。                                                                                                                                                                                                                                                                                                                            |
-| 手数料比       | Number                                          | 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。 手数料比率の範囲は1~99ですが、範囲外の場合は取引は受け付けられません。                                                                                                                                                                                                                                                                |
+| Name       | Type                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO"                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| from       | String                                          | Address of this transaction sender.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| gas        | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| gasPrice   | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| nonce      | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| data       | String                                          | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
+| value      | Number &#124; String &#124; BN &#124; BigNumber | The value that will be transferred to the contract with this deployment. To accept the value transfer, the contract constructor must be 'payable'. If the contract constructor is not payable, value must be zero.                                                                                                                                                                                                                                                                                                                      |
+| codeFormat | String                                          | (optional, default: `"EVM"`) The code format of smart contract.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| feeRatio   | Number                                          | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                                                                                                                                                                                                                                                                                                                   |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` can be used as a parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 名前                   | タイプ | Description                        |
-| -------------------- | --- | ---------------------------------- |
-| feePayer             | 文字列 | このトランザクションの手数料支払者アドレス。             |
-| senderRawTransaction | 文字列 | 送信者によって署名された RLP エンコードされたトランザクション。 |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-**戻り値**
+**Return Value**
 
-`コールバック` は 32 バイトのトランザクションハッシュを返します。
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. 領収書が入手可能な場合には解決されます。 さらに、次のイベントが利用できます:
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- `"transactionHash"` returns `String`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。
-- `"receipt"` は `オブジェクト`: トランザクション受信が可能であるときに発生します。
-- `"error"` returns `Error`: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -324,11 +324,11 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-...
+    ...
 })
-.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// コンストラクター引数でスマートコントラクトをデプロイする (caver.klay.abi.encodeContractDeploy)。
+// Deploying smart contract with constructor arguments (using caver.klay.abi.encodeContractDeploy).
 
 const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO',
