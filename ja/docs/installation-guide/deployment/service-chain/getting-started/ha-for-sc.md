@@ -3,7 +3,7 @@ ServiceChainで1つのブリッジのみを使用すると、そのブリッジ�
 ![](../images/sc-ha-arch.png)
 
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - ENのメインブリッジとSCNのサブブリッジが接続されています。 そうでない場合は、 [Baobab connection](en-scn-connection.md) を参照して接続を確立してください。
  - このセクションでは、BaobabとServiceChainの間に追加のブリッジを追加する方法について説明します。 同じように、別のブリッジを追加することでHAを設定することもできます。
 
