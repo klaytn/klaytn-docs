@@ -1,23 +1,33 @@
 ## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
-フィルタのポーリングメソッド。最後のpoll以降に発生したログの配列を返します。
+Polling method for a filter, which returns an array of logs which occurred since last poll.
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description                      |
-| -- | --- | -------------------------------- |
-| 品質 | 文字列 | フィルター id (*e.g.*, "0x16" // 22). |
+| Name     | Type   | Description                           |
+| -------- | ------ | ------------------------------------- |
+| QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
 
-**戻り値**
+**Return Value**
 
-`Array` - ログオブジェクトの配列、または最後のpoll以降に何も変更されていない場合は空の配列。
+`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
 - [klay_newBlockFilter](#klay_newblockfilter)で作成されたフィルタの場合、戻り値はブロックハッシュ(32バイトDATA)です。 *例:*, `["0x3454645634534..."]`.
 - [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)で作成されたフィルタの場合、戻り値はトランザクション ハッシュ（32バイトDATA） *例:*, `["0x6345343454645..."]` です。
-- [klay_newFilter](#klay_newfilter)で作成されたフィルタの場合、ログは次のパラメータを持つオブジェクトです。インデックス付きログ引数の0~4バイトのデータ配列。 (Solidity: 最初のトピックは、イベント (*など) の署名のハッシュです。 * ,*, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> </tbody> </table> 
+- [klay_newFilter](#klay_newfilter)で作成されたフィルタの場合、ログは次のパラメータを持つオブジェクトです。
 
-**例**
+| Name             | Type          | Description                                                                                                                                                                                                                                  |
+| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
+| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
+| transactionIndex | QUANTITY      | Integer of the transactions index position log was created from. `null` when pending.                                                                                                                                                        |
+| transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
+| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
+| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
+| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
+| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
+| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
-
+**Example**
 
 ```shell
 // Request
@@ -43,32 +53,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-
-
-
 ## klay_getFilterLogs <a id="klay_getfilterlogs"></a>
 
 与えられたIDを持つすべてのログ一致フィルタの配列を返します。 これは [klay_newFilter](#klay_newfilter) を使用して得られました。  他のフィルター作成関数によって返されるフィルター id に注意してください。 例: klay_newBlockFilter [](#klay_newblockfilter) または [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), はこの関数では使用できません。
 
-この API の実行は Klaytn ノードのリソースを安全に管理するための 2 つのノード構成によって制限することができます。
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
 
-- 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
-- 1つのクエリの実行時間制限(デフォルト: 10秒)。
+**Parameters**
 
-**パラメータ**
+| Name     | Type   | Description   |
+| -------- | ------ | ------------- |
+| QUANTITY | string | The filter id |
 
-| 名前 | タイプ | Description |
-| -- | --- | ----------- |
-| 品質 | 文字列 | フィルター ID    |
-
-
-**戻り値**
+**Return Value**
 
 [klay_getFilterChanges を参照してください](#klay_getfilterchanges)
 
-**例**
-
-
+**Example**
 
 ```shell
 // Request
@@ -93,44 +96,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-
-
-
 ## klay_getLogs <a id="klay_getlogs"></a>
 
-与えられたフィルタオブジェクトに一致するすべてのログの配列を返します。
+Returns an array of all logs matching a given filter object.
 
-この API の実行は Klaytn ノードのリソースを安全に管理するための 2 つのノード構成によって制限することができます。
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
 
-- 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
-- 1つのクエリの実行時間制限(デフォルト: 10秒)。
+**Parameters**
 
-**パラメータ**
+`Object` - The filter options:
 
-`オブジェクト` - フィルタのオプション:
+| Name      | Type                      | Description                                                                                                                                                                                                                                                                                                      |
+| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
+| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
+| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
+| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
+| blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
 
-| 名前        | タイプ                 | Description                                                                                                                                                                                           |
-| --------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロックから    | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
-| トピック      | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
-| blockHash | 32バイトのデータ           | (オプション) 32 バイトのハッシュブロックハッシュで単一のブロックに返されるログを制限するフィルタオプション。 blockHashを使用することはfromBlock = toBlock = ハッシュブロックハッシュを持つブロック番号と同等です。 フィルタ条件にblockHashが存在する場合は、fromBlockもtoBlockも許可されません。                      |
-
-
-{% hint style="success" %} 
-
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。 
-
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-[klay_getFilterChanges を参照してください](#klay_getfilterchanges)
+See [klay_getFilterChanges](#klay_getfilterchanges)
 
-**例**
-
-
+**Examples**
 
 ```shell
 // Request
@@ -188,9 +182,6 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
   ]
 }
 ```
-
-
-
 
 ```shell
 // Request
@@ -250,27 +241,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-
-
-
 ## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
-ノードにフィルタを作成し、新しいブロックが到着したときに通知します。 状態が変更されたかどうかを確認するには、 [klay_getFilterChanges](#klay_getfilterchanges) を呼び出します。
+Creates a filter in the node, to notify when a new block arrives. 状態が変更されたかどうかを確認するには、 [klay_getFilterChanges](#klay_getfilterchanges) を呼び出します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルタID。     |
+| Type     | Description  |
+| -------- | ------------ |
+| QUANTITY | A filter id. |
 
-
-**例**
-
-
+**Example**
 
 ```shell
 // Request
@@ -285,52 +270,41 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-
-
-
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-フィルターオプションに基づいてフィルターオブジェクトを作成し、状態が変更されたときに通知します (ログ)。
-
-- 状態が変更されたかどうかを確認するには、 [klay_getFilterChanges](#klay_getfilterchanges) を呼び出します。
+Creates a filter object, based on filter options, to notify when the state changes (logs).
+- To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 - `klay_newFilter`で作成されたフィルタに一致するすべてのログを取得するには、 [klay_getFilterLogs](#klay_getfilterlogs) を呼び出します。
 
-**トピックフィルタの指定に関する注意:** トピックは順序に依存します。 トピック `[A, B]` を含むログを持つトランザクションは以下のトピックフィルタによって一致されます:
+**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
+* `[]` "anything"
+* `[A]` "A in first position (and anything after)"
+* `[null, B]` "anything in first position AND B in second position (and anything after)"
+* `[A, B]` "A in first position AND B in second position (and anything after)"
+* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
 
-* `[]` "何か"
-* `[A]` "A in first position (and after anything)"
-* `[null, B]` "最初の位置にあるものと2番目の位置にあるもの（およびその後のもの）"
-* `[A, B]` "A in first position AND B in second position(and anything)"
-* `[[A, B], [A, B]]` "(A OR B) in first position, AND (A OR B) in second position (and anything)"
+**Parameters**
 
-**パラメータ**
+`Object` - The filter options:
 
-`オブジェクト` - フィルタのオプション:
+| Name      | Type                      | Description                                                                                                                                                                                           |
+| --------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                  |
+| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                                                                       |
 
-| 名前      | タイプ                 | Description                                                                                                                                                                                           |
-| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロックから  | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
-| トピック    | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
-
-
-{% hint style="success" %} 
-
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。 
-
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルター ID    |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | A filter id |
 
-
-**例**
-
-
+**Example**
 
 ```shell
 // Request
@@ -341,27 +315,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-
-
-
 ## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-新しい保留中のトランザクションが到着したときに通知するために、ノードにフィルタを作成します。 状態が変更されたかどうかを確認するには、 [klay_getFilterChanges](#klay_getfilterchanges) を呼び出します。
+Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルタID。     |
+| Type     | Description  |
+| -------- | ------------ |
+| QUANTITY | A filter id. |
 
-
-**例**
-
-
+**Example**
 
 ```shell
 // Request
@@ -375,33 +343,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-
-
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-RPCのPub/Sub-over WebSocketsまたはHTTPを介したフィルタを使用して、特定のイベントに新しいサブスクリプションを作成します。 クライアントは、ポーリングの代わりにイベントを待つことができます。
+Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
 
-ノードは作成された各サブスクリプションのサブスクリプション ID を返します。 契約に一致するイベントごとに、関連データを含む通知がサブスクリプション ID と一緒に送信されます。 接続が閉じられている場合、接続経由で作成されたすべての契約が削除されます。
+The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
 
-**パラメータ**
+**Parameters**
 
-`Object` - 通知タイプ: `"newHeads"` または `"logs"`.
-
-`"newHeads"` はブロックチェーンに追加された各ブロックを通知します。 `"logs"` は新しいブロックに含まれるログを通知します。 この型には、フィルターオプションを指定する 2 番目のパラメーターが必要です。 詳細については、 [klay_newFilter > parameters](https://docs.klaytn.com/dapp/json-rpc/api-references/klay/filter#klay_newfilter) をご覧ください。
-
-**戻り値**
-
-| タイプ | Description                                                        |
-| --- | ------------------------------------------------------------------ |
-| 品質  | サブスクリプションが作成されたときのサブスクリプション ID 契約に一致するイベントごとに、関連するデータを含む通知も配信されます。 |
+`Object` - A notification type: `"newHeads"` or `"logs"`.
 
 
-**例**
+`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. 詳細については、 [klay_newFilter > parameters](https://docs.klaytn.com/dapp/json-rpc/api-references/klay/filter#klay_newfilter) をご覧ください。
 
-この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
+**Return Value**
+
+| Type     | Description                                                                                                                                                  |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
 
 
+**Example**
+
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
@@ -412,9 +376,6 @@ wscat -c http://localhost:8552
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
 < {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
-
-
-
 
 ```shell
 // Request
@@ -427,30 +388,23 @@ wscat -c http://localhost:8552
 ```
 
 
-
-
-
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-与えられたIDでフィルターをアンインストールします。 時計がもはや必要ではないときに常に呼び出される必要があります。 さらに、一定期間 [klay_getFilterChanges](#klay_getfilterchanges) で要求されないフィルタのタイムアウト。
+Uninstalls a filter with given id. Should always be called when watch is no longer needed. さらに、一定期間 [klay_getFilterChanges](#klay_getfilterchanges) で要求されないフィルタのタイムアウト。
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description |
-| ----- | --- | ----------- |
-| フィルター | 品質  | フィルタID。     |
+| Name   | Type     | Description  |
+| ------ | -------- | ------------ |
+| filter | QUANTITY | A filter id. |
 
+**Return Value**
 
-**戻り値**
+| Type    | Description                                                           |
+| ------- | --------------------------------------------------------------------- |
+| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
-| タイプ     | Description                                      |
-| ------- | ------------------------------------------------ |
-| Boolean | `フィルタが正常にアンインストールされていれば、true` 、それ以外の場合は `false`。 |
-
-
-**例**
-
-
+**Example**
 
 ```shell
 // Request
@@ -465,32 +419,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-
-
-
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-RPC Pub/Sub over WebSocketsまたはHTTP経由のフィルタを使用して、特定のサブスクリプション IDでサブスクリプションをキャンセルします。 サブスクリプションを作成した接続のみが登録解除できます。
+Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
 
-**パラメータ**
+**Parameters**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 品質  | サブスクリプションID。 |
+| Type     | Description        |
+| -------- | ------------------ |
+| QUANTITY | A subscription id. |
 
+**Return Value**
 
-**戻り値**
-
-| タイプ     | Description                                                          |
-| ------- | -------------------------------------------------------------------- |
-| Boolean | `true` if the subscription was successfully canceled, other `false`. |
-
-
-**例**
-
-この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
+| Type    | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
 
 
+**Example**
+
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
