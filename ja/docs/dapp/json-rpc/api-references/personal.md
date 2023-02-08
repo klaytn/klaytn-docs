@@ -14,27 +14,27 @@ Imports the given unencrypted private key (hex string without leading '0x') or a
 
 インポートされたアカウントのアドレスを返します。
 
-| クライアント | メソッドの起動                                                                |
-|:------:| ---------------------------------------------------------------------- |
-| コンソール  | `personal.importRawKey(keydata, passsphrase)`                          |
-|  RPC   | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
+| Client  | Method invocation                                                      |
+|:-------:| ---------------------------------------------------------------------- |
+| Console | `personal.importRawKey(keydata, passsphrase)`                          |
+|   RPC   | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                                                                                                       |
-| ------- | --- | ----------------------------------------------------------------------------------------------------------------- |
-| keydata | 文字列 | 暗号化されていない秘密鍵('0x'を先頭に置かずの16進文字列)または [Klaytnウォレットキー](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)。 |
-| パスワード   | 文字列 | 暗号化のパスフレーズ。                                                                                                       |
+| Name    | Type   | Description                                                                                                       |
+| ------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
+| keydata | string | 暗号化されていない秘密鍵('0x'を先頭に置かずの16進文字列)または [Klaytnウォレットキー](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)。 |
+| パスワード   | string | 暗号化のパスフレーズ。                                                                                                       |
 
-**戻り値**
+**Return Value**
 
-| 名前      | タイプ | Description        |
-| ------- | --- | ------------------ |
-| address | 文字列 | インポートされたアカウントのアドレス |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | string | インポートされたアカウントのアドレス |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -55,26 +55,26 @@ $ curl -H "Content-Type: application/json" ---data '{"jsonr ","method":"personal
 
 キーストアのすべてのキー のすべての Klaytn アカウントアドレスを返します。
 
-| クライアント | メソッドの起動                                             |
-|:------:| --------------------------------------------------- |
-| コンソール  | `personal.listAccounts`                             |
-|  RPC   | `{"method": "personal_listAccounts", "params": []}` |
+| Client  | Method invocation                                   |
+|:-------:| --------------------------------------------------- |
+| Console | `personal.listAccounts`                             |
+|   RPC   | `{"method": "personal_listAccounts", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description             |
-| --- | ----------------------- |
-| 文字列 | すべてのKlaytnアカウントアドレスのリスト |
+| Type   | Description             |
+| ------ | ----------------------- |
+| string | すべてのKlaytnアカウントアドレスのリスト |
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > personal.listAccounts
 ["0x5e97870f263700f46aa00d967821199b9bc5a120", "0x3d80b31a78c30fc628f20b2c89d7ddbf6e53ced"]
@@ -89,27 +89,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 このノードが管理するウォレットのリストを返します。
 
-| クライアント | メソッドの起動                                            |
-|:------:| -------------------------------------------------- |
-| コンソール  | `personal.listWallets`                             |
-|  RPC   | `{"method": "personal_listWallets", "params": []}` |
+| Client  | Method invocation                                  |
+|:-------:| -------------------------------------------------- |
+| Console | `personal.listWallets`                             |
+|   RPC   | `{"method": "personal_listWallets", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| 名前    | タイプ | Description |
-| ----- | --- | ----------- |
-| URL   | 文字列 | ウォレットURL    |
-| ステータス | 文字列 | ロック状態にする    |
-| 失敗    | 文字列 | エラーの条件      |
-| アカウント | 文字列 | 口座住所のリストです。 |
+| Name     | Type   | Description |
+| -------- | ------ | ----------- |
+| URL      | string | ウォレットURL    |
+| ステータス    | string | ロック状態にする    |
+| 失敗       | string | エラーの条件      |
+| Accounts | string | 口座住所のリストです。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.listWallets
 [
@@ -135,27 +135,27 @@ USB接続を確立し、提供されたパスフレーズを介して 認証を�
 注意: このメソッドは、2回目のオープンを必要とする追加のチャレンジを返す場合があります(例: Trezor PINマトリクスチャレンジ)。
 {% endhint %}
 
-| クライアント | メソッドの起動                                                          |
-|:------:| ---------------------------------------------------------------- |
-| コンソール  | `personal.openWallet(url, passhrase)`                            |
-|  RPC   | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
+| Client  | Method invocation                                                |
+|:-------:| ---------------------------------------------------------------- |
+| Console | `personal.openWallet(url, passhrase)`                            |
+|   RPC   | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description |
-| ----- | --- | ----------- |
-| URL   | 文字列 | ウォレットURL    |
-| パスワード | 文字列 | ウォレットのパスワード |
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| URL   | string | Wallet url  |
+| パスワード | string | ウォレットのパスワード |
 
-**戻り値**
+**Return Value**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| エラー | エラー | エラーの条件      |
+| Name  | Type | Description     |
+| ----- | ---- | --------------- |
+| Error | エラー  | Error condition |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.openWallet("keystore://", "passphrase")
 null
@@ -170,29 +170,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 HDウォレットに新しいアカウントを作成するよう要求し、後で再利用するために必要に応じてピン留めします。
 
-| クライアント | メソッドの起動                                                            |
-|:------:| ------------------------------------------------------------------ |
-| コンソール  | `personal.deriveAccount(url, path, pin)`                           |
-|  RPC   | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
+| Client  | Method invocation                                                  |
+|:-------:| ------------------------------------------------------------------ |
+| Console | `personal.deriveAccount(url, path, pin)`                           |
+|   RPC   | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ     | Description |
-| --- | ------- | ----------- |
-| URL | 文字列     | ウォレットURL    |
-| 小道  | 文字列     | 派生パス        |
-| ピン  | boolean | 任意で固定する     |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| URL  | string  | Wallet url  |
+| 小道   | string  | 派生パス        |
+| ピン   | boolean | 任意で固定する     |
 
-**戻り値**
+**Return Value**
 
-| 名前    | タイプ | Description   |
-| ----- | --- | ------------- |
-| アカウント | 文字列 | 新しいアカウントのアドレス |
-| エラー   | エラー | エラーの条件        |
+| Name    | Type   | Description     |
+| ------- | ------ | --------------- |
+| Account | string | 新しいアカウントのアドレス   |
+| Error   | error  | Error condition |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.deriveAccount(url, path, pin)
 "result":"0xed1b12248aee85a32aead06c7789d3fcd4dae6"
@@ -209,26 +209,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 At the Klaytn console, `newAccount` will prompt for a passphrase when it is not supplied as the argument.
 
-| クライアント | メソッドの起動                                                     |
-|:------:| ----------------------------------------------------------- |
-| コンソール  | `personal.newAccount(passphrase)`                           |
-|  RPC   | `{"method": "personal_newAccount", "params": [passphrase]}` |
+| Client  | Method invocation                                           |
+|:-------:| ----------------------------------------------------------- |
+| Console | `personal.newAccount(passphrase)`                           |
+|   RPC   | `{"method": "personal_newAccount", "params": [passphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description              |
-| ----- | --- | ------------------------ |
-| パスワード | 文字列 | (オプション) 暗号化に使用されるパスフレーズ。 |
+| Name       | Type   | Description              |
+| ---------- | ------ | ------------------------ |
+| passphrase | string | (オプション) 暗号化に使用されるパスフレーズ。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description   |
-| --- | ------------- |
-| 文字列 | 新しいアカウントのアドレス |
+| Type   | Description                     |
+| ------ | ------------------------------- |
+| string | The address of the new account. |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.newAccount()
 Passphrase:
@@ -254,26 +254,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 メモリから指定されたアドレスの秘密鍵を削除します。 取引を送信するためにアカウントを使用することはできません。
 
-| クライアント | メソッドの起動                                                   |
-|:------:| --------------------------------------------------------- |
-| コンソール  | `personal.lockAccount(address)`                           |
-|  RPC   | `{"method": "personal_lockAccount", "params": [address]}` |
+| Client  | Method invocation                                         |
+|:-------:| --------------------------------------------------------- |
+| Console | `personal.lockAccount(address)`                           |
+|   RPC   | `{"method": "personal_lockAccount", "params": [address]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description     |
-| ------- | --- | --------------- |
-| address | 文字列 | ロックするアカウントのアドレス |
+| Name    | Type   | Description     |
+| ------- | ------ | --------------- |
+| address | string | ロックするアカウントのアドレス |
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                                        |
+| Type | Description                                        |
 | ---- | -------------------------------------------------- |
 | bool | `アカウントが正常にロックされていれば` true `、それ以外の場合は` false になります。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > personal.lockAccount("0xfa415bb3e6231f488ff39eb2897db0ef36dd32")
 true
@@ -295,28 +295,28 @@ JavaScript コンソールを使用する場合は、パスフレーズとロッ
 
 `klay_sign` および `klay_sendTransaction` でロック解除中にアカウントを使用できます。
 
-| クライアント | メソッドの起動                                                                           |
-|:------:| --------------------------------------------------------------------------------- |
-| コンソール  | `personal.unlockAccount(アドレス、パスフレーズ、期間)`                                          |
-|  RPC   | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
+| Client  | Method invocation                                                                 |
+|:-------:| --------------------------------------------------------------------------------- |
+| Console | `personal.unlockAccount(アドレス、パスフレーズ、期間)`                                          |
+|   RPC   | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                    |
-| ------- | --- | ------------------------------ |
-| address | 文字列 | ロックを解除するアカウントのアドレス             |
-| パスワード   | 文字列 | 暗号化に使われるパスフレーズです               |
-| 期間      | int | (オプション) ロック解除時間 (デフォルトでは300秒)。 |
+| Name       | Type   | Description                    |
+| ---------- | ------ | ------------------------------ |
+| address    | string | ロックを解除するアカウントのアドレス             |
+| passphrase | string | 暗号化に使われるパスフレーズです               |
+| 期間         | int    | (オプション) ロック解除時間 (デフォルトでは300秒)。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                  |
+| Type | Description                  |
 | ---- | ---------------------------- |
 | bool | `ロック解除された場合は true` 、 `false` |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120")
 Unlock account 0x5e97870f263700f46aa00d967821199b9bc5a120
@@ -351,28 +351,28 @@ Replaces the encrypted key file in the key store with the given unencrypted priv
 
 成功した場合は、置き換えられたアカウントのアドレスを返します。
 
-| クライアント | メソッドの起動                                                                                   |
-|:------:| ----------------------------------------------------------------------------------------- |
-| コンソール  | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
-|  RPC   | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
+| Client  | Method invocation                                                                         |
+|:-------:| ----------------------------------------------------------------------------------------- |
+| Console | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
+|   RPC   | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ | Description                                                                                                       |
-| ------------- | --- | ----------------------------------------------------------------------------------------------------------------- |
-| keydata       | 文字列 | 暗号化されていない秘密鍵('0x'を先頭に置かずの16進文字列)または [Klaytnウォレットキー](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)。 |
-| oldPassphrase | 文字列 | 古い秘密鍵を復号するためのパスフレーズ。                                                                                              |
-| newPassphrase | 文字列 | 新しい秘密鍵を暗号化するためのパスフレーズ。                                                                                            |
+| Name          | Type   | Description                                                                                                                                          |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keydata       | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| oldPassphrase | string | 古い秘密鍵を復号するためのパスフレーズ。                                                                                                                                 |
+| newPassphrase | string | 新しい秘密鍵を暗号化するためのパスフレーズ。                                                                                                                               |
 
-**戻り値**
+**Return Value**
 
-| 名前      | タイプ | Description        |
-| ------- | --- | ------------------ |
-| address | 文字列 | 置き換えられたアカウントのアドレス。 |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | string | 置き換えられたアカウントのアドレス。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > personal.replaceRawKey('{private key}', 'myoldpassword', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -391,27 +391,27 @@ $ curl -H "Content-Type: application/json" --json" ","method":"personal_replaceR
 
 与えられたパスフレーズを検証し、 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) トランザクションを送信します。 The transaction object must have fields `from` and `key`. `gas`, `gasPrice`, and `nonce` のような他のフィールドは、指定されていない場合は内部的に se です。 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. このアカウントはノードでグローバルにロック解除されておらず、他のRPC呼び出しでは使用できません。
 
-| クライアント | メソッドの起動                                                                |
-|:------:| ---------------------------------------------------------------------- |
-| コンソール  | `personal.sendAccountUpdate(tx, passphrase)`                           |
-|  RPC   | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
+| Client  | Method invocation                                                      |
+|:-------:| ---------------------------------------------------------------------- |
+| Console | `personal.sendAccountUpdate(tx, passphrase)`                           |
+|   RPC   | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                              |
-| ----- | --- | ---------------------------------------- |
-| tx    | 文字列 | トランザクションオブジェクト `から` と `キー` を指定する必要があります。 |
-| パスワード | 文字列 | `tx.from` の秘密鍵を復号するためのパスフレーズ。            |
+| Name       | Type   | Description                              |
+| ---------- | ------ | ---------------------------------------- |
+| tx         | string | トランザクションオブジェクト `から` と `キー` を指定する必要があります。 |
+| passphrase | string | `tx.from` の秘密鍵を復号するためのパスフレーズ。            |
 
-**戻り値**
+**Return Value**
 
-| タイプ      | Description                                   |
+| Type     | Description                                   |
 | -------- | --------------------------------------------- |
 | 32バイト文字列 | 成功した場合はトランザクションハッシュを入力します。 そうでなければ、エラーが発生します。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", key:"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}
 undefined
@@ -428,29 +428,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
-与えられたパスフレーズを検証し、 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) トランザクションを送信します。 The transaction object must have `from` and `to` except the case of contract deployment. `to` は、トランザクションがスマートコントラクトを展開する場合は省略する必要があります。 `値` が指定されていない場合、内部的に 0 に設定されます。 `ガス`、 `gasPrice`、 `nonce` などの他のフィールドは、未指定の場合、内部で適切な値に設定されます。 パスフレーズが `txに属する秘密鍵を復号できる場合。 ROM<code>` とトランザクションが検証され、トランザクションが署名され、ネットワークに送信されます。 このアカウントはノードでグローバルにロック解除されておらず、他のRPC呼び出しでは使用できません。
+与えられたパスフレーズを検証し、 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) トランザクションを送信します。 The transaction object must have `from` and `to` except the case of contract deployment. `to` は、トランザクションがスマートコントラクトを展開する場合は省略する必要があります。 `値` が指定されていない場合、内部的に 0 に設定されます。 `ガス`、 `gasPrice`、 `nonce` などの他のフィールドは、未指定の場合、内部で適切な値に設定されます。 パスフレーズが `txに属する秘密鍵を復号できる場合。 ROM<code>` とトランザクションが検証され、トランザクションが署名され、ネットワークに送信されます。 The account is not unlocked globally in the node and cannot be used in other RPC calls.
 
-| クライアント | メソッドの起動                                                               |
-|:------:| --------------------------------------------------------------------- |
-| コンソール  | `personal.sendTransaction(tx, passsphrase)`                           |
-|  RPC   | `{"method": "personal_sendTransaction", "params": [tx, passsphrase]}` |
+| Client  | Method invocation                                                     |
+|:-------:| --------------------------------------------------------------------- |
+| Console | `personal.sendTransaction(tx, passsphrase)`                           |
+|   RPC   | `{"method": "personal_sendTransaction", "params": [tx, passsphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                                                                            |
-| ----- | --- | -------------------------------------------------------------------------------------- |
-| tx    | 文字列 | トランザクションオブジェクト `の` は必須フィールドです。 `to`, `value`, `gas`, `gasPrice` と `nonce` は任意のフィールドです。 |
-| パスワード | 文字列 | `tx.from` の秘密鍵を復号するためのパスフレーズ。                                                          |
+| Name       | Type   | Description                                                                                   |
+| ---------- | ------ | --------------------------------------------------------------------------------------------- |
+| tx         | string | A transaction object. `の` は必須フィールドです。 `to`, `value`, `gas`, `gasPrice` と `nonce` は任意のフィールドです。 |
+| passphrase | string | The passphrase to decrypt the private key of `tx.from`.                                       |
 
-**戻り値**
+**Return Value**
 
-| タイプ      | Description                                   |
-| -------- | --------------------------------------------- |
-| 32バイト文字列 | 成功した場合はトランザクションハッシュを入力します。 そうでなければ、エラーが発生します。 |
+| Type           | Description                                                     |
+| -------------- | --------------------------------------------------------------- |
+| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, KLAY")}
 undefined
@@ -459,7 +459,7 @@ undefined
 ```
 HTTP RPC
 
-**注**: 関数 `klay.toPeb()` は HTTP RPCでは実行できません。
+**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to","to":":"0xafa3f8684e54059998bc3a7b0d2b0da015475d66","value":"0x1230000000},"sphrase"],"id":1}) https://api.baab.klaynet:8651
 {
@@ -467,29 +467,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
-与えられたパスフレーズを検証し、 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) トランザクションを送信します。 トランザクションオブジェクトには、フィールド ``、 `から`、および `値` が必要です。 `ガス`、 `gasPrice`、および `nonce` などの他のフィールドは、指定されていない場合に内部的に設定されます。 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. このアカウントはノードでグローバルにロック解除されておらず、他のRPC呼び出しでは使用できません。
+与えられたパスフレーズを検証し、 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) トランザクションを送信します。 トランザクションオブジェクトには、フィールド ``、 `から`、および `値` が必要です。 `ガス`、 `gasPrice`、および `nonce` などの他のフィールドは、指定されていない場合に内部的に設定されます。 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
 
-| クライアント | メソッドの起動                                                                 |
-|:------:| ----------------------------------------------------------------------- |
-| コンソール  | `personal.sendValueTransfer(tx, passphrase)`                            |
-|  RPC   | `{"method": "personal_sendValueTransfer", "params": [tx, passsphrase]}` |
+| Client  | Method invocation                                                       |
+|:-------:| ----------------------------------------------------------------------- |
+| Console | `personal.sendValueTransfer(tx, passphrase)`                            |
+|   RPC   | `{"method": "personal_sendValueTransfer", "params": [tx, passsphrase]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                                |
-| ----- | --- | ------------------------------------------ |
-| tx    | 文字列 | トランザクションオブジェクト ``, `,`, `の値` を指定する必要があります。 |
-| パスワード | 文字列 | `tx.from` の秘密鍵を復号するためのパスフレーズ。              |
+| Name       | Type   | Description                                             |
+| ---------- | ------ | ------------------------------------------------------- |
+| tx         | string | A transaction object. ``, `,`, `の値` を指定する必要があります。       |
+| passphrase | string | The passphrase to decrypt the private key of `tx.from`. |
 
-**戻り値**
+**Return Value**
 
-| タイプ      | Description                                   |
-| -------- | --------------------------------------------- |
-| 32バイト文字列 | 成功した場合はトランザクションハッシュを入力します。 そうでなければ、エラーが発生します。 |
+| Type           | Description                                                     |
+| -------------- | --------------------------------------------------------------- |
+| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, KLAY")}
 undefined
@@ -498,7 +498,7 @@ undefined
 ```
 HTTP RPC
 
-**注**: 関数 `klay.toPeb()` は HTTP RPCでは実行できません。
+**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -508,32 +508,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 `sign` メソッドは Klaytn 固有の署名を計算します: `sign(keccak256("\x19Klaytn 署名されたメッセージ:\n" + len(message) + message)))`
 
-メッセージにプレフィックスを追加すると、計算された署名が Klaytn 固有の署名として認識可能になります。 This prevents misuse where a malicious DApp can sign arbitrary data (*e.g.*, transaction) and use the signature to impersonate the victim.
+Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (*e.g.*, transaction) and use the signature to impersonate the victim.
 
 `personal_ecRecover` を参照して署名を検証してください。
 
-| クライアント | メソッドの起動                                                               |
-|:------:| --------------------------------------------------------------------- |
-| コンソール  | `personal.sign(message, account, password)`                           |
-|  RPC   | `{"method": "personal_sign", "params": [message, account, password]}` |
+| Client  | Method invocation                                                     |
+|:-------:| --------------------------------------------------------------------- |
+| Console | `personal.sign(message, account, password)`                           |
+|   RPC   | `{"method": "personal_sign", "params": [message, account, password]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description     |
-| ------- | --- | --------------- |
-| message | 文字列 | 署名するメッセージ。      |
-| アカウント   | 文字列 | アカウントのアドレス      |
-| パスワード   | 文字列 | 署名に使用されるパスフレーズ。 |
+| Name    | Type   | Description     |
+| ------- | ------ | --------------- |
+| message | string | 署名するメッセージ。      |
+| account | string | アカウントのアドレス      |
+| パスワード   | string | 署名に使用されるパスフレーズ。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 署名          |
+| Type   | Description |
+| ------ | ----------- |
+| string | 署名          |
 
-**例**
+**Example**
 
-コンソール
+Console
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
@@ -552,44 +552,44 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 注意: 安全でないHTTPRPC接続を介してアカウントパスワードを送信することは非常に安全ではありません。 [klay_signTransaction](./klay/transaction.md#klay_signtransaction) を使用してください。
 {% endhint %}
 
-**パラメータ**
+**Parameters**
 
-必要なパラメータはトランザクションの種類によって異なります。 [Klaytn Transaction Types](./klay/transaction/transaction-type-support.md) で適切なパラメータを確認してください。
+The required parameters depend on the transaction type. [Klaytn Transaction Types](./klay/transaction/transaction-type-support.md) で適切なパラメータを確認してください。
 
-**戻り値**
+**Return Value**
 
-| タイプ   | Description    |
-| ----- | -------------- |
-| raw   | 署名された生の取引      |
-| tx    | トランザクションオブジェクト |
-| パスワード | 送付者のパスワード      |
+| Type     | Description            |
+| -------- | ---------------------- |
+| raw      | Signed raw transaction |
+| tx       | トランザクションオブジェクト         |
+| password | 送付者のパスワード              |
 
 
 ## personal_ecRecover <a id="personal_ecrecover"></a>
 
 `ecRecover` は、 `personal_sign` で署名を計算するために使用された秘密鍵に関連付けられたアドレスを返します。
 
-| クライアント | メソッドの起動                                                            |
-|:------:| ------------------------------------------------------------------ |
-| コンソール  | `personal.ecRecover(メッセージ、署名)`                                     |
-|  RPC   | `{"method": "personal_ecRecover", "params": [message, signature]}` |
+| Client  | Method invocation                                                  |
+|:-------:| ------------------------------------------------------------------ |
+| Console | `personal.ecRecover(メッセージ、署名)`                                     |
+|   RPC   | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description |
-| ------- | --- | ----------- |
-| message | 文字列 | メッセージ。      |
-| 署名      | 文字列 | 署名。         |
+| Name      | Type   | Description |
+| --------- | ------ | ----------- |
+| message   | string | メッセージ。      |
+| signature | string | 署名。         |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | アカウントのアドレス  |
+| Type   | Description          |
+| ------ | -------------------- |
+| string | The account address. |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
