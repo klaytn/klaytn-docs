@@ -62,7 +62,7 @@ dataディレクトリを指定しない場合、デフォルトの場所は以�
 
 JavaScript コンソールに接続するには、EN が実行中の状態である必要があります。 詳細については、 [EN](../quick-start/launch-an-en.md) の起動を参照してください。 ENを起動し、次のようにコンソールに接続します。
 
-### 使用法 <a id="usage"></a>
+### Usage <a id="usage"></a>
 
 ```bash
 $ kend start
@@ -78,7 +78,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
 >
 ```
 
-**マーク**
+**Commands**
 
 利用可能な関数のリストを取得するには、 `personal` または `klay` と入力します。 このチュートリアルでは、以下の機能をご紹介します。
 
@@ -90,7 +90,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX-XXXX/goX.X
 > klay.getBalance()
 ```
 
-### データディレクトリ <a id="data-directory"></a>
+### Data Directory <a id="data-directory"></a>
 
 アカウントを作成すると、キーストアファイルは `<DATADIR>/keystore` の下に保存されます。 `<DATADIR>` は `kend.conf` で設定された `DATA_DIR` です。 与えられた例でクイックスタートガイドに従う場合は、 `~/kend_home` でなければなりません。
 
