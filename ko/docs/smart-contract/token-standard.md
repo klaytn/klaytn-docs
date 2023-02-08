@@ -121,7 +121,7 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 커스토마이징하고, Klaytn 네트워크에 배포할 수 있습니다.
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
 For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.foundation/KIPs/kip-17).
 
