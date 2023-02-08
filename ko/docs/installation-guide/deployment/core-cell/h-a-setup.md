@@ -26,12 +26,12 @@
 
 정확한 용어 및 절차는 클라우드 환경에 따라 다를 수 있습니다. 아래 절차는 AWS\(특히 EC2 및 EBS\)를 기반으로 하지만, 다른 클라우드 플랫폼에 맞게 조정할 수 있습니다.
 
-### 설정 <a id="setup"></a>
+### Setup <a id="setup"></a>
 
-1. active CN의 `nodekey`의 백업 생성하기.
+1. Create a backup of the active CN's `nodekey`.
 2. CN 구성 또는 소프트웨어가 업데이트될 때마다 머신 이미지를 생성하세요\(예: AMI\). 이 이미지에 `DATA_DIR`을 담은 볼륨을 포함하지 마세요 - 이는 별도로 얻을 수 있습니다.
 
-### 장애 조치 <a id="failover"></a>
+### Failover <a id="failover"></a>
 
 CC의 PN 노드 중 하나를 사용하여 체인데이터 스냅샷을 얻으세요:
 
