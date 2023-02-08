@@ -1,4 +1,4 @@
-# 지원 언어
+# Languages
 
 KlaytnDocs는 다음 언어로 제공됩니다.
 
