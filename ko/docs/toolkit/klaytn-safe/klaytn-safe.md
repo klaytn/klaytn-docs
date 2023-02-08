@@ -1,42 +1,42 @@
-Klayt과 같은 일반적인 블록체인 플랫폼의 사용자들은 Kaikas나 MetaMask와 같이 Externally Owned Accounts(EOA, 외부 소유 계정)으로 알려진 싱글 키 월렛 시스템에 익숙합니다. 이 계정들은 공용키와 개인키로 이루어진 키 쌍을 사용하는데, 이 개인키는 단일 실패 지점이 될 수 있기 때문에 이상적이지 않습니다.
+In a typical blockchain platform like Klaytn, most users are familiar with single key wallet systems such as Kaikas and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
 
-따라서 EOA는 기관에서 사용하기에 적합하지 않습니다. 개인키가 해킹되면 해당 기관의 모든 자금이 손실될 위험이 있기 때문입니다. 1억 6250만 달러의 피해가 발생한 [Wintermute](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) 해킹 사건에서 잘 나타난 바 있습니다.
+This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
 
-여기에서 Klaytn Safe와 같은 멀티시그 월렛이 등장합니다. 싱글 키 월렛과는 달리, 멀티시그 월렛은 트랜잭션 서명 및 실행을 위해 다수의 개인키가 필요합니다. 이로써 단일 실패 지점이 제거되고 기관 사용 사례에서 더 큰 보안이 제공됩니다.
+This is where multisig wallets like Klaytn Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
 
-# 멀티 시그 월렛이란?<a id="What are Multisig Wallets"></a>
+# What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
 
-멀티 시그 월렛은 블록체인 트랜잭션 확인 및 실행을 위해 서로 다른 2개 이상의 개인키의 서명을 요구하는 디지털 월렛입니다.
-
-
-비유하자면, 멀티 시그 월렛은 세 개의 자물쇠를 가진 금고와 같습니다. 금고를 열기 위해 필요한 세 개의 키들은 각기 다른 사람들의 것이기 때문에, 이들의 공동 합의가 필요합니다.
-
-멀티시그 월렛의 장점은 아래와 같습니다.
+As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
 
 
-* **안전한 자산/자금 관리:** 개인키 유출 또는 무단으로 자금을 이동시키는 악성 행위자에 대한 걱정 없이 자금을 안전하게 보관할 수 있습니다.
+For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+
+Here are the main benefits of multisig wallets:
 
 
-* **탈중앙 의사결정:** 어떤 트랜잭션을 실행할 것인지 온체인으로 결정을 내릴 수 있습니다.
+* **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
 
 
-* **이중 인증 절차:** 멀티 시그 월렛을 통해 특정 키를 가진 이들만 트랜잭션을 실행할 수 있도록 보장할 수 있습니다.
+* **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
 
 
-이제 Klaytn의 멀티시그 월렛인 Klaytn Safe를 사용하여 자금과 트랜잭션을 관리하는 법에 대해 알아보겠습니다.
-
-# Klaytn Safe는 무엇인가요?<a id="What is Klaytn Safe"></a>
-
-Klaytn Safe는 Klaytn 생태계를 위한 멀티시그 월렛입니다. 잘 알려진 멀티시그 월렛 [Gnosis Safe](https://gnosis-safe.io/)의 포크입니다.
+* **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
 
 
-# 장점<a id="Benefits of Klaytn Safe"></a>
+Next, we will dive into Klaytn Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
 
-* **KLAY와 KCTs (KIP7, KIP17) 보관 및 전송**: 사용자들은 KLAY와 토큰을 보관하고 전송할 수 있습니다.
+# What is Klaytn Safe? <a id="What is Klaytn Safe"></a>
 
-* **적용성과 보안:** 임계치 설정을 통해 실행할 트랜잭션에 대한 통제가 가능해지며, 단일 실패 지점이 제거됩니다.
+Klaytn Safe is a multisig wallet for the Klaytn ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
 
-* **Safe 앱:** 배치 트랜잭션이나 다른 dApp들과의 상호작용을 가능하게 하는 커스텀 앱을 통해 더 확장된 기능이 제공됩니다. 예를 들면 다수의 트랜잭션을 합쳐서 배치 트랜잭션으로 실행시키는 **Transaction Builder**가 있습니다.
 
-* **계정 복구:** 키가 상실될 경우에도 남은 키들로 임계치가 달성될 수 있다면 Klaytn Safe 계정들은 복구될 수 있습니다.
+# Benefits <a id="Benefits of Klaytn Safe"></a>
+
+* **Store and transfer KLAY and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KLAY) and tokens (fungible or non-fungible).
+
+* **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
+
+* **Safe apps:** Klaytn Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
+
+* **Account recovery:** In the event of lost keys, Klaytn Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
 
