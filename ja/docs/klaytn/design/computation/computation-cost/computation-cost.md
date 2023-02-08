@@ -72,7 +72,7 @@ NOTE: Computation costs have changed with the `IstanbulEVM` protocol upgrade, or
 | BLOCKHASH      |             500 |
 | COINBASE       |             189 |
 | TIMESTAMP      |             265 |
-| 番号             |             202 |
+| NUMBER         |             202 |
 | DIFFICULTY     |             180 |
 | GASLIMIT       |             166 |
 | CHAINID        |             120 |
