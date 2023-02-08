@@ -29,7 +29,7 @@
 
 이제 KIP-7 토큰을 Safe에 보관하는 법을 보겠습니다.
 
-**Step 1:** 계정 대시보드에서 Safe 주소를 복사합니다.
+**Step 1:** Copy your Safe address from your account dashboard.
 
 ![](../img/klaytn-safe/f1_copyAddr.png)
 
