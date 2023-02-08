@@ -2,21 +2,21 @@
 
 エンドポイントノードを開始または停止するには、以下のコマンドを使用します。
 
-**開始**
+**start**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**停止する**
+**stop**
 
 ```bash
 $ kend stop
 kendをシャットダウン: Kend: Killed
 ```
 
-**ステータス**
+**status**
 
 ```bash
 $ kend status
