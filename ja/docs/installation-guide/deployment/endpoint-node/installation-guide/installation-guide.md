@@ -1,12 +1,12 @@
-# インストールガイド <a id="installation-guide"></a>
+# Installation Guide <a id="installation-guide"></a>
 
 `拳` の最新バージョンは [ダウンロード](download.md) ページからダウンロードできます。
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
-アーカイブファイルは、実行可能バイナリと構成ファイルで構成されています。
+The archive file consists of the executable binary and the configuration file structured as follows.
 
-**注**: ファイル構造やファイル名を変更しないでください。 変更すると、ノードが正しく機能しないことがあります。
+**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
 
 ```text
 - bin
@@ -16,51 +16,51 @@
   |- kend.conf
 ```
 
-| ファイル名          | ファイルの説明              |
+| File Name      | File Description     |
 |:-------------- |:-------------------- |
 | bin/ken        | EN 実行可能ファイル          |
 | bin/kend       | EN スタート/終了スクリプト ファイル |
 | conf/kend.conf | EN構成ファイル             |
 
-### インストール <a id="installation"></a>
+### Installation <a id="installation"></a>
 
-インストールは、パッケージをインストールするダウンロードしたパッケージの圧縮を解除します。
+The installation is the uncompression of the downloaded package where you want to install the package.
 
 ```text
 $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 ```
 
-または
+Or,
 
 ```text
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注**: `ken-linux-amd64/bin` パスを環境変数に追加することを推奨します。 `$PATH` `ken` と `kend` をグローバルに実行するには、 ` named@@8 format@@5 ` が必要です。 一例として
+**注**: `ken-linux-amd64/bin` パスを環境変数に追加することを推奨します。 `$PATH` `ken` と `kend` をグローバルに実行するには、 ` named@@8 format@@5 ` が必要です。 As an example,
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 ```
 
-他のセクションでは、パスが変数に追加されると仮定します。
+The other sections assume that the path is added to the variable.
 
-## RPM配布 \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### ダウンロードしたRPMをインストール <a id="install-downloaded-rpm"></a>
+### Install downloaded RPM <a id="install-downloaded-rpm"></a>
 
-以下の `yum` コマンドでダウンロードしたRPMファイルをインストールできます。
+You can install the downloaded RPM file with the following `yum` command.
 
 ```text
 $ yum install kend-vX.X.X.el7.x86_64.rpm
 ```
 
-または
+Or,
 
 ```text
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Klaytn Yum Repoからインストール <a id="install-from-klaytn-yum-repo"></a>
+### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
 あるいは、Klaytn Yum リポジトリから `kend` をインストールすることもできます。
 
@@ -68,11 +68,11 @@ $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
 ```
 
-### インストールされた場所 <a id="installed-location"></a>
+### Installed Location <a id="installed-location"></a>
 
-インストールされたファイルは以下のとおりです。
+The installed files are located as follows.
 
-| ファイル名     | 場所                       |
+| File Name | Location                 |
 |:--------- |:------------------------ |
 | ken       | /usr/bin/ken             |
 | kend.conf | /etc/kend/conf/kend.conf |
