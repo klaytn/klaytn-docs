@@ -1,12 +1,12 @@
-## 기본 블록 매개변수 <a id="the-default-block-parameter"></a>
+## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
 Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막의 기본 블록 매개변수가 블록의 번호를 결정합니다.
 
-`defaultBlock` 매개변수를 통해 설정할 수 있는 사항들은 다음과 같습니다.
+The following options are possible for the `defaultBlock` parameter:
 
-- `16진수 문자열` - 블록 번호의 정수 형태입니다.
-- `"earliest" 문자열` - 제네시스 블록입니다.
-- `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
+- `HEX String` - an integer block number
+- `String "earliest"` for the earliest/genesis block
+- `String "latest"` - for the latest mined block
 - `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
 
 
@@ -14,17 +14,17 @@ Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막�
 
 가장 최근의 블록 번호를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                            |
-| -------- | ----------------------------- |
-| QUANTITY | 클라이언트가 있는 현재 블록 번호의 정수 형태입니다. |
+| Type     | Description                                           |
+| -------- | ----------------------------------------------------- |
+| QUANTITY | Integer of the current block number the client is on. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -43,19 +43,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **참고**: 이 API는 Klaytn v1.7.0.부터 지원됩니다.
 
-블록 번호를 기준으로 헤더 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+Returns information about a header by number. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**파라미터**
+**Parameters**
 
-| 타입                  | 설명                                                                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| Type                | Description                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
-**리턴값**
+**Return Value**
 
 [klay_getBlockByHash](#klay_getheaderbyhash)를 참고하세요.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -87,39 +87,39 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
 
-**참고**: 이 API는 Klaytn v1.7.0.부터 지원됩니다.
+**NOTE**: This API is supported from Klaytn v1.7.0.
 
-블록 해시를 기준으로 헤더의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+Returns information about a header by hash. This API works only on RPC call, not on JavaScript console.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명         |
-| ------------- | ---------- |
-| 32바이트 크기 DATA | 블록의 해시입니다. |
+| Type         | Description      |
+| ------------ | ---------------- |
+| 32-byte DATA | Hash of a block. |
 
-**리턴값**
+**Return Value**
 
 `객체` - 헤더 객체, 또는 블록이 없는 경우 `error`를 반환합니다.
 
-| 이름               | 타입             | 설명                                                                                                          |
-| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------- |
-| number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                          |
-| parentHash       | 32바이트 크기 DATA  | The hash of the parent block.                                                                               |
-| logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                |
-| transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                     |
-| stateRoot        | 32바이트 크기 DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                                                       |
-| receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                                                      |
-| reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                                                                       |
-| blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                            |
-| extraData        | DATA           | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                     |
-| gasUsed          | QUANTITY       | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                              |
-| timestamp        | QUANTITY       | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                 |
-| timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                            |
-| governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                                                        |
-| voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                   |
-| baseFeePerGas    | QUANTITY       | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| Name             | Type          | Description                                                                                                 |
+| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
+| number           | QUANTITY      | The block number. `null` when it is pending block.                                                          |
+| parentHash       | 32-byte DATA  | The hash of the parent block.                                                                               |
+| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                |
+| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                              |
+| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                              |
+| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                 |
+| reward           | 20-byte DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                                                                       |
+| blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                            |
+| extraData        | DATA          | The "extra data" field of this block.                                                                       |
+| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                       |
+| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                         |
+| timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                            |
+| governanceData   | DATA          | RLP 인코딩된 거버넌스 설정입니다.                                                                                        |
+| voteData         | DATA          | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                   |
+| baseFeePerGas    | QUANTITY      | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -152,24 +152,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
 
-**파라미터**
+**Parameters**
 
-| 타입                  | 설명                                                                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
-| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                      |
+| Type                | Description                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 See [klay_getBlockByHash](#klay_getblockbyhash)
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -206,42 +206,42 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
-블록 해시를 기준으로 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+Returns information about a block by hash. This API works only on RPC call, not on JavaScript console.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명                                                     |
-| ------------- | ------------------------------------------------------ |
-| 32바이트 크기 DATA | 블록의 해시입니다.                                             |
-| Boolean       | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다. |
+| Type         | Description                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------------------- |
+| 32-byte DATA | Hash of a block.                                                                                   |
+| Boolean      | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
-**리턴값**
+**Return Value**
 
 `Object` - A block object, or `error` when no block was found:
 
-| 이름               | 타입             | 설명                                                                                                          |
-| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------- |
-| number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                          |
-| 해시               | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                         |
-| parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                                                                               |
-| logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                |
-| transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                     |
-| stateRoot        | 32바이트 크기 DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                                                       |
-| receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                                                      |
-| reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                                                                       |
-| blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                            |
-| totalBlockScore  | QUANTITY       | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                      |
-| extraData        | DATA           | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                     |
-| size             | QUANTITY       | 블록의 바이트 크기의 정수 형태입니다.                                                                                       |
-| gasUsed          | QUANTITY       | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                              |
-| timestamp        | QUANTITY       | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                 |
-| timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                            |
-| transactions     | Array          | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다.                                                  |
-| governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                                                        |
-| voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                   |
-| baseFeePerGas    | QUANTITY       | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| Name             | Type          | Description                                                                                                 |
+| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
+| number           | QUANTITY      | The block number. `null` when it is pending block.                                                          |
+| hash             | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                         |
+| parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                   |
+| logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                |
+| transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                              |
+| stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                              |
+| receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                 |
+| reward           | 20-byte DATA  | The address of the beneficiary to whom the block rewards were given.                                        |
+| blockScore       | QUANTITY      | Former difficulty. Always 1 in the BFT consensus engine                                                     |
+| totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                      |
+| extraData        | DATA          | The "extra data" field of this block.                                                                       |
+| size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                                                       |
+| gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                       |
+| timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                         |
+| timestampFoS     | QUANTITY      | The fraction of a second of the timestamp for when the block was collated.                                  |
+| transactions     | Array         | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.          |
+| governanceData   | DATA          | RLP encoded governance configuration                                                                        |
+| voteData         | DATA          | RLP encoded governance vote of the proposer                                                                 |
+| baseFeePerGas    | QUANTITY      | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -278,18 +278,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
-블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
+Returns receipts included in a block identified by block hash.
 
-**파라미터**
-| 타입            | 설명         |
-| ------------- | ---------- |
-| 32바이트 크기 DATA | Block hash |
+**Parameters**
+| Type         | Description |
+| ------------ | ----------- |
+| 32-byte DATA | Block hash  |
 
-**리턴값**
+**Return Value**
 
 Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -327,25 +327,25 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
-블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
+Returns the number of transactions in a block matching the given block number.
 
-**파라미터**
+**Parameters**
 
-| 타입                  | 설명                                                                                                                                                        |
+| Type                | Description                                                                                                                                               |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는  `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](block.md#the-default-block-parameter)를 참고하세요. |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
+| Type     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| QUANTITY | Integer of the number of transactions in this block. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -362,21 +362,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
-블록 해시를 기준으로 조회한 특정 블록에 담긴 트랜잭션의 개수를 반환합니다.
+Returns the number of transactions in a block from a block that matches the given hash.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명         |
-| ------------- | ---------- |
-| 32바이트 크기 DATA | 블록의 해시입니다. |
+| Type         | Description     |
+| ------------ | --------------- |
+| 32-byte DATA | Hash of a block |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
+| Type     | Description                                          |
+| -------- | ---------------------------------------------------- |
+| QUANTITY | Integer of the number of transactions in this block. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -394,21 +394,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 Returns a block with consensus information that matches the given block number.
 
-**파라미터**
+**Parameters**
 
-| 타입                  | 설명                                                                                                                                                       |
+| Type                | Description                                                                                                                                              |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 See [klay_getBlockWithConsensusInfoByHash](#klay_getblockwithconsensusinfobyhash)
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -486,36 +486,36 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 Returns a block with consensus information that matches the given hash.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명         |
-| ------------- | ---------- |
-| 32바이트 크기 DATA | 블록의 해시입니다. |
+| Type         | Description      |
+| ------------ | ---------------- |
+| 32-byte DATA | Hash of a block. |
 
-**리턴값**
+**Return Value**
 
 `Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
-| 이름               | 타입            | 설명                                                                                                          |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                            |
-| totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                      |
-| committee        | Array         | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다.                                    |
-| gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                              |
-| 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                         |
-| number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                          |
-| parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                                                               |
-| proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                                                              |
-| receiptsRoot     | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                                                      |
-| size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                                                       |
-| stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                                                       |
-| timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                 |
-| timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                            |
-| transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                                                             |
-| transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                     |
-| baseFeePerGas    | QUANTITY      | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| Name             | Type         | Description                                                                                                                                           |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | QUANTITY     | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
+| totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
+| committee        | Array        | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
+| gasUsed          | QUANTITY     | The total used gas by all transactions in this block.                                                                                                 |
+| hash             | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
+| number           | QUANTITY     | The block number. `null` when it is pending block.                                                                                                    |
+| parentHash       | 32-byte DATA | Hash of the parent block.                                                                                                                             |
+| proposer         | 20-byte DATA | The address of the block proposer.                                                                                                                    |
+| receiptsRoot     | 32-byte DATA | The root of the receipts trie of the block.                                                                                                           |
+| size             | QUANTITY     | Integer the size of this block in bytes.                                                                                                              |
+| stateRoot        | 32-byte DATA | The root of the final state trie of the block.                                                                                                        |
+| timestamp        | QUANTITY     | The Unix timestamp for when the block was collated.                                                                                                   |
+| timestampFoS     | QUANTITY     | The fraction of a second of the timestamp for when the block was collated.                                                                            |
+| transactions     | Array        | Array of transaction objects.                                                                                                                         |
+| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
+| baseFeePerGas    | QUANTITY     | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated.                                           |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -590,27 +590,27 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCommittee <a id="klay_getcommittee"></a>
-어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 위원회에 속한 검증자 목록을 반환합니다.
+Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입    | 설명                                                                                                                                                                  |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Name                 | Type         | Description                                                                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 `Array` - Array of addresses of all validators in the committee, or `null` when no committee was found:
 
-| 타입                  | 설명                                            |
-| ------------------- | --------------------------------------------- |
-| 20바이트 크기 DATA array | Addresses of all validators in the committee. |
+| Type                  | Description                                   |
+| --------------------- | --------------------------------------------- |
+| Array of 20-byte DATA | Addresses of all validators in the committee. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -629,27 +629,27 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
-어떤 블록 시간에서 위원회의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 위원회 구성원 수를 반환합니다.
+Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입    | 설명                                                                                                                                                                  |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Name                 | Type         | Description                                                                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 `Integer` - The size of the committee, or `-1` when no committee was found:
 
-| 타입       | 설명                      |
+| Type     | Description             |
 | -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -664,29 +664,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCouncil <a id="klay_getcouncil"></a>
-어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 council에 속한 검증자 목록을 반환합니다.
+Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
 
 **NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입    | 설명                                                                                                                                                                  |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Name                 | Type         | Description                                                                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 `Array` - Array of validator addresses of the council, or `null` when no council was found:
 
-| 타입                  | 설명                                          |
-| ------------------- | ------------------------------------------- |
-| 20바이트 크기 DATA array | Addresses of all validators of the council. |
+| Type                  | Description                                 |
+| --------------------- | ------------------------------------------- |
+| Array of 20-byte DATA | Addresses of all validators of the council. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -705,27 +705,27 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
-어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
+Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입    | 설명                                                                                                                                                                  |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Name                 | Type         | Description                                                                                                                                                         |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**리턴값**
+**Return Value**
 
 `Integer` - The size of the council, or `-1` when no council was found:
 
-| 타입       | 설명                      |
+| Type     | Description             |
 | -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -741,29 +741,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getStorageAt <a id="klay_getstorageat"></a>
 
-입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
+Returns the value from a storage position at a given address.
 
-**파라미터**
+**Parameters**
 
-| 타입                              | 설명                                                                                                                                                                                   |
+| Type                            | Description                                                                                                                                                                          |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 20바이트 크기 DATA                   | 스토리지의 주소입니다.                                                                                                                                                                         |
-| QUANTITY                        | 스토리지 내 위치의 정수 형태입니다.                                                                                                                                                                 |
+| 20-byte DATA                    | Address of the storage.                                                                                                                                                              |
+| QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
 | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
- **리턴값**
+ **Return Value**
 
-| 타입   | 설명                         |
-| ---- | -------------------------- |
-| DATA | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
+| Type | Description                         |
+| ---- | ----------------------------------- |
+| DATA | The value at this storage position. |
 
-**예시**
+**Example**
 
-올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
 contract Storage {
@@ -777,7 +777,7 @@ contract Storage {
 }
 ```
 
-`pos0`의 값은 다음과 같이 쉽게 찾을 수 있습니다.
+Retrieving the value of `pos0` is straight forward:
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
@@ -785,23 +785,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
-맵핑의 요소를 찾는 것은 더 어렵습니다. 맵핑의 요소의 위치는 다음과 같이 계산됩니다.
+Retrieving an element of the map is harder. The position of an element in the map is calculated with:
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
-즉 `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`의 스토리지를 탐색하려면 아래와 같이 그 위치를 계산해야 합니다.
+This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-이는 `klay` 라이브러리와 함께 제공되는 Klaytn 콘솔을 사용하여 계산할 수 있습니다.
+The Klaytn console which comes with the `klay` library can be used to make the calculation
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-이제 스토리지 값을 가져오려면 다음과 같이 입력합니다.
+Now to fetch the storage:
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
 
@@ -811,25 +811,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 ## klay_syncing <a id="klay_syncing"></a>
 
-동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
+Returns an object with data about the sync status or `false`.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-`Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
+`Object|Boolean`, an object with sync status data or `false` when not syncing:
 
-| 이름            | 타입       | 설명                                                       |
-| ------------- | -------- | -------------------------------------------------------- |
-| startingBlock | QUANTITY | 가져오기 시작하는 블록입니다(동기화가 완료되면 재설정됩니다).                       |
-| currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.           |
-| highestBlock  | QUANTITY | 예상되는 최신 블록 번호입니다.                                        |
-| pulledStates  | QUANTITY | 지금까지 처리된 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다.    |
-| knownStates   | QUANTITY | 가져와야 하는 알려진 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다. |
+| Name          | Type     | Description                                                                                                        |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
+| currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
+| highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
+| pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
+| knownStates   | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -859,15 +859,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Returns the reward distribution result about a block by block number, including the rewardees and their shares. If the parameter is not set, it returns the reward distribution at the latest block.
 
-**파라미터**
+**Parameters**
 
-| 타입                   | 설명                                                                                                                                                                                 |
+| Type                 | Description                                                                                                                                                                        |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                         |
+| Type | Description                |
 | ---- | -------------------------- |
 | JSON | Reward distribution result |
 
