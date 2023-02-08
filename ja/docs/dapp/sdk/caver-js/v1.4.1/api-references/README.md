@@ -1,5 +1,5 @@
 ---
 description: >-
-  caver-jsが提供するパッケージ。
+  Packages provided by caver-js.
 ---
 
