@@ -6,7 +6,7 @@
 
 ![](../images/sc-vt-between-sibling-arch.png)
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 - 我々は、あなたが2つのServiceChainをインストールしたと仮定します, 各サービスチェーンは、バオバブENに接続されています. [Baobab](en-scn-connection.md) への接続を参照してください。
 - また、 [クロスチェーン・バリュー転送](value-transfer.md) を通じて値の転送を経験したことを想定しています。
 
