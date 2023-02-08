@@ -1,6 +1,6 @@
 # Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
 
-## 概要 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
 
@@ -61,7 +61,7 @@ The following tables summarize the symbols used in the KLVM specification.
 
 | Symbol            | Description                                                                                                                              |
 |:----------------- |:---------------------------------------------------------------------------------------------------------------------------------------- |
-| `A`               | 住所                                                                                                                                       |
+| `A`               | Address                                                                                                                                  |
 | `A_code_owner`    | The address of the account that owns the executing code                                                                                  |
 | `A_tx_sender`     | The sender address of the transaction that originated the current execution                                                              |
 | `A_code_executor` | the address of the account that initiated code execution; if the execution agent is a transaction, this would be the transaction sender. |
@@ -96,7 +96,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 NOTE: This document contains the fee schedule used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
 {% endhint %}
 
-| 名前                | Value | Description                                                                                                     |
+| Name              | Value | Description                                                                                                     |
 |:----------------- | -----:|:--------------------------------------------------------------------------------------------------------------- |
 | `G_zero`          |     0 | Nothing paid for operations of the set `W_zero`                                                                 |
 | `G_base`          |     2 | Amount of gas paid for operations of the set `W_base`                                                           |
