@@ -19,35 +19,35 @@ KIP-7トークンコントラクトをKlaytnブロックチェーンにデプロ
 
 デプロイが成功すると、Promiseは新しい KIP7 インスタンスで解決されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ               | Description                                                                                                                                                                                                                                                  |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | object            | KIP-7トークンコントラクトをKlaytnブロックチェーンにデプロイするために必要な情報。 詳細は以下の表をご覧ください。                                                                                                                                                                                               |
-| デプロイ者     | 文字列 &#124; オブジェクト | KIP-7 トークンコントラクトをデプロイするキーリングのアドレス。 このキーリングには十分な KLAYが必要です。 トランザクションの送信時に使用する独自のフィールドを定義したい場合は、オブジェクト型をパラメータとして渡すことができます。 また、KIP-7 コントラクトをデプロイする際に手数料委任を使用する場合は、オブジェクト内の手数料委任に関連する項目を定義できます。 オブジェクト内で定義できるフィールドについては、 [承認](#kip7-approve) のパラメータの説明を参照してください。 |
+| Name      | Type                 | Description                                                                                                                                                                                                                                                                                                         |
+| --------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object               | KIP-7トークンコントラクトをKlaytnブロックチェーンにデプロイするために必要な情報。 See the below table for the details.                                                                                                                                                                                                                                 |
+| deployer  | string &#124; object | KIP-7 トークンコントラクトをデプロイするキーリングのアドレス。 このキーリングには十分な KLAYが必要です。 If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. また、KIP-7 コントラクトをデプロイする際に手数料委任を使用する場合は、オブジェクト内の手数料委任に関連する項目を定義できます。 オブジェクト内で定義できるフィールドについては、 [承認](#kip7-approve) のパラメータの説明を参照してください。 |
 
-tokenInfo オブジェクトには以下を含める必要があります:
+The tokenInfo object must contain the following:
 
-| 名前            | タイプ                                   | Description        |
-| ------------- | ------------------------------------- | ------------------ |
-| 名前            | 文字列                                   | トークンの名前            |
-| シンボル          | 文字列                                   | トークンのシンボル。         |
-| decimals      | 数値                                    | トークンが使用する小数点以下の桁数。 |
-| initialSupply | BigNumber &#124; string &#124; number | 最初に提供されるトークンの合計量。  |
+| Name          | Type                                  | Description              |
+| ------------- | ------------------------------------- | ------------------------ |
+| name          | string                                | The name of the token.   |
+| symbol        | string                                | The symbol of the token. |
+| decimals      | number                                | トークンが使用する小数点以下の桁数。       |
+| initialSupply | BigNumber &#124; string &#124; number | 最初に提供されるトークンの合計量。        |
 
 **注意** `initialSupply` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`PromiEvent`: 新しいKIP7インスタンスで解決されるPromise複合イベントエミッター。 さらに、次のイベントが発生する可能性があります。
+`PromiEvent`: 新しいKIP7インスタンスで解決されるPromise複合イベントエミッター。 Additionally, the following events can occur:
 
-| 名前                | タイプ    | Description                                                                                                                                          |
-| ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash   | 文字列    | トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生します。                                                                                                         |
-| レシート|領収書|領収書|受信する | object | 取引の領収書が有効なときに発行されます。 レシートオブジェクト内のプロパティについて知りたい場合は、 [getTransactionReceipt][] を参照してください。 KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が abi で解析されます。 |
-| エラー               | エラー    | 送信中にエラーが発生した場合に発生します。                                                                                                                                |
+| Name            | Type   | Description                                                                                                                                                                                                      |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                   |
+| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が abi で解析されます。 |
+| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                         |
 
-**例**
+**Example**
 
 ```javascript
 // using the promise
@@ -113,17 +113,17 @@ caver.kct.kip7.detectInterface(contractAddress)
 ```
 Returns the information of the interface implemented by the token contract. この静的関数は [kip7.detectInterface](#kip7-detectinterface) を使用します。
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ | Description          |
-| ---------- | --- | -------------------- |
-| コントラクトアドレス | 文字列 | KIP-7トークンコントラクトのアドレス |
+| Name            | Type   | Description                             |
+| --------------- | ------ | --------------------------------------- |
+| contractAddress | string | The address of the KIP-7 token contract |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
-**例**
+**Example**
 
 ```javascript
 > caver.kct.kip7.detectInterface('0x{address in hex}').then(console.log)
@@ -145,16 +145,16 @@ caver.kct.kip7.create([tokenAddress])
 
 **注意** `caver.kct.kip7.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**パラメータ**
+**Parameters**
 
 [新しい KIP7](#new-kip7) を参照してください。
 
-**戻り値**
+**Return Value**
 
-[新しい KIP7](#new-kip7) を参照してください。
+See the [new KIP7](#new-kip7).
 
 
-**例**
+**Example**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -170,23 +170,23 @@ caver.kct.kip7.create([tokenAddress])
 ```javascript
 new caver.kct.kip7([tokenAddress])
 ```
-バインドされたメソッドとイベントで新しい KIP7 インスタンスを作成します。
+Creates a new KIP7 instance with its bound methods and events.
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ | Description                                                           |
-| ------------ | --- | --------------------------------------------------------------------- |
-| tokenAddress | 文字列 | (オプション) KIP-7 トークンコントラクトのアドレス。これは `kip7.options.address = '0x1234..'` |
+| Name         | Type   | Description                                                           |
+| ------------ | ------ | --------------------------------------------------------------------- |
+| tokenAddress | string | (オプション) KIP-7 トークンコントラクトのアドレス。これは `kip7.options.address = '0x1234..'` |
 
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                            |
+| Type   | Description                            |
 | ------ | -------------------------------------- |
 | object | KIP7インスタンスには、バインドされたメソッドとイベントが含まれています。 |
 
 
-**例**
+**Example**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -204,20 +204,20 @@ kip7.clone([tokenAddress])
 ```
 現在のKIP7インスタンスをクローンします。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ | Description                                                                      |
-| ------------ | --- | -------------------------------------------------------------------------------- |
-| tokenAddress | 文字列 | (オプション) 別の KIP7 トークンをデプロイしたスマートコントラクトのアドレス。 省略された場合は、元のインスタンスでコントラクトアドレスに設定されます。 |
+| Name         | Type   | Description                                                                                                              |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| tokenAddress | string | (オプション) 別の KIP7 トークンをデプロイしたスマートコントラクトのアドレス。 If omitted, it will be set to the contract address in the original instance. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description        |
+| Type   | Description        |
 | ------ | ------------------ |
 | object | 元のKIP7インスタンスのクローン。 |
 
 
-**例**
+**Example**
 
 ```javascript
 > const kip7 = new caver.kct.kip7(address)
@@ -236,15 +236,15 @@ kip7.detectInterface()
 ```
 Returns the information of the interface implemented by the token contract.
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
-**例**
+**Example**
 
 ```javascript
 > kip7.detectInterface().then(console.log)
@@ -264,17 +264,17 @@ kip7.supportsInterface(interfaceId)
 ```
 Return `true` if this contract implements the interface defined by `interfaceId`.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ | Description       |
-| ----------- | --- | ----------------- |
-| interfaceId | 文字列 | チェックするインターフェイスID。 |
+| Name        | Type   | Description                    |
+| ----------- | ------ | ------------------------------ |
+| interfaceId | string | The interfaceId to be checked. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean`: `true` このコントラクトが `interfaceId` で定義されたインターフェイスを実装している場合。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.supportsInterface('0x65787371').then(console.log)
@@ -292,15 +292,15 @@ kip7.name()
 ```
 トークンの名前を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `string`: The name of the token.
 
-**例**
+**Example**
 
 ```javascript
 > kip7.name().then(console.log)
@@ -315,15 +315,15 @@ kip7.symbol()
 ```
 トークンのシンボルを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `string`: The symbol of the token.
 
-**例**
+**Example**
 
 ```javascript
 > kip7.symbol().then(console.log)
@@ -338,15 +338,15 @@ kip7.decimals()
 ```
 トークンが使用する小数位の数を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` は `番号`を返します: トークンが使用する小数点以下の桁数。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.decimals().then(console.log)
@@ -361,15 +361,15 @@ kip7.totalSupply()
 ```
 トークンの総供給量を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `BigNumber`: The total number of tokens.
 
-**例**
+**Example**
 
 ```javascript
 > kip7.totalSupply().then(console.log)
@@ -384,17 +384,17 @@ kip7.balanceOf(address)
 ```
 指定されたアカウントアドレスの残高を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description      |
-| ------- | --- | ---------------- |
-| address | 文字列 | 残高を確認するアカウントの住所。 |
+| Name    | Type   | Description                                               |
+| ------- | ------ | --------------------------------------------------------- |
+| address | string | The address of the account to be checked for its balance. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `BigNumber`: The account balance.
 
-**例**
+**Example**
 
 ```javascript
 > kip7.balanceOf('0x{address in hex}').then(console.log)
@@ -409,18 +409,18 @@ kip7.allowance(owner, spender)
 ```
 `所有者` からの引き出しを許可する `トークンの量を返します`。
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description                     |
-| --- | --- | ------------------------------- |
-| 所有者 | 文字列 | トークン所有者のアカウントのアドレス              |
-| 送金者 | 文字列 | オーナーの代わりにトークンを費やしているアカウントのアドレス。 |
+| Name  | Type   | Description                     |
+| ----- | ------ | ------------------------------- |
+| owner | string | トークン所有者のアカウントのアドレス              |
+| 送金者   | string | オーナーの代わりにトークンを費やしているアカウントのアドレス。 |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `BigNumber`を返します: 所有者の代わりに送金が許可されているトークンの残りの数。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.allowance('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -438,17 +438,17 @@ kip7.isMinter(address)
 ```
 与えられたアカウントが新しいKIP7トークンを発行できるミンターの場合、 `true` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                    |
-| ------- | --- | ------------------------------ |
-| address | 文字列 | 鋳造の権利を有するためにチェックされるアカウントのアドレス。 |
+| Name    | Type   | Description                                                            |
+| ------- | ------ | ---------------------------------------------------------------------- |
+| address | string | The address of the account to be checked for having the minting right. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean`: `minter の場合は true` を返します。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.isMinter('0x{address in hex}').then(console.log)
@@ -466,17 +466,17 @@ kip7.isPauser(address)
 ```
 与えられたアカウントが転送トークンを一時停止できるPauserの場合、 `true` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                            |
-| ------- | --- | -------------------------------------- |
-| address | 文字列 | 転送トークンを一時停止する権利があるかどうかを確認するアカウントのアドレス。 |
+| Name    | Type   | Description                                                                                   |
+| ------- | ------ | --------------------------------------------------------------------------------------------- |
+| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean`: `true` アカウントがポーザルの場合。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.isPauser('0x{address in hex}').then(console.log)
@@ -494,15 +494,15 @@ kip7.paused()
 ```
 コントラクトが一時停止されている場合は `true` を、それ以外の場合は `false` を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean`: コントラクトが一時停止している場合は `true` を返します。
 
-**例**
+**Example**
 
 ```javascript
 > kip7.paused().then(console.log)
@@ -522,35 +522,35 @@ kip7.approve(spender, amount [, sendParam])
 
 この方法は、所有者からKlaytnネットワークにトランザクションを送信し、所有者にトランザクション手数料を請求することに注意してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                               |
-| --------- | ------------------------------------- | ----------------------------------------- |
-| 送金者       | 文字列                                   | オーナーの代わりにトークンを費やしているアカウントのアドレス。           |
-| 金額        | BigNumber &#124; string &#124; number | 使用できるトークンの量。                              |
-| sendParam | object                                | (オプション) トランザクションを送信するために必要なオブジェクト保持パラメータ。 |
+| Name      | Type                                  | Description                                                                          |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------ |
+| spender   | string                                | The address of the account who spends tokens in place of the owner.                  |
+| amount    | BigNumber &#124; string &#124; number | 使用できるトークンの量。                                                                         |
+| sendParam | object                                | (optional) An object holding parameters that are required for sending a transaction. |
 
 **注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 The `sendParam` object contains the following:
 
-| 名前            | タイプ                                             | Description                                                                                                                                                                                   |
-| ------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | 文字列                                             | (オプション) トランザクションを送信するアドレス。 省略した場合は、 `kip7.options.from` によって設定されます。 `sendParam` オブジェクトの `から` のいずれも `kip7.options.from` が指定されていない場合、エラーが発生します。                                                 |
-| ガス            | 番号 &#124; 文字列                                   | (オプション) この取引に提供されるガスの最大数(ガス制限)。 省略した場合、 `kip7.methods.approve(spender, amount).estimateGas({from})` を呼び出すことでcaver-jsによって設定されます。                                                               |
-| gasPrice      | 番号 &#124; 文字列                                   | (オプション) この取引に対するペブ内のガス価格。 省略された場合、 `caver.klay.getGasPrice` を呼び出すことで caver-js によって設定されます。                                                                                                     |
-| 値             | number &#124; string &#124; BN &#124; BigNumber | (オプション) peb で転送される値。                                                                                                                                                                          |
-| feeDelegation | boolean                                         | (オプション、デフォルト `false`) 手数料委託トランザクションを使用するかどうか。 省略した場合は、 `kip7.options.feeDelegation` が使用されます。 両方が省略された場合、手数料の委任は使用されません。                                                                       |
-| feePayer      | 文字列                                             | (オプション) 取引手数料を支払う手数料支払者の住所。 `feeDelegation` が `true`の場合、この値はトランザクションの `feePayer` フィールドに設定されます。 省略した場合は、 `kip7.options.feePayer` が使用されます。 両方が省略された場合、エラーがスローされます。                              |
-| 手数料比          | 文字列                                             | (オプション) 手数料支払者が負担する取引手数料の割合。 `feeDelegation` が `true` で、 `feeRatio` が有効な値に設定されている場合、部分的な手数料委任トランザクションが使用されます。 有効範囲は1~99です。 0、または100以上の比率は許可されていません。 省略した場合は、 `kip7.options.feeRatio` が使用されます。 |
+| Name          | Type                                            | Description                                                                                                                                                                                                                                                                                                                                  |
+| ------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string                                          | (optional) The address from which the transaction should be sent. 省略した場合は、 `kip7.options.from` によって設定されます。 `sendParam` オブジェクトの `から` のいずれも `kip7.options.from` が指定されていない場合、エラーが発生します。                                                                                                                                                         |
+| gas           | number &#124; string                            | (optional) The maximum number of gas provided for this transaction (gas limit). 省略した場合、 `kip7.methods.approve(spender, amount).estimateGas({from})` を呼び出すことでcaver-jsによって設定されます。                                                                                                                                                              |
+| gasPrice      | number &#124; string                            | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                           |
+| value         | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                               |
+| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. 省略した場合は、 `kip7.options.feeDelegation` が使用されます。 If both omitted, fee delegation is not used.                                                                                                                                                                           |
+| feePayer      | string                                          | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. 省略した場合は、 `kip7.options.feePayer` が使用されます。 If both omitted, throws an error.                                                                                                 |
+| feeRatio      | string                                          | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. 省略した場合は、 `kip7.options.feeRatio` が使用されます。 |
 
-**注意** `feeDelegation`, `feePayer` と `feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -615,21 +615,21 @@ kip7.transfer(受信者, amount [, sendParam])
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 受信者       | 文字列                                   | トークンを受け取るアカウントのアドレス                                                                                    |
-| 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                       |
+| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | string                                | The address of the account to receive the token.                                                                                  |
+| amount    | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                                                        |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -689,28 +689,28 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-トークン所有者の残高から与えられた `金額` を `受信者`に安全に転送します。 トークンの所有者は、自分の手でこのトークン転送を実行する必要があります。 したがって、トークンの所有者は、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者である必要があります。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
+トークン所有者の残高から与えられた `金額` を `受信者`に安全に転送します。 The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 受信者       | 文字列                                   | トークンを受け取るアカウントのアドレス                                                                                    |
-| 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
-| data      | バッファ &#124; 文字列 &#124; 番号             | (オプション) 通話とともに送信する任意のデータ。                                                                              |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | string                                | The address of the account to receive the token.                                                                                                                              |
+| amount    | BigNumber &#124; string &#124; number | The amount of token you want to transfer.                                                                                                                                     |
+| data      | Buffer &#124; string &#124; number    | (optional) The optional data to send along with the call.                                                                                                                     |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -774,26 +774,26 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
-トークン所有者の残高から与えられた `amount` を `受信者` に転送します。 トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 従って、承認されたものは、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者でなければなりません。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
+Transfers the given `amount` of the token from the token owner's balance to the `recipient`. トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 従って、承認されたものは、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者でなければなりません。 Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| sender    | 文字列                                   | 手当メカニズムで送信されるトークンを所有するアカウントのアドレス。                                                                      |
-| 受信者       | 文字列                                   | トークンを受け取るアカウントのアドレス                                                                                    |
-| 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | string                                | The address of the account that owns the token to be sent with allowance mechanism.                                                                                           |
+| recipient | string                                | The address of the account to receive the token.                                                                                                                              |
+| amount    | BigNumber &#124; string &#124; number | The amount of token you want to transfer.                                                                                                                                     |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -876,29 +876,29 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.safeTransferFrom(送信者、受信者、金額 [, データ] [, sendParam])
 ```
-トークン所有者の残高から与えられた `金額` を `受信者`に安全に転送します。 トークン所有者のトークンを送信することが承認されたアドレスは、このトークン転送トランザクションを実行することが期待されます。 従って、承認されたものは、 `sendParam.from` または `kip7.options.from` でアドレスを与えなければならないこのトランザクションの送信者でなければなりません。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
+Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
-受信者がコントラクトアドレスの場合、 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) を実装する必要があります。 Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| sender    | 文字列                                   | 手当メカニズムで送信されるトークンを所有するアカウントのアドレス。                                                                      |
-| 受信者       | 文字列                                   | トークンを受け取るアカウントのアドレス                                                                                    |
-| 金額        | BigNumber &#124; string &#124; number | 転送するトークンの量                                                                                             |
-| data      | バッファ &#124; 文字列 &#124; 番号             | (オプション) 通話とともに送信する任意のデータ。                                                                              |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | string                                | The address of the account that owns the token to be sent with allowance mechanism.                                                                                           |
+| recipient | string                                | The address of the account to receive the token.                                                                                                                              |
+| amount    | BigNumber &#124; string &#124; number | The amount of token you want to transfer.                                                                                                                                     |
+| data      | Buffer &#124; string &#124; number    | (optional) The optional data to send along with the call.                                                                                                                     |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP17 インスタンスからの領収書には、「logs」属性の代わりに、ABI を介して解析された「events」属性があります。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -911,7 +911,7 @@ Note that sending this transaction will charge the transaction fee to the transa
     ...
     status: true,
     to: '0xe4aeba6306b0df023aa4b765960fa59dbe925950',
-...
+    ...
     events: {
             Transfer: {
                     address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
@@ -988,23 +988,23 @@ kip7.mint(account, amount [, sendParam])
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| アカウント     | 文字列                                   | トークンが発行されるアカウントのアドレス。                                                                                  |
-| 金額        | BigNumber &#124; string &#124; number | 発行するトークンの量。                                                                                            |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string                                | The address of the account to which the minted token will be issued.                                                                                                          |
+| amount    | BigNumber &#124; string &#124; number | The amount of token to be minted.                                                                                                                                             |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、MinterRole を使ったminter でなければなりません。
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1069,20 +1069,20 @@ Adds an account as a minter, who are permitted to mint tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| アカウント     | 文字列    | マイナーとして追加されるアカウントのアドレス。                                                                                |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | The address of the account to be added as a minter.                                                                                                                           |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **注意** `sendParam.from` または `kip7.options.from` が指定された場合は、minter でなければなりません。
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1143,19 +1143,19 @@ Renounces the right to mint tokens. Only a minter address can renounce the minti
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、MinterRole を使ったminter でなければなりません。
+**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1212,24 +1212,24 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7.burn(amount [, sendParam])
 ```
-送信者の残高内のトークンの `金額` を削除します。 `sendParam.from` または `kip7.options.from` が指定されていない場合、エラーが発生します。
+送信者の残高内のトークンの `金額` を削除します。 Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 金額        | BigNumber &#124; string &#124; number | 破棄するトークンの量。                                                                                            |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount    | BigNumber &#124; string &#124; number | The amount of token to be destroyed.                                                                                                                                          |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1294,21 +1294,21 @@ kip7.burnFrom(account, amount [, sendParam])
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ                                   | Description                                                                                            |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| アカウント     | 文字列                                   | 手当メカニズムで書き込まれるトークンを所有するアカウントのアドレス。                                                                     |
-| 金額        | BigNumber &#124; string &#124; number | 破棄するトークンの量。                                                                                            |
-| sendParam | object                                | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type                                  | Description                                                                                                                                                                   |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string                                | 手当メカニズムで書き込まれるトークンを所有するアカウントのアドレス。                                                                                                                                            |
+| amount    | BigNumber &#124; string &#124; number | The amount of token to be destroyed.                                                                                                                                          |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `amount` パラメータは `number` 型を受け付けますが、与えられた値が数値で上限された範囲外の場合。 AX_SAFE_INTEGER、予期しない結果やエラーが発生する可能性があります。 In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1396,20 +1396,20 @@ Adds an account as a pauser that has the right to suspend the contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| アカウント     | 文字列    | 新しいポーザルにするアカウントのアドレス                                                                                   |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | The address of the account to be a new pauser.                                                                                                                                |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1470,19 +1470,19 @@ Renounces the right to pause the contract. Only a pauser address can renounce th
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1495,7 +1495,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     ...
     status: true,
     to: '0x31fee792a85ff4d714f47a151975b4979cb47308',
-...
+    ...
     events: {
         PauserRemoved: {
             address: '0x31fee792A85ff4D714F47A151975b4979CB47308',
@@ -1543,19 +1543,19 @@ Suspends functions related to sending tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1616,19 +1616,19 @@ Resumes the paused contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                                                            |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (オプション) トランザクションを送信するための定義されたパラメータを持つオブジェクト。 sendParamについての詳細は、 [承認](#kip7-approve)のパラメータの説明を参照してください。 |
+| Name      | Type   | Description                                                                                                                                                                   |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**注意** `sendParam.from` または `kip7.options.from` が与えられた場合は、PauserRole を持つpauser である必要があります。
+**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
-**戻り値**
+**Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 インスタンスからの領収書には、'logs' 属性の代わりに 'events' 属性が ABI 経由で解析されます。
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**例**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1641,7 +1641,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     ...
     status: true,
     to: '0xfc83abf47d232739dab9610c46b3f10c8022b3ef',
-...
+    ...
     events: {
         Unpaused: {
             address: '0xFc83ABF47d232739dAb9610C46B3F10C8022b3eF',
