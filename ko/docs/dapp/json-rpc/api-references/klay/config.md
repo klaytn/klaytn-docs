@@ -2,17 +2,17 @@
 
 체인 ID를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                   |
+| Type     | Description          |
 | -------- | -------------------- |
 | QUANTITY | 체인 ID를 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -31,17 +31,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                             |
+| Type   | Description                    |
 | ------ | ------------------------------ |
 | String | Klaytn 노드의 현재 클라이언트 버전을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -60,17 +60,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Returns a suggestion for a gas price in peb.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -93,19 +93,19 @@ Returns different values based on the condition described below. The unit of the
 - Otherwise, it returns the base fee of the given block.
 
 
-**파라미터**
+**Parameters**
 
-| 타입     | 설명                              |
+| Type   | Description                     |
 | ------ | ------------------------------- |
 | NUMBER | 블록 번호입니다. 이를 생략하면 최신 단가가 반환됩니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**예시**
+**Example**
 
 ```javascript
 // Request
@@ -121,19 +121,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
+Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                                                 |
+| Type    | Description                                                                        |
 | ------- | ---------------------------------------------------------------------------------- |
 | Boolean | `true`이면 노드가 병렬로 블록체인 데이터를 쓰고 있다는 것입니다. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -150,19 +150,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. It is disabled by default and can be enabled by `--sendertxhashindexing`.
+Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. It is disabled by default and can be enabled by `--sendertxhashindexing`.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                        |
+| Type    | Description                                               |
 | ------- | --------------------------------------------------------- |
 | Boolean | `true`이면 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있다는 것입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -181,17 +181,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드의 Klaytn 프로토콜 버전을 반환합니다. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                     |
+| Type   | Description            |
 | ------ | ---------------------- |
 | String | 노드의 Klaytn 프로토콜 버전입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -208,19 +208,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block rewards goes to. 컨센서스 노드(CN)의 경우에만 해당합니다.
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입            | 설명                |
-| ------------- | ----------------- |
-| 20바이트 크기 DATA | Rewardbase 주소입니다. |
+| Type         | Description       |
+| ------------ | ----------------- |
+| 20-byte DATA | Rewardbase 주소입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
