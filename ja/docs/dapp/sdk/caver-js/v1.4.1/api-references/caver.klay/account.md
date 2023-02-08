@@ -11,11 +11,11 @@ This default address is used as the default `from` property, if no `from` proper
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
 
-**属性**
+**Property**
 
 20byte `String` - Any Klaytn address.  ノードまたはキーストア内の アドレスの秘密鍵を持っている必要があります。  デフォルトは `未定義` です。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.defaultAccount;
@@ -31,23 +31,23 @@ undefined
 caver.klay.accountCreated(address [, defaultBlock] [, callback])
 ```
 
-アドレスに関連付けられているアカウントが作成された場合、 `true` を返します。 そうでなければ、 `false` を返します。
+Returns `true` if the account associated with the address is created. It returns `false` otherwise.
 
 **注意** accountアカウントがネットワーク上に存在するかどうかを確認するので、キーペアが作成された場合でも確認できます。 実際のブロックチェーンネットワーク上にアドレスに一致するアカウントが存在しない場合は、false が返されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | ネットワーク上で作成されたかどうかを確認するためにクエリしたいアカウントのアドレス。                                                       |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type          | Description                                                                                                |
+| ------------ | ------------- | ---------------------------------------------------------------------------------------------------------- |
+| address      | String        | The address of the account you want to query to see if it has been created on the network.                 |
+| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。           |
+| callback     | Function      | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean` - 入力アドレスの存在。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.accountCreated('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -63,23 +63,23 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-指定されたアドレスのアカウント情報を返します。 Klaytnには2つの異なる口座タイプがあります: 外部所有口座(EOA)とスマートコントラクト口座。 [Klaytn アカウント](../../../../../../klaytn/design/accounts.md#klaytn-accounts) を参照してください。
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. [Klaytn アカウント](../../../../../../klaytn/design/accounts.md#klaytn-accounts) を参照してください。
 
 **注意** getAccount はネットワーク上に存在するアカウントを返します。 実際のブロックチェーンネットワーク上にアドレスに一致するアカウントが存在しない場合、nullが返されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | アカウント情報を取得したいアカウントのアドレス。                                                                         |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type                 | Description                                                                                                                           |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | The address of the account for which you want to get account information.                                                             |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
-**戻り値**
+**Return Value**
 
 `Promise` は JSON オブジェクト - アカウント情報を含む JSON オブジェクトを返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getAccount('0x52791fcf7900a64a6bcab8b89a78ae4cc60da01c').then(console.log);
@@ -116,17 +116,17 @@ caver.klay.getAccounts([callback])
 
 ノードが制御するアカウントのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Array` を返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getAccounts().then(console.log);
@@ -140,23 +140,23 @@ caver.klay.getAccounts([callback])
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-指定されたアドレスの外部所有アカウント(EOA)のアカウントキーを返します。 アカウントにAccountKeyLegacyがある場合、または指定されたアドレスのアカウントがスマートコントラクトアカウントである場合、空のキー値が返されます。 [アカウントキー](../../../../../../klaytn/design/accounts.md#account-key) をご覧ください。
+指定されたアドレスの外部所有アカウント(EOA)のアカウントキーを返します。 If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. [アカウントキー](../../../../../../klaytn/design/accounts.md#account-key) をご覧ください。
 
 **注意** getAccountKey は、アカウントがネットワーク上に存在する場合、アカウントキーを返すため、キーペアが作成されても返されます。 実際のブロックチェーンネットワーク上にアドレスに一致するアカウントが存在しない場合、nullが返されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | アカウントキーを取得したいアカウントのアドレス                                                                          |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type                 | Description                                                                                                                           |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | アカウントキーを取得したいアカウントのアドレス                                                                                                               |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Object を返します。` - アカウントキーは公開鍵とキータイプで構成されます。
 
-**例**
+**Example**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -249,19 +249,19 @@ caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
 指定されたブロックのアドレスの残高を取得します。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | 残高を取得するためのアドレス                                                                                   |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type                 | Description                                                                                                                           |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | 残高を取得するためのアドレス                                                                                                                        |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `String` - peb 内の指定されたアドレスの現在の残高。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -277,19 +277,19 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
 特定のアドレスでコードを取得します。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | コードを取得するアドレス。                                                                                    |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type                 | Description                                                                                                                           |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | The address to get the code from.                                                                                                     |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - 指定されたアドレス `アドレス` のデータ。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8").then(console.log);
@@ -306,21 +306,21 @@ caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 このアドレスから送信されたトランザクションの数を取得します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ           | Description                                                                                                                                                                                                  |
-| ----------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | 文字列           | トランザクション数を取得するためのアドレス。                                                                                                                                                                                       |
-| blockNumber | 番号 &#124; 文字列 | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). If omitted, `latest` will be used. |
-| callback    | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                                                                           |
+| Name        | Type                 | Description                                                                                                                                                                                                  |
+| ----------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | String               | The address to get the number of transactions from.                                                                                                                                                          |
+| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). If omitted, `latest` will be used. |
+| callback    | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                   |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                 |
+| Type   | Description                 |
 | ------ | --------------------------- |
 | Number | 指定されたアドレスから送信されたトランザクションの数。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getTransactionCount("0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
@@ -334,21 +334,21 @@ caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 ```
 
-入力口座が特定のブロック番号の時点で空でないコードハッシュを持つ場合、 `true` を返します。 アカウントがEOAまたはcodeHashを持たないスマートコントラクトアカウントの場合、 `false` を返します。
+Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                      |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------ |
-| address      | 文字列           | isContractAccountをチェックしたいアカウントのアドレス。                                                             |
-| defaultBlock | 数値 &#124; 文字列 | (オプション) このパラメータを渡すと、 [caver.klay.defaultBlock](./block.md#defaultblock) で設定されたデフォルトのブロックは使用しません。 |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                               |
+| Name         | Type                 | Description                                                                                                                           |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | isContractAccountをチェックしたいアカウントのアドレス。                                                                                                  |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean` - `true` を返します。入力パラメータが既存のスマートコントラクトアドレスであることを意味します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.isContractAccount('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -368,19 +368,19 @@ Klaytn ネットワークに固有の署名付きデータを生成します。 
 
 **注意**: このAPIは、ノードに存在するアカウントを使用してメッセージに署名する機能を提供します。 メッセージに署名するには、ノード内のアカウントをロック解除する必要があります。 トランザクションに署名するには、 [caver.klay.signTransaction](./transaction.md#signtransaction) を使用してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| message  | 文字列 | 署名するメッセージ。                                                         |
-| address  | 文字列 | メッセージに署名するアカウントのアドレス。                                              |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| message  | String   | Message to sign.                                                                                           |
+| address  | String   | メッセージに署名するアカウントのアドレス。                                                                                      |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - アカウントの秘密鍵で署名されたメッセージ署名。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.sign('Message to sign', '0x1427ac5d0f1c3174ee6ea05d29a9b05fd31d7579').then(console.log)
