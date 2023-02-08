@@ -6,19 +6,19 @@ caver.klay.gasPriceAt([defaultBlock] [, callback])
 
 Returns the unit price of gas in peb that was effective at the given block height.
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ           | Description                                                                                                                            |
-| ------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | 数値 &#124; 文字列 | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback     | 関数            | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                     |
+| Name         | Type                 | Description                                                                                                                            |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
+| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                             |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - A numeric string of the gas price in peb.
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.gasPriceAt().then(console.log);
@@ -34,19 +34,19 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 caver.klay.getChainId([callback])
 ```
 
-チェーンの ID を返します。
+Returns the chain ID of the chain.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `Number` - Integer of the chain ID of the chain.
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getChainId().then(console.log);
@@ -61,17 +61,17 @@ caver.klay.getGasPrice([callback])
 
 Returns the unit price defined in the Klaytn network.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - Number string of the current unit price in peb.
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getGasPrice().then(console.log);
@@ -84,20 +84,20 @@ Returns the unit price defined in the Klaytn network.
 caver.klay.getNodeInfo([callback])
 ```
 
-Klaytn ノードの現在のクライアントバージョンを返します。
+Returns the current client version of a Klaytn node.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - The current client version of a Klaytn node.
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getNodeInfo().then(console.log);
@@ -110,20 +110,20 @@ Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 caver.klay.getProtocolVersion([callback])
 ```
 
-ノードの Klaytn プロトコルバージョンを返します。 サイプレス/バオバブの現在のバージョンは `istanbul/65` です。
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - The Klaytn protocol version of the node.
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.getProtocolVersion().then(console.log);
@@ -138,18 +138,18 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 
 Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                                                                                            |
-| -------- | --- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | 関数  | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
+| Name     | Type     | Description                                                                                                                            |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.isSenderTxHashIndexingEnabled().then(console.log);
@@ -164,18 +164,18 @@ caver.klay.isParallelDBWrite([callback])
 
 ブロックチェーンデータを並列に書き込む場合、 `true` を返します。 これはデフォルトで有効になっています。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Boolean` - `true` を返します。 ノードがデータを連続的に書き込んでいる場合、 `false` を返します。
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.isParallelDBWrite().then(console.log);
@@ -191,17 +191,17 @@ caver.klay.rewardbase([callback])
 現在のノードのリワードベースを返します。 Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 その構成には、Klaytn Consensus Nodes(CN)のみが報酬ベースを持っています。 [構成ファイル](../../../../../../node/core-cell/operation-guide/configuration.md) を参照してください。
 
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `String` - 現在のノードの報酬ベース。
 
-**例**
+**Example**
 
 ```javascript
 > caver.klay.rewardbase().then(console.log);
