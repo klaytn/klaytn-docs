@@ -2,10 +2,10 @@
 
 `caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
 
-## 주요 기능 <a href="#features" id="features"></a>
+## Features <a href="#features" id="features"></a>
 
 * HTTP 및 웹소켓을 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
-* Klaytn 트랜잭션, 계정 및 계정 키 유형 지원
+* Support of Klaytn transaction, account, and account key types
 * Klaytn 네트워크에서 스마트 컨트랙트를 배포하고 실행하기위한 자바스크립트 스마트 컨트랙트 패키지
 * Klaytn 계정 관리를 위한 인메모리 지갑
 * 수수료 위임 지원
@@ -97,7 +97,7 @@ tx.gasPrice = await tx.suggestGasPrice()
 
 For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](api-references/caver.rpc/klay.md#caver-rpc-klay-getgasprice).
 
-## 링크 <a href="#links" id="links"></a>
+## Links <a href="#links" id="links"></a>
 
 * caver-js [깃허브 레포지토리](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
