@@ -1,6 +1,6 @@
 # Fee Delegation Example
 
-## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. 소개](fee-delegation-example.md#1-introduction)
 * [2. 트랜잭션 수수료 위임 작동 방식](fee-delegation-example.md#2-how-fee-delegation-works)
@@ -15,11 +15,11 @@
   * 4.3 `feepayer_server.js` 확인
   * 4.4  Klaytnscope
 
-## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
+## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
 
 본 튜토리얼은 caver-js SDK를 활용하여 간단한 서버-클라이언트를 예제를 구축할 수 있도록 함으로써 Klaytn에서 어떻게 트랜잭션 수수료가 위임된 송금 트랜잭션이 작동되는지 보여줍니다. 튜토리얼과 예제의 코드는 Baobab 테스트넷을 사용하고 있습니다.
 
-## 2. 트랜잭션 수수료 위임 작동 방식 <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
+## 2. How fee delegation works <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
 트랜잭션 수수료 위임이 어떻게 이루어지는지 살펴보겠습니다.
 
@@ -70,10 +70,10 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-## 3. 트랜잭션 수수료 위임을 위한 간단한 서버와 클라이언트 <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
 위의 트랜잭션 수수료 위임 코드를 활용하여 간단한 서버와 클라이언트를 구축해보겠습니다.
 
@@ -187,11 +187,11 @@ console.log('Fee delegate service started ...');
 
 `data`가 들어오면 `feePayerPrivateKey`로 `data`를 서명하고 Klaytn 블록체인으로 전송할거에요. 이때 `data`는 `sender_client.js`로부터 전송받은 `senderRawTransaction`입니다.
 
-## 4. 예제 실행 <a href="#4-run-example" id="4-run-example"></a>
+## 4. Run example <a href="#4-run-example" id="4-run-example"></a>
 
 `sender_client.js`를 실행할 터미널과 `feepayer_server.js`를 실행할 터미널, 총 두 개의 터미널을 준비해주세요.
 
-### 4.1 `feepayer_server.js` 실행 <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
+### 4.1 Run `feepayer_server.js` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
 아래 명령어는 트랜잭션 수수료 납부자의 서버를 실행시킵니다.
 
@@ -202,7 +202,7 @@ Fee delegate service started ...
 
 서버가 실행되고 1337번 포트에서 수신 대기 중이네요.
 
-### 4.2 `sender_client.js` 실행 <a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
+### 4.2 Run `sender_client.js` <a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
 
 이제 `sender_client.js`를 실행하여 트랜잭션 수수료가 위임된 트랜잭션을 전송해봅시다.
 
@@ -219,7 +219,7 @@ Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b
 
 It will sign a transaction with the `sender` private key and send the signed transaction to the fee delegated service (i.e., fee payer's server). 이후 트랜잭션 수수료 위임 서비스로부터 `Fee payer`\(트랜잭션 수수료 납부자\) 의 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. 이때 `Tx hash`는 Klaytn 네트워크에 제출된 트랜잭션의 해시이고, `Sender Tx hash`는 트랜잭션 수수료 납부자의 주소와 서명을 제외한 나머지 부분에 대한 해시입니다. For more details, please take a look at [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
 
-### 4.3 `feepayer_server.js` 확인 <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 Check `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
 트랜잭션 수수료 납부자의 서버를 구동중인 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. Klaytn에서의 트랜잭션 영수증을 출력하는 것이에요.
 
