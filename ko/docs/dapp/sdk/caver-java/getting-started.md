@@ -392,7 +392,7 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
@@ -405,7 +405,7 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 
 **참고:** 발신자의 잔액은 송금하려는 KLAY와 송금 트랜잭션 수수료를 내기에 충분해야 합니다.
 
-#### 트랜잭션 서명하기
+#### Sign a transaction
 
 트랜잭션을 Klaytn에 보내기 전에 트랜잭션에 먼저 서명해야 합니다.
 
@@ -635,7 +635,7 @@ try {
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures]를 참고해주세요.
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures]를 참고해주세요.
 
 ### 계정 업데이트 <a id="account-update"></a>
 
@@ -850,7 +850,7 @@ ContractAddress : null
     }
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다.
+Running the code above gives you the following result.
 
 ```bash
 function set(string,string)
@@ -895,10 +895,10 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 컨트랙트 배포 트랜잭션 타입에 따라 스마트 컨트랙트는 다음 클래스 중 하나를 사용해 배포됩니다.
-  - `caver.contract` 패키지의 `Contract` 클래스: 스마트 컨트랙트 트랜잭션의 발신자 또는 대납자가 수수료를 지불할 때
-  - `caver.transaction`패키지의 `SmartContractDeploy`클래스: 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때
-  - `caver.transaction`패키지의`feeDelegatedSmartContractDeploy` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때
-  - `caver.transaction`패키지의`feeDelegatedSmartContractDeployWithRatio` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때
+  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+  - `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
 
 수수료 위임 트랜잭션을 통해 스마트 컨트랙트를 배포하기 위해서는  `SendOptions`의 `feeDelegation`와 `feePayer` 필드를 아래와 같이 정의하세요.
@@ -1158,7 +1158,7 @@ String cid = caver.ipfs.add(data);
 System.out.println(cid)
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
@@ -1188,7 +1188,7 @@ String multihash = caver.ipfs.toHex(cid);
 System.out.println(multihash);
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
@@ -1202,7 +1202,7 @@ String cid = caver.ipfs.fromHex(multihash);
 System.out.println(cid);
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
@@ -1247,7 +1247,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1264,11 +1264,11 @@ System.out.println(resultJson);
 
 KIP-17 토큰 컨트랙트에 구현된 인터페이스를 식별하기 위해 `KIP17` 클래스의 `detectInterface()`를 사용할 수 있습니다. KIP-17 인터페이스 식별자와, 그 인터페이스가 지원 간의 매핑을 반환합니다.
 
-`detectInterface()`는 정적, 그리고 인스턴스 메서드 둘 다 지원하기 때문에, 필요에 맞는 메서드를 선택하여 사용할 수 있습니다.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
 `detectInterface()`를 통해 식별한 `KIP17`에 대한 인터페이스는 아래와 같습니다.
 
-| 인터페이스                  | KIP-13 Identifier |
+| Interface              | KIP-13 Identifier |
 | ---------------------- | ----------------- |
 | IKIP17                 | 0x80ac58cd        |
 | IKIP17Metadata         | 0x5b5e139f        |
@@ -1284,7 +1284,7 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
 
-// 정적 메서드 사용
+//using static method.
 Map<String, Boolean> resultStatic = caver.kct.kip17.detectInterface(caver, contractAddress);
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
 System.out.println(resultJson);
@@ -1296,7 +1296,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1318,7 +1318,7 @@ KIP-37 토큰 컨트랙트에 구현된 인터페이스를 식별하기 위해 `
 
 `detectInterface()`를 통해 식별한 `KIP37`에 대한 인터페이스는 아래와 같습니다.
 
-| 인터페이스          | KIP-13 Identifier |
+| Interface      | KIP-13 Identifier |
 | -------------- | ----------------- |
 | IKIP37         | 0x6433ca1f        |
 | IKIP37Metadata | 0x0e89341c        |
@@ -1333,7 +1333,7 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
 
-// 정적 메서드 사용
+//using static method.
 Map<String, Boolean> resultStatic = caver.kct.kip37.detectInterface(contractAddress);
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
 System.out.println(resultJson);
@@ -1345,7 +1345,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-해당 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
