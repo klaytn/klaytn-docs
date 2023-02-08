@@ -6,15 +6,15 @@
 
 `kend.conf`를 설정하여 메인 브리지를 활성화해야 합니다.
 
-### 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
+### Update the Configuration File <a id="update-the-configuration-file"></a>
 
 `kend.conf`은 다음과 같은 메인 브리지 속성을 포함합니다.
 
-| 이름                     | 설명                                                                     |
-|:---------------------- |:---------------------------------------------------------------------- |
-| MAIN_BRIDGE            | 서비스체인을 위한 메인 브리지로 브리지 서비스를 활성화합니다. 활성화하려면 1로 설정하세요.                    |
-| MAIN_BRIDGE_PORT     | 브리지 수신 포트. 기본값 : 50505                                                 |
-| MAIN_BRIDGE_INDEXING | 서비스체인 데이터에 빠르게 액세스할 수 있도록 서비스 체인 트랜잭션 해시 인덱싱을 활성화합니다. 활성화하려면 1로 설정하세요. |
+| Name                   | Description                                                        |
+|:---------------------- |:------------------------------------------------------------------ |
+| MAIN_BRIDGE            | 서비스체인을 위한 메인 브리지로 브리지 서비스를 활성화합니다. 활성화하려면 1로 설정하세요.                |
+| MAIN_BRIDGE_PORT     | 브리지 수신 포트. 기본값 : 50505                                             |
+| MAIN_BRIDGE_INDEXING | 서비스체인 데이터에 빠르게 액세스할 수 있도록 서비스 체인 트랜잭션 해시 인덱싱을 활성화합니다. 1 to enable. |
 
 EN에서 메인 브리지를 활성화하려면 다음을 수행합니다.
 
@@ -62,7 +62,7 @@ MAIN_BRIDGE_INDEXING=1
 
 EN 프로세스를 연결하는 다른 방법이 있습니다. [ken CLI commands](../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. 이 페이지는 IPC(inter-process communication)를 통해 프로세스에 연결하는 방법을 설명합니다. `klay.ipc` IPC 파일은 EN/SCN의 데이터 디렉토리에 있습니다.
 
-다음 명령을 실행하고 결과를 확인하세요. (RPC를 위해 `mainbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
+Please execute the following command and check out the result. (RPC를 위해 `mainbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
