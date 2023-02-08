@@ -1,8 +1,8 @@
-# 설치 테스트 <a id="testing-the-installation"></a>
+# Testing the Installation <a id="testing-the-installation"></a>
 
 엔드포인트 노드가 성공적으로 설치되어 잘 작동하는지 점검해보겠습니다.
 
-## 프로세스 상태 <a id="process-status"></a>
+## Process Status <a id="process-status"></a>
 
 상태 명령 `systemctl`과 `kend`을 사용하여 EN의 프로세스 상태를 확인할 수 있습니다.
 
@@ -37,11 +37,11 @@ $ kend status
 kend is running
 ```
 
-## 로그 <a id="logs"></a>
+## Logs <a id="logs"></a>
 
 로그는 `kend.out` 파일에 저장되어 있고, 이 파일은 `LOG_DIR` field of the `kend.conf` 파일의 <0>LOG_DIR</0> 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
-예시:
+Example:
 
 ```bash
 $ tail kend.out
@@ -61,9 +61,9 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken 콘솔 <a id="ken-console"></a>
 
-Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC (inter-process communication)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
+Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. Another way of using the client is to connect to the process via IPC (inter-process communication). `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
 
-다음 명령을 실행하고 결과를 확인하세요.
+Please execute the following command and check out the result.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
@@ -79,8 +79,8 @@ You can check the usable commands on [API Document](../../../dapp/json-rpc/READM
 
 EN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
-* `klay.blockNumber` (최신 블록 번호를 가져옵니다)
-* `net.peerCount` (현재 연결된 Klaytn 노드의 수를 가져옵니다)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
