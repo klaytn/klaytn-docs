@@ -1,22 +1,22 @@
-# はじめに <a id="introduction"></a>
+# Introduction <a id="introduction"></a>
 
-`caver-js` は、開発者が HTTP または WebSocket 接続を使用して Klaytn ノードと対話できるようにする JavaScript API ライブラリです。 [npm](https://www.npmjs.com/package/caver-js) で利用できます。
+`caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
-## 特徴 <a id="features"></a>
+## Features <a id="features"></a>
 
-* HTTPとWebsocketを介したKlaytnのJSON-RPCクライアントAPIの完全な実装
-* Klaytnトランザクション、アカウント、およびアカウントキーの種類のサポート
-* Klaytn ネットワーク上でスマートコントラクトを展開して実行する JavaScript スマートコントラクトパッケージ
-* Klaytnアカウントを管理するためのインメモリウォレット
-* 手数料委任のサポート
-* Klaytnウォレットキーフォーマットのサポート
-* RLPにおけるトランザクションオブジェクトのエンコーディング/復号化
-* トランザクションオブジェクトの署名
-* caver-jsへのweb3-jsアプリケーションを簡単に移植します
+* Complete implementation of Klaytn’s JSON-RPC client API over HTTP and Websocket
+* Support of Klaytn transaction, account, and account key types
+* JavaScript smart contract package to deploy and execute a smart contract on the Klaytn network
+* In-memory wallet for managing Klaytn accounts
+* Support of fee-delegation
+* Support of the Klaytn wallet key format
+* Encoding/decoding of a transaction object in RLP
+* Signing of a transaction object
+* Easy to port web3-js application to caver-js
 
-## caver-js内のパッケージ <a id="packages-in-caver-js"></a>
+## Packages in caver-js <a id="packages-in-caver-js"></a>
 
-以下は `caver-js` で提供されているパッケージです。
+Below are packages provided in `caver-js`.
 
 * [caver.klay](api-references/caver.klay.md)
 * [caver.klay.accounts](api-references/caver.klay.accounts.md)
@@ -25,11 +25,11 @@
 * [caver.klay.abi](api-references/caver.klay.abi.md)
 * [caver.utils](api-references/caver.utils_1.4.1.md)
 
-## エラーコードの改善 <a id="error-code-improvement"></a>
+## Error Code Improvement <a id="error-code-improvement"></a>
 
-Web3.js経由のEthereumからのエラーメッセージは、エラーが発生する場所をほとんど把握していません。 `caver-js` は Klaytn からのエラーメッセージをキャッチするためのインターフェイスを改善します。
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
-詳細については、以下のように、トランザクション受領の `txError` の値を参照してください。
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```text
 Error: runtime error occurred in interpreter
@@ -49,13 +49,13 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## トランザクションをKlaytnに送信する際の注意 <a id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
 Klaytnは固定ガス価格\(25 ston = 25 \* 10^9\)を使用します。 Klaytnネットワークに提出された異なる価格の取引は拒否されます。 For more information about the gas price, see [Gas and Unit Price Overview](../../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](api-references/caver.klay/config.md#getgasprice).
 
 If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.klay.getGasPrice](api-references/caver.klay/config.md#getgasprice) RPC call to set the gas price of the transaction.
 
-## リンク <a id="links"></a>
+## Links <a id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
