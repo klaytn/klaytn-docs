@@ -1,4 +1,4 @@
-# 이더리움 호환성
+# Ethereum Compatibility
 
 ## 이더리움 동일성을 지원합니다
 
@@ -6,7 +6,7 @@
 
 ### 1. 개발 도구 <a href="#finality-and-improvements" id="finality-and-improvements"></a>
 
-클레이튼 기술 스택의 인터페이스와 실행 방식을 이더리움과 호환시킴으로써, 이더리움에서 동작하는 도구라면 클레이튼 생태계에서도 문제없이 동작힐 수 있습니다. 클레이튼 생태계에서 만들어진 모든 도구는 이더리움 생태계에서도 상호적으로 도입될 수 있습니다.
+클레이튼 기술 스택의 인터페이스와 실행 방식을 이더리움과 호환시킴으로써, 이더리움에서 동작하는 도구라면 클레이튼 생태계에서도 문제없이 동작힐 수 있습니다. New tooling created in the Klaytn ecosystem could be reciprocally adopted within the Ethereum ecosystem.
 
 ### 2. EVM과 API <a href="#evm-and-api" id="evm-and-api"></a>
 
@@ -14,4 +14,4 @@
 
 ### 3. 코어 개발 기여 <a href="#core-development-contribution" id="core-development-contribution"></a>
 
-이더리움 동일성을 지원함으로써 클레이튼과 이더리움 생태계 간 호혜적 관계가 가능해집니다. 대부분의 이더리움 개선 제안(EIP)은 클레이튼 코어 개발 어젠다에 이전, 적용될 수 있을 것이며 클레이튼 개선 제안(KIP) 또한 이더리움과 EVM의 발전에 기여할 수 있을 것입니다. 한 생태계에 대한 개발 커뮤니티의 기여는 두 생태계 모두에 대한 기여로 이어집니다.
+이더리움 동일성을 지원함으로써 클레이튼과 이더리움 생태계 간 호혜적 관계가 가능해집니다. The majority of Ethereum Improvement Proposals (EIPs) could be migrated and adopted to the Klaytn core development agenda, and in turn Klaytn Improvement Proposals (KIPs) could contribute to the advancement of Ethereum and EVM. When the development community contributes to one ecosystem, they are indeed contributing to both.
