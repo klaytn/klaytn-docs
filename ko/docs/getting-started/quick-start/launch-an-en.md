@@ -1,4 +1,4 @@
-# 엔드포인트 노드 실행
+# Launch an Endpoint Node
 
 ## Download and Initialize an Endpoint Node (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
