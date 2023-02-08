@@ -2,24 +2,24 @@
 
 ブロックチェーン上でトランザクションを作成せずに、すぐに新しいメッセージ呼び出しを実行します。 The eth_call method can be used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a transaction would be without running it live.
 
-**パラメータ**
+**Parameters**
 
-| 名前               | タイプ                 | Description                                                                                                                                                                                                          |
+| Name             | Type                | Description                                                                                                                                                                                                          |
 | ---------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject       | Object              | トランザクションコールオブジェクト。 オブジェクトのプロパティについては次の表を参照してください。                                                                                                                                                                    |
-| blockNumberOrTag | QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). ブロック番号は必須であり、指定されたトランザクションを実行するコンテキスト(状態)を定義します。 |
+| blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). ブロック番号は必須であり、指定されたトランザクションを実行するコンテキスト(状態)を定義します。 |
 | stateOverrideSet | Object              | ステートオーバーライドセットはオプションの address-to-state マッピングで、各エントリは呼び出しを実行する前に一時的にオーバーライドされる状態を指定します。                                                                                                                               |
 
 `callObject` には以下のプロパティがあります。
 
-| 名前       | タイプ        | Description                                                                              |
-| -------- | ---------- | ---------------------------------------------------------------------------------------- |
-| from     | 20 バイトのデータ | (オプション) トランザクションが送信されるようにシミュレートされます。 アドレスが指定されていない場合、 `0x00..0` アドレスが使用されます。             |
-| to       | 20 バイトのデータ | (オプション) トランザクションが送信されるアドレス。                                                              |
-| ガス       | 品質         | (オプション) 無限ループを回避するためのコード実行の最大ガス許容量。 デフォルトでは 2^63 か、--rpc.gascapで指定されたノード演算子の値です。         |
-| gasPrice | 品質         | (オプション) 実行中のガス単位ごとの支払いをシミュレートする `ペブ` の数。 デフォルトは `0` peb です。                              |
-| 値        | 品質         | (オプション) トランザクションとともに送信をシミュレートするための `peb` の量。 デフォルトは `0` です。                              |
-| input    | データ        | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 `data` フィールドを置き換えますが、'data' フィールドは後方互換性のためサポートされています。 |
+| Name     | Type         | Description                                                                              |
+| -------- | ------------ | ---------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | (オプション) トランザクションが送信されるようにシミュレートされます。 アドレスが指定されていない場合、 `0x00..0` アドレスが使用されます。             |
+| to       | 20-byte DATA | (オプション) トランザクションが送信されるアドレス。                                                              |
+| gas      | QUANTITY     | (オプション) 無限ループを回避するためのコード実行の最大ガス許容量。 デフォルトでは 2^63 か、--rpc.gascapで指定されたノード演算子の値です。         |
+| gasPrice | QUANTITY     | (オプション) 実行中のガス単位ごとの支払いをシミュレートする `ペブ` の数。 デフォルトは `0` peb です。                              |
+| value    | QUANTITY     | (オプション) トランザクションとともに送信をシミュレートするための `peb` の量。 デフォルトは `0` です。                              |
+| input    | DATA         | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 `data` フィールドを置き換えますが、'data' フィールドは後方互換性のためサポートされています。 |
 
 **例 - callObject**
 
@@ -34,13 +34,13 @@
 
 `stateOverrideSet` には以下のプロパティがあります。
 
-| 名前        | タイプ    | Description                                                     |
-| --------- | ------ | --------------------------------------------------------------- |
-| balance   | 数量     | (オプション) 通話を実行する前にアカウントに設定する偽の残高                                 |
-| nonce     | 数量     | (オプション) 通話を実行する前にアカウントに設定するnonce を偽装します。                        |
-| コード       | データ    | (オプション) 呼び出しを実行する前にアカウントに注入するEVMバイトコードを偽造します。                   |
-| 状態        | Object | (オプション) コールを実行する前に、アカウントストレージ内のすべてのスロットをオーバーライドするための偽のキー値マッピング。 |
-| stateDiff | Object | (オプション) コールを実行する前に、アカウントストレージ内の個々のスロットをオーバーライドするための偽のキー値マッピング。  |
+| Name      | Type     | Description                                                     |
+| --------- | -------- | --------------------------------------------------------------- |
+| balance   | 数量       | (オプション) 通話を実行する前にアカウントに設定する偽の残高                                 |
+| nonce     | Quantity | (オプション) 通話を実行する前にアカウントに設定するnonce を偽装します。                        |
+| コード       | DATA     | (オプション) 呼び出しを実行する前にアカウントに注入するEVMバイトコードを偽造します。                   |
+| 状態        | Object   | (オプション) コールを実行する前に、アカウントストレージ内のすべてのスロットをオーバーライドするための偽のキー値マッピング。 |
+| stateDiff | Object   | (オプション) コールを実行する前に、アカウントストレージ内の個々のスロットをオーバーライドするための偽のキー値マッピング。  |
 
 状態オーバーライドセットの目的は manyfold:
 
@@ -64,7 +64,7 @@
 }
 ```
 
-**例**
+**Example**
 
 有意義な方法で呼び出しをテストするには、以下のようなテスト環境を設定する必要があります。
 
@@ -132,24 +132,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 トランザクションが完了するために必要なガス量の見積もりを生成して返します。 トランザクション はブロックチェーンに追加されません。 この推定値は、トランザクションによって実際に使用されるガス の量よりも有意に大きい可能性があることに注意してください。 EVM力学やノード性能など、さまざまな理由で。
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ    | Description                                       |
-| ---------- | ------ | ------------------------------------------------- |
-| callObject | Object | トランザクションコールオブジェクト。 オブジェクトのプロパティについては次の表を参照してください。 |
+| Name       | Type   | Description                                                                  |
+| ---------- | ------ | ---------------------------------------------------------------------------- |
+| callObject | Object | The transaction call object. See the next table for the object's properties. |
 
-`callObject` には以下のプロパティがあります。
+`callObject` has the following properties:
 
-| 名前       | タイプ        | Description                                                                              |
-| -------- | ---------- | ---------------------------------------------------------------------------------------- |
-| from     | 20 バイトのデータ | (オプション) トランザクションが送信されるようにシミュレートされます。 アドレスが指定されていない場合、 `0x00..0` アドレスが使用されます。             |
-| to       | 20 バイトのデータ | (オプション) トランザクションが送信されるアドレス。                                                              |
-| ガス       | 品質         | (オプション) 無限ループを回避するためのコード実行の最大ガス許容量。 デフォルトでは 2^63 か、--rpc.gascapで指定されたノード演算子の値です。         |
-| gasPrice | 品質         | (オプション) 実行中のガス単位ごとの支払いをシミュレートする `ペブ` の数。 デフォルトは `0` peb です。                              |
-| 値        | 品質         | (オプション) トランザクションとともに送信をシミュレートするための `peb` の量。 デフォルトは `0` です。                              |
-| input    | データ        | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 `data` フィールドを置き換えますが、'data' フィールドは後方互換性のためサポートされています。 |
+| Name     | Type         | Description                                                                                                                                                       |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | (optional) Address the transaction is simulated to have been sent from. The `0x00..0` address is used if no address is specified.                                 |
+| to       | 20-byte DATA | (optional) Address the transaction is sent to.                                                                                                                    |
+| gas      | QUANTITY     | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
+| gasPrice | QUANTITY     | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
+| value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.         |
 
-**例 - callObject**
+**Example - callObject**
 
 ```json
 {
@@ -160,13 +160,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 }
 ```
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | ガスの使用量。     |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | ガスの使用量。     |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -185,18 +185,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 このAPIを使用する前に、 [注意事項-取引](./caution.md#transaction) をご確認ください。
 
-**パラメータ**
+**Parameters**
 
-| タイプ       | Description          |
-| --------- | -------------------- |
-| 32バイトのデータ | ブロックのハッシュ。           |
-| 品質        | トランザクションインデックス位置の整数。 |
+| Type         | Description          |
+| ------------ | -------------------- |
+| 32-byte DATA | Hash of a block.     |
+| QUANTITY     | トランザクションインデックス位置の整数。 |
 
-**戻り値**
+**Return Value**
 
 [eth_getTransactionByHash](#eth_gettransactionbyhash) を参照してください
 
-**例**
+**Example**
 
 さまざまなトランザクションタイプの例を見るには、 [eth_getTransactionByHash](#eth_gettransactionbyhash) を参照してください。
 
@@ -232,22 +232,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ブロック番号とトランザクションインデックス位置でトランザクションに関する情報を返します。
 
-このAPIを使用する前に、 [注意事項-取引](./caution.md#transaction) をご確認ください。
+Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
-**パラメータ**
+**Parameters**
 
-| タイプ                 | Description                                                                                                                                                              |
+| Type                | Description                                                                                                                                                              |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY &#124; Tag | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
-| 品質                  | トランザクションインデックスの位置。                                                                                                                                                       |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY            | トランザクションインデックスの位置。                                                                                                                                                       |
 
-**戻り値**
+**Return Value**
 
-[eth_getTransactionByHash](#eth_gettransactionbyhash) を参照してください
+See [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
-**例**
+**Example**
 
-さまざまなトランザクションタイプの例を見るには、 [eth_getTransactionByHash](#eth_gettransactionbyhash) を参照してください。
+To see examples of various transaction types, check [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 ```shell
 // Request
@@ -281,15 +281,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 トランザクションハッシュによって要求されたトランザクションに関する情報を返します。
 
-このAPIを使用する前に、 [注意事項-取引](./caution.md#transaction) をご確認ください。
+Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
-**パラメータ**
+**Parameters**
 
-| タイプ       | Description    |
-| --------- | -------------- |
-| 32バイトのデータ | トランザクションのハッシュ。 |
+| Type         | Description    |
+| ------------ | -------------- |
+| 32-byte DATA | トランザクションのハッシュ。 |
 
-**戻り値**
+**Return Value**
 
 トランザクションのフィールドは、トランザクションタイプに基づいて異なることができます。 現在、 Ethereum(Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930) , [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559) )には3種類のトランザクションがあります。
 
@@ -297,23 +297,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **Legacy Transaction**
 
-| 名前               | タイプ        | Description                               |
-| ---------------- | ---------- | ----------------------------------------- |
-| blockHash        | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`   |
-| blockNumber      | 品質         | このトランザクションがあったブロック番号。 `保留中の場合は null`      |
-| from             | 20 バイトのデータ | 送信者のアドレス                                  |
-| ガス               | 品質         | 送信者が提供するガス。                               |
-| gasPrice         | 品質         | ペブ内の送信者によって提供されるガス価格。                     |
-| hash             | 32バイトのデータ  | トランザクションのハッシュ                             |
-| input            | データ        | トランザクションとともに送信されたデータ。                     |
-| nonce            | 品質         | この前の送信者によって行われたトランザクションの数。                |
-| to               | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。    |
-| 値                | 品質         | このトランザクションで送信された値の整数。                     |
-| transactionIndex | 品質         | ブロック内のトランザクションインデックス位置の整数。 `保留中の場合は null` |
-| タイプ              | 品質         | トランザクションのタイプを表す整数。                        |
-| v                | 品質         | ECDSAリカバリID。                              |
-| r                | 32バイトのデータ  | ECDSA 署名 r.                               |
-| s                | 32バイトのデータ  | ECDSA 署名 s.                               |
+| Name             | Type         | Description                                           |
+| ---------------- | ------------ | ----------------------------------------------------- |
+| blockHash        | 32-byte DATA | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`               |
+| blockNumber      | QUANTITY     | このトランザクションがあったブロック番号。 `null` when it is pending.      |
+| from             | 20-byte DATA | 送信者のアドレス                                              |
+| gas              | QUANTITY     | 送信者が提供するガス。                                           |
+| gasPrice         | QUANTITY     | ペブ内の送信者によって提供されるガス価格。                                 |
+| hash             | 32-byte DATA | トランザクションのハッシュ                                         |
+| input            | DATA         | トランザクションとともに送信されたデータ。                                 |
+| nonce            | QUANTITY     | この前の送信者によって行われたトランザクションの数。                            |
+| to               | 20-byte DATA | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                |
+| value            | QUANTITY     | このトランザクションで送信された値の整数。                                 |
+| transactionIndex | QUANTITY     | ブロック内のトランザクションインデックス位置の整数。 `null` when it is pending. |
+| type             | QUANTITY     | トランザクションのタイプを表す整数。                                    |
+| v                | QUANTITY     | ECDSAリカバリID。                                          |
+| r                | 32-byte DATA | ECDSA 署名 r.                                           |
+| s                | 32-byte DATA | ECDSA 署名 s.                                           |
 
 **例 - 従来の取引**
 
@@ -347,25 +347,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **AccessListトランザクション**
 
-| 名前               | タイプ        | Description                                                |
-| ---------------- | ---------- | ---------------------------------------------------------- |
-| blockHash        | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`                    |
-| blockNumber      | 品質         | このトランザクションがあったブロック番号。 `保留中の場合は null`                       |
-| from             | 20 バイトのデータ | 送信者のアドレス                                                   |
-| ガス               | 品質         | 送信者が提供するガス。                                                |
-| gasPrice         | 品質         | ペブ内の送信者によって提供されるガス価格。                                      |
-| hash             | 32バイトのデータ  | トランザクションのハッシュ                                              |
-| input            | データ        | トランザクションとともに送信されたデータ。                                      |
-| nonce            | 品質         | この前の送信者によって行われたトランザクションの数。                                 |
-| to               | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                     |
-| 値                | 品質         | このトランザクションで送信された値の整数。                                      |
-| transactionIndex | 品質         | ブロック内のトランザクションインデックス位置の整数。 `保留中の場合は null`                  |
-| タイプ              | 品質         | トランザクションのタイプを表す整数。                                         |
-| accessList       | 行列         | [accessList](https://eips.ethereum.org/EIPS/eip-2930) の配列。 |
-| chainId          | 品質         | 要求されたノードにチェーンIDがセットされました。                                  |
-| v                | 品質         | ECDSAリカバリID。                                               |
-| r                | 32バイトのデータ  | ECDSA 署名 r.                                                |
-| s                | 32バイトのデータ  | ECDSA 署名 s.                                                |
+| Name             | Type         | Description                                                                        |
+| ---------------- | ------------ | ---------------------------------------------------------------------------------- |
+| blockHash        | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.        |
+| blockNumber      | QUANTITY     | Block number where this transaction was in. `null` when it is pending.             |
+| from             | 20-byte DATA | Address of the sender.                                                             |
+| gas              | QUANTITY     | Gas provided by the sender.                                                        |
+| gasPrice         | QUANTITY     | Gas price provided by the sender in peb.                                           |
+| hash             | 32-byte DATA | Hash of the transaction.                                                           |
+| input            | DATA         | The data sent along with the transaction.                                          |
+| nonce            | QUANTITY     | The number of transactions made by the sender prior to this one.                   |
+| to               | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.        |
+| value            | QUANTITY     | Integer of values sent with this transaction.                                      |
+| transactionIndex | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending. |
+| type             | QUANTITY     | An integer representing the type of the transaction.                               |
+| accessList       | Array        | [accessList](https://eips.ethereum.org/EIPS/eip-2930) の配列。                         |
+| chainId          | QUANTITY     | Chain id set on the requested node.                                                |
+| v                | QUANTITY     | ECDSA recovery id.                                                                 |
+| r                | 32-byte DATA | ECDSA signature r.                                                                 |
+| s                | 32-byte DATA | ECDSA signature s.                                                                 |
 
 **例 - AccessList トランザクション**
 
@@ -408,27 +408,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **動的手数料取引**
 
-| 名前                   | タイプ        | Description                                                |
-| -------------------- | ---------- | ---------------------------------------------------------- |
-| blockHash            | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。 `保留中の場合は null`                    |
-| blockNumber          | 品質         | このトランザクションがあったブロック番号。 `保留中の場合は null`                       |
-| from                 | 20 バイトのデータ | 送信者のアドレス                                                   |
-| ガス                   | 品質         | 送信者が提供するガス。                                                |
-| gasPrice             | 品質         | ペブ内の送信者によって提供されるガス価格。                                      |
-| maxFeePerGas         | 品質         | トランザクションを実行するために支払う最大額。                                    |
-| maxPriorityFeePerGas | 品質         | ペブでの動的手数料取引のためのガスチップキャップ。                                  |
-| hash                 | 32バイトのデータ  | トランザクションのハッシュ                                              |
-| input                | データ        | トランザクションとともに送信されたデータ。                                      |
-| nonce                | 品質         | この前の送信者によって行われたトランザクションの数。                                 |
-| to                   | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                     |
-| 値                    | 品質         | このトランザクションで送信された値の整数。                                      |
-| transactionIndex     | 品質         | ブロック内のトランザクションインデックス位置の整数。 `保留中の場合は null`                  |
-| タイプ                  | 品質         | トランザクションのタイプを表す整数。                                         |
-| accessList           | 行列         | [accessList](https://eips.ethereum.org/EIPS/eip-2930) の配列。 |
-| chainId              | 品質         | 要求されたノードにチェーンIDがセットされました。                                  |
-| v                    | 品質         | ECDSAリカバリID。                                               |
-| r                    | 32バイトのデータ  | ECDSA 署名 r.                                                |
-| s                    | 32バイトのデータ  | ECDSA 署名 s.                                                |
+| Name                 | Type         | Description                                                                        |
+| -------------------- | ------------ | ---------------------------------------------------------------------------------- |
+| blockHash            | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.        |
+| blockNumber          | QUANTITY     | Block number where this transaction was in. `null` when it is pending.             |
+| from                 | 20-byte DATA | Address of the sender.                                                             |
+| gas                  | QUANTITY     | Gas provided by the sender.                                                        |
+| gasPrice             | QUANTITY     | Gas price provided by the sender in peb.                                           |
+| maxFeePerGas         | QUANTITY     | トランザクションを実行するために支払う最大額。                                                            |
+| maxPriorityFeePerGas | QUANTITY     | ペブでの動的手数料取引のためのガスチップキャップ。                                                          |
+| hash                 | 32-byte DATA | Hash of the transaction.                                                           |
+| input                | DATA         | The data sent along with the transaction.                                          |
+| nonce                | QUANTITY     | The number of transactions made by the sender prior to this one.                   |
+| to                   | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.        |
+| value                | QUANTITY     | Integer of values sent with this transaction.                                      |
+| transactionIndex     | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending. |
+| type                 | QUANTITY     | An integer representing the type of the transaction.                               |
+| accessList           | Array        | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
+| chainId              | QUANTITY     | Chain id set on the requested node.                                                |
+| v                    | QUANTITY     | ECDSA recovery id.                                                                 |
+| r                    | 32-byte DATA | ECDSA signature r.                                                                 |
+| s                    | 32-byte DATA | ECDSA signature s.                                                                 |
 
 **例 - DynamicFee Transaction**
 
@@ -479,33 +479,33 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 このAPIを使用する前に、 [注意事項-トランザクション領収書](./caution.md#transaction_receipt) をご確認ください。
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ       | Description    |
-| ---- | --------- | -------------- |
-| ハッシュ | 32バイトのデータ | トランザクションのハッシュ。 |
+| Name | Type         | Description            |
+| ---- | ------------ | ---------------------- |
+| ハッシュ | 32-byte DATA | Hash of a transaction. |
 
-**戻り値**
+**Return Value**
 
 `Object` - レシートが見つからなかった場合、 `null`
 
-| 名前                | タイプ        | Description                                                                                                                           |
-| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash         | 32バイトのデータ  | このトランザクションがあったブロックのハッシュ。                                                                                                              |
-| blockNumber       | 品質         | この取引があったブロック番号                                                                                                                        |
-| コントラクトアドレス        | データ        | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。                                                                            |
-| 累積ガス使用            | 品質         | このトランザクションがブロック内で実行されたときに使用されるガスの合計量。                                                                                                 |
-| effectiveGasPrice | 品質         | 送信者口座からガス当たりの実際の値が差し引かれます。 EIP-1559以前は、これは取引のガス価格に等しいです。 その後、baseFeePerGas + min(maxFeePerGas - baseFeePerGas, maxPriorityFeePerGas). |
-| from              | 20 バイトのデータ | 送信者のアドレス                                                                                                                              |
-| ログ                | 行列         | このトランザクションが生成したログオブジェクトの配列。                                                                                                           |
-| logsBloom         | 256バイトのデータ | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                                                                                     |
-| ステータス             | 品質         | `1` (成功) または `0 0` (失敗).                                                                                                              |
-| to                | 20 バイトのデータ | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                |
-| transactionHash   | 32バイトのデータ  | トランザクションのハッシュ                                                                                                                         |
-| transactionIndex  | 品質         | ブロック内のトランザクションインデックス位置の整数。                                                                                                            |
-| タイプ               | 品質         | トランザクションのタイプを表す整数。                                                                                                                    |
+| Name              | Type          | Description                                                                                                                           |
+| ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash         | 32-byte DATA  | Hash of the block where this transaction was in.                                                                                      |
+| blockNumber       | QUANTITY      | この取引があったブロック番号                                                                                                                        |
+| contractAddress   | DATA          | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。                                                                            |
+| cumulativeGasUsed | QUANTITY      | このトランザクションがブロック内で実行されたときに使用されるガスの合計量。                                                                                                 |
+| effectiveGasPrice | QUANTITY      | 送信者口座からガス当たりの実際の値が差し引かれます。 EIP-1559以前は、これは取引のガス価格に等しいです。 その後、baseFeePerGas + min(maxFeePerGas - baseFeePerGas, maxPriorityFeePerGas). |
+| from              | 20-byte DATA  | Address of the sender.                                                                                                                |
+| logs              | Array         | このトランザクションが生成したログオブジェクトの配列。                                                                                                           |
+| logsBloom         | 256-byte DATA | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                                                                                     |
+| status            | QUANTITY      | `1` (成功) または `0 0` (失敗).                                                                                                              |
+| to                | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.                                                           |
+| transactionHash   | 32-byte DATA  | Hash of the transaction.                                                                                                              |
+| transactionIndex  | QUANTITY      | Integer of the transaction index position in the block.                                                                               |
+| type              | QUANTITY      | An integer representing the type of the transaction.                                                                                  |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -554,21 +554,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 新しいメッセージコールトランザクションまたは署名されたトランザクションのコントラクト作成を作成します。
 
-**パラメータ**
+**Parameters**
 
-| タイプ | Description       |
-| --- | ----------------- |
-| データ | 署名されたトランザクションデータ。 |
+| Type | Description       |
+| ---- | ----------------- |
+| DATA | 署名されたトランザクションデータ。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ       | Description                                 |
-| --------- | ------------------------------------------- |
-| 32バイトのデータ | トランザクションがまだ利用可能でない場合、トランザクションハッシュまたはゼロハッシュ。 |
+| Type         | Description                                 |
+| ------------ | ------------------------------------------- |
+| 32-byte DATA | トランザクションがまだ利用可能でない場合、トランザクションハッシュまたはゼロハッシュ。 |
 
 コントラクトをデプロイした場合は、 [eth_getTransactionReceipt](#eth_gettransactionreceipt) を使用してコントラクトアドレスを取得します。
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -586,38 +586,38 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 与えられたパラメータでトランザクションを構築し、送信者の秘密鍵でトランザクションに署名し、 トランザクションをKlaytnネットワークに伝播します。
 
-**注**: 署名するアドレスのロックを解除する必要があります。
+**NOTE**: The address to sign with must be unlocked.
 
 **パラメータ**:
 
-| 名前              | タイプ    | Description                                        |
+| Name            | Type   | Description                                        |
 | --------------- | ------ | -------------------------------------------------- |
 | transactionArgs | Object | トランザクション引数のオブジェクト。 オブジェクトのプロパティについては以下の表を参照してください。 |
 
 `transactionArgs` には以下のプロパティがあります:
 
-| 名前                   | タイプ        | Description                                                                                             |
-| -------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
-| from                 | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                                      |
-| to                   | 20 バイトのデータ | (新規コントラクトを作成する際に必須ではありません) トランザクションが指示されるアドレス。                                                          |
-| ガス                   | 品質         | (オプション) トランザクションの実行に提供されるガスの整数。 未使用のガスを返却します。                                                           |
-| maxFeePerGas         | 品質         | (オプション、デフォルト: 250 ston) トランザクションの実行に支払う最大額。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。  |
-| maxPriorityFeePerGas | 品質         | (オプション、デフォルト:250個) ペブ内の動的手数料取引のためのガスチップキャップ。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。 |
-| input                | データ        | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 `data` フィールドを置き換えますが、'data' フィールドは後方互換性のためサポートされています。                |
-| 値                    | 品質         | (オプション) このトランザクションで送信された値の整数。                                                                           |
-| nonce                | 品質         | (オプション) nonce の整数。                                                                                      |
+| Name                 | Type         | Description                                                                                                                      |
+| -------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| from                 | 20-byte DATA | トランザクションが送信されたアドレス                                                                                                               |
+| to                   | 20-byte DATA | (新規コントラクトを作成する際に必須ではありません) トランザクションが指示されるアドレス。                                                                                   |
+| gas                  | QUANTITY     | (オプション) トランザクションの実行に提供されるガスの整数。 未使用のガスを返却します。                                                                                    |
+| maxFeePerGas         | QUANTITY     | (オプション、デフォルト: 250 ston) トランザクションの実行に支払う最大額。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。                           |
+| maxPriorityFeePerGas | QUANTITY     | (オプション、デフォルト:250個) ペブ内の動的手数料取引のためのガスチップキャップ。 Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
+| input                | DATA         | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 It replaces `data` field, but 'data` field is still supported for backward compatibility.    |
+| value                | QUANTITY     | (オプション) このトランザクションで送信された値の整数。                                                                                                    |
+| nonce                | QUANTITY     | (オプション) nonce の整数。                                                                                                               |
 
 
 
-**戻り値**
+**Return Value**
 
-| タイプ       | Description                                 |
-| --------- | ------------------------------------------- |
-| 32バイトのデータ | トランザクションがまだ利用可能でない場合、トランザクションハッシュまたはゼロハッシュ。 |
+| Type         | Description                                                                    |
+| ------------ | ------------------------------------------------------------------------------ |
+| 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
 
-コントラクトをデプロイした場合は、 [eth_getTransactionReceipt](#eth_gettransactionreceipt) を使用してコントラクトアドレスを取得します。
+If you deployed a contract, use [eth_getTransactionReceipt](#eth_gettransactionreceipt) to get the contract address.
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -635,55 +635,55 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 eth_sendRawTransaction を使用して、後でネットワークに送信できるトランザクションに署名します。
 
-**注**: 署名するアドレスのロックを解除する必要があります。
+**NOTE**: The address to sign with must be unlocked.
 
-**パラメータ**:
+**Parameters**:
 
-| 名前              | タイプ    | Description                                        |
-| --------------- | ------ | -------------------------------------------------- |
-| transactionArgs | Object | トランザクション引数のオブジェクト。 オブジェクトのプロパティについては以下の表を参照してください。 |
+| Name            | Type   | Description                                                                          |
+| --------------- | ------ | ------------------------------------------------------------------------------------ |
+| transactionArgs | Object | An object of transaction arguments. See the table below for the object's properties. |
 
-`transactionArgs` には以下のプロパティがあります:
+`transactionArgs` has the following properties:
 
-| 名前                   | タイプ        | Description                                                                              |
-| -------------------- | ---------- | ---------------------------------------------------------------------------------------- |
-| from                 | 20 バイトのデータ | トランザクションが送信されたアドレス                                                                       |
-| to                   | 20 バイトのデータ | (新規コントラクトを作成する際に必須ではありません) トランザクションが指示されるアドレス。                                           |
-| ガス                   | 品質         | トランザクションの実行に提供されるガスの整数。 未使用のガスを返却します。                                                    |
-| maxFeePerGas         | 品質         | トランザクションの実行に支払う最大額。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。           |
-| maxPriorityFeePerGas | 品質         | ペブでの動的手数料取引のためのガスチップキャップ。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。     |
-| input                | データ        | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 `data` フィールドを置き換えますが、'data' フィールドは後方互換性のためサポートされています。 |
-| 値                    | 品質         | (オプション) このトランザクションで送信された値の整数。                                                            |
-| nonce                | 品質         | nonce の整数。                                                                               |
+| Name                 | Type         | Description                                                                                                                                                       |
+| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from                 | 20-byte DATA | The address from which the transaction is sent.                                                                                                                   |
+| to                   | 20-byte DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                                     |
+| gas                  | QUANTITY     | トランザクションの実行に提供されるガスの整数。 It will return unused gas.                                                                                                                |
+| maxFeePerGas         | QUANTITY     | トランザクションの実行に支払う最大額。 Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                                                           |
+| maxPriorityFeePerGas | QUANTITY     | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                               |
+| input                | DATA         | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
+| value                | QUANTITY     | (optional) The integer of values sent with this transaction.                                                                                                      |
+| nonce                | QUANTITY     | nonce の整数。                                                                                                                                                        |
 
-**戻り値**
+**Return Value**
 
 `Object` - 署名されたトランザクションオブジェクト。
 
-| 名前  | タイプ    | Description                                    |
-| --- | ------ | ---------------------------------------------- |
-| raw | データ    | `rawTransaction` 文字列 (RLPエンコードされたトランザクション文字列)。 |
-| tx  | Object | トランザクションオブジェクト。 オブジェクトのプロパティについては次の表を参照してください。 |
+| Name | Type   | Description                                                     |
+| ---- | ------ | --------------------------------------------------------------- |
+| raw  | DATA   | `rawTransaction` 文字列 (RLPエンコードされたトランザクション文字列)。                  |
+| tx   | Object | トランザクションオブジェクト。 See the next table for the object's properties. |
 
 `tx` には以下のプロパティがあります。
 
-| 名前                   | タイプ       | Description                                                |
-| -------------------- | --------- | ---------------------------------------------------------- |
-| タイプ                  | 品質        | トランザクションのタイプを表す整数。                                         |
-| nonce                | 品質        | この取引があったブロック番号                                             |
-| gasPrice             | 品質        | ペブ内の送信者によって提供されるガス価格。 `null` 従来のトランザクションではない場合。            |
-| maxFeePerGas         | 品質        | トランザクションを実行するために支払う最大額。 `null` レガシートランザクションの場合。            |
-| maxPriorityFeePerGas | 品質        | ペブでの動的手数料取引のためのガスチップキャップ。 `null` レガシートランザクションの場合。          |
-| ガス                   | 品質        | 送信者が提供するガス。                                                |
-| 値                    | 品質        | このトランザクションで送信された値の整数。                                      |
-| v                    | 品質        | ECDSAリカバリID。                                               |
-| r                    | 32バイトのデータ | ECDSA 署名 r.                                                |
-| s                    | 32バイトのデータ | ECDSA 署名 s.                                                |
-| chainId              | 品質        | 要求されたノードにチェーンIDがセットされました。                                  |
-| accessList           | 行列        | [accessList](https://eips.ethereum.org/EIPS/eip-2930) の配列。 |
-| hash                 | 32バイトのデータ | トランザクションのハッシュ                                              |
+| Name                 | Type         | Description                                                                             |
+| -------------------- | ------------ | --------------------------------------------------------------------------------------- |
+| type                 | QUANTITY     | An integer representing the type of the transaction.                                    |
+| nonce                | QUANTITY     | The block number where this transaction was in.                                         |
+| gasPrice             | QUANTITY     | Gas price provided by the sender in peb. `null` 従来のトランザクションではない場合。                      |
+| maxFeePerGas         | QUANTITY     | A maximum amount to pay for the transaction to execute. `null` レガシートランザクションの場合。         |
+| maxPriorityFeePerGas | QUANTITY     | Gas tip cap for dynamic fee transaction in peb. `null` when it is a legacy transaction. |
+| gas                  | QUANTITY     | Gas provided by the sender.                                                             |
+| value                | QUANTITY     | Integer of values sent with this transaction.                                           |
+| v                    | QUANTITY     | ECDSA recovery id.                                                                      |
+| r                    | 32-byte DATA | ECDSA signature r.                                                                      |
+| s                    | 32-byte DATA | ECDSA signature s.                                                                      |
+| chainId              | QUANTITY     | Chain id set on the requested node.                                                     |
+| accessList           | Array        | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                      |
+| hash                 | 32-byte DATA | Hash of the transaction.                                                                |
 
-**例**
+**Example**
 
 ```json
 {
@@ -716,7 +716,7 @@ eth_sendRawTransaction を使用して、後でネットワークに送信でき
 
 指定された署名されていないトランザクションで既定値 (nonce、gasPrice、または1559 フィールド) を入力します。 そして、さらに処理(署名とブロードキャスト)するために呼び出し元の に返します。
 
-**パラメータ**:
+**Parameters**:
 
 パラメータは eth_sendTransaction と同じです。 [eth_sendtransaction](#eth_sendtransaction) を参照してください。
 
@@ -724,7 +724,7 @@ eth_sendRawTransaction を使用して、後でネットワークに送信でき
 
 参照 [eth_signTransaction](#eth_signtransaction).
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -761,17 +761,17 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
 
 トランザクションプールにあり、このノード が管理するアカウントの 1 つである from アドレスを持つトランザクションを返します。
 
-**パラメータ**:
+**Parameters**:
 
-なし
+None
 
-**戻り値**
+**Return value**
 
-| 名前     | タイプ | Description                                                                                 |
-| ------ | --- | ------------------------------------------------------------------------------------------- |
-| 保留中の取引 | 行列  | トランザクションの配列。 返されたトランザクションオブジェクトについては、 [eth_signTransaction を参照してください](#eth_signtransaction) |
+| Name   | Type  | Description                                                                                 |
+| ------ | ----- | ------------------------------------------------------------------------------------------- |
+| 保留中の取引 | Array | トランザクションの配列。 返されたトランザクションオブジェクトについては、 [eth_signTransaction を参照してください](#eth_signtransaction) |
 
-**例**
+**Example**
 
 ```shell
 // Request
