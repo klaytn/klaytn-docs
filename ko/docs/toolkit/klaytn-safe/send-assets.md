@@ -29,10 +29,10 @@
 
 ![](../img/klaytn-safe/9_safeNFTInit.gif)
 
-**Step 2:** 전송할 자산을 선택합니다.
+**Step 2:** Choose assets to transfer.
 
 ![](../img/klaytn-safe/10_safeChooseNFT.gif)
 
-**Step 3:** 트랜잭션을 검토하고 전송합니다. 서명인 지갑으로 트랜잭션을 서명해야 합니다. 서명값 임계치에 도달했을 때 실행됩니다.
+**Step 3:** Review and submit the transaction. 서명인 지갑으로 트랜잭션을 서명해야 합니다. 서명값 임계치에 도달했을 때 실행됩니다.
 
 ![](../img/klaytn-safe/11_safeNftExec.gif)
