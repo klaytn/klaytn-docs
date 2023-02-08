@@ -1,6 +1,6 @@
-# プリコンパイル済み契約 <a id="precompiled-contracts"></a>
+# Precompiled Contracts <a id="precompiled-contracts"></a>
 
-Klaytnはいくつかの有用な事前コンパイル済み契約を提供します。 これらの契約は、ネイティブ実装としてプラットフォーム自体に実装されています。 アドレス0x01から0x09までの事前編集された契約はEthereumの契約と同じです。 Klaytnはさらに、0x3fdから0x3ffまでのプリコンパイル済みコントラクトを実装して、新しいKlaytn機能をサポートしています。
+Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. アドレス0x01から0x09までの事前編集された契約はEthereumの契約と同じです。 Klaytnはさらに、0x3fdから0x3ffまでのプリコンパイル済みコントラクトを実装して、新しいKlaytn機能をサポートしています。
 
 {% hint style="success" %}
 注: 3 つのプリコンパイル済みのコントラクトアドレスが変更され、 **blake2F** が `イスタンブールEVM` プロトコルのアップグレード、または "ハードフォーク" の後に追加されました。
@@ -22,33 +22,33 @@ Klaytnはいくつかの有用な事前コンパイル済み契約を提供し�
 | feePayer             | 0x0a                                       | 0x3fe                                      |
 | validateSender       | 0x0b                                       | 0x3ff                                      |
 
-## アドレス 0x01: ecrecover\(hash, v, r, s\' <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
+## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
-アドレス0x01はecrecoverを実装しています。 ECDSAの回復関数を計算することにより、与えられた署名からアドレスを返します。 機能のプロトタイプは以下の通りです。
+The address 0x01 implements ecrecover. It returns the address from the given signature by calculating a recovery function of ECDSA. Its function prototype is as follows:
 
 ```text
 function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (address);
 ```
 
-## アドレス 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
+## Address 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
 
-アドレス0x02はSHA256ハッシュを実装しています。 与えられたデータから SHA256 ハッシュを返します。 機能のプロトタイプは以下の通りです。
+The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given data. Its function prototype is as follows:
 
 ```text
 function sha256(bytes data) returns (bytes32);
 ```
 
-## アドレス 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
+## Address 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
 
-アドレス0x03はRIPEMD160ハッシュを実装しています。 与えられたデータから RIPEMD160 ハッシュを返します。 機能のプロトタイプは以下の通りです。
+The address 0x03 implements RIPEMD160 hash. It returns a RIPEMD160 hash from the given data. Its function prototype is as follows:
 
 ```text
 function ripemd160(bytes data) returns (bytes32);
 ```
 
-## アドレス 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
+## Address 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
 
-アドレス0x04はデータコピを実装しています \(すなわち、ID関数\)。 変更なしに直接入力データを返します。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 インラインアセンブリのコードは、このプリコンパイル済みコントラクトを呼び出すために使用できます。
+The address 0x04 implements datacopy \(i.e., identity function\). It returns the input data directly without any modification. This precompiled contract is not supported by the Solidity compiler. The following code with inline assembly can be used to call this precompiled contract.
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -66,7 +66,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## Address 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-アドレス0x05は式 `base**exp % mod` を実装します。 与えられたデータから結果を返します。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。 このプリコンパイルされたコントラクトは任意の長さの入力をサポートしますが、以下のコードでは、一定の長さの入力を例として使用します。
+The address 0x05 implements the formula `base**exp % mod`. It returns the result from the given data. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract. Note that although this precompiled contract supports an arbitrary length of inputs, the below code uses a fixed length of inputs as an example.
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -96,9 +96,9 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 }
 ```
 
-## アドレス 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
+## Address 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-アドレス 0x06 は、ネイティブの楕円曲線の点の追加を実装しています。 `(ax, ay) + (bx) を表す楕円曲線点を返します。 ) <code>` \(ax, ay\) と \(bx, by\) が曲線上の有効な点であるように、 bn256. このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+The address 0x06 implements a native elliptic curve point addition. It returns an elliptic curve point representing `(ax, ay) + (bx, by)` such that \(ax, ay\) and \(bx, by\) are valid points on the curve bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -117,9 +117,9 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 }
 ```
 
-## アドレス 0x07: bn256ScalarMul\(x, y, scalar\' <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
+## Address 0x07: bn256ScalarMul\(x, y, scalar\) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-アドレス 0x07 は、スカラー値を持つネイティブの楕円曲線の掛け算を実装しています。 これは `スカラー * (x) を表す 楕円曲線点を返します。 y) <code>` \(x, y\) が曲線上の有効な曲線点であるように、 bn256. このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+The address 0x07 implements a native elliptic curve multiplication with a scalar value. It returns an elliptic curve point representing `scalar * (x, y)` such that \(x, y\) is a valid curve point on the curve bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -137,9 +137,9 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 }
 ```
 
-## アドレス 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
+## Address 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-アドレス0x08は、zkSNARK検証を実行する楕円曲線のパーシング操作を実装しています。 詳細については、 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md) を参照してください。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+The address 0x08 implements elliptic curve paring operation to perform zkSNARK verification. For more information, see [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -160,7 +160,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 ```
 
 ## 住所 0x09: blake2F\(rounds, h, m, t, f\' <a id="address-0x-3fc-vmlog-str"></a>
-アドレス0x09は、BLAKE2b F圧縮機能を実装しています。 詳細については、 [EIP-152](https://eips.ethereum.org/EIPS/eip-152) を参照してください。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス0x09は、BLAKE2b F圧縮機能を実装しています。 詳細については、 [EIP-152](https://eips.ethereum.org/EIPS/eip-152) を参照してください。 This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -180,7 +180,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## アドレス 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-アドレス 0x3FD は、指定された文字列 `str` を特定のファイルに出力するか、またはそれをロガーモジュールに渡します。 詳細については、 [debug\_setVMLogTarget](../../../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget) を参照してください。 このプリコンパイル済みコントラクトはデバッグ目的でのみ使用することに注意してください。 そして、Klaytn ノードの開始時に `--vmlog` オプションを有効にする必要があります。 また、vmLog の出力を確認するには、 Klaytn ノードのログレベルを 4 以上にする必要があります。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス 0x3FD は、指定された文字列 `str` を特定のファイルに出力するか、またはそれをロガーモジュールに渡します。 詳細については、 [debug\_setVMLogTarget](../../../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget) を参照してください。 Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -190,7 +190,7 @@ function callVmLog(bytes memory str) public {
 
 ## 住所 0x3fe: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
 
-アドレス 0x3FE は、実行中のトランザクションの手数料支払者を返します。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス 0x3FE は、実行中のトランザクションの手数料支払者を返します。 This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -207,13 +207,13 @@ function feePayer() internal returns (address addr) {
 
 ## アドレス 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-アドレス0x3FFは送信者の署名をメッセージで検証します。 Klaytn [はアドレス](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses)から鍵ペアを分離するため、署名が対応する送信者によって適切に署名されていることを検証する必要があります。 これを行うには、このプリコンパイルされたコントラクトは 3 つのパラメータを受け取ります。
+アドレス0x3FFは送信者の署名をメッセージで検証します。 Klaytn [はアドレス](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses)から鍵ペアを分離するため、署名が対応する送信者によって適切に署名されていることを検証する必要があります。 To do that, this precompiled contract receives three parameters:
 
-* 公開鍵を取得するための送信者のアドレス
-* 署名の生成に使用されるメッセージハッシュです。
-* 指定されたメッセージハッシュを持つ送信者の秘密鍵によって署名された署名
+* The sender's address to get the public keys
+* The message hash that is used to generate the signature
+* The signatures that are signed by the sender's private keys with the given message hash
 
-プリコンパイルされたコントラクトは、与えられた署名が送信者の秘密鍵によって適切に署名されていることを検証します。 Klaytn は複数の署名をネイティブにサポートしていることに注意してください。これは複数の署名が存在する可能性があることを意味します。 署名は 65 バイトの長さでなければなりません。
+The precompiled contract validates that the given signature is properly signed by the sender's private keys. Klaytn は複数の署名をネイティブにサポートしていることに注意してください。これは複数の署名が存在する可能性があることを意味します。 署名は 65 バイトの長さでなければなりません。
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
