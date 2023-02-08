@@ -12,20 +12,20 @@ caver.ipfs.setIPFSNode(host, port, ssl)
 
 IPFS ノードとの接続を初期化します。 この機能を通じてIPFSノード情報が設定されている場合、IPFSにファイルをアップロードしたり、IPFSからファイルを読み込んだりすることができます。
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ     | Description                                                   |
-| --- | ------- | ------------------------------------------------------------- |
-| ホスト | 文字列     | 接続するIPFSノードURL。                                               |
-| ポート | 数値      | 使用するポート番号。                                                    |
-| ssl | boolean | true の場合、 `https` プロトコルが使用されます。 そうでなければ、 `http` プロトコルが使用されます。 |
+| Name | Type    | Description                                                   |
+| ---- | ------- | ------------------------------------------------------------- |
+| host | string  | 接続するIPFSノードURL。                                               |
+| port | number  | 使用するポート番号。                                                    |
+| ssl  | boolean | true の場合、 `https` プロトコルが使用されます。 そうでなければ、 `http` プロトコルが使用されます。 |
 
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
 ```javascript
 > caver.ipfs.setIPFSNode('localhost', 5001, false)
@@ -41,24 +41,24 @@ IPFS にファイルを追加します。 アップロードされたファイ�
 
 ファイルのパスが渡されると、ファイルの内容がパスから読み込まれ、IPFSにアップロードされます。 バッファが渡されると、直接IPFSにアップロードされます。
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ                                     | Description                 |
+| Name | Type                                    | Description                 |
 | ---- | --------------------------------------- | --------------------------- |
 | data | string &#124; Buffer &#124; ArrayBuffer | IPFSに追加するファイルまたはバッファのパス文字列。 |
 
 **Notes** `Buffer` は caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5) でサポートされています。
 
 
-**戻り値**
+**Return Value**
 
 `Promise` は `文字列` を返します
 
-| タイプ | Description                                                                                                              |
-| --- | ------------------------------------------------------------------------------------------------------------------------ |
-| 文字列 | アップロードされたファイルの [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
+| Type   | Description                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| string | アップロードされたファイルの [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
-**例**
+**Example**
 
 ```javascript
 // Adds a file with path string.
@@ -78,22 +78,22 @@ caver.ipfs.get(hash)
 
 有効なIPFSパスで指定されたファイルを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description                                                                                                             |
-| ---- | --- | ----------------------------------------------------------------------------------------------------------------------- |
-| hash | 文字列 | ダウンロードするファイルの [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
+| Name | Type   | Description                                                                                                             |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
+| hash | string | ダウンロードするファイルの [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Buffer` を返します。
 
-| タイプ    | Description |
+| Type   | Description |
 | ------ | ----------- |
 | Buffer | ファイルの内容     |
 
-**例**
+**Example**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -108,20 +108,20 @@ caver.ipfs.toHex(hash)
 
 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) を [Multihash](https://multiformats.io/multihash) に変換します。
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description                                                                                                    |
-| ---- | --- | -------------------------------------------------------------------------------------------------------------- |
-| hash | 文字列 | 変換する [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
+| Name | Type   | Description                                                                                                    |
+| ---- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| hash | string | 変換する [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                         |
-| --- | --------------------------------------------------- |
-| 文字列 | [Multihash](https://multiformats.io/multihash) 文字列. |
+| Type   | Description                                         |
+| ------ | --------------------------------------------------- |
+| string | [Multihash](https://multiformats.io/multihash) 文字列. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -136,20 +136,20 @@ caver.ipfs.fromHex(hash)
 
 [マルチハッシュ](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) から [CID(Content Identifier)](https://multiformats.io/multihash) に変換します。
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description                                        |
-| ---- | --- | -------------------------------------------------- |
-| hash | 文字列 | 変換する [マルチハッシュ](https://multiformats.io/multihash)。 |
+| Name | Type   | Description                                        |
+| ---- | ------ | -------------------------------------------------- |
+| hash | string | 変換する [マルチハッシュ](https://multiformats.io/multihash)。 |
 
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                                                                               |
-| --- | --------------------------------------------------------------------------------------------------------- |
-| 文字列 | [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| Type   | Description                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------- |
+| string | [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
-**例**
+**Example**
 
 ```javascript
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
