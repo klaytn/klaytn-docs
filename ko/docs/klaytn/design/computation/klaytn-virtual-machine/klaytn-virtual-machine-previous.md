@@ -1,6 +1,6 @@
 # Klaytn 가상머신 <a id="klaytn-virtual-machine"></a>
 
-## 개요 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 쓸 수 있도록 할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점 그리고 KLVM 사양에 대해 설명합니다.
 
@@ -24,7 +24,7 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 
 #### 블록체인 관련 기호 <a id="blockchain-related-symbols"></a>
 
-| 기호         | 설명           |
+| 기호         | Description  |
 |:---------- |:------------ |
 | `BC`       | 블록체인         |
 | `B`        | Block        |
@@ -32,16 +32,16 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 
 #### 상태 관련 기호(State-Related Symbols)<a id="state-related-symbols"></a>
 
-| 기호               | 설명        |
-|:---------------- |:--------- |
-| `S`              | 상태(State) |
-| `S_system`       | 시스템 상태    |
-| `S_machine`      | 머신 상태     |
-| `P_modify_state` | 상태 수정 권한  |
+| Symbol           | Description |
+|:---------------- |:----------- |
+| `S`              | 상태(State)   |
+| `S_system`       | 시스템 상태      |
+| `S_machine`      | 머신 상태       |
+| `P_modify_state` | 상태 수정 권한    |
 
 #### 트랜잭션 관련 기호(Transaction-related symbols)<a id="transaction-related-symbols"></a>
 
-| 기호        | 설명                                                                          |
+| Symbol    | Description                                                                 |
 |:--------- |:--------------------------------------------------------------------------- |
 | `T`       | Transaction                                                                 |
 | `T_code`  | 실행할 머신 코드를 포함하는 바이트 배열(byte array)                                          |
@@ -51,7 +51,7 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 
 #### 가스 관련 기호(Gas-Related Symbols)<a id="gas-related-symbols"></a>
 
-| 기호        | 설명                   |
+| Symbol    | Description          |
 |:--------- |:-------------------- |
 | `G`       | 가스                   |
 | `G_rem`   | 연산에 사용하기 위한 남은 잔여 가스 |
@@ -59,16 +59,16 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 
 #### 주소 관련 기호(Adress-Related Symbols)<a id="address-related-symbols"></a>
 
-| 기호                | 설명                                                                       |
+| Symbol            | Description                                                              |
 |:----------------- |:------------------------------------------------------------------------ |
-| `A`               | 주소입니다.                                                                   |
+| `A`               | Address                                                                  |
 | `A_code_owner`    | 실행 코드를 소유한 계정의 주소                                                        |
 | `A_tx_sender`     | 현재 실행을 시작한 트랜잭션의 발신자 주소                                                  |
 | `A_code_executor` | 코드를 실행한 계정의 주소. 실행 에이전트가 트랜잭션이라면, 이는 트랜잭션 발신자(transaction sender) 가 됩니다. |
 
 #### 함수 <a id="functions"></a>
 
-|    기호     | 설명                                         |
+|  Symbol   | Description                                |
 |:---------:|:------------------------------------------ |
 | `F_apply` | 주어진 상태에 입력된 트랜잭션을 적용하고 결과 상태 및 출력을 반환하는 함수 |
 
@@ -96,7 +96,7 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 NOTE: This document contains the fee schedule used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
 {% endhint %}
 
-| 이름                |     값 | 설명                                                          |
+| Name              |     값 | Description                                                 |
 |:----------------- | -----:|:----------------------------------------------------------- |
 | `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                              |
 | `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                |
