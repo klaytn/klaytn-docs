@@ -2,17 +2,17 @@
 
 클라이언트가 소유한 계정의 주소 목록을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입                  | 설명                         |
+| Type                | Description                |
 | ------------------- | -------------------------- |
 | 20바이트 크기 DATA array | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -31,20 +31,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 입력으로 받은 주소에 해당하는 계정의 잔액을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름                   | 타입                              | 설명                                                                                                                                           |
+| Name                 | Type                            | Description                                                                                                                                  |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20바이트 크기 DATA                   | 잔액을 확인할 계정의 주소입니다.                                                                                                                           |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| address              | 20-byte DATA                    | 잔액을 확인할 계정의 주소입니다.                                                                                                                           |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                          |
+| Type     | Description                 |
 | -------- | --------------------------- |
 | QUANTITY | peb 단위 현재 잔액을 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -62,20 +62,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 입력으로 받은 주소의 코드를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 타입                              | 설명                                                                                                                                           |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
-| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | 주소입니다.                                                                                                                                                                                 |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                 |
+| Type | Description        |
 | ---- | ------------------ |
 | DATA | 입력으로 받은 주소의 코드입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -94,20 +94,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 어떤 주소의 계정에서 *발신된* 트랜잭션의 개수를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 타입                              | 설명                                                                                                                                           |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
-| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                       |
+| Type     | Description                              |
 | -------- | ---------------------------------------- |
 | QUANTITY | 입력으로 받은 주소에서 발신한 트랜잭션의 개수를 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
  ```shell
 // Request
@@ -133,20 +133,20 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입             | 설명            |
+| Name    | Type           | Description   |
 | ------- | -------------- | ------------- |
-| account | 20바이트 크기 DATA  | 주소입니다.        |
-| 메시지     | N 바이트 크기의 DATA | 서명하려는 메시지입니다. |
+| account | 20-byte DATA   | Address       |
+| message | N 바이트 크기의 DATA | 서명하려는 메시지입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명       |
-| ---- | -------- |
-| DATA | 서명 값입니다. |
+| Type | Description |
+| ---- | ----------- |
+| DATA | 서명 값입니다.    |
 
-**예시**
+**Example**
 
 ```shell
 // Request
