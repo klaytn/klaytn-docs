@@ -1,4 +1,4 @@
-# テストガイド
+# Testing Guide
 
 このセクションでは、スマートコントラクトのテスト方法を紹介します。 ブロックチェーン上のトランザクションは元に戻せないため、コントラクトを展開する前にスマートコントラクトをテストすることが重要です。
 
@@ -143,10 +143,10 @@ Fix the code and run the test again.
 ```
 $ truffle test
 # Output
-ネットワークの 'development' を使う。
+Using network 'development'.
 
 
-契約をコンパイルしています...
+Compiling your contracts...
 ===================================
 > Compiling ./test/TestKlaytnGreeter.sol
 
@@ -226,7 +226,7 @@ This library allows you to easily test reverts or other failures by offering the
 ネットワーク「開発」を使用しています。
 
 
-契約をコンパイルしています...
+Compiling your contracts...
 ===================================
 > すべてが最新で、コンパイルするものは何もありません。
 
@@ -241,7 +241,7 @@ This library allows you to easily test reverts or other failures by offering the
   3通（158ms）
 ```
 
-おめでとうございます テストは合格しました。
+Congratulations! Your test has passed.
 
 ### 4) テストの指定 <a href="#4-specifying-test" id="4-specifying-test"></a>
 
