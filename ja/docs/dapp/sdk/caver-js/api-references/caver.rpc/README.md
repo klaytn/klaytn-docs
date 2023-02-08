@@ -2,7 +2,7 @@
 
 `caver.rpc` は、Klaytn Node を使用した rpc 呼び出しに関連する機能を提供するパッケージです。
 
-## クラス <a id="class"></a>
+## Class <a id="class"></a>
 
 ### RPC <a id="rpc"></a>
 
@@ -12,13 +12,13 @@ caver.rpc
 
 `RPC` は内部に [Klay][]、 [Net][] と [Governance][] を含むクラスです。
 
-**プロパティー**
+**Properties**
 
-| 名前         | タイプ       | Description                                    |
-| ---------- | --------- | ---------------------------------------------- |
-| klay       | [Klay][]  | [Klay][] は`klay` の名前空間を持つ JSON-RPC 呼び出しを提供します。 |
-| ネット        | [Net][]   | [Net][] は `net` の名前空間を持つ JSON-RPC 呼び出しを提供します。  |
-| governance | [ガバナンス][] | [ガバナンス][] で JSON-RPC コールに `ガバナンス` の名前空間を提供します。 |
+| Name       | Type           | Description                                    |
+| ---------- | -------------- | ---------------------------------------------- |
+| klay       | [Klay][]       | [Klay][] は`klay` の名前空間を持つ JSON-RPC 呼び出しを提供します。 |
+| ネット        | [Net][]        | [Net][] は `net` の名前空間を持つ JSON-RPC 呼び出しを提供します。  |
+| governance | [Governance][] | [ガバナンス][] で JSON-RPC コールに `ガバナンス` の名前空間を提供します。 |
 
 ## JSON-RPC通話 <a id="json-rpc-calls"></a>
 
@@ -54,8 +54,8 @@ caver.rpc
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
 ### [トランザクション](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
-- [通話](./klay.md#caver-rpc-klay-call)
-- [推定ガス](./klay.md#caver-rpc-klay-estimategas)
+- [call](./klay.md#caver-rpc-klay-call)
+- [estimateGas](./klay.md#caver-rpc-klay-estimategas)
 - [見積もり計算コスト](./klay.md#caver-rpc-klay-estimatecomputationcost)
 - [getTransactionByBlockHashAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblockhashandindex)
 - [getTransactionByBlockNumberAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblocknumberandindex)
