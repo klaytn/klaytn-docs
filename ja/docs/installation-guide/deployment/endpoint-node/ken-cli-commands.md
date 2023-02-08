@@ -57,7 +57,7 @@ init コマンドは、ネットワークの新しいジェネシスブロック
  ...
 ```
 
-## JavaScript コンソール <a id="javascript-console"></a>
+## JavaScript Console <a id="javascript-console"></a>
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
