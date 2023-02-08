@@ -4,15 +4,15 @@
 
 `genesis.json` 파일 구조는 다음 표에 설명되어 있습니다.
 
-| 필드명        | 설명                                                                                            |
+| Field Name | Description                                                                                   |
 | ---------- | --------------------------------------------------------------------------------------------- |
 | config     | 블록 체인 환경설정. [Config](#config) 장을 확인하세요.                                                       |
-| 논스         | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
+| nonce      | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
 | timestamp  | 블록이 생성된 유닉스 시간.                                                                               |
 | extraData  | 서명자 베니티(vanity) 그리고 검증자 리스트, 제안자 씰(seal) 및 커밋 씰을 포함하는 RLP-인코딩된 이스탄불 추가 데이터를 위한 서명자 데이터 통합 필드. |
 | gasLimit   | 블록에 사용된 최대 가스량.                                                                               |
-| difficulty | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
-| mixhash    | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
+| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                 |
+| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                 |
 | coinbase   | 채굴자가 보상을 받는 주소. 이 필드는 Clique 컨센서스 엔진에서만 사용됩니다.                                                |
 | alloc      | 사전 정의된 계정.                                                                                    |
 | number     | 블록 번호 필드.                                                                                     |
@@ -23,14 +23,14 @@
 
 `config` 필드는 체인과 관련된 정보를 저장합니다.
 
-| 필드명                     | 설명                                           |
+| Field Name              | Description                                  |
 | ----------------------- | -------------------------------------------- |
 | chainId                 | 현재 체인을 식별하고 리플레이 공격을 방지하는 데 사용됩니다.           |
 | istanbulCompatibleBlock | 이스탄불 업그레이드가 적용될 블록 번호.                       |
 | istanbul, clique        | 합의 엔진의 유형.                                   |
-| 단위 가격                   | 단가.                                          |
+| unitPrice               | 단가.                                          |
 | deriveShaImpl           | 트랜잭션 해시 및 영수증 해시를 생성하는 방법을 정의합니다.            |
-| 거버넌스                    | 네트워크의 거버넌스 정보. [거버넌스](#governance) 장을 참조하세요. |
+| governance              | 네트워크의 거버넌스 정보. [거버넌스](#governance) 장을 참조하세요. |
 
 
 ## extraData <a id="extradata"></a>
@@ -43,8 +43,8 @@
      - 씰: 헤더의 제안자 서명. `genesis.json`의 경우, 65개의 `0x0`로 초기화된 바이트 배열입니다.
      - 커밋된 씰: 합의 증명으로서의 커밋 서명 씰의 리스트. `genesis.json`의 경우, 빈 배열입니다.
 
-**예시**
-| 필드            | 타입             | 값                                                                                       |
+**Example**
+| Field         | Type           | Value                                                                                   |
 | ------------- | -------------- | --------------------------------------------------------------------------------------- |
 | Vanity        | 32바이트 16진수 문자열 | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
 | Validators    | []address      | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
@@ -68,7 +68,7 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 
 `clique` 필드는 Proof-Of-Authority(POA) 기반 씰링을 위한 환경설정을 저장합니다.
 
-| 필드     | 설명                          |
+| 필드     | Description                 |
 | ------ | --------------------------- |
 | period | 연속된 블록 사이의 최소 시간 간격(단위: 초). |
 | epoch  | 투표를 재설정하고 체크포인트로 표시될 블록의 수  |
@@ -77,37 +77,37 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 
 `istanbul` 필드는 이스탄불 기반 씰링을 위한 환경설정을 저장합니다.
 
-| 필드     | 설명                                         |
+| Fields | Description                                |
 | ------ | ------------------------------------------ |
 | epoch  | 체크포인트가 되기 위해 투표를 재설정할 블록 수.                |
 | policy | 블록 제안자 선출 정책. [0: 라운드 로빈, 1: 고정, 2: 가중 랜덤] |
 | sub    | 위원회 규모.                                    |
 
-# 거버넌스(Governance)<a id="governance"></a>
+# Governance <a id="governance"></a>
 
 `governance` 필드는 네트워크를 위한 거버넌스 정보를 저장합니다.
 
-| 필드             | 설명                                                                      |
+| Fields         | Description                                                             |
 | -------------- | ----------------------------------------------------------------------- |
 | governanceMode | 세 가지 거버넌스 모드 중 하나입니다. `none`, `single`, `ballot` 등 세 가지 모드 중 하나를 선택합니다. |
-| governingNode  | 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `single` 인 경우에만 작동합니다.                |
+| governingNode  | Designated governing node's address. 거버넌스 모드가 `single` 인 경우에만 작동합니다.    |
 | reward         | 보상 환경설정을 저장합니다. [Reward](#reward) 장을 확인하세요.                             |
 
 ## Reward <a id="reward"></a>
 
 `reward` 필드는 네트워크의 토큰 이코노미에 대한 정보를 저장합니다.
 
-| 필드                     | 설명                                                |
-| ---------------------- | ------------------------------------------------- |
-| mintingAmount          | 블록이 생성될 때 발행되는 peb의 양. 값에는 큰따옴표가 필요합니다.           |
-| ratio                  | `/`으로 구분되는 `CN/KIR/PoC`의 분포율 모든 값의 합은 100이어야 합니다. |
-| useGiniCoeff           | 지니(GINI) 계수 사용 여부                                 |
-| deferredTxFee          | 블록에 대한 TX 수수료를 분배하는 방법.                           |
-| stakingUpdateInterval  | 스테이킹 정보를 업데이트하기 위한 블록 높이의 시간 간격.                  |
-| proposerUpdateInterval | 제안자 정보를 업데이트하기 위한 블록 높이의 시간 간격.                   |
-| minimumStake           | 코어 셀 운영자에 참여하기 위한 최소량의 peb.                       |
+| Fields                 | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| mintingAmount          | 블록이 생성될 때 발행되는 peb의 양. Double quotation marks are needed for a value. |
+| ratio                  | `/`으로 구분되는 `CN/KIR/PoC`의 분포율 모든 값의 합은 100이어야 합니다.                     |
+| useGiniCoeff           | 지니(GINI) 계수 사용 여부                                                     |
+| deferredTxFee          | 블록에 대한 TX 수수료를 분배하는 방법.                                               |
+| stakingUpdateInterval  | 스테이킹 정보를 업데이트하기 위한 블록 높이의 시간 간격.                                      |
+| proposerUpdateInterval | 제안자 정보를 업데이트하기 위한 블록 높이의 시간 간격.                                       |
+| minimumStake           | 코어 셀 운영자에 참여하기 위한 최소량의 peb.                                           |
 
-# 예시 <a id="example"></a>
+# Example <a id="example"></a>
 
 ```
 {
