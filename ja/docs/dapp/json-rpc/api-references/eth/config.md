@@ -2,17 +2,17 @@
 
 クライアントのコインベースアドレスを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description     |
-| ---------- | --------------- |
-| 20 バイトのデータ | 現在のコインベースのアドレス。 |
+| Type         | Description     |
+| ------------ | --------------- |
+| 20-byte DATA | 現在のコインベースのアドレス。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -31,17 +31,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 クライアントのイーサベースアドレスを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description    |
-| ---------- | -------------- |
-| 20 バイトのデータ | 現在のイーサベースアドレス。 |
+| Type         | Description    |
+| ------------ | -------------- |
+| 20-byte DATA | 現在のイーサベースアドレス。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -60,17 +60,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 リクエストされたノードに現在の chainId セットを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description               |
-| --- | ------------------------- |
-| 品質  | 要求されたノードにチェーンIDがセットされました。 |
+| Type     | Description               |
+| -------- | ------------------------- |
+| QUANTITY | 要求されたノードにチェーンIDがセットされました。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -91,17 +91,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **注**: このAPIはEthereumとは異なる動作をしており、 Ethereumのようにガス価格を提案するのではなく、Klaytnのガス価格を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description     |
-| --- | --------------- |
-| 品質  | ペブ内の現在のガス価格の整数。 |
+| Type     | Description     |
+| -------- | --------------- |
+| QUANTITY | ペブ内の現在のガス価格の整数。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
