@@ -6,18 +6,18 @@ Returns base fee per gas and transaction effective priority fee per gas history 
 **NOTE**: This API is effective after Klaytn v1.8.0
 {% endhint %}
 
-**파라미터**
+**Parameters**
 
-| 이름                | 타입                  | 설명                                                                                                                                                                                                       |
+| Name              | Type                | Description                                                                                                                                                                                              |
 | ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockCount        | QUANTITY            | Number of blocks in the requested range in hexadecimal. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
 | lastBlock         | QUANTITY &#124; TAG | Highest numbered block of the requested range as block number or block tag.                                                                                                                              |
 | rewardPercentiles | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                     |
 
 
-**리턴값**
+**Return Value**
 
-| 이름            | 타입                | 설명                                                                                                                                                                 |
+| Name          | Type              | Description                                                                                                                                                        |
 | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | oldestBlock   | QUANTITY          | Lowest numbered block of the returned range in hexadecimal.                                                                                                        |
 | baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
@@ -25,7 +25,7 @@ Returns base fee per gas and transaction effective priority fee per gas history 
 | reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
 
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -56,17 +56,17 @@ Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
 **NOTE**: This API is effective after Klaytn v1.8.0
 {% endhint %}
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
