@@ -1,4 +1,4 @@
-# ダウンロード <a id="download"></a>
+# Download <a id="download"></a>
 
 ## Get the Packages <a id="get-the-packages"></a>
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
