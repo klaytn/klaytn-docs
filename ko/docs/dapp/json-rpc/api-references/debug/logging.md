@@ -4,22 +4,22 @@
 
 로깅 백트레이스 위치를 설정합니다. 백트레이스 위치가 설정되고, 그 위치에서 로그 메시지가 전송되면 로그 내역을 실행하는 Go루틴의 스택이 `stderr`로 출력됩니다.
 
-| 클라이언트 | 메서드 호출                                                |
-|:-----:| ----------------------------------------------------- |
-|  콘솔   | `debug.backtraceAt(location)`                         |
-|  RPC  | `{"method": "debug_backtraceAt", "params": [string]}` |
+| Client  | Method Invocation                                     |
+|:-------:| ----------------------------------------------------- |
+| Console | `debug.backtraceAt(location)`                         |
+|   RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입     | 설명                                                      |
+| Name     | Type   | Description                                             |
 | -------- | ------ | ------------------------------------------------------- |
 | location | string | 로깅 백트레이스 위치는 `<filename>:<line>`와 같이 표현됩니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
 ``` javascript
 > debug.backtraceAt("server.go:443")
@@ -38,26 +38,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 미리 컴파일된 컨트랙트 vmlog의 출력 형태를 설정합니다.  출력 형태가 파일이라면, 스마트 컨트랙트에서의 `vmlog` 호출로 발생한 로그가 `DATADIR/log/vm.log`에 저장됩니다.  이때 `DATADIR`는 `klay` 실행 시 `--datadir`를 통해 지정된 디렉토리입니다.  반면에 출력 형태가 `stdout`이면, 표준 출력의 디버깅 메시지 형태로 로그가 출력됩니다.
 
-| 클라이언트 | 메서드 호출                                                   |
-|:-----:| -------------------------------------------------------- |
-|  콘솔   | `debug.setVMLogTarget(target)`                           |
-|  RPC  | `{"method": "debug_setVMLogTarget", "params": [number]}` |
+| Client  | Method Invocation                                        |
+|:-------:| -------------------------------------------------------- |
+| Console | `debug.setVMLogTarget(target)`                           |
+|   RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입  | 설명                                                                   |
-| ------ | --- | -------------------------------------------------------------------- |
-| target | int | 출력 형태를 설정합니다. (0: 출력 없음, 1: 파일, 2: stdout, 3: 파일과 stdout) (기본 설정: 0) |
+| Name   | Type | Description                                                          |
+| ------ | ---- | -------------------------------------------------------------------- |
+| target | int  | 출력 형태를 설정합니다. (0: 출력 없음, 1: 파일, 2: stdout, 3: 파일과 stdout) (기본 설정: 0) |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                 |
+| Type   | Description                        |
 | ------ | ---------------------------------- |
 | string | 출력 형태입니다.  실제 리턴값의 예시는 아래를 참고해주세요. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.setVMLogTarget(0)
 "no output"
@@ -93,24 +93,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
 
-| 클라이언트 | 메서드 호출                                            |
-|:-----:| ------------------------------------------------- |
-|  콘솔   | `debug.verbosity(level)`                          |
-|  RPC  | `{"method": "debug_vmodule", "params": [number]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.verbosity(level)`                          |
+|   RPC   | `{"method": "debug_vmodule", "params": [number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입  | 설명                     |
-| ----- | --- | ---------------------- |
-| level | int | 로깅의 상세 정도를 나타내는 레벨입니다. |
+| Name  | Type | Description            |
+| ----- | ---- | ---------------------- |
+| level | int  | 로깅의 상세 정도를 나타내는 레벨입니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.verbosity(3)
 null
@@ -127,27 +127,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 (Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-`debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
+The verbosity of individual packages and source files can be raised using `debug_vmodule`.
 
-| 클라이언트 | 메서드 호출                                                            |
-|:-----:| ----------------------------------------------------------------- |
-|  콘솔   | `debug.verbosityByName(name, level)`                              |
-|  RPC  | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+| Client  | Method Invocation                                                 |
+|:-------:| ----------------------------------------------------------------- |
+| Console | `debug.verbosityByName(name, level)`                              |
+|   RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명                     |
-| ----- | ------ | ---------------------- |
-| 명칭    | string | 모듈의 이름입니다.             |
-| level | int    | 로깅의 상세 정도를 나타내는 레벨입니다. |
+| Name  | Type   | Description                  |
+| ----- | ------ | ---------------------------- |
+| 명칭    | string | 모듈의 이름입니다.                   |
+| level | int    | The logging verbosity level. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.verbosityByName("name", 3)
 null
@@ -167,27 +167,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 (Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-`debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
+The verbosity of individual packages and source files can be raised using `debug_vmodule`.
 
-| 클라이언트 | 메서드 호출                                                          |
-|:-----:| --------------------------------------------------------------- |
-|  콘솔   | `debug.verbosityByID(id, level)`                                |
-|  RPC  | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+| Client  | Method Invocation                                               |
+|:-------:| --------------------------------------------------------------- |
+| Console | `debug.verbosityByID(id, level)`                                |
+|   RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입  | 설명                     |
-| ----- | --- | ---------------------- |
-| id    | int | 모듈의 ID입니다.             |
-| level | int | 로깅의 상세 정도를 나타내는 레벨입니다. |
+| Name  | Type | Description                  |
+| ----- | ---- | ---------------------------- |
+| id    | int  | 모듈의 ID입니다.                   |
+| level | int  | The logging verbosity level. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.verbosityById(1, 3)
 null
@@ -203,24 +203,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 로깅의 상세수준 패턴을 설정합니다.
 
-| 클라이언트 | 메서드 호출                                            |
-|:-----:| ------------------------------------------------- |
-|  콘솔   | `debug.vmodule(module)`                           |
-|  RPC  | `{"method": "debug_vmodule", "params": [string]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.vmodule(module)`                           |
+|   RPC   | `{"method": "debug_vmodule", "params": [string]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명             |
+| Name   | Type   | Description    |
 | ------ | ------ | -------------- |
 | module | string | 로깅을 위한 모듈명입니다. |
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 특정 Go 패키지(디렉토리) 및 하위 디렉토리의 메시지를 확인하려면 아래와 같이 입력하세요.
 
