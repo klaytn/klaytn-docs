@@ -3,9 +3,9 @@
 ![](../images/sc-nestedsc-arch.png)
 
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - Assume that you have progressed to the ServiceChain configuration and Baobab EN described in [Nested ServiceChain](nested-sc.md). 따라서 이전 섹션에서 설명한 내용은 간략하게 설명합니다.
- - 가정 및 제약
+ - Assumptions and Limitations
    - 하나의 EN은 ServiceChain L2의 SCN 중 하나에 일대일로만 연결될 수 있습니다.  같은 방식으로, ServiceChain의 L2에 있는 하나의 SCN은 L3에 있는 SCN 중 하나에 일대일로 연결됩니다.
    - SCN 노드는 메인 브릿지와 서브 브릿지를 동시에 가질 수 있습니다.  단, 메인 브릿지와 서브 브릿지의 포트 번호는 다르게 설정해야 합니다.  (예: 메인 브릿지 포트: 50505, 서브 브릿지 포트: 50506)
    - L2의 모든 SCN이 EN으로 브릿지가 될 필요가 없으며, 마찬가지로 L3의 SCN이 모두 L2로 연결될 필요도 없습니다.  그러나 고가용성을 위해 체인 간에 두 개 이상의 메인 브릿지 및 서브 브릿지 쌍이 있는 것이 좋습니다.  이 장에서는 L2와 L3 사이에 한 쌍만 연결을 설명하며, 만약 L2와 L3 사이의 고가용성을 보장하려면 Baobab과 L2 사이의 HA와 동일한 방식으로 구성하면 합니다.
