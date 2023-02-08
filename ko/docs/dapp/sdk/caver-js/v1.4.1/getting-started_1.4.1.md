@@ -1,10 +1,10 @@
-# 시작하기 <a id="getting-started"></a>
+# Getting Started <a id="getting-started"></a>
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
-### 의존성 <a id="dependencies"></a>
+### Dependencies <a id="dependencies"></a>
 
-caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
+The following packages are required to use the caver-js library.
 
 * [Node.js](https://nodejs.org/en/download/)
 * [npm](https://www.npmjs.com/get-npm)
@@ -18,17 +18,17 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 
 다른 버전의 Node\(가령 Node v12\)를 이미 사용중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
 
-### 설치 <a id="installation"></a>
+### Installation <a id="installation"></a>
 
-다음 명령을 사용해 npm으로 caver-js를 설치하세요:
+To try it out, install caver-js with npm using the following command:
 
 ```text
 $ npm install caver-js
 ```
 
-**참고**: `package.json` 파일이 설치 경로와 동일한 곳에 존재해야 합니다. 만일 존재하지 않으면, `npm init`을 통해 `package.json`가 생성되어야 합니다.
+**Note**: `package.json` file should exist on the same install path. 만일 존재하지 않으면, `npm init`을 통해 `package.json`가 생성되어야 합니다.
 
-caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
+To install a specific version of caver-js, try the following command:
 
 ```text
 $ npm install caver-js@X.X.X
@@ -46,7 +46,7 @@ $ node
 > const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
-EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여 자신의 노드에 연결할 수 있습니다:
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```text
 $ node
@@ -54,9 +54,9 @@ $ node
 > const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## 계정 관리 <a id="managing-accounts"></a>
+## Managing Accounts <a id="managing-accounts"></a>
 
-### 계정 생성 <a id="creating-an-account"></a>
+### Creating an Account <a id="creating-an-account"></a>
 
 아래와 같이 계정을 생성하기 위해 `caver-js`를 사용할 수 있습니다. [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account)을 통해 계정을 생성할 수 있습니다.
 
@@ -123,15 +123,15 @@ caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 계정을
 
 caver-js 지갑에 추가된 계정은 `sendTransaction`에 사용될 수 있습니다.
 
-## 트랜잭션 전송하기 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
 이 장에서는 Baobab 네트워크에서 caver-js를 사용하여 KLAY를 보내는 방법을 보여줍니다.
 
-### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
+테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
 트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 만약 caver-js 지갑에 계정이 있다면, `caver.klay.sendTransaction`을 실행할 때 caver-js 지갑에 저장된 개인키로 서명이 생성됩니다. 이때 `caver.klay.sendTransaction`은 서명 생성과 트랜잭션 제출을 동시에 처리합니다.
 
@@ -194,7 +194,7 @@ You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.acc
 
 위 예시처럼 `.on(‘transactionHash’, console.log)`를 호출하여 제출한 트랜잭션의 해시를 요청하고 이벤트 이미터(event emitter)로 받아올 수 있어요.
 
-### 영수증 확인<a id="checking-receipts"></a>
+### Checking Receipts <a id="checking-receipts"></a>
 
 [caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) 또는 [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction)을 통해 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 이미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
@@ -271,11 +271,11 @@ You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.acc
 
 트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. For a detailed description of the return values, see [getTransactionReceipt][]. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
 
-## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
+## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../../klaytn/design/transactions/README.md)을 참고하세요. 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
+Klaytn provides various transaction types for extensibility and performance. 자세한 내용은 [트랜잭션](../../../../klaytn/design/transactions/README.md)을 참고하세요. 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
 
-### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn provides [Fee Delegation][] feature. 예제 코드는 다음과 같습니다.
 
@@ -319,13 +319,13 @@ Klaytn provides [Fee Delegation][] feature. 예제 코드는 다음과 같습니
 
 **참고**: 트랜잭션 수수료 납부자의 계정은 caver-js 지갑에 있어야 합니다.
 
-### 계정 업데이트 <a id="account-update"></a>
+### Account Update <a id="account-update"></a>
 
 계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. Please check [Account Update][] for the transaction field according to the key type.
 
 ```text
-// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
-// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
@@ -336,9 +336,9 @@ Klaytn provides [Fee Delegation][] feature. 예제 코드는 다음과 같습니
 }).then(console.log);
 ```
 
-### 스마트 컨트랙트 <a id="smart-contract"></a>
+### Smart Contract <a id="smart-contract"></a>
 
-The [caver.klay.Contract][] package makes it easy to interact with smart contracts on Klaytn. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
+The [caver.klay.Contract][] package makes it easy to interact with smart contracts on Klaytn. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 먼저 스마트 컨트랙트를 컴파일하여 바이트코드와 ABI를 얻습니다.
 
@@ -358,8 +358,8 @@ For smart contract deployment, you can use [caver.klay.Contract][] to deploy it,
 컨트랙트 인스턴스가 생성되면, 아래와 같이 바이트코드를 `data` 필드에 전달하는 것으로 배포할 수 있습니다:
 
 ```text
-// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
-// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.deploy({
@@ -397,11 +397,11 @@ For smart contract deployment, you can use [caver.klay.Contract][] to deploy it,
 
 One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION][].
 
-스마트 컨트랙트로 트랜잭션을 생성하려면:
+To transact with a smart contract:
 
 ```text
-// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
-// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'}).then(console.log)
@@ -422,7 +422,7 @@ One way to invoke a specific method of a smart contract is to use it with `caver
 }
 ```
 
-스마트 컨트랙트를 호출하려면:
+To call a smart contract:
 
 ```text
 > contractInstance.methods.getBlockNumber().call().then(console.log)
@@ -431,7 +431,7 @@ One way to invoke a specific method of a smart contract is to use it with `caver
 
 See [caver.klay.Contract][] for details.
 
-## 다양한 AccountKey 타입 사용 <a id="using-various-accountkey-types"></a>
+## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
 
 caver-js introduces new classes to support the various types of [AccountKey][] supported by the platform.
 
@@ -466,7 +466,7 @@ console.log 출력을 확인했다면, 아래 단계로 진행하세요.
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 이러한 클래스가 지원됩니다.
 
-### 계정 <a id="account"></a>
+### Account <a id="account"></a>
 Account는 계정의 주소와 키를 포함하는 클래스입니다. Account에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 중 하나인  [AccountKey](#accountkey)가 있습니다.
 
 caver.klay.accounts 패키지는 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 기본으로 사용합니다.
@@ -500,16 +500,16 @@ function printAccount(account) {
 
 위의 printAccount는 계정 인스턴스의 속성을 사용하는 방법을 보여줍니다. 계정 내부의 속성은 다음과 같습니다.
 
-| 속성명            | 설명                                                                                                                                                                                                   |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address        | 계정 주소.                                                                                                                                                                                               |
-| privateKey     | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
-| accountKeyType | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
-| accountKey     | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
-| keys           | 계정이 가진 accountKey의 모든 키.                                                                                                                                                                             |
-| transactionKey | [RoleTransaction](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                    |
-| updateKey      | [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                       |
-| feePayerKey    | [RoleFeePayer](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                          |
+| 속성명            | Description                                                                                                                                                                                                                                                                                                             |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address        | The address of the account.                                                                                                                                                                                                                                                                                             |
+| privateKey     | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
+| accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
+| accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
+| keys           | 계정이 가진 accountKey의 모든 키.                                                                                                                                                                                                                                                                                                |
+| transactionKey | [RoleTransaction](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                              |
+| updateKey      | [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                 |
+| feePayerKey    | [RoleFeePayer](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                    |
 
 **참고** `transactionKey`, `updateKey`, 그리고 `feePayerKey`는 역할에 사용해야 하는 개인키 문자열 또는 개인키 문자열 배열을 반환합니다. 따라서 privateKey 속성을 사용하는 대신, accountKey 유형에 대한 걱정 없이 `transactionKey`, `updateKey` 그리고 `feePayerKey`를 적절하게 사용하는 것이 권장됩니다.
 
@@ -561,7 +561,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 #### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
 AccountKeyPublic은 여러 개인키 문자열을 저장하고 관리하기 위한 클래스입니다.
 
-다음은 AccountKeyMultiSig으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
+다음은 AccountKeyMultiSig으로 계정을 업데이트하는 방법에 대해 설명합니다. Write the following code into testFunction() and run it.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -597,7 +597,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 #### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
 AccountKeyRoleBased는 각 역할의 키를 저장하고 관리하기 위한 클래스입니다. 각 역할은 하나의 개인키 문자열 또는 여러 개인키 문자열을 가질 수 있습니다.
 
-다음은 AccountKeyRoleBased으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
+다음은 AccountKeyRoleBased으로 계정을 업데이트하는 방법에 대해 설명합니다. Write the following code into testFunction() and run it.
 
 ```javascript
 const keyobject = {
@@ -741,7 +741,7 @@ const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-**참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 트랜잭션을 사용하려는경우 위의 예제에 `updateTx`를 아래와 같이 정의하세요.
 
@@ -779,12 +779,12 @@ caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
 
 계정의 accountKey가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 경우 각 키를 관리하는 사람이 다를 수 있습니다.
 
-이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
+This section describes how to collect signatures and send the transaction if there are multiple signers.
 
 ### 순차적 서명<a id="sequential-sign"></a>
 The result object of [caver.klay.accounts.signTransaction][] has a rawTransaction field.
 
-`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `signatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션인 경우에만 포함됩니다.
+`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `signatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
 다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. 계정의 transactionKey에 두 개의 개인키 문자열이 있다고 가정해보죠.
 
@@ -831,9 +831,9 @@ const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
 console.log(receipt)
 ```
 
-**참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-사용하는 계정이 caver-js의 인메모리 지갑에 있으면 키를 `signTransaction` 또는 `feePayerSignTransaction`에 전달할 필요가 없습니다. 아래 예제를 참조하세요.
+사용하는 계정이 caver-js의 인메모리 지갑에 있으면 키를 `signTransaction` 또는 `feePayerSignTransaction`에 전달할 필요가 없습니다. See the example below.
 
 ```javascript
 const tx = {
@@ -891,7 +891,7 @@ const receipt = await caver.klay.sendSignedTransaction(combined)
 console.log(receipt)
 ```
 
-**참고** `caver.klay.accounts.combineSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ### Signatures 및 FeePayerSignatures와 함께 트랜잭션 오브젝트 전송하기 <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
 
@@ -949,7 +949,7 @@ const { rawTransaction } = await caver.klay.accounts.getRawTransactionWithSignat
 console.log(rawTransaction)
 ```
 
-**참고** `caver.klay.accounts.getRawTransactionWithSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
@@ -958,9 +958,9 @@ Sample projects for development of dApps \(Decentralized Applications\) using ca
 * [Count DApp](../../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
 
-## 링크 <a id="links"></a>
+## Links <a id="links"></a>
 
-* caver-js [깃허브 레포지토리](https://github.com/klaytn/caver-js)
+* caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
 
 
