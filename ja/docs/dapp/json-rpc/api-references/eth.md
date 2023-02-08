@@ -112,7 +112,7 @@ Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_
 
 > KlaytnとEthereumの基本的な設計上の違いにより、 Klaytnトランザクションは `eth` 名前空間APIを介して完全にサポートすることはできません。
 
-| フィールド    | Description                                                                                                                                                                                            |
+| Field    | Description                                                                                                                                                                                            |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | gasPrice | Klaytnのコンテキストでは [単価](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) とも呼ばれ、この値はガバナンスプロセスを通じてシステム内で決定されます。                                                                      |
 | タイプ      | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Klaytnでのみ有効なトランザクションタイプは常に `0x0`を返します。 |
@@ -127,7 +127,7 @@ KlaytnはMultiSigをサポートしているため、Klaytnトランザクショ
 
 > KlaytnとEthereumの間に存在する基本的な設計上の違いにより、 Ethereum名前空間APIを介して提供される場合、Klaytnトランザクションレシートは完全にサポートされません。
 
-| フィールド             | Description                                                                                                                                                               |
+| Field             | Description                                                                                                                                                               |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | effectiveGasPrice | Klaytnは固定のガス価格ポリシーを使用しているため、gasPrice値が返されます。 gasPrice( [Unit Price](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)とも呼ばれます)はガバナンスによってシステムに設定されます。 |
 | transactionIndex  | Ethereumとほぼ同じですが、Ethereumとは異なり、Klaytnは保留中のときと同じように整数を返します。                                                                                                                |
