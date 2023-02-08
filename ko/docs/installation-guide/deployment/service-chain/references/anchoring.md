@@ -23,7 +23,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 ## 부모 오퍼레이터(Parent Operator) 계정에 KLAY 추가하기<a id="add-klay-to-parent-operator-account"></a>
 SCN이 블록 데이터를 앵커링할 때 SCN은 부모 오페레이터 계정으로 앵커링 트랜잭션을 만듭니다. 따라서 계정은 트랜잭션 수수료를 지불할 KLAY가 필요합니다. 부모 오퍼레이터 계정에 충분한 KLAY를 추가해야 합니다.
 
-## 앵커링 활성화하기<a id="enable-anchoring"></a>
+## Enable Anchoring <a id="enable-anchoring"></a>
 KLAY를 보낸 후 아래와 같이 잔액을 확인할 수 있습니다.
 ```javascript
 > subbridge.parentOperatorBalance
