@@ -12,13 +12,13 @@ caver.rpc
 
 `RPC` is a class that contains [Klay][], [Net][] and [Governance][] inside.
 
-**속성**
+**Properties**
 
-| 이름   | 타입       | 설명                                                                           |
-| ---- | -------- | ---------------------------------------------------------------------------- |
-| klay | [Klay][] | The [Klay][] providing JSON-RPC call with  the`klay` name space.             |
-| net  | [Net][]  | The [Net][] providing JSON-RPC call with the `net` name space.               |
-| 거버넌스 | [거버넌스][] | The [Governance][] providing JSON-RPC call with the `governance` name space. |
+| Name       | Type           | Description                                                                  |
+| ---------- | -------------- | ---------------------------------------------------------------------------- |
+| klay       | [Klay][]       | The [Klay][] providing JSON-RPC call with  the`klay` name space.             |
+| net        | [Net][]        | The [Net][] providing JSON-RPC call with the `net` name space.               |
+| governance | [Governance][] | The [Governance][] providing JSON-RPC call with the `governance` name space. |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
@@ -34,7 +34,7 @@ caver.rpc
 - [getCode](./klay.md#caver-rpc-klay-getcode)
 - [getTransactionCount](./klay.md#caver-rpc-klay-gettransactioncount)
 - [isContractAccount](./klay.md#caver-rpc-klay-iscontractaccount)
-- [서명](./klay.md#caver-rpc-klay-sign)
+- [sign](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
 ### [블록(Block)](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
@@ -101,4 +101,3 @@ caver.rpc
 [Klay]: ./klay.md
 [Net]: ./net.md
 [Governance]: ./governance.md
-[거버넌스]: ./governance.md
