@@ -23,7 +23,7 @@ Klaytn JavaScript コンソールへようこそ!
 ## 親オペレーターアカウントにKLAYを追加<a id="add-klay-to-parent-operator-account"></a>
 SCNがブロックデータをアンカーする場合、SCNは親オペレータとしてアンカートランザクションを作成します。 そのため、取引手数料を支払うにはKLAYが必要です。 親演算子口座に十分な KLAYを追加する必要があります。
 
-## アンカーを有効化 <a id="enable-anchoring"></a>
+## Enable Anchoring <a id="enable-anchoring"></a>
 KLAYを送った後、以下のように残高を確認することができます。
 ```javascript
 > subbridge.parentOperatorBalance
@@ -42,7 +42,7 @@ true
 ## サブブリッジ <a id="sub-bridge"></a>
 サブブリッジでは、最新のアンカーされたブロック番号を以下のように確認できます。 詳細については、 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) を参照してください。
 ```javascript
-> subbridge.latestAnkirdBlockNumber
+> subbridge.latestAnchoredBlockNumber
 71025
 ```
 
