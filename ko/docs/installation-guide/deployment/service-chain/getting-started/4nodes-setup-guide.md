@@ -3,7 +3,7 @@
 ![](../images/sc-4scn-arch.png)
 
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - [Download](../references/download/README.md)에서 `kscn`, `homi` 바이너리 패키지를 다운로드하세요.
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
