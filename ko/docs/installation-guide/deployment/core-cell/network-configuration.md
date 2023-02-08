@@ -21,13 +21,13 @@ DB + AppServer 및 프록시 웹 서버와 같은 일반 웹 서비스에 사용
 
 CN 서브넷은 코어 셀의 CN 서버로 구성됩니다. 코어 셀에서 작동하는 CN은 하나이지만, 높은 가용성을 위해 여분의 CN을 준비해야 합니다. CCN (Core Cell Network) 내의 모든 CN의 IP/포트는 코어 셀 외부에서 다른 CN에 연결을 시도하기 때문에 서로에게 열려 있어야 합니다. (This connection information can be received from Baobab operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Klaytn P2P port number) in order to connect to PNs of the PN Subnet. 또한 모니터링 서버를 위한 CN 모니터링 포트 (61001) 및 관리 목적을 위한 SSH 포트 (22)와 같은 다른 포트들을 열어야 합니다. 멀티채널 기능을 사용하는 경우 다른 포트 (32324: 기본 멀티채널 포트)도 열어야 합니다.
 
-![CN 서브넷](images/cn_subnet.png)
+![CN Subnet](images/cn_subnet.png)
 
-| 오리진 서브넷 | 타겟 서브넷  | Ingress                      | Egress |
-|:------- |:------- |:---------------------------- |:------ |
-| CN 서브넷  | PN 서브넷  | P2P : 32323 (멀티채널의 경우 32324) | 전부     |
-| CN 서브넷  | 관리 서브넷  | SSH : 22, 모니터링 : 61001       | 전부     |
-| CN 서브넷  | 공개(인터넷) | 각 CN의 IP 및 P2P 포트            | 전부     |
+| 오리진 서브넷   | 타겟 서브넷    | Ingress                      | Egress |
+|:--------- |:--------- |:---------------------------- |:------ |
+| CN Subnet | PN Subnet | P2P : 32323 (멀티채널의 경우 32324) | 전부     |
+| CN Subnet | 관리 서브넷    | SSH : 22, 모니터링 : 61001       | All    |
+| CN Subnet | 공개(인터넷)   | 각 CN의 IP 및 P2P 포트            | All    |
 
 ### PN 서브넷 <a id="pn-subnet"></a>
 
@@ -40,13 +40,13 @@ PN 서브넷은 다음 노드에 연결되어 있습니다:
 * 코어 셀 관리 서버(Mgmt, 모니터링)
 * EN 노드
 
-![PN 서브넷](images/pn_subnet.png)
+![PN Subnet](images/pn_subnet.png)
 
-| 오리진 서브넷 | 타겟 서브넷  | Ingress                      | Egress |
-|:------- |:------- |:---------------------------- |:------ |
-| PN 서브넷  | CN 서브넷  | P2P : 32323 (멀티채널의 경우 32324) | 전부     |
-| PN 서브넷  | 관리 서브넷  | SSH : 22, 모니터링 : 61001       | 전부     |
-| PN 서브넷  | 공개(인터넷) | P2P: 32323                   | 전부     |
+| Origin Subnet | Target Subnet     | Ingress                             | Egress |
+|:------------- |:----------------- |:----------------------------------- |:------ |
+| PN Subnet     | CN Subnet         | P2P: 32323 (32324 for multichannel) | All    |
+| PN Subnet     | Mgmt Subnet       | SSH: 22, Monitoring: 61001          | All    |
+| PN Subnet     | Public (Internet) | P2P: 32323                          | All    |
 
 ### 관리 서브넷 <a id="mgmt-subnet"></a>
 
@@ -54,11 +54,11 @@ PN 서브넷은 다음 노드에 연결되어 있습니다:
 
 ![관리 서브넷](images/admin_subnet.png)
 
-| 오리진 서브넷 | 타겟 서브넷  | Ingress                         | Egress |
-|:------- |:------- |:------------------------------- |:------ |
-| 관리 서브넷  | CN 서브넷  | 전부                              | 전부     |
-| 관리 서브넷  | PN 서브넷  | 전부                              | 전부     |
-| 관리 서브넷  | 공개(인터넷) | VPN (tcp): 443, VPN (udp): 1194 | 전부     |
+| Origin Subnet | Target Subnet     | Ingress                         | Egress |
+|:------------- |:----------------- |:------------------------------- |:------ |
+| Mgmt Subnet   | CN Subnet         | All                             | All    |
+| Mgmt Subnet   | PN Subnet         | All                             | All    |
+| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
 
 ## 단일 서브넷을 가진 코어 셀 <a id="a-core-cell-with-a-single-subnet"></a>
 
