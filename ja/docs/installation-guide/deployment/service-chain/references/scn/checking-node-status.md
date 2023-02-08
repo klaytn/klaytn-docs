@@ -1,6 +1,6 @@
 # ノード状態を確認中 <a id="checking-node-status"></a>
 
-## プロセスの状態 <a id="process-status"></a>
+## Process Status <a id="process-status"></a>
 
 ステータスコマンド `systemctl` と `kscnd` を使用してSCNのプロセスの状態を確認することができます。
 
@@ -19,12 +19,12 @@ $ systemctl status kscnd.service
    CGroup: /system.slice/kscnd.service
            └─29641 /usr/local/bin/kscn --networkid 1000 --datadir ~/kscnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: 開始 (null) ...
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Starting kscnd: [ OK ]
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.computee.internal systemd[1]: Started (null).
 ```
 
-上記の例では、 `Active: active (running)` のような現在のステータスを確認できます。
+You can check the current status such as `Active: active (running)` in the example above.
 
 ### kscnd <a id="kscnd"></a>
 
@@ -35,11 +35,11 @@ $ kscnd status
 kscnd is running
 ```
 
-## ログ <a id="logs"></a>
+## Logs <a id="logs"></a>
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. ノードが正常に動作すると、各ブロックが以下のようにインポートされます。
+The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
 
-例
+Example:
 
 ```bash
 $ tail -F ~/kscnd_home/logs/kscnd.out
@@ -56,17 +56,17 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
   INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-## クエリ <a id="queries"></a>
+## Queries <a id="queries"></a>
 
 ### kscnコンソール <a id="kscn-console"></a>
 
-Klaytn は CLI クライアントを提供します: `kscn コンソール`。 クライアントを使用するもう一つの方法は、IPC(プロセス間通信)を介してプロセスに接続することです。 IPCファイル `klay.ipc` は、SCN の `data` ディレクトリにあります。
+Klaytn は CLI クライアントを提供します: `kscn コンソール`。 Another way of using the client is to connect to the process via IPC (inter-process communication). IPCファイル `klay.ipc` は、SCN の `data` ディレクトリにあります。
 
-以下のコマンドを実行し、結果を確認してください。
+Please execute the following command and check out the result.
 
 ```text
 $ kscn attach ~/kscnd_home/klay.ipc
-Klaytn JavaScript コンソールへようこそ!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
@@ -79,12 +79,12 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 SCNのステータスを確認するのに役立つAPI:
 
-* `klay.blockNumber` (最新のブロック番号を取得する)
-* `net.peerCount` (現在接続されている Klaytn ノードの数を取得する)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
-最新のブロック番号を取得して、ブロックが正しく伝播されているかどうかを確認できます。
+You can get the latest block number to see if blocks are propagated properly.
 
 ```text
 > klay.blockNumber
