@@ -12,17 +12,17 @@ description: >-
 
 ネットワーク識別子(ネットワーク ID)を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                                                                                                       |
-| --- | --------------------------------------------------------------------------------------------------------------------------------- |
-| 品質  | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
+| Type     | Description                                                                                                                       |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -41,17 +41,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 クライアントがネットワーク接続を積極的にリッスンしている場合、 `true` を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description               |
+| Type    | Description               |
 | ------- | ------------------------- |
 | Boolean | `true` , それ以外の場合 `false`. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -70,17 +70,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 クライアントに現在接続されているピアの数を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | 接続ピアの数の整数。  |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | 接続ピアの数の整数。  |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -98,17 +98,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 接続されたノードの数を type とキーと値のペアを持つ接続されたノードの合計数で返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                 |
-| ------- | --------------------------- |
-| JSON文字列 | 接続されているピアの数と、接続されているピアの合計数。 |
+| Type        | Description                 |
+| ----------- | --------------------------- |
+| JSON string | 接続されているピアの数と、接続されているピアの合計数。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -126,17 +126,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 現在の klaytn プロトコルのバージョンを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                                                                                     |
-| --- | --------------------------------------------------------------------------------------------------------------- |
-| 品質  | Klaytnプロトコルバージョンの整数。<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
+| Type     | Description                                                                                                     |
+| -------- | --------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | Klaytnプロトコルバージョンの整数。<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**例**
+**Example**
 
 ```shell
 // Request
