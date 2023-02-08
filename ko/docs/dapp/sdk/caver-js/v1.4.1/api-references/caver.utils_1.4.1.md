@@ -1,11 +1,11 @@
 ---
 description: >-
-  caver-js 유틸리티 API.
+  caver-js utility APIs.
 ---
 
 # caver.utils <a id="caver-utils"></a>
 
-`caver.utils`는 유틸리티 함수를 제공합니다.
+`caver.utils` provides utility functions.
 
 
 ## randomHex <a id="randomhex"></a>
@@ -13,21 +13,21 @@ description: >-
 ```javascript
 caver.utils.randomHex(size)
 ```
-주어진 바이트 크기로부터 암호학적으로 강력한 의사 난수 HEX 문자열을 생성하기 위한 [randomHex](https://github.com/frozeman/randomHex) 라이브러리.
+The [randomHex](https://github.com/frozeman/randomHex) library to generate cryptographically strong pseudo-random HEX strings from a given byte size.
 
-**파라미터**
+**Parameters**
 
-| 이름   | 타입     | 설명                                                                              |
+| Name | Type   | Description                                                                     |
 | ---- | ------ | ------------------------------------------------------------------------------- |
 | size | Number | HEX 문자열의 바이트 크기, *가령*, `32`는 접두어 "0x"와 64개의 문자로 구성된 32바이트의 HEX 문자열이 결과가 될 것입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명               |
-| ------ | ---------------- |
-| String | 생성된 임의의 HEX 문자열. |
+| Type   | Description                      |
+| ------ | -------------------------------- |
+| String | The generated random HEX string. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.randomHex(32);
@@ -55,9 +55,9 @@ caver.utils._()
 
 많은 편리한 자바스크립트 함수를 위한 [underscore](http://underscorejs.org) 라이브러리.
 
-자세한 내용은 [underscore API reference](http://underscorejs.org)를 참조하세요.
+See the [underscore API reference](http://underscorejs.org) for details.
 
-**예시**
+**Example**
 
 ```javascript
 > var _ = caver.utils._;
@@ -77,19 +77,19 @@ caver.utils.BN(mixed)
 ```
 자바스크립트에서 큰 수로 계산하기 위한 [BN.js](https://github.com/indutny/bn.js/) 라이브러리. 자세한 내용은 [BN.js documentation](https://github.com/indutny/bn.js/)을 참조하세요.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입                   | 설명                                   |
+| Name  | Type                 | Description                          |
 | ----- | -------------------- | ------------------------------------ |
 | mixed | String &#124; Number | BN 객체로 변환할 숫자, 숫자 문자열 또는 HEX 문자열입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                               |
-| ------ | ------------------------------------------------ |
-| Object | [BN.js](https://github.com/indutny/bn.js/) 인스턴스. |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**예시**
+**Example**
 
 ```javascript
 > var BN = caver.utils.BN;
@@ -111,22 +111,22 @@ caver.utils.BN(mixed)
 caver.utils.isBN(bn)
 ```
 
-주어진 값이 [BN.js](https://github.com/indutny/bn.js/) 인스턴스인지 확인합니다.
+Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance.
 
 
-**파라미터**
+**Parameters**
 
-| 이름 | 타입     | 설명                                               |
-| -- | ------ | ------------------------------------------------ |
-| bn | Object | [BN.js](https://github.com/indutny/bn.js/) 인스턴스. |
+| Name | Type   | Description                                            |
+| ---- | ------ | ------------------------------------------------------ |
+| bn   | Object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                                 |
-| ------- | ------------------------------------------------------------------ |
-| Boolean | 주어진 값이 [BN.js](https://github.com/indutny/bn.js/) 인스턴스인 경우 `true`. |
+| Type    | Description                                                                       |
+| ------- | --------------------------------------------------------------------------------- |
+| Boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**예시**
+**Example**
 
 ```javascript
 > var number = new BN(10);
@@ -141,22 +141,22 @@ true
 caver.utils.isBigNumber(bignumber)
 ```
 
-주어진 값이 [BigNumber.js](http://mikemcl.github.io/bignumber.js/) 인스턴스인지 확인합니다.
+Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance.
 
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입     | 설명                                                           |
-| --------- | ------ | ------------------------------------------------------------ |
-| bignumber | Object | [BigNumber.js](http://mikemcl.github.io/bignumber.js/) 인스턴스. |
+| Name      | Type   | Description                                                        |
+| --------- | ------ | ------------------------------------------------------------------ |
+| bignumber | Object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                     |
-| ------- | -------------------------------------- |
-| Boolean | 주어진 값이 `BigNumber.js` 인스턴스인 경우 `true`. |
+| Type    | Description                                           |
+| ------- | ----------------------------------------------------- |
+| Boolean | `true` if a given value is a `BigNumber.js` instance. |
 
-**예시**
+**Example**
 
 ```javascript
 > var number = new BigNumber(10);
@@ -171,23 +171,23 @@ true
 caver.utils.sha3(string)
 caver.utils.keccak256(string) // ALIAS
 ```
-입력의 sha3을 계산합니다.
+Calculates the sha3 of the input.
 
 **참고**: 솔리디티의 sha3를 모방하려면 [caver.utils.soliditySha3](#soliditysha3)를 사용합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명       |
-| ------ | ------ | -------- |
-| string | String | 해시할 문자열. |
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| string | String | A string to hash. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명     |
-| ------ | ------ |
-| String | 결과 해시. |
+| Type   | Description      |
+| ------ | ---------------- |
+| String | The result hash. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.sha3('234'); // taken as string
@@ -214,21 +214,21 @@ null
 caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
-솔리디티와 같은 방식으로 주어진 입력 매개변수의 sha3를 계산합니다. 이는 인자가 해시되기 전에 ABI 변환되고 빽빽히 채워질 것을 의미합니다.
+Calculates the sha3 of given input parameters in the same way solidity would. This means arguments will be ABI converted and tightly packed before being hashed.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입 | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------ | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| paramX | 복합 | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br> - `String` non numerical UTF-8 string is interpreted as `string`.<br> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br> - `String|Number|BN` negative number is interpreted as `int256`.<br> - `Boolean` as `bool`.<br> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br> |
+| Name   | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br> - `String` non numerical UTF-8 string is interpreted as `string`.<br> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br> - `String|Number|BN` negative number is interpreted as `int256`.<br> - `Boolean` as `bool`.<br> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br> |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명     |
-| ------ | ------ |
-| String | 결과 해시. |
+| Type   | Description      |
+| ------ | ---------------- |
+| String | The result hash. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10);
@@ -275,21 +275,21 @@ caver.utils.soliditySha3(param1 [, param2, ...])
 ```javascript
 caver.utils.isHex(hex)
 ```
-주어진 문자열이 HEX 문자열인지 확인합니다.
+Checks if a given string is a HEX string.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입                | 설명           |
-| --- | ----------------- | ------------ |
-| hex | String &#124; HEX | 주어진 HEX 문자열. |
+| Name | Type              | Description           |
+| ---- | ----------------- | --------------------- |
+| hex  | String &#124; HEX | The given HEX string. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                         |
-| ------- | -------------------------- |
-| Boolean | 주어진 문자열이 HEX 문자열이면 `true`. |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` if a given string is a HEX string. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.isHex('0xc1912');
@@ -318,22 +318,22 @@ false
 ```javascript
 caver.utils.isHexStrict(hex)
 ```
-주어진 문자열이 HEX 문자열인지 확인합니다. [caver.utils.isHex](#ishex)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
+Checks if a given string is a HEX string. [caver.utils.isHex](#ishex)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입                | 설명           |
-| --- | ----------------- | ------------ |
-| hex | String &#124; HEX | 주어진 HEX 문자열. |
+| Name | Type              | Description           |
+| ---- | ----------------- | --------------------- |
+| hex  | String &#124; HEX | The given HEX string. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                         |
-| ------- | -------------------------- |
-| Boolean | 주어진 문자열이 HEX 문자열이면 `true`. |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` if a given string is a HEX string. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.isHexStrict('0xc1912');
@@ -361,21 +361,21 @@ false
 ```javascript
 caver.utils.isAddress(address)
 ```
-주어진 문자열이 유효한 Klaytn 주소인지 확인합니다. 주소에 대문자와 소문자가 있으면 체크섬(checksum)도 검사합니다.
+Checks if a given string is a valid Klaytn address. 주소에 대문자와 소문자가 있으면 체크섬(checksum)도 검사합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                               |
-| ------- | -------------------------------- |
-| Boolean | 주어진 문자열이 유효한 Klaytn 주소라면 `true`. |
+| Type    | Description                                         |
+| ------- | --------------------------------------------------- |
+| Boolean | `true` if a given string is a valid Klaytn address. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
@@ -400,21 +400,21 @@ false // wrong checksum
 ```javascript
 caver.utils.toChecksumAddress(address)
 ```
-대문자 또는 소문자 Klaytn 주소를 체크섬(Checksum) 주소로 변환합니다.
+Converts an upper or lowercase Klaytn address to a checksum address.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                |
-| ------ | ----------------- |
-| String | 체크섬(Checksum) 주소. |
+| Type   | Description           |
+| ------ | --------------------- |
+| String | The checksum address. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.toChecksumAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
@@ -430,21 +430,21 @@ caver.utils.toChecksumAddress(address)
 ```javascript
 caver.utils.checkAddressChecksum(address)
 ```
-주어진 주소의 체크섬(Checksum)을 확인합니다. 또한 체크섬이 아닌 주소에서 `false`를 반환합니다.
+Checks the checksum of a given address. Will also return `false` on non-checksum addresses.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                        |
-| ------- | --------------------------------------------------------- |
-| Boolean | 주소의 체크섬이 유효하면 `true`, 체크섬 주소가 아니거나 체크섬이 유효하지 않으면 `false`. |
+| Type    | Description                                                                                                            |
+| ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.checkAddressChecksum('0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
@@ -457,21 +457,21 @@ true
 ```javascript
 caver.utils.toHex(mixed)
 ```
-주어진 값을 HEX로 변환합니다. 숫자 문자열은 숫자로 해석됩니다. 텍스트 문자열은 UTF-8 문자열로 해석됩니다.
+Converts any given value to HEX. 숫자 문자열은 숫자로 해석됩니다. Text strings will be interpreted as UTF-8 strings.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입                                              | 설명            |
+| Name  | Type                                            | Description   |
 | ----- | ----------------------------------------------- | ------------- |
 | mixed | String &#124; Number &#124; BN &#124; BigNumber | HEX로 변환할 입력값. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명          |
-| ------ | ----------- |
-| String | 결과 HEX 문자열. |
+| Type   | Description               |
+| ------ | ------------------------- |
+| String | The resulting HEX string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.toHex('234');
@@ -496,24 +496,24 @@ caver.utils.toHex(mixed)
 ```javascript
 caver.utils.toBN(number)
 ```
-자바스크립트에서 큰 숫자를 처리하기 위해([BigNumber.js](http://mikemcl.github.io/bignumber.js/)를 포함해) 주어진 값을 [BN.js](https://github.com/indutny/bn.js/) 인스턴스로 안전하게 변환합니다.
+Safely converts any given value (including [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
 
 **참고**: [BN.js](https://github.com/indutny/bn.js/) 클래스의 경우 [caver.utils.BN](#bn)를 사용합니다.
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입                              | 설명            |
+| Name   | Type                            | Description   |
 | ------ | ------------------------------- | ------------- |
 | number | String &#124; Number &#124; HEX | 큰 숫자로 변환할 숫자. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                               |
-| ------ | ------------------------------------------------ |
-| Object | [BN.js](https://github.com/indutny/bn.js/) 인스턴스. |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.toBN(1234).toString();
@@ -532,21 +532,21 @@ caver.utils.toBN(number)
 ```javascript
 caver.utils.hexToNumberString(hex)
 ```
-주어진 HEX 값의 숫자 표현을 문자열로 반환합니다.
+Returns the number representation of a given HEX value as a string.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입         | 설명           |
-| --------- | ---------- | ------------ |
-| hexString | HEX String | 변환할 HEX 문자열. |
+| Name      | Type       | Description                   |
+| --------- | ---------- | ----------------------------- |
+| hexString | HEX String | A HEX string to be converted. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명         |
-| ------ | ---------- |
-| String | 문자열로 된 숫자. |
+| Type   | Description             |
+| ------ | ----------------------- |
+| String | The number as a string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.hexToNumberString('0xea');
@@ -559,23 +559,23 @@ caver.utils.hexToNumberString(hex)
 ```javascript
 caver.utils.hexToNumber(hex)
 ```
-주어진 HEX 값을 숫자로 반환합니다.
+Returns the number representation of a given HEX value.
 
 **참고**: 큰 숫자에는 유용하지 않으며, [caver.utils.toBN](#tobn)를 대신 사용합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입         | 설명           |
-| --------- | ---------- | ------------ |
-| hexString | HEX String | 변환할 HEX 문자열. |
+| Name      | Type       | Description                   |
+| --------- | ---------- | ----------------------------- |
+| hexString | HEX String | A HEX string to be converted. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                |
-| ------ | ----------------- |
-| Number | 주어진 HEX 값의 숫자 표현. |
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Number | The number representation of a given HEX value. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.hexToNumber('0xea');
@@ -588,21 +588,21 @@ caver.utils.hexToNumber(hex)
 ```javascript
 caver.utils.numberToHex(number)
 ```
-주어진 숫자 값을 HEX 표현으로 반환합니다.
+Returns the HEX representation of a given number value.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입                                              | 설명               |
+| Name   | Type                                            | Description      |
 | ------ | ----------------------------------------------- | ---------------- |
 | number | String &#124; Number &#124; BN &#124; BigNumber | 문자열 또는 숫자로 된 숫자. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명             |
-| ------ | -------------- |
-| String | 주어진 숫자의 HEX 값. |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| String | The HEX value of the given number. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.numberToHex('234');
@@ -616,22 +616,22 @@ caver.utils.numberToHex(number)
 caver.utils.hexToUtf8(hex)
 caver.utils.hexToString(hex) // ALIAS
 ```
-주어진 HEX 값을 UTF-8 문자열 표현으로 반환합니다.
+Returns the UTF-8 string representation of a given HEX value.
 
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                      |
-| --- | ------ | ----------------------- |
-| hex | String | UTF-8 문자열로 변환할 HEX 문자열. |
+| Name | Type   | Description                                |
+| ---- | ------ | ------------------------------------------ |
+| hex  | String | A HEX string to convert to a UTF-8 string. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명         |
-| ------ | ---------- |
-| String | UTF-8 문자열. |
+| Type   | Description       |
+| ------ | ----------------- |
+| String | The UTF-8 string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.hexToUtf8('0x49206861766520313030e282ac');
@@ -644,22 +644,22 @@ caver.utils.hexToString(hex) // ALIAS
 ```javascript
 caver.utils.hexToAscii(hex)
 ```
-주어진 HEX 값을 ASCII 문자열 표현으로 반환합니다.
+Returns the ASCII string representation of a given HEX value.
 
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                      |
-| --- | ------ | ----------------------- |
-| hex | String | ASCII 문자열로 변환할 HEX 문자열. |
+| Name | Type   | Description             |
+| ---- | ------ | ----------------------- |
+| hex  | String | ASCII 문자열로 변환할 HEX 문자열. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명         |
-| ------ | ---------- |
-| String | ASCII 문자열. |
+| Type   | Description       |
+| ------ | ----------------- |
+| String | The ASCII string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.hexToAscii('0x4920686176652031303021');
@@ -672,22 +672,22 @@ caver.utils.hexToAscii(hex)
 caver.utils.utf8ToHex(string)
 caver.utils.stringToHex(string) // ALIAS
 ```
-주어진 UTF-8 문자열을 HEX 표현으로 반환합니다.
+Returns the HEX representation of a given UTF-8 string.
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명                      |
-| ------ | ------ | ----------------------- |
-| string | String | HEX 문자열로 변환할 UTF-8 문자열. |
+| Name   | Type   | Description                                |
+| ------ | ------ | ------------------------------------------ |
+| string | String | A UTF-8 string to convert to a HEX string. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명       |
-| ------ | -------- |
-| String | HEX 문자열. |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.utf8ToHex('I have 100€');
@@ -701,22 +701,22 @@ caver.utils.stringToHex(string) // ALIAS
 caver.utils.asciiToHex(string)
 ```
 
-주어진 ASCII 문자열을 HEX 표현으로 반환합니다.
+Returns the HEX representation of a given ASCII string.
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명                      |
-| ------ | ------ | ----------------------- |
-| string | String | HEX 문자열로 변환할 ASCII 문자열. |
+| Name   | Type   | Description                                 |
+| ------ | ------ | ------------------------------------------- |
+| string | String | An ASCII string to convert to a HEX string. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명       |
-| ------ | -------- |
-| String | HEX 문자열. |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.asciiToHex('I have 100!');
@@ -729,21 +729,21 @@ caver.utils.asciiToHex(string)
 ```javascript
 caver.utils.hexToBytes(hex)
 ```
-주어진 HEX 문자열을 바이트 배열으로 반환합니다.
+Returns a byte array from the given HEX string.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입         | 설명           |
-| --- | ---------- | ------------ |
-| hex | HEX String | 변환할 HEX 문자열. |
+| Name | Type       | Description                   |
+| ---- | ---------- | ----------------------------- |
+| hex  | HEX String | A HEX string to be converted. |
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명      |
-| ----- | ------- |
-| Array | 바이트 배열. |
+| Type  | Description     |
+| ----- | --------------- |
+| Array | The byte array. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.hexToBytes('0x000000ea');
@@ -756,21 +756,21 @@ caver.utils.hexToBytes(hex)
 ```javascript
 caver.utils.bytesToHex(byteArray)
 ```
-바이트 배열을 HEX 문자열으로 반환합니다.
+Returns a HEX string from a byte array.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입    | 설명          |
-| --------- | ----- | ----------- |
-| byteArray | Array | 변환할 바이트 배열. |
+| Name      | Type  | Description              |
+| --------- | ----- | ------------------------ |
+| byteArray | Array | A byte array to convert. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명       |
-| ------ | -------- |
-| String | HEX 문자열. |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.bytesToHex([ 72, 101, 108, 108, 111, 33, 36 ]);
@@ -784,24 +784,24 @@ caver.utils.bytesToHex(byteArray)
 caver.utils.toPeb(number [, unit])
 ```
 
-모든 KLAY 값을 peb로 변환합니다.
+Converts any KLAY value into peb.
 
 **참고**: "peb"는 가장 작은 KLAY 단위이며, 항상 peb로 계산해야 하며 표시할 용도로만 변환해야 합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number | String &#124; Number &#124; BN | 값.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | unit   | String                         | (선택 사항, 기본값은 `"KLAY"`) 변환하려고 하는 KLAY. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**리턴값**
+**Return Value**
 
-| 타입               | 설명                                                                                            |
+| Type             | Description                                                                                   |
 | ---------------- | --------------------------------------------------------------------------------------------- |
 | String &#124; BN | 숫자 또는 문자열이 주어지면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.toPeb('1', 'KLAY');
@@ -817,20 +817,20 @@ caver.utils.fromPeb(number [, unit])
 
 **참고**: "peb"는 가장 작은 KLAY 단위이며, 항상 peb로 계산해야 하며 표시할 용도로만 변환해야 합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number | String &#124; Number &#124; BN | peb 단위의 값.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | unit   | String                         | (선택 사항, 기본값은 `"KLAY"`) 변환하고자 하는 KLAY. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**리턴값**
+**Return Value**
 
-| 타입               | 설명                                                                                            |
-| ---------------- | --------------------------------------------------------------------------------------------- |
-| String &#124; BN | 숫자 또는 문자열이 주어지면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
+| Type             | Description                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.fromPeb('1', 'KLAY');
@@ -844,16 +844,16 @@ caver.utils.fromPeb(number [, unit])
 caver.utils.unitMap
 ```
 
-가능한 모든 KLAY 값과 그 양을 peb로 표시합니다.
+Shows all possible KLAY values and their amount in peb.
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.unitMap
@@ -882,24 +882,24 @@ caver.utils.padLeft(string, characterAmount [, sign])
 caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
-문자열 왼쪽에 패딩(padding)을 추가합니다. HEX 문자열에 패딩을 추가하는 데 유용합니다.
+문자열 왼쪽에 패딩(padding)을 추가합니다. Useful for adding paddings to HEX strings.
 
 
-**파라미터**
+**Parameters**
 
-| 이름              | 타입     | 설명                             |
-| --------------- | ------ | ------------------------------ |
-| string          | String | 왼쪽에 패딩을 추가할 문자열.               |
-| characterAmount | Number | 총 문자열이 가질 문자 개수.               |
-| 서명              | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
+| Name            | Type   | Description                                            |
+| --------------- | ------ | ------------------------------------------------------ |
+| string          | String | The string to add padding on the left.                 |
+| characterAmount | Number | The number of characters the total string should have. |
+| sign            | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`.                         |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명       |
-| ------ | -------- |
-| String | 패딩된 문자열. |
+| Type   | Description        |
+| ------ | ------------------ |
+| String | The padded string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.padLeft('0x3456ff', 20);
@@ -922,21 +922,21 @@ caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 문자열 오른쪽에 패딩을 추가합니다. HEX 문자열에 패딩을 추가하는 데 유용합니다.
 
 
-**파라미터**
+**Parameters**
 
-| 이름              | 타입     | 설명                             |
-| --------------- | ------ | ------------------------------ |
-| string          | String | 오른쪽에 패딩을 추가할 문자열.              |
-| characterAmount | Number | 총 문자열이 가질 문자 개수.               |
-| 서명              | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
+| Name            | Type   | Description                                              |
+| --------------- | ------ | -------------------------------------------------------- |
+| string          | String | The string to add padding on the right.                  |
+| characterAmount | Number | The number of characters the total string should have.   |
+| sign            | String | (optional) The character sign to use, defaults to `"0"`. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명       |
-| ------ | -------- |
-| String | 패딩된 문자열. |
+| Type   | Description        |
+| ------ | ------------------ |
+| String | The padded string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.padRight('0x3456ff', 20);
@@ -956,22 +956,22 @@ caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 caver.utils.toTwosComplement(number)
 ```
 
-음수를 2의 보수로 변환합니다.
+Converts a negative number into a two's complement.
 
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입                                    | 설명      |
-| ------ | ------------------------------------- | ------- |
-| number | Number &#124; String &#124; BigNumber | 변환할 숫자. |
+| Name   | Type                                  | Description |
+| ------ | ------------------------------------- | ----------- |
+| number | Number &#124; String &#124; BigNumber | 변환할 숫자.     |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명           |
-| ------ | ------------ |
-| String | 변환된 HEX 문자열. |
+| Type   | Description               |
+| ------ | ------------------------- |
+| String | The converted hex string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.toTwosComplement('-1');
@@ -995,23 +995,23 @@ caver.utils.toTwosComplement(number)
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
 ```
-주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션인 경우 `true`를 반환합니다. 주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션이 아닌 경우 `false`를 반환합니다. 결과는 `transactionObject`의 매개변수 값에 의해 결정됩니다. 모든 필수 매개변수가 올바르게 설정되었는지 확인하세요.
+Returns `true` if the given transaction is a smart contract deploy transaction. It returns `false` if the transaction is not a smart contract deploy transaction. The result is determined by the values of the parameters in the `transactionObject`. Make sure all the mandatory parameters are set correctly.
 
-**참고** caver.klay.isContractDeployment는 **v1.0.1-rc.8**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
+**참고** caver.klay.isContractDeployment는 **v1.0.1-rc.8**에서 지원됩니다. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
 
-**파라미터**
+**Parameters**
 
-| 이름                | 타입     | 설명                                          |
+| Name              | Type   | Description                                 |
 | ----------------- | ------ | ------------------------------------------- |
 | transactionObject | Object | 트랜잭션이 스마트 컨트랙트 배포용인지 사용자가 확인하고자 하는 트랜잭션 객체. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                     |
-| ------- | -------------------------------------- |
-| Boolean | `true`는 트랜잭션 객체가 스마트 컨트랙트 배포용임을 의미합니다. |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| Boolean | `true` means the transaction object is for smart contract deploy. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isContractDeployment({
@@ -1058,23 +1058,23 @@ false
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
 ```
-주어진 공개키의 x와 y 좌표를 반환합니다. 키 암호화에 대한 자세한 내용은 [타원 곡선 암호화](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)를 참조하세요.
+Returns the x and y coordinates of the given publicKey. 키 암호화에 대한 자세한 내용은 [타원 곡선 암호화](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)를 참조하세요.
 
-**참고** 이 함수에는 공개키가 유효한지 확인하는 로직이 없습니다. 이 함수는 단지 입력한 공개키를 길이에 따라 x와 y 좌표로만 나눕니다.
+**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입     | 설명                   |
-| --------- | ------ | -------------------- |
-| publicKey | String | x와 y 좌표를 얻고자 하는 공개키. |
+| Name      | Type   | Description                          |
+| --------- | ------ | ------------------------------------ |
+| publicKey | String | The publicKey to get x and y points. |
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명                                                  |
-| ----- | --------------------------------------------------- |
-| Array | x 및 y 좌표를 저장하는 배열. 인덱스 0에는 x 점을, 인덱스 1에는 y 점을 가집니다. |
+| Type  | Description                                                                    |
+| ----- | ------------------------------------------------------------------------------ |
+| Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.xyPointFromPublicKey('0xa5862ded55cd9c7e9ff246dbc264ca5d5c605308f59b74e581b4f089d4c8c88cb9f00df6a56493f6029af215d266c907660ea0f7a4111ea025ea9d9be418fa55')
@@ -1091,21 +1091,21 @@ caver.utils.isHexPrefixed(input)
 ```
 입력이 0x 접두사가 있는 16진수 문자열이면 `true`, 그렇지 않으면 `false`를 반환합니다.
 
-**참고** caver.klay.isHexPrefixed는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
+**참고** caver.klay.isHexPrefixed는 **v1.0.1**에서 지원됩니다. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명                               |
-| ----- | ------ | -------------------------------- |
-| input | String | 0x 접두사가 있는 16진수 문자열인지 여부를 판별할 값. |
+| Name  | Type   | Description                                                                   |
+| ----- | ------ | ----------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is 0x-prefixed hex string or not. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                       |
-| ------- | ---------------------------------------- |
-| Boolean | `true`은 입력이 0x 접두사가 있는 16진수 문자열임을 의미합니다. |
+| Type    | Description                                       |
+| ------- | ------------------------------------------------- |
+| Boolean | `true` means the input is 0x-prefixed hex string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isHexPrefixed('0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1126,23 +1126,23 @@ false
 ```javascript
 caver.utils.addHexPrefix(input)
 ```
-0x 접두사가 있는 16진수 문자열을 반환합니다. 입력이 이미 0x 접두사 꼴이거나 또는 16진수 문자열이 아닌 경우, 입력 값은 그대로 반환됩니다.
+Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
-**참고** caver.klay.addHexPrefix는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
+**참고** caver.klay.addHexPrefix는 **v1.0.1**에서 지원됩니다. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명                |
+| Name  | Type   | Description       |
 | ----- | ------ | ----------------- |
 | input | String | 0x 접두사를 더할 문자열 값. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                          |
-| ------ | --------------------------- |
-| String | 0x 접두사가 있는 16진수 문자열이 반환됩니다. |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| String | 0x-prefixed hex string is returned. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.addHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1157,23 +1157,23 @@ caver.utils.addHexPrefix(input)
 ```javascript
 caver.utils.stripHexPrefix(input)
 ```
-입력에서 0x 접두사가 제거된 결과를 반환합니다.
+Returns the result with 0x prefix stripped from input.
 
-**참고** caver.klay.stripHexPrefix는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
+**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명               |
+| Name  | Type   | Description      |
 | ----- | ------ | ---------------- |
 | input | String | 접두사 0x를 제거할 문자열. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                  |
-| ------ | ------------------- |
-| String | 0x가 제거된 문자열이 반환됩니다. |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| String | A string stripped of 0x is returned. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.stripHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1188,23 +1188,23 @@ caver.utils.stripHexPrefix(input)
 ```javascript
 caver.utils.toBuffer(input)
 ```
-이 함수는 입력을 [버퍼](https://nodejs.org/api/buffer.html)로 변환합니다. `toBuffer`을 사용하여 객체를 버퍼로 변환하려면, 객체는 반드시 **toArray** 함수를 구현해야 합니다. 문자열 유형 입력의 경우, 이 함수는 **0x 접두사가 있는 16진수 문자열**에서만 작동합니다.
+This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). `toBuffer`을 사용하여 객체를 버퍼로 변환하려면, 객체는 반드시 **toArray** 함수를 구현해야 합니다. 문자열 유형 입력의 경우, 이 함수는 **0x 접두사가 있는 16진수 문자열**에서만 작동합니다.
 
 **참고** caver.klay.toBuffer는 **v1.1.0**에서 지원됩니다. 이 기능을 사용하려면 [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) 또는 그 이상을 설치하세요.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입                                                                      | 설명         |
-| ----- | ----------------------------------------------------------------------- | ---------- |
-| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | 버퍼로 변환할 값. |
+| Name  | Type                                                                    | Description |
+| ----- | ----------------------------------------------------------------------- | ----------- |
+| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | 버퍼로 변환할 값.  |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                    |
-| ------ | --------------------- |
-| Buffer | 버퍼 유형으로 변환된 값이 반환됩니다. |
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Buffer | The value converted to Buffer type is returned. |
 
-**예제**
+**Examples**
 
 ```javascript
 // Buffer
@@ -1241,23 +1241,23 @@ Error: To convert an object to a buffer, the toArray function must be implemente
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
-이 함수는 숫자를 [버퍼](https://nodejs.org/api/buffer.html)로 변환합니다. 입력이 숫자인 경우 [caver.utils.toBuffer](#tobuffer)는 이 함수와 동일하게 동작합니다.
+This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). 입력이 숫자인 경우 [caver.utils.toBuffer](#tobuffer)는 이 함수와 동일하게 동작합니다.
 
-**참고** caver.klay.numberToBuffer는 **v1.1.0**에서 지원됩니다. 이 기능을 사용하려면 [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) 또는 그 이상을 설치하세요.
+**참고** caver.klay.numberToBuffer는 **v1.1.0**에서 지원됩니다. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
-**파라미터**
-| 이름    | 타입                             | 설명          |
+**Parameters**
+| Name  | Type                           | Description |
 | ----- | ------------------------------ | ----------- |
 | input | String &#124; Number &#124; BN | 버퍼로 변환할 숫자. |
 
 
-**리턴값**
-| 타입     | 설명                    |
-| ------ | --------------------- |
-| Buffer | 버퍼 유형으로 변환된 값이 반환됩니다. |
+**Return Value**
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Buffer | The value converted to Buffer type is returned. |
 
 
-**예제**
+**Examples**
 ```javascript
 > caver.utils.numberToBuffer(1)
 <Buffer 01>
@@ -1273,19 +1273,19 @@ caver.utils.numberToBuffer(input)
 ```javascript
 caver.utils.isTxHash(input)
 ```
-입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다. **참고** caver.klay.isTxHash는 **v1.2.0-rc.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) 또는 그 이상을 설치하세요. **매개변수**
-| 이름    | 타입     | 설명                                 |
-| ----- | ------ | ---------------------------------- |
-| input | String | 매개변수가 트랜잭션 해시 형식인지 여부를 판별하고자 하는 값. |
+입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. This function only looks at the input and determines if it is in the format of a transaction hash. **참고** caver.klay.isTxHash는 **v1.2.0-rc.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) 또는 그 이상을 설치하세요. **매개변수**
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
-**리턴값**
-| 타입      | 설명                               |
+**Return Value**
+| Type    | Description                      |
 | ------- | -------------------------------- |
 | Boolean | `true`는 입력값이 트랜잭션 해시 형식임을 의미합니다. |
 
 
-**예제**
+**Examples**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
@@ -1300,19 +1300,19 @@ false
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
-입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다. [caver.utils.isTxHash](#istxhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다. **참고** caver.klay.isTxHashStrict는 **v1.2.0-rc.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) 또는 그 이상을 설치하세요. **매개변수**
-| 이름    | 타입     | 설명                                 |
-| ----- | ------ | ---------------------------------- |
-| input | String | 매개변수가 트랜잭션 해시 형식인지 여부를 판별하고자 하는 값. |
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. [caver.utils.isTxHash](#istxhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다. **참고** caver.klay.isTxHashStrict는 **v1.2.0-rc.1**에서 지원됩니다. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
-**리턴값**
-| 타입      | 설명                               |
-| ------- | -------------------------------- |
-| Boolean | `true`는 입력값이 트랜잭션 해시 형식임을 의미합니다. |
+**Return Value**
+| Type    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| Boolean | `true` means the input is in the format of transaction hash. |
 
 
-**예제**
+**Examples**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
@@ -1331,19 +1331,19 @@ caver.utils.isValidPrivateKey(privateKey)
 ```
 privateKey가 유효하면 `true`, 그렇지 않으면 `false`리턴합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름         | 타입     | 설명                   |
-| ---------- | ------ | -------------------- |
-| privateKey | String | 유효성을 검사할 개인키 문자열입니다. |
+| Name       | Type   | Description                       |
+| ---------- | ------ | --------------------------------- |
+| privateKey | String | A private key string to validate. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                              |
-| ------- | ------------------------------- |
-| Boolean | `true`는 privateKey가 유효함을 의미합니다. |
+| Type    | Description                           |
+| ------- | ------------------------------------- |
+| Boolean | `true` means the privateKey is valid. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isValidPrivateKey('0x{private key}')
@@ -1361,23 +1361,23 @@ false
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
 ```
-publicKey가 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다.
+Returns `true` if publicKey is valid, otherwise it returns `false`.
 
 **참고** `caver.utils.isValidPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입     | 설명                   |
-| --------- | ------ | -------------------- |
-| publicKey | String | 유효성을 검사할 공개키 문자열입니다. |
+| Name      | Type   | Description                      |
+| --------- | ------ | -------------------------------- |
+| publicKey | String | A public key string to validate. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                             |
-| ------- | ------------------------------ |
-| Boolean | `true`는 publicKey가 유효함을 의미합니다. |
+| Type    | Description                          |
+| ------- | ------------------------------------ |
+| Boolean | `true` means the publicKey is valid. |
 
-**예제**
+**Examples**
 
 ```javascript
 // validation with uncompressed public key
@@ -1407,19 +1407,19 @@ role이 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다. Acc
 
 **참고** `caver.utils.isValidRole`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**파라미터**
+**Parameters**
 
-| 이름   | 타입     | 설명                    |
-| ---- | ------ | --------------------- |
-| role | String | 유효성을 검사할 role 문자열입니다. |
+| Name | Type   | Description                |
+| ---- | ------ | -------------------------- |
+| role | String | A role string to validate. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                        |
-| ------- | ------------------------- |
-| Boolean | `true`는 role이 유효함을 의미합니다. |
+| Type    | Description                     |
+| ------- | ------------------------------- |
+| Boolean | `true` means the role is valid. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isValidRole('transactionKey')
@@ -1446,19 +1446,19 @@ caver-js에서 트랜잭션을 RLP 인코딩할 때 signatures 또는 feePayerSi
 
 **참고** `caver.utils.isEmptySig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입    | 설명                |
-| --- | ----- | ----------------- |
-| sig | Array | 비어있는지 확인할 서명의 배열. |
+| Name | Type  | Description       |
+| ---- | ----- | ----------------- |
+| sig  | Array | 비어있는지 확인할 서명의 배열. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                                         |
+| Type    | Description                                                                |
 | ------- | -------------------------------------------------------------------------- |
 | Boolean | `true`는 sig가 `[[ '0x01', '0x', '0x']]` 또는 `[ '0x01', '0x', '0x']`임을 의미합니다. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isEmptySig([['0x01', '0x', '0x']])
@@ -1480,19 +1480,19 @@ caver.utils.isKlaytnWalletKey(key)
 
 **참고**`caver.utils.isKlaytnWalletKey`는 caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3)부터 더 정확한 결과를 제공하기 위해 업데이트되었습니다.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                                 |
-| --- | ------ | ---------------------------------- |
-| key | String | KlaytnWalletKey 포맷인지 확인할 키 문자열입니다. |
+| Name | Type   | Description                                                    |
+| ---- | ------ | -------------------------------------------------------------- |
+| key  | String | A key string to check in the format of KlaytnWalletKey or not. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                                                                         |
-| ------- | ---------------------------------------------------------------------------------------------------------- |
-| Boolean | `true`면 키는 `0x{private key}0x{type}0x{address in hex}` 또는 `{private key}0x{type}0x{address in hex}` 포맷입니다. |
+| Type    | Description                                                                                                       |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
@@ -1510,23 +1510,23 @@ false
 ```javascript
 caver.utils.bufferToHex(buffer)
 ```
-버퍼를 "0x"가 접두어인 16진수 문자열로 바꿉니다.
+Converts buffer to 0x-prefixed hex string.
 
 **참고** `caver.utils.bufferToHex`는 caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1)부터 지원됩니다.
 
-**파라미터**
+**Parameters**
 
-| 이름     | 타입     | 설명                  |
-| ------ | ------ | ------------------- |
-| buffer | Buffer | 16진수 문자열로 바꿀 버퍼입니다. |
+| Name   | Type   | Description                        |
+| ------ | ------ | ---------------------------------- |
+| buffer | Buffer | A buffer to convert to hex string. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                      |
-| ------ | ----------------------- |
-| String | 0x 접두어가 있는 16진수 문자열입니다. |
+| Type   | Description                 |
+| ------ | --------------------------- |
+| String | The 0x-prefixed hex string. |
 
-**예제**
+**Examples**
 
 ```javascript
 > caver.utils.bufferToHex(Buffer.from('5b9ac8', 'hex'))
