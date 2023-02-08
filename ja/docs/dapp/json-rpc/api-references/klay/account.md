@@ -2,24 +2,24 @@
 
 アドレスに関連付けられているアカウントが作成された場合、 `true` を返します。 そうでなければ、 `false` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                        |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| アカウント         | 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                            |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account              | 20-byte DATA                    | Address                                                                                                                                                                                |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description |
+| Type    | Description |
 | ------- | ----------- |
 | Boolean | 入力アドレスの存在   |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -36,19 +36,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_accounts <a id="klay_accounts"></a>
 
-クライアントが所有するアドレスのリストを返します。
+Returns a list of addresses owned by client.
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ          | Description      |
-| ------------ | ---------------- |
-| 20 バイトデータの配列 | クライアントが所有するアドレス。 |
+| Type                  | Description                    |
+| --------------------- | ------------------------------ |
+| Array of 20-byte DATA | Addresses owned by the client. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -67,21 +67,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 再帰長プレフィックス(RLP)エンコーディングスキームを使用してアカウントキーをエンコードします。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ      | Description                                                                                                   |
+| Name    | Type     | Description                                                                                                   |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| keytype | 品質       | アカウントキータイプを示す整数の値。 各口座鍵種別の値については、 [Account Key](../../../../klaytn/design/accounts.md#account-key) を参照してください。 |
+| keytype | QUANTITY | アカウントキータイプを示す整数の値。 各口座鍵種別の値については、 [Account Key](../../../../klaytn/design/accounts.md#account-key) を参照してください。 |
 | キー      | JSON データ | アカウントキーオブジェクト                                                                                                 |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description        |
-| --- | ------------------ |
-| データ | RLPエンコードされたアカウントキー |
+| Type | Description        |
+| ---- | ------------------ |
+| DATA | RLPエンコードされたアカウントキー |
 
 
-**例**
+**Example**
 
 ```shell
 // Request to encode AccountKeyNil
@@ -155,20 +155,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 RLPエンコードされたアカウントキーをデコードします。
 
-**パラメータ**
+**Parameters**
 
-| タイプ | Description        |
-| --- | ------------------ |
-| データ | RLPエンコードされたアカウントキー |
+| Type | Description             |
+| ---- | ----------------------- |
+| DATA | RLP encoded account key |
 
-**戻り値**
+**Return Value**
 
-| 名前      | タイプ      | Description        |
-| ------- | -------- | ------------------ |
-| keytype | 品質       | アカウントキータイプを示す整数の値。 |
-| キー      | JSON データ | アカウントキーオブジェクト      |
+| Name    | Type      | Description                                |
+| ------- | --------- | ------------------------------------------ |
+| keytype | QUANTITY  | Integer value indicating account key type. |
+| key     | JSON DATA | Account key object                         |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -226,24 +226,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 指定されたアドレスのアカウント情報を返します。 Klaytnには2つの異なる口座タイプがあります: 外部所有口座(EOA)とスマートコントラクト口座。 [Klaytn アカウント](../../../../klaytn/design/accounts.md#klaytn-accounts) を参照してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                        |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                            |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | 20-byte DATA                    | Address                                                                                                                                                                                |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ   | Description         |
+| Type  | Description         |
 | ----- | ------------------- |
 | アカウント | 各口座タイプには異なる属性があります。 |
 
-**例**
+**Example**
 
 ```shell
 // Request (Account type: Externally Owned Account)
@@ -301,24 +301,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 指定されたアドレスの外部所有アカウント (EOA) のアカウント キーを返します。 アカウントにAccountKeyLegacyがある場合、または指定されたアドレスのアカウントがスマートコントラクトアカウントである場合、空のキー値が返されます。 [アカウントキー](../../../../klaytn/design/accounts.md#account-key) をご覧ください。
 
-**パラメータ**
+**Parameters**
 
-| タイプ                             | Description                                                                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description                 |
+| Type       | Description                 |
 | ---------- | --------------------------- |
 | AccountKey | アカウントキーは公開鍵とキータイプで構成されています。 |
 
-**例**
+**Example**
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
@@ -387,26 +387,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBalance <a id="klay_getbalance"></a>
 
-指定されたアドレスのアカウントの残高を返します。
+Returns the balance of the account of given address.
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                        |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | 20 バイトのデータ                      | 残高を確認するアドレス。                                                                                                                                       |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                            |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 品質  | ペブの現在の残高の整数。 |
+| Type     | Description                            |
+| -------- | -------------------------------------- |
+| QUANTITY | Integer of the current balance in peb. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -422,26 +422,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getCode <a id="klay_getcode"></a>
 
-指定されたアドレスのコードを返します。
+Returns code at a given address.
 
-**パラメータ**
+**Parameters**
 
-| タイプ                             | Description                                                                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description      |
-| --- | ---------------- |
-| データ | 指定されたアドレスからのコード。 |
+| Type | Description                      |
+| ---- | -------------------------------- |
+| DATA | The code from the given address. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -458,26 +458,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-アドレスから ** を送信したトランザクション数を返します。
+Returns the number of transactions *sent* from an address.
 
-**パラメータ**
+**Parameters**
 
-| タイプ                             | Description                                                                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Type                            | Description                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                |
-| --- | -------------------------- |
-| 品質  | このアドレスから送信されるトランザクション数の整数。 |
+| Type     | Description                                                   |
+| -------- | ------------------------------------------------------------- |
+| QUANTITY | Integer of the number of transactions send from this address. |
 
-**例**
+**Example**
 
  ```shell
 // Request
@@ -498,24 +498,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 入力口座が特定のブロック番号の時点で空でないコードハッシュを持つ場合、 `true` を返します。 アカウントがEOAまたはcodeHashを持たないスマートコントラクトアカウントの場合、 `false` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                        |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| アカウント         | 20 バイトのデータ                      | 住所                                                                                                                                                 |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](./block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                            |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account              | 20-byte DATA                    | Address                                                                                                                                                                                |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数ブロック番号のみが使用できます。 文字列 `"最も早い"` と `"最も遅い"`。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                    |
+| Type    | Description                                    |
 | ------- | ---------------------------------------------- |
 | Boolean | `true` は、入力パラメータが既存のスマートコントラクトアドレスであることを意味します。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -531,29 +531,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign <a id="klay_sign"></a>
 
-signメソッドは、Klaytn固有の署名を次のように計算します。
+The sign method calculates a Klaytn-specific signature with:
 ```
-sign(kecchak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-メッセージにプレフィックスを追加すると、計算された署名が Klaytn 固有の署名として認識可能になります。 これにより、悪意のあるdAppが任意のデータに署名し、 *例えば*、トランザクション、および署名を使用して被害者になりすますことができます。
+Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. これにより、悪意のあるdAppが任意のデータに署名し、 *例えば*、トランザクション、および署名を使用して被害者になりすますことができます。
 
-**注**: 署名するアドレスのロックを解除する必要があります。
+**NOTE**: The address to sign with must be unlocked.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ        | Description |
-| ------- | ---------- | ----------- |
-| アカウント   | 20 バイトのデータ | 住所          |
-| message | Nバイトのデータ   | 署名するメッセージ   |
+| Name    | Type         | Description     |
+| ------- | ------------ | --------------- |
+| account | 20-byte DATA | Address         |
+| message | N-byte DATA  | Message to sign |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| データ | 署名          |
+| Type | Description |
+| ---- | ----------- |
+| DATA | Signature   |
 
-**例**
+**Example**
 
 ```shell
 // Request
