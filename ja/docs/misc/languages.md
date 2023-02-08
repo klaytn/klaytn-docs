@@ -1,4 +1,4 @@
-# 言語
+# Languages
 
 KlaytnDocs は以下の言語で利用できます。
 
