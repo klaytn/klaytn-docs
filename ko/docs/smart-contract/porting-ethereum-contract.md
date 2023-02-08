@@ -15,12 +15,12 @@ v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 �
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}
 
-다른 EVM 버전들과의 하위 호환성은 보장되지 않습니다. Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
+Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
 * Baobab: --evm-version london
 * Cypress: --evm-version london
 * 그 외(private/service chain): 프로토콜 업그레이드 상태에 따라 결정
 
-자세한 내용은 [How to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)를 참고해주세요.
+Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 
 An example command is shown below:
