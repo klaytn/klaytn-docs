@@ -1,2 +1,2 @@
-# アップグレードガイド <a id="upgrade-guide"></a>
+# Upgrade Guide <a id="upgrade-guide"></a>
 
