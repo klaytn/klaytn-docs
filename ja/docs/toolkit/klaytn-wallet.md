@@ -31,9 +31,9 @@ Klaytn Walletは以下の機能のリストを提供します。
 
 Klaytn Walletを使って新しいKlaytnアカウントを作成することができます。 新しいアカウントを作成するには、左側のメニューバーの `Create Account` ボタンをクリックし、以下の手順に従います。
 
-* ステップ1. 新しいアカウントのキーストアファイルのパスワードを設定する
-* ステップ 2. キーストアファイルをローカルストレージにダウンロード
-* ステップ3 新しいアカウントのKlaytnウォレットキーを保存
+* Step 1. 新しいアカウントのキーストアファイルのパスワードを設定する
+* Step 2. キーストアファイルをローカルストレージにダウンロード
+* Step 3. 新しいアカウントのKlaytnウォレットキーを保存
 
 ### 続行する前に、警告のいくつかの単語: <a id="before-continuing-a-few-words-of-caution"></a>
 
@@ -42,7 +42,7 @@ Klaytn Walletを使って新しいKlaytnアカウントを作成することが�
 * 強力なパスワードを選択し、複数の場所に重要な情報を保存します。
 * Klaytnは紛失した場合に備えて「ウォレットキー」または「秘密キー」を復元できません。 重要な情報を失わないように注意してください。
 
-### ステップ1. キーストアファイルのパスワードを設定 <a id="step-1-set-password-for-your-keystore-file"></a>
+### Step 1. キーストアファイルのパスワードを設定 <a id="step-1-set-password-for-your-keystore-file"></a>
 
 新しいアカウントを作成する最初のステップとして、キーストアファイルのパスワードを作成する必要があります。 キーストアファイルは、Klaytnアカウント情報を安全に保存するJSONファイルです。 アカウントのアドレスとアカウントに関連付けられた秘密鍵を含む。 鍵ストアファイルのパスワードは、ファイル内に保存されている秘密鍵をパスワードで保護するため、Klaytnのセキュリティ標準を満たすのに十分な強度を持たなければなりません。
 
@@ -50,13 +50,13 @@ Klaytn Walletを使って新しいKlaytnアカウントを作成することが�
 
 パスワード入力フォームをクリックすると、ツールチップが上に表示され、表示されます。 入力時に入力したパスワードがセキュリティ要件を満たしていれば パスワードがすべての要件を満たしている場合は、 `次のステップ` ボタンが有効になります。 !
 
-### ステップ 2. キーストアファイルをダウンロード <a id="step-2-download-the-keystore-file"></a>
+### Step 2. キーストアファイルをダウンロード <a id="step-2-download-the-keystore-file"></a>
 
 2番目のステップでは、送信されたパスワードで暗号化されたキーストアファイルをダウンロードします。 `Download & Next Step` ボタンをクリックして、直ちにキーストアファイルをダウンロードし、最後のステップに移動します。 (ダウンロードしたキーストアファイルが失われた場合は、 `アカウント情報を表示` メニューから新しいキーストアファイルをダウンロードできます。
 
 ![](img/01-create-new-4.png)
 
-### ステップ3 Klaytnウォレットキーとプライベートキーを保存 <a id="step-3-save-your-klaytn-wallet-key-and-private-key"></a>
+### Step 3. Klaytnウォレットキーとプライベートキーを保存 <a id="step-3-save-your-klaytn-wallet-key-and-private-key"></a>
 
 最後のステップでは、新しく作成したアカウントに対応するWalletキーと秘密鍵が表示されます。 キーを別の接続されていないストレージに保存することを強くお勧めします。
 
@@ -73,13 +73,13 @@ KLAYまたはKlayトークンの残高を確認したり、トークンを別の
 
 ### Klaytnウォレットキーまたは秘密鍵を使用して既存のアカウントにアクセス <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
 
-#### ステップ1. ウォレットキーまたは秘密鍵を入力してください <a id="step-1-enter-the-wallet-key-or-private-key"></a>
+#### Step 1. ウォレットキーまたは秘密鍵を入力してください <a id="step-1-enter-the-wallet-key-or-private-key"></a>
 
 To access your account, click the `View Account Info` button from the menu bar on the left, and go to the `Private Key` tab on the screen. 入力ボックスにアクセスしたいアカウントのKlaytnウォレットキーまたは秘密キーを入力します。
 
 ![](img/03-access-1pk-1.png)
 
-#### ステップ 2. チェックボックスにチェックを入れ、「アクセス」ボタンをクリックします。 <a id="step-2-check-the-checkbox-and-click-access-button"></a>
+#### Step 2. チェックボックスにチェックを入れ、「アクセス」ボタンをクリックします。 <a id="step-2-check-the-checkbox-and-click-access-button"></a>
 
 `アクセス` ボタンをクリックして、アカウントページに移動します。 提供されたキー情報がいかなるキーフォーマットにも適合しない場合、 `Access` ボタンはアクティブになりません。
 
@@ -87,19 +87,19 @@ To access your account, click the `View Account Info` button from the menu bar o
 
 ### キーストアファイルとパスワードを使用して既存のアカウントにアクセス <a id="access-existing-account-using-keystore-file-and-password"></a>
 
-#### ステップ1. キーストアのファイルタブに移動します <a id="step-1-go-to-the-keystore-file-tab"></a>
+#### Step 1. キーストアのファイルタブに移動します <a id="step-1-go-to-the-keystore-file-tab"></a>
 
 画面の `キーストアファイル` タブに移動します。
 
 ![](img/03-access-2ks-1.png)
 
-#### ステップ 2. 使用するキーストアファイルを選択 <a id="step-2-select-the-keystore-file-to-use"></a>
+#### Step 2. 使用するキーストアファイルを選択 <a id="step-2-select-the-keystore-file-to-use"></a>
 
 `アップロード` ボタンをクリックし、キーストアファイルを探します。
 
 ![](img/03-access-2ks-2.png)
 
-#### ステップ3 キーストアのファイルパスワードを入力してください <a id="step-3-enter-keystore-file-password"></a>
+#### Step 3. キーストアのファイルパスワードを入力してください <a id="step-3-enter-keystore-file-password"></a>
 
 選択したキーストアファイルに対応するパスワードを入力し、 `アクセス` ボタンをクリックしてアカウントページに移動します。
 
@@ -115,17 +115,17 @@ To access your account, click the `View Account Info` button from the menu bar o
 
 Klaytn WalletはKLAYとKlaytnトークンを登録して残高を確認することができます。 KlaytnトークンをKlaytn Walletに登録するには、以下の手順に従ってください。
 
-### ステップ1. 既存のアカウントの情報にアクセス <a id="step-1-access-existing-account-s-information"></a>
+### Step 1. 既存のアカウントの情報にアクセス <a id="step-1-access-existing-account-s-information"></a>
 
 [既存のアカウントへのアクセス](#access-existing-account) の手順に従って、アカウントページに移動します。
 
-### ステップ 2. 残高セクションのトークン追加ボタンをクリックします <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>
+### Step 2. 残高セクションのトークン追加ボタンをクリックします <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>
 
 `残高` 領域の画面右下の「+」ボタンをクリックします。
 
 ![](img/05-addtoken-3.png)
 
-### ステップ3 トークン情報を入力 <a id="step-3-enter-token-information"></a>
+### Step 3. トークン情報を入力 <a id="step-3-enter-token-information"></a>
 
 `トークンシンボル`、 `トークンコントラクトアドレス`、および `小数点数` を入力します。 `Save` ボタンをクリックすると、アカウントの残高セクションに表示されるトークンが表示されます。
 
@@ -135,23 +135,23 @@ Klaytn WalletはKLAYとKlaytnトークンを登録して残高を確認するこ
 
 KLAYまたはKlaytnトークンを他のアカウントに送るには、Klaytn Walletを使用します。 KLAYまたはトークンを送信する場合、取引手数料の支払いには、お客様の口座に最低額のKLAYを記載する必要があります。
 
-### ステップ1. 「KLAY & トークンを送信」メニューに移動 <a id="step-1-go-to-send-klay-tokens-menu"></a>
+### Step 1. 「KLAY & トークンを送信」メニューに移動 <a id="step-1-go-to-send-klay-tokens-menu"></a>
 
 左側のメニューバーから `KLAY & トークンを送信` ボタンをクリックするか、メインページの同じボタンをクリックします。
 
 ![](img/06-send-1.png)
 
-### ステップ 2. アカウントにアクセス <a id="step-2-access-your-account"></a>
+### Step 2. アカウントにアクセス <a id="step-2-access-your-account"></a>
 
 まだウォレットにアカウントを読み込んでいない場合は、 [既存のアカウントにアクセス](#access-existing-account)の手順に従ってください。
 
-### ステップ3 送信するトークンを選択 <a id="step-3-select-the-token-to-send"></a>
+### Step 3. 送信するトークンを選択 <a id="step-3-select-the-token-to-send"></a>
 
 `ステップ 1で転送するトークンを選択します。 トークン` エリアを選択します。
 
 ![](img/06-send-3.png)
 
-### ステップ4 トークン転送情報を選択 <a id="step-4-select-token-transfer-information"></a>
+### Step 4. トークン転送情報を選択 <a id="step-4-select-token-transfer-information"></a>
 
 送信するトークンを選択した後、 `ステップ2に移動します。 Enter the information` section and fill in the necessary information (`To Address` and `Amount to Send`), then click the `Send Transaction` button.
 
@@ -178,7 +178,7 @@ To receive testnet KLAY, you should have a valid Klaytn account.
 * アカウントをお持ちでない場合は、 [新規アカウントの作成](#create-a-new-account) の手順に従ってアカウントを作成してください。
 * [既存のアカウントにアクセス](#access-existing-account)の手順に従って、アカウントをウォレットにロードします。 Testnet KLAY will be sent to the loaded account.
 
-### ステップ1. テストネットKLAYファケットに移動 <a id="step-1-go-to-the-testnet-klay-faucet"></a>
+### Step 1. テストネットKLAYファケットに移動 <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
 [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation), `KLAYFaucet` メニューから、テストネットKLAYリクエストページに移動します。
 
@@ -186,6 +186,6 @@ To receive testnet KLAY, you should have a valid Klaytn account.
 
 ![](img/test_klay_faucet.png)
 
-### ステップ 2. Run Faucet <a id="step-2-run-faucet"></a>
+### Step 2. Run Faucet <a id="step-2-run-faucet"></a>
 
 `Run Faucet` ボタンをクリックすると、5つのtestnet KLAYが送信され、残高が更新されます。 Note that you can run the faucet for each account once every 24 hours.
