@@ -1,11 +1,11 @@
 ---
 description: >-
-  caver-jsユーティリティAPI。
+  caver-js utility APIs.
 ---
 
 # caver.utils <a id="caver-utils"></a>
 
-`caver.utils` はユーティリティ関数を提供する。
+`caver.utils` provides utility functions.
 
 
 ## randomHex <a id="randomhex"></a>
@@ -13,21 +13,21 @@ description: >-
 ```javascript
 caver.utils.randomHex(size)
 ```
-指定されたバイトサイズから暗号的に強力な疑似ランダムな HEX 文字列を生成する [randomHex](https://github.com/frozeman/randomHex) ライブラリ。
+The [randomHex](https://github.com/frozeman/randomHex) library to generate cryptographically strong pseudo-random HEX strings from a given byte size.
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ    | Description                                                                                                               |
-| --- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| サイズ | Number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters preficed with "0x". |
+| Name | Type   | Description                                                                                                               |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| size | Number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters preficed with "0x". |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description         |
-| --- | ------------------- |
-| 文字列 | 生成されたランダムな HEX 文字列。 |
+| Type   | Description                      |
+| ------ | -------------------------------- |
+| String | The generated random HEX string. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.utils.randomHex(32);
@@ -55,9 +55,9 @@ caver.utils._()
 
 The [underscore](http://underscorejs.org) library for many convenience JavaScript functions.
 
-詳細については、 [アンダースコアAPIリファレンス](http://underscorejs.org) を参照してください。
+See the [underscore API reference](http://underscorejs.org) for details.
 
-**例**
+**Example**
 
 ```javascript
 > var _ = caver.utils._;
@@ -77,19 +77,19 @@ caver.utils.BN(mixed)
 ```
 The [BN.js](https://github.com/indutny/bn.js/) library for calculating with big numbers in JavaScript. See the [BN.js documentation](https://github.com/indutny/bn.js/) for details.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ                  | Description                                                      |
+| Name  | Type                 | Description                                                      |
 | ----- | -------------------- | ---------------------------------------------------------------- |
 | mixed | String &#124; Number | A number, number string or HEX string to convert to a BN object. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                        |
-| ------ | -------------------------------------------------- |
-| Object | [BN.js](https://github.com/indutny/bn.js/) インスタンス。 |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**例**
+**Example**
 
 ```javascript
 > var BN = caver.utils.BN;
@@ -111,22 +111,22 @@ The [BN.js](https://github.com/indutny/bn.js/) library for calculating with big 
 caver.utils.isBN(bn)
 ```
 
-指定された値が [BN.js](https://github.com/indutny/bn.js/) インスタンスであるかどうかをチェックします。
+Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ    | Description                                        |
-| -- | ------ | -------------------------------------------------- |
-| bn | Object | [BN.js](https://github.com/indutny/bn.js/) インスタンス。 |
+| Name | Type   | Description                                            |
+| ---- | ------ | ------------------------------------------------------ |
+| bn   | Object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                        |
-| ------- | ------------------------------------------------------------------ |
-| Boolean | `指定された値が` BN.js [インスタンスの場合true](https://github.com/indutny/bn.js/) |
+| Type    | Description                                                                       |
+| ------- | --------------------------------------------------------------------------------- |
+| Boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**例**
+**Example**
 
 ```javascript
 > var number = new BN(10);
@@ -141,22 +141,22 @@ true
 caver.utils.isBigNumber(bignumber)
 ```
 
-指定された値が [BigNumber.js](http://mikemcl.github.io/bignumber.js/) インスタンスであるかどうかを確認します。
+Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ    | Description                                                    |
-| --------- | ------ | -------------------------------------------------------------- |
-| bignumber | Object | [BigNumber.js](http://mikemcl.github.io/bignumber.js/) インスタンス。 |
+| Name      | Type   | Description                                                        |
+| --------- | ------ | ------------------------------------------------------------------ |
+| bignumber | Object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                    |
-| ------- | ---------------------------------------------- |
-| Boolean | `与えられた値が` BigNumber.js `インスタンスの場合、true` になります。 |
+| Type    | Description                                           |
+| ------- | ----------------------------------------------------- |
+| Boolean | `true` if a given value is a `BigNumber.js` instance. |
 
-**例**
+**Example**
 
 ```javascript
 > var number = new BigNumber(10);
@@ -171,23 +171,23 @@ true
 caver.utils.sha3(string)
 caver.utils.keccak256(string) // ALIAS
 ```
-入力の sha3 を返します。
+Calculates the sha3 of the input.
 
 **NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](#soliditysha3).
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| 文字列 | 文字列 | ハッシュする文字列   |
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| string | String | A string to hash. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 結果ハッシュ。     |
+| Type   | Description      |
+| ------ | ---------------- |
+| String | The result hash. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.utils.sha3('234'); // taken as string
@@ -214,21 +214,21 @@ null
 caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
-与えられた入力パラメータのsha3を、ソリッドと同じ方法で計算します。 つまり、引数はABIに変換され、ハッシュされる前にしっかりと詰め込まれることになります。
+Calculates the sha3 of given input parameters in the same way solidity would. This means arguments will be ABI converted and tightly packed before being hashed.
 
-**パラメータ**
+**Parameters**
 
-| 名前     | タイプ    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| paramX | 混在しました | 任意のタイプ、または `{type: 'uint', value: '123456'}` または `{t: 'bytes', v: '0xfff456'}` のオブジェクト。 Basic types are autodetected as follows:<br> - `String` non numerical UTF-8 string is interpreted as `string`.<br> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br> - `String|Number|BN` negative number is interpreted as `int256`.<br> - `Boolean` as `bool`.<br> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br> |
+| Name   | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br> - `String` non numerical UTF-8 string is interpreted as `string`.<br> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br> - `String|Number|BN` negative number is interpreted as `int256`.<br> - `Boolean` as `bool`.<br> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br> |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 結果ハッシュ。     |
+| Type   | Description      |
+| ------ | ---------------- |
+| String | The result hash. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10);
@@ -275,21 +275,21 @@ caver.utils.soliditySha3(param1 [, param2, ...])
 ```javascript
 caver.utils.isHex(hex)
 ```
-与えられた文字列が HEX 文字列であるかどうかを確認します。
+Checks if a given string is a HEX string.
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ               | Description  |
-| ---- | ----------------- | ------------ |
-| 16進法 | String &#124; HEX | 与えられたHEX文字列。 |
+| Name | Type              | Description           |
+| ---- | ----------------- | --------------------- |
+| hex  | String &#124; HEX | The given HEX string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                             |
-| ------- | --------------------------------------- |
-| Boolean | `与えられた文字列が HEX 文字列である場合` true format@@2 |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` if a given string is a HEX string. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.utils.isHex('0xc1912');
@@ -318,22 +318,22 @@ false
 ```javascript
 caver.utils.isHexStrict(hex)
 ```
-与えられた文字列が HEX 文字列であるかどうかを確認します。 Difference to [caver.utils.isHex](#ishex) is that it expects HEX to be prefixed with `0x`.
+Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ishex) is that it expects HEX to be prefixed with `0x`.
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ               | Description  |
-| ---- | ----------------- | ------------ |
-| 16進法 | String &#124; HEX | 与えられたHEX文字列。 |
+| Name | Type              | Description           |
+| ---- | ----------------- | --------------------- |
+| hex  | String &#124; HEX | The given HEX string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                             |
-| ------- | --------------------------------------- |
-| Boolean | `与えられた文字列が HEX 文字列である場合` true format@@2 |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` if a given string is a HEX string. |
 
 
-**例**
+**Example**
 
 ```javascript
 > caver.utils.isHexStrict('0xc1912');
@@ -361,21 +361,21 @@ false
 ```javascript
 caver.utils.isAddress(address)
 ```
-与えられた文字列が有効なKlaytnアドレスであるかを確認します。 It will also check the checksum, if the address has upper and lowercase letters.
+Checks if a given string is a valid Klaytn address. It will also check the checksum, if the address has upper and lowercase letters.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description |
-| ------- | --- | ----------- |
-| address | 文字列 | アドレス文字列     |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                         |
-| ------- | ----------------------------------- |
-| Boolean | `true` 与えられた文字列が有効な Klaytn アドレスの場合。 |
+| Type    | Description                                         |
+| ------- | --------------------------------------------------- |
+| Boolean | `true` if a given string is a valid Klaytn address. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
@@ -400,21 +400,21 @@ false // wrong checksum
 ```javascript
 caver.utils.toChecksumAddress(address)
 ```
-大文字または小文字のKlaytnアドレスをチェックサムアドレスに変換します。
+Converts an upper or lowercase Klaytn address to a checksum address.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description |
-| ------- | --- | ----------- |
-| address | 文字列 | アドレス文字列     |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | チェックサムのアドレス |
+| Type   | Description           |
+| ------ | --------------------- |
+| String | The checksum address. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.toChecksumAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
@@ -430,21 +430,21 @@ caver.utils.toChecksumAddress(address)
 ```javascript
 caver.utils.checkAddressChecksum(address)
 ```
-指定されたアドレスのチェックサムをチェックします。 チェックサムでないアドレスに対して `false` を返します。
+Checks the checksum of a given address. Will also return `false` on non-checksum addresses.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description |
-| ------- | --- | ----------- |
-| address | 文字列 | アドレス文字列     |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                                                                            |
+| Type    | Description                                                                                                            |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.checkAddressChecksum('0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
@@ -457,21 +457,21 @@ true
 ```javascript
 caver.utils.toHex(mixed)
 ```
-任意の値をHEXに変換します。 Number strings will interpreted as numbers. テキスト文字列は UTF-8 文字列として解釈されます。
+Converts any given value to HEX. Number strings will interpreted as numbers. Text strings will be interpreted as UTF-8 strings.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ                                             | Description                  |
+| Name  | Type                                            | Description                  |
 | ----- | ----------------------------------------------- | ---------------------------- |
 | mixed | String &#124; Number &#124; BN &#124; BigNumber | The input to convert to HEX. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 文字列 | 結果の HEX 文字列。 |
+| Type   | Description               |
+| ------ | ------------------------- |
+| String | The resulting HEX string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.toHex('234');
@@ -496,24 +496,24 @@ caver.utils.toHex(mixed)
 ```javascript
 caver.utils.toBN(number)
 ```
-任意の値( [BigNumber.js](http://mikemcl.github.io/bignumber.js/) インスタンスを含む)を JavaScript で大きな数字を扱うために、 [BN.js](https://github.com/indutny/bn.js/) インスタンスに安全に変換します。
+Safely converts any given value (including [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
 
 **NOTE**: For just the [BN.js](https://github.com/indutny/bn.js/) class, use [caver.utils.BN](#bn).
 
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ                             | Description                        |
-| -- | ------------------------------- | ---------------------------------- |
-| 数値 | String &#124; Number &#124; HEX | Number to convert to a big number. |
+| Name   | Type                            | Description                        |
+| ------ | ------------------------------- | ---------------------------------- |
+| number | String &#124; Number &#124; HEX | Number to convert to a big number. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                        |
-| ------ | -------------------------------------------------- |
-| Object | [BN.js](https://github.com/indutny/bn.js/) インスタンス。 |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.toBN(1234).toString();
@@ -532,21 +532,21 @@ caver.utils.toBN(number)
 ```javascript
 caver.utils.hexToNumberString(hex)
 ```
-与えられたHEX値の数を文字列として返します。
+Returns the number representation of a given HEX value as a string.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ        | Description  |
-| --------- | ---------- | ------------ |
-| hexString | HEX String | 変換されるHEX文字列。 |
+| Name      | Type       | Description                   |
+| --------- | ---------- | ----------------------------- |
+| hexString | HEX String | A HEX string to be converted. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 文字列としての数値。  |
+| Type   | Description             |
+| ------ | ----------------------- |
+| String | The number as a string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.hexToNumberString('0xea');
@@ -559,23 +559,23 @@ caver.utils.hexToNumberString(hex)
 ```javascript
 caver.utils.hexToNumber(hex)
 ```
-与えられたHEX値の数を返します。
+Returns the number representation of a given HEX value.
 
 **NOTE**: This is not useful for big numbers, rather use [caver.utils.toBN](#tobn).
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ        | Description  |
-| --------- | ---------- | ------------ |
-| hexString | HEX String | 変換されるHEX文字列。 |
+| Name      | Type       | Description                   |
+| --------- | ---------- | ----------------------------- |
+| hexString | HEX String | A HEX string to be converted. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description     |
-| ------ | --------------- |
-| Number | 与えられたHEX値の数を表す。 |
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Number | The number representation of a given HEX value. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.hexToNumber('0xea');
@@ -588,21 +588,21 @@ caver.utils.hexToNumber(hex)
 ```javascript
 caver.utils.numberToHex(number)
 ```
-与えられた数値の HEX 表現を返します。
+Returns the HEX representation of a given number value.
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ                                             | Description                   |
-| -- | ----------------------------------------------- | ----------------------------- |
-| 数値 | String &#124; Number &#124; BN &#124; BigNumber | A number as string or number. |
+| Name   | Type                                            | Description                   |
+| ------ | ----------------------------------------------- | ----------------------------- |
+| number | String &#124; Number &#124; BN &#124; BigNumber | A number as string or number. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description     |
-| --- | --------------- |
-| 文字列 | 与えられた数値の HEX 値。 |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| String | The HEX value of the given number. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.numberToHex('234');
@@ -616,22 +616,22 @@ caver.utils.numberToHex(number)
 caver.utils.hexToUtf8(hex)
 caver.utils.hexToString(hex) // ALIAS
 ```
-与えられた HEX 値の UTF-8 文字列表現を返します。
+Returns the UTF-8 string representation of a given HEX value.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description          |
-| ---- | --- | -------------------- |
-| 16進法 | 文字列 | UTF-8文字列に変換するHEX文字列。 |
+| Name | Type   | Description                                |
+| ---- | ------ | ------------------------------------------ |
+| hex  | String | A HEX string to convert to a UTF-8 string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | UTF-8文字列。   |
+| Type   | Description       |
+| ------ | ----------------- |
+| String | The UTF-8 string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.hexToUtf8('0x49206861766520313030e282ac');
@@ -644,22 +644,22 @@ caver.utils.hexToString(hex) // ALIAS
 ```javascript
 caver.utils.hexToAscii(hex)
 ```
-指定された HEX 値の ASCII 文字列表現を返します。
+Returns the ASCII string representation of a given HEX value.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description                                |
-| ---- | --- | ------------------------------------------ |
-| 16進法 | 文字列 | A HEX string to convert to a ASCII string. |
+| Name | Type   | Description                                |
+| ---- | ------ | ------------------------------------------ |
+| hex  | String | A HEX string to convert to a ASCII string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | ASCII文字列。   |
+| Type   | Description       |
+| ------ | ----------------- |
+| String | The ASCII string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.hexToAscii('0x4920686176652031303021');
@@ -672,22 +672,22 @@ caver.utils.hexToAscii(hex)
 caver.utils.utf8ToHex(string)
 caver.utils.stringToHex(string) // ALIAS
 ```
-与えられた UTF-8 文字列の HEX 表現を返します。
+Returns the HEX representation of a given UTF-8 string.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description          |
-| --- | --- | -------------------- |
-| 文字列 | 文字列 | HEX文字列に変換するUTF-8文字列。 |
+| Name   | Type   | Description                                |
+| ------ | ------ | ------------------------------------------ |
+| string | String | A UTF-8 string to convert to a HEX string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | HEXストリング。   |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.utf8ToHex('I have 100€');
@@ -701,22 +701,22 @@ caver.utils.stringToHex(string) // ALIAS
 caver.utils.asciiToHex(string)
 ```
 
-指定された ASCII 文字列の HEX 表現を返します。
+Returns the HEX representation of a given ASCII string.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description          |
-| --- | --- | -------------------- |
-| 文字列 | 文字列 | HEX文字列に変換するASCII文字列。 |
+| Name   | Type   | Description                                 |
+| ------ | ------ | ------------------------------------------- |
+| string | String | An ASCII string to convert to a HEX string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | HEXストリング。   |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.asciiToHex('I have 100!');
@@ -729,21 +729,21 @@ caver.utils.asciiToHex(string)
 ```javascript
 caver.utils.hexToBytes(hex)
 ```
-与えられたHEX文字列からバイト配列を返します。
+Returns a byte array from the given HEX string.
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ        | Description  |
-| ---- | ---------- | ------------ |
-| 16進法 | HEX String | 変換されるHEX文字列。 |
+| Name | Type       | Description                   |
+| ---- | ---------- | ----------------------------- |
+| hex  | HEX String | A HEX string to be converted. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 行列  | バイト配列。      |
+| Type  | Description     |
+| ----- | --------------- |
+| Array | The byte array. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.hexToBytes('0x000000ea');
@@ -756,21 +756,21 @@ caver.utils.hexToBytes(hex)
 ```javascript
 caver.utils.bytesToHex(byteArray)
 ```
-バイト配列からHEX文字列を返します。
+Returns a HEX string from a byte array.
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description |
-| --------- | --- | ----------- |
-| byteArray | 行列  | 変換するバイト配列。  |
+| Name      | Type  | Description              |
+| --------- | ----- | ------------------------ |
+| byteArray | Array | A byte array to convert. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | HEXストリング。   |
+| Type   | Description     |
+| ------ | --------------- |
+| String | The HEX string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.bytesToHex([ 72, 101, 108, 108, 111, 33, 36 ]);
@@ -784,24 +784,24 @@ caver.utils.bytesToHex(byteArray)
 caver.utils.toPeb(number [, unit])
 ```
 
-KLAY値をpebに変換します。
+Converts any KLAY value into peb.
 
 **NOTE**: "peb" is the smallest KLAY unit, and you should always make calculations in peb and convert only for display reasons.
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 数値 | String &#124; Number &#124; BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| 単位 | 文字列                            | (optional, defaults to `"KLAY"`) KLAY to convert from. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | String &#124; Number &#124; BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert from. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**戻り値**
+**Return Value**
 
-| タイプ              | Description                                                                                                                    |
+| Type             | Description                                                                                                                    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.toPeb('1', 'KLAY');
@@ -817,20 +817,20 @@ caver.utils.fromPeb(number [, unit])
 
 **NOTE**: "peb" is the smallest KLAY unit, and you should always make calculations in KLAY and convert only for display reasons.
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 数値 | String &#124; Number &#124; BN | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| 単位 | 文字列                            | (optional, defaults to `"KLAY"`) KLAY to convert to. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | String &#124; Number &#124; BN | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert to. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**戻り値**
+**Return Value**
 
-| タイプ              | Description                                                                                                                    |
+| Type             | Description                                                                                                                    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.fromPeb('1', 'KLAY');
@@ -844,16 +844,16 @@ caver.utils.fromPeb(number [, unit])
 caver.utils.unitMap
 ```
 
-可能なすべての KLAY値とペブ内の量を表示します。
+Shows all possible KLAY values and their amount in peb.
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.unitMap
@@ -882,24 +882,24 @@ caver.utils.padLeft(string, characterAmount [, sign])
 caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
-Adds a padding on the left of a string. HEX文字列にパディングを追加するのに便利です。
+Adds a padding on the left of a string. Useful for adding paddings to HEX strings.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前              | タイプ    | Description                                              |
+| Name            | Type   | Description                                              |
 | --------------- | ------ | -------------------------------------------------------- |
-| 文字列             | 文字列    | 左側にパディングを追加する文字列。                                        |
-| characterAmount | Number | 文字列の合計文字数。                                               |
-| sign            | 文字列    | (optional) The character sign to use, defaults to `"0"`. |
+| string          | String | The string to add padding on the left.                   |
+| characterAmount | Number | The number of characters the total string should have.   |
+| sign            | String | (optional) The character sign to use, defaults to `"0"`. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | パッド付き文字列。   |
+| Type   | Description        |
+| ------ | ------------------ |
+| String | The padded string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.padLeft('0x3456ff', 20);
@@ -922,21 +922,21 @@ caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 Adds a padding on the right of a string, Useful for adding paddings to HEX strings.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前              | タイプ    | Description                                              |
+| Name            | Type   | Description                                              |
 | --------------- | ------ | -------------------------------------------------------- |
-| 文字列             | 文字列    | 右側にパディングを追加する文字列。                                        |
-| characterAmount | Number | 文字列の合計文字数。                                               |
-| sign            | 文字列    | (optional) The character sign to use, defaults to `"0"`. |
+| string          | String | The string to add padding on the right.                  |
+| characterAmount | Number | The number of characters the total string should have.   |
+| sign            | String | (optional) The character sign to use, defaults to `"0"`. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | パッド付き文字列。   |
+| Type   | Description        |
+| ------ | ------------------ |
+| String | The padded string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.padRight('0x3456ff', 20);
@@ -956,22 +956,22 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 caver.utils.toTwosComplement(number)
 ```
 
-負の数を2 の補数に変換します。
+Converts a negative number into a two's complement.
 
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ                                   | Description            |
-| -- | ------------------------------------- | ---------------------- |
-| 数値 | Number &#124; String &#124; BigNumber | The number to convert. |
+| Name   | Type                                  | Description            |
+| ------ | ------------------------------------- | ---------------------- |
+| number | Number &#124; String &#124; BigNumber | The number to convert. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description   |
-| --- | ------------- |
-| 文字列 | 変換された16進数文字列。 |
+| Type   | Description               |
+| ------ | ------------------------- |
+| String | The converted hex string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.toTwosComplement('-1');
@@ -995,23 +995,23 @@ caver.utils.toTwosComplement(number)
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
 ```
-指定されたトランザクションがスマートコントラクトデプロイトランザクションの場合、 `true` を返します。 トランザクションがスマートコントラクトデプロイトランザクションでない場合、 `false` を返します。 結果は、 `transactionObject` のパラメータの値によって決定されます。 すべての必須パラメータが正しく設定されていることを確認します。
+Returns `true` if the given transaction is a smart contract deploy transaction. It returns `false` if the transaction is not a smart contract deploy transaction. The result is determined by the values of the parameters in the `transactionObject`. Make sure all the mandatory parameters are set correctly.
 
-**NOTE** caver.klay.isContractDeployment is supported from **v1.0.1-rc.8**. この機能を使用するには、 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) 以上をインストールしてください。
+**NOTE** caver.klay.isContractDeployment is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
 
-**パラメータ**
+**Parameters**
 
-| 名前                | タイプ    | Description                                                                                    |
+| Name              | Type   | Description                                                                                    |
 | ----------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | transactionObject | Object | Transaction object that you want to determine if the transaction is for smart contract deploy. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                         |
-| ------- | --------------------------------------------------- |
-| Boolean | `true` は、トランザクションオブジェクトがスマートコントラクトデプロイ用であることを意味します。 |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| Boolean | `true` means the transaction object is for smart contract deploy. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isContractDeployment({
@@ -1058,23 +1058,23 @@ false
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
 ```
-指定した公開鍵の x 座標と y 座標を返します。 For more information on key cryptography, see [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
+Returns the x and y coordinates of the given publicKey. For more information on key cryptography, see [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
 
-**注意** この機能は公開鍵が有効かどうかをチェックするロジックを含んでいません。 関数は入力の公開鍵を x と y 点だけに分割します。
+**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length.
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description    |
-| ---- | --- | -------------- |
-| 公開キー | 文字列 | XとY点を得るための公開鍵。 |
+| Name      | Type   | Description                          |
+| --------- | ------ | ------------------------------------ |
+| publicKey | String | The publicKey to get x and y points. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                            |
-| --- | -------------------------------------- |
-| 行列  | x点とy点を格納する配列。 インデックス0はx点、インデックス1はy点です。 |
+| Type  | Description                                                                    |
+| ----- | ------------------------------------------------------------------------------ |
+| Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.xyPointFromPublicKey('0xa5862ded55cd9c7e9ff246dbc264ca5d5c605308f59b74e581b4f089d4c8c88cb9f00df6a56493f6029af215d266c907660ea0f7a4111ea025ea9d9be418fa55')
@@ -1091,21 +1091,21 @@ caver.utils.isHexPrefixed(input)
 ```
 Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
 
-**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. この機能を使用するには、 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 以上をインストールしてください。
+**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                          |
-| ----- | --- | ------------------------------------ |
-| input | 文字列 | パラメータが 0x 接頭辞の hex 文字列であるかどうかを決定します。 |
+| Name  | Type   | Description                                                                   |
+| ----- | ------ | ----------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is 0x-prefixed hex string or not. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                              |
-| ------- | ---------------------------------------- |
-| Boolean | `true` は、入力が 0x 接頭辞の 16 進文字列であることを意味します。 |
+| Type    | Description                                       |
+| ------- | ------------------------------------------------- |
+| Boolean | `true` means the input is 0x-prefixed hex string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isHexPrefixed('0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1126,23 +1126,23 @@ false
 ```javascript
 caver.utils.addHexPrefix(input)
 ```
-0x 接頭辞の 16 進文字列を返します。 入力が既に 0x プレフィックスまたは非 16 進数文字列の場合、入力値はそのまま返されます。
+Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
-**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. この機能を使用するには、 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 以上をインストールしてください。
+**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                          |
-| ----- | --- | ------------------------------------ |
-| input | 文字列 | String value to be prefixed with 0x. |
+| Name  | Type   | Description                          |
+| ----- | ------ | ------------------------------------ |
+| input | String | String value to be prefixed with 0x. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description            |
-| --- | ---------------------- |
-| 文字列 | 0x 接頭辞の 16 進文字列が返されます。 |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| String | 0x-prefixed hex string is returned. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.addHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1157,23 +1157,23 @@ caver.utils.addHexPrefix(input)
 ```javascript
 caver.utils.stripHexPrefix(input)
 ```
-入力から0倍のプレフィックスを取り除いた結果を返します。
+Returns the result with 0x prefix stripped from input.
 
-**注意** caver.klay.stripHexPrefix は **v1.0.1** からサポートされています。 この機能を使用するには、 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 以上をインストールしてください。
+**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description                 |
-| ----- | --- | --------------------------- |
-| input | 文字列 | String to remove 0x prefix. |
+| Name  | Type   | Description                 |
+| ----- | ------ | --------------------------- |
+| input | String | String to remove 0x prefix. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description         |
-| --- | ------------------- |
-| 文字列 | 0x を取り除いた文字列が返されます。 |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| String | A string stripped of 0x is returned. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.stripHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1188,23 +1188,23 @@ caver.utils.stripHexPrefix(input)
 ```javascript
 caver.utils.toBuffer(input)
 ```
-この関数は入力を [Buffer](https://nodejs.org/api/buffer.html) に変換します。 To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
+This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
 
 **NOTE** caver.klay.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ                                                                     | Description                            |
+| Name  | Type                                                                    | Description                            |
 | ----- | ----------------------------------------------------------------------- | -------------------------------------- |
 | input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description              |
-| ------ | ------------------------ |
-| Buffer | Buffer タイプに変換された値が返されます。 |
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Buffer | The value converted to Buffer type is returned. |
 
-**例**
+**Examples**
 
 ```javascript
 // Buffer
@@ -1241,23 +1241,23 @@ Error: To convert an object to a buffer, the toArray function must be implemente
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
-この関数は、数値を [Buffer](https://nodejs.org/api/buffer.html) に変換します。 The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
+This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
 
 **NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
-**パラメータ**
-| 名前    | タイプ                            | Description                           |
+**Parameters**
+| Name  | Type                           | Description                           |
 | ----- | ------------------------------ | ------------------------------------- |
 | input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
 
 
-**戻り値**
-| タイプ    | Description              |
-| ------ | ------------------------ |
-| Buffer | Buffer タイプに変換された値が返されます。 |
+**Return Value**
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| Buffer | The value converted to Buffer type is returned. |
 
 
-**例**
+**Examples**
 ```javascript
 > caver.utils.numberToBuffer(1)
 <Buffer 01>
@@ -1273,19 +1273,19 @@ caver.utils.numberToBuffer(input)
 ```javascript
 caver.utils.isTxHash(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. この関数は、入力のみを見て、トランザクションハッシュの形式であるかどうかを決定します。 **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| 名前    | タイプ | Description                         |
-| ----- | --- | ----------------------------------- |
-| input | 文字列 | パラメータがトランザクションハッシュの形式であるかどうかを決定する値。 |
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
-**戻り値**
-| タイプ     | Description                                              |
+**Return Value**
+| Type    | Description                                              |
 | ------- | -------------------------------------------------------- |
 | Boolean | `true` means the input is in format of transaction hash. |
 
 
-**例**
+**Examples**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
@@ -1300,19 +1300,19 @@ false
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. この関数は、入力のみを見て、トランザクションハッシュの形式であるかどうかを決定します。 Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with `0x`. **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| 名前    | タイプ | Description                         |
-| ----- | --- | ----------------------------------- |
-| input | 文字列 | パラメータがトランザクションハッシュの形式であるかどうかを決定する値。 |
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with `0x`. **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
-**戻り値**
-| タイプ     | Description                             |
-| ------- | --------------------------------------- |
-| Boolean | `true` は、入力がトランザクションハッシュの形式であることを意味します。 |
+**Return Value**
+| Type    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| Boolean | `true` means the input is in the format of transaction hash. |
 
 
-**例**
+**Examples**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
@@ -1331,19 +1331,19 @@ caver.utils.isValidPrivateKey(privateKey)
 ```
 Returns `true` if privateKey is valid, otherwise it returns `false`.
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ | Description  |
-| ---------- | --- | ------------ |
-| privateKey | 文字列 | 検証する秘密キー文字列。 |
+| Name       | Type   | Description                       |
+| ---------- | ------ | --------------------------------- |
+| privateKey | String | A private key string to validate. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                         |
-| ------- | ----------------------------------- |
-| Boolean | `true` は、privateKey が有効であることを意味します。 |
+| Type    | Description                           |
+| ------- | ------------------------------------- |
+| Boolean | `true` means the privateKey is valid. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isValidPrivateKey('0x{private key}')
@@ -1352,7 +1352,7 @@ true
 > caver.utils.isValidPrivateKey('{private key}')
 true
 
-> caver.utils.isValidPrivateKey('a5b0cd8c87e77879d64ccc064ee239ed6f71cacf9')
+> caver.utils.isValidPrivateKey('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
 false
 ```
 
@@ -1361,23 +1361,23 @@ false
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
 ```
-publicKey が有効な場合は `true` を返します。それ以外の場合は `false` を返します。
+Returns `true` if publicKey is valid, otherwise it returns `false`.
 
 **NOTE** `caver.utils.isValidPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description |
-| ---- | --- | ----------- |
-| 公開キー | 文字列 | 検証する公開鍵文字列。 |
+| Name      | Type   | Description                      |
+| --------- | ------ | -------------------------------- |
+| publicKey | String | A public key string to validate. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                |
-| ------- | -------------------------- |
-| Boolean | `true` は公開鍵が有効であることを意味します。 |
+| Type    | Description                          |
+| ------- | ------------------------------------ |
+| Boolean | `true` means the publicKey is valid. |
 
-**例**
+**Examples**
 
 ```javascript
 // validation with uncompressed public key
@@ -1407,19 +1407,19 @@ Returns `true` if role is valid, otherwise it returns `false`. Roles that are cu
 
 **NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| ロール | 文字列 | 検証するロール文字列。 |
+| Name | Type   | Description                |
+| ---- | ------ | -------------------------- |
+| role | String | A role string to validate. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                 |
-| ------- | --------------------------- |
-| Boolean | `true` は、ロールが有効であることを意味します。 |
+| Type    | Description                     |
+| ------- | ------------------------------- |
+| Boolean | `true` means the role is valid. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isValidRole('transactionKey')
@@ -1446,19 +1446,19 @@ When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures
 
 **NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description                                   |
-| --- | --- | --------------------------------------------- |
-| sig | 行列  | An array of signatures to check empty or not. |
+| Name | Type  | Description                                   |
+| ---- | ----- | --------------------------------------------- |
+| sig  | Array | An array of signatures to check empty or not. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                                 |
+| Type    | Description                                                                 |
 | ------- | --------------------------------------------------------------------------- |
 | Boolean | `true` means the sig is `[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isEmptySig([['0x01', '0x', '0x']])
@@ -1480,19 +1480,19 @@ Returns `true` if key is in [KlaytnWalletKey](../../../../../klaytn/design/accou
 
 **NOTE** `caver.utils.isKlaytnWalletKey` has been updated with the additional logic for a more accurate result since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description                          |
-| -- | --- | ------------------------------------ |
-| キー | 文字列 | KlaytnWalletKeyの形式でチェックするかどうかのキー文字列。 |
+| Name | Type   | Description                                                    |
+| ---- | ------ | -------------------------------------------------------------- |
+| key  | String | A key string to check in the format of KlaytnWalletKey or not. |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                                                                       |
+| Type    | Description                                                                                                       |
 | ------- | ----------------------------------------------------------------------------------------------------------------- |
 | Boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
@@ -1510,28 +1510,28 @@ false
 ```javascript
 caver.utils.bufferToHex(buffer)
 ```
-バッファを 0x プレフィックスの 16 進文字列に変換します。
+Converts buffer to 0x-prefixed hex string.
 
 **NOTE** `caver.utils.bufferToHex` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ    | Description       |
-| ---- | ------ | ----------------- |
-| バッファ | Buffer | 16 進文字列に変換するバッファ。 |
+| Name   | Type   | Description                        |
+| ------ | ------ | ---------------------------------- |
+| buffer | Buffer | A buffer to convert to hex string. |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description      |
-| --- | ---------------- |
-| 文字列 | 0x 接頭辞の hex 文字列。 |
+| Type   | Description                 |
+| ------ | --------------------------- |
+| String | The 0x-prefixed hex string. |
 
-**例**
+**Examples**
 
 ```javascript
 > caver.utils.bufferToHex(Buffer.from('5b9ac8', 'hex'))
 '0x5b9ac8'
 
-> caver.utils.bufferToHex(0))
+> caver.utils.bufferToHex(Buffer.alloc(0))
 '0x'
 ```
