@@ -4,25 +4,25 @@
 
 指定した期間のGoランタイムトレースをオンにし、 トレースデータをディスクに書き込みます。
 
-| クライアント | メソッドの呼び出し                                                 |
-|:------:| --------------------------------------------------------- |
-| コンソール  | `debug.goTrace(file, seconds)`                            |
-|  RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
+| Client  | Method Invocation                                         |
+|:-------:| --------------------------------------------------------- |
+| Console | `debug.goTrace(file, seconds)`                            |
+|   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description       |
-| ---- | --- | ----------------- |
-| ファイル | 文字列 | トレース出力のファイル名。     |
-| 秒    | int | トレース時間を秒単位で指定します。 |
+| Name | Type   | Description       |
+| ---- | ------ | ----------------- |
+| ファイル | string | トレース出力のファイル名。     |
+| 秒    | int    | トレース時間を秒単位で指定します。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.goTrace("go.trace", 5)
 null
@@ -39,24 +39,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 指定されたファイルにGoランタイムトレースを書き始めます。
 
-| クライアント | メソッドの呼び出し                                              |
-|:------:| ------------------------------------------------------ |
-| コンソール  | `debug.startGoTrace(file)`                             |
-|  RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
+| Client  | Method Invocation                                      |
+|:-------:| ------------------------------------------------------ |
+| Console | `debug.startGoTrace(file)`                             |
+|   RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description   |
-| ---- | --- | ------------- |
-| ファイル | 文字列 | トレース出力のファイル名。 |
+| Name | Type   | Description   |
+| ---- | ------ | ------------- |
+| file | string | トレース出力のファイル名。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.startGoTrace("go.trace")
 null
@@ -72,22 +72,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Goランタイムトレースの書き込みを停止します。
 
-| クライアント | メソッドの呼び出し                                       |
-|:------:| ----------------------------------------------- |
-| コンソール  | `debug.stopGoTrace()`                           |
-|  RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
+| Client  | Method Invocation                               |
+|:-------:| ----------------------------------------------- |
+| Console | `debug.stopGoTrace()`                           |
+|   RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.stopGoTrace()
 null
