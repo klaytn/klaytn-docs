@@ -2,7 +2,7 @@
 
 The following are things you will want to keep in mind while using Klaytn Safe:
 
-# 取引手数料 <a id="Transaction Fees"></a>
+# Transaction Fees <a id="Transaction Fees"></a>
 
 Klaytn Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
 
