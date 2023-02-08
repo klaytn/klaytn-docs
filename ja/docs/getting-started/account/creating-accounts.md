@@ -12,7 +12,7 @@
 
 ディレクトリ全体または個々のキーストアファイルを Klaytn ノード間で転送しても安全です。 別のノードからキーを追加する場合、アカウントの順序が変わることに注意してください。 したがって、スクリプトやコードスニペット内のインデックスに依存しないようにしてください。
 
-### <unk> <a id="ken"></a>
+### ken <a id="ken"></a>
 
 ```bash
 $ ken account new --datadir <DATADIR>
@@ -30,7 +30,7 @@ $ cat > /path/to/password
 ^D
 ```
 
-### JavaScript コンソール <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
 コンソールでは、次の関数を呼び出してアカウントを作成できます。
 
@@ -48,14 +48,14 @@ $ cat > /path/to/password
 
 **注**: キーストアのファイルを別の Klaytn インスタンスに直接コピーできる場合、このインポート/エクスポートの仕組みは必要ありません。
 
-### <unk> <a id="ken-1"></a>
+### ken <a id="ken-1"></a>
 
 ```bash
 $ ken account import <keyfile> --datadir <DATADIR>
 $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### JavaScript コンソール <a id="javascript-console-1"></a>
+### JavaScript Console <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
