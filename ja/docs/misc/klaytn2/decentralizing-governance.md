@@ -1,4 +1,4 @@
-# ガバナンスの分散化
+# Decentralizing Governance
 
 ## 当社独自のガバナンス体制は安定性を備えた分散化をもたらします
 
@@ -14,8 +14,8 @@
 
 ## コミュニティサポートで拡大する投票力 <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
 
-ステークスベースのガバナンスモデルを導入し、Klaytn コミュニティからより多くのサポートを集めて、Klaytn を自分の好みに合わせて形作ることができるガバナンス参加者を可能にする。 ジニ係数はまもなく廃止されます。 メタファタイズされた世界で適切な決定をすることができるエンティティは、Klaytn GCでより多くの影響を持つでしょう。 私たちは、DAOとビルダーが将来的にシーンをリードすると信じています。
+ステークスベースのガバナンスモデルを導入し、Klaytn コミュニティからより多くのサポートを集めて、Klaytn を自分の好みに合わせて形作ることができるガバナンス参加者を可能にする。 ジニ係数はまもなく廃止されます。 Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
 
 ## 分権化の究極の目標 <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
 
-メタバージョンのレベルがクリティカル閾値を超えると、KlaytnガバナンスはDAOとビルダーによって完全に分散されます。 最終的に、KlaytnはDAOのDAOとDAOがKlaytnコミュニティの声を伝えるためのプラットフォームに進化します。
+メタバージョンのレベルがクリティカル閾値を超えると、KlaytnガバナンスはDAOとビルダーによって完全に分散されます。 Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
