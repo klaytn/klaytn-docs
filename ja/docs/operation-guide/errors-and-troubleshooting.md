@@ -1,4 +1,4 @@
-# エラー & トラブルシューティング <a id="errors-troubleshooting"></a>
+# Errors & Troubleshooting <a id="errors-troubleshooting"></a>
 
 ## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
@@ -55,7 +55,7 @@ After updating `kend.conf`, restart Klaytn node.
 ## Can't start Klaytn node with `Unit not found` error as below after installing binary package. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
-kcnd.service: ユニットが見つかりません。
+Failed to start kcnd.service: Unit not found.
 ```
 
 **Answer**
