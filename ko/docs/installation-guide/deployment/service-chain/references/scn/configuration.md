@@ -1,4 +1,4 @@
-# 환경설정<a id="configuration"></a>
+# Configuration <a id="configuration"></a>
 
 이 페이지는 컨센서스 네트워크를 구성하기 위해 SCN를 설정하는 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ genesis 파일에서 chainID를 변경하세요. Replay attack을 방지하기 �
 
 ## SCN 데이터 디렉토리 생성<a id="scn-data-directory-creation"></a>
 
-Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 데이터 디렉토리를 생성합니다. 이 문서에서는 `~/kscnd_home`에 데이터 디렉토리를 만듭니다.
+Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. 원하는 경로에 데이터 디렉토리를 생성합니다. 이 문서에서는 `~/kscnd_home`에 데이터 디렉토리를 만듭니다.
 
 ```bash
 $ mkdir -p ~/kscnd_home
