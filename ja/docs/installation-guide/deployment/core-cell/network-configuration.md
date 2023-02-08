@@ -21,13 +21,13 @@ DB + AppServer や Proxy Web Server などの一般的な Web サービスで使
 
 CN サブネットは、コアセル内のCNサーバーで構成されます。 コアセルで動作するCNは1つのみですが、スペアは高可用性のために準備する必要があります。 コアセルネットワーク(CCN)内のすべてのCNのIP/ポートは、コアセルの外側から他のCNに接続しようとするため、互いに開く必要があります。 (この接続情報は Baobab オペレーターから受信できます。 コアセル内の他のサブネットとの内部通信では、PNサブネットのPNに接続するために、デフォルトのポート(323:デフォルトのKlaytn P2Pポート番号)を開く必要があります。 さらに、 モニタリングサーバー用のCNモニタリングポート(61001)、管理目的のSSHポート(22)などの他のポートを開く必要があります。 マルチチャンネル機能が使用されている場合、別のポート(32324:デフォルトのマルチチャンネル ポート)も同様に開く必要があります。
 
-![CN サブネット](images/cn_subnet.png)
+![CN Subnet](images/cn_subnet.png)
 
-| 原点サブネット  | ターゲットサブネット     | Ingress                    | Egress |
-|:-------- |:-------------- |:-------------------------- |:------ |
-| CN サブネット | PN Subnet      | P2P: 32323 (マルチハンネル用32324) | すべて    |
-| CN サブネット | Mgmt Subnet    | SSH: 22, モニタリング: 61001     | すべて    |
-| CN サブネット | パブリック（インターネット） | 各 CN's IP と P2Pポート         | すべて    |
+| 原点サブネット   | ターゲットサブネット     | Ingress                    | Egress |
+|:--------- |:-------------- |:-------------------------- |:------ |
+| CN Subnet | PN Subnet      | P2P: 32323 (マルチハンネル用32324) | すべて    |
+| CN Subnet | Mgmt Subnet    | SSH: 22, モニタリング: 61001     | All    |
+| CN Subnet | パブリック（インターネット） | 各 CN's IP と P2Pポート         | All    |
 
 ### PN Subnet <a id="pn-subnet"></a>
 
@@ -42,11 +42,11 @@ PNサブネットが次のノードに接続されています:
 
 ![PN Subnet](images/pn_subnet.png)
 
-| 原点サブネット   | ターゲットサブネット     | Ingress                    | Egress |
-|:--------- |:-------------- |:-------------------------- |:------ |
-| PN Subnet | CN サブネット       | P2P: 32323 (マルチハンネル用32324) | すべて    |
-| PN Subnet | Mgmt Subnet    | SSH: 22, モニタリング: 61001     | すべて    |
-| PN Subnet | パブリック（インターネット） | P2P: 32323                 | すべて    |
+| Origin Subnet | Target Subnet     | Ingress                             | Egress |
+|:------------- |:----------------- |:----------------------------------- |:------ |
+| PN Subnet     | CN Subnet         | P2P: 32323 (32324 for multichannel) | All    |
+| PN Subnet     | Mgmt Subnet       | SSH: 22, Monitoring: 61001          | All    |
+| PN Subnet     | Public (Internet) | P2P: 32323                          | All    |
 
 ### Mgmt Subnet <a id="mgmt-subnet"></a>
 
@@ -54,11 +54,11 @@ Mgmt Subnetは、sshを通じてコアセルノードに入るためのゲート
 
 ![管理サブネット](images/admin_subnet.png)
 
-| 原点サブネット     | ターゲットサブネット     | Ingress                         | Egress |
-|:----------- |:-------------- |:------------------------------- |:------ |
-| Mgmt Subnet | CN サブネット       | すべて                             | すべて    |
-| Mgmt Subnet | PN Subnet      | すべて                             | すべて    |
-| Mgmt Subnet | パブリック（インターネット） | VPN (tcp): 443, VPN (udp): 1194 | すべて    |
+| Origin Subnet | Target Subnet     | Ingress                         | Egress |
+|:------------- |:----------------- |:------------------------------- |:------ |
+| Mgmt Subnet   | CN Subnet         | All                             | All    |
+| Mgmt Subnet   | PN Subnet         | All                             | All    |
+| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
 
 ## 単一サブネットを持つコアセル <a id="a-core-cell-with-a-single-subnet"></a>
 
