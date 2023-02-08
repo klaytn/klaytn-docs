@@ -23,13 +23,13 @@ description: >-
 
 **리턴값**
 
-| 타입       | 설명            |
+| 타입       | Description   |
 | -------- | ------------- |
 | JSON 문자열 | 노드에 대한 정보입니다. |
 
 **예시**
 
-콘솔
+Console
 ```javascript
 > admin.nodeInfo
 {
@@ -76,24 +76,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 모든 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 타입(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
 
-| 클라이언트 | 메서드 호출                        |
-|:-----:| ----------------------------- |
-|  콘솔   | `admin.datadir`               |
-|  RPC  | `{"method": "admin_datadir"}` |
+| Client  | Method invocation             |
+|:-------:| ----------------------------- |
+| Console | `admin.datadir`               |
+|   RPC   | `{"method": "admin_datadir"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                |
+| Type   | Description       |
 | ------ | ----------------- |
 | string | `datadir`의 경로입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.datadir
@@ -111,24 +111,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `peers` 관리 속성은 연결된 원격 노드에 대해 알려진 모든 정보를 네트워크 수준에서 조회할 수 있습니다. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 개별 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
 
-| 클라이언트 | 메서드 호출                      |
-|:-----:| --------------------------- |
-|  콘솔   | `admin.peers`               |
-|  RPC  | `{"method": "admin_peers"}` |
+| Client  | Method invocation           |
+|:-------:| --------------------------- |
+| Console | `admin.peers`               |
+|   RPC   | `{"method": "admin_peers"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                   |
-| -------- | -------------------- |
-| JSON 문자열 | 연결된 모든 피어에 대한 정보입니다. |
+| Type        | Description          |
+| ----------- | -------------------- |
+| JSON string | 연결된 모든 피어에 대한 정보입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.peers
@@ -188,26 +188,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 추적할 원격 피어의 URL이며, 해당 피어의 추적이 허용되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                         |
-|:-----:| ---------------------------------------------- |
-|  콘솔   | `admin.addPeer(url)`                           |
-|  RPC  | `{"method": "admin_addPeer", "params": [url]}` |
+| Client  | Method invocation                              |
+|:-------:| ---------------------------------------------- |
+| Console | `admin.addPeer(url)`                           |
+|   RPC   | `{"method": "admin_addPeer", "params": [url]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                |
+| 이름  | Type   | Description       |
 | --- | ------ | ----------------- |
 | url | string | 피어의 `kni` URL입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                                |
+| Type | Description                                       |
 | ---- | ------------------------------------------------- |
 | bool | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
 true
@@ -224,28 +224,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `removePeer`는 추적된 정적 노드들의 목록에서 한 노드를 제거하도록 요청하는 관리 메서드입니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 목록에서 제거될 원격 피어의 URL이며, 피어가 성공적으로 제거되었거나 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
+The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. 목록에서 제거될 원격 피어의 URL이며, 피어가 성공적으로 제거되었거나 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                            |
-|:-----:| ------------------------------------------------- |
-|  콘솔   | `admin.removePeer(url)`                           |
-|  RPC  | `{"method": "admin_removePeer", "params": [url]}` |
+| Client  | Method invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `admin.removePeer(url)`                           |
+|   RPC   | `{"method": "admin_removePeer", "params": [url]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                |
-| --- | ------ | ----------------- |
-| url | string | 피어의 `kni` URL입니다. |
+| Name | Type   | Description       |
+| ---- | ------ | ----------------- |
+| url  | string | Peer's `kni` URL. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                                |
-| ---- | ------------------------------------------------- |
-| bool | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| Type | Description                                         |
+| ---- | --------------------------------------------------- |
+| bool | `true` if the peer was accepted, `false` otherwise. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
 true
@@ -265,29 +265,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 이 메서드는 HTTP RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 HTTP 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
-| 클라이언트 | 메서드 호출                                                              |
-|:-----:| ------------------------------------------------------------------- |
-|  콘솔   | `admin.startHTTP(host, port, cors, apis)`                           |
-|  RPC  | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
+| Client  | Method invocation                                                   |
+|:-------:| ------------------------------------------------------------------- |
+| Console | `admin.startHTTP(host, port, cors, apis)`                           |
+|   RPC   | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름   | 타입     | 설명                                                                                                                             |
+| Name | Type   | Description                                                                                                                    |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | host | string | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
 | port | int    | (선택 사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
 | cors | string | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
 | apis | string | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,rpc"`)                                                                  |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                                      |
+| Type | Description                                             |
 | ---- | ------------------------------------------------------- |
 | bool | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.startHTTP("127.0.0.1", 8551)
@@ -306,24 +306,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopRPC`는 현재 열려있는 HTTP RPC 엔드포인트를 닫는 관리 메서드입니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
-| 클라이언트 | 메서드 호출                         |
-|:-----:| ------------------------------ |
-|  콘솔   | `admin.stopHTTP()`             |
-|  RPC  | `{"method": "admin_stopHTTP"}` |
+| Client  | Method invocation              |
+|:-------:| ------------------------------ |
+| Console | `admin.stopHTTP()`             |
+|   RPC   | `{"method": "admin_stopHTTP"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                               |
+| Type | Description                                      |
 | ---- | ------------------------------------------------ |
 | bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.stopHTTP()
@@ -342,29 +342,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 이 메서드는 웹소켓 RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 웹소켓 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
-| 클라이언트 | 메서드 호출                                                            |
-|:-----:| ----------------------------------------------------------------- |
-|  콘솔   | `admin.startWS(host, port, cors, apis)`                           |
-|  RPC  | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
+| Client  | Method invocation                                                 |
+|:-------:| ----------------------------------------------------------------- |
+| Console | `admin.startWS(host, port, cors, apis)`                           |
+|   RPC   | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름   | 타입     | 설명                                                                                                                             |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| host | string | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
-| port | int    | (선택 사항) 리스너 소켓을 열기 위한 네트워크 포트입니다. (기본 설정:  `8552`)                                                                             |
-| cors | string | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
-| apis | string | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
+| Name | Type   | Description                                                                                                                             |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
+| port | int    | (선택 사항) 리스너 소켓을 열기 위한 네트워크 포트입니다. (기본 설정:  `8552`)                                                                                      |
+| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
+| apis | string | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                                      |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                                     |
+| Type | Description                                            |
 | ---- | ------------------------------------------------------ |
 | bool | 웹소켓 RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.startWS("127.0.0.1", 8552)
@@ -381,24 +381,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopWS` 관리 메서드는 현재 열려있는 웹소켓 RPC 엔드포인트를 닫습니다. 노드는 하나의 웹소켓 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
-| 클라이언트 | 메서드 호출                       |
-|:-----:| ---------------------------- |
-|  콘솔   | `admin.stopWS()`             |
-|  RPC  | `{"method": "admin_stopWS"}` |
+| Client  | Method invocation            |
+|:-------:| ---------------------------- |
+| Console | `admin.stopWS()`             |
+|   RPC   | `{"method": "admin_stopWS"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                               |
-| ---- | ------------------------------------------------ |
-| bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| Type | Description                                        |
+| ---- | -------------------------------------------------- |
+| bool | `true` if the endpoint was closed, `false` if not. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.stopWS()
@@ -415,26 +415,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `exportChain` 관리 메서드는 블록체인을 파일로 내보냅니다.
 
-| 클라이언트 | 메서드 호출                                                   |
-|:-----:| -------------------------------------------------------- |
-|  콘솔   | `admin.exportChain(fileName)`                            |
-|  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| Client  | Method invocation                                        |
+|:-------:| -------------------------------------------------------- |
+| Console | `admin.exportChain(fileName)`                            |
+|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입     | 설명                       |
+| Name     | Type   | Description              |
 | -------- | ------ | ------------------------ |
 | fileName | string | 블록체인을 내보낼 파일의 명확한 경로입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                               |
+| Type | Description                                      |
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 내보내면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
@@ -451,26 +451,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 Klaytn 노드에 존재하지 않았던 블록만을 가져옵니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
-| 클라이언트 | 메서드 호출                                                   |
-|:-----:| -------------------------------------------------------- |
-|  콘솔   | `admin.importChain(fileName)`                            |
-|  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| Client  | Method invocation                                        |
+|:-------:| -------------------------------------------------------- |
+| Console | `admin.importChain(fileName)`                            |
+|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입     | 설명                             |
+| Name     | Type   | Description                    |
 | -------- | ------ | ------------------------------ |
 | fileName | string | 가져올 블록체인을 담고 있는 파일의 명확한 경로입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                               |
+| Type | Description                                      |
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.importChain("/tmp/chain.txt")
@@ -484,28 +484,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-`importChainFromString`는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져오는 관리 메서드입니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
+`importChainFromString`는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져오는 관리 메서드입니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. This method does not delete any data of the existing chain.
 
-| 클라이언트 | 메서드 호출                                                                     |
-|:-----:| -------------------------------------------------------------------------- |
-|  콘솔   | `admin.importChainFromString(blockRlp)`                                    |
-|  RPC  | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+| Client  | Method invocation                                                          |
+|:-------:| -------------------------------------------------------------------------- |
+| Console | `admin.importChainFromString(blockRlp)`                                    |
+|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입     | 설명                                                       |
+| Name     | Type   | Description                                              |
 | -------- | ------ | -------------------------------------------------------- |
 | blockRlp | string | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp`의 리턴값과 동일) |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                               |
+| Type | Description                                      |
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.importChainFromString("f9071...080c0")
@@ -521,24 +521,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `startStateMigration` 관리 메서드는 상태 마이그레이션을 시작하고 이전 상태/스토리지 트리 노드를 제거합니다. 이 메서드는 Klaytn 노드의 스토리지 사용량을 절약할 수 있습니다. 이 메서드는 상태 마이그레이션을 시작하는 데에 실패하면 에러를 반환하고, 상태 마이그레이션을 시작하는 데에 성공하면 `null`를 반환합니다. 참고: 상태 마이그레이션 후에는, 예전 상태들을 기준으로 API를 호출할 수 없습니다.
 
-| 클라이언트 | 메서드 호출                                    |
-|:-----:| ----------------------------------------- |
-|  콘솔   | `admin.startStateMigration()`             |
-|  RPC  | `{"method": "admin_startStateMigration"}` |
+| Client  | Method invocation                         |
+|:-------:| ----------------------------------------- |
+| Console | `admin.startStateMigration()`             |
+|   RPC   | `{"method": "admin_startStateMigration"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                      |
-| -- | ------------------------------------------------------- |
-| 에러 | 상태 마이그레이션을 성공적으로 시작했다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| Type | Description                                             |
+| ---- | ------------------------------------------------------- |
+| 에러   | 상태 마이그레이션을 성공적으로 시작했다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.startStateMigration()
@@ -556,25 +556,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopStateMigration`는 현재 실행중인 상태 마이그레이션 작업을 중단하는 관리 메서드입니다. 이 메서드는 파라미터를 받지 않으며, 상태 마이그레이션 작업이 중단되었는지에 따라 `null` 또는 에러를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                   |
-|:-----:| ---------------------------------------- |
-|  콘솔   | `admin.stopStateMigration()`             |
-|  RPC  | `{"method": "admin_stopStateMigration"}` |
+| Client  | Method invocation                        |
+|:-------:| ---------------------------------------- |
+| Console | `admin.stopStateMigration()`             |
+|   RPC   | `{"method": "admin_stopStateMigration"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                 |
-| -- | -------------------------------------------------- |
-| 에러 | 상태 마이그레이션이 중단되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| Type  | Description                                        |
+| ----- | -------------------------------------------------- |
+| Error | 상태 마이그레이션이 중단되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.stopStateMigration()
@@ -590,30 +590,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않으며, 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                     |
-|:-----:| ------------------------------------------ |
-|  콘솔   | `admin.stateMigrationStatus`               |
-|  RPC  | `{"method": "admin_stateMigrationStatus"}` |
+| Client  | Method invocation                          |
+|:-------:| ------------------------------------------ |
+| Console | `admin.stateMigrationStatus`               |
+|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 이름                   | 타입      | 설명                                                       |
+| Name                 | Type    | Description                                              |
 | -------------------- | ------- | -------------------------------------------------------- |
 | committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
-| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| err                  | Error   | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 | isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.   |
 | migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (상태 마이그레이션이 진행중이 아니라면 `0`.)     |
-| 보류                   | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
+| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
 | progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
 | read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.stateMigrationStatus
@@ -637,24 +637,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. 저장 프로세스가 이미 실행 되었거나 트리 노드 캐시가 비활성화되었을 경우 이 메서드는 에러를 반환합니다. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
 
-| 클라이언트 | 메서드 호출                                        |
-|:-----:| --------------------------------------------- |
-|  콘솔   | `admin.saveTrieNodeCacheToDisk()`             |
-|  RPC  | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
+| Client  | Method invocation                             |
+|:-------:| --------------------------------------------- |
+| Console | `admin.saveTrieNodeCacheToDisk()`             |
+|   RPC   | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                      |
-| -- | ------------------------------------------------------- |
-| 에러 | 트리 노드 저장이 성공적으로 시작되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| Type  | Description                                             |
+| ----- | ------------------------------------------------------- |
+| Error | 트리 노드 저장이 성공적으로 시작되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.saveTrieNodeCacheToDisk()
@@ -671,26 +671,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `setMaxSubscriptionPerWSConn`는 하나의 웹소켓 연결에 허용된 최대 구독 수를 설정하는 관리 메서드입니다. 예를 들어, 최대 구독 수가 5로 설정되어 있는데 사용자가 `klay_subscribe` API를 통해 5개 이상을 요청할 시, "하나의 웹소켓 연결당 5개의 구독이 허용됩니다"라는 에러 메시지가 나타납니다. 이 기능은 Klaytn 1.6.0. 부터 지원됩니다.
 
-| 클라이언트 | 메서드 호출                                            |
-|:-----:| ------------------------------------------------- |
-|  콘솔   | `admin.setMaxSubscriptionPerWSConn(limit)`        |
-|  RPC  | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+| Client  | Method invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `admin.setMaxSubscriptionPerWSConn(limit)`        |
+|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입  | 설명                             |
-| ----- | --- | ------------------------------ |
-| limit | int | 하나의 WebSocket 연결 당 허용된 최대 구독 수 |
+| Name  | Type | Description                    |
+| ----- | ---- | ------------------------------ |
+| limit | int  | 하나의 WebSocket 연결 당 허용된 최대 구독 수 |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                               |
-| -- | ------------------------------------------------ |
-| 에러 | 한계가 성공적으로 설정될 시 `null`를, 그렇지 않을 시 에러 메시지가 나타납니다. |
+| Type  | Description                                      |
+| ----- | ------------------------------------------------ |
+| Error | 한계가 성공적으로 설정될 시 `null`를, 그렇지 않을 시 에러 메시지가 나타납니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > admin.setMaxSubscriptionPerWSConn(5)
