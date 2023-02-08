@@ -2,17 +2,17 @@
 
 Returns the client coinbase address.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입            | 설명                            |
-| ------------- | ----------------------------- |
-| 20바이트 크기 DATA | The current coinbase address. |
+| Type         | Description                   |
+| ------------ | ----------------------------- |
+| 20-byte DATA | The current coinbase address. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -31,17 +31,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns the client etherbase address.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입            | 설명                             |
-| ------------- | ------------------------------ |
-| 20바이트 크기 DATA | The current etherbase address. |
+| Type         | Description                    |
+| ------------ | ------------------------------ |
+| 20-byte DATA | The current etherbase address. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -60,17 +60,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Return current chainId set on the requested node.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                  |
+| Type     | Description                         |
 | -------- | ----------------------------------- |
 | QUANTITY | Chain id set on the requested node. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -91,17 +91,17 @@ peb의 현재 가스 가격을 반환합니다.
 
 **NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                           |
+| Type     | Description                  |
 | -------- | ---------------------------- |
 | QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
