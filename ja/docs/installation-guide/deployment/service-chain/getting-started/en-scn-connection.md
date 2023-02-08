@@ -2,7 +2,7 @@
 
 ![](../images/sc-en-scn-arch.png)
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - 1 Linux または MacOS サーバー for EN
  - テストのための最小ハードウェア要件
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
