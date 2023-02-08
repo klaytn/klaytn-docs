@@ -20,14 +20,14 @@ $ systemctl stop kcnd.service
 
 ```
 
-**상태**
+**status**
 
 ```bash
 $ systemctl status kcnd.service
 
 ```
 
-## 문제 해결 <a id="troubleshooting"></a>
+## Troubleshooting <a id="troubleshooting"></a>
 
 다음 오류가 발생하면,
 
