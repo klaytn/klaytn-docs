@@ -4,22 +4,22 @@
 
 사용하지 않는 메모리를 운영체제에 반환합니다.
 
-| 클라이언트 | 메서드 호출                             |
-|:-----:| ---------------------------------- |
-|  콘솔   | `debug.freeOSMemory()`             |
-|  RPC  | `{"method": "debug_freeOSMemory"}` |
+| Client  | Method Invocation                  |
+|:-------:| ---------------------------------- |
+| Console | `debug.freeOSMemory()`             |
+|   RPC   | `{"method": "debug_freeOSMemory"}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-없음
+None
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.freeOSMemory()
 null
@@ -35,22 +35,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 GC 통계를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                      |
-|:-----:| ------------------------------------------- |
-|  콘솔   | `debug.gcStats()`                           |
-|  RPC  | `{"method": "debug_gcStats", "params": []}` |
+| Client  | Method Invocation                           |
+|:-------:| ------------------------------------------- |
+| Console | `debug.gcStats()`                           |
+|   RPC   | `{"method": "debug_gcStats", "params": []}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)를 참고해주세요.
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.gcStats()
 {
@@ -73,22 +73,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 런타임 메모리 통계를 반환합니다.
 
-| 클라이언트 | 메서드 호출                                       |
-|:-----:| -------------------------------------------- |
-|  콘솔   | `debug.memStats()`                           |
-|  RPC  | `{"method": "debug_memStats", "params": []}` |
+| Client  | Method Invocation                            |
+|:-------:| -------------------------------------------- |
+| Console | `debug.memStats()`                           |
+|   RPC   | `{"method": "debug_memStats", "params": []}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)를 참고해주세요.
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.memStats()
 {
@@ -122,26 +122,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 노드가 수집한 시스템의 측정 수치들을 검색합니다.
 
-| 클라이언트 | 메서드 호출                                         |
-|:-----:| ---------------------------------------------- |
-|  콘솔   | `debug.metrics(raw)`                           |
-|  RPC  | `{"method": "debug_metrics", "params": [raw]}` |
+| Client  | Method Invocation                              |
+|:-------:| ---------------------------------------------- |
+| Console | `debug.metrics(raw)`                           |
+|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입   | 설명                                                     |
-| --- | ---- | ------------------------------------------------------ |
-| raw | bool | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| Name | Type | Description                                            |
+| ---- | ---- | ------------------------------------------------------ |
+| raw  | bool | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                      |
-| -------- | ----------------------- |
-| JSON 문자열 | 노드가 수집한, 구조화된 측정 수치입니다. |
+| Type        | Description             |
+| ----------- | ----------------------- |
+| JSON string | 노드가 수집한, 구조화된 측정 수치입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -208,15 +208,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입      | 설명            |
+| Name    | Type    | Description   |
 | ------- | ------- | ------------- |
 | Percent | integer | 설정할 GC 비율입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                |
+| Type    | Description       |
 | ------- | ----------------- |
 | integer | 이전에 설정된 GC 비율입니다. |
 
@@ -245,24 +245,24 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 모든 go루틴의 스택을 반환합니다.
 
-| 클라이언트 | 메서드 호출                                     |
-|:-----:| ------------------------------------------ |
-|  콘솔   | `debug.stacks()`                           |
-|  RPC  | `{"method": "debug_stacks", "params": []}` |
+| Client  | Method Invocation                          |
+|:-------:| ------------------------------------------ |
+| Console | `debug.stacks()`                           |
+|   RPC   | `{"method": "debug_stacks", "params": []}` |
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                 |
+| Type   | Description        |
 | ------ | ------------------ |
 | string | 모든 go루틴의 스택 정보입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
