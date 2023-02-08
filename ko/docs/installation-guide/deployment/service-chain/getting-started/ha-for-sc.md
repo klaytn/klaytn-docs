@@ -3,7 +3,7 @@ ServiceChain에서 하나의 브리지만 사용하는 경우, 해당 브리지�
 ![](../images/sc-ha-arch.png)
 
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - EN의 메인 브릿지와 SCN의 서브 브릿지가 연결되어 있습니다.  If it's not, please refer to [Baobab connection](en-scn-connection.md) to establish the connection.
  - 이번 섹션에서는 Baobab과 ServiceChain 사이에 추가로 브릿지를 하나 더 연결하는 방법을 설명합니다. <0>Baobab 연결</0>과 같은 방법으로 브리지를 하나 더 추가하여 HA를 구성할 수 있습니다.
 
