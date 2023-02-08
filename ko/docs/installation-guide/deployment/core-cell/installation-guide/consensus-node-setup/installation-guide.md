@@ -1,4 +1,4 @@
-# 설치 가이드 <a id="installation-guide"></a>
+# Installation Guide <a id="installation-guide"></a>
 
 `kcn`의 최신 버전은 [Download](../download.md) 페이지에서 다운로드할 수 있습니다.
 
@@ -22,7 +22,7 @@
 | bin/kcnd       | CN 시작 및 종료 스크립트 파일 |
 | conf/kcnd.conf | CN 환경설정 파일         |
 
-### 설치 <a id="installation"></a>
+### Installation <a id="installation"></a>
 
 패키지를 설치하려는 곳에 다운로드 패키지의 압축을 해제합니다.
 
@@ -30,7 +30,7 @@
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-또는
+Or,
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
@@ -54,7 +54,7 @@ $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-또는
+Or,
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
@@ -72,7 +72,7 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 설치된 파일은 다음의 위치에 있습니다.
 
-| 파일명       | 위치                       |
+| File Name | 위치                       |
 |:--------- |:------------------------ |
 | kcn       | /usr/bin/kcn             |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
