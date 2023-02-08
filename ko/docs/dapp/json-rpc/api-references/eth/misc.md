@@ -4,17 +4,17 @@ Returns the number of hashes per second that the node is mining with.
 
 Please note that it always return `0x0` because there is no PoW mechanism in Klaytn.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                               |
+| Type     | Description                      |
 | -------- | -------------------------------- |
 | QUANTITY | The number of hashes per second. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -34,17 +34,17 @@ Returns the number of hashes per second that the node is mining with.
 
 Please note that it always return `0` because there is no PoW mechanism in Klaytn.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                               |
+| Type     | Description                      |
 | -------- | -------------------------------- |
 | QUANTITY | The number of hashes per second. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -98,21 +98,21 @@ Used for submitting a proof-of-work solution.
 
 Please note that it always return `false` because there is no PoW mechanism in Klaytn.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명                               |
-| ------------- | -------------------------------- |
-| 8바이트 크기 DATA  | The nonce found (64 bits)        |
-| 32바이트 크기 DATA | The header’s pow-hash (256 bits) |
-| 32바이트 크기 DATA | The mix digest (256 bits)        |
+| Type         | Description                      |
+| ------------ | -------------------------------- |
+| 8-byte DATA  | The nonce found (64 bits)        |
+| 32-byte DATA | The header’s pow-hash (256 bits) |
+| 32-byte DATA | The mix digest (256 bits)        |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                               |
+| Type    | Description                                                      |
 | ------- | ---------------------------------------------------------------- |
 | Boolean | Returns true if the provided solution is valid, otherwise false. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -133,20 +133,20 @@ Used for submitting mining hashrate.
 
 Please note that it always return `false` because there is no PoW mechanism in Klaytn.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                               |
-| -------- | ------------- | ---------------------------------------------------------------- |
-| hashrate | 32바이트 크기 DATA | A hexadecimal string representation (32 bytes) of the hash rate. |
-| id       | 32바이트 크기 DATA | A random hexadecimal(32 bytes) ID identifying the client.        |
+| Name     | Type         | Description                                                      |
+| -------- | ------------ | ---------------------------------------------------------------- |
+| hashrate | 32-byte DATA | A hexadecimal string representation (32 bytes) of the hash rate. |
+| id       | 32-byte DATA | A random hexadecimal(32 bytes) ID identifying the client.        |
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                                       |
+| Type    | Description                                                              |
 | ------- | ------------------------------------------------------------------------ |
 | Boolean | Returns true if submitting went through succesfully and false otherwise. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
