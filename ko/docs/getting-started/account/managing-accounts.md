@@ -1,4 +1,4 @@
-# 계정 관리 <a id="managing-accounts"></a>
+# Managing Accounts <a id="managing-accounts"></a>
 
 ## 계정 나열하기 <a id="list-your-accounts"></a>
 
@@ -17,7 +17,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 **참고**: 키스토어 파일을 다른 노드에서 복사하거나 파일을 제거하면 이 반환된 계정 목록의 순서가 달라질 수 있습니다. 따라서 인덱스에 의존하지 않도록 하거나, 키스토어 파일을 복사하거나 제거하는 경우에는 스크립트의 계정 인덱스들을 확인하고 업데이트하세요.
 
-### 자바스크립트 콘솔 <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
 콘솔을 사용하는 경우:
 
@@ -57,7 +57,7 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 
 이 구성을 비상호적으로 사용하는 경우, 비밀번호 파일에는 해당 계정의 대응되는 비밀번호가 한 줄에 하나씩 포함되어야 합니다.
 
-### 자바스크립트 콘솔 <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
 콘솔에서 \(초를 단위로\) 기간 동안 \(한 번에 하나씩\) 계정을 잠금 해제할 수도 있습니다.
 
@@ -73,7 +73,7 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 
 n/a
 
-### 자바스크립트 콘솔 <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
 계정 잔액을 확인하려면 다음 단계를 따르십시오:
 
