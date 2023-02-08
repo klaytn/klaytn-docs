@@ -1,9 +1,9 @@
-# プリコンパイル済み契約 <a id="precompiled-contracts"></a>
+# Precompiled Contracts <a id="precompiled-contracts"></a>
 
 Klaytnはいくつかの有用な事前コンパイル済み契約を提供します。 これらの契約は、ネイティブ実装としてプラットフォーム自体に実装されています。 アドレス0x01から0x08までのプリコンパイル済み契約はEthereumと同じです。 Klaytnはさらに、新機能のKlaytnをサポートするために、0x09から0x0Bまでのプリコンパイル済み契約を実装しています。
 
 {% hint style="success" %}
-注: このドキュメントには、プロトコルアップグレードの有効化前に使用されるガス表が含まれています。 最新のドキュメントが必要な場合は、 [最新のドキュメント](precompiled-contracts.md) を参照してください。
+NOTE: This document contains the gas table used before the activation of the protocol upgrade. 最新のドキュメントが必要な場合は、 [最新のドキュメント](precompiled-contracts.md) を参照してください。
 {% endhint %}
 
 ## アドレス 0x01: ecrecover\(hash, v, r, s\' <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
@@ -16,7 +16,7 @@ function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (addres
 
 ## アドレス 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
 
-アドレス0x02はSHA256ハッシュを実装しています。 与えられたデータから SHA256 ハッシュを返します。 機能のプロトタイプは以下の通りです。
+アドレス0x02はSHA256ハッシュを実装しています。 与えられたデータから SHA256 ハッシュを返します。 Its function prototype is as follows:
 
 ```text
 function sha256(bytes data) returns (bytes32);
@@ -24,7 +24,7 @@ function sha256(bytes data) returns (bytes32);
 
 ## アドレス 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
 
-アドレス0x03はRIPEMD160ハッシュを実装しています。 与えられたデータから RIPEMD160 ハッシュを返します。 機能のプロトタイプは以下の通りです。
+アドレス0x03はRIPEMD160ハッシュを実装しています。 与えられたデータから RIPEMD160 ハッシュを返します。 Its function prototype is as follows:
 
 ```text
 function ripemd160(bytes data) returns (bytes32);
@@ -50,7 +50,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## Address 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-アドレス0x05は式 `base**exp % mod` を実装します。 与えられたデータから結果を返します。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。 このプリコンパイルされたコントラクトは任意の長さの入力をサポートしますが、以下のコードでは、一定の長さの入力を例として使用します。
+アドレス0x05は式 `base**exp % mod` を実装します。 与えられたデータから結果を返します。 This precompiled contract is not supported by the Solidity compiler. このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。 このプリコンパイルされたコントラクトは任意の長さの入力をサポートしますが、以下のコードでは、一定の長さの入力を例として使用します。
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -82,7 +82,7 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 
 ## アドレス 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-アドレス 0x06 は、ネイティブの楕円曲線の点の追加を実装しています。 `(ax, ay) + (bx) を表す楕円曲線点を返します。 ) <code>` \(ax, ay\) と \(bx, by\) が曲線上の有効な点であるように、 bn256. このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス 0x06 は、ネイティブの楕円曲線の点の追加を実装しています。 `(ax, ay) + (bx) を表す楕円曲線点を返します。 ) <code>` \(ax, ay\) と \(bx, by\) が曲線上の有効な点であるように、 bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -103,7 +103,7 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 
 ## アドレス 0x07: bn256ScalarMul\(x, y, scalar\' <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-アドレス 0x07 は、スカラー値を持つネイティブの楕円曲線の掛け算を実装しています。 これは `スカラー * (x) を表す 楕円曲線点を返します。 y) <code>` \(x, y\) が曲線上の有効な曲線点であるように、 bn256. このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス 0x07 は、スカラー値を持つネイティブの楕円曲線の掛け算を実装しています。 これは `スカラー * (x) を表す 楕円曲線点を返します。 y) <code>` \(x, y\) が曲線上の有効な曲線点であるように、 bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -123,7 +123,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 
 ## アドレス 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-アドレス0x08は、zkSNARK検証を実行する楕円曲線のパーシング操作を実装しています。 詳細については、 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md) を参照してください。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス0x08は、zkSNARK検証を実行する楕円曲線のパーシング操作を実装しています。 詳細については、 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md) を参照してください。 This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -145,7 +145,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## アドレス 0x09:vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
 
-アドレス0x09は、指定された文字列 `str` を特定のファイルに出力するか、それをロガーモジュールに渡します。 詳細については、 [debug\_setVMLogTarget](../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget) を参照してください。 このプリコンパイル済みコントラクトはデバッグ目的でのみ使用することに注意してください。 そして、Klaytn ノードの開始時に `--vmlog` オプションを有効にする必要があります。 また、vmLog の出力を確認するには、 Klaytn ノードのログレベルを 4 以上にする必要があります。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス0x09は、指定された文字列 `str` を特定のファイルに出力するか、それをロガーモジュールに渡します。 詳細については、 [debug\_setVMLogTarget](../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget) を参照してください。 このプリコンパイル済みコントラクトはデバッグ目的でのみ使用することに注意してください。 そして、Klaytn ノードの開始時に `--vmlog` オプションを有効にする必要があります。 また、vmLog の出力を確認するには、 Klaytn ノードのログレベルを 4 以上にする必要があります。 This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -155,7 +155,7 @@ function callVmLog(bytes memory str) public {
 
 ## アドレス 0x0A: feePayer\(\) <a id="address-0x-0-a-feepayer"></a>
 
-アドレス 0x0A は、実行中のトランザクションの手数料支払人を返します。 このプリコンパイル済みコントラクトは、Solidity コンパイラではサポートされていません。 このプリコンパイル済みコントラクトを呼び出すには、次のコードを使用できます。
+アドレス 0x0A は、実行中のトランザクションの手数料支払人を返します。 This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function feePayer() internal returns (address addr) {
