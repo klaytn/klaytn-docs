@@ -15,12 +15,12 @@ v1.7.3 プロトコルアップグレード - **ロンドン** のハードフ�
 v1.8.0 プロトコルアップグレード - **ロンドン** ハードフォークからの基本手数料を含む互換性のない変更。 Baobabネットワークの場合はブロック番号 `#86,513,895` から有効になり、サイプレスネットワークの場合は `#86,816,005` から有効になりました。
 {% endhint %}
 
-後方互換性は、Klaytnの他のEVMバージョンでは保証されません。 したがって、プロトコルのアップグレードステータスに従って、Solidityコードを正しいターゲットオプションでコンパイルすることを強くお勧めします。
+Backward compatibility is not guaranteed with other EVM versions on Klaytn. したがって、プロトコルのアップグレードステータスに従って、Solidityコードを正しいターゲットオプションでコンパイルすることを強くお勧めします。
 * バオバブ: --evm-version London
 * キプロス: --evm-version London
 * Others(private/service chain): プロトコルのアップグレードステータスに従って決定されます
 
-[Solc の EVM バージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target) を参照してください。
+Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 
 コマンドの例を以下に示します。
