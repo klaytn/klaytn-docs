@@ -1,4 +1,4 @@
-# メタバースパッケージ
+# Metaverse Package
 
 ## バリアを下げてエントリーします。 <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
 
