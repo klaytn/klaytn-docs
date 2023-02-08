@@ -2,17 +2,17 @@
 
 ## 트랜잭션 개요 <a id="transactions-overview"></a>
 
-블록체인 플랫폼의 트랜잭션은 블록체인의 상태를 변경하는 노드간 전송되는 메시지입니다. 예를 들어 Alice의 계정에서 Bob의 계정으로 10 KLAY를 보내는 트랜잭션이 실행될 때 Alice의 잔액은 10 KLAY 감소하고 Bob의 잔액은 10 KLAY 증가합니다. 한 트랜잭션이 다른 트랜잭션 사이에 낄 수 없습니다. 트랜잭션은 아토믹(atomic) 연산이기 때문입니다 일반적인 블록체인 트랜잭션에는 다음과 같은 구성 요소가 있습니다.
+A transaction in a blockchain platform is a message sent between nodes that changes the state of the blockchain. 예를 들어 Alice의 계정에서 Bob의 계정으로 10 KLAY를 보내는 트랜잭션이 실행될 때 Alice의 잔액은 10 KLAY 감소하고 Bob의 잔액은 10 KLAY 증가합니다. 한 트랜잭션이 다른 트랜잭션 사이에 낄 수 없습니다. 트랜잭션은 아토믹(atomic) 연산이기 때문입니다 일반적인 블록체인 트랜잭션에는 다음과 같은 구성 요소가 있습니다.
 
-| 구성요소    | 설명                                                                                                                                                                                                                                                |
-|:------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value   | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                                      |
-| to      | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                                           |
-| input   | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                                  |
-| v, r, s | 수신자가 발신자의 주소를 받을 수 있게 발신자에 의해 발생된 암호학적 서명입니다.                                                                                                                                                                                                     |
-| 논스      | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                                     |
-| gas     | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                                  |
-| 가스 가격   | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. KLAY의 단위는 [여기](../../design/klaytn-native-coin-klay.md#units-of-klay)에 설명되어 있습니다. |
+| 구성요소     | Description                                                                                                                                                                                                                                       |
+|:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value    | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                                      |
+| to       | The account address that will receive the transferred value.                                                                                                                                                                                      |
+| input    | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                 |
+| v, r, s  | 수신자가 발신자의 주소를 받을 수 있게 발신자에 의해 발생된 암호학적 서명입니다.                                                                                                                                                                                                     |
+| nonce    | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                                     |
+| gas      | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                          |
+| gasPrice | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. KLAY의 단위는 [여기](../../design/klaytn-native-coin-klay.md#units-of-klay)에 설명되어 있습니다. |
 
 ## Klaytn 트랜잭션 <a id="klaytn-transactions"></a>
 
@@ -24,7 +24,7 @@
 
 클레이튼에서 키 쌍은 Klaytn의 주소와 분리되어 있으므로 발신자 주소는 트랜잭션 서명을 사용하여 파생되지 않습니다. 이것이 TxTypeLegacyTransaction을 제외한 다른 Klaytn 트랜잭션 유형의 필드에 `from`이 있는 이유입니다. 트랜잭션을 검증하기 위해 클레이튼에서 `from`의 [AccountKey](../accounts.md#account-key)가 사용됩니다.
 
-### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn은 비즈니스 모델 디자인에 유연성을 제공하기 위해 기본 트랜잭션 유형들에 대한 여러 가지 비용 위임 버전을 제공합니다. 이러한 변형을 통해 서비스 제공자가 대신 트랜잭션 수수료를 지불하여 최종 사용자 활동에 보조금을 지급할 수 있습니다. 트랜잭션 수수료 보조금은 Ratio parameter를 조정하여 서비스 제공자가 커버할 수수료의 비율을 정할 수 있습니다. 트랜잭션 수수료 위임 트랜잭션은 적어도 두 개의 서명이 필요하다. 하나는 발신자로부터, 또 다른 하나는 트랜잭션 수수료 지불인으로부터의 서명이다.
 
@@ -34,7 +34,7 @@ SenderTxHash는 트랜잭션 수수료 납부자의 주소와 서명이 없는 �
 
 각 트랜잭션 유형을 자세하게 살펴보면 다음과 같습니다.
 
-|                        | 기본                                                                    | 수수료 위임 트랜잭션                                                                                            | 수수료 부분 위임 트랜잭션                                                                                                                   |
+|                        | Basic                                                                 | Fee Delegation                                                                                         | Partial Fee Delegation                                                                                                           |
 |:---------------------- |:--------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------- |
 | Legacy                 | [TxTypeLegacyTransaction](basic.md#txtypelegacytransaction)           | N/A                                                                                                    | N/A                                                                                                                              |
 | ValueTransfer          | [TxTypeValueTransfer](basic.md#txtypevaluetransfer)                   | [TxTypeFeeDelegatedValueTransfer](fee-delegation.md#txtypefeedelegatedvaluetransfer)                   | [TxTypeFeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)                   |
