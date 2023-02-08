@@ -11,17 +11,17 @@ description: >-
 
 노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 메인브리지 노드는 KNI를 통해 서브브리지 노드에 연결할 수 있습니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                |
-| -------- | ----------------- |
-| JSON 문자열 | 브리지 노드에 대한 정보입니다. |
+| Type        | Description       |
+| ----------- | ----------------- |
+| JSON string | 브리지 노드에 대한 정보입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -56,23 +56,23 @@ description: >-
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 서브브리지 피어 추가가 성공적으로 완료되면 `true`를 반환합니다.
 
-피어 목록에 새 원격 노드를 추가합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 원격 연결이 간혹 끊어지면 다시 연결합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
+피어 목록에 새 원격 노드를 추가합니다. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                |
-| --- | ------ | ----------------- |
-| url | string | 피어의 `kni` URL입니다. |
+| Name | Type   | Description       |
+| ---- | ------ | ----------------- |
+| url  | string | 피어의 `kni` URL입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                                |
-| ---- | ------------------------------------------------- |
-| bool | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| Type | Description                                         |
+| ---- | --------------------------------------------------- |
+| bool | `true` if the peer was accepted, `false` otherwise. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
@@ -90,21 +90,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름  | 타입     | 설명                |
-| --- | ------ | ----------------- |
-| url | string | 피어의 `kni` URL입니다. |
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| url  | string | Peer's  `kni` URL. |
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                             |
+| Type | Description                                    |
 | ---- | ---------------------------------------------- |
 | bool | 피어가 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -122,17 +122,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `mainbridge_getChildChainIndexingEnabled`는 앵커링 트랜잭션의 인덱싱이 활성화되어 있는지 여부를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+none
 
-**리턴값**
+**Return Value**
 
-| 타입   | 설명                                            |
+| Type | Description                                   |
 | ---- | --------------------------------------------- |
 | bool | 인덱싱이 활성화된 경우 `true`를, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > mainbridge.getChildChainIndexingEnabled()
@@ -143,21 +143,21 @@ true
 
 주어진 자식 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-| 타입            | 설명               |
-| ------------- | ---------------- |
-| 32바이트 크기 DATA | 자식 체인의 블록 해시입니다. |
+| Type         | Description      |
+| ------------ | ---------------- |
+| 32-byte DATA | 자식 체인의 블록 해시입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입            | 설명                                |
-| ------------- | --------------------------------- |
-| 32바이트 크기 DATA | 자식 체인의 블록 정보가 포함된 앵커링 트랜잭션 해시입니다. |
+| Type         | Description                       |
+| ------------ | --------------------------------- |
+| 32-byte DATA | 자식 체인의 블록 정보가 포함된 앵커링 트랜잭션 해시입니다. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
