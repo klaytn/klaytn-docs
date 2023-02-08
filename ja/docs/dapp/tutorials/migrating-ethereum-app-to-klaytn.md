@@ -1,8 +1,8 @@
 # Migrating Ethereum App to Klaytn
 
-## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. はじめに](migrating-ethereum-app-to-klaytn.md#1-introduction)
+* [1. Introduction](migrating-ethereum-app-to-klaytn.md#1-introduction)
 * [2. Klaytn has Ethereum compatibility](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
 * [3. Change node connection from Ethereum to Klaytn](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
 * [4. Interact with Klaytn node: `BlockNumber` component](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
@@ -11,14 +11,14 @@
   * [5-2. Create a contract instance](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
   * [5-3. Interact with contract](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
 
-## 1. はじめに <a href="#1-introduction" id="1-introduction"></a>
+## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
 
 This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.
 
 We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn dApp, Please refer to [CountDApp Tutorial](count-dapp/).
 
-> **ソースコード**\
-  完全なソースコードは GitHub にあります [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **Source Code**\
+  Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### Intended Audience <a href="#intended-audience" id="intended-audience"></a>
 
@@ -30,7 +30,7 @@ We will focus only on the code modifications required to migrate an Ethereum App
 CountDApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
-* ノード 10.16.0 (LTS)
+* Node 10.16.0 (LTS)
 * npm 6.9.0
 * Python 2.7.10
 
