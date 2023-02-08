@@ -7,9 +7,9 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Account Creation](../../../../../../klaytn/design/transactions/basic.md) 트랜잭션을 네트워크에 전송합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름                                     | 타입                                              | 설명                                                                                                                                            |
+| Name                                   | Type                                            | Description                                                                                                                                   |
 | -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | Object                                          | 전송하려는 트랜잭션 객체.                                                                                                                                |
 | transactionObject.type                 | String                                          | "ACCOUNT_CREATION" 트랜잭션 타입.                                                                                                                   |
@@ -18,26 +18,26 @@ caver.klay.sendTransaction(transactionObject [, callback])
 | transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | 새로 생성될 어카운트에 전송할 값으로 단위는 peb.                                                                                                                 |
 | transactionObject.gas                  | Number                                          | 트랜잭션에 사용할 가스량(사용하지 않은 가스는 환불됨).                                                                                                               |
 | transactionObject.gasPrice             | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                         |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                 |
+| transactionObject.nonce                | Number                                          | (optional) Integer of a nonce. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                     |
 | transactionObject.publicKey            | String                                          | (선택사항) 공개키로 계정을 생성하는 경우 64 바이트의 공개키를 입력하세요.                                                                                                   |
 | transactionObject.multisig             | String                                          | (선택사항) 다중 서명 키로 계정을 생성하는 경우 multisig에 여러 개의 공개키를 입력하세요. 다중 서명 키를 구성하는 공개키는 각자 가중치를 가집니다. multisig로 서명된 트랜잭션의 경우 서명 가중치의 합이 임계값보다 크거나 같아야 합니다. |
 | transactionObject.roleTransactionKey   | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 roleTransactionKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다.                          |
 | transactionObject.roleAccountUpdateKey | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 roleAccountUpdateKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다.        |
 | transactionObject.roleFeePayerKey      | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 rroleFeePayerKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                     |
 | transactionObject.failKey              | Bool                                            | (선택사항) fail key를 가지는 계정을 생성하는 경우 true로 설정하세요.                                                                                                 |
-| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                          |
+| callback                               | Function                                        | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                    |
 
-**리턴값**
+**Return Value**
 
 `callback`은 32바이트 트랜잭션 해시를 반환합니다.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
+`PromiEvent`: A promise combined event emitter. 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
 - `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
 - `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
-- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. On an out-of-gas error, the second parameter is the receipt.
 
-**예시**
+**Example**
 
 ```javascript
 
@@ -103,7 +103,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 3: Creating account with fail key
 
@@ -135,7 +135,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 4: Creating account with weighted-multisig
 
@@ -181,7 +181,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 // Case 5: Creating account with role-based key
 
@@ -227,6 +227,6 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 ```
