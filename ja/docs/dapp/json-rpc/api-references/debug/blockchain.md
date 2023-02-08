@@ -6,14 +6,14 @@
 
 **注意**: この関数は、現在4つの 番目の最新の数値の状態を正しく返します。  コマンドライン オプション `--state.block-interval` (デフォルト: 128) の値に応じて、古いブロック状態の取得が制限されます。  これは、関数 が、 state.block-interval の倍数であるブロック番号のみに対して状態の取得を行うことを意味します。  例えば、 state.block-interval が 128 の場合、この関数は ブロック番号 "0x0", "0x80", "0x100", "0x180" などの状態を返します。  ブロック 番号が state.block-interval の倍数でない場合、それは 'missing trie node' エラーを返します。
 
-| クライアント | メソッドの呼び出し                                           |
-|:------:| --------------------------------------------------- |
-| コンソール  | `debug.dumpBlock(number)`                           |
-|  RPC   | `{"method": "debug_dumpBlock", "params": [number]}` |
+| Client  | メソッドの呼び出し                                           |
+|:-------:| --------------------------------------------------- |
+| Console | `debug.dumpBlock(number)`                           |
+|   RPC   | `{"method": "debug_dumpBlock", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                              |
+| Name          | Type                            | Description                                                                                                                                              |
 | ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](../klay/block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
@@ -21,15 +21,15 @@
 注意: Klaytn v1.7.0 より前のバージョンでは、hex文字列タイプのみ使用できます。
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description |
-| ------- | ----------- |
-| JSON文字列 | ブロック情報      |
+| Type        | Description |
+| ----------- | ----------- |
+| JSON string | ブロック情報      |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.dumpBlock("0x80")
 {
@@ -70,26 +70,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 指定した状態ルートのすべての状態/ストレージの試行を取得します。
 
-| クライアント | メソッドの呼び出し                                               |
-|:------:| ------------------------------------------------------- |
-| コンソール  | `debug.dumpStateTrie(number)`                           |
-|  RPC   | `{"method": "debug_dumpStateTrie", "params": [number]}` |
+| Client  | Method Invocation                                       |
+|:-------:| ------------------------------------------------------- |
+| Console | `debug.dumpStateTrie(number)`                           |
+|   RPC   | `{"method": "debug_dumpStateTrie", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description |
-| -- | --- | ----------- |
-| 数値 | int | ブロック番号      |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| 数値   | int  | ブロック番号      |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description  |
-| ------- | ------------ |
-| JSON文字列 | 状態トリエの結果をダンプ |
+| Type        | Description  |
+| ----------- | ------------ |
+| JSON string | 状態トリエの結果をダンプ |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.dumpStateTrie(10)
 {
@@ -107,32 +107,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ブロック番号から RLP でエンコードされたブロックを取得し、返します。
 
-| クライアント | メソッドの呼び出し                                             |
-|:------:| ----------------------------------------------------- |
-| コンソール  | `debug.getBlockRlp(number)`                           |
-|  RPC   | `{"method": "debug_getBlockRlp", "params": [number]}` |
+| Client  | Method Invocation                                     |
+|:-------:| ----------------------------------------------------- |
+| Console | `debug.getBlockRlp(number)`                           |
+|   RPC   | `{"method": "debug_getBlockRlp", "params": [number]}` |
 
 参照: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                              |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](../klay/block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                                  |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 注意: Klaytn v1.7.0 より前のバージョンでは、整数型のみ使用できます。
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description        |
-| --- | ------------------ |
-| 文字列 | RLP でエンコードされたブロック。 |
+| Type   | Description        |
+| ------ | ------------------ |
+| string | RLP でエンコードされたブロック。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.getBlockRlp(100)
 "f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0"
@@ -149,27 +149,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 Returns all accounts that have changed between the two blocks specified by their block hashes. `endBlockHash` で行われた変更は含まれますが、 `startBlockHash` で行われた変更は含まれません。 `endBlockHash` が指定されていない場合、 `startBlockHash` で変更された口座を返します。 変更は、nonce、balance、code hash、またはstorage hashの差として定義されます。
 
 
-| クライアント | メソッドの呼び出し                                                                                   |
-|:------:| ------------------------------------------------------------------------------------------- |
-| コンソール  | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
-|  RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
+| Client  | Method Invocation                                                                           |
+|:-------:| ------------------------------------------------------------------------------------------- |
+| Console | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
+|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前             | タイプ       | Description             |
-| -------------- | --------- | ----------------------- |
-| startBlockHash | 32バイトのデータ | チェックする範囲の最初のブロックハッシュ。   |
-| endBlockHash   | 32バイトのデータ | (オプション) 範囲の最後のブロックハッシュ。 |
+| Name           | Type         | Description             |
+| -------------- | ------------ | ----------------------- |
+| startBlockHash | 32バイトのデータ    | チェックする範囲の最初のブロックハッシュ。   |
+| endBlockHash   | 32-byte DATA | (オプション) 範囲の最後のブロックハッシュ。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                             |
-| ------- | ------------------------------------------------------- |
-| JSON文字列 | The list of addresses modified between the given range. |
+| Type        | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| JSON string | The list of addresses modified between the given range. |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.getModifiedAccountsByHash("0x583a02df4222c82d4ffe5d3658d0f7ac233f4dc5de83f6430d74199038b606b6", "0x69833f0fc012dc36be910aa6909f5395cd35136dbeae29ed2170a7d4162a009c")
 
@@ -189,27 +189,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 Returns all accounts that have changed between the two blocks specified by their block numbers. `endBlockNum` で行われた変更は含まれますが、 `startBlockNum` で行われた変更は含まれません。 `endBlockNum` が指定されていない場合、 `startBlockNum` で変更された口座を返します。 変更は、nonce、balance、 code hash、またはstorage hashの差として定義されます。
 
 
-| クライアント | メソッドの呼び出し                                                                                 |
-|:------:| ----------------------------------------------------------------------------------------- |
-| コンソール  | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
-|  RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
+| Client  | Method Invocation                                                                         |
+|:-------:| ----------------------------------------------------------------------------------------- |
+| Console | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
+|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ | Description           |
-| ------------- | --- | --------------------- |
-| startBlockNum | int | チェックする範囲の最初のブロック番号。   |
-| endBlockNum   | int | (オプション) 範囲の最後のブロック番号。 |
+| Name          | Type | Description           |
+| ------------- | ---- | --------------------- |
+| startBlockNum | int  | チェックする範囲の最初のブロック番号。   |
+| endBlockNum   | int  | (オプション) 範囲の最後のブロック番号。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                             |
-| ------- | ------------------------------------------------------- |
-| JSON文字列 | The list of addresses modified between the given range. |
+| Type        | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| JSON string | The list of addresses modified between the given range. |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.getModifiedAccountsByNumber(171904, 172160)
 ["0x31b93ca83b5ad17582e886c400667c6f698b8ccd", "0xb7fe15c42e66bd71835b07dc6e7daee7729f6235", "0xe31a0edb11357dba71377e625fc6174da4ef4321", "0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5", "0xd3ec3c7e4cad042dbdcb6a7e0fdbc55a92276f12", "0xa4e0d726ce51572e66295756ad93206592c43a59", "0xf65e07b6626ab43ecea744803fa46bd4a89bfdb6", "0xaac56dfe44f9894d4f536cd17acfbc44bf81a843", "0x3855407fa65c4c5104648b3a9e495072df62b585", "0x61a7cbdd597848494fa85cbb76f9c63ad9c06cad", "0xa4845491cb0dad5bd6707a33c02af0d9db435c15", "0x026e8f70a26b6e5c8bec25e23869846edfdd6728", "0x3cf3e8caea91501321feee0f0692fcd98f1c6292", "0x18822790d7baf2fa6bbca6ad8baa46985abeb81b"]
@@ -227,27 +227,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 既知の場合、sha3 ハッシュのプリイメージを返します。
 
-| クライアント | メソッドの呼び出し                                        |
-|:------:| ------------------------------------------------ |
-| コンソール  | `debug.preimage(hash)`                           |
-|  RPC   | `{"method": "debug_preimage", "params": [hash]}` |
+| Client  | Method Invocation                                |
+|:-------:| ------------------------------------------------ |
+| Console | `debug.preimage(hash)`                           |
+|   RPC   | `{"method": "debug_preimage", "params": [hash]}` |
 
 
-**パラメータ**
+**Parameters**
 
-| 名前   | タイプ | Description |
-| ---- | --- | ----------- |
-| hash | 文字列 | シャー・3・ハッシュだ |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| hash | string | シャー・3・ハッシュだ |
 
-**戻り値**
+**Return Value**
 
-| 名前       | タイプ | Description       |
-| -------- | --- | ----------------- |
-| preimage | 文字列 | sha3 ハッシュのプリイメージ。 |
+| Name     | Type   | Description       |
+| -------- | ------ | ----------------- |
+| preimage | string | sha3 ハッシュのプリイメージ。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.preimage("0xaf953a2d01f55cfe080c0c94150a60105e8ac3d51153058a1f03dd239dd08586")
 "0xdd738d9a7d987a98798123b2322d389470328420bb3d84023a8405a5523cc532235ba325235243242cb9a4758609a8604 ...  98bbd743053d0cbadaaccd4865cc0348685460ada874506ad984506ad80458ad69038fd6f908340fd9af68faf903760"
@@ -263,24 +263,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 クライアントがネットワーク上で最後に見た「バッドブロック」のリストを返します。
 
-| クライアント | メソッドの呼び出し                                        |
-|:------:| ------------------------------------------------ |
-| コンソール  | `debug.getBadBlocks()`                           |
-|  RPC   | `{"method": "debug_getBadBlocks", "params": []}` |
+| Client  | Method Invocation                                |
+|:-------:| ------------------------------------------------ |
+| Console | `debug.getBadBlocks()`                           |
+|   RPC   | `{"method": "debug_getBadBlocks", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| 名前       | タイプ  | Description      |
+| Name     | Type | Description      |
 | -------- | ---- | ---------------- |
 | badBlock | JSON | ブロックハッシュのJSONリスト |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.getBadBlocks()
 []
@@ -295,30 +295,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ブロックを取得し、きれいな形式を返します。
 
-| クライアント | メソッドの呼び出し                                            |
-|:------:| ---------------------------------------------------- |
-| コンソール  | `debug.printBlock(number)`                           |
-|  RPC   | `{"method": "debug_printBlock", "params": [number]}` |
+| Client  | Method Invocation                                    |
+|:-------:| ---------------------------------------------------- |
+| Console | `debug.printBlock(number)`                           |
+|   RPC   | `{"method": "debug_printBlock", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前            | タイプ                             | Description                                                                                                                                              |
-| ------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](../klay/block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
+| Name                 | Type                            | Description                                                                                                                                                                                  |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数型のみ使用できます。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 文字列 | ブロック構造体のダンプ。 |
+| Type   | Description  |
+| ------ | ------------ |
+| string | ブロック構造体のダンプ。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.printBlock(65120)
 "(*types.Block)(0xc436fad3b0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:      e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:       0000000000000000000000000000000000000000\n\tRoot: ... 0xc3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebf\n\tS:       0x53d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n\tHex:      f863829d9280825208949619a83fcefc5647736cfd28845fcc4f716ff53b8080820fe7a0c3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebfa053d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n]\n}\n)\n"
@@ -339,25 +339,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **注意**: これは破壊的な行為であり、あなたのチェーンに深刻なダメージを与える可能性があります。 *の極端な* に注意して使用してください。
 
-| クライアント | メソッドの呼び出し                                         |
-|:------:| ------------------------------------------------- |
-| コンソール  | `debug.setHead(number)`                           |
-|  RPC   | `{"method": "debug_setHead", "params": [number]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.setHead(number)`                           |
+|   RPC   | `{"method": "debug_setHead", "params": [number]}` |
 
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description      |
-| -- | --- | ---------------- |
-| 数値 | 文字列 | 16 進数文字列のブロック番号。 |
+| Name   | Type   | Description      |
+| ------ | ------ | ---------------- |
+| number | string | 16 進数文字列のブロック番号。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.setHead("0x100")
 null
@@ -373,27 +373,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ブロックのシードハッシュを取得します。
 
 
-| クライアント | メソッドの呼び出し                                          |
-|:------:| -------------------------------------------------- |
-| コンソール  | `debug.seedHash(number)`                           |
-|  RPC   | `{"method": "debug_seedHash", "params": [number]}` |
+| Client  | Method Invocation                                  |
+|:-------:| -------------------------------------------------- |
+| Console | `debug.seedHash(number)`                           |
+|   RPC   | `{"method": "debug_seedHash", "params": [number]}` |
 
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ    | Description |
-| -- | ------ | ----------- |
-| 数値 | uint64 | ブロック番号      |
+| Name   | Type   | Description       |
+| ------ | ------ | ----------------- |
+| number | uint64 | The block number. |
 
-**戻り値**
+**Return Value**
 
-| 名前       | タイプ | Description  |
-| -------- | --- | ------------ |
-| seedHash | 文字列 | ブロックシードハッシュ。 |
+| Name     | Type   | Description  |
+| -------- | ------ | ------------ |
+| seedHash | string | ブロックシードハッシュ。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.seedHash(100)
 "0x000000000000000000000000000000000000000000000000000000000000"
@@ -409,24 +409,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startUp` は、最新の状態の trie を繰り返して、trie キャッシュをウォーム アップします。 trieキャッシュの90%がいっぱいの場合、反復は自動的に停止されます。 このメソッドは、ウォームアップの開始に失敗した場合にエラーを返すか、成功した場合は `null` を返します。
 
-| クライアント | メソッドの起動                           |
-|:------:| --------------------------------- |
-| コンソール  | `debug.startWarmUp()`             |
-|  RPC   | `{"method": "debug_startWarmUp"}` |
+| Client  | Method invocation                 |
+|:-------:| --------------------------------- |
+| Console | `debug.startWarmUp()`             |
+|   RPC   | `{"method": "debug_startWarmUp"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                |
-| --- | ------------------------------------------ |
-| エラー | `ウォーム アップが開始された場合は null` またはそうでない場合はエラーです。 |
+| Type  | Description                                |
+| ----- | ------------------------------------------ |
+| Error | `ウォーム アップが開始された場合は null` またはそうでない場合はエラーです。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > debug.startWarmUp()
@@ -441,28 +441,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` は、トリエキャッシュをウォームアップするために、指定されたコントラクトアドレスの最新のストレージトライを繰り返します。 trieキャッシュの90%がいっぱいの場合、反復は自動的に停止されます。 ウォーム アップの開始に失敗した場合、または指定されたアドレスがコントラクトアドレスではない場合、メソッドはエラーを返します。 または `null` が正常に開始された場合。
+`startContractWarmUp` は、トリエキャッシュをウォームアップするために、指定されたコントラクトアドレスの最新のストレージトライを繰り返します。 The iteration will be automatically stopped if 90% of the trie cache is full. ウォーム アップの開始に失敗した場合、または指定されたアドレスがコントラクトアドレスではない場合、メソッドはエラーを返します。 または `null` が正常に開始された場合。
 
-| クライアント | メソッドの起動                                                        |
-|:------:| -------------------------------------------------------------- |
-| コンソール  | `debug.startContractWarmUp(address)`                           |
-|  RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+| Client  | Method invocation                                              |
+|:-------:| -------------------------------------------------------------- |
+| Console | `debug.startContractWarmUp(address)`                           |
+|   RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
 
-**パラメータ**
+**Parameters**
 
-| タイプ        | Description |
+| Type       | Description |
 | ---------- | ----------- |
 | 20 バイトのデータ | コントラクトアドレス  |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                |
-| --- | ------------------------------------------ |
-| エラー | `ウォーム アップが開始された場合は null` またはそうでない場合はエラーです。 |
+| Type  | Description                                         |
+| ----- | --------------------------------------------------- |
+| Error | `null` if a warm-up is started, or an error if not. |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
@@ -479,24 +479,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `stopWarmUp` は現在実行中のウォームアップを停止します。 このメソッドはパラメータを取りません。 `null` を返すか、ウォームアップが停止したかどうかに応じてエラーが返されます。
 
-| クライアント | メソッドの起動                    |
-|:------:| -------------------------- |
-| コンソール  | `debug.stopWarmUp()`       |
-|  RPC   | `{"method": "stopWarmUp"}` |
+| Client  | Method invocation          |
+|:-------:| -------------------------- |
+| Console | `debug.stopWarmUp()`       |
+|   RPC   | `{"method": "stopWarmUp"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                 |
-| --- | ------------------------------------------- |
-| エラー | `ウォームアップが停止した場合は null` またはそうでない場合はエラーになります。 |
+| Type  | Description                                 |
+| ----- | ------------------------------------------- |
+| Error | `ウォームアップが停止した場合は null` またはそうでない場合はエラーになります。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > debug.stopWarmUp()
@@ -512,26 +512,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startCollectingTrieStats` は、最新の状態またはストレージのトライを反復してトリの統計を収集します。 指定されたアドレスにコントラクトのストレージトライの統計を収集します。 空のアドレス(="0x00...00")が与えられると、状態全体の統計が収集されます。 統計は終了の1分前に記録され、全体情報と深さごとの情報が含まれます。 このメソッドは、タスクの開始に失敗した場合にエラーを返すか、成功した場合は `null` を返します。
 
-| クライアント | メソッドの起動                                                             |
-|:------:| ------------------------------------------------------------------- |
-| コンソール  | `debug.startCollectingTrieStats(address)`                           |
-|  RPC   | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
+| Client  | Method invocation                                                   |
+|:-------:| ------------------------------------------------------------------- |
+| Console | `debug.startCollectingTrieStats(address)`                           |
+|   RPC   | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
 
-**パラメータ**
+**Parameters**
 
-| タイプ        | Description |
-| ---------- | ----------- |
-| 20 バイトのデータ | コントラクトアドレス  |
+| Type         | Description      |
+| ------------ | ---------------- |
+| 20-byte DATA | Contract address |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                              |
-| --- | ---------------------------------------- |
-| エラー | `null` trie統計タスクを収集するか、そうでない場合はエラーになります。 |
+| Type  | Description                              |
+| ----- | ---------------------------------------- |
+| Error | `null` trie統計タスクを収集するか、そうでない場合はエラーになります。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 // empty address to collect whole state trie statistics
