@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 축하합니다!
+# Congratulations!
 
 You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
 
