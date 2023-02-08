@@ -1,6 +1,6 @@
-# はじめに <a id="getting-started"></a>
+# Getting Started <a id="getting-started"></a>
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
 ### 依存関係 <a id="dependency"></a>
 
@@ -20,15 +20,15 @@
 実装 'com.klaytn.caver:core:1.4.0'
 ```
 
-Android 依存関係を使用したい場合は、バージョン 文字列の末尾に -android を追加してください。 \(e.g. 1.0.1-android\)
+If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
 
-JSON-RPC リクエストとレスポンスの詳細を見たい場合は、プロジェクトに [LOGBack](https://logback.qos.ch/) の依存関係を含めてください。 以下は Gradle ビルドファイルの例です。 依存関係を Maven にも追加できます。 caver-javaは [SLF4J](http://www.slf4j.org/) ロギングファサードを使用するため、LOGBackの代わりに好みのロギングフレームワークに切り替えることができます。
+If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
 ```groovy
-実装 "ch.qos.logback:logback-classic:1.2.3"
+implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**注**: 中央リポジトリでは、RC、Android、Java のバージョンが一緒にリストされています。 ワイルドカードを使用してバージョンを取得する場合、あなたのプラットフォームに適していないバージョンを使用している可能性があります。
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
 ### インストール <a id="installation"></a>
 
@@ -43,43 +43,43 @@ $ brew install klaytn/klaytn/solidity@0.4.24 # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6 # version 0.5.6
 ```
 
-#### コマンドラインツール <a id="command-line-tool"></a>
+#### Command-line Tool <a id="command-line-tool"></a>
 
-コマンドラインツールを使用すると、コマンドラインからSolidityスマートコントラクト機能ラッパーを生成できます。
+The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
-**インストール \(Homebrew\)**
+**Installation \(Homebrew\)**
 
-これをインストールするにはJava 1.8以上が必要です。
+Java 1.8+ is required to install this.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-インストール後は、以下のような 'caver-java' コマンドを実行できます。
+After installation you can run command 'caver-java' like below:
 
 ```text
-$ caver-Java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**インストール \(Other\)**
+**Installation \(Other\)**
 
-現在、他のパッケージマネージャーはサポートしていません。 別の解決策として、以下の CLI を構築する方法を提供します。
+Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
 
-* caver-javaをダウンロードまたはフォークします。
-* Gradle を使用してコンソールモジュールの 'shadowDistZip' タスクを実行します。 その結果、console/build/distributions/console-shadow-{version}.zipが生成されます。
+* Download or fork caver-java.
+* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-* ビルド ディレクトリの zip ファイルを解凍します
+* Unzip the zip file in the build directory
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* バイナリファイルを実行して、以下のようなコマンドラインツールを実行します。 macOS ユーザ向けのシェルスクリプトファイルと、Window ユーザ向けのバッチファイルを見つけることができます。
+* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
@@ -118,9 +118,9 @@ KlayWalletUtils.generateNewWalletFile(
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## トランザクションの送信 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
-### Baobab Faucet経由でKLAYを取得する <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
 アカウントを作成すると、Baobab Faucet経由でBaobab testnet KLAYを受け取ることができます。 [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/) で入手できます。 受信されたtestnet KLAYは後で取引手数料として使用されます。
 
@@ -132,7 +132,7 @@ Baobabのネットワークには以下のように接続できます。
 Caver caver = Caver.build(https://your.baobab.en.url:8651);
 ```
 
-### 価値転送トランザクションの送信 <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
@@ -169,7 +169,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### 領収書の確認 <a id="checking-receipts"></a>
+### Checking Receipts <a id="checking-receipts"></a>
 
 `sendFunds`経由でトランザクションを送信した場合、caver-javaはデフォルトでトランザクションレシートを取得しようとします。 領収書を受け取った後、コンソールに次のログを見ることができます。
 
@@ -209,7 +209,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
 
 ## 他のトランザクションタイプの送信 <a id="sending-other-transaction-types"></a>
 
-### アカウントの更新 <a id="account-update"></a>
+### Account Update <a id="account-update"></a>
 
 指定されたアカウントのキーを新しい [AccountKeyPublic][] キーに更新したい場合:
 
@@ -227,7 +227,7 @@ Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction
 
 アカウント キーは、口座に関連付けられたキー構造を表します。 Klaytnアカウントキーの詳細と種類を取得するには、 [AccountKey][] をご覧ください。
 
-### スマート契約 <a id="smart-contract"></a>
+### Smart Contract <a id="smart-contract"></a>
 
 caver-javaはスマートコントラクトラッパーコードの自動生成をサポートしています。 ラッパーを使用すると、スマートコントラクトを簡単にデプロイして実行できます。 ラッパーコードを生成する前に、まずスマートコントラクトをコンパイルする必要があります。 注: これは、Solidity コンパイラがコンピュータにインストールされている場合にのみ機能します。 [Solidity Compiler][] を参照してください。
 
@@ -238,7 +238,7 @@ $ solc <contract>.sol --bin -abi --optimize -o <output-dir>/
 次に、caver-javaの [コマンドラインツール][]を使用してラッパーコードを生成します。
 
 ```text
-$ caver-Java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
 上記のコマンドは `<smartContract>`.javaを出力します。 ラッパーコードを生成したら、以下のようにスマートコントラクトをデプロイできます。
@@ -314,7 +314,7 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### 手数料のデリゲーション <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytnは [手数料委任][] 機能を提供しており、サービスプロバイダはユーザーの代わりに手数料を支払うことができます。
 
@@ -555,7 +555,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlieは受け取った取引に署名し、それをKlaytn ENに送信します。
+//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
 //// チャーリーサイド
 FeePayerManager_charlie = new FeePayerManager.Builder(caer, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
