@@ -69,7 +69,7 @@ NOTE: This document contains computation costs used before the activation of the
 | BLOCKHASH      |             500 |
 | COINBASE       |             189 |
 | TIMESTAMP      |             265 |
-| 番号             |             202 |
+| NUMBER         |             202 |
 | DIFFICULTY     |             180 |
 | GASLIMIT       |             166 |
 | POP            |             140 |
