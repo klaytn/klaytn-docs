@@ -10,22 +10,22 @@ caver.rpc.net.getNetworkId([callback])
 
 Returns the network identifier (network ID) of the Klaytn Node.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**리턴값**
+**Return Value**
 
-`Promise`는 `number`를 반환합니다.
+`Promise` returns `number`
 
-| 타입     | 설명          |
+| Type   | Description |
 | ------ | ----------- |
 | number | 네트워크 ID입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
@@ -40,22 +40,22 @@ caver.rpc.net.isListening([callback])
 
 Returns `true` if the Klaytn Node is actively listening for network connections.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**리턴값**
+**Return Value**
 
-`Promise`는 `boolean`을 반환합니다.
+`Promise` returns `boolean`
 
-| 타입      | 설명                                                      |
-| ------- | ------------------------------------------------------- |
-| boolean | 클라이언트가 연결을 수신 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| boolean | `true` when listening, otherwise `false`. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
@@ -70,22 +70,22 @@ caver.rpc.net.getPeerCount([callback])
 
 Returns the number of peers currently connected to the Klaytn Node.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**리턴값**
+**Return Value**
 
-`Promise`는 `string`을 반환합니다.
+`Promise` returns `string`
 
-| 타입     | 설명                             |
+| Type   | Description                    |
 | ------ | ------------------------------ |
 | string | 연결된 피어의 개수입니다. 이 값은 16진수 값입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
@@ -98,24 +98,24 @@ Returns the number of peers currently connected to the Klaytn Node.
 caver.rpc.net.getPeerCountByType([callback])
 ```
 
-유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
+Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**리턴값**
+**Return Value**
 
-`Promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 타입 | 설명                                  |
-| -- | ----------------------------------- |
-| 객체 | 유형별 연결된 피어의 수와 연결된 모든 피어의 수를 반환합니다. |
+| Type   | Description                                                                           |
+| ------ | ------------------------------------------------------------------------------------- |
+| object | The number of connected peers by type as well as the total number of connected peers. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)
