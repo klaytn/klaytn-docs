@@ -67,7 +67,7 @@ Non-fungible token \(NFT\) は、固有のアセットを表す特別なタイ�
 
 例えば、ブロックチェーン収集ゲーム [Cryptokitties](https://www.cryptokitties.co/) は、遺伝情報が異なる異なる異なる子猫を表すためにノンファンジブルトークンを実装しています。 すべてのキティはユニークで交換不可能であり、さまざまなキティトークンに異なる値をもたらします。
 
-ノンファンジブルトークンを実装するには、 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) を使用することができます。 KIP-17 トークン コントラクトは、次のインターフェイスを実装します。 [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) は一緒に実装する必要があることに注意してください。 ウォレットアプリケーションの場合、 [ウォレットインターフェイス](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface) を実装できます。
+ノンファンジブルトークンを実装するには、 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) を使用することができます。 KIP-17 トークン コントラクトは、次のインターフェイスを実装します。 Please note that [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) must be implemented together. ウォレットアプリケーションの場合、 [ウォレットインターフェイス](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface) を実装できます。
 
 ```solidity
 // IKIP17
@@ -121,7 +121,7 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-上記のインターフェイスに基づいて、開発者は新しい機能とロジックを追加してトークンをカスタマイズし、Klaytnネットワークにデプロイすることができます。
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
 詳細については、公式の [KIP-17 ドキュメント](https://kips.klaytn.foundation/KIPs/kip-17) を参照してください。
 
