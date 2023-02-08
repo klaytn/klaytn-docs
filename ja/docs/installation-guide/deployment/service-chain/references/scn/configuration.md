@@ -1,4 +1,4 @@
-# 設定 <a id="configuration"></a>
+# Configuration <a id="configuration"></a>
 
 このページでは、コンセンサスネットワークを形成するためのSCNの構成について説明します。
 
@@ -66,7 +66,7 @@ $ cat homi-output/keys/nodekey1
 
 ## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Klaytnブロックチェーンデータのサイズが増え続けていることを考えると、十分な大きさのストレージを使用することをお勧めします。 任意のパスにデータディレクトリを作成できます。 このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成します。
+Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. 任意のパスにデータディレクトリを作成できます。 このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成します。
 
 ```bash
 $ mkdir -p ~/kscnd_home
@@ -121,7 +121,7 @@ DATA_DIR=
 `SC_SUB_BRIDGE` を有効にして、アンカー/値転送機能を使用できます。 また、以下のようにDATA_DIRを設定してください。
 
 ```
-# kscnd の設定ファイル
+# Configuration file for the kscnd
 ...
 SC_SUB_BRIDGE=1
 ...
