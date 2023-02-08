@@ -1,6 +1,6 @@
 # ERC-20 <a id="erc-20"></a>
 
-## はじめに <a id="introduction"></a>
+## Introduction <a id="introduction"></a>
 
 This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Klaytn Token Standards](../../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../../token-standard.md#fungible-token-standard-kip-7).
 
