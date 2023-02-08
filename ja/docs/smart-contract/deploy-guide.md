@@ -121,7 +121,7 @@ module.exports = function(deployer) {
 };
 ```
 
-- `truffle-config.js` を以下のように設定してください。 コントラクトをデプロイするのに十分な `KLAY` を持つアカウントの秘密鍵を入力してください。
+- Set `truffle-config.js` as below. コントラクトをデプロイするのに十分な `KLAY` を持つアカウントの秘密鍵を入力してください。
 
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -256,7 +256,7 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
-*注意*: 本番環境での使用にはこの例は推奨されていません。 秘密鍵を扱うときは注意してください。
+*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.
 
 - ノード環境を使用してコントラクトをデプロイします。
 
