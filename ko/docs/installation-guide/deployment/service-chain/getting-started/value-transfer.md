@@ -1,7 +1,7 @@
 이번 장에서는 Baobab 네트워크와 서비스체인 간에 토큰을 전송하는 방법을 설명합니다. 운영자 계정에 KLAY를 확보하고 브릿지 컨트랙트 및 ERC-20 컨트랙트를 배포합니다. 그런 다음 SCN 서브 브릿지에 계약 주소를 등록합니다.  그리고 ERC-20 토큰 전송을 테스트합니다.
 
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 - 서비스체인을 구성하고, [Baobab 연결](en-scn-connection.md)의 설명에 따라 서비스체인을 Baobab EN에 연결했다고 가정합니다.
 - [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) 저장소를 복제합니다.
 - `Node.js` (v14)과 `npm`을 설치합니다. ([How to install](https://nodejs.org/en/download/package-manager/))
@@ -51,7 +51,7 @@ True
 ```
 
 ### 2 단계 : 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
-- SCN에 연결하여 컨트랙트 배포를 위한 노드 환경을 준비합니다. [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) 저장소를 복제합니다.
+- SCN에 연결하여 컨트랙트 배포를 위한 노드 환경을 준비합니다. Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 ![](../images/sc-vt-deploy.png)
 
