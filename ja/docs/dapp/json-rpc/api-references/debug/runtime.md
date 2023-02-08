@@ -4,22 +4,22 @@
 
 未使用のメモリをOSに返却します。
 
-| クライアント | メソッドの呼び出し                          |
-|:------:| ---------------------------------- |
-| コンソール  | `debug.freeOSMemory()`             |
-|  RPC   | `{"method": "debug_freeOSMemory"}` |
+| Client  | Method Invocation                  |
+|:-------:| ---------------------------------- |
+| Console | `debug.freeOSMemory()`             |
+|   RPC   | `{"method": "debug_freeOSMemory"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.freeOSMemory()
 null
@@ -35,22 +35,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 GC の統計情報を返します。
 
-| クライアント | メソッドの呼び出し                                   |
-|:------:| ------------------------------------------- |
-| コンソール  | `debug.gcStats()`                           |
-|  RPC   | `{"method": "debug_gcStats", "params": []}` |
+| Client  | Method Invocation                           |
+|:-------:| ------------------------------------------- |
+| Console | `debug.gcStats()`                           |
+|   RPC   | `{"method": "debug_gcStats", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) を参照してください。
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.gcStats()
 {
@@ -73,22 +73,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 詳細なランタイムメモリ統計を返します。
 
-| クライアント | メソッドの呼び出し                                    |
-|:------:| -------------------------------------------- |
-| コンソール  | `debug.memStats()`                           |
-|  RPC   | `{"method": "debug_memStats", "params": []}` |
+| Client  | Method Invocation                            |
+|:-------:| -------------------------------------------- |
+| Console | `debug.memStats()`                           |
+|   RPC   | `{"method": "debug_memStats", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
 返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) を参照してください。
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.memStats()
 {
@@ -122,26 +122,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ノードによって収集された既知のシステムメトリックをすべて取得します。
 
-| クライアント | メソッドの呼び出し                                      |
-|:------:| ---------------------------------------------- |
-| コンソール  | `debug.metrics(raw)`                           |
-|  RPC   | `{"method": "debug_metrics", "params": [raw]}` |
+| Client  | Method Invocation                              |
+|:-------:| ---------------------------------------------- |
+| Console | `debug.metrics(raw)`                           |
+|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ  | Description                             |
-| --- | ---- | --------------------------------------- |
-| raw | bool | `true` 生データがそのまま出力される場合、 `false` でない場合は |
+| Name | Type | Description                             |
+| ---- | ---- | --------------------------------------- |
+| raw  | bool | `true` 生データがそのまま出力される場合、 `false` でない場合は |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description              |
-| ------- | ------------------------ |
-| JSON文字列 | ノードによって収集された構造化されたメトリック。 |
+| Type        | Description              |
+| ----------- | ------------------------ |
+| JSON string | ノードによって収集された構造化されたメトリック。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -208,15 +208,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ガベージコレクションのターゲットパーセントを設定します。 前の設定を返します。 負の値はGCを無効にします。
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ     | Description    |
-| -- | ------- | -------------- |
-| 割合 | integer | ガベージ回収目標パーセント。 |
+| Name | Type    | Description    |
+| ---- | ------- | -------------- |
+| 割合   | integer | ガベージ回収目標パーセント。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description               |
+| Type    | Description               |
 | ------- | ------------------------- |
 | integer | 以前のガベージコレクションのターゲットパーセント。 |
 
@@ -245,24 +245,24 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 すべてのゴロチンのスタックの印刷表現を返します。
 
-| クライアント | メソッドの呼び出し                                  |
-|:------:| ------------------------------------------ |
-| コンソール  | `debug.stacks()`                           |
-|  RPC   | `{"method": "debug_stacks", "params": []}` |
+| Client  | Method Invocation                          |
+|:-------:| ------------------------------------------ |
+| Console | `debug.stacks()`                           |
+|   RPC   | `{"method": "debug_stacks", "params": []}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description       |
-| --- | ----------------- |
-| 文字列 | すべてのゴルーチンのスタック情報。 |
+| Type   | Description       |
+| ------ | ----------------- |
+| string | すべてのゴルーチンのスタック情報。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
