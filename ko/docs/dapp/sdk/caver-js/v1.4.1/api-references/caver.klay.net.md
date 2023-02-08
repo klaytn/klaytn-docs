@@ -28,17 +28,17 @@ caver.klay.net.getId([callback])
 
 현재 네트워크 ID를 가져옵니다.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**리턴값**
+**Return Value**
 
 `프로미스`는 `Number`를 반환합니다 - 네트워크 ID.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -54,17 +54,17 @@ caver.klay.net.isListening([callback])
 
 노드가 피어를 수신하고 있는지 확인합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `Boolean` - `true` if the node is listening for peers, `false` otherwise.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
@@ -80,17 +80,17 @@ caver.klay.net.getPeerCount([callback])
 
 연결된 피어 수를 구합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**리턴값**
+**Return Value**
 
 `프로미스`는 `Number`를 반환합니다 - 연결된 피어의 수입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
@@ -103,19 +103,19 @@ caver.klay.net.getPeerCount([callback])
 caver.klay.net.peerCountByType([callback])
 ```
 
-유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
+Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**리턴값**
+**Return Value**
 
 `프로미스`는 `Object`를 반환합니다 - 타입에 따른 연결된 피어의 수뿐만 아니라 연결된 모든 피어의 수.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
