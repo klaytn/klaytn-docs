@@ -9,7 +9,7 @@ Klaytn RPCエンドポイントを介してAPIを提供するには `--${interfa
 
 `ipc` は、フラグなしで unix ソケット (Unix) または命名されたパイプ (Windows) エンドポイントを介してすべての API を提供します。
 
-以下の例のように追加したい特定の API で Klaytn ノードを起動できます。 しかし、ノードを起動すると、API を変更することはできません。
+You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
 
 例) `klay` と `net` モジュールが有効になっている Klaytn ノードを起動します:
 
@@ -17,7 +17,7 @@ Klaytn RPCエンドポイントを介してAPIを提供するには `--${interfa
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-HTTP RPC インターフェイスは、 `--rpc` フラグを使用して明示的に有効にする必要があります。
+The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
 ### 設定の使用 <a id="using-configuration"></a>
 
@@ -25,7 +25,7 @@ Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties 
 
 ## 有効なAPIのクエリ <a id="querying-enabled-apis"></a>
 
-インタフェースが提供する API を決定するために、 `モジュール` JSON-RPC メソッドを呼び出すことができます。 の例 `rpc` インターフェイス:
+To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. の例 `rpc` インターフェイス:
 
 **IPC**
 
@@ -39,7 +39,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 ```
 
-はバージョン番号を含むすべての有効なモジュールを与えます:
+will give all enabled modules including the version number:
 
 ```
 {
