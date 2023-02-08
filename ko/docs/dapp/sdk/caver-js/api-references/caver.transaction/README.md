@@ -6,7 +6,7 @@
 
 각 트랜잭션 클래스에 대한 자세한 설명이 있습니다:
 
-|                        | 기본                                                        | 수수료 위임 트랜잭션                                                                                | 수수료 부분 위임 트랜잭션                                                                                                       |
+|                        | Basic                                                     | Fee Delegation                                                                             | Partial Fee Delegation                                                                                               |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | N/A                                                                                        | N/A                                                                                                                  |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
@@ -27,19 +27,19 @@ caver.transaction.decode(rlpEncoded)
 
 Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](./#class) instance.
 
-**파라미터**
+**Parameters**
 
-| 이름         | 타입     | 설명                         |
+| Name       | Type   | Description                |
 | ---------- | ------ | -------------------------- |
 | rlpEncoded | string | 디코딩할 RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                                                                                         |
-| -- | ---------------------------------------------------------------------------------------------------------- |
-| 객체 | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
+| Type   | Description                                                                                                |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.decode('0x08f87...')
@@ -67,21 +67,21 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**파라미터**
+**Parameters**
 
-| 이름              | 타입     | 설명                                                |
+| Name            | Type   | Description                                       |
 | --------------- | ------ | ------------------------------------------------- |
 | transactionHash | string | The transaction hash string to query from Klaytn. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returning `object`: An instance of [Transaction](./#class). If it fails to receive a transaction object from Klaytn, an error occurs.
 
-| 타입 | 설명                                                                                                         |
-| -- | ---------------------------------------------------------------------------------------------------------- |
-| 객체 | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
+| Type   | Description                                                                                                |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](./#class). For details of each transaction, refer to [Transaction](./#class). |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.getTransactionByHash('0x30575f5a76a4477502aa1e5e707e47f05b92c3450132529cf55764cc94f780b0').then(console.log)
@@ -112,19 +112,19 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명                                                                           |
+| Name  | Type   | Description                                                                  |
 | ----- | ------ | ---------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명                                                           |
+| Type  | Description                                                  |
 | ----- | ------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `signatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.recoverPublicKeys('0x08f9010e808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee0194f21460730845e3652aa3cc9bc13b345e4f53984af8d5f845820feaa02b5934c6d26bb3e65edf099d79c57c743d2f70744ca09d3ba9a1099edff9f173a00797886edff4b449c1a599943e3a6003ae9e46b3f3f34862ced327e43fba3a6af845820fe9a063177648732ef855f800eb9f80f68501abb507f84c0d660286a6e0801334a1d2a0620a996623c114f2df35b11ec8ac4f3758d3ad89cf81ba13614e51908cfe9218f845820fe9a086c8ecbfd892be41d48443a2243274beb6daed3f72895045965a3baede4c350ea069ea748aff6e4c106d3a8ba597d8f134745b76f12dacb581318f9da07351511a')
@@ -145,19 +145,19 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입     | 설명                                                                                                                                                                                                                         |
+| Name  | Type   | Description                                                                                                                                                                                                                |
 | ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명                                                                   |
+| Type  | Description                                                          |
 | ----- | -------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.recoverFeePayerPublicKeys('0x09f901fa808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee019407a9a76ef778676c3bd2b334edcf581db31a85e5f8d5f845820feaa0cb2bbf04a12ec3a06163c30ce8782739ec4745a53e265aa9443f1c0d678bb871a07dd348c7d8fce6be36b661f116973d1c36cc92a389ad4a1a4053bd486060a083f845820fe9a06d5dfca992d6833c0da272578bc6ea941be45f44fb2fa114310ebe18d673ed52a04dc5cd7985c9ce7d44d46d65e65c995a4a8c97159a1eed8b2efb0510b981ab7cf845820feaa0945151edf556fbcebf832092d4534b9a3b1f3d46f85bce09e7d7211070cb57bea01617c8f918f96970baddd12f240a9824eca6b29d91eb7333adacb987f2dcd8dd94b5db72925b1b6b79299a1a49ae226cd7861083acf8d5f845820feaa086fd17d788e89a6e0639395b3c0a04f916103debd6cbe639d6f4ff5034dde3e8a00795551c551d9096234c290689767f34f2d409c95166ab18d216dbc93845ba16f845820feaa00653b6d1cdb90462094b089ce8e2fed0e3b8ec2c44125965e1a5af286644c758a0259b10e3bf594d48535fd0d95e15d095897c8d075c01dd56e7417d5943b0d53af845820fe9a0ce8d051427adab10d1dc93de49123aeab18ba8aadedce0d57ef5b7fa451b1f4fa04fe2a845d92ff48abca3e1d59637fab5f4a4e3172d91772d9bfce60760edc506')
@@ -178,23 +178,23 @@ Signs the transaction as a transaction sender with the private key(s) in the `ke
 
 For [Account Update](basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) in [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Name    | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
 | index   | number    | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | hasher  | Function  | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-**리턴값**
+**Return Value**
 
 `Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
-| 타입 | 설명                                                                                                        |
-| -- | --------------------------------------------------------------------------------------------------------- |
-| 객체 | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.signatures`. |
+| Type   | Description                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.signatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 // 이 예시는 ValueTransfer 트랜잭션 사용
@@ -290,23 +290,23 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Name    | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number    | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| keyring | object \ | string | A private key string ([KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number    | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                               |
 | hasher  | Function  | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-**리턴값**
+**Return Value**
 
-`Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
+`Promise` returning `object`: The signed transaction.
 
-| 타입 | 설명                                                                                                                |
-| -- | ----------------------------------------------------------------------------------------------------------------- |
-| 객체 | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.feePayerSignatures`. |
+| Type   | Description                                                                                                       |
+| ------ | ----------------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](./#class). The signature is appended to the `transaction.feePayerSignatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
@@ -402,13 +402,13 @@ transaction.appendSignatures(signatures)
 
 Appends `signatures` to the transaction.
 
-**파라미터**
+**Parameters**
 
-| 이름 | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                  |
-| -- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 서명 | object \ | Array | The signatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| Name       | Type      | Description                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | object \ | Array | The signatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -422,15 +422,15 @@ transaction.appendFeePayerSignatures(signatures)
 
 Appends `feePayerSignatures` to the transaction.
 
-**참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
-**파라미터**
+**Parameters**
 
-| 이름                 | 타입        | 설명                                                                                                                                                                                                                                                                                                                                                                                          |
+| Name               | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | feePayerSignatures | object \ | Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver.wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver.wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -444,19 +444,19 @@ transaction.combineSignedRawTransactions(rlpEncodedTxs)
 
 Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
 
-**파라미터**
+**Parameters**
 
-| 이름            | 타입    | 설명                                                  |
+| Name          | Type  | Description                                         |
 | ------------- | ----- | --------------------------------------------------- |
 | rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                                                                                                                                                           |
+| Type   | Description                                                                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.combineSignedRawTransactions(['0x09f88...'])
@@ -473,13 +473,13 @@ RLP 인코딩된 트랜잭션 문자열을 반환합니다.
 
 For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                    |
+| Type   | Description           |
 | ------ | --------------------- |
 | string | RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getRLPEncoding()
@@ -494,13 +494,13 @@ transaction.getRawTransaction()
 
 `rawTransaction` 문자열을 반환합니다(RLP 인코딩된 트랜잭션 문자열). This function is same with [transaction.getRLPEncoding](./#transaction-getrlpencoding).
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                    |
-| ------ | --------------------- |
-| string | RLP 인코딩된 트랜잭션 문자열입니다. |
+| Type   | Description                       |
+| ------ | --------------------------------- |
+| string | A RLP-encoded transaction string. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getRawTransaction()
@@ -517,13 +517,13 @@ transaction.getTransactionHash()
 
 For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명          |
+| Type   | Description |
 | ------ | ----------- |
 | string | 트랜잭션 해시입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getTransactionHash()
@@ -542,13 +542,13 @@ The [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) is a
 
 For information on how to make the [senderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                              |
+| Type   | Description                     |
 | ------ | ------------------------------- |
 | string | 전송자의 트랜잭션 해시(senderTxHash) 입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getSenderTxHash()
@@ -565,13 +565,13 @@ transaction.getRLPEncodingForSignature()
 
 For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                |
+| Type   | Description                       |
 | ------ | --------------------------------- |
 | string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getRLPEncodingForSignature()
@@ -584,19 +584,19 @@ For information on how to make a RLP-encoded transaction string to generate the 
 transaction.getRLPEncodingForFeePayerSignature()
 ```
 
-수수료 납부자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. 반환된 RLP 인코딩된 트랜잭션 문자열은 서명에 추가되는 것이 아니라, 이 서명을 생성하는 데 사용된다는 점을 참고하세요.
+수수료 납부자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
 For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../klaytn/design/transactions/).
 
-**참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
-**리턴값**
+**Return Value**
 
-| 타입     | 설명                                |
-| ------ | --------------------------------- |
-| string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
+| Type   | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
+| string | A RLP-encoded transaction string without any signature attached. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.getRLPEncodingForFeePayerSignature()
@@ -615,11 +615,11 @@ transaction.fillTransaction()
 
 Use [caver.rpc.klay.getGasPrice](../caver.rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver.rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
 
-**리턴값**
+**Return Value**
 
 `Promise`는 `void`을 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.fillTransaction()
@@ -635,13 +635,13 @@ transaction.recoverPublicKeys()
 
 **참고** `transaction.recoverPublicKeys`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3)부터 지원됩니다.
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명                                                           |
+| Type  | Description                                                  |
 | ----- | ------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `signatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.recoverPublicKeys()
@@ -662,13 +662,13 @@ transaction.recoverFeePayerPublicKeys()
 
 **참고** `transaction.recoverFeePayerPublicKeys`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3)부터 지원됩니다.
 
-**리턴값**
+**Return Value**
 
-| 타입    | 설명                                                                   |
+| Type  | Description                                                          |
 | ----- | -------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
-**예시**
+**Example**
 
 ```javascript
 > transaction.recoverFeePayerPublicKeys()
@@ -691,15 +691,15 @@ Before the Magma hard fork, `suggestGasPrice` returns the unit price of the netw
 
 **NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
-**리턴값**
+**Return Value**
 
 `Promise` returning `string`: The suggested gas price in hexadecimal string.
 
-| 타입     | 설명                       |
+| Type   | Description              |
 | ------ | ------------------------ |
 | string | The suggested gas price. |
 
-**예시**
+**Example**
 
 ```javascript
 > tx.suggestGasPrice().then(console.log)
