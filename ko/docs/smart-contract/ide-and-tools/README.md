@@ -3,7 +3,7 @@ description: >-
   이 페이지는 Klaytn의 스마트 컨트랙트 개발을 돕는 개발 도구 목록을 보여줍니다.
 ---
 
-# IDE 및 도구
+# IDE and Tools
 
 #### [Remix Online IDE](../../toolkit/klaytn-ide.md) <a href="#remix-ide" id="remix-ide"></a>
 
@@ -19,8 +19,8 @@ description: >-
 
 #### [Klaytn Wallet](../../toolkit/klaytn-wallet.md) <a href="#klaytn-wallet" id="klaytn-wallet"></a>
 
-* Klaytn Wallet is a browser-based account management tool for the Decentralized Application (dApp) developers. 계정을 생성하거나 불러오고, 잔액을 확인하고, KLAY를 전송할 수 있습니다. 자신의 Klaytn 토큰을 등록해 기본 동작들을 테스트할 수도 있습니다.
+* Klaytn Wallet is a browser-based account management tool for the Decentralized Application (dApp) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
 
 #### [Klaytnscope](../../toolkit/klaytnscope.md) <a href="#klaytnscope" id="klaytnscope"></a>
 
-* Klaytnscope는 클레이튼 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
+* Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
