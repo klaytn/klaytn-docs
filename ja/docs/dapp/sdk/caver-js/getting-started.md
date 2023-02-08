@@ -1,8 +1,8 @@
-# はじめに
+# Getting Started
 
 This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](v1.4.1/getting-started\_1.4.1.md).
 
-## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 ### Dependencies <a href="#dependencies" id="dependencies"></a>
 
@@ -20,7 +20,7 @@ The following packages are required to use the caver-js library.
 
 If you use a different version of the Node (for example, Node v15), utilize the Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) to install and use the version supported by caver-js.
 
-### インストール <a href="#installation" id="installation"></a>
+### Installation <a href="#installation" id="installation"></a>
 
 To try it out, install caver-js with npm using the following command:
 
@@ -63,7 +63,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -72,7 +72,7 @@ Klaytn/v1.4.0/linux-amd64/go1.14.1
 
 If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
 
-### Klaytn ノードへの接続 <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Klaytn Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
 You can import the caver-js module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
@@ -81,14 +81,14 @@ const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
-ENを実行している場合は、以下のようにホストとポートを変更することで、独自のノードに接続できます。
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## キーリングの管理 <a href="#managing-keyrings" id="managing-keyrings"></a>
+## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
 
 [Keyring](api-references/caver.wallet/keyring.md) is a structure that contains the address of the Klaytn account and the private key(s).
 
@@ -100,11 +100,11 @@ const caver = new Caver('https://your.en.url:8651/')
 
 The `keys` property defined in [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring) is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../klaytn/design/accounts.md#roles). The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
-### キーリングの作成 <a href="#creating-a-keyring" id="creating-a-keyring"></a>
+### Creating a Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
-#### シングルキーリングの生成 <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
+#### Generating a SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
 
-以下のように、ランダムに 1 つのキーリングを生成できます。
+You can randomly generate a single keyring as shown below.
 
 ```javascript
 // test.js
@@ -119,7 +119,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -131,9 +131,9 @@ SingleKeyring {
 
 The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
 
-#### 秘密鍵からシングルキーを作成する <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
+#### Creating a SingleKeyring from private key <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
 
-また、特定の秘密鍵を所有している場合は、以下のようにキーリングを作成することができます。
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
 ```javascript
 // test.js
@@ -149,7 +149,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -161,9 +161,9 @@ SingleKeyring {
 
 The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api-references/caver.wallet/keyring.md#singlekeyring) instance with an address defined inside it and a \[PrivateKey] instance in `keyring.key`.
 
-#### 秘密鍵とアドレスでシングルキーを作成する <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-Klaytnアカウントの秘密鍵がアドレスから分離されている場合 指定されたアドレスと指定された秘密鍵を使用してキーリングを作成できます。
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```javascript
 // test.js
@@ -197,7 +197,7 @@ SingleKeyring {
 }
 ```
 
-#### 複数の秘密鍵を使ったマルチプレキーの作成 <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### Creating a MultipleKeyring with multiple private keys <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
 If you want to use multiple private keys, you can create a [MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) using an address and multiple private keys. The below examples show how to create a [MultipleKeyring](api-references/caver.wallet/keyring.md#multiplekeyring) with multiple private keys.
 
@@ -215,7 +215,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -230,7 +230,7 @@ MultipleKeyring {
 
 As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
 
-#### 秘密鍵でRoleBasedKeyringを作成する <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### Creating a RoleBasedKeyring with private keys <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
 To use different private key(s) for each [role](../../../klaytn/design/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring). The example below shows how to create a [RoleBasedKeyring](api-references/caver.wallet/keyring.md#rolebasedkeyring) instance from different keys for each role.
 
@@ -252,7 +252,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -336,7 +336,7 @@ SingleKeyring {
 }
 ```
 
-上記の出力を見ると、 `caver.wallet` に `caver.wallet` に追加した後、キーリングをクエリすることができます。
+Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
 
 If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet](api-references/caver.wallet/) via [caver.wallet.newKeyring](api-references/caver.wallet/#caver-wallet-newkeyring).
 
@@ -366,7 +366,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。 The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
 
 ```bash
 $ node ./test.js
@@ -402,30 +402,30 @@ RoleBasedKeyring {
 }
 ```
 
-`caver.wallet.add` または `caver.wallet.newKeyring` は、 `caver.wallet` に追加した後にキーリングインスタンスを返します。
+`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
 
-## トランザクションの送信 <a href="#sending-a-transaction" id="sending-a-transaction"></a>
+## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
 This section will show you how to send KLAY using caver-js on the Baobab network.
 
-### Baobab Faucet経由でKLAYを取得する <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
-テストに KLAYが必要な場合は、 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) から Baobab testnet KLAYを入手できます。 秘密鍵またはキーストアファイルを使用してKlaytn Walletにログインし、テスト用の蛇口からテストネットKLAYを受け取ります。
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### 価値転送トランザクションの送信 <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-js wallet to generate a signature of a transaction. トランザクションをネットワークに送信するには、以下の2つのステップを実行する必要があります。
+You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
-1. 取引に署名する
+1. Sign a transaction
    * If the keyring you want to use is added to [caver.wallet](api-references/caver.wallet/), you can use `caver.wallet.sign` function to sign.
-   * `caver.wallet`に追加せずにキーリングを個別に管理する場合は、 `transaction.sign` 関数を通じてトランザクションに署名できます。
-2. `caver.rpc.klay.sendRawTransaction` を経由して、署名されたトランザクションの RLP エンコードされた文字列を Klaytn に送信します。
+   * If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough number of KLAY.
 
-#### 取引に署名する
+#### Sign a transaction
 
-Klaytnにトランザクションを送信する前に、まずトランザクションに署名する必要があります。
+Before sending a transaction to Klaytn, you should sign a transaction first.
 
 Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api-references/caver.wallet/).
 
@@ -457,17 +457,17 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードは `caver.wallet`にキーリングを追加し、トランザクションを作成し、 `caver.wallet.sign` を通じてトランザクションに署名します。
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
 
-上記のコードを実行すると、次の結果が得られます。 上記のコードが実行されると、トランザクションの RLP エンコードされた文字列が以下に示されます。 (以下に示す文字列出力とは異なる場合があります。
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### 署名されたトランザクションの RLP エンコードされた文字列を Klaytn に送る
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
 
-以下のように、署名済みのトランザクションをネットワークに送信できます。 以下の例を実行したい場合は、 `0x{RLP-encoded string}` を `rlpEncoded` の値に置き換えてください。
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -485,7 +485,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。 When the above code is executed, the receipt of the transaction is shown below.
+Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -513,7 +513,7 @@ $ node ./test.js
 }
 ```
 
-`caver.wallet`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
+If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
 
 ```javascript
 // test.js
@@ -543,7 +543,7 @@ testFunction()
 
 When the above code is executed, the receipt of the transaction is printed like the previous example.
 
-### 領収書の確認 <a href="#checking-receipts" id="checking-receipts"></a>
+### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
 You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction](api-references/caver.rpc/klay.md#caver-rpc-klay-sendrawtransaction).
 
@@ -561,7 +561,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. `transactionHash` フィールドは受領オブジェクト内で定義されます。 You can use [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
 
 ```javascript
 // test.js
@@ -576,7 +576,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。 When the above code is executed, the receipt of the transaction is shown below.
+Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -604,15 +604,15 @@ $ node ./test.js
 }
 ```
 
-トランザクションの結果は、領収書の `ステータス` から確認できます。 For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). トランザクションが失敗した場合は、領収書の `txError` で詳細を確認できます。 `txError`についての詳細は、 [txError: Transaction Failures](../../json-rpc/transaction-error-codes.md) を参照してください。
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
 
-## 他のトランザクションタイプの実行 <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
+## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytnは拡張性とパフォーマンスのためのさまざまなトランザクションタイプを提供します。 For more information, see [Transactions](../../../klaytn/design/transactions/). This section describes some examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/). This section describes some examples that can be used with caver-js.
 
-### 手数料のデリゲーション <a href="#fee-delegation" id="fee-delegation"></a>
+### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/#fee-delegation) feature. あなたがこの種のトランザクションの送信者である場合、以下はRLPエンコードされたトランザクションを作る例です:
+Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -639,14 +639,14 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードが実行されると、RLPエンコードされた文字列が出力されます。 (以下に示す文字列出力とは異なる場合があります。
+When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. そうでなければ、 手数料支払者は、送信者によって署名された RLP エンコードされた文字列から `feeDelegatedTx` を作成し、手数料支払者の署名を追加する必要があります。 下図のように。 以下の例を実行したい場合は、 `0x{RLP-encoded string}` を `rlpEncoded` の値に置き換えてください。
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -671,14 +671,14 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードが実行されると、送信者の署名と手数料支払者の署名を含むRLPエンコードされた文字列が以下のように表示されます。 (下図の文字列出力とは異なる場合があります。
+When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
 
 ```bash
 $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-トランザクションは送信者と手数料支払者の両方によって署名され、ネットワーク経由で送信できるようになりました。 `0x{RLP-encoded string}` を上記のサンプルコードの RLPエンコードされた文字列出力に置き換えます。
+The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
 
 ```javascript
 // test.js
@@ -694,7 +694,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。 Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
 
 ```bash
 $ node ./test.js
@@ -730,27 +730,27 @@ $ node ./test.js
 }
 ```
 
-### アカウントの更新 <a href="#account-update" id="account-update"></a>
+### Account Update <a href="#account-update" id="account-update"></a>
 
-Klaytnアカウントの秘密鍵を変更したい場合は、覚えておくべき重要なことが3つあります。
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-1. Klaytnはあなたが送信するすべてのトランザクションを検証します。
-2. 検証には、秘密鍵と完全に一致する公開鍵が必要です。
-3. したがって、秘密鍵を新しい鍵に変更することは、 **常に** **の前に** 、古い公開鍵を新しい鍵に変更することによって行われます。 新しい公開鍵は、新しい秘密鍵から派生しなければなりません。
+1. Klaytn validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
-上記の3つのことを心に留めておくと、以下の手順に従って秘密鍵を変更することができます:
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
-1. 新しい秘密鍵を作成するために新しい秘密鍵を準備します。
-2. 必要に応じてキーリング(シングルキーリング、複数キーリング、ロールベースキーリング)を作成します。
-3. 新しいキーリングからAccountインスタンスを生成します。 このアカウントインスタンスは、Klaytnアカウントの新しい公開鍵を保持します。
-4. AccountUpdateトランザクションをKlaytnに送信します。
-5. 最後に、ステップ2で作成された新しいキーリングに古いキーリングを置き換えます。
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
 
 Please check [Account Update](api-references/caver.transaction/basic.md#accountupdate) for the details.
 
 To change your AccountKey, you must provide an [Account](api-references/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api-references/caver.account.md) instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic](../../../klaytn/design/accounts.md#accountkeypublic). 新しい秘密鍵を準備することを忘れないでください。
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic](../../../klaytn/design/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
 
 ```javascript
 // test.js
@@ -784,9 +784,9 @@ async function testFunction() {
 testFunction()
 ```
 
-If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. 更新されると、署名は新たに更新された秘密鍵によって行われます。
+If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-上記のコードを実行すると、次の結果が得られます。 In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
 
 ```bash
 $ node ./test.js
@@ -816,9 +816,9 @@ new private key string: 0x{private key}
 }
 ```
 
-Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api-references/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api-references/caver.account.md) instance with multiple public keys via [caver.account.create](api-references/caver.account.md#caver-account-create)). トランザクションオブジェクト内の `アカウント` フィールドに作成された口座インスタンスを指定した後も同じです。 残りの左側は上記の例と同じです
+Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api-references/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api-references/caver.account.md) instance with multiple public keys via [caver.account.create](api-references/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions). 最初のパラメータはthresholdで、2番目のパラメータは各キーの重みを含む配列です。
+First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -834,14 +834,14 @@ const account = newKeyring.toAccount(options)
 Now let's update AccountKey using [AccountKeyRoleBased](../../../klaytn/design/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../klaytn/design/accounts.md#accountkeyrolebased) is an `AccountKey` type that defines the key to use for each [role](../../../klaytn/design/accounts.md#roles).
 
 ```javascript
-// AccountKeyRoleBased を使用してロールを持つアカウントインスタンスを作成します。 作成されたアカウントインスタンスでは、各ロールには1つの秘密鍵に対応する公開鍵があります。
+// Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
 const account = newKeyring.toAccount()
 ```
 
-AccountKeyRoleBaseは、ロールごとに1つの公開鍵を使用する例です。 上のコードからわかるように、それぞれが1つの秘密鍵に対応しています。 If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api-references/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -870,9 +870,9 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### スマート契約 <a href="#smart-contract" id="smart-contract"></a>
+### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
-The [caver.contract](api-references/caver.contract.md) package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. これにより、JavaScript オブジェクトであるかのようにスマートコントラクトとやり取りできます。
+The [caver.contract](api-references/caver.contract.md) package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
 
@@ -901,7 +901,7 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**注**: スマートコントラクトをコンパイルするには、 [solidity コンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html) がインストールされている必要があります。
+**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
 For the smart contract deployment, you can use [caver.contract](api-references/caver.contract.md) to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy](api-references/caver.transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) or [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Here is an example of using [caver.contract](api-references/caver.contract.md).
 
@@ -942,7 +942,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1004,7 +1004,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1407,7 +1407,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードが実行されると、値は以下の出力として表示されます。
+When the above code is executed, the value is shown as an output below.
 
 ```bash
 $ node ./test.js
@@ -1420,7 +1420,7 @@ To find more information, see [caver.contract](api-references/caver.contract.md)
 
 If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
-このセクションでは、複数の署名者がいる場合に署名を収集し、トランザクションを送信する方法について説明します。
+This section describes how to collect signatures and send the transaction if there are multiple signers.
 
 To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig](../../../klaytn/design/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](getting-started.md#account-update) for how to update your Klaytn account.
 
@@ -1458,7 +1458,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。 Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api-references/caver.wallet/keyring.md#signaturedata) is an object that stores a signature.
+Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api-references/caver.wallet/keyring.md#signaturedata) is an object that stores a signature.
 
 ```bash
 $ node ./test.js
@@ -1509,7 +1509,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1555,7 +1555,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1591,7 +1591,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1620,7 +1620,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1652,7 +1652,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1683,7 +1683,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1698,7 +1698,7 @@ $ node ./test.js
 }
 ```
 
-### KIP-37 インターフェイスの検出 <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
 
@@ -1717,7 +1717,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1746,7 +1746,7 @@ async function testFunction() {
 testFunction()
 ```
 
-上記のコードを実行すると、次の結果が得られます。
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1797,7 +1797,7 @@ The DApp (Blockchain Application) Development sample projects using caver-js are
      }
     ```
 
-## リンク <a href="#links" id="links"></a>
+## Links <a href="#links" id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
