@@ -1,27 +1,27 @@
-# 手数料のデリゲーション <a id="fee-delegation"></a>
+# Fee Delegation <a id="fee-delegation"></a>
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransferは、ユーザーがKLAYを送信したいときに使用されます。 Klaytnはそれぞれのトランザクションタイプを1つの目的にするために複数のトランザクションタイプを提供しています。 TxTypeFeeDelegatedValueTransferは、KLAYを外部所有のアカウントに送信するために制限されています。 そのため、 `to` が外部所有のアカウントである場合にのみ、TxTypeFeeDelegatedValueTransferが受け付けられます。 KLAYをスマートコントラクトアカウントに転送するには、代わりに [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) を使用してください。 次の変更は、このトランザクションタイプによって行われます。
+TxTypeFeeDelegatedValueTransferは、ユーザーがKLAYを送信したいときに使用されます。 Klaytnはそれぞれのトランザクションタイプを1つの目的にするために複数のトランザクションタイプを提供しています。 TxTypeFeeDelegatedValueTransferは、KLAYを外部所有のアカウントに送信するために制限されています。 そのため、 `to` が外部所有のアカウントである場合にのみ、TxTypeFeeDelegatedValueTransferが受け付けられます。 KLAYをスマートコントラクトアカウントに転送するには、代わりに [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) を使用してください。 The following changes will be made by this transaction type.
 
 1. 手数料支払者の残高は、取引手数料の金額によって減少します。
-2. 送信者のノンスは一つずつ増加します。
-3. `値` KLAYは送信者から受信者に転送される。
+2. The sender's nonce increases by one.
+3. `value` KLAY is transferred from the sender to the recipient.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                    |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransferのタイプ これは0x09でなければなりません。                                                                                         |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が許可されるガスの最大使用量。                                                                                                                              |
-| to                 | common.address \(Go\)                                | 転送された値を受け取るアカウントアドレス。                                                                                                                          |
-| 値                  | \*big.Int \(Go\)                                   | 転送する `peb` 内の KLAYの量。                                                                                                                          |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証](README.md#signature-validation-of-transactions) を参照してください。                                                   |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                   |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                                             |
+|:------------------ |:------------------------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransferのタイプ これは0x09でなければなりません。                                                                                                                                                                                                                                  |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                      |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. KLAYの [単位][] を参照のこと。 |
+| gas                | uint64 \(Go\)                                        | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                            |
+| to                 | common.Address \(Go\)                                | The account address that will receive the transferred value.                                                                                                                                                                                                                            |
+| value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                                                                          |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions](README.md#signature-validation-of-transactions).                                                                                                                                                |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                                                                                                                                          |
+| feePayer           | common.Address \(Go\)                                | 手数料支払者の住所                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                                                                                                                                                              |
 
 ### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -43,21 +43,20 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
 SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignatures])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -70,7 +69,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -105,9 +104,9 @@ SenderTxHash 40f8c94e01e07eb5353f6cd4cd3eabd5893215dd53a50ba4b8ff9a447ac51731
     Hex:           09f8d68204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a09f8e49e2ad84b0732984398749956e807e4b526c786af3c5f7416b293e638956a06bf88342092f6ff9fabe31739b2ebfa1409707ce54a54693e91a6b9bb77df0e7945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0f45cf8d7f88c08e6b6ec0b3b562f34ca94283e4689021987abb6b0772ddfd80aa0298fe2c5aeabb6a518f4cbb5ff39631a5d88be505d3923374f65fdcf63c2955b
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -149,31 +148,31 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 ## TxTypeFeeDelegatedValueTransferMemo <a id="txtypefeedelegatedvaluetransfermemo"></a>
 
-TxTypeFeeDelegatedValueTransferMemoは、ユーザーが特定のメッセージでKLAYを送信したい場合に使用されます。 TxTypeFeeDelegatedValueTransferMemoは、 `to` が外部所有のアカウントの場合にのみ受け付けます。 KLAYをスマートコントラクトアカウントに転送するには、代わりに [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) を使用してください。 次の変更は、このトランザクションタイプによって行われます。
+TxTypeFeeDelegatedValueTransferMemoは、ユーザーが特定のメッセージでKLAYを送信したい場合に使用されます。 TxTypeFeeDelegatedValueTransferMemoは、 `to` が外部所有のアカウントの場合にのみ受け付けます。 To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
 
-1. 手数料支払者の残高は、取引手数料の金額によって減少します。
-2. 送信者のノンスは一つずつ増加します。
-3. `値` KLAYは送信者から受信者に転送される。
+1. The fee payer's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. `value` KLAY is transferred from the sender to the recipient.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | Description                                            | タイプ                                                                                                                                            | 値の例 |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |:--- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransferMemoのタイプ これは0x11でなければなりません。                                                                                     |     |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |     |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |     |
-| ガス                 | uint64 \(Go\)                                        | 取引が許可されるガスの最大使用量。                                                                                                                              |     |
-| to                 | common.address \(Go\)                                | 転送された値を受け取るアカウントアドレス。                                                                                                                          |     |
-| 値                  | \*big.Int \(Go\)                                   | 転送する `peb` 内の KLAYの量。                                                                                                                          |     |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                 |     |
-| input              | \[\]byte \(Go\)                                    | トランザクションに添付されたデータ メッセージはこの属性に渡す必要があります。                                                                                                        |     |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                   |     |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |     |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |     |
+| Attribute          | Description                                            | Type                                                                                                                                                                                                                                                                                     | 値の例 |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--- |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransferMemoのタイプ これは0x11でなければなりません。                                                                                                                                                                                                                               |     |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                       |     |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY][]. |     |
+| gas                | uint64 \(Go\)                                        | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                             |     |
+| to                 | common.Address \(Go\)                                | The account address that will receive the transferred value.                                                                                                                                                                                                                             |     |
+| value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                                                                           |     |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                               |     |
+| input              | \[\]byte \(Go\)                                    | Data attached to the transaction. The message should be passed to this attribute.                                                                                                                                                                                                        |     |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                                 |     |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                            |     |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                              |     |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gasPrice, to, value, from, input]), chainid, 0, 0])
@@ -181,9 +180,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(Sighash, <the sender's private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gasPrice, to, value, from, input]), feePayer, chainid, 0, 0])
@@ -191,21 +190,20 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
 SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSignatures])
-SenderTxHash = kecchak256(SenderTxHashRLP)
+SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -218,7 +216,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -254,9 +252,9 @@ SenderTxHash fffaa2b38d4e684ea70a89c78fc7b2659000d130c76ad721d68175cbfc77c550
     Hex:           11f8dc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84326a064e213aef0167fbd853f8f9989ef5d8b912a77457395ccf13d7f37009edd5c5ba05d0c2e55e4d8734fe2516ed56ac628b74c0eb02aa3b6eda51e1e25a1396093e1945a0043070275d9f6054307ee7348bd660849d90ff845f84326a087390ac14d3c34440b6ddb7b190d3ebde1a07d9a556e5a82ce7e501f24a060f9a037badbcb12cda1ed67b12b1831683a08a3adadee2ea760a07a46bdbb856fea44
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -299,34 +297,34 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 ## TxTypeFeeDelegatedSmartContractDeploy <a id="txtypefeedelegatedsmartcontractdeploy"></a>
 
-TxTypeFeeDelegatedSmartContractDeployは手数料委任でスマートコントラクトを展開します。 次の変更は、このトランザクションタイプによって行われます。
+TxTypeFeeDelegatedSmartContractDeployは手数料委任でスマートコントラクトを展開します。 The following changes will be made by this transaction type.
 
-1. 手数料支払者の残高は、取引手数料の金額によって減少します。
-2. 送信者のノンスは一つずつ増加します。
-3. スマートコントラクトは `入力` でコードとともにデプロイされます。 デプロイされたアドレスは、領収書の `contractAddress` を介して返されます。
-4. `値` KLAYは送信者から受信者に転送される。
+1. The fee payer's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
+4. `value` KLAY is transferred from the sender to the recipient.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                    |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeFeeDelegatedSmartContractDeployの型。 これは0x29でなければなりません。                                                                                    |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が許可されるガスの最大使用量。                                                                                                                              |
-| to                 | \*common.address \(Go\)                            | 転送された値を受け取るアカウントアドレス。 現在、この値は nil でなければなりません。 アドレスの指定は今後サポートされる予定です。                                                                           |
-| 値                  | \*big.Int \(Go\)                                   | 転送する `peb` 内の KLAYの量。                                                                                                                          |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                 |
-| input              | \[\]byte \(Go\)                                    | トランザクションの実行に使用されるトランザクションに添付されたデータ。                                                                                                            |
-| humanReadable      | bool \(Go\)                                          | 人間が読めるアドレスはまだサポートされていないため、これは偽でなければなりません。 true の場合、トランザクションは拒否されます。                                                                            |
-| codeFormat         | uint8 \(Go\)                                         | スマートコントラクトコードのコード形式。 現在サポートされている値は EVM\(0x00\) のみです。                                                                                         |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                   |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                                              |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedSmartContractDeployの型。 これは0x29でなければなりません。                                                                                                                                                                                                                              |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                       |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY][]. |
+| gas                | uint64 \(Go\)                                        | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                             |
+| to                 | \*common.Address \(Go\)                            | The account address that will receive the transferred value. Currently, this value must be nil. Specifying the address will be supported in the future.                                                                                                                                  |
+| value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                                                                           |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                               |
+| input              | \[\]byte \(Go\)                                    | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                        |
+| humanReadable      | bool \(Go\)                                          | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected.                                                                                                                                                                         |
+| codeFormat         | uint8 \(Go\)                                         | The code format of smart contract code. The supported value for now is EVM\(0x00\) only.                                                                                                                                                                                               |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                                 |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                            |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                              |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode(type, nonce, gasPrice, gasPrice, to, value, from, input, humanReadable, codeFormat]), chainid, 0, 0])
@@ -334,9 +332,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(Sighh, <the sender's private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode(type, nonce, gasPrice, gasPrice, to, value, from, input, humanReadable, codeFormat]), feePayer, chainid. 0])
@@ -344,9 +342,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -355,9 +353,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input,hu
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -370,7 +368,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -408,9 +406,9 @@ SenderTxHash f3bca26fc8b50bfbcc1e94bc792ee6489cff14056e7e9aa2b074abb385f2139f
     Hex:           29f902d98204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00290180f845f84325a04ea37b8ecfed93795a9f99b1e4d554df6fb05a361965a7655abd4e4c4422a9e5a00b05e3fffe5a3c0892eaff31466f6c47b7edad80703d395d65bbfc1a2c6a2570945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0c6738376304dfb32c77649bddd4ade925b947876cfe6b1fd2c06a2e4394504cca023817ba66a6b7c92fcf23f2d5506ea2a673aae5f1a1e4d742367971ae58a1576
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -455,64 +453,63 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 ## TxTypeFeeDelegatedSmartContractExecution <a id="txtypefeedelegatedsmartcontractexecution"></a>
 
-TxTypeFeeDelegatedSmartContractExecutionは、指定されたデータとスマートコントラクトを `入力`で実行します。 手数料は、与えられた手数料支払者によって支払われます。 TxTypeFeeDelegatedSmartContractExecutionは、 `to` がスマートコントラクトアカウントである場合にのみ受け付けます。 KLAYを外部所有のアカウントに転送するには、代わりに [TxTypeFeeDelegatedValueTransfer](fee-delegation.md#txtypefeedelegatedvaluetransfer) を使用してください。 次の変更は、このトランザクションタイプによって行われます。
+TxTypeFeeDelegatedSmartContractExecutionは、指定されたデータとスマートコントラクトを `入力`で実行します。 手数料は、与えられた手数料支払者によって支払われます。 TxTypeFeeDelegatedSmartContractExecutionは、 `to` がスマートコントラクトアカウントである場合にのみ受け付けます。 KLAYを外部所有のアカウントに転送するには、代わりに [TxTypeFeeDelegatedValueTransfer](fee-delegation.md#txtypefeedelegatedvaluetransfer) を使用してください。 The following changes will be made by this transaction type.
 
-1. `to` がスマートコントラクト口座の場合、コードは `入力` に基づいて実行されます。 そうでなければ、このトランザクションは拒否されます。
-2. 手数料支払者の残高は、取引手数料の金額によって減少します。
-3. 送信者のノンスは一つずつ増加します。
-4. `値` が指定された場合、 `値` KLAYは送信者から `から` スマートコントラクトに転送されます。 契約には、KLAYを受け取るための支払い可能なフォールバック機能が必要です。
+1. If `to` is a smart contract account, the code is executed based on `input`. Otherwise, this transaction will be rejected.
+2. The fee payer's balance decreases by the amount of the transaction fee.
+3. The sender's nonce increases by one.
+4. If `value` was provided, `value` KLAY is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KLAY.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                    |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeFeeDelegatedSmartContractExecutionのタイプ。 これは0x31でなければなりません。                                                                               |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が許可されるガスの最大使用量。                                                                                                                              |
-| to                 | common.address \(Go\)                                | 実行するスマートコントラクトアカウントのアドレス。                                                                                                                      |
-| 値                  | \*big.Int \(Go\)                                   | 転送する `peb` 内の KLAYの量。                                                                                                                          |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                 |
-| input              | \[\]byte \(Go\)                                    | トランザクションの実行に使用されるトランザクションに添付されたデータ。                                                                                                            |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                   |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                                              |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedSmartContractExecutionのタイプ。 これは0x31でなければなりません。                                                                                                                                                                                                                         |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                       |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY][]. |
+| gas                | uint64 \(Go\)                                        | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                             |
+| to                 | common.Address \(Go\)                                | The address of the smart contract account to be executed.                                                                                                                                                                                                                                |
+| value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                                                                           |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                               |
+| input              | \[\]byte \(Go\)                                    | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                        |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                                 |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                            |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                              |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
-SigRLP = encode([encode([type, nonce, gasPrice, gasPrice, to, value, from, input]), chainid, 0, 0])
+SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), chainid, 0, 0])
 SigHash = keccak256(SigRLP)
-Signature = sign(Sighash, <the sender's private key>)
+Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
-SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gasPrice, to, value, from, input]), feePayer, chainid, 0, 0])
+SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), feePayer, chainid, 0, 0])
 SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
 SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSignatures])
-SenderTxHash = kecchak256(SenderTxHashRLP)
+SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -525,7 +522,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -561,9 +558,9 @@ SenderTxHash 3cd3380f4206943422d5d5b218dd66d03d60d19a109f9929ea12b52a230257cb
     Hex:           31f8fb8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84325a0253aea7d2c37160da45e84afbb45f6b3341cf1e8fc2df4ecc78f14adb512dc4fa022465b74015c2a8f8501186bb5e200e6ce44be52e9374615a7e7e21c41bc27b5945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0e7c51db7b922c6fa2a941c9687884c593b1b13076bdf0c473538d826bf7b9d1aa05b0de2aabb84b66db8bf52d62f3d3b71b592e3748455630f1504c20073624d80
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -608,29 +605,29 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 TxTypeFeeDelegatedAccountUpdate 指定されたアカウントのキーを更新します。 手数料は手数料支払者によって支払われます。 次の変更は、このトランザクションタイプによって行われます。
 
-1. 手数料支払者の残高は、取引手数料の金額によって減少します。
-2. 送信者のノンスは一つずつ増加します。
-3. アカウントのキーは `キー` で更新されます。
-4. このタイプのトランザクションが実行されると、その後アカウントから送信されたトランザクションは新しい `キー` で検証されます。
-5. 手数料は手数料支払者によって支払われます。
+1. The fee payer's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. The account's key is updated with `key`.
+4. Once this type of transaction is executed, transactions sent from the account afterward will be validated with the new `key`.
+5. The transaction fee is paid by the fee payer.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                            |
-|:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| タイプ                | uint8 \(Go\)                                         | TxTypeAccountUpdate のタイプ。 これは0x21でなければなりません。                                                                                                           |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                         |
-| gasPrice           | \*big.Int \(Go\)                                   | 送信者がトークンで支払う金額を取得する倍数。 送信者が支払うトークンの金額は、 `ガス` \* `gasPrice` で計算されます。 例えば、ガスが10でgasPriceが10^18の場合、送信者はトランザクション手数料として10KLAYを支払います。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が使用できる取引手数料の最大額です。                                                                                                                                   |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                         |
-| キー                 | AccountKey \(Go\)                                    | [AccountKey][] は、アカウントに更新されます。                                                                                                                         |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                           |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                              |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                             |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                            |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | The type of TxTypeAccountUpdate. これは0x21でなければなりません。                                                                                                                                                                                                                    |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                     |
+| gasPrice           | \*big.Int \(Go\)                                   | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KLAY for a transaction fee if gas is 10 and gasPrice is 10^18. See [Unit of KLAY][]. |
+| gas                | uint64 \(Go\)                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                               |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                             |
+| key                | AccountKey \(Go\)                                    | [AccountKey][] to be updated to the account.                                                                                                                                                                                                                           |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                               |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                          |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                            |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey]), chainid, 0, 0])`
@@ -638,9 +635,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(Sighash, <the sender's private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode(type, nonce, gasPrice, gas, from, rlpEncodedKey]), feePayer, chainid, 0, 0])
@@ -648,21 +645,20 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
-SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodeKey, txSignatures])
-SenderTxHash = keckak256(SenderTxHashRLP)
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSignatures])
+SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -675,7 +671,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -709,9 +705,9 @@ SenderTxHash f56937017bd3b75c637ba5b4ce90df20c166006a2a529b42e808bc806159b98f
     Hex:           21f8e48204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33df845f84326a0ab69d9adca15d9763c4ce6f98b35256717c6e932007658f19c5a255de9e70ddaa026aa676a3a1a6e96aff4a3df2335788d614d54fb4db1c3c48551ce1fa7ac5e52945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0f295cd69b4144d9dbc906ba144933d2cc535d9d559f7a92b4672cc5485bf3a60a0784b8060234ffd64739b5fc2f2503939340ab4248feaa6efcf62cb874345fe40
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -754,24 +750,24 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 TxTypeFeeDelegatedCancelはトランザクションプールで同じノンスを持つトランザクションの実行をキャンセルします。 詳細については、 [TxTypeCancel](basic.md#txtypecancel) を参照してください。
 
-次の変更は、このトランザクションタイプによって適用されます。 1. 手数料支払者の残高は、取引手数料の金額によって減少します。 2. 送信者のノンスは一つずつ増加します。
+The following changes will apply by this transaction type. 1. The fee payer's balance decreases by the amount of the transaction fee. 2. The sender's nonce increases by one.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                    |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeCancel のタイプ。 これは0x39でなければなりません。                                                                                                          |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が使用できる取引手数料の最大額です。                                                                                                                           |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                 |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証][] を参照してください。                                                                                                   |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                                              |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | The type of TxTypeCancel. これは0x39でなければなりません。                                                                                                                                                                                                                                             |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                       |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY][]. |
+| gas                | uint64 \(Go\)                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                 |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                               |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions][].                                                                                                                                                                                                 |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                            |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                              |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, from]), chainid, 0, 0])
@@ -779,9 +775,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(Sighash, <the sender's private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, from]), feePayer, chainid, 0, 0])
@@ -789,21 +785,20 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
 SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -816,7 +811,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -849,9 +844,9 @@ SenderTxHash cc6c2673398903b3d906a3023b41636fc08bd1bddd5aa1602116091638f48447
     Hex:           39f8c08204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84326a08409f5441d4725f90905ad87f03793857d124de7a43169bc67320cd2f020efa9a060af63e87bdc565d7f7de906916b2334336ee7b24d9a71c9521a67df02e7ec92945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0044d5b25e8c649a1fdaa409dc3817be390ad90a17c25bc17c89b6d5d248495e0a073938e690d27b5267c73108352cf12d01de7fd0077b388e94721aa1fa32f85ec
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -891,25 +886,25 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringは、サービスチェーンデータをKlaytnメインチェーンにアンカーする手数料委任されたトランザクションです。 サービスチェーンは定期的にこの種のトランザクションをKlaytnメインチェーンに送信し、データのセキュリティと信頼性を確保します。 データのアンカーについての詳細は、 [アンカー](../../../node/service-chain/references/anchoring.md) を参照してください。 手数料委託された取引でもあるため、手数料支払者に取引手数料が課されます。 RPC経由でこの取引を送信することはできませんのでご注意ください。 現在、このトランザクションはセキュリティ上の理由からプライベートp2pチャネルを介して実行されます。 このトランザクションはKlaytnブロックチェーンの状態を変更しませんが、送信者のnonceが1つ増えています。
+TxTypeFeeDelegatedChainDataAnchoringは、サービスチェーンデータをKlaytnメインチェーンにアンカーする手数料委任されたトランザクションです。 Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md). 手数料委託された取引でもあるため、手数料支払者に取引手数料が課されます。 Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 
-| Attribute          | タイプ                                                    | Description                                                                                                                                    |
-|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------- |
-| タイプ                | uint8 \(Go\)                                         | TxTypeFeeDelegatedChainDataAnchoringのタイプ。 これは0x49でなければなりません。                                                                                   |
-| nonce              | uint64 \(Go\)                                        | 送信者のトランザクションを一意に識別するために使用される値。 同じノンスを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行されます。                                                                 |
-| gasPrice           | \*big.Int \(Go\)                                   | 送金者が取引手数料を支払う `ペブ` のガソリン単価。 取引手数料は `gas` \* `gasPrice` として計算されます。 例えば、取引がガスの10単位を消費し、ガソリン価格が10^18の場合、取引手数料は10KLAYとなります。 KLAYの [単位][] を参照のこと。 |
-| ガス                 | uint64 \(Go\)                                        | 取引が使用できる取引手数料の最大額です。                                                                                                                           |
-| from               | common.address \(Go\)                                | 送信者のアドレス 詳細については、 [トランザクションの署名検証](README.md#signature-validation-of-transactions) を参照してください。                                                   |
-| input              | \[\]byte \(Go\)                                    | サービスチェーンのデータ。                                                                                                                                  |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 送信者の署名 詳細については、 [トランザクションの署名検証](README.md#signature-validation-of-transactions) を参照してください。                                                     |
-| feePayer           | common.address \(Go\)                                | 手数料支払者の住所                                                                                                                                      |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 手数料支払者の署名。                                                                                                                                     |
+| Attribute          | Type                                                   | Description                                                                                                                                                                                                                                                                              |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedChainDataAnchoringのタイプ。 これは0x49でなければなりません。                                                                                                                                                                                                                             |
+| nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                       |
+| gasPrice           | \*big.Int \(Go\)                                   | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY][]. |
+| gas                | uint64 \(Go\)                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                 |
+| from               | common.Address \(Go\)                                | The address of the sender. For more details, see [Signature Validation of Transactions](README.md#signature-validation-of-transactions).                                                                                                                                                 |
+| input              | \[\]byte \(Go\)                                    | Data of the service chain.                                                                                                                                                                                                                                                               |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](README.md#signature-validation-of-transactions).                                                                                                                                                   |
+| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                            |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                              |
 
-### 送信者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-送信者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), chainid, 0, 0])
@@ -917,9 +912,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### 手数料支払者の署名のためのRLPエンコーディング <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-手数料支払者の署名を行うには、次のようにRLPのシリアル化を行う必要があります。
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode(type, nonce, gasPrice, gas, from, anchoredData]), feePayer, chainid, 0, 0])
@@ -927,21 +922,20 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### SenderTxHashのためのRLPエンコード <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHashを作るには、次のようにRLPのシリアル化を行う必要があります。
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
-txSignatures (シングルシグネチャ) = [[v, r, s]]
-txSignatures (2つのシグネチャ) = [[v1, r1, s1], [v2, r2] s2]] 
-
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
 SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignatures])
-SenderTxHash = kecchak256(SenderTxHashRLP)
+SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### トランザクションハッシュ用のRLPエンコーディング <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-トランザクションハッシュを生成するには、次のようにRLPのシリアル化を行う必要があります。
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -954,7 +948,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-以下に、RLPシリアル化とトランザクションオブジェクトの結果を示します。
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x01
@@ -987,9 +981,9 @@ SenderTxHash 0x4f5c00ea8f6346baa7d4400dfefd72efa5ec219561ebcebed7be8a2b79d52bcd
     Hex:           49f90176118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb39433f524631e573329a550296f595c820d6c65213ff845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174
 ```
 
-### RPC出力 \(Example\) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-JSON RPC経由で返されたトランザクションオブジェクトを以下に示します。
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -1029,5 +1023,8 @@ JSON RPC経由で返されたトランザクションオブジェクトを以下
 ```
 
 [単位]: ../klaytn-native-coin-klay.md#units-of-klay
+
+[Unit of KLAY]: ../klaytn-native-coin-klay.md#units-of-klay
 [トランザクションの署名検証]: README.md#signature-validation-of-transactions
+[Signature Validation of Transactions]: README.md#signature-validation-of-transactions
 [AccountKey]: ../accounts.md#account-key
