@@ -7,7 +7,7 @@
 
 > より多くの人が `Klaytn Online Toolkit`を使用できるように、 ["Using Klaytn Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) シリーズを用意しました。
 
-## リンク <a id="links"></a>
+## Links <a id="links"></a>
 `Klaytn Online Toolkit` のリンクは次のとおりです。 気軽に使ってください :)
 * [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
 * [ページ](https://toolkit.klaytn.foundation)
