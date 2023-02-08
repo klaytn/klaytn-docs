@@ -11,17 +11,17 @@ description: >-
 
 ノードのKNI(Klaytn Network Identifier)を含むブリッジノード情報を返します。 mainbridge ノードは KBI 経由でサブブリージュノードに接続できます。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description |
-| ------- | ----------- |
-| JSON文字列 | ブリッジノードの情報  |
+| Type        | Description |
+| ----------- | ----------- |
+| JSON string | ブリッジノードの情報  |
 
-**例**
+**Example**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -56,23 +56,23 @@ description: >-
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 サブブリッジピアの追加が正常に完了した場合、 `true` を返します。
 
-It ピア・リストに新しいリモート・ノードを追加します。 ノードは常にこれらのノードへの接続を維持しようとします リモート接続が切断された場合、 をしばらく毎に再接続します。 このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` を返します。追跡のためにピアが受け入れられたか、エラーが発生したかを示します。
+It ピア・リストに新しいリモート・ノードを追加します。 The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down. このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` を返します。追跡のためにピアが受け入れられたか、エラーが発生したかを示します。
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description     |
-| --- | --- | --------------- |
-| URL | 文字列 | ピアの  `kni` URL。 |
+| Name | Type   | Description     |
+| ---- | ------ | --------------- |
+| url  | string | ピアの  `kni` URL。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                          |
-| ---- | ------------------------------------ |
-| bool | `ピアが受け入れられた場合には true` `false` となります。 |
+| Type | Description                                         |
+| ---- | --------------------------------------------------- |
+| bool | `true` if the peer was accepted, `false` otherwise. |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > mainbridge.addPeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
@@ -90,21 +90,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `removePeer` メソッドは、トラッキングされた静的ノードのリスト内のリモートノードを切断して削除します。 このメソッドは単一の引数を受け取ります 追跡を開始するリモートピアの `kni` URL。 `BOOL` は、ピアが 追跡のために受け入れられたか、またはエラーが発生したかを示します。
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description     |
-| --- | --- | --------------- |
-| URL | 文字列 | ピアの  `kni` URL。 |
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| url  | string | Peer's  `kni` URL. |
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                               |
+| Type | Description                               |
 | ---- | ----------------------------------------- |
 | bool | `ピアが削除された場合は true` で、それ以外の場合は `false` です。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > mainbridge.removePeer("knif://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -122,17 +122,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `mainbridge_getChainIndexingEnabled` は、アンカートランザクションが有効かどうかを示す。
 
-**パラメータ**
+**Parameters**
 
-なし
+none
 
-**戻り値**
+**Return Value**
 
-| タイプ  | Description                              |
+| Type | Description                              |
 | ---- | ---------------------------------------- |
 | bool | `インデックスが有効になっている場合は true` `false` でなければ。 |
 
-**例**
+**Example**
 
 ```javascript
 > mainbridge.getChainIndexingEnabled()
@@ -143,21 +143,21 @@ true
 
 与えられた子チェーンブロックハッシュのアンカートランザクションハッシュを返します。
 
-**パラメータ**
+**Parameters**
 
-| タイプ       | Description     |
-| --------- | --------------- |
-| 32バイトのデータ | 子チェーンのブロックハッシュ。 |
+| Type         | Description     |
+| ------------ | --------------- |
+| 32-byte DATA | 子チェーンのブロックハッシュ。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ       | Description                      |
-| --------- | -------------------------------- |
-| 32バイトのデータ | 子チェーンブロック情報を含むトランザクションハッシュのアンカー。 |
+| Type         | Description                      |
+| ------------ | -------------------------------- |
+| 32-byte DATA | 子チェーンブロック情報を含むトランザクションハッシュのアンカー。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
