@@ -12,20 +12,20 @@ caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 
 署名から復元された公開鍵とKlaytnアカウントのアカウント鍵を比較することで、署名されたメッセージを検証します。
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ       | Description                                                                                                                                                                                                            |
+| Name       | Type      | Description                                                                                                                                                                                                            |
 | ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | 文字列       | 生のメッセージ文字列。 このメッセージが Klaytn 固有の接頭辞でハッシュされている場合、3番目のパラメータは `true` として渡されます。                                                                                                                                             |
-| signatures | オブジェクト \ | Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' または '\[\[ v, r, s ]]' 配列はパラメータとして渡すこともできます。 そしてこの場合、内部的に `SignatureData` 型に変換されます。 |
-| address    | 文字列       | メッセージに署名したアカウントのアドレス。                                                                                                                                                                                                  |
+| message    | string    | 生のメッセージ文字列。 このメッセージが Klaytn 固有の接頭辞でハッシュされている場合、3番目のパラメータは `true` として渡されます。                                                                                                                                             |
+| signatures | object \ | Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' または '\[\[ v, r, s ]]' 配列はパラメータとして渡すこともできます。 そしてこの場合、内部的に `SignatureData` 型に変換されます。 |
+| address    | string    | メッセージに署名したアカウントのアドレス。                                                                                                                                                                                                  |
 | isHashed   | boolean   | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                        |
 
-**戻り値**
+**Return Value**
 
 `Promise` が `boolean`を返す: promiseはメッセージ上の署名が有効かどうかのboolean値で解決されます。
 
-**例**
+**Examples**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -56,17 +56,17 @@ caver.validateTransaction(tx)
 
 トランザクションを検証します。 この関数は、 `署名` から回収された公開鍵と、Klaytn アカウントのアカウント鍵からの公開鍵を比較します。 If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ    | Description                                        |
-| -- | ------ | -------------------------------------------------- |
-| tx | object | 検証する [トランザクション](caver.transaction/#class) のインスタンス。 |
+| Name | Type   | Description                                        |
+| ---- | ------ | -------------------------------------------------- |
+| tx   | object | 検証する [トランザクション](caver.transaction/#class) のインスタンス。 |
 
-**戻り値**
+**Return Value**
 
 `Promise` が `boolean`を返す: transacionが有効かどうかのboolean 値で解決されます。
 
-**例**
+**Examples**
 
 ```javascript
 // Basic transaction will be validated with `signatures`
@@ -86,17 +86,17 @@ caver.validator.validateSender(tx)
 
 トランザクションの送信者を検証します。 この関数は、Klaytn アカウントのアカウント鍵の公開鍵と、 `署名` から回収された公開鍵と比較します。
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ    | Description                                        |
-| -- | ------ | -------------------------------------------------- |
-| tx | object | 検証する [トランザクション](caver.transaction/#class) のインスタンス。 |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](caver.transaction/#class) to validate. |
 
-**戻り値**
+**Return Value**
 
 `Promise` が `boolean`を返す: promiseはトランザクションが有効かどうかのboolean値で解決されます。
 
-**例**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
@@ -111,17 +111,17 @@ caver.validator.FeePayer(tx)
 
 トランザクションの手数料支払い者を検証します。 この関数は、手数料支払者の口座鍵の公開鍵と `feePayerSignatures` から回収された公開鍵と比較します。
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ    | Description                                        |
-| -- | ------ | -------------------------------------------------- |
-| tx | object | 検証する [トランザクション](caver.transaction/#class) のインスタンス。 |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](caver.transaction/#class) to validate. |
 
-**戻り値**
+**Return Value**
 
-`Promise` が `boolean`を返す: promiseはトランザクションが有効かどうかのboolean値で解決されます。
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
-**例**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
