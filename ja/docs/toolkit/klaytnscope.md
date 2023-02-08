@@ -1,6 +1,6 @@
 # Klaytnscope <a id="klaytnscope"></a>
 
-Klaytnscopeは、Klaytn Networkのブロックエクスプローラです。 Klaytnscopeは、ネットワークの健全性を監視し、Klaytnネットワークのさまざまな統計情報を提供することで、Klaytnネットワークに関する洞察を提供します。 また、ブロックとトランザクションデータ、Klaytnネットワーク上のスマートコントラクトのリストを調べることもできます。
+Klaytnscope is the block explorer for the Klaytn Network. Klaytnscopeは、ネットワークの健全性を監視し、Klaytnネットワークのさまざまな統計情報を提供することで、Klaytnネットワークに関する洞察を提供します。 また、ブロックとトランザクションデータ、Klaytnネットワーク上のスマートコントラクトのリストを調べることもできます。
 
 * Baobabネットワークについては、 [https://baob.scope.klaytn.com](https://baobab.scope.klaytn.com) をご覧ください。
 * メインネットについては、 [https://scope.klaytn.com](https://scope.klaytn.com) を参照してください。
@@ -70,16 +70,16 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 * 報酬: 新しく鋳造された KLAY\(6.4 KLAY\' の集計とブロックで使用された取引手数料。 このリストには、Klaytn Governance Council Reward、Proof Contribution、Klaytn Improvement Reserveの合計のみが表示されます。 ブロックの詳細ページのブロック報酬セクションにカーソルを合わせると、詳細な情報が表示されます。 ブロック報酬分配システムの詳細は、 [Klaytn Token Economy][] を参照してください。
 * サイズ: バイト単位で測定されたブロックのサイズ。 トランザクションが多いほど、ブロックサイズが大きくなります。
 
-### 取引 <a id="transactions"></a>
+### Transactions <a id="transactions"></a>
 
 ![](img/scope_05_tx_list.png)
 
-最近実行されたトランザクションのリスト。 情報を更新するには、更新をクリックしてください。
+最近実行されたトランザクションのリスト。 To update the information, please click the refresh.
 
 * TX ハッシュ : トランザクションの一意の識別子 詳細については、ハッシュをクリックして詳細ページに移動します。 トランザクションに失敗すると、その隣に赤い感嘆符が表示されます。
 * Block \#: このトランザクションを含むブロックの数。 数字をクリックすると、ブロックの詳細ページに移動します。
-* 時間: トランザクションが実行されてからの期間。 これにカーソルを合わせると、正確な日時を確認できます。
-* From -&gt; To: The addresses of sender and receiver. アドレスをクリックすると、簡単に詳細ページに移動できます。 ファイルアイコンがアドレスの横に表示されている場合、アドレスがコントラクトであることを意味します。
+* 時間: トランザクションが実行されてからの期間。 You can check the exact date and time by hovering this.
+* From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. ファイルアイコンがアドレスの横に表示されている場合、アドレスがコントラクトであることを意味します。
 * TX の種類: トランザクションのタイプ。 特定のタイプのトランザクションを取得するためにフィルターを適用できます。 詳細については、 [トランザクション][] をご覧ください。
 * 金額: トランザクションを通じて転送される値の量。
 * TX手数料: トランザクションの処理に使用される実際のコスト。
@@ -88,43 +88,43 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 
 ブロック、取引、アカウント、契約に関する詳細は、このページをご覧ください。 詳細ビューに移動するには、検索バーからエンティティを検索するか、リストビューから項目をクリックします。
 
-### ブロック <a id="block"></a>
+### Block <a id="block"></a>
 
 ![](img/scope_08_block_detail.png)
 
-#### 概要 <a id="overview"></a>
+#### Overview <a id="overview"></a>
 
 ブロックの全体的な情報。
 
 * 時間: ブロック生成からの経過時間 その隣には正確なdatetimeも表示されます。
 * ハッシュ: ブロックの一意の識別子。 コピーボタンを押すと簡単にハッシュをコピーできます。
 * 親ハッシュ: 前のブロックの一意の識別子。 ハッシュをクリックすると、親ハッシュの詳細ビューが表示されます。
-* Total TXs: ブロックに含まれるトランザクションの合計数。
+* Total TXs: The total number of transactions included in the block.
 * ブロック報酬: 新しく鋳造された KLAY\(6.4 KLAY\' の集計と、ブロック内に集められた取引手数料。 ホバリングすると、Klaytn Governance Council Reward、Proof Contribution and Klaytn Improvement Reserveの詳細情報が表示されます。 ブロック報酬分配システムの詳細については、 [Klaytn Token Economy][] を参照してください。
-* ブロックサイズ:バイト単位で測定されたブロックサイズ。 トランザクションが多いほど、ブロックサイズが大きくなります。
+* ブロックサイズ:バイト単位で測定されたブロックサイズ。 The more transactions are included, the larger the block size.
 
 #### 委員会 <a id="committee"></a>
 
 ブロックを提案し、検証したコンセンサスノードのリスト。
 
 * Block Proposer: ブロックを提案したコンセンサスノードをランダムで決定的に選択しました。 アドレスをクリックすると、ノードの詳細ビューに簡単に移動できます。
-* Validators: ブロックを検証したコンセンサスノード。 アドレスをクリックすると、ノードの詳細ビューに簡単に移動できます。
+* Validators: ブロックを検証したコンセンサスノード。 By clicking the address, you can easily go to the detail view of the node.
 
-#### 取引 <a id="transactions"></a>
+#### Transactions <a id="transactions"></a>
 
 ブロックに含まれるトランザクションのリストです。
 
-### 取引 <a id="transaction"></a>
+### Transaction <a id="transaction"></a>
 
 ![](img/scope_09_tx_detail.png)
 
-#### 概要 <a id="overview"></a>
+#### Overview <a id="overview"></a>
 
 トランザクションに関する全体的な情報。
 
 * ステータスインジケータ:右上隅にあります。 トランザクションが成功したかどうかを示します。
-* TX の種類: トランザクションのタイプ。 詳細については、 [トランザクション][] を参照してください。
-* Block \#: このトランザクションを含むブロックの数。 数字をクリックすると、ブロックの詳細ビューに移動します。
+* TX Type: Type of the transaction. 詳細については、 [トランザクション][] を参照してください。
+* Block \#: Number of the block which contains this transaction. 数字をクリックすると、ブロックの詳細ビューに移動します。
 * From -&gt; To: The addresses of sender and receiver. アドレスをクリックすると、アカウントの詳細ビューに移動できます。 アドレスの横にファイルアイコンが表示されている場合は、アドレスがコントラクトであることを意味します。
 * 手数料支払者:TXタイプが手数料委任または手数料比率委任のいずれかの場合に表示されます。 手数料支払者のアドレスをクリックすると、アカウントの詳細ビューに移動できます。
 * 時間: トランザクションが実行されてからの経過時間
@@ -133,7 +133,7 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 * ガス価格:KLAYで測定されたガス当たりのコスト。 Klaytnネットワークでは、ガス価格が固定されています。
 * 使用ガス:トランザクションの実行に使用された正確なガス。
 * ガス制限:送信者がこの取引に支払う意思がある最大ガス。
-* TX手数料: トランザクションの処理に使用される実際のコスト。 ガス価格をガス使用量で掛け算して計算します。
+* TX Fee: The actual cost used to process transaction. ガス価格をガス使用量で掛け算して計算します。
 * 送信者によるTX手数料:TXタイプが手数料比率で委任された場合に表示されます。 送信者が支払うTX手数料の一部。
 * 手数料別TX手数料 支払者:TXタイプが手数料で委任された場合に表示されます。 手数料支払者によって支払われるTX手数料の部分。
 
@@ -141,11 +141,11 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 
 送信者またはコントラクトによって提供される追加データ。
 
-### アカウント <a id="account"></a>
+### Account <a id="account"></a>
 
 ![](img/scope_10_account_detail.png)
 
-#### 概要 <a id="overview"></a>
+#### Overview <a id="overview"></a>
 
 アカウントの全体的な情報。
 
@@ -154,7 +154,7 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 * Total TXs: このアカウントが送受信した取引の合計数。
 * HRA: このアカウントの種類がHRAかどうかを通知します。 \(TBD\)
 
-#### 取引 <a id="transactions"></a>
+#### Transactions <a id="transactions"></a>
 
 このアカウントに関連する取引のリスト。 矢印の色は、アカウントが送信者または受信者であるかどうかを示します。
 
@@ -162,18 +162,18 @@ Klaytnネットワークの状況を詳しく確認したい場合。 最近生�
 
 ![](img/scope_11_contract_detail.png)
 
-#### 概要 <a id="overview"></a>
+#### Overview <a id="overview"></a>
 
 契約に関する全体的な情報。
 
 * アカウント \(Hex\): コントラクトの固有のアドレス。
 * バランス: このコントラクトが持つKLAYの合計金額。
-* Contract Creator: この契約をデプロイしたアカウント。 アドレスをクリックすると、アカウントの詳細ビューに移動できます。
+* Contract Creator: この契約をデプロイしたアカウント。 By clicking the address, you can go to the detail view of the account.
 * Total TXs: この契約が受領した取引の合計数。
 * コントラクト作成TX: このコントラクトをデプロイしたトランザクション。 ハッシュをクリックすると、トランザクションの詳細ビューに移動します。
 * HRA: 口座タイプがHRAかどうかを通知します。 \(TBD\)
 
-#### 取引 <a id="transactions"></a>
+#### Transactions <a id="transactions"></a>
 
 この契約に関連する取引のリスト。
 
@@ -196,7 +196,7 @@ Klaytnscopeを通じて、口座、契約、取引、ブロックに関する情
 
 それぞれのキーワードを区別する固有の特性は以下の通りです。
 
-#### ブロック <a id="block"></a>
+#### Block <a id="block"></a>
 
 * 小数点のみ \[0~9\]
 
@@ -210,7 +210,7 @@ Klaytnscopeを通じて、口座、契約、取引、ブロックに関する情
 
 * 42文字以上
 * プレフィックス `0x`で開始
-* 16進数のみ \[0~9, a~f\]
+* Hexadecimal number only \[0~9, a~f\]
 
 #### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
 
