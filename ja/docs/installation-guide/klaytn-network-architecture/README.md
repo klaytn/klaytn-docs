@@ -1,7 +1,7 @@
 ---
 description: >-
-  Klaytnに精通してみてください。 この章では、Klaytn dAppsへの旅の出発点となります。
+  Try and get familiar with Klaytn. This chapter is the starting point of your journey to Klaytn dApps.
 ---
 
-# 概要 <a id="overview"></a>
+# Overview <a id="overview"></a>
 
