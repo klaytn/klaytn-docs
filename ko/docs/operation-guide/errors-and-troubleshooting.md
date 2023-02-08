@@ -1,4 +1,4 @@
-# 에러 & 문제 해결 <a id="errors-troubleshooting"></a>
+# Errors & Troubleshooting <a id="errors-troubleshooting"></a>
 
 ## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드의 로그 파일을 어디에서 찾을 수 있나요? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
@@ -12,7 +12,7 @@
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-**답변**
+**Answer**
 
 이 오류는 `genesis.json`이 다를 때 발생할 수 있습니다. Klaytn 노드를 중지하고 데이터 디렉토리를 제거하세요. 그런 다음 아래의 올바른 `genesis.json`을 이용해 `ken init`을 다시 실행하세요.
 
@@ -42,7 +42,7 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-**답변**
+**Answer**
 
 아래의 `kend.conf` 파일을 수정해 `net` 및 RPC 콘솔을 위한 다른 API를 활성화하세요.
 
@@ -58,7 +58,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 Failed to start kcnd.service: Unit not found.
 ```
 
-**답변**
+**Answer**
 
 아래와 같이 데몬을 다시 로드하세요.
 
@@ -74,7 +74,7 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-**답변**
+**Answer**
 
 이는 `genesis.json`과 nodekey/validator 정보가 다를 때 발생할 수 있습니다. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
 
@@ -84,7 +84,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
-**답변**
+**Answer**
 
 만일 위 프로토콜 스택 에러 메시지를 확인할 수 있다면, 이는 현재 작업 디렉토리의 전체 경로 이름이 너무 길어서 Klaytn을 시작하지 못했음을 의미합니다. 전체 데이터 디렉토리가 더 짧게 Klaytn 노드를 시작하세요. 허용되는 경로 이름의 최대 길이는 운영 체제에 따라 다릅니다.
 
@@ -95,7 +95,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-**답변**
+**Answer**
 
 메인체인과 서비스체인의 제네시스가 다를 때 발생할 수 있습니다. 두 체인의 제네시스가 동일한 지 확인하세요.
 
