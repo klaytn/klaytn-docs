@@ -1,6 +1,6 @@
 # ERC-20 <a id="erc-20"></a>
 
-## 소개 <a id="introduction"></a>
+## Introduction <a id="introduction"></a>
 
 이 튜토리얼은 [Klaytn 토큰 표준](../../token-standard.md)([대체 가능 토큰 표준인 ERC-20과 호환](../../token-standard.md#fungible-token-standard-kip-7))을 따르는 토큰을 만드는 방법을 소개합니다.
 
