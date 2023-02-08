@@ -22,7 +22,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **HTTPS**
 
-| 서비스 제공자                                            | Endpoints                                          | Namespaces   | 타입      |
+| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
 | -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
@@ -36,7 +36,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **WebSocket**
 
-| 서비스 제공자                                            | Endpoints                                           | Namespaces   | 타입      |
+| Service Provider                                   | Endpoints                                           | Namespaces   | Type    |
 | -------------------------------------------------- | --------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | Full    |
@@ -52,7 +52,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **HTTPS**
 
-| 서비스 제공자                                            | Endpoints                                         | Namespaces   | 타입      |
+| Service Provider                                   | Endpoints                                         | Namespaces   | Type    |
 | -------------------------------------------------- | ------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | Full    |
@@ -63,7 +63,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **WebSocket**
 
-| 서비스 제공자                                            | Endpoints                                          | Namespaces   | 타입      |
+| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
 | -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | Full    |
