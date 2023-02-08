@@ -36,7 +36,7 @@
     * 通貨記号: KLY
 * \[Save] をクリックして、Klaytn Cypress Networkを追加します。
 
-![ネットワーク設定とカスタムRPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![ネットワーク設定とカスタムRPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
+![ネットワーク設定とカスタムRPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
 
 ## ステップ4 KLAYを送る <a href="#send-klay" id="send-klay"></a>
 
@@ -61,14 +61,14 @@
 
 > **注意:** このチュートリアルでは、ネットワークに接続するためにTestnet(Baobab)のPublic ENを使用します。 テストを実行しているときは必ずBaobabを使用してください。
 
-> 簡単な方法があります [Klaytn Baobab ネットワーク(テストネット)](https://chainlist.org/chain/1001) に財布を接続します。
+> Here's a simple way. [Klaytn Baobab ネットワーク(テストネット)](https://chainlist.org/chain/1001) に財布を接続します。
 
 * Baobab
   * ネットワーク名: Klaytn Baobab
   * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
   * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
   * チェーン ID: 1001
-  * 通貨記号: KLY
+  * Currency Symbol: KLAY
 * \[Save] をクリックしてKlaytn Baobab Networkを追加します。
 
 ![ネットワーク設定](img/connect-testnet-1.png)
