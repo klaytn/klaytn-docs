@@ -1,4 +1,4 @@
-# 設定 <a id="configuration"></a>
+# Configuration <a id="configuration"></a>
 
 This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
@@ -8,8 +8,8 @@ This document explains the configurable properties of the node. Klaytn node pack
 
 The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
 
-* アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kcn-linux-amd64/conf/` です。
-* パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kcnd/conf/` です。
+* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
+* For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
 
 ## PN Configuration File location <a id="pn-configuration-file-location"></a>
 
@@ -17,8 +17,8 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
 
-* アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kpn-linux-amd64/conf/` です。
-* パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kpnd/conf/` です。
+* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
+* For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
 
 ## EN Configuration File location <a id="configuration-file-location"></a>
 
@@ -26,8 +26,8 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
 
-* アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/ken-linux-amd64/conf/` です。
-* パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kend/conf/` です。
+* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
+* For the package distribution, the config directory defaults to `/etc/kend/conf/`.
 
 
 ## Configuration File Format  <a id="configuration-file-format"></a>
@@ -88,7 +88,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 
 The configuration file has the following configurable properties. CN and PN configuration files have the same properties except `REWARDBASE.`
 
-| 名前                             | Description                                                                                                                                                                                                                                                                       |
+| Name                           | Description                                                                                                                                                                                                                                                                       |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NETWORK                        | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab")                                                                                                                                                                 |
 | NETWORK_ID                     | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br>8217 : Cypress (Main network) <br>1000 : Aspen test network <br>1001 : Baobab test network |
