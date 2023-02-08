@@ -17,29 +17,29 @@ KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.
 
 성공적으로 배포된 후, 프로미스는 새로운 KIP17 인스턴스를 반환할 것입니다.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                                  |
+| Name      | Type                 | Description                                                                                                                                                                                                                                                                                                                                                         |
 | --------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | 객체                   | Klaytn 블록체인에 KIP-17 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                 |
+| tokenInfo | object               | Klaytn 블록체인에 KIP-17 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                 |
 | deployer  | string &#124; object | keyring 인스턴스에 있는 계정 주소입니다. 이 주소가 KIP-17 토큰 컨트랙트를 배포합니다. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. 트랜잭션 전송 시 사용할 필드를 자체적으로 정의하고 싶다면 객체 타입을 매개변수로 전달하면 됩니다. KIP-17 컨트랙트 배포 시 수수료 위임을 이용하고 싶다면, 객체 내 수수료 위임과 관련된 필드를 정의할 수 있습니다. 이 필드의 사용에 관한 내용은 [approve](#kip17-approve)의 매개변수 설명을 참고하십시오. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
-| 이름 | 타입     | 설명        |
-| -- | ------ | --------- |
-| 명칭 | string | 토큰 이름입니다. |
-| 기호 | string | 토큰 심볼입니다. |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| name | string | 토큰 이름입니다.   |
+| 기호   | string | 토큰 심볼입니다.   |
 
-**리턴값**
+**Return Value**
 
 `PromiEvent`: 이벤트 이미터와 결합된 프로미스이며 새로운 KIP17 인스턴스를 반환합니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 이름              | 타입     | 설명                                                                                                                                                    |
+| Name            | Type   | Description                                                                                                                                           |
 | --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                             |
-| receipt         | 객체     | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
+| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| error           | Error  | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
 
 
 **Token Enrollment**
@@ -63,7 +63,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 4. ABI-encoded Value: [kip17JsonInterface at dev · klaytn/caver-js · GitHub](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
 
 
-**예시**
+**Example**
 
 ```javascript
 // using the promise
@@ -123,17 +123,17 @@ caver.kct.kip17.detectInterface(contractAddress)
 ```
 Returns the information of the interface implemented by the token contract. This static function will use [kip17.detectInterface](#kip17-detectinterface).
 
-**파라미터**
+**Parameters**
 
-| 이름              | 타입     | 설명                    |
+| Name            | Type   | Description           |
 | --------------- | ------ | --------------------- |
 | contractAddress | string | KIP-7 토큰 컨트랙트의 주소입니다. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.kct.kip17.detectInterface('0x{address in hex}').then(console.log)
@@ -157,15 +157,15 @@ Creates a new KIP17 instance with its bound methods and events. This function wo
 
 **NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**파라미터**
+**Parameters**
 
 See the [new KIP17](#new-kip17).
 
-**리턴값**
+**Return Value**
 
 See the [new KIP17](#new-kip17).
 
-**예시**
+**Example**
 
 ```javascript
 // 매개변수 없는 KIP17 인스턴스 생성
@@ -183,20 +183,20 @@ new caver.kct.kip17([tokenAddress])
 ```
 Creates a new KIP17 instance with its bound methods and events.
 
-**파라미터**
+**Parameters**
 
-| 이름           | 타입     | 설명                                                                                   |
+| Name         | Type   | Description                                                                          |
 | ------------ | ------ | ------------------------------------------------------------------------------------ |
 | tokenAddress | string | (선택 사항) KIP-17 토큰 컨트랙트 주소이며 나중에 `kip17.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                                   |
-| -- | ------------------------------------ |
-| 객체 | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP17 인스턴스입니다. |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP17 인스턴스입니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 // 매개변수 없는 KIP17 인스턴스 생성
@@ -214,20 +214,20 @@ kip17.clone([tokenAddress])
 ```
 Clones the current KIP17 instance.
 
-**파라미터**
+**Parameters**
 
-| 이름           | 타입     | 설명                                                                                 |
+| Name         | Type   | Description                                                                        |
 | ------------ | ------ | ---------------------------------------------------------------------------------- |
 | tokenAddress | string | (선택 사항) 다른 KIP17 토큰을 배포했던 스마트 컨트랙트 주소입니다. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
-**리턴값**
+**Return Value**
 
-| 타입 | 설명                          |
-| -- | --------------------------- |
-| 객체 | 원본 KIP17 인스턴스를 복제한 인스턴스입니다. |
+| Type   | Description                 |
+| ------ | --------------------------- |
+| object | 원본 KIP17 인스턴스를 복제한 인스턴스입니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > const kip17 = new caver.kct.kip17(address)
@@ -246,15 +246,15 @@ kip17.detectInterface
 ```
 Returns the information of the interface implemented by the token contract.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 `Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.detectInterface().then(console.log)
@@ -277,17 +277,17 @@ kip17.supportsInterface(interfaceId)
 ```
 Returns `true` if this contract implements the interface defined by `interfaceId`.
 
-**파라미터**
+**Parameters**
 
-| 이름          | 타입     | 설명                  |
+| Name        | Type   | Description         |
 | ----------- | ------ | ------------------- |
 | interfaceId | string | 확인할 interfaceId입니다. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `boolean`: `true` if this contract implements the interface defined by `interfaceId`.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.supportsInterface('0x80ac58cd').then(console.log)
@@ -305,15 +305,15 @@ kip17.name()
 ```
 Returns the name of the token.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `string`: The name of the token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.name().then(console.log)
@@ -328,15 +328,15 @@ kip17.symbol()
 ```
 Returns the symbol of the token.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `string`: The symbol of the token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.symbol().then(console.log)
@@ -351,15 +351,15 @@ kip17.totalSupply()
 ```
 Returns the total number of tokens minted by the contract.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `BigNumber`: The total number of tokens.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.totalSupply().then(console.log)
@@ -374,19 +374,19 @@ kip17.tokenURI(tokenId)
 ```
 Returns the URI for a given token id.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입                                    | 설명        |
-| ------- | ------------------------------------- | --------- |
-| tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
+| Name    | Type                                  | Description |
+| ------- | ------------------------------------- | ----------- |
+| tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다.   |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `string`: The URI of the given token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenURI(0).then(console.log)
@@ -401,20 +401,20 @@ kip17.tokenOfOwnerByIndex(owner, index)
 ```
 Searches the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입                                    | 설명                                       |
+| Name  | Type                                  | Description                              |
 | ----- | ------------------------------------- | ---------------------------------------- |
 | owner | string                                | 토큰을 소유한 계정 주소입니다.                        |
 | index | BigNumber &#124; string &#124; number | 토큰 소유자가 가지고 있는 토큰 목록 중 특정 토큰의 위치 인덱스입니다. |
 
 **NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `BigNumber`: The id of the token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
@@ -429,19 +429,19 @@ kip17.tokenByIndex(index)
 ```
 Searches the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입                                    | 설명              |
+| Name  | Type                                  | Description     |
 | ----- | ------------------------------------- | --------------- |
 | index | BigNumber &#124; string &#124; number | 검색할 토큰의 인덱스입니다. |
 
 **NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `BigNumber`: The id of the token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenByIndex(1).then(console.log)
@@ -456,17 +456,17 @@ kip17.balanceOf(address)
 ```
 Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명                |
+| Name    | Type   | Description       |
 | ------- | ------ | ----------------- |
 | address | string | 잔액을 확인할 계정 주소입니다. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `BigNumber`: The account balance.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.balanceOf('0x{address in hex}').then(console.log)
@@ -481,19 +481,19 @@ kip17.ownerOf(tokenId)
 ```
 Returns the address of the owner of the specified token id.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입                                    | 설명        |
-| ------- | ------------------------------------- | --------- |
-| tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
+| Name    | Type                                  | Description          |
+| ------- | ------------------------------------- | -------------------- |
+| tokenId | BigNumber &#124; string &#124; number | The id of the token. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `string`: The address of the account that owns the given token.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.ownerOf(8).then(console.log)
@@ -508,19 +508,19 @@ kip17.getApproved(tokenId)
 ```
 Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입                                    | 설명        |
-| ------- | ------------------------------------- | --------- |
-| tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
+| Name    | Type                                  | Description          |
+| ------- | ------------------------------------- | -------------------- |
+| tokenId | BigNumber &#124; string &#124; number | The id of the token. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `string`: The address of the account that has the right to transfer the given token.
 
-**예시**
+**Example**
 
 ```javascript
 // 권한 있는 계정 주소가 존재할 경우
@@ -540,18 +540,18 @@ kip17.isApprovedForAll(owner, operator)
 ```
 Returns `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입     | 설명                                                             |
+| Name     | Type   | Description                                                    |
 | -------- | ------ | -------------------------------------------------------------- |
 | owner    | string | 토큰을 소유한 계정 주소입니다. 이 계정은 operator에게 자신의 모든 토큰을 전송하도록 허락한 계정입니다. |
 | operator | string | 토큰 소유자를 대신해 토큰 소유자의 모든 토큰을 전송하도록 허락받은 계정 주소입니다.                |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `boolean`: `true` if an `operator` is approved to send all tokens that belong to the `owner`.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -569,17 +569,17 @@ kip17.isMinter(address)
 ```
 Returns `true` if the given account is a minter who can issue new tokens in the current contract conforming to KIP-17.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명                             |
+| Name    | Type   | Description                    |
 | ------- | ------ | ------------------------------ |
 | address | string | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `boolean`: `true` if the account is a minter.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isMinter('0x{address in hex}').then(console.log)
@@ -597,15 +597,15 @@ kip17.paused()
 ```
 Returns `true` if the contract is paused, and `false` otherwise.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `boolean`: `true` if the contract is paused.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.paused().then(console.log)
@@ -623,17 +623,17 @@ kip17.isPauser(address)
 ```
 Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입     | 설명                                |
+| Name    | Type   | Description                       |
 | ------- | ------ | --------------------------------- |
 | address | string | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `boolean`: `true` if the account is a pauser.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isPauser('0x{address in hex}').then(console.log)
@@ -653,35 +653,35 @@ Approves another address to transfer a token of the given token id. The zero add
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                                    | 설명                                        |
+| Name      | Type                                  | Description                               |
 | --------- | ------------------------------------- | ----------------------------------------- |
 | to        | string                                | 토큰 소유자를 대신해 토큰을 사용하는 계정 주소입니다.            |
 | tokenId   | BigNumber &#124; string &#124; number | 토큰 사용자가 사용을 허락받은 토큰의 ID입니다.               |
-| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 The sendParam object can contain the following:
 
-| 이름            | 타입                                              | 설명                                                                                                                                                                                                                 |
-| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip17.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip17.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                    |
-| gas           | number &#124; string                            | (선택 사항) 트랜잭션에 규정된 최대 가스입니다 (가스 제한). 미입력시 caver-js가 `kip17.methods.approve(spender, tokenId).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                                 |
-| 가스 가격         | number &#124; string                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                |
-| value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                       |
-| feeDelegation | boolean                                         | (optional, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력시 `kip17.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                       |
-| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip17.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                        |
-| feeRatio      | string                                          | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. 미입력시 `kip17.options.feeRatio`를 사용합니다. |
+| Name          | Type                                            | Description                                                                                                                                                                                                                                                                                                                              |
+| ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip17.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip17.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                                                                                                                                          |
+| gas           | number &#124; string                            | (선택 사항) 트랜잭션에 규정된 최대 가스입니다 (가스 제한). 미입력시 caver-js가 `kip17.methods.approve(spender, tokenId).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                                                                                                                                                       |
+| gasPrice      | number &#124; string                            | (optional) The gas price in peb to use for this transaction. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                                                                                                          |
+| value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                                                                                                                                             |
+| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. 미입력시 `kip17.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                                                                                                                            |
+| feePayer      | string                                          | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. 미입력시 `kip17.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                                                                               |
+| feeRatio      | string                                          | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. 미입력시 `kip17.options.feeRatio`를 사용합니다. |
 
-**참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -746,19 +746,19 @@ Approves the given operator `to`, or disallow the given operator, to transfer al
 
 Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입      | 설명                                                                                            |
-| --------- | ------- | --------------------------------------------------------------------------------------------- |
-| to        | string  | 토큰 소유자의 모든 토큰을 전송할 권한을 받거나 전송할 권한을 잃게될 계정 주소입니다.                                              |
-| approved  | Boolean | `true`이면 이 operator는 전송할 권한을 받습니다. `false`이면 이 operator는 전송할 권한을 잃습니다.                        |
-| sendParam | 객체      | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type    | Description                                                                                                                 |
+| --------- | ------- | --------------------------------------------------------------------------------------------------------------------------- |
+| to        | string  | 토큰 소유자의 모든 토큰을 전송할 권한을 받거나 전송할 권한을 잃게될 계정 주소입니다.                                                                            |
+| approved  | Boolean | `true`이면 이 operator는 전송할 권한을 받습니다. `false`이면 이 operator는 전송할 권한을 잃습니다.                                                      |
+| sendParam | object  | (optional) An object with defined parameters for sending a transaction. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -823,22 +823,22 @@ Transfers the token of the given token id, `tokenId` from the token owner's bala
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                                    | 설명                                                                                            |
-| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
-| from      | string                                | 주어진 토큰 소유자 주소 또는 주어진 토큰을 전송하도록 승인받은 operator 주소입니다.                                           |
-| to        | string                                | 토큰을 받을 계정 주소입니다.                                                                              |
-| tokenId   | BigNumber &#124; string &#124; number | 전송하고 싶은 토큰의 토큰 ID입니다.                                                                         |
-| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type                                  | Description                                                                                                                                                      |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from      | string                                | 주어진 토큰 소유자 주소 또는 주어진 토큰을 전송하도록 승인받은 operator 주소입니다.                                                                                                              |
+| to        | string                                | 토큰을 받을 계정 주소입니다.                                                                                                                                                 |
+| tokenId   | BigNumber &#124; string &#124; number | 전송하고 싶은 토큰의 토큰 ID입니다.                                                                                                                                            |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -905,23 +905,23 @@ If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Rece
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                                    | 설명                                                                                            |
-| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
-| from      | string                                | 주어진 토큰 소유자 주소 또는 주어진 토큰을 전송하도록 승인받은 operator 주소입니다.                                           |
-| to        | string                                | 토큰을 받을 계정 주소입니다.                                                                              |
-| tokenId   | BigNumber &#124; string &#124; number | 전송하고 싶은 토큰의 토큰 ID입니다.                                                                         |
-| 데이터       | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                    |
-| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type                                  | Description                                                                                                                                                      |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from      | string                                | The address of the owner or the approved operator of the given token.                                                                                            |
+| to        | string                                | The address of the account to receive the token.                                                                                                                 |
+| tokenId   | BigNumber &#124; string &#124; number | The id of the token you want to transfer.                                                                                                                        |
+| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                                                       |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // (데이터 없이) 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -989,20 +989,20 @@ Adds an account as a minter, who are permitted to mint tokens.
 
 Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입     | 설명                                                                                            |
-| --------- | ------ | --------------------------------------------------------------------------------------------- |
-| account   | string | 발행자에 추가될 계정 주소입니다.                                                                            |
-| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 발행자에 추가될 계정 주소입니다.                                                                                                                                               |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1064,19 +1064,19 @@ Renounces the right to mint tokens. Only a minter address can renounce the minti
 
 Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입 | 설명                                                                                            |
-| --------- | -- | --------------------------------------------------------------------------------------------- |
-| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1137,24 +1137,24 @@ Creates a token with the given uri and assigns them to the given account. This m
 
 Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                                    | 설명                                                                                            |
-| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
-| to        | string                                | 토큰이 발행될 계정 주소입니다.                                                                             |
-| tokenId   | BigNumber &#124; string &#124; number | 발행될 토큰 ID입니다.                                                                                 |
-| tokenURI  | string                                | 발행될 토큰 URI입니다.                                                                                |
-| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type                                  | Description                                                                                                                                                      |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| to        | string                                | 토큰이 발행될 계정 주소입니다.                                                                                                                                                |
+| tokenId   | BigNumber &#124; string &#124; number | 발행될 토큰 ID입니다.                                                                                                                                                    |
+| tokenURI  | string                                | 발행될 토큰 URI입니다.                                                                                                                                                   |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1219,20 +1219,20 @@ Destroys the token of the given token id. Without `sendParam.from` nor `kip17.op
 
 Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입                                    | 설명                                                                                            |
-| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
-| tokenId   | BigNumber &#124; string &#124; number | 제거할 토큰 ID입니다.                                                                                 |
-| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type                                  | Description                                                                                                                                                      |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenId   | BigNumber &#124; string &#124; number | 제거할 토큰 ID입니다.                                                                                                                                                    |
+| sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1297,19 +1297,19 @@ Suspends functions related to sending tokens.
 
 Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입 | 설명                                                                                            |
-| --------- | -- | --------------------------------------------------------------------------------------------- |
-| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1370,19 +1370,19 @@ Resumes the paused contract.
 
 Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입 | 설명                                                                                            |
-| --------- | -- | --------------------------------------------------------------------------------------------- |
-| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1443,20 +1443,20 @@ Adds an account as a pauser that has the right to suspend the contract.
 
 Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입     | 설명                                                                                            |
-| --------- | ------ | --------------------------------------------------------------------------------------------- |
-| account   | string | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                      |
-| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                                         |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서  sendParam 객체를 통해 전송
@@ -1517,19 +1517,19 @@ Renounces the right to pause the contract. Only a pauser address can renounce it
 
 Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
-**파라미터**
+**Parameters**
 
-| 이름        | 타입 | 설명                                                                                            |
-| --------- | -- | --------------------------------------------------------------------------------------------- |
-| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve][]의 파라미터 설명을 참고하십시오. |
+| Name      | Type   | Description                                                                                                                                                      |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve][]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
 
-**리턴값**
+**Return Value**
 
 `Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
