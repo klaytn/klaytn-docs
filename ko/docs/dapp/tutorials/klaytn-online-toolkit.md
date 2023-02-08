@@ -7,7 +7,7 @@
 
 > 더 많은 사람들이 `Klaytn 온라인 툴킷`을 사용해볼 수 있도록 ["Klaytn 온라인 툴킷"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) 시리즈를 준비했습니다.
 
-## 링크 <a id="links"></a>
+## Links <a id="links"></a>
 `Klaytn 온라인 툴킷`에 관련된 링크들입니다. 편하게 사용해보세요.
 * [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
 * [Page](https://toolkit.klaytn.foundation)
