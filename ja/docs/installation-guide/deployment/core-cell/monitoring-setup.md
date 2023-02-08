@@ -1,7 +1,7 @@
 # モニタリング設定 <a id="monitoring-setup"></a>
 
 
-## 概要 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 Klaytnチームは、 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000) でKlaytn CCNを監視するためのサイトを提供します。 CCの各CN/PNには `テレグラフ・` 監視エージェントが設置されており、メトリックを収集して監視サーバーに送信します。 インストールが完了したら、モニタリングサイトにアクセスして、Klaytn CC のメトリックを表示できます。
 
@@ -34,7 +34,7 @@ EOF
 
 ### kcnd/kpnd でモニタリングを有効にする <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
-/etc/kCND/conf/kcnd.conf
+/etc/kcnd/conf/kcnd.conf
 
 ```text
 ...
