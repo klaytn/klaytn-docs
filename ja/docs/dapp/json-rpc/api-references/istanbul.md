@@ -10,19 +10,19 @@ description: '>- 名前空間 "istanbul" に関連したAPI。'
 
 指定されたブロック番号の状態スナップショットを返します。 stateスナップショットには、スナップショットブロックのnumber/hash、バリデータセット、ガバナンス投票などの情報が含まれます。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ                 | Description                                                                                                      |
+| Name         | Type                | Description                                                                                                      |
 | ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; Tag | 整数のブロック番号、 `"firmest"` または `"latest"` の文字列。 [デフォルトのブロックパラメータ](./klay/block.md#the-default-block-parameter) のように。 |
+| block number | QUANTITY &#124; TAG | 整数のブロック番号、 `"firmest"` または `"latest"` の文字列。 [デフォルトのブロックパラメータ](./klay/block.md#the-default-block-parameter) のように。 |
 
-**戻り値**
+**Return Value**
 
 `Object` - スナップショットが見つからなかった場合のスナップショットオブジェクト、または `エラー`。
 
 | Name | Type | Type | Description| | Epoch | 64バイトデータ | チェックポイントして保留中の投票をリセットするブロックの数 | | Number | 64バイトデータ | スナップショットが作成されたブロック番号 | | Number | 64バイトデータ | スナップショットが作成されたブロック番号 | | ValSet | 64バイトデータ | 瞬時にバリデータのセット | | ポリシー | 64バイトデータ | 64バイトデータ | | コミットサイズ | 64バイトデータ | 64バイトデータ | | 投票 | 64バイトデータ | 時系列順にキャストされる投票のリスト | | Tally | 64バイトデータ | 現在の投票 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -35,17 +35,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 指定されたブロックハッシュの状態スナップショットを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ       | Description |
-| --------- | --------- | ----------- |
-| ハッシュをブロック | 32バイトのデータ | ブロックのハッシュ。  |
+| Name      | Type         | Description          |
+| --------- | ------------ | -------------------- |
+| ハッシュをブロック | 32-byte DATA | The hash of a block. |
 
-**戻り値**
+**Return Value**
 
 See [istanbul_getSnapshot](#istanbul_getsnapshot)
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -59,19 +59,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 指定されたブロック番号のバリデータのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ                 | Description                                                                                                      |
-| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; Tag | 整数のブロック番号、 `"firmest"` または `"latest"` の文字列。 [デフォルトのブロックパラメータ](./klay/block.md#the-default-block-parameter) のように。 |
+| Name         | Type                | Description                                                                                                                                      |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
-**戻り値**
+**Return Value**
 
-| 名前    | タイプ        | Description     |
-| ----- | ---------- | --------------- |
-| バリデータ | 20 バイトのデータ | バリデータアドレスの一覧です。 |
+| Name  | Type         | Description     |
+| ----- | ------------ | --------------- |
+| バリデータ | 20-byte DATA | バリデータアドレスの一覧です。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -84,17 +84,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 指定されたブロックハッシュの承認済みバリデータのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ       | Description |
-| --------- | --------- | ----------- |
-| ハッシュをブロック | 32バイトのデータ | ブロックのハッシュ。  |
+| Name       | Type         | Description          |
+| ---------- | ------------ | -------------------- |
+| block hash | 32-byte DATA | The hash of a block. |
 
-**戻り値**
+**Return Value**
 
 See [istanbul_getValidators](#istanbul_getvalidators)
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -107,15 +107,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ノードが支持して投票しようとする現在の候補を返します。
 
-**パラメータ**
+**Parameters**
 
 なし
 
-**戻り値**
+**Return Value**
 
 | account | 20バイトデータ | 候補者のアドレス。 | | auth|boolean 候補の認可状況を示す値。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -128,18 +128,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 バリデータがプッシュ通知を試みる新しい認証候補を注入します。
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ        | Description      |
-| ----- | ---------- | ---------------- |
-| アカウント | 20 バイトのデータ | 候補者の住所。          |
-| 認証する  | boolean    | 候補者の承認ステータスを示す値。 |
+| Name    | Type         | Description      |
+| ------- | ------------ | ---------------- |
+| account | 20-byte DATA | 候補者の住所。          |
+| 認証する    | boolean      | 候補者の承認ステータスを示す値。 |
 
-**戻り値**
+**Return Value**
 
-なし
+none
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -152,17 +152,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 現在実行中の候補者を削除し、検証者がさらに投票を行うことを停止します(for または against のいずれか)。
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ        | Description |
-| ----- | ---------- | ----------- |
-| アカウント | 20 バイトのデータ | 候補者の住所。     |
+| Name    | Type         | Description           |
+| ------- | ------------ | --------------------- |
+| account | 20-byte DATA | Address of candidate. |
 
-**戻り値**
+**Return Value**
 
-なし
+none
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -176,17 +176,17 @@ Response {"jsonrpc":"2.0","id":1,"result":null}
 Returns istanbul config timeout. デフォルト値は 10000ms で、終了した場合は timeoutEvent が送信されます。 CNの場合、timeoutEventにはcurrentRound、preparesSize、logにcommitsSizeなどの情報が含まれます。
 
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| 名前     | タイプ | Description |
-| ------ | --- | ----------- |
-| タイムアウト | int | 設定のタイムアウト   |
+| Name   | Type | Description |
+| ------ | ---- | ----------- |
+| タイムアウト | int  | 設定のタイムアウト   |
 
-**例**
+**Example**
 
 ```shell
 // Request
