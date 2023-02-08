@@ -2,10 +2,10 @@
 
 ![](../images/sc-en-scn-arch.png)
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - EN용 Linux 또는 MacOS 서버 1대
  - 테스트를 위한 최소 하드웨어 요구 사항
-   - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
+   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
  - Baobab EN 실행파일을 다운로드하세요. 다운로드할 수 있는 바이너리의 전체 목록을 보려면 [Download](../../download/README.md)을 참고하세요.
  - 가정 및 제약
@@ -15,7 +15,7 @@
    - 모든 SCN이 EN과 연결되어야 하는 것은 아닙니다.
 
 ## 0 단계 : Baobab EN 설치하기 <a id="install-baobab-en"></a>
-다운로드한 kscn 패키지를 압축 해제하고, EN 서버에 EN 패키지를 압축 해제합니다.
+The installation is the uncompression of the downloaded package. EN 서버에 EN 패키지를 압축 해제합니다.
 
 ```bash
 EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
@@ -28,7 +28,7 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 ```
 
 ## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
-다운로드 받은 제네시스 파일을 사용해서 EN을 초기화합니다. 아래의 명령어를 실행하시면, 홈 디렉토리에 체인 데이터와 로그를 저장하는 데이터 폴더를 생성합니다. `--datadir` 지시문을 이용해 데이터 폴더를 변경할 수 있습니다.
+다운로드 받은 제네시스 파일을 사용해서 EN을 초기화합니다. 아래의 명령어를 실행하시면, It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
 
 ```
 EN-01$ ken --datadir ~/data init ~/genesis.json
@@ -52,7 +52,7 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-EN 노드를 시작하고, 콘솔에서 klay.blockNumber를 조회하면 블록 동기화 상태를 확인할 수 있습니다. 조회 결과가 0이 아니라면 노드가 제대로 작동하는 것입니다. Baobab 네트워크의 모든 블록을 다운로드하는 과정에서 네트워크 조건 및 하드웨어 성능에 따라 시간이 오래 걸릴 수 있으며, [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md)를 사용하여 블록을 동기화하는 것을 권장합니다.
+EN 노드를 시작하고, 콘솔에서 klay.blockNumber를 조회하면 블록 동기화 상태를 확인할 수 있습니다. If this number is not 0, the node is working fine. Baobab 네트워크의 모든 블록을 다운로드하는 과정에서 네트워크 조건 및 하드웨어 성능에 따라 시간이 오래 걸릴 수 있으며, [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md)를 사용하여 블록을 동기화하는 것을 권장합니다.
 ```
 EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
