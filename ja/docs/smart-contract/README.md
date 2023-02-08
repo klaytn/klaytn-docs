@@ -3,7 +3,7 @@ description: >-
   このセクションでは、スマートコントラクト開発の開発リソースについて説明します。
 ---
 
-# 概要 <a id="overview"></a>
+# Overview <a id="overview"></a>
 
 スマートコントラクトを記述するために、Klaytnは現在、プライマリプログラミング言語として [Solidity](https://github.com/ethereum/solidity) をサポートしています。 SolidityはEthereumの _デファクト_ 標準コントラクトプログラミング言語であり、大規模なユーザーベースとアクティブなコミュニティを持っているため、Klaytnで採用されています。 Klaytnチームは、Ethereum DApp開発者が既存のスマートコントラクトをKlaytnに簡単に実験または移行できるように、使い慣れた開発経験をユーザーに提供することを決定しました。
 
