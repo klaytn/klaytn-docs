@@ -1,21 +1,21 @@
-# 設定 <a id="configuration"></a>
+# Configuration <a id="configuration"></a>
 
 PN構成は、データディレクトリを作成し、設定ファイル `kpnd.conf`に複数の値を設定することです。
 
 1. PNデータディレクトリを作成
-2. ノードキーをインストール
+2. Install node key
 3. `static-node.json をインストール`
 4. `kpnd.conf` で PN を設定します。
 
 ## PNデータディレクトリの作成 <a id="pn-data-directory-creation"></a>
 
-Klaytnブロックチェーンデータのサイズが常に増加していることを考慮すると、十分な大きさのストレージを使用することをお勧めします。 必要なパスにディレクトリを作成する必要があります。
+Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
 
 ```bash
 $ mkdir -p /var/kpnd/data
 ```
 
-## ノードキーのインストール <a id="install-node-key"></a>
+## Install Node Key <a id="install-node-key"></a>
 
 プッシュ通知を操作するには、 `nodekey` が必要です。 KPNバイナリは、あなたが持っていない場合、あなたのために新しいものを作成します。 もしもあれば、 `nodekey` を PN データディレクトリに入れる必要があります。 `nodekey` を作成する方法は、「[インストールする前に](../before-you-install.md)」セクションにあります。 次のコマンドラインは `nodekey` を PN データディレクトリにコピーします。
 
@@ -42,14 +42,14 @@ PNのノードURIは「[インストール前](../before-you-install.md)」セ�
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-## 設定ファイルを更新する <a id="update-the-configuration-file"></a>
+## Update the Configuration File <a id="update-the-configuration-file"></a>
 
-設定ファイルの場所:
+Configuration File Location:
 
 * アーカイブ配布の場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kpn-linux-amd64/conf/` です。
 * パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kpnd/conf/` です。
 
-### データディレクトリを追加  <a id="add-data-directory"></a>
+### Add Data Directory  <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
 
@@ -59,21 +59,21 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-## 高速同期 \(オプション\) <a id="fast-sync-optional"></a>
+## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
 
-各PNは、ネットワークのチェーンデータのコピーを保持します。 ノードが同期されていない場合、ネットワーク内の他のノードからこのデータを取得できます。同期と呼ばれるプロセスです。 新しいPNが最初に開始されると、ネットワークからチェーンデータ全体をダウンロードする必要があります。
+各PNは、ネットワークのチェーンデータのコピーを保持します。 If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. 新しいPNが最初に開始されると、ネットワークからチェーンデータ全体をダウンロードする必要があります。
 
 このプロセスを加速するには、PNを開始する前にチェーンデータのスナップショットをダウンロードして高速同期を実行することができます。 これにより、PNが最初の起動時に同期に費やす時間が大幅に短縮されます。
 
-[Cypress スナップショットアーカイブ](http://packages.klaytn.net/cypress/chaindata/) または [Baobab スナップショット アーカイブ](http://packages.klaytn.net/baobab/chaindata/) から最新のチェーンデータ スナップショットをダウンロードします。 `kpnd`を開始する前に、 `kpnd.conf` で設定したDATA\_DIR内のスナップショットを抽出します。
+Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). `kpnd`を開始する前に、 `kpnd.conf` で設定したDATA\_DIR内のスナップショットを抽出します。
 
-例:
+For example:
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-または
+Or,
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
