@@ -1,6 +1,6 @@
 # Kaikas <a id="kaikas"></a>
 
-KaikasはKlaytn Network用のブラウザ拡張ウォレットです。 Google Chromeで利用可能なKaikasは、Webブラウザ経由でKlaytnネットワークとやり取りするための安全で使いやすい手段を提供します。 Kaikasを使用すると、KLAYとKlaytnベースのトークンを保存して取引することができます。 また、WebベースのdApps(分散アプリケーション)からのリクエストに リアルタイムで署名することもできます。
+Kaikas is a browser extension wallet for the Klaytn Network. Google Chromeで利用可能なKaikasは、Webブラウザ経由でKlaytnネットワークとやり取りするための安全で使いやすい手段を提供します。 Kaikasを使用すると、KLAYとKlaytnベースのトークンを保存して取引することができます。 また、WebベースのdApps(分散アプリケーション)からのリクエストに リアルタイムで署名することもできます。
 
 * Chrome ウェブストアからダウンロード: [リンク](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
