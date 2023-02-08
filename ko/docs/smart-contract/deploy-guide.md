@@ -120,7 +120,7 @@ module.exports = function(deployer) {
 };
 ```
 
-- 아래와 같이 `truffle-config.js`를 설정하세요. 컨트랙트를 배포할 충분한 `KLAY`를 가진 계정의 개인키를 입력하세요.
+- Set `truffle-config.js` as below. 컨트랙트를 배포할 충분한 `KLAY`를 가진 계정의 개인키를 입력하세요.
 
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -157,23 +157,24 @@ vvisp은 스마트 컨트랙트 개발을 위해 HEACHI LABS에서 제공하는 
 
 ```
 pragma solidity 0.5.6;
+
 contract Mortal {
-    /* 주소 타입의 소유자(owner) 변수 정의 */
+    /* Define variable owner of the type address */
     address payable owner;
-    /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
+    /* This function is executed at initialization and sets the owner of the contract */
     constructor () public { owner = msg.sender; }
-    /* 컨트랙트에서 자금을 회수하는 함수 */
+    /* Function to recover the funds on the contract */
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract KlaytnGreeter is Mortal {
-    /* 문자열 타입의 변수 greeting 정의 */
+    /* Define variable greeting of the type string */
     string greeting;
-    /* 이 함수는 컨트랙트가 실행될 때 작동합니다 */
+    /* This runs when the contract is executed */
     constructor (string memory _greeting) public {
         greeting = _greeting;
     }
-    /* 주(Main) 함수 */
+    /* Main function */
     function greet() public view returns (string memory) {
         return greeting;
     }
@@ -229,7 +230,7 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
-*참고*: 이 예제는 상업용으로 권장되지 않습니다. 개인키를 다룰 때 많은 주의를 기울이세요.
+*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.
 
 - node 환경을 사용해 컨트랙트를 배포하세요.
 
