@@ -132,5 +132,5 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. ***重要な*** ノードタイプがCNの場合、Klaytn評議会でCNノードを削除する
+1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
 2. プロセスを再起動するかインスタンスを再起動します
