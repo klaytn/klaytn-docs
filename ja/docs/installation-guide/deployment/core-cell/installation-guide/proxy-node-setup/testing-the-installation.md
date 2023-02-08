@@ -1,3 +1,3 @@
-# インストールのテスト <a id="testing-the-installation"></a>
+# Testing the Installation <a id="testing-the-installation"></a>
 
 プロキシノードが正常にインストールされ、インストール後に期待どおりに動作していることを確認する時間です。
