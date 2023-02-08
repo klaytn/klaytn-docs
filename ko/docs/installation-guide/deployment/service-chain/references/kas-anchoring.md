@@ -1,6 +1,6 @@
 Design에서 설명했듯이, 클레이튼 메인체인에 서비스 체인 데이터를 앵커링할 수 있습니다. 이 페이지는 [KAS (Klaytn API Service)](https://www.klaytnapi.com)를 통해 데이터 앵커링을 활성화하는 법을 소개합니다.
 
-서비스 체인의 노드가 활성화되면 주기적으로 그 체인 데이터(블록 데이터)를 Cypress나 Baobab에 앵커링함으로써 서비스체인의 존재와 불가역성을 증명할 수 있습니다. 이는 서비스체인의 보안과 신뢰성을 보장합니다.
+서비스 체인의 노드가 활성화되면 주기적으로 그 체인 데이터(블록 데이터)를 Cypress나 Baobab에 앵커링함으로써 서비스체인의 존재와 불가역성을 증명할 수 있습니다. This ensures the security and credibility of the service chain.
 
 # KAS 사용 준비하기<a id="preparation-with-kas"></a>
 이 장은 데이터 앵커링을 위해 KAS를 사용하기 위한 필요조건들을 소개합니다.
