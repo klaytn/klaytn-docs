@@ -9,9 +9,9 @@
 Klaytn은 **London** Ethereum Virtual Machine (EVM)과 공식 호환 가능합니다. 다른 EVM 버전들과의 하위 호환성은 보장되지 않습니다. 따라서 Istanbul 타겟 옵션과 함께 솔리디티 코드를 컴파일하는 것을 권장드립니다. 자세한 내용은 [How to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)를 참고해주세요.
 
 {% hint style="success" %}
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}
@@ -103,7 +103,7 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 * [트러플로 컨트랙트 컴파일하기](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
 * [트러플로 컨트랙트 배포하기](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+NOTE: This section will be updated in the future.
 
 ## 스마트 컨트랙트 디버깅 <a id="debugging-smart-contracts"></a>
 
@@ -113,7 +113,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 * [Remix 트랜잭션 디버깅 튜토리얼](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
 * [트러플로 컨트랙트 디버깅하기](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+NOTE: This section will be updated in the future.
 
 ## 스마트 컨트랙트 모범 사례 <a id="smart-contract-best-practices"></a>
 
@@ -121,9 +121,9 @@ To eliminate security concerns and code quality issues from your smart contract,
 
 * [스마트 컨트랙트 보안 모범 사례](https://github.com/ConsenSys/smart-contract-best-practices)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+NOTE: This section will be updated in the future.
 
-## 참고 <a id="references"></a>
+## References <a id="references"></a>
 
 * [솔리디티 GitHub 사이트](https://github.com/ethereum/solidity)
 * [솔리디티 문서](https://solidity.readthedocs.io/en/latest/index.html)
