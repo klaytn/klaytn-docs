@@ -1,7 +1,7 @@
 このセクションでは、提供されたテストコードを使用して Baobab ネットワークと ServiceChain 間のERC-20 値転送を有効にする方法を説明します。 オペレータアカウントにKLAYを追加し、ブリッジとERC-20契約を展開します。 その後、契約アドレスをSCNに登録します。 そして、ERC-20の転送値をテストします。
 
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 - ServiceChainをインストールし、 [Connecting to Baobab](en-scn-connection.md) の指示によりServiceChainをBaobab ENに接続したと仮定します。
 - リポジトリ [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) をクローンします。
 - `Node.js` (v14) と `npm` ([インストール方法](https://nodejs.org/en/download/package-manager/) ) をインストールします。
@@ -26,7 +26,7 @@ $ kscn attach --datadir ~/data
 
 ```
 $ kscn account import ~/homi-output/keys_testkey1
-新しいアカウントはパスワードでロックされています。 パスワードを入力してください。 このパスワードを忘れないでください。
+新しいアカウントはパスワードでロックされています。 Please give a password. Do not forget this password.
 Passphrase:
 Repeat passphrase:
 Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
@@ -51,7 +51,7 @@ True
 ```
 
 ### ステップ 2: コントラクトの導入 <a id="step-2-deploy-contracts"></a>
-- SCNに接続し、コントラクト展開用のノード環境を準備します。 リポジトリ [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) をクローンします。
+- SCNに接続し、コントラクト展開用のノード環境を準備します。 Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 ![](../images/sc-vt-deploy.png)
 
