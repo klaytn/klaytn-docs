@@ -3,9 +3,9 @@ This chapter explains how to build ServiceChain networks in a hierarchical struc
 ![](../images/sc-nestedsc-arch.png)
 
 
-## 前提条件 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
  - Assume that you have progressed to the ServiceChain configuration and Baobab EN described in [Nested ServiceChain](nested-sc.md). So we will briefly explain what was explained in the previous section.
- - 仮定と制限
+ - Assumptions and Limitations
    - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
    - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
    - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Baobab and L2.
@@ -108,7 +108,7 @@ Connect to the console of SCN-L2-03 node, (Note: this is not in L3 but in L2) th
 Edit the kscn configuration file `conf/kscnd.conf` of SCN-L2-03 as follows.
 
 ```console
-MAIN_BRIDGE=1
+SC_MAIN_BRIDGE=1
 ```
 
 Restart kscnd on SCN-L2-03.
