@@ -8,25 +8,25 @@
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-アドレスに関連付けられたアカウントがKlaytnブロックチェーンプラットフォームで作成された場合、 `true` を返します。 そうでなければ、 `false` を返します。
+アドレスに関連付けられたアカウントがKlaytnブロックチェーンプラットフォームで作成された場合、 `true` を返します。 It returns `false` otherwise.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | ネットワーク上で作成されたかどうかを確認するためにクエリしたいアカウントのアドレス。                                      |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                     |
+| ----------- | --------- | ------------------------------------------------------------------------------- |
+| address     | string    | ネットワーク上で作成されたかどうかを確認するためにクエリしたいアカウントのアドレス。                                      |
+| blockNumber | number \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
+| callback    | function  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `boolean` を返します
 
-| タイプ     | Description          |
+| Type    | Description          |
 | ------- | -------------------- |
 | boolean | Klaytnにおける入力アドレスの存在。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
@@ -43,23 +43,23 @@ Klaytnで指定されたアドレスのアカウント情報を返します。 K
 
 **NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | アカウント情報を取得したいアカウントのアドレス。                                                        |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | string    | アカウント情報を取得したいアカウントのアドレス。                                                                                     |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                           |
-| ------ | ------------------------------------- |
-| object | アカウント情報を含むオブジェクト。 各口座タイプには異なる属性があります。 |
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
+| object | アカウント情報を含むオブジェクト。 Each account type has different attributes. |
 
-**例**
+**Example**
 
 ```javascript
 // Get account with EOA
@@ -100,23 +100,23 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 **注意** `cave.rpc.klay.getAccountKey` は、各AccountKey 型によって異なるオブジェクトを返します。 指定されたアドレスに一致する Klaytn アカウントがネットワークに存在しない場合、 `null` が返されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | AccountKey 情報のオブジェクトを取得したいKlaytnアカウントのアドレス。                                     |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | string    | AccountKey 情報のオブジェクトを取得したいKlaytnアカウントのアドレス。                                                                  |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                         |
+| Type   | Description                                         |
 | ------ | --------------------------------------------------- |
 | object | AccountKey 情報を含むオブジェクト。 各AccountKeyタイプには異なる属性があります。 |
 
-**例**
+**Example**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -186,22 +186,22 @@ caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 
 AccountKey 情報を含むオブジェクトを再帰長プレフィックス(RLP)エンコーディングスキームを使用してエンコードします。 また、 [account.getRPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) を使用して RLP でエンコードされた AccountKey を取得することもできます。
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ    | Description                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKey | object | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
-| callback   | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                                                                                                                                                                                                                                                                      |
+| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKey | object   | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
+| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                                                                                                                              |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description            |
-| --- | ---------------------- |
-| 文字列 | RLPエンコードされたAccountKey。 |
+| Type   | Description            |
+| ------ | ---------------------- |
+| string | RLPエンコードされたAccountKey。 |
 
-**例**
+**Example**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -305,22 +305,22 @@ caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 
 RLPでエンコードされたAccountKeyをデコードします。 また、 [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) を使用して RLPでエンコードされた AccountKey をデコードすることもできます。
 
-**パラメータ**
+**Parameters**
 
-| 名前         | タイプ | Description                                                        |
-| ---------- | --- | ------------------------------------------------------------------ |
-| encodedKey | 文字列 | RLPエンコードされたAccountKey。                                             |
-| callback   | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name       | Type     | Description                                                                                                |
+| ---------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| encodedKey | string   | A RLP-encoded AccountKey.                                                                                  |
+| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                            |
+| Type   | Description                            |
 | ------ | -------------------------------------- |
 | object | オブジェクトは内部に `keyType` と `key` を定義しています。 |
 
-**例**
+**Example**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -420,23 +420,23 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 
 Klaytnで指定されたアドレスのアカウントの残高を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | 残高を取得したいアカウントのアドレス                                                              |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | string    | 残高を取得したいアカウントのアドレス                                                                                           |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description          |
-| --- | -------------------- |
-| 文字列 | peb内の指定されたアドレスの現在の残高 |
+| Type   | Description          |
+| ------ | -------------------- |
+| string | peb内の指定されたアドレスの現在の残高 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBalance('0x{address in hex}').then(console.log)
@@ -449,25 +449,25 @@ Klaytnで指定されたアドレスのアカウントの残高を返します�
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 ```
 
-指定されたアドレスのコードを返します。
+Returns code at a given address.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | コードを取得するアドレス。                                                                   |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | string    | コードを取得するアドレス。                                                                                                |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description      |
-| --- | ---------------- |
-| 文字列 | 指定されたアドレスからのコード。 |
+| Type   | Description                      |
+| ------ | -------------------------------- |
+| string | The code from the given address. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getCode('0x{address in hex}').then(console.log)
@@ -482,23 +482,23 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 アドレスから送信されたトランザクションの合計数を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                                                                                                                                                                                                                 |
-| ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | 文字列  | トランザクション数を取得するためのアドレス。                                                                                                                                                                                                                                                      |
-| blockNumber | 数 \ | string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                                                                                                                                          |
+| Name        | Type      | Description                                                                                                                                                                                                                                                                 |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string    | トランザクション数を取得するためのアドレス。                                                                                                                                                                                                                                                      |
+| blockNumber | number \ | string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                  |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description                        |
-| --- | ---------------------------------- |
-| 文字列 | 指定されたアドレスからのトランザクションの数を16進数で指定します。 |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| string | 指定されたアドレスからのトランザクションの数を16進数で指定します。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionCount('0x{address in hex}').then(console.log)
@@ -511,25 +511,25 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-入力口座が特定のブロック番号の時点で空でないコードハッシュを持つ場合、 `true` を返します。 アカウントがEOAまたはcodeHashを持たないスマートコントラクトアカウントの場合、 `false` を返します。 詳細は [スマートコントラクトアカウント](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) をご覧ください。
+Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. 詳細は [スマートコントラクトアカウント](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) をご覧ください。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | isContractAccountをチェックしたいアドレス。                                                  |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | string    | isContractAccountをチェックしたいアドレス。                                                                               |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `boolean` を返します
+`Promise` returns `boolean`
 
-| タイプ     | Description                                 |
+| Type    | Description                                 |
 | ------- | ------------------------------------------- |
 | boolean | trueは、入力パラメータが既存のスマートコントラクトアドレスであることを意味します。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
@@ -549,24 +549,24 @@ Klaytnに固有の署名付きデータを生成します。 署名の生成方�
 
 **注**: この API は [インポートされたアカウント](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) を使用してメッセージに署名する機能を提供します。 メッセージに署名するには、ノード内のインポートされたアカウントが [ロック解除](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) されている必要があります。 Klaytn ノードでインポートされたアカウントでトランザクションに署名するには、 [caver.rpc.klay.signTransaction](klay.md#caver-rpc-klay-signtransaction) を使用してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| address     | 文字列  | メッセージに署名するためのインポートされたアカウントのアドレス。                                                |
-| message     | 文字列  | 署名するメッセージ。                                                                      |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| address     | String    | メッセージに署名するためのインポートされたアカウントのアドレス。                                                                             |
+| message     | String    | 署名するメッセージ。                                                                                                   |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description            |
-| --- | ---------------------- |
-| 文字列 | インポートされたアカウントから作られた署名。 |
+| Type   | Description            |
+| ------ | ---------------------- |
+| string | インポートされたアカウントから作られた署名。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
@@ -581,21 +581,21 @@ caver.rpc.klay.getAccounts([callback])
 
 Klaytn Node が所有するアドレスのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `Array` を返します。
+`Promise` returns `Array`
 
-| タイプ | Description               |
-| --- | ------------------------- |
-| 行列  | Klaytn Node が所有するアドレスの配列。 |
+| Type  | Description               |
+| ----- | ------------------------- |
+| Array | Klaytn Node が所有するアドレスの配列。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getAccounts().then(console.log)
@@ -611,23 +611,23 @@ Klaytn Node が所有するアドレスのリストを返します。
 caver.rpc.klay.getBlockNumber([callback])
 ```
 
-直近のブロックの数を返します。
+Returns the number of the most recent block.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description  |
-| --- | ------------ |
-| 文字列 | 直近のブロックの数です。 |
+| Type   | Description  |
+| ------ | ------------ |
+| string | 直近のブロックの数です。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockNumber().then(console.log)
@@ -642,22 +642,22 @@ caver.rpc.klay.getHeader(blockNumberOrHash[, callback])
 
 ブロックハッシュまたはブロック番号からブロックヘッダーを返します。 If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](klay.md#caver-rpc-klay-getheaderbynumber) is called.
 
-**パラメータ**
+**Parameters**
 
-| 名前                | タイプ  | Description                                                        |
-| ----------------- | ---- | ------------------------------------------------------------------ |
-| blockNumberOrHash | 数 \ | string | ブロックハッシュ、数値、またはブロックタグ文字列。                                 |
-| callback          | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name              | Type      | Description                                                                                                |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | number \ | string | ブロックハッシュ、数値、またはブロックタグ文字列。                                                                         |
+| callback          | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                      |
+| Type   | Description                                                                                                      |
 | ------ | ---------------------------------------------------------------------------------------------------------------- |
 | object | ブロックヘッダーオブジェクト。 戻り値の詳細については、 [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getHeader(1).then(console.log)
@@ -688,22 +688,22 @@ caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, cal
 
 ブロック番号からブロックヘッダを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                        |
-| ----------- | ---- | ------------------------------------------------------------------ |
-| blockNumber | 数 \ | string | ブロック番号またはブロックタグ文字列。                                       |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type      | Description                                                                                                |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \ | string | ブロック番号またはブロックタグ文字列。                                                                               |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                      |
-| ------ | ---------------------------------------------------------------------------------------------------------------- |
-| object | ブロックヘッダーオブジェクト。 戻り値の詳細については、 [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash) を参照してください。 |
+| Type   | Description                                                                                                                                                      |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](klay.md#caver-rpc-klay-getheaderbyhash). |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getHeaderByNumber(765139).then(console.log)
@@ -734,36 +734,36 @@ caver.rpc.klay.getHeaderByHash(blockHash[, returnTransactionObjects] [, callback
 
 `blockHash` を使用して、直近のブロックのブロック番号を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description                                                        |
-| --------- | --- | ------------------------------------------------------------------ |
-| blockHash | 文字列 | ブロックハッシュ。                                                          |
-| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | ブロックハッシュ。                                                                                                  |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返す` - ブロックヘッダを含むオブジェクト:
 
-| 名前               | タイプ | Description                                                                           |
-| ---------------- | --- | ------------------------------------------------------------------------------------- |
-| baseFeePerGas    | 文字列 | ガス1回あたりの基本料金。 この値は、ブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返されます。           |
-| blockScore       | 文字列 | ブロックチェーンネットワークでのマイニングの難しさ。 `blockScore` の使用は、ネットワークのコンセンサスとは異なります。 常にBFTコンセンサスエンジンで1。 |
-| extraData        | 文字列 | このブロックの「追加データ」フィールド。                                                                  |
-| gasUsed          | 文字列 | このブロック内のすべてのトランザクションによって使用された合計ガス。                                                    |
-| governanceData   | 文字列 | RLPエンコードされたガバナンス設定                                                                    |
-| hash             | 文字列 | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                                                    |
-| logsBloom        | 文字列 | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                                             |
-| 数値               | 文字列 | ブロック番号 `保留中のブロックの場合は null` です。                                                        |
-| parentHash       | 文字列 | 親ブロックのハッシュ。                                                                           |
-| receiptsRoot     | 文字列 | ブロックのレシートのルートは試してみました。                                                                |
-| 報酬               | 文字列 | ブロック報酬が与えられた受益者の住所。                                                                   |
-| stateRoot        | 文字列 | ブロックの最後の状態のルート。                                                                       |
-| timestamp        | 文字列 | ブロックがCollatedされたときの unix タイムスタンプ。                                                     |
-| timestampFoS     | 文字列 | ブロックが冷却されたときのタイムスタンプの秒数。                                                              |
-| transactionsRoot | 文字列 | ブロックのトランザクションのルート。                                                                    |
+| Name             | Type   | Description                                                                           |
+| ---------------- | ------ | ------------------------------------------------------------------------------------- |
+| baseFeePerGas    | string | The base fee per gas. この値は、ブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返されます。   |
+| blockScore       | string | ブロックチェーンネットワークでのマイニングの難しさ。 `blockScore` の使用は、ネットワークのコンセンサスとは異なります。 常にBFTコンセンサスエンジンで1。 |
+| extraData        | string | The "extra data" field of this block.                                                 |
+| gasUsed          | string | このブロック内のすべてのトランザクションによって使用された合計ガス。                                                    |
+| governanceData   | string | RLP encoded governance configuration                                                  |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                 |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.        |
+| number           | string | The block number. `null` when it is a pending block.                                  |
+| parentHash       | string | Hash of the parent block.                                                             |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                           |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                  |
+| stateRoot        | string | The root of the final state trie of the block.                                        |
+| timestamp        | string | ブロックがCollatedされたときの unix タイムスタンプ。                                                     |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.            |
+| transactionsRoot | string | The root of the transaction trie of the block.                                        |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
@@ -794,23 +794,23 @@ caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callba
 
 ブロックハッシュまたはブロック番号でブロックに関する情報を返します。 If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](klay.md#caver-rpc-klay-getblockbynumber) is called.
 
-**パラメータ**
+**Parameters**
 
-| 名前                       | タイプ     | Description                                                                                                                                                      |
-| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | 数 \    | string | ブロックハッシュ、数値、またはブロックタグ文字列。                                                                                                                               |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | 関数      | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                               |
+| Name                     | Type      | Description                                                                                                                                                      |
+| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | number \ | string | The block hash, number or the block tag string.                                                                                                         |
+| returnTransactionObjects | boolean   | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                  |
+| Type   | Description                                                                                                  |
 | ------ | ------------------------------------------------------------------------------------------------------------ |
 | object | ブロックオブジェクト 戻り値の詳細な説明については、 [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlock(1).then(console.log)
@@ -843,25 +843,25 @@ caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callba
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-ブロック番号でブロックに関する情報を返します。
+Returns information about a block by block number.
 
-**パラメータ**
+**Parameters**
 
-| 名前                       | タイプ     | Description                                                                                                                                                      |
-| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | 数 \    | string | ブロック番号または文字列 (`genesis` または `latest` ) でタグ付けされたブロック。                                                                                                    |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | 関数      | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                               |
+| Name                     | Type      | Description                                                                                                                                                      |
+| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | number \ | string | ブロック番号または文字列 (`genesis` または `latest` ) でタグ付けされたブロック。                                                                                                    |
+| returnTransactionObjects | boolean   | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------- |
-| object | ブロックオブジェクト 戻り値の詳細については、 [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash) を参照してください。 |
+| Type   | Description                                                                                                    |
+| ------ | -------------------------------------------------------------------------------------------------------------- |
+| object | A block object. 戻り値の詳細については、 [caver.rpc.klay.getBlockByHash](klay.md#caver-rpc-klay-getblockbyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockByNumber(1).then(console.log)
@@ -894,43 +894,43 @@ caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, call
 caver.rpc.klay.getBlockByHash(blockHash[, returnTransactionObjects] [, callback])
 ```
 
-`blockHash` を使用して、直近のブロックのブロック番号を返します。
+Returns the block number of the most recent block by using `blockHash`.
 
-**パラメータ**
+**Parameters**
 
-| 名前                       | タイプ     | Description                                                                                                                                                      |
-| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                | 文字列     | ブロックハッシュ。                                                                                                                                                        |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | 関数      | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                                               |
+| Name                     | Type     | Description                                                                                                                                                      |
+| ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                | string   | The block hash.                                                                                                                                                  |
+| returnTransactionObjects | boolean  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返します` - ブロックを含むオブジェクト:
 
-| 名前               | タイプ | Description                                                                           |
-| ---------------- | --- | ------------------------------------------------------------------------------------- |
-| baseFeePerGas    | 文字列 | ガス1回あたりの基本料金。 この値は、ブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返されます。           |
-| blockScore       | 文字列 | ブロックチェーンネットワークでのマイニングの難しさ。 `blockScore` の使用は、ネットワークのコンセンサスとは異なります。 常にBFTコンセンサスエンジンで1。 |
-| extraData        | 文字列 | このブロックの「追加データ」フィールド。                                                                  |
-| gasUsed          | 文字列 | このブロック内のすべてのトランザクションによって使用された合計ガス。                                                    |
-| governanceData   | 文字列 | RLPエンコードされたガバナンス設定                                                                    |
-| hash             | 文字列 | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                                                    |
-| logsBloom        | 文字列 | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                                             |
-| 数値               | 文字列 | ブロック番号 `保留中のブロックの場合は null` です。                                                        |
-| parentHash       | 文字列 | 親ブロックのハッシュ。                                                                           |
-| receiptsRoot     | 文字列 | ブロックのレシートのルートは試してみました。                                                                |
-| 報酬               | 文字列 | ブロック報酬が与えられた受益者の住所。                                                                   |
-| サイズ              | 文字列 | このブロックのサイズをバイト単位で整数にします。                                                              |
-| stateRoot        | 文字列 | ブロックの最後の状態のルート。                                                                       |
-| timestamp        | 文字列 | ブロックがCollatedされたときの unix タイムスタンプ。                                                     |
-| timestampFoS     | 文字列 | ブロックが冷却されたときのタイムスタンプの秒数。                                                              |
-| totalBlockScore  | 文字列 | 合計ブロックの整数このブロックまでチェーンのスコア。                                                            |
-| 取引               | 行列  | トランザクションオブジェクトの配列、または `returnTransactionObjects` パラメータに応じて、32 バイトのトランザクションハッシュ。       |
-| transactionsRoot | 文字列 | ブロックのトランザクションのルート。                                                                    |
-| voteData         | 文字列 | 提案者のRLPエンコードされたガバナンス投票。                                                               |
+| Name             | Type   | Description                                                                                                                                                  |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
+| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
+| extraData        | string | The "extra data" field of this block.                                                                                                                        |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                    |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
+| size             | string | Integer the size of this block in bytes.                                                                                                                     |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                               |
+| transactions     | Array  | トランザクションオブジェクトの配列、または `returnTransactionObjects` パラメータに応じて、32 バイトのトランザクションハッシュ。                                                                              |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
+| voteData         | string | 提案者のRLPエンコードされたガバナンス投票。                                                                                                                                      |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
@@ -965,22 +965,22 @@ caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 
 ブロックハッシュで識別されたブロックに含まれるレシートを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description                                                        |
-| --------- | --- | ------------------------------------------------------------------ |
-| blockHash | 文字列 | ブロックハッシュ。                                                          |
-| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `Array` を返します。
+`Promise` returns `Array`
 
-| タイプ | Description                                                                                                                                                                                                  |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 行列  | The transaction receipts included in a block. ターゲットブロックにトランザクションがない場合、空の配列 `[]` が返されます。 トランザクション領収書の詳細については、 [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 |
+| Type  | Description                                                                                                                                                                                                  |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Array | The transaction receipts included in a block. ターゲットブロックにトランザクションがない場合、空の配列 `[]` が返されます。 トランザクション領収書の詳細については、 [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1021,24 +1021,24 @@ caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 ```
 
-指定されたブロック番号に一致するブロック内のトランザクション数を返します。
+Returns the number of transactions in a block matching the given block number.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                        |
-| ----------- | ---- | ------------------------------------------------------------------ |
-| blockNumber | 数 \ | string | ブロック番号またはブロックタグ文字列 (`genesis` or `latest`).               |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type      | Description                                                                                                |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \ | string | ブロック番号またはブロックタグ文字列 (`genesis` or `latest`).                                                       |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description                  |
-| --- | ---------------------------- |
-| 文字列 | 与えられたブロック内のトランザクションの数を表示します。 |
+| Type   | Description                  |
+| ------ | ---------------------------- |
+| string | 与えられたブロック内のトランザクションの数を表示します。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByNumber(21249).then(console.log)
@@ -1053,22 +1053,22 @@ caver.rpc.klay.getBlockTransactionCountByHash(blockHash[, callback])
 
 指定されたブロックハッシュに一致するブロック内のトランザクション数を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description                                                        |
-| --------- | --- | ------------------------------------------------------------------ |
-| blockHash | 文字列 | ブロックハッシュ。                                                          |
-| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description                  |
-| --- | ---------------------------- |
-| 文字列 | 与えられたブロック内のトランザクションの数を表示します。 |
+| Type   | Description                                           |
+| ------ | ----------------------------------------------------- |
+| string | The number of transactions in the given block in hex. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1083,22 +1083,22 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 
 与えられたブロック番号に一致するコンセンサス情報を持つブロックを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                        |
-| ----------- | ---- | ------------------------------------------------------------------ |
-| blockNumber | 数 \ | string | ブロック番号またはブロックタグ文字列 (`genesis` or `latest`).               |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type      | Description                                                                                                |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \ | string | The block number or the block tag string (`genesis` or `latest`).                                 |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ | Description                                                                                                                                                      |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 文字列 | オブジェクトには、コンセンサス情報を持つブロックが含まれます。 戻り値の詳細については、 [caver.rpc.klay.getBlockWithConsensusInfoByHash](klay.md#caver-rpc-klay-getblockwithconsensusinfobyhash) を参照してください。 |
+| Type   | Description                                                                                                                                                      |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | オブジェクトには、コンセンサス情報を持つブロックが含まれます。 戻り値の詳細については、 [caver.rpc.klay.getBlockWithConsensusInfoByHash](klay.md#caver-rpc-klay-getblockwithconsensusinfobyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
@@ -1160,43 +1160,43 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 
 指定されたハッシュに一致するコンセンサス情報を持つブロックを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description                                                        |
-| --------- | --- | ------------------------------------------------------------------ |
-| blockHash | 文字列 | ブロックハッシュ。                                                          |
-| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `object` を返します - コンセンサス情報を持つブロックオブジェクト (提案者と委員のリスト) または、ブロックが見つからない場合は null にしてください:
 
-| 名前               | タイプ | Description                                                        |
-| ---------------- | --- | ------------------------------------------------------------------ |
-| blockScore       | 文字列 | 以前の困難。 常にBFTコンセンサスエンジンの1                                           |
-| 委員会              | 行列  | このブロックの委員会メンバーのアドレスの配列。 委員会は、このブロックのコンセンサスプロトコルに参加したバリデータのサブセットです。 |
-| extraData        | 文字列 | このブロックの「追加データ」フィールド。                                               |
-| gasUsed          | 文字列 | このブロック内のすべてのトランザクションによって使用された合計ガス。                                 |
-| governanceData   | 文字列 | RLPエンコードされたガバナンス設定                                                 |
-| hash             | 文字列 | ブロックのハッシュ。 `保留中のブロックの場合は null` です。                                 |
-| logsBloom        | 文字列 | ブロックのログのブルームフィルタ。 `保留中のブロックの場合は null` です。                          |
-| 数値               | 文字列 | ブロック番号 `保留中のブロックの場合は null` です。                                     |
-| originProposer   | 文字列 | 同じブロック番号で0ラウンドの提案。                                                 |
-| parentHash       | 文字列 | 親ブロックのハッシュ。                                                        |
-| 提案               | 文字列 | ブロック提案者のアドレス。                                                      |
-| receiptsRoot     | 文字列 | ブロックのレシートのルートは試してみました。                                             |
-| 報酬               | 文字列 | ブロック報酬が与えられた受益者の住所。                                                |
-| ラウンド             | 数値  | ラウンド番号                                                             |
-| サイズ              | 文字列 | このブロックのサイズをバイト単位で整数にします。                                           |
-| stateRoot        | 文字列 | ブロックの最後の状態のルート。                                                    |
-| timestamp        | 文字列 | ブロックがCollatedされたときの unix タイムスタンプ。                                  |
-| timestampFoS     | 文字列 | ブロックが冷却されたときのタイムスタンプの秒数。                                           |
-| totalBlockScore  | 文字列 | 合計ブロックの整数このブロックまでチェーンのスコア。                                         |
-| 取引               | 行列  | トランザクションオブジェクトの配列。                                                 |
-| transactionsRoot | 文字列 | ブロックのトランザクションのルート。                                                 |
-| voteData         | 文字列 | 提案者のRLPエンコードされたガバナンス投票                                             |
+| Name             | Type   | Description                                                                    |
+| ---------------- | ------ | ------------------------------------------------------------------------------ |
+| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                        |
+| 委員会              | Array  | このブロックの委員会メンバーのアドレスの配列。 委員会は、このブロックのコンセンサスプロトコルに参加したバリデータのサブセットです。             |
+| extraData        | string | The "extra data" field of this block.                                          |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.              |
+| governanceData   | string | RLP encoded governance configuration                                           |
+| hash             | string | Hash of the block. `null` when it is a pending block.                          |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block. |
+| number           | string | The block number. `null` when it is a pending block.                           |
+| originProposer   | string | 同じブロック番号で0ラウンドの提案。                                                             |
+| parentHash       | string | Hash of the parent block.                                                      |
+| 提案               | string | ブロック提案者のアドレス。                                                                  |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                    |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.           |
+| ラウンド             | number | ラウンド番号                                                                         |
+| size             | string | Integer the size of this block in bytes.                                       |
+| stateRoot        | string | The root of the final state trie of the block.                                 |
+| timestamp        | string | The unix timestamp for when the block was collated.                            |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.     |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                 |
+| transactions     | Array  | トランザクションオブジェクトの配列。                                                             |
+| transactionsRoot | string | The root of the transaction trie of the block.                                 |
+| voteData         | string | RLP encoded governance vote of the proposer                                    |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1283,22 +1283,22 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 
 指定されたブロックの委員会内のすべてのバリデータのリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `Array` を返します。
+`Promise` returns `Array`
 
-| タイプ | Description                   |
-| --- | ----------------------------- |
-| 行列  | 指定されたブロックの委員会のすべてのバリデータのアドレス。 |
+| Type  | Description                   |
+| ----- | ----------------------------- |
+| Array | 指定されたブロックの委員会のすべてのバリデータのアドレス。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getCommittee().then(console.log)
@@ -1316,22 +1316,22 @@ caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 
 指定したブロックの委員会のサイズを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `番号` を返します。
+`Promise` returns `number`
 
-| タイプ | Description          |
-| --- | -------------------- |
-| 数値  | 指定されたブロックにおける委員会の規模。 |
+| Type   | Description          |
+| ------ | -------------------- |
+| number | 指定されたブロックにおける委員会の規模。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getCommitteeSize().then(console.log)
@@ -1346,22 +1346,22 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 
 指定されたブロックにある評議会のすべての検証者のリストを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `Array` を返します。
+`Promise` returns `Array`
 
-| タイプ | Description                                                |
-| --- | ---------------------------------------------------------- |
-| 行列  | 指定されたブロックにおける評議会のバリデーターアドレスの配列、または評議会が見つからなかった場合は null です。 |
+| Type  | Description                                                |
+| ----- | ---------------------------------------------------------- |
+| Array | 指定されたブロックにおける評議会のバリデーターアドレスの配列、または評議会が見つからなかった場合は null です。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getCouncil().then(console.log)
@@ -1379,22 +1379,22 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 
 指定されたブロックにある評議会のサイズを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------------- |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `番号` を返します。
+`Promise` returns `number`
 
-| タイプ | Description           |
-| --- | --------------------- |
-| 数値  | 指定されたブロックにおける評議会の大きさ。 |
+| Type   | Description           |
+| ------ | --------------------- |
+| number | 指定されたブロックにおける評議会の大きさ。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getCouncilSize().then(console.log)
@@ -1407,26 +1407,26 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 ```
 
-指定されたアドレスの格納位置から値を返します。
+Returns the value from a storage position at a given address.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                                                                                                 |
-| ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | 文字列  | ストレージを取得するためのアドレス                                                                                                                           |
-| 位置          | 数値   | ストレージのインデックス位置。 位置 `の計算`についての詳細は、 [klay\_getStorageAt](../../../../json-rpc/api-references/klay/block.md#klay\_getstorageat) を参照してください。 |
-| blockNumber | 数 \ | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used.                                                             |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                          |
+| Name        | Type      | Description                                                                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string    | ストレージを取得するためのアドレス                                                                                                                           |
+| 位置          | number    | ストレージのインデックス位置。 位置 `の計算`についての詳細は、 [klay\_getStorageAt](../../../../json-rpc/api-references/klay/block.md#klay\_getstorageat) を参照してください。 |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                  |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description   |
-| --- | ------------- |
-| 文字列 | このストレージの位置の値。 |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| string | The value at this storage position. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
@@ -1439,19 +1439,19 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 caver.rpc.klay.isMinting([callback])
 ```
 
-クライアントが新しいブロックを積極的にマイニングしている場合、 `true` を返します。
+Returns `true` if client is actively mining new blocks.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                 |
-| -------- | --- | ----------------------------------------------------------- |
-| callback | 関数  | (オプション) エラーオブジェクトを最初のパラメータとし、結果を2番目のパラメータとして返すオプションのコールバック。 |
+| Name     | Type     | Description                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `boolean` - `true` クライアントがマイニングしている場合、そうでなければ `false` を返します。
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.isMinting().then(console.log)
@@ -1466,25 +1466,25 @@ caver.rpc.klay.isSyncing([callback])
 
 同期ステータスまたは false に関するデータを持つオブジェクトを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `object|boolean` - `false` を返します。 それ以外の場合、同期オブジェクトが返されます：
 
-| 名前            | タイプ | Description                 |
-| ------------- | --- | --------------------------- |
-| startingBlock | 文字列 | 同期が始まった16進数のブロック番号。         |
-| currentBlock  | 文字列 | ノードが現在同期している16進数のブロック番号。    |
-| highestBlock  | 文字列 | 同期する16進数の推定ブロック番号。          |
-| 既知の状態         | 文字列 | ダウンロードする16進数の推定状態。          |
-| pulledStates  | 文字列 | 既にダウンロードされている状態はhexで表示されます。 |
+| Name          | Type   | Description                 |
+| ------------- | ------ | --------------------------- |
+| startingBlock | string | 同期が始まった16進数のブロック番号。         |
+| currentBlock  | string | ノードが現在同期している16進数のブロック番号。    |
+| highestBlock  | string | 同期する16進数の推定ブロック番号。          |
+| knownStates   | string | ダウンロードする16進数の推定状態。          |
+| pulledStates  | string | 既にダウンロードされている状態はhexで表示されます。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.isSyncing().then(console.log)
@@ -1508,34 +1508,34 @@ caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 
 ブロックチェーン上でトランザクションを送信せずに、すぐに新しいメッセージコールを実行します。 エラーが発生した場合は、データまたはJSON RPCのエラーオブジェクトを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                                     |
-| ----------- | ------ | ------------------------------------------------------------------------------- |
-| callObject  | object | トランザクションコールオブジェクト。 オブジェクトのプロパティについては次の表を参照してください。                               |
-| blockNumber | 数 \   | string | (任意) ブロック番号、または文字列 `最新の` または `最古の`。 If omitted, `latest` will be used. |
-| callback    | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。              |
+| Name        | Type      | Description                                                                                                  |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| callObject  | object    | トランザクションコールオブジェクト。 See the next table for the object's properties.                                           |
+| blockNumber | number \ | string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second.   |
 
-`callObject` には以下のプロパティがあります。
+`callObject` has the following properties:
 
-| 名前       | タイプ | Description                                                                                                    |
-| -------- | --- | -------------------------------------------------------------------------------------------------------------- |
-| to       | 文字列 | (新しいコントラクトの展開をテストする場合はオプション) トランザクションが指示されるアドレス。                                                               |
-| input    | 文字列 | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall) を使用できます。 |
-| from     | 文字列 | (オプション) トランザクションが送信されたアドレス。                                                                                    |
-| ガス       | 文字列 | (オプション) トランザクション実行のために提供されるガス。 `klay_call` はガスを消費しませんが、このパラメータはいくつかの実行で必要となる場合があります。                           |
-| gasPrice | 文字列 | (オプション) 有料ガスごとに使用されるガス価格。                                                                                      |
-| 値        | 文字列 | (オプション) `peb` でこのトランザクションで送信される値。                                                                              |
+| Name     | Type   | Description                                                                                                        |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.               |
+| input    | string | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall) を使用できます。     |
+| from     | string | (optional) The address the transaction is sent from.                                                               |
+| gas      | string | (オプション) トランザクション実行のために提供されるガス。 `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
+| gasPrice | string | (オプション) 有料ガスごとに使用されるガス価格。                                                                                          |
+| value    | string | (オプション) `peb` でこのトランザクションで送信される値。                                                                                  |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description                            |
-| --- | -------------------------------------- |
-| 文字列 | コールのデータを返しました。 _例:_, スマートコントラクト関数の戻り値. |
+| Type   | Description                            |
+| ------ | -------------------------------------- |
+| string | コールのデータを返しました。 _例:_, スマートコントラクト関数の戻り値. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.call({ 
@@ -1553,19 +1553,19 @@ caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 
 トランザクションを完了させるために `ガス` が必要な量の見積もりを生成して返します。 このメソッドからのトランザクションはブロックチェーンに追加されません。
 
-**パラメータ**
+**Parameters**
 
 [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) パラメータを参照してください。すべてのプロパティは任意であることを期待してください。
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | ガスの使用量。     |
+| Type   | Description             |
+| ------ | ----------------------- |
+| string | The amount of gas used. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.estimateGas({ 
@@ -1581,21 +1581,21 @@ caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-トランザクションを実行するのに `計算コスト` がどれくらいかかるかの見積もりを生成して返します。 Klaytn はトランザクションの計算コストを `10000000000` に制限しています。 [caver.rpc.klay.estimateGas](klay.md#caver-rpc-klay-estimategas) のようなトランザクションはブロックチェーンに追加されません。
+トランザクションを実行するのに `計算コスト` がどれくらいかかるかの見積もりを生成して返します。 Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. [caver.rpc.klay.estimateGas](klay.md#caver-rpc-klay-estimategas) のようなトランザクションはブロックチェーンに追加されません。
 
-**パラメータ**
+**Parameters**
 
-[caver.rpc.klay.call](klay.md#caver-rpc-klay-call) パラメータを参照してください。すべてのプロパティは任意であることを期待してください。
+See [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) parameters, expect that all properties are optional.
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 使用される計算量。   |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| string | The amount of computation cost used. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.estimateComputationCost({ 
@@ -1613,23 +1613,23 @@ caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 
 `ブロックハッシュ` と `トランザクションインデックス` の位置でトランザクションに関する情報を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前        | タイプ | Description                                                        |
-| --------- | --- | ------------------------------------------------------------------ |
-| blockHash | 文字列 | ブロックハッシュ。                                                          |
-| インデックス    | 数値  | ブロック内のトランザクションインデックスの位置。                                           |
-| callback  | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name      | Type     | Description                                                                                                |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockHash | string   | The block hash.                                                                                            |
+| index     | number   | ブロック内のトランザクションインデックスの位置。                                                                                   |
+| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                       |
+| Type   | Description                                                                                                       |
 | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | object | トランザクションオブジェクトは、詳細は [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
@@ -1659,23 +1659,23 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
 
 `ブロック番号` と `トランザクションインデックス` の位置でトランザクションに関する情報を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ  | Description                                                        |
-| ----------- | ---- | ------------------------------------------------------------------ |
-| blockNumber | 数 \ | string | ブロック番号またはブロックタグ文字列 (`genesis` or `latest`).               |
-| インデックス      | 数値   | ブロック内のトランザクションインデックスの位置。                                           |
-| callback    | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type      | Description                                                                                                |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \ | string | The block number or the block tag string (`genesis` or `latest`).                                 |
+| index       | number    | A transaction index position inside the block.                                                             |
+| callback    | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------- |
-| object | トランザクションオブジェクトは、詳細は [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) を参照してください。 |
+| Type   | Description                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
@@ -1689,11 +1689,11 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    ,
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionIndex: '0x0',
     type: 'TxTypeValueTransfer',
-    type: '0x8ac7230489e80000'
+    typeInt: 8,
+    value: '0x8ac7230489e80000'
 }
 ```
 
@@ -1703,46 +1703,46 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
 caver.rpc.klay.getTransactionByHash(transactionHash[, callback])
 ```
 
-トランザクションハッシュによって要求されたトランザクションに関する情報を返します。
+Returns the information about a transaction requested by transaction hash.
 
-**パラメータ**
+**Parameters**
 
-| 名前              | タイプ | Description                                                        |
-| --------------- | --- | ------------------------------------------------------------------ |
-| transactionHash | 文字列 | トランザクションハッシュ。                                                      |
-| callback        | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | トランザクションハッシュ。                                                                                              |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` returns `object` - トランザクションが見つからなかった場合は `null`
 
-| 名前                 | タイプ     | Description                                                                                                                                                 |
-| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 文字列     | このトランザクションがあったブロックのハッシュ。                                                                                                                                    |
-| blockNumber        | 文字列     | このトランザクションがあったブロック番号。                                                                                                                                       |
-| codeFormat         | 文字列     | (オプション) スマートコントラクトコードのコード形式。                                                                                                                                |
-| feePayer           | 文字列     | (オプション) 手数料支払者の住所。                                                                                                                                          |
-| feePayerSignatures | 行列      | (オプション) 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                    |
-| 手数料比               | 文字列     | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                                      |
-| from               | 文字列     | 送信者のアドレス                                                                                                                                                    |
-| ガス                 | 文字列     | 送信者が提供するガス。                                                                                                                                                 |
-| gasPrice           | 文字列     | ペブ内の送信者によって提供されるガス価格。                                                                                                                                       |
-| hash               | 文字列     | トランザクションのハッシュ                                                                                                                                               |
-| humanReadable      | Boolean | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                                                  |
-| キー                 | 文字列     | (オプション) Klaytn アカウントの AccountKey を更新するために使用される RLP でエンコードされた AccountKey 。 詳細は [AccountKey](../../../../../klaytn/design/accounts.md#account-key) を参照してください。 |
-| input              | 文字列     | (オプション) トランザクションとともに送信されるデータ。                                                                                                                               |
-| nonce              | 文字列     | この前の送信者によって行われたトランザクションの数。                                                                                                                                  |
-| senderTxHash       | 文字列     | (オプション) 手数料支払者のアドレスと署名なしでTXをハッシュします。 この値は、手数料が委任されていないトランザクションの `ハッシュ` の値と常に同じです。                                                                           |
-| signatures         | 行列      | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                                   |
-| to                 | 文字列     | 受信者のアドレス。 `null` if it is a contract deploying transaction.                                                                                                 |
-| transactionIndex   | 文字列     | ブロック内のトランザクションインデックス位置の整数。                                                                                                                                  |
-| タイプ                | 文字列     | トランザクションのタイプを表す文字列。                                                                                                                                         |
-| typeInt            | 数値      | トランザクションのタイプを表す整数。                                                                                                                                          |
-| 値                  | 文字列     | 値はペブで転送されます。                                                                                                                                                |
+| Name               | Type    | Description                                                                                                                                                                                                  |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                             |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                  |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                           |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                         |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
+| from               | string  | Address of the sender.                                                                                                                                                                                       |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                  |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
+| hash               | string  | Hash of the transaction.                                                                                                                                                                                     |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
+| key                | string  | (オプション) Klaytn アカウントの AccountKey を更新するために使用される RLP でエンコードされた AccountKey 。 詳細は [AccountKey](../../../../../klaytn/design/accounts.md#account-key) を参照してください。                                                  |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
+| senderTxHash       | string  | (オプション) 手数料支払者のアドレスと署名なしでTXをハッシュします。 この値は、手数料が委任されていないトランザクションの `ハッシュ` の値と常に同じです。                                                                                                                            |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
+| to                 | string  | Address of the receiver. `null` if it is a contract deploying transaction.                                                                                                                                   |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                      |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                           |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                         |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                    |
 
 If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. 以下の例を参照してください。
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1796,22 +1796,22 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash[, callback])
 
 この API は、 `--sendertxhashindexing` によってノードでインデックス機能が有効になっている場合にのみ正しい結果を返すことに注意してください。 [caver.rpc.klay.isSenderTxHashIndexingEnabled](klay.md#caver-rpc-klay-issendertxhashindexingenabled) を使用して、インデックス機能が有効かどうかを確認します。
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ | Description                                                                                             |
-| ------------ | --- | ------------------------------------------------------------------------------------------------------- |
-| senderTxHash | 文字列 | 送信者トランザクションハッシュ。 詳細は [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) を参照してください。 |
-| callback     | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                      |
+| Name         | Type     | Description                                                                                                |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | 送信者トランザクションハッシュ。 詳細は [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) を参照してください。    |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                           |
+| Type   | Description                                                                                                           |
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 | object | トランザクションオブジェクトの詳細については、 [caver.rpc.klay.getTransactionByHash](klay.md#caver-rpc-klay-gettransactionbyhash) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1842,55 +1842,55 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash[, callback])
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
-トランザクションハッシュによるトランザクションの受領を返します。
+Returns the receipt of a transaction by transaction hash.
 
 **注意** トランザクションがまだ処理されていない `保留中の` トランザクションでは、領収書は利用できません。
 
-**パラメータ**
+**Parameters**
 
-| 名前              | タイプ | Description                                                        |
-| --------------- | --- | ------------------------------------------------------------------ |
-| transactionHash | 文字列 | トランザクションハッシュ。                                                      |
-| callback        | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | A transaction hash.                                                                                        |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返します。` - 領収書が見つからない場合は `null` です。
 
-| 名前                 | タイプ     | Description                                                                                                                                                   |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 文字列     | このトランザクションがあったブロックのハッシュ。                                                                                                                                      |
-| blockNumber        | 文字列     | このトランザクションがあったブロック番号。                                                                                                                                         |
-| codeFormat         | 文字列     | (オプション) スマートコントラクトコードのコード形式。                                                                                                                                  |
-| コントラクトアドレス         | 文字列     | トランザクションがコントラクト作成であれば、コントラクトアドレスが作成されます。そうでなければ `null` です。                                                                                                    |
-| effectiveGasPrice  | 文字列     | 送信者からガスの実際の値が差し引かれます。 マグマハードフォーク以前は、この値は取引のガス価格に等しかった。 マグマハードフォークの後は、ブロックヘッダーの `baseFee` の値と等しくなります。                                                          |
-| feePayer           | 文字列     | (オプション) 手数料支払者の住所。                                                                                                                                            |
-| feePayerSignatures | 行列      | (オプション) 手数料支払者の署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                      |
-| 手数料比               | 文字列     | (オプション) 手数料支払者の手数料比率。 30%の場合は、手数料の30%が手数料支払者によって支払われます。 70%は送信者が支払います。                                                                                        |
-| from               | 文字列     | 送信者のアドレス                                                                                                                                                      |
-| ガス                 | 文字列     | 送信者が提供するガス。                                                                                                                                                   |
-| gasPrice           | 文字列     | ペブ内の送信者によって提供されるガス価格。                                                                                                                                         |
-| gasUsed            | 文字列     | この特定の取引だけで使用されるガスの量。                                                                                                                                          |
-| humanReadable      | Boolean | (オプション) `true` アドレスが humanReadable の場合、 `false` アドレスが humanReadable でない場合。                                                                                    |
-| キー                 | 文字列     | (オプション) Klaytn アカウントの AccountKey を更新するために使用される RLP でエンコードされた AccountKey 。                                                                                     |
-| input              | 文字列     | (オプション) トランザクションとともに送信されるデータ。                                                                                                                                 |
-| ログ                 | 行列      | このトランザクションが生成したログオブジェクトの配列。                                                                                                                                   |
-| logsBloom          | 文字列     | ライトクライアントが関連するログをすばやく取得できるようにするためのフィルターをブルームにします。                                                                                                             |
-| nonce              | 文字列     | この前の送信者によって行われたトランザクションの数。                                                                                                                                    |
-| senderTxHash       | 文字列     | (オプション) 送信者だけが署名したトランザクションのハッシュ。 See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash). この値は、非手数料委任トランザクションの `transactionHash` と常に同じです。 |
-| signatures         | 行列      | 署名オブジェクトの配列。 シグネチャオブジェクトには、3 つのフィールド (V, R, S) が含まれます。 VにはECDSAリカバリIDが含まれています。 RにはECDSAシグネチャrが含まれ、SにはECDSAシグネチャsが含まれています。                                     |
-| ステータス              | 文字列     | `0x1` トランザクションが成功した場合、Klaytn 仮想マシンがトランザクションを元に戻した場合は `0x0` です。                                                                                                |
-| txError            | 文字列     | (オプション) `ステータス` が `0x0` に等しい場合の詳細なエラーコード。                                                                                                                     |
-| to                 | 文字列     | 受信者のアドレス。 `null` がコントラクト作成トランザクションの場合。                                                                                                                        |
-| transactionHash    | 文字列     | トランザクションのハッシュ                                                                                                                                                 |
-| transactionIndex   | 文字列     | ブロック内のトランザクションインデックス位置の整数。                                                                                                                                    |
-| タイプ                | 文字列     | トランザクションのタイプを表す文字列。                                                                                                                                           |
-| typeInt            | 数値      | トランザクションのタイプを表す整数。                                                                                                                                            |
-| 値                  | 文字列     | 値はペブで転送されます。                                                                                                                                                  |
+| Name               | Type    | Description                                                                                                                                                                                                  |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                             |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                  |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                           |
+| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                  |
+| effectiveGasPrice  | string  | 送信者からガスの実際の値が差し引かれます。 マグマハードフォーク以前は、この値は取引のガス価格に等しかった。 マグマハードフォークの後は、ブロックヘッダーの `baseFee` の値と等しくなります。                                                                                                         |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                         |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
+| from               | string  | Address of the sender.                                                                                                                                                                                       |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                  |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
+| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                   |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
+| key                | string  | (オプション) Klaytn アカウントの AccountKey を更新するために使用される RLP でエンコードされた AccountKey 。                                                                                                                                    |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
+| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                      |
+| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                             |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
+| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash). この値は、非手数料委任トランザクションの `transactionHash` と常に同じです。             |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
+| status             | string  | `0x1` トランザクションが成功した場合、Klaytn 仮想マシンがトランザクションを元に戻した場合は `0x0` です。                                                                                                                                               |
+| txError            | string  | (オプション) `ステータス` が `0x0` に等しい場合の詳細なエラーコード。                                                                                                                                                                    |
+| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                  |
+| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                     |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                      |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                           |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                         |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                    |
 
 **注意** `effectiveGasPrice` は caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0) からサポートされています。
 
-**例**
+**Example**
 
 ```javascript
 // Before the Magma hard fork
@@ -1950,28 +1950,28 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash[, callback])
 ```
 
-送信者トランザクションハッシュによるトランザクションの受領を返します。
+Returns the receipt of a transaction by sender transaction hash.
 
-この API は、 `--sendertxhashindexing` によってノードでインデックス機能が有効になっている場合にのみ正しい結果を返すことに注意してください。 [caver.rpc.klay.isSenderTxHashIndexingEnabled](klay.md#caver-rpc-klay-issendertxhashindexingenabled) を使用して、インデックス機能が有効かどうかを確認します。
+Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](klay.md#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
-**注意** トランザクションがまだ処理されていない `保留中の` トランザクションでは、領収書は利用できません。
+**NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
-**パラメータ**
+**Parameters**
 
-| 名前           | タイプ | Description                                                                                             |
-| ------------ | --- | ------------------------------------------------------------------------------------------------------- |
-| senderTxHash | 文字列 | 送信者トランザクションハッシュ。 詳細は [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) を参照してください。 |
-| callback     | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                      |
+| Name         | Type     | Description                                                                                                               |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../klaytn/design/transactions/#sendertxhash) for more detail. |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクト` を返す
+`Promise` returns `object`
 
-| タイプ    | Description                                                                                                          |
+| Type   | Description                                                                                                          |
 | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | object | トランザクション受領オブジェクト。詳細は [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
@@ -2009,26 +2009,26 @@ caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 
 `signedTransaction` パラメータは、"RLPエンコードされた符号付きトランザクション"にすることができます。 `transaction.getRLPEncoding` を使用して、署名されたトランザクションの RLP エンコードされたトランザクションを取得できます。 便宜上、 `caver.rpc.klay.sendRawTransaction` もパラメータとして "署名済みトランザクションインスタンス" を受け付けます。
 
-**パラメータ**
+**Parameters**
 
-| 名前                | タイプ    | Description                                                        |
-| ----------------- | ------ | ------------------------------------------------------------------ |
-| signedTransaction | 文字列 \ | object | RLPエンコードされた署名済みトランザクション、または署名済みトランザクションのインスタンス。           |
-| callback          | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name              | Type      | Description                                                                                                |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| signedTransaction | string \ | object | RLPエンコードされた署名済みトランザクション、または署名済みトランザクションのインスタンス。                                                   |
+| callback          | function  | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description                                    |
-| ---------- | ---------------------------------------------- |
-| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能な場合に解決されます。 |
+| Type       | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| PromiEvent | A promise combined event emitter. これは、取引の領収書が利用可能な場合に解決されます。 |
 
-PromiEvent の場合、次のイベントを使用できます。
+For PromiEvent, the following events are available:
 
 * `transactionHash` は `文字列`を返します: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行されます。
 * `receipt` return `object`: トランザクション受領が可能であるときに発生します。 詳細は [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。
-* `error` は `Error`を返します: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+* `error` は `Error`を返します: 送信中にエラーが発生した場合に発生します。 On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 // Using promise
@@ -2071,26 +2071,26 @@ Klaytn Nodeで「インポートされたアカウントの秘密鍵」を使用
 
 **注意**: この API は [インポートされたアカウント](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) を使用してトランザクションに署名する機能を提供します。 トランザクションに署名するには、ノード内のインポートされたアカウントが [ロック解除](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) されている必要があります。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                        |
-| ----------- | ------ | ------------------------------------------------------------------ |
-| transaction | object | Klaytnに送信されるトランザクションのインスタンス。                                       |
-| callback    | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | Klaytnに送信されるトランザクションのインスタンス。                                                                               |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description                                    |
-| ---------- | ---------------------------------------------- |
-| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能な場合に解決されます。 |
+| Type       | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
-PromiEvent の場合、次のイベントを使用できます。
+For PromiEvent, the following events are available:
 
-* `transactionHash` は `文字列`を返します: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行されます。
-* `receipt` return `object`: トランザクション受領が可能であるときに発生します。 詳細は [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。
-* `error` は `Error`を返します: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+* `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2137,30 +2137,30 @@ Klaytn Nodeの `インポートされた口座の秘密鍵` を使って、ト�
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
-各トランザクションタイプの詳細については、 [トランザクション](../caver.transaction/#class) を参照してください。
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**注意**: この API は [インポートされたアカウント](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) を使用してトランザクションに署名する機能を提供します。 トランザクションに署名するには、ノード内のインポートされたアカウントが [ロック解除](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) されている必要があります。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                        |
-| ----------- | ------ | ------------------------------------------------------------------ |
-| transaction | object | Klaytnに送信するために委任された手数料トランザクションのインスタンス。                             |
-| callback    | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | Klaytnに送信するために委任された手数料トランザクションのインスタンス。                                                                     |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description                                    |
-| ---------- | ---------------------------------------------- |
-| PromiEvent | Promise複合イベントエミッター。 これは、取引の領収書が利用可能な場合に解決されます。 |
+| Type       | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
-PromiEvent の場合、次のイベントを使用できます。
+For PromiEvent, the following events are available:
 
-* `transactionHash` は `文字列`を返します: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行されます。
-* `receipt` return `object`: トランザクション受領が可能であるときに発生します。 詳細は [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。
-* `error` は `Error`を返します: 送信中にエラーが発生した場合に発生します。 ガス欠エラーでは、2 番目のパラメータはレシートです。
+* `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**例**
+**Example**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.create({
@@ -2216,27 +2216,27 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 Klaytn Nodeで「インポートされたアカウントの秘密鍵」を使用してトランザクション送信者として署名します。
 
-各トランザクションタイプの詳細については、 [トランザクション](../caver.transaction/#class) を参照してください。
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**注意**: この API は [インポートされたアカウント](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) を使用してトランザクションに署名する機能を提供します。 トランザクションに署名するには、ノード内のインポートされたアカウントが [ロック解除](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) されている必要があります。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                        |
-| ----------- | ------ | ------------------------------------------------------------------ |
-| transaction | object | 署名するトランザクションのインスタンス                                                |
-| callback    | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | 署名するトランザクションのインスタンス                                                                                        |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返します。` - 署名されたトランザクションを含むオブジェクト:
 
-| 名前  | タイプ    | Description                |
-| --- | ------ | -------------------------- |
-| raw | 文字列    | RLP でエンコードされた署名付きトランザクション。 |
-| tx  | object | 送信者の署名を含むトランザクションオブジェクト。   |
+| Name | Type   | Description                |
+| ---- | ------ | -------------------------- |
+| raw  | string | RLP でエンコードされた署名付きトランザクション。 |
+| tx   | object | 送信者の署名を含むトランザクションオブジェクト。   |
 
-**例**
+**Example**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2272,27 +2272,27 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 
 Klaytn Nodeで「インポートされたアカウントの秘密鍵」を使用してトランザクション手数料支払者として取引に署名します。
 
-各トランザクションタイプの詳細については、 [トランザクション](../caver.transaction/#class) を参照してください。
+For more information about each transaction type, refer to [Transaction](../caver.transaction/#class).
 
-**注意**: この API は [インポートされたアカウント](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) を使用してトランザクションに署名する機能を提供します。 トランザクションに署名するには、ノード内のインポートされたアカウントが [ロック解除](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) されている必要があります。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal\_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal\_unlockaccount) to sign a transaction.
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                        |
-| ----------- | ------ | ------------------------------------------------------------------ |
-| transaction | object | 署名するトランザクションのインスタンス                                                |
-| callback    | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transaction | object   | An instance of a transaction to sign.                                                                      |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `オブジェクトを返します。` - 署名されたトランザクションを含むオブジェクト:
+`Promise` returns `object` - An object includes signed transaction:
 
-| 名前  | タイプ    | Description                  |
-| --- | ------ | ---------------------------- |
-| raw | 文字列    | RLP でエンコードされた署名付きトランザクション。   |
-| tx  | object | 手数料支払者として署名するトランザクションオブジェクト。 |
+| Name | Type   | Description                       |
+| ---- | ------ | --------------------------------- |
+| raw  | string | A RLP-encoded signed transaction. |
+| tx   | object | 手数料支払者として署名するトランザクションオブジェクト。      |
 
-**例**
+**Example**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.craete({
@@ -2337,31 +2337,31 @@ Klaytn Nodeで「インポートされたアカウントの秘密鍵」を使用
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
 ```
 
-指定されたトランザクションハッシュに対してデコードされたアンカーされたデータを返します。
+Returns the decoded anchored data in the transaction for the given transaction hash.
 
-**パラメータ**
+**Parameters**
 
-| 名前              | タイプ | Description                                                        |
-| --------------- | --- | ------------------------------------------------------------------ |
-| transactionHash | 文字列 | トランザクションハッシュ。                                                      |
-| callback        | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name            | Type     | Description                                                                                                |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | string   | A transaction hash.                                                                                        |
+| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返す` - デコードされたアンカーされたデータを含むオブジェクト:
 
-| 名前            | タイプ | Description                                                                                      |
-| ------------- | --- | ------------------------------------------------------------------------------------------------ |
-| BlockHash     | 文字列 | このアンカー取引が実行された子チェーンブロックのハッシュ。                                                                    |
-| ブロック番号        | 数値  | このアンカー取引が実行された子チェーンブロック番号。                                                                       |
-| ParentHash    | 文字列 | 親ブロックのハッシュ。                                                                                      |
-| TxHash        | 文字列 | ブロックのトランザクションのルート。                                                                               |
-| StateRootHash | 文字列 | ブロックの最後の状態のルート。                                                                                  |
-| レシートハッシュ      | 文字列 | ブロックのレシートのルートは試してみました。                                                                           |
-| ブロック数         | 数値  | アンカー期間中に生成されたブロックの数。 ほとんどの場合、この数は子チェーンの `SC_TX_PERIOD`に等しい。 この取引がアンカーをオンにした後最初にtxをアンカーした場合を除きます。 |
-| TxCount       | 数値  | アンカー期間中に子チェーンで生成されたトランザクションの数。                                                                   |
+| Name          | Type   | Description                                                                                                                              |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                             |
+| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                              |
+| ParentHash    | string | Hash of the parent block.                                                                                                                |
+| TxHash        | string | The root of the transaction trie of the block.                                                                                           |
+| StateRootHash | string | The root of the final state trie of the block.                                                                                           |
+| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                              |
+| BlockCount    | number | The number of blocks generated during this anchoring period. ほとんどの場合、この数は子チェーンの `SC_TX_PERIOD`に等しい。 この取引がアンカーをオンにした後最初にtxをアンカーした場合を除きます。 |
+| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                    |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
@@ -2383,23 +2383,23 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 caver.rpc.klay.getChainId([callback])
 ```
 
-チェーンの ID を返します。
+Returns the chain ID of the chain.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description  |
-| --- | ------------ |
-| 文字列 | チェーンのチェーンID。 |
+| Type   | Description  |
+| ------ | ------------ |
+| string | チェーンのチェーンID。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getChainId().then(console.log)
@@ -2412,23 +2412,23 @@ caver.rpc.klay.getChainId([callback])
 caver.rpc.klay.getClientVersion([callback])
 ```
 
-Klaytn ノードの現在のクライアントバージョンを返します。
+Returns the current client version of a Klaytn node.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description                |
-| --- | -------------------------- |
-| 文字列 | Klaytn ノードの現在のクライアントバージョン。 |
+| Type   | Description                                  |
+| ------ | -------------------------------------------- |
+| string | The current client version of a Klaytn node. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getClientVersion().then(console.log)
@@ -2441,23 +2441,23 @@ Klaytn/v1.3.0+144444d2aa/linux-amd64/go1.13.1
 caver.rpc.klay.getGasPrice([callback])
 ```
 
-ペブ内のガス当たりの現在の価格を返します。
+Returns the current price per gas in peb.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description    |
-| --- | -------------- |
-| 文字列 | 現在のガス価格はペブである。 |
+| Type   | Description    |
+| ------ | -------------- |
+| string | 現在のガス価格はペブである。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getGasPrice().then(console.log)
@@ -2472,22 +2472,22 @@ caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 
 与えられたブロックに対して、気体あたりの現在の価格を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ | Description                                                        |
-| ----------- | --- | ------------------------------------------------------------------ |
-| blockNumber | 数値  | (オプション) ブロック番号 省略した場合は、最新の単価が返却されます。                               |
-| callback    | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name        | Type     | Description                                                                                                |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number   | (オプション) ブロック番号 省略した場合は、最新の単価が返却されます。                                                                       |
+| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description    |
-| --- | -------------- |
-| 文字列 | 現在のガス価格はペブである。 |
+| Type   | Description                   |
+| ------ | ----------------------------- |
+| string | The current gas price in peb. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getGasPriceAt().then(console.log)
@@ -2502,21 +2502,21 @@ caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 
 peb内の動的手数料取引のために提案されたガスチップキャップを返します。 Klaytnはガス価格が固定されているため、これはKlaytnによって設定されたガス価格を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description        |
-| --- | ------------------ |
-| 文字列 | ペブに提案されたガスチップキャップ。 |
+| Type   | Description        |
+| ------ | ------------------ |
+| string | ペブに提案されたガスチップキャップ。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
@@ -2531,21 +2531,21 @@ caver.rpc.klay.getLowerBoundGasPrice([callback])
 
 ペブ内の下限ガス価格を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description       |
-| --- | ----------------- |
-| 文字列 | ペブの低いバインドされたガス価格。 |
+| Type   | Description       |
+| ------ | ----------------- |
+| string | ペブの低いバインドされたガス価格。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
@@ -2560,21 +2560,21 @@ caver.rpc.klay.getUpperBoundGasPrice([callback])
 
 ペブ内の上限値を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | ペブの上限の気体価格。 |
+| Type   | Description |
+| ------ | ----------- |
+| string | ペブの上限の気体価格。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
@@ -2589,27 +2589,27 @@ caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callbac
 
 返されるブロック範囲の手数料履歴を返します。 これは、すべてのブロックが利用可能でない場合、要求された範囲のサブセクションにすることができます。
 
-**パラメータ**
+**Parameters**
 
-| 名前                | タイプ  | Description                                                                                                                               |
-| ----------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | 数値\ | BigNumber\|BN\|string | 要求された範囲内のブロック数。 1回のクエリで1~1024個のブロックをリクエストできます。 すべてのブロックが利用可能でない場合は、要求された未満を返すことができます。                           |
-| lastBlock         | 数値\ | BigNumber\|BN\|string 要求された範囲の最も高い番号ブロック (またはブロックタグ文字列) 。                                                                               |
-| rewardPercentiles | 行列   | ガス使用量によって加重された、ガスあたりの効果的な優先度手数料からサンプルへのパーセンタイル値の単調な増加リスト。 (例: `['0', '25', '50', '75', '100']` または `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | 関数   | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                                        |
+| Name              | Type     | Description                                                                                                                                   |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | 数値\     | BigNumber\|BN\|string | 要求された範囲内のブロック数。 1回のクエリで1~1024個のブロックをリクエストできます。 Less than requested may be returned if not all blocks are available. |
+| lastBlock         | number\ | BigNumber\|BN\|string 要求された範囲の最も高い番号ブロック (またはブロックタグ文字列) 。                                                                                   |
+| rewardPercentiles | Array    | ガス使用量によって加重された、ガスあたりの効果的な優先度手数料からサンプルへのパーセンタイル値の単調な増加リスト。 (例: `['0', '25', '50', '75', '100']` または `['0', '0.5', '1', '1.5', '3', '80']`)     |
+| callback          | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                    |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返します。` - 料金履歴を含むオブジェクト:
 
-| 名前            | タイプ | Description                                                                                                               |
-| ------------- | --- | ------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | 文字列 | 返された範囲の最小数のブロック。                                                                                                          |
-| 報酬            | 行列  | 要求されたブロックパーセントで、ガスあたりの有効な優先度料金の二次元配列。                                                                                     |
-| baseFeePerGas | 行列  | ガスあたりのブロックベース・フィーの配列。 これには、返された範囲の最新の後に続く次のブロックが含まれます。なぜなら、この値は最新のブロックから派生することができるからです。 Zeroes は EIP-1559 より前のブロックで返されます。 |
-| gasUsedRatio  | 行列  | ブロック内のgasUsed/gasLimitの配列。                                                                                                |
+| Name          | Type   | Description                                                                                                                                                                                          |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | 返された範囲の最小数のブロック。                                                                                                                                                                                     |
+| reward        | Array  | 要求されたブロックパーセントで、ガスあたりの有効な優先度料金の二次元配列。                                                                                                                                                                |
+| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes は EIP-1559 より前のブロックで返されます。 |
+| gasUsedRatio  | Array  | ブロック内のgasUsed/gasLimitの配列。                                                                                                                                                                           |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
@@ -2633,26 +2633,26 @@ caver.rpc.klay.createAccessList(txCallObject [, callback])
 
 このメソッドは、与えられたトランザクションに基づいて accessList を作成します。 accessList には、送信者アカウントとプリコンパイルを除いて、トランザクションによって読み書きされたすべてのストレージスロットとアドレスが含まれます。 このメソッドは、 `caver.rpc.klay.call` と同じトランザクション呼び出しオブジェクトと blockNumberOrTag オブジェクトを使用します。 accessListは、ガスコストの増加によりアクセス不能になった契約を解放するために使用できます。 accessListをトランザクションに追加すると、アクセスリストのないトランザクションと比較してガス使用量が少なくなります。
 
-**パラメータ**
+**Parameters**
 
-| 名前             | タイプ    | Description                                                                                                          |
-| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object | トランザクションコールオブジェクト。 [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) パラメータを参照してください。                                |
-| blockParameter | 数値\   | BigNumber\|BN\|string | (任意) ブロック番号、ブロックハッシュ、ブロックタグ文字列 (`latest` or `first` ) 。 If omitted, `latest` will be used. |
-| callback       | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。                                                   |
+| Name           | Type     | Description                                                                                                          |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| callObject     | object   | A transaction call object. [caver.rpc.klay.call](klay.md#caver-rpc-klay-call) パラメータを参照してください。                        |
+| blockParameter | number\ | BigNumber\|BN\|string | (任意) ブロック番号、ブロックハッシュ、ブロックタグ文字列 (`latest` or `first` ) 。 If omitted, `latest` will be used. |
+| callback       | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.           |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `オブジェクトを返します。` - オブジェクトにアクセスリストが含まれています。
 
-| 名前            | タイプ | Description                                                                                                               |
-| ------------- | --- | ------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | 文字列 | 返された範囲の最小数のブロック。                                                                                                          |
-| 報酬            | 行列  | 要求されたブロックパーセントで、ガスあたりの有効な優先度料金の二次元配列。                                                                                     |
-| baseFeePerGas | 行列  | ガスあたりのブロックベース・フィーの配列。 これには、返された範囲の最新の後に続く次のブロックが含まれます。なぜなら、この値は最新のブロックから派生することができるからです。 Zeroes は EIP-1559 より前のブロックで返されます。 |
-| gasUsedRatio  | 行列  | ブロック内のgasUsed/gasLimitの配列。                                                                                                |
+| Name          | Type   | Description                                                                                                                                                                                                     |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
+| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
+| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
+| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.createAccessList({
@@ -2673,21 +2673,21 @@ caver.rpc.klay.isParallelDBWrite([callback])
 
 ブロックチェーンデータを並列に書き込む場合、 `true` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `boolean` を返します
+`Promise` returns `boolean`
 
-| タイプ     | Description                                                                     |
+| Type    | Description                                                                     |
 | ------- | ------------------------------------------------------------------------------- |
 | boolean | `true` は、ノードがブロックチェーンデータを並列に書き込んでいることを意味します。 ノードがデータを連続的に書き込む場合は `false` になります。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.isParallelDBWrite().then(console.log)
@@ -2702,21 +2702,21 @@ caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 
 Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `boolean` を返します
+`Promise` returns `boolean`
 
-| タイプ     | Description                                                            |
-| ------- | ---------------------------------------------------------------------- |
-| boolean | `true` は、ノードが送信者トランザクションハッシュをトランザクションハッシュマッピング情報にインデックス付けしていることを意味します。 |
+| Type    | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
+| boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.isSenderTxHashIndexingEnabled().then(console.log)
@@ -2729,23 +2729,23 @@ true
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-ノードの Klaytn プロトコルバージョンを返します。 サイプレス/バオバブの現在のバージョンは `istanbul/65` です。
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description             |
-| --- | ----------------------- |
-| 文字列 | ノードの Klaytn プロトコルバージョン。 |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
+| string | The Klaytn protocol version of the node. |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getProtocolVersion().then(console.log)
@@ -2758,23 +2758,23 @@ caver.rpc.klay.getProtocolVersion([callback])
 caver.rpc.klay.getRewardbase([callback])
 ```
 
-現在のノードのリワードベースを返します。 Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 CNsにのみ必要です。
+Returns the rewardbase of the current node. Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 CNsにのみ必要です。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
-`Promise` は `文字列` を返します
+`Promise` returns `string`
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | 報酬ベースのアドレス。 |
+| Type   | Description |
+| ------ | ----------- |
+| string | 報酬ベースのアドレス。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.rpc.klay.getRewardbase().then(console.log)
@@ -2787,24 +2787,24 @@ caver.rpc.klay.getRewardbase([callback])
 caver.rpc.klay.getFilterChanges(filterId [, callback])
 ```
 
-フィルタのポーリングメソッド。最後のポーリング以降のログの配列を返します。
+Polling method for a filter, which returns an array of logs since the last poll.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| filterId | 文字列 | フィルタID。                                                            |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | String   | The filter id.                                                                                             |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**戻り値**
+**Return Value**
 
 `Promise` は `Array` を返します。
 
 * [caver.rpc.klay.newBlockFilter](klay.md#caver-rpc-klay-newblockfilter)で作成されたフィルタの場合、戻り値はブロックハッシュです。 _例:_, `["0x3454645634534..."]`.
 * [caver.rpc.klay.newPendingTransactionFilter](klay.md#caver-rpc-klay-newpendingtransactionfilter)で作成されたフィルタの場合、リターンはトランザクションハッシュです。 _例:_, `["0x6345343454645..."]`.
-* [caver.rpc.klay.newFilter](klay.md#caver-rpc-klay-newfilter)で作成されたフィルタの場合、ログは以下のパラメータを持つオブジェクトです。インデックス付きログ引数の0~4バイトのデータ配列。 (Solidity: 最初のトピックは、イベント (_など) の署名のハッシュです。 _ ,_, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> </tbody> </table> 
+* [caver.rpc.klay.newFilter](klay.md#caver-rpc-klay-newfilter)で作成されたフィルタの場合、ログは以下のパラメータを持つオブジェクトです。Array of 0 to 4 32-byte DATA of indexed log arguments. (Solidity: 最初のトピックは、イベント (_など) の署名のハッシュです。 _ ,_, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> </tbody> </table> 
 
-**例**
+**Example**
 
 
 
@@ -2836,23 +2836,23 @@ caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
 
-与えられた id を持つフィルタに一致するすべてのログの配列を返します。 filterオブジェクトは、 [newFilter](klay.md#caver-rpc-klay-newfilter) を使用して取得する必要があります。
+Returns an array of all logs matching the filter with the given id. filterオブジェクトは、 [newFilter](klay.md#caver-rpc-klay-newfilter) を使用して取得する必要があります。
 
 Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](klay.md#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](klay.md#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| filterId | 文字列 | フィルタID。                                                            |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | string   | The filter id.                                                                                             |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**戻り値**
+**Return Value**
 
 参照 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges)
 
-**例**
+**Example**
 
 
 
@@ -2884,31 +2884,31 @@ caver.rpc.klay.getLogs(options [, callback])
 ```
 
 
-与えられたフィルタオブジェクトに一致するすべてのログの配列を返します。
+Returns an array of all logs matching a given filter object.
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ    | Description                                                        |
-| -------- | ------ | ------------------------------------------------------------------ |
-| オプション    | object | フィルタオプション。 詳細については、以下の表をご覧ください。                                    |
-| callback | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-optionsオブジェクトには以下を含めることができます:
-
-| 名前      | タイプ    | Description                                                                                                                                                                    |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ブロックから  | 数 \   | string | (任意) ログを取得するための最も古いブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                    |
-| toBlock | 数 \   | string | (任意) ログを取得する最後のブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                        |
-| address | 文字列 \ | Array | (任意) アドレスまたはアドレスのリスト。 特定のアカウントに関連するログのみが返されます。                                                                                                                         |
-| トピック    | 行列     | (オプション) ログエントリに表示される値の配列。 順序は重要である。 トピックを省略したい場合は、 `null`、 _例:_, `[null, '0x12...']` を使用してください。 そのトピックのオプションを指定して、各トピックの配列を渡すこともできます。 _例えば、_ `[null, ['option1', 'option2']]`. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| options  | object   | フィルタオプション。 See the below table to find the description.                                                    |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**戻り値**
+The options object can contain the following:
 
-参照 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges)
+| Name      | Type      | Description                                                                                                                                                                    |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | number \ | string | (任意) ログを取得するための最も古いブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                    |
+| toBlock   | number \ | string | (任意) ログを取得する最後のブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 The default value is `"latest"`.                                                                              |
+| address   | string \ | Array | (任意) アドレスまたはアドレスのリスト。 特定のアカウントに関連するログのみが返されます。                                                                                                                         |
+| topics    | Array     | (オプション) ログエントリに表示される値の配列。 順序は重要である。 トピックを省略したい場合は、 `null`、 _例:_, `[null, '0x12...']` を使用してください。 そのトピックのオプションを指定して、各トピックの配列を渡すこともできます。 _例えば、_ `[null, ['option1', 'option2']]`. |
 
-**例**
+
+**Return Value**
+
+See [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges)
+
+**Example**
 
 
 
@@ -2947,25 +2947,25 @@ caver.rpc.klay.newBlockFilter([callback])
 ```
 
 
-ノードにフィルタを作成し、新しいブロックが到着したときに通知します。 状態が変更されたかどうかを確認するには、 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) を呼び出します。
+Creates a filter in the node, to notify when a new block arrives. 状態が変更されたかどうかを確認するには、 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) を呼び出します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-**戻り値**
-
-`Promise` は `文字列` を返します
-
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | フィルタID。     |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**例**
+**Return Value**
+
+`Promise` returns `string`
+
+| Type   | Description  |
+| ------ | ------------ |
+| string | A filter id. |
+
+
+**Example**
 
 
 
@@ -2986,41 +2986,41 @@ caver.rpc.klay.newFilter(options [, callback])
 ```
 
 
-与えられたフィルターオプションを使用してフィルターオブジェクトを作成し、特定の状態の変更 (ログ) を受け取ります。
+Creates a filter object using the given filter options, to receive the specific state changes (logs).
 
-* 状態が変更されたかどうかを確認するには、 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) を呼び出します。
+* To check if the state has changed, call [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges).
 * `newFilter`で作成されたフィルタに一致するすべてのログを取得するには、 [caver.rpc.klay.getFilterLogs](klay.md#caver-rpc-klay-getfilterlogs) を呼び出します。
 
 フィルタオブジェクトのトピックの詳細については、 [Klaytn Platform API - klay\_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay\_newfilter) を参照してください。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ    | Description                                                        |
-| -------- | ------ | ------------------------------------------------------------------ |
-| オプション    | object | フィルタオプション。 詳細については、以下の表をご覧ください。                                    |
-| callback | 関数     | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-optionsオブジェクトには以下を含めることができます:
-
-| 名前      | タイプ    | Description                                                                                                                                                                    |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ブロックから  | 数 \   | string | (任意) ログを取得するための最も古いブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                    |
-| toBlock | 数 \   | string | (任意) ログを取得する最後のブロックのブロック番号。 (`"latest"` は最新のブロックを意味します。 デフォルト値は `"latest"` です。                                                                                        |
-| address | 文字列 \ | Array | (任意) アドレスまたはアドレスのリスト。 特定のアカウントに関連するログのみが返されます。                                                                                                                         |
-| トピック    | 行列     | (オプション) ログエントリに表示される値の配列。 順序は重要である。 トピックを省略したい場合は、 `null`、 _例:_, `[null, '0x12...']` を使用してください。 そのトピックのオプションを指定して、各トピックの配列を渡すこともできます。 _例えば、_ `[null, ['option1', 'option2']]`. |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| options  | object   | The filter options. See the below table to find the description.                                           |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**戻り値**
+The options object can contain the following:
 
-`Promise` は `文字列` を返します
+| Name      | Type      | Description                                                                                                                                                                                                                                                                           |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \ | string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                |
+| toBlock   | number \ | string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                   |
+| address   | string \ | Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                           |
+| topics    | Array     | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | フィルタID。     |
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type   | Description  |
+| ------ | ------------ |
+| string | A filter id. |
 
 
-**例**
+**Example**
 
 
 
@@ -3044,25 +3044,25 @@ caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
 
-新しい保留中のトランザクションの到着に関する情報を受信するために、ノードにフィルタを作成します。 状態が変更されたかどうかを確認するには、 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) を呼び出します。
+新しい保留中のトランザクションの到着に関する情報を受信するために、ノードにフィルタを作成します。 To check if the state has changed, call [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges).
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-**戻り値**
-
-`Promise` は `文字列` を返します
-
-| タイプ | Description |
-| --- | ----------- |
-| 文字列 | フィルタID。     |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**例**
+**Return Value**
+
+`Promise` returns `string`
+
+| Type   | Description  |
+| ------ | ------------ |
+| string | A filter id. |
+
+
+**Example**
 
 
 
@@ -3085,24 +3085,24 @@ caver.rpc.klay.uninstallFilter(filterId [, callback])
 
 与えられたIDでフィルターをアンインストールします。 時計がもはや必要なくなったときに常に呼び出される必要があります。 さらに、 [caver.rpc.klay.getFilterChanges](klay.md#caver-rpc-klay-getfilterchanges) で呼び出されていないフィルタのタイムアウトが発生します。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| filterId | 文字列 | フィルタID。                                                            |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-**戻り値**
-
-`Promise` は `boolean` を返します
-
-| タイプ     | Description                                      |
-| ------- | ------------------------------------------------ |
-| boolean | `フィルタが正常にアンインストールされていれば、true` 、それ以外の場合は `false`。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| filterId | string   | The filter id.                                                                                             |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**例**
+**Return Value**
+
+`Promise` returns `boolean`
+
+| Type    | Description                                                           |
+| ------- | --------------------------------------------------------------------- |
+| boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+
+
+**Example**
 
 
 
@@ -3123,26 +3123,26 @@ caver.rpc.klay.sha3(data[, callback])
 ```
 
 
-戻り値 与えられたデータの Keccak-256 (標準化された SHA3-256) ではありません。 これの代わりに [caver.utils.sha3](../caver.utils.md#sha3) を使用できます。
+Returns Keccak-256 (not the standardized SHA3-256) of the given data. これの代わりに [caver.utils.sha3](../caver.utils.md#sha3) を使用できます。
 
-**パラメータ**
+**Parameters**
 
-| 名前       | タイプ | Description                                                        |
-| -------- | --- | ------------------------------------------------------------------ |
-| data     | 文字列 | SHA3ハッシュに変換されるデータ。                                                 |
-| callback | 関数  | (オプション) オプションのコールバックは、最初のパラメータとしてエラーオブジェクトを返し、結果は2番目のパラメータとして返します。 |
-
-
-**戻り値**
-
-`Promise` は `文字列` を返します
-
-| タイプ | Description      |
-| --- | ---------------- |
-| 文字列 | 与えられたデータのSHA3結果。 |
+| Name     | Type     | Description                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| data     | String   | SHA3ハッシュに変換されるデータ。                                                                                         |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
-**例**
+**Return Value**
+
+`Promise` returns `string`
+
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| string | The SHA3 result of the given data. |
+
+
+**Example**
 
 
 
