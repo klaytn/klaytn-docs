@@ -4,17 +4,17 @@
 
 Klaytn には PoW メカニズムがないため、常に `0x0` を返すことに注意してください。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | 毎秒のハッシュ数。   |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | 毎秒のハッシュ数。   |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -30,21 +30,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHashrate <a id="eth_gethashrate"></a>
 
-ノードが採掘している1秒あたりのハッシュ数を返します。
+Returns the number of hashes per second that the node is mining with.
 
 Klaytn には PoW メカニズムがないため、常に `0 0` を返すことに注意してください。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | 毎秒のハッシュ数。   |
+| Type     | Description                      |
+| -------- | -------------------------------- |
+| QUANTITY | The number of hashes per second. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -98,21 +98,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Klaytn には PoW メカニズムがないため、常に `false` を返すことに注意してください。
 
-**パラメータ**
+**Parameters**
 
-| タイプ       | Description           |
-| --------- | --------------------- |
-| 8バイトのデータ  | nonce found (64 bits) |
-| 32バイトのデータ | ヘッダのpow-hash（256ビット）  |
-| 32バイトのデータ | ミックスダイジェスト（256ビット）    |
+| Type         | Description           |
+| ------------ | --------------------- |
+| 8-byte DATA  | nonce found (64 bits) |
+| 32-byte DATA | ヘッダのpow-hash（256ビット）  |
+| 32-byte DATA | ミックスダイジェスト（256ビット）    |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                        |
+| Type    | Description                                        |
 | ------- | -------------------------------------------------- |
 | Boolean | 与えられたソリューションが有効な場合は true を返し、それ以外の場合は false を返します。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -131,22 +131,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 マイニングハッシュレートの送信に使用します。
 
-Klaytn には PoW メカニズムがないため、常に `false` を返すことに注意してください。
+Please note that it always return `false` because there is no PoW mechanism in Klaytn.
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ       | Description                    |
-| ------- | --------- | ------------------------------ |
-| ハッシュレート | 32バイトのデータ | ハッシュレートの16進数文字列表現(32バイト)。      |
-| id      | 32バイトのデータ | クライアントを識別するランダムな16進数(32バイト)ID。 |
+| Name    | Type         | Description                    |
+| ------- | ------------ | ------------------------------ |
+| ハッシュレート | 32-byte DATA | ハッシュレートの16進数文字列表現(32バイト)。      |
+| id      | 32-byte DATA | クライアントを識別するランダムな16進数(32バイト)ID。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                  |
+| Type    | Description                                  |
 | ------- | -------------------------------------------- |
 | Boolean | 送信が正常に行われた場合は true を返し、それ以外の場合は false を返します。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
