@@ -6,7 +6,7 @@ Klaytn パッケージをインストールする前に、ノード URI を登�
 2. ノードキー & ノード URI 作成
 3. ノード URI 登録
 
-## `kgen` パッケージをダウンロード <a id="download-kgen-package"></a>
+## Download `kgen` Package <a id="download-kgen-package"></a>
 
 まず、オペレーティングシステムに応じて、最新バージョンの `kgen` パッケージを [ダウンロード](download.md) ページでダウンロードできます。
 
@@ -34,7 +34,7 @@ $ mv nodekey ~/kcnd_home
 
 作成されたファイル `node_info.json` には以下の内容が含まれます。
 
-| キー名         | Description                   | 例                                                                                                                                                                       |
+| キー名         | Description                   | Example                                                                                                                                                                 |
 |:----------- |:----------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NodeAddress | 関連付けられたノードのアドレス               | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
 | NodeKey     | ノードキー \(a.k.a private key\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
