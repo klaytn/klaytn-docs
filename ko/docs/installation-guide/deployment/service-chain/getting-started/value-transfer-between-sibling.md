@@ -6,7 +6,7 @@
 
 ![](../images/sc-vt-between-sibling-arch.png)
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 - 두 개의 서비스체인을 구성하고 각 서비스체인은 Baobab EN에 연결되어 있다고 가정합니다.  [Connecting to Baobab](en-scn-connection.md)를 참조하세요.
 - 또한 [Cross-Chain Value Transfer](value-transfer.md)를 통해 토큰 전송을 성공적으로 실행한 것을 가정합니다.
 
