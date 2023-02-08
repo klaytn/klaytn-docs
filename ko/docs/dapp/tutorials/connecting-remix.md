@@ -70,7 +70,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 ![Injected Web3](img/env-injected-web3.png)
 
 * 메타마스크에 연결이 뜨면 연동된 Account를 선택 후 [Next]를 클릭합니다.
-* 네트워크에 연결되면 Chain ID가 아래와 같이 표시됩니다.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## 카이카스를 사용하여 Klaytn - 리믹스 연동하기<a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
 
@@ -79,7 +79,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 ![Injected Caver](img/env-injected-caver.png)
 
 * 카이카스 팝업이 보이면 [Connect]를 클릭하세요.
-* 네트워크에 연결되면 Chain ID가 아래와 같이 표시됩니다.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## 튜토리얼: KlaytnGreeter 컨트랙트 <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
 
