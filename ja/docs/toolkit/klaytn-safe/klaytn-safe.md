@@ -1,8 +1,8 @@
-Klaytnのような典型的なブロックチェーンプラットフォームでは、ほとんどのユーザーがKaikasやMetaMaskなどのシングルキーウォレットシステムに慣れており、これらはEOA（externally owned accounts）とも呼ばれる。 これらのアカウントは、従来の鍵ペア、すなわち公開鍵と秘密鍵を使用していますが、秘密鍵が単一障害点を生み出すため、理想的ではありません。
+In a typical blockchain platform like Klaytn, most users are familiar with single key wallet systems such as Kaikas and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
 
-このため、EOAは組織的な利用には適していません。秘密鍵が漏洩すると、組織が保有するすべての暗号資金を失う可能性があるからです。例えば、 [Wintermuteのハッキング](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) では、1億6250万ドルが失われました。
+This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
 
-そこで、Klaytn Safeのようなマルチシグウォレットの出番となるわけです。 マルチシグウォレットは、シングルキーウォレットと異なり、署名と取引の実行に複数の当事者の秘密鍵が必要なため、単一障害点を排除し、組織的なユースケースに対してより高い安全性を提供します。
+This is where multisig wallets like Klaytn Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
 
 # What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
 
