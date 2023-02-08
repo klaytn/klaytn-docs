@@ -20,7 +20,7 @@ $ systemctl stop kcnd.service
 
 ```
 
-**ステータス**
+**status**
 
 ```bash
 $ systemctl status kcnd.service
