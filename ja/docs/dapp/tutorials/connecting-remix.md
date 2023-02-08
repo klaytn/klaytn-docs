@@ -70,7 +70,7 @@ Remixを使用してKlaytnネットワークに接続するにはローカルプ
 ![注入されたWeb3](img/env-injected-web3.png)
 
 * MetaMask ポップアップが表示されたら、そのアカウントをクリックして選択します。
-* ネットワークに正常に接続すると、接続されているネットワークのチェーンIDとアカウントが表示されます。
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Klaytn を接続 - Kaikas を使ってリミックスする <a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
 
@@ -79,7 +79,7 @@ Remixを使用してKlaytnネットワークに接続するにはローカルプ
 ![注入されたCaver](img/env-injected-caver.png)
 
 * Kaikasポップアップが表示されたら、\[Connect] をクリックします。
-* ネットワークに正常に接続すると、接続されているネットワークのチェーンIDとアカウントが表示されます。
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## チュートリアル: KlaytnGreeter Contract <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
 
