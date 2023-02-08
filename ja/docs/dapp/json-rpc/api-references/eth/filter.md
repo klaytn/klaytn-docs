@@ -2,20 +2,20 @@
 
 フィルタのポーリングメソッド。最後のpoll以降に発生したログの配列を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description                      |
-| -- | --- | -------------------------------- |
-| id | 品質  | フィルター id (*e.g.*, "0x16" // 22). |
+| Name | Type     | Description                      |
+| ---- | -------- | -------------------------------- |
+| id   | QUANTITY | フィルター id (*e.g.*, "0x16" // 22). |
 
-**戻り値**
+**Return Value**
 
 `Array` - ログオブジェクトの配列、または最後のpoll以降に何も変更されていない場合は空の配列。
 - [eth_newBlockFilter](#eth_newblockfilter)で作成されたフィルタの場合、戻り値はブロックハッシュ(32バイトDATA)です。 *例:*, `["0x3454645634534..."]`.
 - [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter)で作成されたフィルタの場合、戻り値はトランザクション ハッシュ（32バイトDATA） *例:*, `["0x6345343454645..."]` です。
 - [eth_newFilter](#eth_newfilter)で作成されたフィルタの場合、ログは以下のパラメータを持つオブジェクトです。インデックス付きログ引数の0~4バイトのデータ配列。 (Solidity: 最初のトピックは、イベント (*など) の署名のハッシュです。 * ,*, `Deposit(address,bytes32,uint256)`), イベントを `anonymous` 指定子で宣言したことを除いて).</td> </tr> </tbody> </table> 
 
-**例**
+**Example**
 
 
 
@@ -55,18 +55,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 - 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
 - 1つのクエリの実行時間制限(デフォルト: 10秒)。
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description |
-| -- | --- | ----------- |
-| id | 品質  | フィルター ID    |
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| id   | QUANTITY | フィルター ID    |
 
 
-**戻り値**
+**Return Value**
 
 [eth_getFilterChanges](#eth_getfilterchanges) を参照
 
-**例**
+**Example**
 
 
 
@@ -100,27 +100,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 与えられたフィルタオブジェクトに一致するすべてのログの配列を返します。
 
-この API の実行は Klaytn ノードのリソースを安全に管理するための 2 つのノード構成によって制限することができます。
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
 
-- 1つのクエリ(デフォルト: 10,000)に返される最大結果の数です。
-- 1つのクエリの実行時間制限(デフォルト: 10秒)。
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
 
-**パラメータ**
+**Parameters**
 
 `オブジェクト` - フィルタのオプション:
 
-| 名前        | タイプ                 | Description                                                                                                                                                                                           |
+| Name      | Type                | Description                                                                                                                                                                                           |
 | --------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロックから    | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| ブロックから    | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
 | address   | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
-| トピック      | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
-| blockHash | 32バイトのデータ           | (オプション) 32 バイトのハッシュブロックハッシュで単一のブロックに返されるログを制限するフィルタオプション。 blockHashを使用することはfromBlock = toBlock = ハッシュブロックハッシュを持つブロック番号と同等です。 フィルタ条件にblockHashが存在する場合は、fromBlockもtoBlockも許可されません。                      |
+| topics    | Array of DATA       | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
+| blockHash | 32-byte DATA        | (オプション) 32 バイトのハッシュブロックハッシュで単一のブロックに返されるログを制限するフィルタオプション。 blockHashを使用することはfromBlock = toBlock = ハッシュブロックハッシュを持つブロック番号と同等です。 フィルタ条件にblockHashが存在する場合は、fromBlockもtoBlockも許可されません。                      |
 
 
-**戻り値**
+**Return Value**
 
-[eth_getFilterChanges](#eth_getfilterchanges) を参照
+See [eth_getFilterChanges](#eth_getfilterchanges)
 
 **例**
 
@@ -251,18 +251,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ノードにフィルタを作成し、新しいブロックが到着したときに通知します。 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルタID。     |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | フィルタID。     |
 
 
-**例**
+**Example**
 
 
 
@@ -286,7 +286,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 フィルターオプションに基づいてフィルターオブジェクトを作成し、状態が変更されたときに通知します (ログ)。
 
-- 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
+- To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
 - `eth_newFilter`によって作成されたフィルタに一致するすべてのログを取得するには、 [eth_getFilterLogs](#eth_getfilterlogs) を呼び出します。
 
 **トピックフィルタの指定に関する注意:** トピックは順序に依存します。 トピック `[A, B]` を含むログを持つトランザクションは以下のトピックフィルタによって一致されます:
@@ -297,16 +297,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 * `[A, B]` "A in first position AND B in second position(and anything)"
 * `[[A, B], [A, B]]` "(A OR B) in first position, AND (A OR B) in second position (and anything)"
 
-**パラメータ**
+**Parameters**
 
-`オブジェクト` - フィルタのオプション:
+`Object` - The filter options:
 
-| 名前      | タイプ                 | Description                                                                                                                                                                                           |
-| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロックから  | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock | QUANTITY &#124; Tag | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address | 20バイトのデータ &#124; 配列 | (オプション) コントラクトアドレスまたはログを生成するアドレスのリスト。                                                                                                                                                                 |
-| トピック    | データの配列              | (オプション) 32 バイトの DATA トピックの配列。 トピックは注文に依存します。 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                                                     |
+| Name      | Type                      | Description                                                                                                                                                                                           |
+| --------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                  |
+| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. 各トピックは、「or」オプションを持つデータの配列にすることもできます。                                                                                             |
 
 
 {% hint style="success" %}
@@ -315,14 +315,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 {% endhint %}
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルター ID    |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | フィルター ID    |
 
 
-**例**
+**Example**
 
 
 
@@ -340,20 +340,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ## eth_newPendingTransactionFilter <a id="eth_newpendingtransactionfilter"></a>
 
-新しい保留中のトランザクションが到着したときに通知するために、ノードにフィルタを作成します。 状態が変更されたかどうかを確認するには、 [eth_getFilterChanges](#eth_getfilterchanges) を呼び出します。
+新しい保留中のトランザクションが到着したときに通知するために、ノードにフィルタを作成します。 To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description |
-| --- | ----------- |
-| 品質  | フィルタID。     |
+| Type     | Description  |
+| -------- | ------------ |
+| QUANTITY | A filter id. |
 
 
-**例**
+**Example**
 
 
 
@@ -378,20 +378,20 @@ RPCのPub/Sub-over WebSocketsまたはHTTPを介したフィルタを使用し�
 
 ノードは作成された各サブスクリプションのサブスクリプション ID を返します。 契約に一致するイベントごとに、関連データを含む通知がサブスクリプション ID と一緒に送信されます。 接続が閉じられている場合、接続経由で作成されたすべての契約が削除されます。
 
-**パラメータ**
+**Parameters**
 
 `Object` - 通知タイプ: `"newHeads"` または `"logs"`.
 
 `"newHeads"` はブロックチェーンに追加された各ブロックを通知します。 `"logs"` は新しいブロックに含まれるログを通知します。 この型には、フィルターオプションを指定する 2 番目のパラメーターが必要です。 詳細については、 [eth_newFilter > parameters](./filter#eth_newfilter) を参照してください。
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                                        |
-| --- | ------------------------------------------------------------------ |
-| 品質  | サブスクリプションが作成されたときのサブスクリプション ID 契約に一致するイベントごとに、関連するデータを含む通知も配信されます。 |
+| Type     | Description                                                        |
+| -------- | ------------------------------------------------------------------ |
+| QUANTITY | サブスクリプションが作成されたときのサブスクリプション ID 契約に一致するイベントごとに、関連するデータを含む通知も配信されます。 |
 
 
-**例**
+**Example**
 
 この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
 
@@ -428,21 +428,21 @@ wscat -c http://localhost:8551
 
 与えられたIDでフィルターをアンインストールします。 時計がもはや必要ではないときに常に呼び出される必要があります。 さらに、一定期間 [eth_getFilterChanges](#eth_getfilterchanges) で要求されなかった場合のフィルタータイムアウト。
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description |
-| ----- | --- | ----------- |
-| フィルター | 品質  | フィルタID。     |
+| Name  | Type     | Description  |
+| ----- | -------- | ------------ |
+| フィルター | QUANTITY | A filter id. |
 
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                      |
+| Type    | Description                                      |
 | ------- | ------------------------------------------------ |
 | Boolean | `フィルタが正常にアンインストールされていれば、true` 、それ以外の場合は `false`。 |
 
 
-**例**
+**Example**
 
 
 
@@ -466,23 +466,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 RPC Pub/Sub over WebSocketsまたはHTTP経由のフィルタを使用して、特定のサブスクリプション IDでサブスクリプションをキャンセルします。 サブスクリプションを作成した接続のみが登録解除できます。
 
-**パラメータ**
+**Parameters**
 
-| タイプ | Description  |
-| --- | ------------ |
-| 品質  | サブスクリプションID。 |
+| Type     | Description  |
+| -------- | ------------ |
+| QUANTITY | サブスクリプションID。 |
 
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                          |
+| Type    | Description                                                          |
 | ------- | -------------------------------------------------------------------- |
 | Boolean | `true` if the subscription was successfully canceled, other `false`. |
 
 
-**例**
+**Example**
 
-この API は WebSocket ツールでの使用に適しています。 [`wscat`](https://www.npmjs.com/package/wscat).
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 
 
