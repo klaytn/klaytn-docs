@@ -4,22 +4,22 @@
 
 ロギングバックトレースの場所を設定します。 When a backtrace location is set and a log message is emitted at that location, the stack of the goroutine executing the log statement will be printed to `stderr`.
 
-| クライアント | メソッドの呼び出し                                             |
-|:------:| ----------------------------------------------------- |
-| コンソール  | `debug.backtraceAt(location)`                         |
-|  RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
+| Client  | Method Invocation                                     |
+|:-------:| ----------------------------------------------------- |
+| Console | `debug.backtraceAt(location)`                         |
+|   RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前 | タイプ | Description                                             |
-| -- | --- | ------------------------------------------------------- |
-| 場所 | 文字列 | `<filename>:<line>` として指定されたロギングバックトレースの場所。 |
+| Name | Type   | Description                                             |
+| ---- | ------ | ------------------------------------------------------- |
+| 場所   | string | `<filename>:<line>` として指定されたロギングバックトレースの場所。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
 ``` javascript
 > debug.backtraceAt("server.go:443")
@@ -38,26 +38,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 vmlog プリコンパイル済みコントラクトの出力ターゲットを設定します。  When the output target is a file, logs from `vmlog` calls in smart contracts will be written to `DATADIR/log/vm.log`.  ここで `DATADIR` は、 `--datadir` で `klay` を起動するときに指定されたディレクトリです。  一方、出力ターゲットは `stdout`であり、logs は標準出力のデバッグメッセージのように表示されます。
 
-| クライアント | メソッドの呼び出し                                                |
-|:------:| -------------------------------------------------------- |
-| コンソール  | `debug.setVMLogTarget(target)`                           |
-|  RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
+| Client  | Method Invocation                                        |
+|:-------:| -------------------------------------------------------- |
+| Console | `debug.setVMLogTarget(target)`                           |
+|   RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前     | タイプ | Description                                                                |
-| ------ | --- | -------------------------------------------------------------------------- |
-| target | int | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
+| Name   | Type | Description                                                                |
+| ------ | ---- | -------------------------------------------------------------------------- |
+| target | int  | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                                   |
-| --- | --------------------------------------------- |
-| 文字列 | The output target.  実際の戻り値については以下の例を参照してください。 |
+| Type   | Description                                   |
+| ------ | --------------------------------------------- |
+| string | The output target.  実際の戻り値については以下の例を参照してください。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.setVMLogTarget(0)
 "no output"
@@ -93,24 +93,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
 
-| クライアント | メソッドの呼び出し                                         |
-|:------:| ------------------------------------------------- |
-| コンソール  | `debug.verbosity(level)`                          |
-|  RPC   | `{"method": "debug_vmodule", "params": [number]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.verbosity(level)`                          |
+|   RPC   | `{"method": "debug_vmodule", "params": [number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| レベル | int | ロギングの詳細レベル。 |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| レベル  | int  | ロギングの詳細レベル。 |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.verbosity(3)
 null
@@ -125,29 +125,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 指定された名前でログモジュールの詳細度を設定。 VerbosityByNameはzapLoggerでのみ動作することに注意してください。
 
-(レベル : 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
+The verbosity of individual packages and source files can be raised using `debug_vmodule`.
 
-| クライアント | メソッドの呼び出し                                                         |
-|:------:| ----------------------------------------------------------------- |
-| コンソール  | `debug.verbosityByName(name, level)`                              |
-|  RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+| Client  | Method Invocation                                                 |
+|:-------:| ----------------------------------------------------------------- |
+| Console | `debug.verbosityByName(name, level)`                              |
+|   RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| 名前  | 文字列 | モジュール名      |
-| レベル | int | ロギングの詳細レベル。 |
+| Name  | Type   | Description                  |
+| ----- | ------ | ---------------------------- |
+| 名前    | string | モジュール名                       |
+| level | int    | The logging verbosity level. |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.verbosityByName("name", 3)
 null
@@ -165,29 +165,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 (ModuleID: [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go) のコードを参照してください。 )
 
-(レベル : 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
-個々のパッケージとソースファイル の詳細度は `debug_vmodule` を使用して調べることができます。
+The verbosity of individual packages and source files can be raised using `debug_vmodule`.
 
-| クライアント | メソッドの呼び出し                                                       |
-|:------:| --------------------------------------------------------------- |
-| コンソール  | `debug.verbosityByID(id, level)`                                |
-|  RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+| Client  | Method Invocation                                               |
+|:-------:| --------------------------------------------------------------- |
+| Console | `debug.verbosityByID(id, level)`                                |
+|   RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前  | タイプ | Description |
-| --- | --- | ----------- |
-| id  | int | モジュール id    |
-| レベル | int | ロギングの詳細レベル。 |
+| Name  | Type | Description                  |
+| ----- | ---- | ---------------------------- |
+| id    | int  | モジュール id                     |
+| level | int  | The logging verbosity level. |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > debug.verbosityById(1, 3)
 null
@@ -203,24 +203,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ログの詳細パターンを設定します。
 
-| クライアント | メソッドの呼び出し                                         |
-|:------:| ------------------------------------------------- |
-| コンソール  | `debug.vmodule(module)`                           |
-|  RPC   | `{"method": "debug_vmodule", "params": [string]}` |
+| Client  | Method Invocation                                 |
+|:-------:| ------------------------------------------------- |
+| Console | `debug.vmodule(module)`                           |
+|   RPC   | `{"method": "debug_vmodule", "params": [string]}` |
 
-**パラメータ**
+**Parameters**
 
-| 名前    | タイプ | Description |
-| ----- | --- | ----------- |
-| モジュール | 文字列 | ログのモジュール名   |
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| モジュール | string | ログのモジュール名   |
 
-**戻り値**
+**Return Value**
 
-なし
+None
 
-**例**
+**Example**
 
-コンソール
+Console
 
 特定の Go パッケージ (ディレクトリ) とすべてのサブディレクトリからのメッセージを見たい場合は、
 
