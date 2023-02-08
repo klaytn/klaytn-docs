@@ -2,17 +2,17 @@
 
 チェーンの ID を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description   |
-| --- | ------------- |
-| 品質  | チェーンの ID の整数。 |
+| Type     | Description   |
+| -------- | ------------- |
+| QUANTITY | チェーンの ID の整数。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -31,17 +31,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Klaytn ノードの現在のクライアントバージョンを返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description                |
-| --- | -------------------------- |
-| 文字列 | Klaytn ノードの現在のクライアントバージョン。 |
+| Type   | Description                |
+| ------ | -------------------------- |
+| String | Klaytn ノードの現在のクライアントバージョン。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -60,17 +60,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ペブ内のガス価格の提案を返します。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description     |
-| --- | --------------- |
-| 品質  | ペブ内の現在のガス価格の整数。 |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -93,19 +93,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 - そうでなければ、指定されたブロックの基本手数料を返します。
 
 
-**パラメータ**
+**Parameters**
 
-| タイプ | Description                  |
-| --- | ---------------------------- |
-| 番号  | ブロック番号 省略した場合は、最新の単価が返却されます。 |
+| Type | Description                  |
+| ---- | ---------------------------- |
+| 番号   | ブロック番号 省略した場合は、最新の単価が返却されます。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description     |
-| --- | --------------- |
-| 品質  | ペブ内の現在のガス価格の整数。 |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**例**
+**Example**
 
 ```javascript
 // Request
@@ -121,19 +121,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-ブロックチェーンデータを並列に書き込む場合、 `true` を返します。 これはデフォルトで有効になっています。
+Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                                        |
+| Type    | Description                                                                        |
 | ------- | ---------------------------------------------------------------------------------- |
 | Boolean | `true` は、ノードがブロックチェーンデータを並列に書き込んでいることを意味します。 ノードがデータを連続的に書き込んでいる場合は `false` になります。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -152,17 +152,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. デフォルトでは無効化されており、 `--sendertxhashindexing` で有効化することができます。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                                            |
+| Type    | Description                                                            |
 | ------- | ---------------------------------------------------------------------- |
 | Boolean | `true` は、ノードが送信者トランザクションハッシュをトランザクションハッシュマッピング情報にインデックス付けしていることを意味します。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -181,17 +181,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ノードの Klaytn プロトコルバージョンを返します。 サイプレス/バオバブの現在のバージョンは `istanbul/65` です。
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description             |
-| --- | ----------------------- |
-| 文字列 | ノードの Klaytn プロトコルバージョン。 |
+| Type   | Description             |
+| ------ | ----------------------- |
+| String | ノードの Klaytn プロトコルバージョン。 |
 
-**例**
+**Example**
 
 ```shell
 // Request
@@ -208,19 +208,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-現在のノードのリワードベースを返します。 Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 CNsにのみ必要です。
+Returns the rewardbase of the current node. Rewardbaseは、ブロック報酬が行われるアカウントのアドレスです。 It is only required for CNs.
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ        | Description |
-| ---------- | ----------- |
-| 20 バイトのデータ | 住所。         |
+| Type         | Description |
+| ------------ | ----------- |
+| 20-byte DATA | 住所。         |
 
-**例**
+**Example**
 
 ```shell
 // Request
