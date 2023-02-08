@@ -2,7 +2,7 @@
 
 `caver.wallet` は [キーリング](keyring.md) インスタンスをインメモリウォレットで管理するパッケージです。 `caver.wallet` はすべての [SingleKeyring](keyring.md#singlekeyring)、 [MultipleKeying](keyring.md#multiplekeyring)、 [RoleBasedKeyring](keyring.md#rolebasedkeyring)を受け入れ、アドレス別に管理します。
 
-## クラス <a href="#class" id="class"></a>
+## Class <a href="#class" id="class"></a>
 
 ### KeyringContainer <a href="#keyringcontainer" id="keyringcontainer"></a>
 
@@ -12,11 +12,11 @@ caver.wallet
 
 `KeyringContainer` は [SingleKeyring](keyring.md#singlekeyring)、 [MultipleKeyring](keyring.md#multiplekeyring)、および [RoleBasedKeyring](keyring.md#rolebasedkeyring) インスタンスを管理するクラスです。 Caverがインスタンス化されると、 `caver.wallet`内にKeyringContainerインスタンスが生成されます。 `caver.wallet`から、インメモリウォレット内のキーリングインスタンスを保存および管理できます。
 
-**プロパティ**
+**properties**
 
-| 名前 | タイプ | Description                |
-| -- | --- | -------------------------- |
-| 長さ | 数値  | keyringContainer内のキーリングの数。 |
+| Name | Type   | Description                |
+| ---- | ------ | -------------------------- |
+| 長さ   | number | keyringContainer内のキーリングの数。 |
 
 ## caver.wallet.generate <a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
 
@@ -26,20 +26,20 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 
 ランダムに生成された秘密鍵を使用して [SingleKeyring](keyring.md#singlekeyring) を keyringContainer に生成します。
 
-**パラメータ**
+**Parameters**
 
-| 名前               | タイプ | Description                                              |
-| ---------------- | --- | -------------------------------------------------------- |
-| numberOfKeyrings | 数値  | 作成する [SingleKeyring](keyring.md#singlekeyring) インスタンスの数。 |
-| エントロピー           | 文字列 | (オプション) エントロピーを増加させるランダムな文字列。                            |
+| Name             | Type   | Description                                              |
+| ---------------- | ------ | -------------------------------------------------------- |
+| numberOfKeyrings | number | 作成する [SingleKeyring](keyring.md#singlekeyring) インスタンスの数。 |
+| エントロピー           | string | (オプション) エントロピーを増加させるランダムな文字列。                            |
 
-**戻り値**
+**Return Value**
 
-| タイプ | Description     |
-| --- | --------------- |
-| 行列  | 生成されたアドレスを含む配列。 |
+| Type  | Description     |
+| ----- | --------------- |
+| Array | 生成されたアドレスを含む配列。 |
 
-**例**
+**Example**
 
 ```javascript
 // generate without entropy
@@ -69,20 +69,20 @@ caver.wallet.newKeyring(address, key)
 
 `キー` が秘密鍵文字列の場合、1 つの秘密鍵を使用する [SingleKeyring](keyring.md#singlekeyring) インスタンスが作成されます。 `key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](keyring.md#multiplekeyring) インスタンスが作成されます。 If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](keyring.md#rolebasedkeyring) instance is created. 作成されたキーリングは `caver.wallet` に追加されます。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ    | Description                                                                                                        |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| address | 文字列    | アドレス文字列                                                                                                            |
-| キー      | 文字列 \ | Array | 秘密キーストリング、秘密キーの配列 または、それぞれの配列要素が [ロール](../../../../../klaytn/design/accounts.md#roles) のために定義されたキーを含む2D配列。 |
+| Name    | Type      | Description                                                                                                        |
+| ------- | --------- | ------------------------------------------------------------------------------------------------------------------ |
+| address | string    | アドレス文字列                                                                                                            |
+| key     | string \ | Array | 秘密キーストリング、秘密キーの配列 または、それぞれの配列要素が [ロール](../../../../../klaytn/design/accounts.md#roles) のために定義されたキーを含む2D配列。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                                                                                                                                                         |
+| Type   | Description                                                                                                                                                                         |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | cave.walletに追加されたキーリングインスタンス ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring)) が返されます。 |
 
-**例**
+**Example**
 
 ```javascript
 // Create a instance of SingleKeyring and add to caver.wallet
@@ -136,19 +136,19 @@ caver.wallet.updateKeyring(keyring)
 
 `caver.wallet` 内のキーリングを更新します。 When a new `keyring` instance ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) or [RoleBasedKeyring](keyring.md#rolebasedkeyring)) is passed as a parameter, the existing keyring stored in the `caver.wallet` that matches the `address` property of the given `keyring` instance is found and replaced with the given one. 一致するキーリングが見つからない場合にエラーが発生します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ    | Description                                                                                                                                                                     |
+| Name    | Type   | Description                                                                                                                                                                     |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keyring | object | 新しいキーリング ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring)) `caver.wallet` に保存されます。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                                                                                                                                                             |
+| Type   | Description                                                                                                                                                                             |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | 更新されたキーリング ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring)) `caver.wallet` に保存されているキーリング。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.wallet.updateKeyring(newKeyring)
@@ -166,19 +166,19 @@ caver.wallet.getKeyring(address)
 
 `caver.wallet`のアドレスに対応するキーリングインスタンスを返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description      |
-| ------- | --- | ---------------- |
-| address | 文字列 | クエリするキーリングのアドレス。 |
+| Name    | Type   | Description      |
+| ------- | ------ | ---------------- |
+| address | string | クエリするキーリングのアドレス。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                                                                                                                                                                 |
+| Type   | Description                                                                                                                                                                                 |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | 見つかったキーリングインスタンス ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring)) が `caver.wallet` に保存されています。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.wallet.getKeyring('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -196,19 +196,19 @@ caver.wallet.isExisted(address)
 
 アドレスに一致するキーリングがある場合は `true` を返します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description        |
-| ------- | --- | ------------------ |
-| address | 文字列 | 存在を確認するキーリングのアドレス。 |
+| Name    | Type   | Description        |
+| ------- | ------ | ------------------ |
+| address | string | 存在を確認するキーリングのアドレス。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                            |
+| Type    | Description                                            |
 | ------- | ------------------------------------------------------ |
 | boolean | `true` は、アドレスと一致するキーリングが `caver.wallet` に存在することを意味します。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -223,19 +223,19 @@ caver.wallet.add(keyring)
 
 `caver.wallet` にキーリングのインスタンスを追加します。 If the newly given keyring has the same address with one of the keyrings that already exist in `caver.wallet`, an error is returned. この場合、 [caver.wallet](./#caver-wallet-updatekeyring) 内の既存のキーリングを更新するには `updateKeyring` を使用します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ    | Description                                                                                                                                                                      |
+| Name    | Type   | Description                                                                                                                                                                      |
 | ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keyring | object | キーリングインスタンス ([SingleKeyring](keyring.md#singlekeyring), [MultipleKeyring](keyring.md#multiplekeyring) または [RoleBasedKeyring](keyring.md#rolebasedkeyring)) を追加する `caver.wallet`. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description                                                                                                                                                                  |
+| Type   | Description                                                                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | [caver.wallet](keyring.md#singlekeyring)に追加されたキーリング ( [SingleKeyring](keyring.md#multiplekeyring) , [MultipleKeyring](keyring.md#rolebasedkeyring)または `RoleBasedKeyring` ) 。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.wallet.add(keyring)
@@ -253,19 +253,19 @@ caver.wallet.remove(address)
 
 指定されたキーリングのアドレスと一致するアドレスの `caver.wallet` からキーリングを削除します。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                      |
-| ------- | --- | -------------------------------- |
-| address | 文字列 | `caver.wallet` で削除されるキーリングのアドレス。 |
+| Name    | Type   | Description                      |
+| ------- | ------ | -------------------------------- |
+| address | string | `caver.wallet` で削除されるキーリングのアドレス。 |
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                                       |
+| Type    | Description                                       |
 | ------- | ------------------------------------------------- |
 | boolean | `` キーリングが `caver.wallet` から削除された場合、true </code> 。 |
 
-**例**
+**Example**
 
 ```javascript
 > caver.wallet.remove('0x6a3edfad6d1126020d5369e9097db39281876c5d')
@@ -281,35 +281,35 @@ caver.wallet.signMessage(address, message, role [, index])
 caver.walletに保存されているキーリングを使用して、Klaytn固有のプレフィックスでメッセージに署名します。 これは、Klaytn 固有の署名を次のように計算します。
 
 ```
-sign(kecchak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
 ユーザーがindexパラメータを提供していない場合、 `caver.wallet.signMessage` はロールによって使用されるすべての秘密鍵を使用してメッセージに署名します。 index パラメータが与えられた場合、 `caver.wallet.signMessage` は与えられたインデックスで秘密鍵を 1 つだけ使ってメッセージに署名します。 caver-js で使用される役割は `caver.wallet.keyring.role` から見つけることができます。
 
-**パラメータ**
+**Parameters**
 
-| 名前      | タイプ | Description                                                                                                  |
-| ------- | --- | ------------------------------------------------------------------------------------------------------------ |
-| address | 文字列 | 使用するキーリングのアドレス。                                                                                              |
-| message | 文字列 | 署名するメッセージ。                                                                                                   |
-| ロール     | 数値  | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。                                                             |
-| インデックス  | 数値  | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。 |
+| Name    | Type   | Description                                                                                                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | string | 使用するキーリングのアドレス。                                                                                                                                                                                                                |
+| message | string | 署名するメッセージ。                                                                                                                                                                                                                     |
+| role    | number | キーの役割を示す数値。 `caver.wallet.keyring.role` を使用できます。                                                                                                                                                                               |
+| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
-**戻り値**
+**Return Value**
 
-| タイプ    | Description     |
+| Type   | Description     |
 | ------ | --------------- |
 | object | 署名の結果を含むオブジェクト。 |
 
 返されたオブジェクトには以下のものが含まれています:
 
-| 名前          | タイプ | Description                                   |
-| ----------- | --- | --------------------------------------------- |
-| messageHash | 文字列 | メッセージのハッシュと Klaytn 固有の接頭辞。                    |
-| signatures  | 行列  | [SignatureData](keyring.md#signaturedata) の配列 |
-| message     | 文字列 | 署名するメッセージ。                                    |
+| Name        | Type   | Description                                   |
+| ----------- | ------ | --------------------------------------------- |
+| messageHash | string | メッセージのハッシュと Klaytn 固有の接頭辞。                    |
+| signatures  | Array  | [SignatureData](keyring.md#signaturedata) の配列 |
+| message     | string | The message to sign.                          |
 
-**例**
+**Example**
 
 ```javascript
 // Sign message with roleTransactionKey which uses two private keys
@@ -344,26 +344,26 @@ Signs the transaction as a `sender` of the transaction and appends `signatures` 
 
 [Account Update](../caver.transaction/basic.md#accountupdate) transaction, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles), other, use [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. `index` が定義されている場合、 `caver.wallet.sign` は指定されたインデックスで 1 つの秘密鍵のみを使用してトランザクションに署名します。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                                                                                                                                                                                                |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | 文字列    | 使用するキーリングのアドレス。                                                                                                                                                                                                                            |
-| transaction | object | [トランザクション](../caver.transaction/#class) のインスタンス                                                                                                                                                                                            |
-| インデックス      | 数値     | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。                                                                                                                               |
-| ハッシャー       | 関数     | (オプション) トランザクションハッシュを取得するためのハッシュ関数。 `hasher` がパラメータとして与えられた場合 caver-jsで実装されたトランザクションハッシュを計算するためのデフォルトメソッドの代わりにトランザクションハッシュを計算します。 トランザクションハッシュ生成のデフォルトメソッドの詳細については、 [Basic](../../../../../klaytn/design/transactions/basic.md) を参照してください。 |
+| Name        | Type     | Description                                                                                                                                                                                                                                |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                      |
+| transaction | object   | [トランザクション](../caver.transaction/#class) のインスタンス                                                                                                                                                                                            |
+| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.             |
+| hasher      | function | (オプション) トランザクションハッシュを取得するためのハッシュ関数。 `hasher` がパラメータとして与えられた場合 caver-jsで実装されたトランザクションハッシュを計算するためのデフォルトメソッドの代わりにトランザクションハッシュを計算します。 トランザクションハッシュ生成のデフォルトメソッドの詳細については、 [Basic](../../../../../klaytn/design/transactions/basic.md) を参照してください。 |
 
-**戻り値**
+**Return Value**
 
-`Promise` が `object`を返す: 署名されたトランザクション。
+`Promise` returning `object`: The signed transaction.
 
-| タイプ    | Description                                                |
+| Type   | Description                                                |
 | ------ | ---------------------------------------------------------- |
 | object | 署名されたトランザクションインスタンス。 記号が `transaction.signations` に追加されます。 |
 
 トランザクションタイプ別のフィールドの詳細については、 [cave.transaction](../caver.transaction/) を参照してください。
 
-**例**
+**Example**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -456,30 +456,30 @@ Signs the transaction as `fee payer` of the transaction and appends `feePayerSig
 
 `transaction.feePayer` が定義されていない場合、 `caver.wallet` から生成されたキーリングのアドレスが割り当てられます。
 
-**パラメータ**
+**Parameters**
 
-| 名前          | タイプ    | Description                                                                                                  |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------ |
-| address     | 文字列    | 使用するキーリングのアドレス。                                                                                              |
-| transaction | object | [FeeDelegatedTransaction](../caver.transaction/fee-delegation.md) のインスタンス                                    |
-| インデックス      | 数値     | (オプション) 使用する秘密鍵のインデックス。 インデックスは、ロールごとに定義された秘密鍵の配列の長さよりも小さくなければなりません。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用します。 |
-| ハッシャー       | 関数     | (オプション) トランザクションハッシュを取得するための関数。 hasherがパラメータとして定義されている場合、これはcaver-jsのデフォルトの実装ではなくトランザクションハッシュを取得するために使用されます。 |
+| Name        | Type     | Description                                                                                                                                                                                                                    |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                          |
+| transaction | object   | [FeeDelegatedTransaction](../caver.transaction/fee-delegation.md) のインスタンス                                                                                                                                                      |
+| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| hasher      | function | (オプション) トランザクションハッシュを取得するための関数。 hasherがパラメータとして定義されている場合、これはcaver-jsのデフォルトの実装ではなくトランザクションハッシュを取得するために使用されます。                                                                                                                   |
 
-**戻り値**
+**Return Value**
 
-`Promise` が `object`を返す: 署名されたトランザクション。
+`Promise` returning `object`: The signed transaction.
 
-| タイプ    | Description                                                           |
-| ------ | --------------------------------------------------------------------- |
-| object | 署名されたトランザクションインスタンス。 署名の結果は `transaction.feePayerSignatures` に追加されます。 |
+| Type   | Description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| object | A signed transaction instance. 署名の結果は `transaction.feePayerSignatures` に追加されます。 |
 
-トランザクションタイプ別のフィールドの詳細については、 [cave.transaction](../caver.transaction/) を参照してください。
+For more information about fields by transaction type, see [caver.transaction](../caver.transaction/).
 
-**例**
+**Example**
 
 ```javascript
-// This example uses the FeeDelegatedValueTransfer transactions.
-// 各種トランザクションタイプの使用方法については、 [caver.transaction] を参照してください。
+// This example uses the FeeDelegatedValueTransfer transaction.
+// Please refer to [caver.transaction] for how to use various transaction types.
 > const transaction = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
     to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
