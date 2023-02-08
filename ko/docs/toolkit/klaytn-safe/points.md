@@ -2,7 +2,7 @@
 
 Klaytn Safe를 사용하면서 염두에 둘 사항들이 있습니다.
 
-# 트랜잭션 수수료 <a id="Transaction Fees"></a>
+# Transaction Fees <a id="Transaction Fees"></a>
 
 자금 전송이나 컨트랙트 호출 등 Klaytn Safe 트랜잭션들은 수수료를 발생시키는데, 이는 트랜잭션을 실행시키는 서명인(signer)에 의해 부담됩니다(요구 임계치를 최종 도달시키는 마지막 서명인).
 
