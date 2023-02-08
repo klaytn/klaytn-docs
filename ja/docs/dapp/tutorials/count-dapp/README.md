@@ -2,16 +2,16 @@
 
 ## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. 環境設定](1.-environment-setup.md)
-* [2. クローン数 DApp](2.-clone-count-dapp.md)
+* [1. Environment Setup](1.-environment-setup.md)
+* [2. Clone Count DApp](2.-clone-count-dapp.md)
 * [3. ディレクトリ構造](3.-directory-structure.md)
-* [4. スマートコントラクトを書く](4.-write-smart-contract.md)
-* [5. フロントエンドコードの概要](5.-frontend-code-overview/)
+* [4. Write Smart Contract](4.-write-smart-contract.md)
+* [5. Frontend Code Overview](5.-frontend-code-overview/)
   * [5-1. ブロック番号コンポーネント](5.-frontend-code-overview/5-1.-blocknumber-component.md)
   * [5-2. Auth Component](5.-frontend-code-overview/5-2.-auth-component.md)
   * [5-3. Count Component](5.-frontend-code-overview/5-3.-count-component.md)
-* [6. コントラクトを展開](6.-deploy-contract.md)
-* [7. アプリを実行](7.-run-app.md)
+* [6. Deploy Contract](6.-deploy-contract.md)
+* [7. Run App](7.-run-app.md)
 
 ## Testing Environment <a href="#testing-environment" id="testing-environment"></a>
 
@@ -22,7 +22,7 @@ CountDAppは以下の環境でテストされています。
 * npm 6.9.0
 * Python 2.7.10
 
-## はじめに <a href="#introduction" id="introduction"></a>
+## Introduction <a href="#introduction" id="introduction"></a>
 
 ![intro](../../../bapp/tutorials/count-bapp/images/tutorial-1intro.gif)
 
