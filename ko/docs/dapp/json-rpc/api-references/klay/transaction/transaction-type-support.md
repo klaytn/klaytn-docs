@@ -6,19 +6,19 @@ Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서�
 
 TxTypeLegacyTransaction은 Klaytn에 있는 기존 트랜잭션 타입입니다. 이 트랜잭션 타입은 호환을 위해 존재합니다. 더 자세한 정보는 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction)을 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름    | 타입            | 설명                                                                                                                         |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| from  | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
-| to    | 20바이트 크기 DATA | (컨트랙트 생성 시 선택사항) 트랜잭션 수신자의 주소입니다.                                                                                          |
-| gas   | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
-| 가스 가격 | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 gas와 gasPrice를 곱한 값입니다.                                      |
-| value | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                     |
-| 데이터   | DATA          | 배포할 컨트랙트를 컴파일하면 얻는 바이트코드, 또는 컨트랙트를 호출할 때 필요한 함수 지시자(function indicator)와 파라미터 값(parameter values)들입니다.                     |
-| 논스    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| Name     | Type         | Description                                                                                                                |
+| -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                            |
+| to       | 20-byte DATA | (컨트랙트 생성 시 선택사항) 트랜잭션 수신자의 주소입니다.                                                                                          |
+| gas      | QUANTITY     | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
+| gasPrice | QUANTITY     | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 gas와 gasPrice를 곱한 값입니다.                                      |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                |
+| data     | DATA         | 배포할 컨트랙트를 컴파일하면 얻는 바이트코드, 또는 컨트랙트를 호출할 때 필요한 함수 지시자(function indicator)와 파라미터 값(parameter values)들입니다.                     |
+| nonce    | QUANTITY     | (선택사항) 논스의 정숫값입니다.                                                                                                         |
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' https://api.baobab.klaytn.net:8651
@@ -50,19 +50,19 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 TxTypeValueTransfer는 사용자가 KLAY를 전송할 때 사용됩니다. 더 자세한 정보는 [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입            | 설명                                                                                                                         |
-| ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| typeInt | 정수            | TxTypeValueTransfer를 가리키는 정수값 8입니다.                                                                                        |
-| from    | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
-| to      | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
-| gas     | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
-| 가스 가격   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 gas와 gasPrice를 곱한 값입니다.                                      |
-| 논스      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
-| value   | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
+| Name     | Type         | Description                                                                                                                                                                                                                  |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | 정수           | TxTypeValueTransfer를 가리키는 정수값 8입니다.                                                                                                                                                                                          |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| to       | 20-byte DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                                                             |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.                                                                                   |
+| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| value    | QUANTITY     | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                                                               |
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 8, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4"}], "id": 69}' http://127.0.0.1:8551
@@ -100,19 +100,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransfer입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedValueTransfer를 가리키는 정수값 9입니다.                                                                                                                                   |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 gas와 gasPrice를 곱한 값입니다.                                                                                             |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                              |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                      |
+| ---------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt    | Integer      | TxTypeFeeDelegatedValueTransfer를 가리키는 정수값 9입니다.                                                                                                                                                                                  |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.                                                                                       |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                 |
+| feePayer   | 20-byte DATA | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                                             |
+| signatures | DATA         | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 **예시 1(`klay_signTransaction`)**
 ```shell
@@ -167,22 +167,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransfer입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedValueTransferWithRatio를 가리키는 정수값 10입니다.                                                                                                                         |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedValueTransferWithRatio를 가리키는 정수값 10입니다.                                                                                                                                                                                        |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                                                                                      |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| feePayer   | 20-byte DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                                                                                |
+| feeRatio   | QUANTITY     | 트랜잭션 수수료 납부자의 부담 비율입니다. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                                                             |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 42}' http://127.0.0.1:8551
@@ -218,7 +218,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "nonce": "0x1d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x2e6300", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x76377a0c1a050475fd06dfb192ef1724394a5f77ec6441764f7732d6ab0cbc4d", "S": "0xfb518b09210692bd530586cd484a9f6f653f9bb170e5da8b99d417e58692845"}]}], "id": 47}' http://127.0.0.1:8551
@@ -236,21 +236,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 KLAY를 보내려고 할 때 사용됩니다. 더 자세한 정보는 [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입            | 설명                                                                                                                         |
-| ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| typeInt | 정수            | TxTypeValueTransferMemo를 가리키는 정수값 16입니다.                                                                                   |
-| from    | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
-| to      | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
-| gas     | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
-| 가스 가격   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                |
-| 논스      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
-| value   | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
-| input   | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                       |
+| Name     | Type         | Description                                                                                                                                                                                                                  |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | Integer      | TxTypeValueTransferMemo를 가리키는 정수값 16입니다.                                                                                                                                                                                     |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| to       | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
+| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| value    | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
+| input    | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
 
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 16, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 39}' http://127.0.0.1:8551
@@ -289,23 +289,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransferMemo입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferMemo](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedValueTransferMemo를 가리키는 정수값 17입니다.                                                                                                                              |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedValueTransferMemo를 가리키는 정수값 17입니다.                                                                                                                                                                                             |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 80}' http://127.0.0.1:8551
@@ -341,7 +341,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0xf343844adff1cde850c0215c78b7f9258ab158e125ee100888f454c91c51cf51", "S": "0x245f5e78ae1b52aafd18b86de6ca615af6676f3f3b70baba601748caaf1c813f"}], "nonce": "0x1e"}], "id": 81}' http://127.0.0.1:8551
@@ -359,23 +359,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeValueTransferMemo입니다. 더 자세한 정보는 [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedValueTransferMemoWithRatio를 가리키는 정수값 18입니다.                                                                                                                     |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedValueTransferMemoWithRatio를 가리키는 정수값 18입니다.                                                                                                                                                                                    |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 38}' http://127.0.0.1:8551
@@ -412,7 +412,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e43", "R": "0x5fecba257917e6677c51d94f0d9670621650a511aae86bd1e50a01c771fb68a0", "S": "0x441a9632f499dbce3d4fc974db3b431cf8ff0a2f93a6490c018796278f6edb2b"}], "nonce": "0x1f"}], "id": 81}' http://127.0.0.1:8551
@@ -430,18 +430,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 더 자세한 정보는 [TxTypeAccountUpdate](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입            | 설명                                                                                                                              |
-| ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt | 정수            | TxTypeAccountUpdate를 가리키는 정수값 32입니다.                                                                                            |
-| from    | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                |
-| gas     | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.      |
-| 가스 가격   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                     |
-| 논스      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                              |
-| key     | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요. |
+| Name     | Type         | Description                                                                                                                                                                                                                  |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | Integer      | TxTypeAccountUpdate를 가리키는 정수값 32입니다.                                                                                                                                                                                         |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
+| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| key      | DATA         | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요.                                                                                              |
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 32, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0"}], "id": 68}' http://127.0.0.1:8551
@@ -479,20 +479,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 트랜잭션 수수료 위임 개념을 도입한 TxTypeAccountUpdate입니다. 더 자세한 정보는 [TxTypeFeeDelegatedAccountUpdate](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)를 참고하십시오.
 
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedAccountUpdate를 가리키는 정수값 33입니다.                                                                                                                                  |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| key      | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요.                                                   |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedAccountUpdate를 가리키는 정수값 33입니다.                                                                                                                                                                                                 |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 85}' http://127.0.0.1:8551
@@ -526,7 +526,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x87da8ac5c398bcf379d3034d72d239c8de167cafe240da13019606aad628aa8b", "S": "0x3d11215843cbc25cdf3076e4ead6272e20d72b22e0b9d498bfcd1ceff497baf4"}], "nonce": "0x20"}], "id": 78}' http://127.0.0.1:8551
@@ -545,21 +545,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeAccountUpdate입니다. 더 자세한 정보는 [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)를 참고하십시오.
 
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedAccountUpdateWithRatio를 가리키는 정수값 34입니다.                                                                                                                         |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| key      | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요.                                                   |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedAccountUpdateWithRatio를 가리키는 정수값 34입니다.                                                                                                                                                                                        |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| key        | DATA         | The new account key of the `from` account in RLP encoded format. For more information about the account key, see [Account Key](../../../../../klaytn/design/accounts.md#account-key).                                                            |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 78}' http://127.0.0.1:8551
@@ -594,7 +594,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd285969e88c3cc92471bda4bbcdce2d23eaa9bdcc47a64421de4858b7a51fd04", "S": "0x5b8123f9666580c51fdbd5a8b1d67bf1ae774e5a8e3e1ebfbf4f2024e94e82cc"}], "nonce": "0x21"}], "id": 100}' http://127.0.0.1:8551
@@ -612,23 +612,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeSmartContractDeploy는 지정된 주소에 스마트 컨트랙트를 배포합니다. 더 자세한 정보는 [TxTypeSmartContractDeploy](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름            | 타입            | 설명                                                                                                                            |
-| ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| typeInt       | 정수            | TxTypeSmartContractDeploy를 가리키는 정수값 40입니다.                                                                                    |
-| from          | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                              |
-| to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                              |
-| gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.    |
-| 가스 가격         | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                   |
-| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                            |
-| value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                |
-| input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                          |
-| humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다. |
-| codeFormat    | QUANTITY      | 스마트 컨트랙트 코드의 코드 형식입니다. `0`값은 EVM을 가리킵니다.                                                                                      |
+| Name          | Type         | Description                                                                                                                                                                                                                  |
+| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt       | Integer      | TxTypeSmartContractDeploy를 가리키는 정수값 40입니다.                                                                                                                                                                                   |
+| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
+| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
+| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
+| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
+| humanReadable | Boolean      | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다.                                                                                                |
+| codeFormat    | QUANTITY     | 스마트 컨트랙트 코드의 코드 형식입니다. `0`값은 EVM을 가리킵니다.                                                                                                                                                                                     |
 
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 40, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0}], "id": 78}' http://127.0.0.1:8551
@@ -669,25 +669,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractDeploy입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractDeploy](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy)를 참고하시기 바랍니다.
 
-**파라미터**
+**Parameters**
 
-| 이름            | 타입            | 설명                                                                                                                                                                                |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt       | 정수            | TxTypeFeeDelegatedSmartContractDeploy를 가리키는 정수값 41입니다.                                                                                                                            |
-| from          | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격         | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다.                                                     |
-| codeFormat    | QUANTITY      | 스마트 컨트랙트 코드의 코드 형식입니다. `0`값은 EVM을 가리킵니다.                                                                                                                                          |
-| feePayer      | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| 서명            | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name          | Type         | Description                                                                                                                                                                                                                                      |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt       | Integer      | TxTypeFeeDelegatedSmartContractDeploy를 가리키는 정수값 41입니다.                                                                                                                                                                                           |
+| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                                                   |
+| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                                             |
+| feePayer      | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| signatures    | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 30}' http://127.0.0.1:8551
@@ -725,7 +725,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0x25aaa9dcd863ec742299c7204d7720277ae39a277232a3b1ad61d4b665c89da9", "S": "0x4c00c144ac183f6b61224f4721e7e0d2c5f583e5793175cf35c04bdfb46e1b16"}], "nonce": "0x22"}], "id": 84}' http://127.0.0.1:8551
@@ -743,26 +743,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractDeploy입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)를 참고하시기 바랍니다.
 
-**파라미터**
+**Parameters**
 
-| 이름            | 타입            | 설명                                                                                                                                                                                |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt       | 정수            | TxTypeFeeDelegatedSmartContractDeployWithRatio를 가리키는 정수값 42입니다.                                                                                                                   |
-| from          | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격         | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다.                                                     |
-| codeFormat    | QUANTITY      | 스마트 컨트랙트 코드의 코드 형식입니다. `0`값은 EVM을 가리킵니다.                                                                                                                                          |
-| feePayer      | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio      | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명            | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name          | Type         | Description                                                                                                                                                                                                                                      |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt       | Integer      | TxTypeFeeDelegatedSmartContractDeployWithRatio를 가리키는 정수값 42입니다.                                                                                                                                                                                  |
+| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                                                   |
+| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                                             |
+| feePayer      | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| feeRatio      | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
+| signatures    | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 49}' http://127.0.0.1:8551
@@ -801,7 +801,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xc4e11861dd7c2849a727c979cc96ff4dfbfddc36ffe443437e9a27a9dcd028c2", "S": "0x475dc05fe78c62ced1c3d2b260c47c3e971cd66edad28da5adeeb7de63ed9413"}], "nonce": "0x23"}], "id": 68}' http://127.0.0.1:8551
@@ -819,21 +819,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`에 입력된 데이터를 이용합니다. 더 자세한 정보는 [TxTypeSmartContractExecution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution)을 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입            | 설명                                                                                                                         |
-| ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| typeInt | 정수            | TxTypeSmartContractExecution을 가리키는 정수값 48입니다.                                                                              |
-| from    | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
-| to      | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
-| gas     | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
-| 가스 가격   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                |
-| 논스      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
-| value   | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
-| input   | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                       |
+| Name     | Type         | Description                                                                                                                                                                                                                  |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | Integer      | TxTypeSmartContractExecution을 가리키는 정수값 48입니다.                                                                                                                                                                                |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| to       | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                            |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
+| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
+| value    | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                             |
+| input    | DATA         | The data sent along with the transaction.                                                                                                                                                                                    |
 
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 48, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 69}' http://127.0.0.1:8551
@@ -872,23 +872,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractExecution입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution)을 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedSmartContractExecution를 가리키는 정수값 49입니다.                                                                                                                         |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedSmartContractExecution를 가리키는 정수값 49입니다.                                                                                                                                                                                        |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 25}' http://127.0.0.1:8551
@@ -924,7 +924,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x8d179a52bd2c819a6b8a61bac63ec6e68583696bb7a2968e8071cb687808e92f", "S": "0x68b47095625c2af8c9996d19d64356a54b98f23de2585af7cb21db56c24e168"}], "nonce": "0x24"}], "id": 84}' http://127.0.0.1:8551
@@ -942,24 +942,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeSmartContractExecution입니다. 더 자세한 내용은 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)을 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedSmartContractExecutionWithRatio를 가리키는 정수값 50입니다.                                                                                                                |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
-| input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedSmartContractExecutionWithRatio를 가리키는 정수값 50입니다.                                                                                                                                                                               |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
+| input      | DATA         | The data sent along with the transaction.                                                                                                                                                                                                        |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 13}' http://127.0.0.1:8551
@@ -996,7 +996,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd742608c411371d7b1db08dc6f43adabdb9b75ec03c2fa185216103de600556b", "S": "0x24b541a84945f8bc96f563909aa0ad2c7ac8376d31a65eca7a2d79b721701170"}], "nonce": "0x25"}], "id": 44}' http://127.0.0.1:8551
@@ -1014,18 +1014,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 더 자세한 내용은 [TxTypeCancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel)을 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름      | 타입            | 설명                                                                                                                         |
-| ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| typeInt | 정수            | TxTypeCancel을 가리키는 정수값 56입니다.                                                                                              |
-| from    | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
-| gas     | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
-| 가스 가격   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                |
-| 논스      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| Name     | Type         | Description                                                                                                                                                                                                                  |
+| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt  | Integer      | TxTypeCancel을 가리키는 정수값 56입니다.                                                                                                                                                                                                |
+| from     | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                              |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                         |
+| nonce    | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                               |
 
 
-**예시**
+**Example**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 56, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00"}], "id": 81}' http://127.0.0.1:8551
@@ -1061,20 +1061,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 수수료 위임 개념을 도입한 TxTypeCancel입니다. 더 자세한 정보는 [TxTypeFeeDelegatedCancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedCancel를 가리키는 정수값 57입니다.                                                                                                                                         |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedCancel를 가리키는 정수값 57입니다.                                                                                                                                                                                                        |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 15}' http://127.0.0.1:8551
@@ -1107,7 +1107,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0xf276dcf90e7ba5aef0c77a940d7f360bb60d761ba0ddced96584ededf56e87d3", "S": "0x2e5feb5b09985da167cce835a93ad60d56b4c125e62da4d3379fc6bcb37ef479"}], "nonce": "0x26"}], "id": 87}' http://127.0.0.1:8551
@@ -1125,21 +1125,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 부분 트랜잭션 수수료 위임 개념을 도입한 TxTypeCancel입니다. 더 자세한 정보는 [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)를 참고하십시오.
 
-**파라미터**
+**Parameters**
 
-| 이름       | 타입            | 설명                                                                                                                                                                                |
-| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt  | 정수            | TxTypeFeeDelegatedCancelWithRatio를 가리키는 정수값 58입니다.                                                                                                                                |
-| from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
-| gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
-| 가스 가격    | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 지불된 가스당 가스 가격의 정숫값입니다.                                                                                                                       |
-| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| feePayer | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
-| feeRatio | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
-| 서명       | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| Name       | Type         | Description                                                                                                                                                                                                                                      |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typeInt    | Integer      | TxTypeFeeDelegatedCancelWithRatio를 가리키는 정수값 58입니다.                                                                                                                                                                                               |
+| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
+| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
+| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
+| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
+| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
+| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
+| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 
 
-**예시 1(`klay_signTransaction`)**
+**Example 1 (`klay_signTransaction`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 100}' http://127.0.0.1:8551
@@ -1173,7 +1173,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**예시 2(`klay_sendTransactionAsFeePayer`)**
+**Example 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x8f966ed84221298383ad1d7599a18aa461f42206284a9121a58351b1e4a51bd8", "S": "0x2272e9eb953ed69a65a392c3a67b58a981acd503abeceaf60679ddb38e4fb4b0"}], "nonce": "0x27"}], "id": 96}' http://127.0.0.1:8551
