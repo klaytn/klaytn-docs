@@ -22,54 +22,54 @@ JSON-RPC エンドポイントを公開すると、独自のノードを実行�
 
 **HTTPS**
 
-| Service Provider                                   | エンドポイント                                            | 名前空間         | タイプ   |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ----- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | フル    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | フル    |
-| Fantrie                                            | `https://klaytn01.fautor.app/`                     | klay,eth,net | フル    |
-|                                                    | `https://klaytn02.fautor.app/`                     | klay,eth,net | フル    |
-|                                                    | `https://klaytn03.fautor.app/`                     | klay,eth,net | フル    |
-|                                                    | `https://klaytn04.fautor.app/`                     | klay,eth,net | フル    |
-|                                                    | `https://klaytn05.fautor.app/`                     | klay,eth,net | フル    |
-|                                                    | `https://cypress.fautor.app/archive`               | klay,eth,net | アーカイブ |
-| [すべてのノード](www.allthatnode.com)                     | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | フル    |
+| Service Provider                                   | エンドポイント                                            | 名前空間         | Type    |
+| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | フル      |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
+| Fantrie                                            | `https://klaytn01.fautor.app/`                     | klay,eth,net | Full    |
+|                                                    | `https://klaytn02.fautor.app/`                     | klay,eth,net | Full    |
+|                                                    | `https://klaytn03.fautor.app/`                     | klay,eth,net | Full    |
+|                                                    | `https://klaytn04.fautor.app/`                     | klay,eth,net | Full    |
+|                                                    | `https://klaytn05.fautor.app/`                     | klay,eth,net | Full    |
+|                                                    | `https://cypress.fautor.app/archive`               | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                                   | エンドポイント                                             | 名前空間         | タイプ   |
-| -------------------------------------------------- | --------------------------------------------------- | ------------ | ----- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | フル    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | フル    |
-| Fantrie                                            | `wss://klaytn01.fautor.app/ws/`                     | klay,eth,net | フル    |
-|                                                    | `wss://klaytn02.fautor.app/ws/`                     | klay,eth,net | フル    |
-|                                                    | `wss://klaytn03.fautor.app/ws/`                     | klay,eth,net | フル    |
-|                                                    | `wss://klaytn04.fautor.app/ws/`                     | klay,eth,net | フル    |
-|                                                    | `wss://klaytn05.fautor.app/ws/`                     | klay,eth,net | フル    |
-|                                                    | `wss://cypress.fautor.app/archive/ws`               | klay,eth,net | アーカイブ |
+| Service Provider                                   | Endpoints                                           | Namespaces   | Type    |
+| -------------------------------------------------- | --------------------------------------------------- | ------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | Full    |
+| Fantrie                                            | `wss://klaytn01.fautor.app/ws/`                     | klay,eth,net | Full    |
+|                                                    | `wss://klaytn02.fautor.app/ws/`                     | klay,eth,net | Full    |
+|                                                    | `wss://klaytn03.fautor.app/ws/`                     | klay,eth,net | Full    |
+|                                                    | `wss://klaytn04.fautor.app/ws/`                     | klay,eth,net | Full    |
+|                                                    | `wss://klaytn05.fautor.app/ws/`                     | klay,eth,net | Full    |
+|                                                    | `wss://cypress.fautor.app/archive/ws`               | klay,eth,net | Archive |
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
 
 **HTTPS**
 
-| Service Provider                                   | エンドポイント                                           | 名前空間         | タイプ   |
+| Service Provider                                   | Endpoints                                         | Namespaces   | Type  |
 | -------------------------------------------------- | ------------------------------------------------- | ------------ | ----- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | フル    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | フル    |
-| Fantrie                                            | `https://baobab01.fautor.app/`                    | klay,eth,net | フル    |
-|                                                    | `https://baobab02.fautor.app/`                    | klay,eth,net | フル    |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | Full  |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | Full  |
+| Fantrie                                            | `https://baobab01.fautor.app/`                    | klay,eth,net | Full  |
+|                                                    | `https://baobab02.fautor.app/`                    | klay,eth,net | Full  |
 |                                                    | `https://baobab.fautor.app/archive`               | klay,eth,net | アーカイブ |
-| [すべてのノード](www.allthatnode.com)                     | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net | フル    |
+| [すべてのノード](www.allthatnode.com)                     | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net | Full  |
 
 **WebSocket**
 
-| Service Provider                                   | エンドポイント                                            | 名前空間         | タイプ   |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ----- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | フル    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | フル    |
-| Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | フル    |
-|                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | フル    |
-|                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | アーカイブ |
+| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
+| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | Full    |
+| Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | Full    |
+|                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | Full    |
+|                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | Archive |
 
 ### Useful Resources
 
@@ -115,7 +115,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 #### References
 
 * [Docs](https://apidoc.tatum.io/tag/Klaytn?\_gl=1\*1dhfv8u\*\_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*\_ga\_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
-* [価格](https://tatum.io/pricing)
+* [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
 ### BlockPi
