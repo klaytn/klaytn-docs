@@ -14,24 +14,24 @@ The `content` inspection property can be queried to list the exact details of al
 
 結果は、2つのフィールド `pending` と `キューに入れられた` を持つオブジェクトです。 これらの各項目は、連想的な 配列であり、各項目はオリジンアドレスをスケジュールされたトランザクションのバッチにマップします。 これらのバッチは それ自体が、ノンスと実際のトランザクションを関連付けるマップです。
 
-| クライアント | メソッドの起動                        |
-|:------:| ------------------------------ |
-| コンソール  | `txpool.content`               |
-|  RPC   | `{"method": "txpool_content"}` |
+| Client  | Method invocation              |
+|:-------:| ------------------------------ |
+| Console | `txpool.content`               |
+|   RPC   | `{"method": "txpool_content"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description    |
-| ------- | -------------- |
-| JSON文字列 | トランザクションプールの内容 |
+| Type        | Description    |
+| ----------- | -------------- |
+| JSON string | トランザクションプールの内容 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > txpool.content
@@ -137,26 +137,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. これは、プール内の トランザクションを迅速に確認し、潜在的な問題を見つけるために、開発者に特化した方法です。
 
-結果は、2つのフィールド `pending` と `キューに入れられた` を持つオブジェクトです。 これらの各項目は、連想的な 配列であり、各項目はオリジンアドレスをスケジュールされたトランザクションのバッチにマップします。 これらのバッチ自体は トランザクション要約文字列に関連付けられたマップです。
+The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. これらのバッチ自体は トランザクション要約文字列に関連付けられたマップです。
 
-| クライアント | メソッドの起動                        |
-|:------:| ------------------------------ |
-| コンソール  | `txpool.inspect`               |
-|  RPC   | `{"method": "txpool_inspect"}` |
+| Client  | Method invocation              |
+|:-------:| ------------------------------ |
+| Console | `txpool.inspect`               |
+|   RPC   | `{"method": "txpool_inspect"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| タイプ     | Description                         |
-| ------- | ----------------------------------- |
-| JSON文字列 | 保留中のトランザクションとキューに入れられたトランザクションのリスト。 |
+| Type        | Description                         |
+| ----------- | ----------------------------------- |
+| JSON string | 保留中のトランザクションとキューに入れられたトランザクションのリスト。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 ```javascript
 > txpool.inspect
 {
@@ -220,25 +220,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 The result is an object with two fields `pending` and `queued`, each of which is a counter representing the number of transactions in that particular state.
 
-| クライアント | メソッドの起動                       |
-|:------:| ----------------------------- |
-| コンソール  | `txpool.status`               |
-|  RPC   | `{"method": "txpool_status"}` |
+| Client  | Method invocation             |
+|:-------:| ----------------------------- |
+| Console | `txpool.status`               |
+|   RPC   | `{"method": "txpool_status"}` |
 
-**パラメータ**
+**Parameters**
 
-なし
+None
 
-**戻り値**
+**Return Value**
 
-| 名前          | タイプ | Description        |
-| ----------- | --- | ------------------ |
-| pending     | int | 保留中のトランザクションの数。    |
-| キューに入れられました | int | キューに入れたトランザクションの数。 |
+| Name        | Type | Description        |
+| ----------- | ---- | ------------------ |
+| pending     | int  | 保留中のトランザクションの数。    |
+| キューに入れられました | int  | キューに入れたトランザクションの数。 |
 
-**例**
+**Example**
 
-コンソール
+Console
 
 ```javascript
 > txpool.status
