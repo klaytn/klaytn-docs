@@ -2,25 +2,25 @@
 
 ## プッシュ通知の開始/停止  <a id="pn-start-stop"></a>
 
-以下の `systemctl` コマンドで Klaytn サービスを開始/停止できます。
+You can start/stop the Klaytn service with the following `systemctl` command.
 
-**メモ**: root 権限が必要です。
+**Note**: This requires root privileges.
 
-**開始**
+**start**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**停止する**
+**stop**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-**ステータス**
+**status**
 
 ```bash
 $ systemctl status kpnd.service
@@ -29,13 +29,13 @@ $ systemctl status kpnd.service
 
 ## Troubleshooting <a id="troubleshooting"></a>
 
-次のエラーに遭遇した場合
+If you meet the following error,
 
 ```bash
 kpnd.serviceの開始に失敗しました: ユニットが見つかりません。
 ```
 
-systemdマネージャの設定を以下のコマンドで再読み込みしてください。
+reload the systemd manager configuration with the following command.
 
 ```bash
 $ systemctl daemon-reload
