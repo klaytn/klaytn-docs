@@ -1,6 +1,6 @@
 # Fee Delegation Example
 
-## 目次 <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. はじめに](fee-delegation-example.md#1-introduction)
 * [2. 手数料委任の仕組み](fee-delegation-example.md#2-how-fee-delegation-works)
@@ -15,11 +15,11 @@
   * 4.3 `feepayer_server.js をチェック`
   * 4.4 Klaytn スコープ
 
-## 1. はじめに <a href="#1-introduction" id="1-introduction"></a>
+## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
 
 このチュートリアルでは、caver-js SDKを使用して、単純なサーバークライアントの例を作成して、Klaytnで手数料委任された値転送トランザクションがどのように機能するかを説明するのに役立ちます。 このチュートリアルとサンプルコードは Baobab testnet を使用します。
 
-## 2. 手数料委任の仕組み <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
+## 2. How fee delegation works <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
 手数料委任の仕組みを詳しく見てみましょう。
 
@@ -68,12 +68,12 @@ caver.klay.sendTransaction({
     ...
 })
 .on('receipt', function(receipt){
-...
+    ...
 })
-.on('error', console.error); // ガス漏れの場合、2番目のパラメータはレシートです。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-## 3. シンプルなサーバーと手数料の委任のためのクライアント <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
 上記の手数料委託コードを使ってシンプルなサーバーとクライアントを書いてみましょう。
 
@@ -187,11 +187,11 @@ console.log('Fee delegate service started ...');
 
 受信する `データ`がある場合、 `データ` に `feePayerPrivateKey` で署名し、それを Klaytn ブロックチェーンに送信します。 `データ` が `sender_client.js` の `senderRawTransaction` であることを前提としています。
 
-## 4. サンプルを実行 <a href="#4-run-example" id="4-run-example"></a>
+## 4. Run example <a href="#4-run-example" id="4-run-example"></a>
 
 `sender_client.js` と `feepayer_server.js` の 2 つの端末を準備します。
 
-### 4.1 `feepayer_server.js を実行します` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
+### 4.1 Run `feepayer_server.js` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
 コマンドの下に料金支払者のサーバーが起動します。
 
@@ -219,13 +219,13 @@ $ node sender_client.js
 
 それは `送信者` の秘密鍵で取引に署名し、署名された取引を手数料委任サービスに送信します(i. 手数料支払者のサーバー Then it will receive the response from the fee delegate service including the `Fee payer` address, `Tx hash`, and `Sender Tx hash`. `Tx hash` is hash of a transaction submitted to the Klaytn network, while `Sender Tx hash` is hash of a transaction without the fee payer's address and signature. 詳細については、 [SenderTxHash](../../klaytn/design/transactions/#sendertxhash) をご覧ください。
 
-### 4.3 `feepayer_server.js をチェック` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 Check `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
 サーバーのコンソールには、以下の出力が表示されます。 それはKlaytnからの取引の領収書を印刷します。
 
 ```
 $ node feepayer_server.js
-手数料委任サービス開始 ...
+Fee delegate service started ...
 クライアントが接続されています...
 Received data from client: 0x09f88b3a8505d21dba00830493e094fc83add44939ef818ce62dacea23697fa17257838609184e72a000940ecc24157e38b1997aace56f32ccb381b16e1710f847f8458207f5a0e636e67d01acc1f368db5e60290721e9059b13b0bf74af6d46391cc48bd31a81a0135118878be87f808e064f64fa4f13d6dc5bd9888b154ecd17f02980063b9e4280c4c3018080
 transactionHash { messageHash:
