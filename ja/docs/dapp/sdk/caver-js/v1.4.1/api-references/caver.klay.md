@@ -10,7 +10,7 @@ description: >-
 
 ## [アカウント](./caver.klay/account.md) <a id="account"></a>
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
-- [アカウント作成](./caver.klay/account.md#accountcreated)
+- [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
 - [getAccounts](./caver.klay/account.md#getaccounts)
 - [getAccountKey](./caver.klay/account.md#getaccountkey)
@@ -28,7 +28,7 @@ description: >-
 - [getBlockReceipts](./caver.klay/block.md#getblockreceipts)
 - [getBlockTransactionCount](./caver.klay/block.md#getblocktransactioncount)
 - [getBlockWithConsensusInfo](./caver.klay/block.md#getblockwithconsensusinfo)
-- [getCommitte](./caver.klay/block.md#getcommittee)
+- [getCommittee](./caver.klay/block.md#getcommittee)
 - [getCommitteeSize](./caver.klay/block.md#getcommitteesize)
 - [getCouncil](./caver.klay/block.md#getcouncil)
 - [getCouncilSize](./caver.klay/block.md#getcouncilsize)
@@ -39,9 +39,9 @@ description: >-
 
 ## [トランザクション](./caver.klay/transaction.md) <a id="transaction"></a>
 
-- [通話](./caver.klay/transaction.md#call)
-- [推定ガス](./caver.klay/transaction.md#estimategas)
-- [見積もり計算コスト](./caver.klay/transaction.md#estimatecomputationcost)
+- [call](./caver.klay/transaction.md#call)
+- [estimateGas](./caver.klay/transaction.md#estimategas)
+- [estimateComputationCost](./caver.klay/transaction.md#estimatecomputationcost)
 - [decodeTransaction](./caver.klay/transaction.md#decodetransaction)
 - [getTransaction](./caver.klay/transaction.md#gettransaction)
 - [getTransactionBySenderTxHash](./caver.klay/transaction.md#gettransactionbysendertxhash)
@@ -89,7 +89,7 @@ description: >-
 - [newBlockFilter](./caver.klay/filter.md#newblockfilter)
 - [newFilter](./caver.klay/filter.md#newfilter)
 - [newPendingTransactionFilter](./caver.klay/filter.md#newpendingtransactionfilter)
-- [アンインストールフィルタ](./caver.klay/filter.md#uninstallfilter)
+- [uninstallFilter](./caver.klay/filter.md#uninstallfilter)
 
 ## [その他](./caver.klay/misc.md) <a id="miscellaneous"></a>
 - [sha3](./caver.klay/misc.md#sha3)
