@@ -4,18 +4,18 @@ This page describes the details of `genesis.json` file.
 
 The `genesis.json` file structure is described in the following table.
 
-| フィールド名     | Description                                                                                                                                  |
+| Field Name | Description                                                                                                                                  |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | config     | The blokchain configuration. See the section [Config](#config).                                                                              |
 | nonce      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
 | timestamp  | The unix time when a block is created.                                                                                                       |
 | extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
 | gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
-| 難易度：       | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
+| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
 | mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
 | coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                                          |
 | alloc      | The predefined accounts.                                                                                                                     |
-| 数値         | The block number field.                                                                                                                      |
+| number     | The block number field.                                                                                                                      |
 | gasUsed    | The amount of the gas which used for a block.                                                                                                |
 | parentHash | The hash value of the previous block.                                                                                                        |
 
@@ -23,7 +23,7 @@ The `genesis.json` file structure is described in the following table.
 
 The `config` field stores the information related to the chain.
 
-| フィールド名                  | Description                                                                        |
+| Field Name              | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
 | chainId                 | It identifies the current chain and is used for prevention from the replay attack. |
 | istanbulCompatibleBlock | A block number to which istanbul change is applied.                                |
@@ -43,8 +43,8 @@ The field `extraData` is a concatenation of the proposer vanity and the RLP-enco
      - Seal: the proposer signature of the header. For `genesis.json`, it is a byte array initialized with 65 `0x0`.
      - CommittedSeal: the list of commitment signature seals as consensus proof. For `genesis.json`, it is an empty array.
 
-**例**
-| フィールド         | タイプ                       | Value                                                                                   |
+**Example**
+| Field         | Type                      | Value                                                                                   |
 | ------------- | ------------------------- | --------------------------------------------------------------------------------------- |
 | Vanity        | 32-byte hex string        | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
 | Validators    | []address                 | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
@@ -87,27 +87,27 @@ The `istanbul` field stores the configuration for Istanbul based sealing.
 
 The `governance` field stores governance information for a network.
 
-| Fields         | Description                                                            |
-| -------------- | ---------------------------------------------------------------------- |
-| governanceMode | One of three governance modes. [`none`, `single`, `ballot`]            |
-| governingNode  | 指定された管理ノードのアドレス。 It only works if the governance mode is `single`.     |
-| 報酬             | It stores the reward configuration. See the section [Reward](#reward). |
+| Fields         | Description                                                                            |
+| -------------- | -------------------------------------------------------------------------------------- |
+| governanceMode | One of three governance modes. [`none`, `single`, `ballot`]                            |
+| governingNode  | Designated governing node's address. It only works if the governance mode is `single`. |
+| reward         | It stores the reward configuration. See the section [Reward](#reward).                 |
 
-## Recompensa <a id="reward"></a>
+## Reward <a id="reward"></a>
 
 The `reward` field stores the information about the network's token economy.
 
-| Fields                 | Description                                                                                 |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| mintingAmount          | Amount of peb minted when a block is generated. 値には二重引用符が必要です。                              |
-| ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100. |
-| useGiniCoeff           | Use GINI coefficient or not.                                                                |
-| deferredTxFee          | A way to distribute TX fee for a block.                                                     |
-| stakingUpdateInterval  | Time interval in block height to update staking information.                                |
-| proposerUpdateInterval | Time interval in block height to update proposer information.                               |
-| minimumStake           | Minimum amount of peb to join Core Cell Operators.                                          |
+| Fields                 | Description                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| mintingAmount          | Amount of peb minted when a block is generated. Double quotation marks are needed for a value. |
+| ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.    |
+| useGiniCoeff           | Use GINI coefficient or not.                                                                   |
+| deferredTxFee          | A way to distribute TX fee for a block.                                                        |
+| stakingUpdateInterval  | Time interval in block height to update staking information.                                   |
+| proposerUpdateInterval | Time interval in block height to update proposer information.                                  |
+| minimumStake           | Minimum amount of peb to join Core Cell Operators.                                             |
 
-# 例 <a id="example"></a>
+# Example <a id="example"></a>
 
 ```
 {
