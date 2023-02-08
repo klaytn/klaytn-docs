@@ -1,4 +1,4 @@
-# 시스템 요구사항 <a id="system-requirements"></a>
+# System Requirements <a id="system-requirements"></a>
 
 시스템 요구 사항은 필요한 성능에 따라 좌우됩니다. 상업적 용도로는 엔드포인트 노드 및 코어 셀의 권장 사양을 참조할 수 있습니다.
 
