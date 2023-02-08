@@ -49,7 +49,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 ### 공통 비용<a id="common-fee"></a>
 
-| 항목                | 가스    | 설명                                                         |
+| 항목                | Gas   | Description                                                |
 |:----------------- |:----- |:---------------------------------------------------------- |
 | G\_zero         | 0     | Set Wzero 연산을 위해 지불할 금액은 없음                                |
 | G\_base         | 2     | Set Wbase 연산을 위해 지불하는 가스량                                  |
@@ -84,7 +84,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | G\_sha3         | 30    | SHA3 연산을 위해 지불되는 가스량                                       |
 | G\_sha3word     | 6     | SHA3 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                 |
 | G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                |
-| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                  |
+| G\_blockhash    | 20    | Payment for BLOCKHASH operation                            |
 | G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                      |
 | G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량. |
 
@@ -92,7 +92,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 미리 컴파일된 컨트랙트는 일반적으로 복잡한 암호화 연산을 수행하며, 다른 컨트랙트에 의해 실행되는 특수한 유형의 컨트랙트입니다.
 
-| 항목                      | 가스                 | 설명                           |
+| Item                    | Gas                | Description                  |
 |:----------------------- |:------------------ |:---------------------------- |
 | EcrecoverGas            | 3000               | ECRecover 연산 수행              |
 | Sha256BaseGas           | 60                 | sha256 hash 연산 수행            |
@@ -125,7 +125,7 @@ TotalGas = number of signatures * ValidateSenderGas
 
 ### 계정 관련 가스 수수료 표 <a id="account-related-gas-table"></a>
 
-| 항목                         | 가스    | 설명                         |
+| Item                       | Gas   | Description                |
 |:-------------------------- |:----- |:-------------------------- |
 | TxAccountCreationGasPerKey | 20000 | 키 페어 생성에 필요한 가스            |
 | TxValidationGasPerKey      | 15000 | 키 검증(validation)에 필요한 가스   |
@@ -145,7 +145,7 @@ GasPayload = number_of_bytes * TxDataGas
 
 ### 트랜잭션 유형에 따른 가스 계산 공식<a id="gas-formula-for-transaction-types"></a>
 
-| 트랜잭션 유형                | 가스                                                     |
+| 트랜잭션 유형                | Gas                                                    |
 |:---------------------- |:------------------------------------------------------ |
 | LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
 | ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
@@ -157,7 +157,7 @@ GasPayload = number_of_bytes * TxDataGas
 
 KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
-| 키 유형      | 가스                                                |
+| 키 유형      | Gas                                               |
 |:--------- |:------------------------------------------------- |
 | Nil       | N/A                                               |
 | Legacy    | 0                                                 |
@@ -168,7 +168,7 @@ KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
 KeyCreationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
-| 키 유형      | 가스                                                                                                                                                                                              |
+| Key Type  | Gas                                                                                                                                                                                             |
 |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Nil       | N/A                                                                                                                                                                                             |
 | Legacy    | 0                                                                                                                                                                                               |
