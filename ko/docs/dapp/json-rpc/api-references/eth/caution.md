@@ -18,7 +18,7 @@ Klaytn은 `eth` namespace APIs를 지원하며, 개발자들은 이더리움 기
 * 설명란의 :warning:을 자세히 읽으십시오.
 * 설명란의 :white_check_mark: 아이콘은 해당 필드가 이더리움과 동일하다는 것을 뜻합니다.
 
-| Ethereum 헤더 필드   | Klaytn 헤더 필드        | 설명                                                                                                                                                                                                                                                                                                                                                                     |
+| Ethereum 헤더 필드   | Klaytn 헤더 필드        | Description                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | baseFeePerGas    | (added)             | :warning: Klaytn은 baseFeePerGas 스킴을 가지고 있지 않기 때문에, 해당 필드는 항상 `0x0` 값을 가집니다.                                                                                                                                                                                                                                                                                            |
 | difficulty       | (added)             | :warning: Klaytn 헤더에서 해당 필드는 `blockScore`에 해당하며, `0x1`로 값이 고정되어 있습니다. This is because Klaytn's consensus mechanism is not based on PoW, indicating the technical concept of block difficulty is not applicable to Klaytn core.                                                                                                                                         |
@@ -26,41 +26,41 @@ Klaytn은 `eth` namespace APIs를 지원하며, 개발자들은 이더리움 기
 | gasLimit         | (added)             | :warning: Klaytn은 GasLimit이 없기 때문에 해당 필드는 임의의 숫자인 `0xe8d4a50fff`(=`999999999999` in decimal)를 값으로 가집니다. At the time of writing, this figure is 30 times higher than the [block gas limit of Ethereum](https://ethereum.org/en/developers/docs/gas/#block-size). 더 자세한 내용은 [계산 비용](../../../../klaytn/design/computation/computation-cost/computation-cost.md)를 참조하십시오. |
 | gasUsed          | gasUsed             | :white_check_mark: 해당 블록의 트랜잭션들에 사용된 총 가스양과 동일한 스칼라 값입니다.                                                                                                                                                                                                                                                                                                            |
 |                  | governanceData(생략됨) | :warning: Ethereum 블록 헤더에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                                                                                                                                                                                                   |
-| 해시               | 해시                  | :white_check_mark: 블록의 해시입니다.                                                                                                                                                                                                                                                                                                                                        |
+| hash             | hash                | :white_check_mark: 블록의 해시입니다.                                                                                                                                                                                                                                                                                                                                        |
 | logsBloom        | logsBloom           | :white_check_mark: 블록안의 로그들에 대한 블룸 필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                                                                                                                                                                                                                                   |
-| 채굴자              | (added)             | :warning: 해당 필드는 블록 제안자의 주소를 반환합니다. 클레이튼의 [합의 메커니즘](../../../../klaytn/design/consensus-mechanism.md)은 [PBFT](../../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance)이기 때문에, 채굴자 대신 블록 제안자를 가집니다.                                                                                                                                   |
+| miner            | (added)             | :warning: 해당 필드는 블록 제안자의 주소를 반환합니다. 클레이튼의 [합의 메커니즘](../../../../klaytn/design/consensus-mechanism.md)은 [PBFT](../../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance)이기 때문에, 채굴자 대신 블록 제안자를 가집니다.                                                                                                                                   |
 | mixHash          | (added)             | :warning: Klaytn의 합의 메커니즘은 PoW기반이 아니기 때문에, 해당 필드는 항상 zeroHash(`0x00...`)를 값으로 가집니다.                                                                                                                                                                                                                                                                                    |
-| 논스               | (added)             | :warning: Klaytn의 합의 메커니즘은 PoW기반이 아니기 때문에, 해당 필드는 항상 zeroNonce(`0x00...`)를 값으로 가집니다.                                                                                                                                                                                                                                                                                   |
+| nonce            | (added)             | :warning: Klaytn의 합의 메커니즘은 PoW기반이 아니기 때문에, 해당 필드는 항상 zeroNonce(`0x00...`)를 값으로 가집니다.                                                                                                                                                                                                                                                                                   |
 | number           | number              | :white_check_mark: 블록 번호를 가집니다.                                                                                                                                                                                                                                                                                                                                      |
 | parentHash       | parentHash          | :white_check_mark: 부모 블록의 해시값을 가집니다.                                                                                                                                                                                                                                                                                                                                 |
 | receiptsRoot     | receiptsRoot        | :white_check_mark: 블록의 receipts 트라이 루트의 해시입니다.                                                                                                                                                                                                                                                                                                                       |
-|                  | reward(생략됨)         | :warning: Ethereum 블록 헤더에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                                                                                                                                                                                                   |
+|                  | reward(생략됨)         | :warning: This field is omitted because this field does not exist in Ethereum Block Header.                                                                                                                                                                                                                                                                            |
 | sha3Uncles       | (added)             | :warning: Klaytn은 엉클블록이 없기 때문에, 해당 필드는 항상 빈 블록 헤더를 포함하는 목록의 RLP-encoded 바이트의 Keccak256해시인 `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347`를 값으로 가집니다.                                                                                                                                                                                              |
 | size             | size                | :white_check_mark: 블록의 바이트 크기입니다.                                                                                                                                                                                                                                                                                                                                    |
 | stateRoot        | stateRoot           | :white_check_mark: 블록의 상태 트라이의 루트 해시입니다.                                                                                                                                                                                                                                                                                                                             |
 | timestamp        | timestamp           | :white_check_mark: 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                                                                                                                                                                                                                                                       |
-|                  | timestampFoS(생략됨)   | :warning: Ethereum 블록 헤더에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                                                                                                                                                                                                   |
+|                  | timestampFoS(생략됨)   | :warning: This field is omitted because this field does not exist in Ethereum Block Header.                                                                                                                                                                                                                                                                            |
 | totalDifficulty  | (added)             | :warning: The total difficulty of the chain until the querying block.                                                                                                                                                                                                                                                                                                  |
 | transactionsRoot | transactionsRoot    | :white_check_mark: 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                                                                                                                                                                                                                                                           |
 
 
-## 블록 <a id="block"></a>
+## Block <a id="block"></a>
 
 관련된 APIs: [eth_getBlockByHash](./block.md/#eth_getblockbyhash), [eth_getBlockByNumber](./block.md/#eth_getblockbynumber), [eth_getUncleByBlockHashAndIndex](./block.md/#eth_getunclebyblockhashandindex), [eth_getUncleByBlockNumberAndIndex](./block.md/#eth_getunclebyblocknumberandindex).
 
 블록 헤더와 관련된 내용은 위에서 설명하였으므로, 해당 장에서는 블록 헤더를 제외한 블록 필드에 대해 설명합니다.
 
-* 설명란의 :warning:을 자세히 읽으십시오.
-* 설명란의 :white_check_mark: 아이콘은 해당 필드가 이더리움과 동일하다는 것을 뜻합니다.
+* Please read the description :warning: carefully.
+* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 
-| Ethereum 헤더 필드 | Klaytn 헤더 필드  | 설명                                                                              |
-| -------------- | ------------- | ------------------------------------------------------------------------------- |
-|                | voteData(생략됨) | :warning: Ethereum 블록에는 해당 필드가 존재하지 않기 때문에 생략합니다.                               |
-| uncles         | (added)       | :warning: Klaytn core에는 엉클블록에 관한 기술적 개념이 없기 때문에, 해당 필드는 항상 `[]`을 값으로 가집니다.      |
-| transactions   | transactions  | :white_check_mark: 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
+| Ethereum Header Field | Klaytn Header Field | Description                                                                     |
+| --------------------- | ------------------- | ------------------------------------------------------------------------------- |
+|                       | voteData(생략됨)       | :warning: Ethereum 블록에는 해당 필드가 존재하지 않기 때문에 생략합니다.                               |
+| uncles                | (added)             | :warning: Klaytn core에는 엉클블록에 관한 기술적 개념이 없기 때문에, 해당 필드는 항상 `[]`을 값으로 가집니다.      |
+| transactions          | transactions        | :white_check_mark: 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
 
 
-## 트랜잭션(Transaction)<a id="transaction"></a>
+## Transaction <a id="transaction"></a>
 
 관련된 APIs: [eth_getTransactionByHash](./transaction.md/#eth_gettransactionbyhash), [eth_getTransactionByBlockHashAndIndex](./transaction.md/#eth_gettransactionbyblockhashandindex), [eth_getTransactionByBlockNumberAndIndex](./transaction.md/#eth_gettransactionbyblocknumberandindex), [eth_pendingTransactions](./transaction.md/#eth_pendingtransactions).
 
@@ -74,57 +74,57 @@ eth namespace JSON-RPC apis를 통해 Klaytn 트랜잭션들을 쿼리할 때, K
 
 본 문서에서는 변환 과정을 상세히 기술합니다 (Klaytn 트랜잭션 -> 이더리움 기본 트랜잭션).
 
-* 설명란의 :warning:을 자세히 읽으십시오.
-* 설명란의 :white_check_mark: 아이콘은 해당 필드가 이더리움과 동일하다는 것을 뜻합니다.
+* Please read the description :warning: carefully.
+* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 
 ### 공통 영역
 
 공통 영역은 다양한 Klaytn 트랜잭션 종류와 무관합니다. 이 장에서는 공통 영역들이 어떻게 이더리움 기본 트랜잭션으로써 제공되는지를 기술합니다.
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn 트랜잭션 영역                                                                     | 설명                                                                                                                                                                                     |
+| Ethereum 기본 트랜잭션 영역 | Klaytn 트랜잭션 영역                                                                     | Description                                                                                                                                                                            |
 | ------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash           | blockHash                                                                          | :white_check_mark: 블록 해시.                                                                                                                                                            |
 | blockNumber         | blockNumber                                                                        | :white_check_mark: 블록 번호.                                                                                                                                                            |
 | from                | from                                                                               | :white_check_mark: 발신자의 주소.                                                                                                                                                          |
 | gas                 | gas                                                                                | :white_check_mark: 발신자가 지불한 가스.                                                                                                                                                      |
-| 가스 가격               | 가스 가격                                                                              | :warning: Klaytn의 맥락에서는 [단가](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)로도 알려져 있으며, 해당 값은 거버넌스 프로세스를 통해 시스템에서 결정됩니다.                                    |
-| 해시                  | 해시                                                                                 | :white_check_mark: 트랜잭션 해시.                                                                                                                                                          |
+| gasPrice            | gasPrice                                                                           | :warning: Klaytn의 맥락에서는 [단가](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)로도 알려져 있으며, 해당 값은 거버넌스 프로세스를 통해 시스템에서 결정됩니다.                                    |
+| hash                | hash                                                                               | :white_check_mark: 트랜잭션 해시.                                                                                                                                                          |
 | input               | (covered in below sections)                                                        | 해당 영역에 대한 설명은 아래의 세부 트랜잭션 항목들에서 다룹니다.                                                                                                                                                  |
-| 논스                  | 논스                                                                                 | :white_check_mark: 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                           |
+| nonce               | nonce                                                                              | :white_check_mark: 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                           |
 |                     | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(생략됨) | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                 |
-|                     | signatures(생략됨)                                                                    | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                 |
-| to                  | (covered in below sections)                                                        | 해당 영역에 대한 설명은 아래의 세부 트랜잭션 항목들에서 다룹니다.                                                                                                                                                  |
+|                     | signatures(생략됨)                                                                    | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                      |
+| to                  | (covered in below sections)                                                        | The description of this field is covered in the detailed transaction items below.                                                                                                      |
 | transactionIndex    | transactionIndex                                                                   | :warning: 거의 이더리움과 동일하지만, 이더리움과 다르게 Klaytn은 트랜잭션이 보류 중인 상태에서 그대로 정수를 반환합니다.                                                                                                            |
-| value               | (covered in below sections)                                                        | 해당 영역에 대한 설명은 아래의 세부 트랜잭션 항목들에서 다룹니다.                                                                                                                                                  |
-| 형식                  | type(변환됨)                                                                          | :warning: Klaytn에서 `type` 은 트랜잭션 타입을 문자열로 반환하지만 (예: `"LegacyTransaction"`), 이더리움과 일치하도록 16진수로 변환되었습니다 (예: `0x0`). Transaction types that are only valid in Klaytn always return `0x0`. |
-|                     | typeInt(생략됨)                                                                       | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                                 |
+| value               | (covered in below sections)                                                        | The description of this field is covered in the detailed transaction items below.                                                                                                      |
+| type                | type(변환됨)                                                                          | :warning: Klaytn에서 `type` 은 트랜잭션 타입을 문자열로 반환하지만 (예: `"LegacyTransaction"`), 이더리움과 일치하도록 16진수로 변환되었습니다 (예: `0x0`). Transaction types that are only valid in Klaytn always return `0x0`. |
+|                     | typeInt(생략됨)                                                                       | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                      |
 | v                   | (added)                                                                            | :warning: Klaytn은 다중서명을 지원하므로 Klaytn의 트랜잭션은 하나 이상의 서명을 가질 수 있습니다. `signatures[0].V`는 `v` 영역의 값으로 사용됩니다.                                                                                |
-| r                   | (added)                                                                            | :warning: Klaytn은 다중서명을 지원하므로 Klaytn의 트랜잭션은 하나 이상의 서명을 가질 수 있습니다. `signatures[0].R`은 `r` 영역의 값으로 사용됩니다.                                                                                |
-| s                   | (added)                                                                            | :warning: Klaytn은 다중서명을 지원하므로 Klaytn의 트랜잭션은 하나 이상의 서명을 가질 수 있습니다. `signatures[0].S`는 `s` 영역의 값으로 사용됩니다.                                                                                |
+| r                   | (added)                                                                            | :warning: Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].R`은 `r` 영역의 값으로 사용됩니다.                                                    |
+| s                   | (added)                                                                            | :warning: Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].S`는 `s` 영역의 값으로 사용됩니다.                                                    |
 
 ### [수수료 위임](../../../../klaytn/design/transactions/fee-delegation.md)의 공통 영역
 Klaytn의 다양한 [수수료 위임](../../../../klaytn/design/transactions/fee-delegation.md) 트랜잭션 유형과 상관없이, 공통 영역들이 존재합니다. 이 장은 수수료 위임의 공통 영역(위에서 다룬 공통 영역을 제외하고)이 어떻게 이더리움 기본 트랜잭션으로써 제공되는지를 기술합니다.
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn 수수료 위임 트랜잭션 영역   | 설명                                                     |
-| ------------------- | ----------------------- | ------------------------------------------------------ |
-|                     | feePayer(생략됨)           | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
-|                     | feePayerSignatures(생략됨) | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Legacy Transaction Field | Klaytn 수수료 위임 트랜잭션 영역   | Description                                                                                       |
+| --------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
+|                                   | feePayer(생략됨)           | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+|                                   | feePayerSignatures(생략됨) | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
 
 ### [부분 수수료 위임](../../../../klaytn/design/transactions/partial-fee-delegation.md)의 공통 영역
 Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transactions/partial-fee-delegation.md) 트랜잭션 유형과 상관없이, 공통 영역들이 존재합니다. 이 장은 부분 수수료 위임의 공통 영역(위에서 다룬 공통 영역을 제외하고)이 어떻게 이더리움 기본 트랜잭션으로써 제공되는지를 기술합니다.
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn 부분 수수료 위임 트랜잭션 영역 | 설명                                                     |
-| ------------------- | ------------------------ | ------------------------------------------------------ |
-|                     | feeRatio(생략됨)            | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Legacy Transaction Field | Klaytn 부분 수수료 위임 트랜잭션 영역 | Description                                                                                       |
+| --------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------- |
+|                                   | feeRatio(생략됨)            | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
 
 ### 각 트랜잭션 유형의 비공통 영역
 #### LegacyTransaction
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn 기본 트랜잭션 영역 | 설명                                                           |
-| ------------------- | ----------------- | ------------------------------------------------------------ |
-| input               | input             | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                    |
-| to                  | to                | :white_check_mark: 발신자의 주소. 컨트랙트 생성 트랜잭션이라면 `null`를 반환합니다. |
-| value               | value             | :white_check_mark: Peb단위로 전송된 값입니다.                        |
+| Ethereum Legacy Transaction Field | Klaytn 기본 트랜잭션 영역 | Description                                                  |
+| --------------------------------- | ----------------- | ------------------------------------------------------------ |
+| input                             | input             | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                    |
+| to                                | to                | :white_check_mark: 발신자의 주소. 컨트랙트 생성 트랜잭션이라면 `null`를 반환합니다. |
+| value                             | value             | :white_check_mark: Peb단위로 전송된 값입니다.                        |
 
 **Klaytn LegacyTransaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -162,11 +162,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ValueTransfer
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn ValueTransfer 트랜잭션 영역 | 설명                                                                                     |
-| ------------------- | ---------------------------- | -------------------------------------------------------------------------------------- |
-| input               | (added)                      | :warning: 해당 필드는 Klaytn ValueTransfer 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다. |
-| to                  | to                           | :white_check_mark: 발신자의 주소.                                                          |
-| value               | value                        | :white_check_mark: Peb단위로 전송된 값입니다.                                                  |
+| Ethereum Legacy Transaction Field | Klaytn ValueTransfer 트랜잭션 영역 | Description                                                                            |
+| --------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------- |
+| input                             | (added)                      | :warning: 해당 필드는 Klaytn ValueTransfer 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다. |
+| to                                | to                           | :white_check_mark: Address of the receiver.                                          |
+| value                             | value                        | :white_check_mark: Value transferred in Peb.                                         |
 
 **Klaytn ValueTransfer Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -204,11 +204,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ValueTransferMemo
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn ValueTransferMemo 트랜잭션 영역 | 설명                                        |
-| ------------------- | -------------------------------- | ----------------------------------------- |
-| input               | input                            | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다. |
-| to                  | to                               | :white_check_mark: 발신자의 주소.             |
-| value               | value                            | :white_check_mark: Peb단위로 전송된 값입니다.     |
+| Ethereum Legacy Transaction Field | Klaytn ValueTransferMemo 트랜잭션 영역 | Description                                                    |
+| --------------------------------- | -------------------------------- | -------------------------------------------------------------- |
+| input                             | input                            | :white_check_mark: The data sent along with the transaction. |
+| to                                | to                               | :white_check_mark: Address of the receiver.                  |
+| value                             | value                            | :white_check_mark: Value transferred in Peb.                 |
 
 **Klaytn ValueTransferMemo Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -246,13 +246,13 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### SmartContractDeploy
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn SmartContractDeploy 트랜잭션 영역 | 설명                                                                            |
-| ------------------- | ---------------------------------- | ----------------------------------------------------------------------------- |
-|                     | codeFormat(생략됨)                    | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                        |
-|                     | humanReadable(생략됨)                 | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                        |
-| input               | input                              | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                                     |
-| to                  | to                                 | :white_check_mark: 발신자의 주소. 컨트랙트 생성 트랜잭션이기 때문에, 해당 필드는 항상 `null`을 값으로 가집니다. |
-| value               | value                              | :white_check_mark: Peb단위로 전송된 값입니다.                                         |
+| Ethereum Legacy Transaction Field | Klaytn SmartContractDeploy 트랜잭션 영역 | Description                                                                                       |
+| --------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+|                                   | codeFormat(생략됨)                    | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+|                                   | humanReadable(생략됨)                 | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+| input                             | input                              | :white_check_mark: The data sent along with the transaction.                                    |
+| to                                | to                                 | :white_check_mark: Address of the receiver. 컨트랙트 생성 트랜잭션이기 때문에, 해당 필드는 항상 `null`을 값으로 가집니다.     |
+| value                             | value                              | :white_check_mark: Value transferred in Peb.                                                    |
 
 **Klaytn SmartContractDeploy Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -292,11 +292,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### SmartContractExecution
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn SmartContractExecution 트랜잭션 영역 | 설명                                        |
-| ------------------- | ------------------------------------- | ----------------------------------------- |
-| input               | input                                 | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다. |
-| to                  | to                                    | :white_check_mark: 스마트 컨트랙트의 주소.        |
-| value               | value                                 | :white_check_mark: Peb단위로 전송된 값입니다.     |
+| Ethereum Legacy Transaction Field | Klaytn SmartContractExecution 트랜잭션 영역 | Description                                                    |
+| --------------------------------- | ------------------------------------- | -------------------------------------------------------------- |
+| input                             | input                                 | :white_check_mark: The data sent along with the transaction. |
+| to                                | to                                    | :white_check_mark: 스마트 컨트랙트의 주소.                             |
+| value                             | value                                 | :white_check_mark: Value transferred in Peb.                 |
 
 **Klaytn SmartContractExecution Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -334,12 +334,12 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### AccountUpdate
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn AccountUpdate 트랜잭션 영역 | 설명                                                                                                                     |
-| ------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-|                     | key(생략됨)                     | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                 |
-| input               | (added)                      | :warning: 해당 필드는 Klaytn AccountUpdate 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다.                                 |
-| to                  | (added)                      | :warning: 해당 필드는 Klaytn AccoutUpdate 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
-| value               | (added)                      | :warning: 해당 필드는 Klaytn AccountUpdate 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                           |
+| Ethereum Legacy Transaction Field | Klaytn AccountUpdate 트랜잭션 영역 | Description                                                                                                            |
+| --------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+|                                   | key(생략됨)                     | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                      |
+| input                             | (added)                      | :warning: 해당 필드는 Klaytn AccountUpdate 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다.                                 |
+| to                                | (added)                      | :warning: 해당 필드는 Klaytn AccoutUpdate 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| value                             | (added)                      | :warning: 해당 필드는 Klaytn AccountUpdate 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                           |
 
 **Klaytn AccountUpdate Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -378,11 +378,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### Cancel
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn Cancel 트랜잭션 영역 | 설명                                                                                                               |
-| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| input               | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다.                                  |
-| to                  | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
-| value               | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
+| Ethereum Legacy Transaction Field | Klaytn Cancel 트랜잭션 영역 | Description                                                                                                      |
+| --------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| input                             | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 빈 입력값을 뜻하는 `0x`를 값으로 가집니다.                                  |
+| to                                | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| value                             | (added)               | :warning: 해당 필드는 Klaytn Cancel 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
 
 **Klaytn Cancel Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -420,12 +420,12 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ChainDataAnchoring
 
-| Ethereum 기본 트랜잭션 영역 | Klaytn ChainDataAnchoring 트랜잭션 영역 | 설명                                                                                                                           |
-| ------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| input               | input                             | :white_check_mark: 트랜잭션과 함께 전송된 데이터입니다.                                                                                    |
-|                     | inputJSON(생략됨)                    | :warning: Ethereum 기본 트랜잭션에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                       |
-| to                  | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
-| value               | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
+| Ethereum Legacy Transaction Field | Klaytn ChainDataAnchoring 트랜잭션 영역 | Description                                                                                                                  |
+| --------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| input                             | input                             | :white_check_mark: The data sent along with the transaction.                                                               |
+|                                   | inputJSON(생략됨)                    | :warning: This field is omitted because this field does not exist in Ethereum Legacy Transaction.                            |
+| to                                | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| value                             | (added)                           | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션에 존재하지 않기 때문에, 항상 `0x0`을 값으로 가집니다.                                            |
 
 **Klaytn ChainDataAnchoring Transaction**은 아래와 같이 Ethereum 기본 트랜잭션으로써 제공됩니다.
 ```json
@@ -481,65 +481,65 @@ eth namespace JSON-RPC apis를 통해 Klaytn 트랜잭션 영수증들을 쿼리
 
 본 문서에서는 변환 과정을 상세히 기술합니다. (Klaytn 트랜잭션 영수증 -> 이더리움 트랜잭션 영수증).
 
-* 설명란의 :warning:을 자세히 읽으십시오.
-* 설명란의 :white_check_mark: 아이콘은 해당 필드가 이더리움과 동일하다는 것을 뜻합니다.
+* Please read the description :warning: carefully.
+* The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 
-### 공통 영역
+### Common Fields
 
-공통 영역은 다양한 Klaytn 트랜잭션 종류와 무관합니다. (Klaytn 트랜잭션 영수증의 영역들은 트랜잭션 종류에 따라 달라집니다.)
+Regardless of various Klaytn transaction type, there are common fields. (Klaytn 트랜잭션 영수증의 영역들은 트랜잭션 종류에 따라 달라집니다.)
 
 이 장에서는 공통 영역들이 어떻게 이더리움 트랜잭션 영수증으로써 제공되는지를 기술합니다.
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn 트랜잭션 영수증 영역                                                                 | 설명                                                                                                                                                                                 |
-| -------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash            | blockHash                                                                          | :white_check_mark: 블록 해시.                                                                                                                                                        |
-| blockNumber          | blockNumber                                                                        | :white_check_mark: 블록 번호.                                                                                                                                                        |
-| contractAddress      | contractAddress                                                                    | :white_check_mark: 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다.                                                                                        |
-| cumulativeGasUsed    | (added)                                                                            | :warning: 트랜잭션이 블록에서 실행되었을 때 소모한 총 가스의 양. 이더리움 영역과 같은 의미로 제공됩니다.                                                                                                                   |
-| effectiveGasPrice    | (added)                                                                            | :warning: Klaytn은 고정된 가스 가격 정책을 사용하므로, gasPrice 값을 반환합니다. gasPrice([단가](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. |
-| from                 | from                                                                               | :white_check_mark: 발신자의 주소.                                                                                                                                                      |
-|                      | gas(생략됨)                                                                           | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
-| gasUsed              | gasUsed                                                                            | :white_check_mark: 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                                         |
-|                      | gasPrice(생략됨)                                                                      | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
-| 로그                   | 로그                                                                                 | :white_check_mark: 트랜잭션들에 의해 생성된 로그 객체의 배열입니다.                                                                                                                                   |
-| logsBloom            | logsBloom                                                                          | :white_check_mark: 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                                  |
-|                      | nonce(생략됨)                                                                         | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
-|                      | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(생략됨) | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
-|                      | signatures(생략됨)                                                                    | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
-| 상태                   | 상태                                                                                 | :white_check_mark: 1(성공) 혹은 0(실패)입니다.                                                                                                                                            |
-| to                   | (covered in below sections)                                                        | 해당 영역에 대한 설명은 아래의 세부 트랜잭션 항목들에서 다룹니다.                                                                                                                                              |
-| transactionHash      | transactionHash                                                                    | :white_check_mark: 트랜잭션 해시.                                                                                                                                                      |
-| transactionIndex     | transactionIndex                                                                   | :warning: 거의 이더리움과 동일하지만, 이더리움과 다르게 Klaytn은 트랜잭션이 보류 중인 상태에서 그대로 정수를 반환합니다.                                                                                                        |
-| 형식                   | type(변환됨)                                                                          | :warning: 해당 필드의 값과 데이터 타입은 변환됩니다. Klaytn에서 해당 필드의 타입은 문자열이지만(예. `"LegacyTransaction"`), 이더리움 트랜잭션 영수증과 같이 16진수로 변환되어 제공됩니다.(예. `0x`)                                              |
-|                      | typeInt(생략됨)                                                                       | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
+| Ethereum 트랜잭션 영수증 영역 | Klaytn 트랜잭션 영수증 영역                                                                     | Description                                                                                                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash            | blockHash                                                                              | :white_check_mark: Block hash.                                                                                                                                                   |
+| blockNumber          | blockNumber                                                                            | :white_check_mark: Block number.                                                                                                                                                 |
+| contractAddress      | contractAddress                                                                        | :white_check_mark: 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다.                                                                                        |
+| cumulativeGasUsed    | (added)                                                                                | :warning: 트랜잭션이 블록에서 실행되었을 때 소모한 총 가스의 양. 이더리움 영역과 같은 의미로 제공됩니다.                                                                                                                   |
+| effectiveGasPrice    | (added)                                                                                | :warning: Klaytn은 고정된 가스 가격 정책을 사용하므로, gasPrice 값을 반환합니다. gasPrice([단가](../../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. |
+| from                 | from                                                                                   | :white_check_mark: Address of the sender.                                                                                                                                        |
+|                      | gas(생략됨)                                                                               | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                                                            |
+| gasUsed              | gasUsed                                                                                | :white_check_mark: 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                                         |
+|                      | gasPrice(생략됨)                                                                          | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                 |
+| 로그                   | logs                                                                                   | :white_check_mark: 트랜잭션들에 의해 생성된 로그 객체의 배열입니다.                                                                                                                                   |
+| logsBloom            | logsBloom                                                                              | :white_check_mark: 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                                  |
+|                      | nonce(생략됨)                                                                             | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                 |
+|                      | [senderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)(omitted) | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                 |
+|                      | signatures(omitted)                                                                    | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                 |
+| 상태                   | status                                                                                 | :white_check_mark: 1(성공) 혹은 0(실패)입니다.                                                                                                                                            |
+| to                   | (covered in below sections)                                                            | The description of this field is covered in the detailed transaction items below.                                                                                                  |
+| transactionHash      | transactionHash                                                                        | :white_check_mark: 트랜잭션 해시.                                                                                                                                                      |
+| transactionIndex     | transactionIndex                                                                       | :warning: Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                         |
+| type                 | type(converted)                                                                        | :warning: 해당 필드의 값과 데이터 타입은 변환됩니다. Klaytn에서 해당 필드의 타입은 문자열이지만(예. `"LegacyTransaction"`), 이더리움 트랜잭션 영수증과 같이 16진수로 변환되어 제공됩니다.(예. `0x`)                                              |
+|                      | typeInt(omitted)                                                                       | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                 |
 
-### [수수료 위임](../../../../klaytn/design/transactions/fee-delegation.md)의 공통 영역
-Klaytn의 다양한 [수수료 위임](../../../../klaytn/design/transactions/fee-delegation.md) 트랜잭션 유형과 상관없이, 공통 영역들이 존재합니다. (Klaytn 트랜잭션 영수증의 영역들은 트랜잭션 종류에 따라 달라집니다.)
+### Common Fields For [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md)
+Regardless of various Klaytn [FeeDelegation](../../../../klaytn/design/transactions/fee-delegation.md) transaction type, there are common fields. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
 
 이 장은 수수료 위임의 공통 영역(위에서 다룬 공통 영역을 제외하고)이 어떻게 이더리움 트랜잭션 영수증으로써 제공되는지를 기술합니다.
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn FeeDelegation Transaction Receipt Field | 설명                                                      |
-| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
-|                      | feePayer(생략됨)                                  | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
-|                      | feePayerSignatures(생략됨)                        | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Transaction Receipt Field | Klaytn FeeDelegation Transaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|                                    | feePayer(omitted)                              | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                    | feePayerSignatures(omitted)                    | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
-### [부분 수수료 위임](../../../../klaytn/design/transactions/partial-fee-delegation.md)의 공통 영역
-Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transactions/partial-fee-delegation.md) 트랜잭션 유형과 상관없이, 공통 영역들이 존재합니다. (Klaytn 트랜잭션 영수증의 영역들은 트랜잭션 종류에 따라 달라집니다.)
+### Common Fields For [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md)
+Regardless of various Klaytn [PartialFeeDelegation](../../../../klaytn/design/transactions/partial-fee-delegation.md) transaction type, there are common fields. (Please remind that fields of Klaytn Transaction Receipt are various based on transaction types.)
 
 이 장은 부분 수수료 위임의 공통 영역(위에서 다룬 공통 영역을 제외하고)이 어떻게 이더리움 트랜잭션 영수증으로써 제공되는지를 기술합니다.
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn PartialFeeDelegation Transaction Receipt Field | 설명                                                      |
-| -------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
-|                      | feeRatio(생략됨)                                         | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Transaction Receipt Field | Klaytn PartialFeeDelegation Transaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|                                    | feeRatio(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
-### 각 트랜잭션 유형의 비공통 영역
+### Different fields for each transaction type
 #### 레거시 트랜잭션 영수증
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn LegacyTransaction Receipt Field | 설명                                                           |
-| -------------------- | -------------------------------------- | ------------------------------------------------------------ |
-|                      | input(생략됨)                             | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.      |
-| to                   | to                                     | :white_check_mark: 발신자의 주소. 컨트랙트 생성 트랜잭션이라면 `null`를 반환합니다. |
-|                      | value(생략됨)                             | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.      |
+| Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|                                    | input(생략됨)                             | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| to                                 | to                                     | :white_check_mark: Address of the receiver. `null` when its a contract creation transaction.     |
+|                                    | value(생략됨)                             | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn LegacyTransaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -597,10 +597,10 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ValueTransfer 트랜잭션 영수증
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn ValueTransfer Transaction Receipt Field | 설명                                                      |
-| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
-| to                   | to                                             | :white_check_mark: 발신자의 주소.                           |
-|                      | value(생략됨)                                     | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| to                                 | to                                             | :white_check_mark: Address of the receiver.                                                      |
+|                                    | value(omitted)                                 | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn ValueTransfer Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -641,11 +641,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ValueTransferMemo 트랜잭션 영수증
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn ValueTransferMemo Transaction Receipt Field | 설명                                                      |
-| -------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-|                      | input(생략됨)                                         | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
-| to                   | to                                                 | :white_check_mark: 발신자의 주소.                           |
-|                      | value(생략됨)                                         | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Transaction Receipt Field | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|                                    | input(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| to                                 | to                                                 | :white_check_mark: Address of the receiver.                                                      |
+|                                    | value(omitted)                                     | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn ValueTransferMemo Transaction**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -687,13 +687,13 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### SmartContractDeploy Transaction Receipt
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn SmartContractDeploy Transaction Receipt Field | 설명                                                                            |
-| -------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------- |
-|                      | codeFormat(생략됨)                                      | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                       |
-|                      | humanReadable(생략됨)                                   | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                       |
-|                      | input                                                | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                       |
-| to                   | to                                                   | :white_check_mark: 발신자의 주소. 컨트랙트 생성 트랜잭션이기 때문에, 해당 필드는 항상 `null`을 값으로 가집니다. |
-|                      | value                                                | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                       |
+| Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                                                                   |
+| ---------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                    | codeFormat(omitted)                                  | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                            |
+|                                    | humanReadable(omitted)                               | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                            |
+|                                    | input                                                | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                                       |
+| to                                 | to                                                   | :white_check_mark: Address of the receiver. This field always has value `null` because this transaction is a contract creation transaction. |
+|                                    | value                                                | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt                                             |
 
 **Klaytn SmartContractDeploy Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -753,11 +753,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### SmartContractExecution Transaction Receipt
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn SmartContractExecution Transaction Receipt Field | 설명                                                      |
-| -------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-|                      | input                                                   | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
-| to                   | to                                                      | :white_check_mark: 스마트 컨트랙트의 주소.                      |
-|                      | value                                                   | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다. |
+| Ethereum Transaction Receipt Field | Klaytn SmartContractExecution Transaction Receipt Field | Description                                                                                        |
+| ---------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|                                    | input                                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| to                                 | to                                                      | :white_check_mark: Address of the smart contract.                                                |
+|                                    | value                                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn SmartContractExecution Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -799,10 +799,10 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### AccountUpdate Transaction Receipt
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn AccountUpdate Transaction Receipt Field | 설명                                                                                                                         |
-| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-|                      | key(생략됨)                                       | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                    |
-| to                   | (added)                                        | :warning: 해당 필드는 Klaytn AccoutUpdate 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| Ethereum Transaction Receipt Field | Klaytn AccountUpdate Transaction Receipt Field | Description                                                                                                                |
+| ---------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+|                                    | key(omitted)                                   | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                         |
+| to                                 | (added)                                        | :warning: 해당 필드는 Klaytn AccoutUpdate 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
 
 **Klaytn AccountUpdate Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -844,9 +844,9 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### Cancel Transaction Receipt
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn Cancel Transaction Receipt Field | 설명                                                                                                                   |
-| -------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| to                   | (added)                                 | :warning: 해당 필드는 Klaytn Cancel 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| Ethereum Transaction Receipt Field | Klaytn Cancel Transaction Receipt Field | Description                                                                                                          |
+| ---------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| to                                 | (added)                                 | :warning: 해당 필드는 Klaytn Cancel 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
 
 **Klaytn Cancel Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
@@ -886,11 +886,11 @@ Klaytn의 다양한 [부분 수수료 위임](../../../../klaytn/design/transact
 
 #### ChainDataAnchoring Transaction Receipt
 
-| Ethereum 트랜잭션 영수증 영역 | Klaytn ChainDataAnchoring Transaction Receipt Field | 설명                                                                                                                               |
-| -------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-|                      | input(생략됨)                                          | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                          |
-|                      | inputJSON(생략됨)                                      | :warning: Ethereum 트랜잭션 영수증에는 해당 필드가 존재하지 않기 때문에 생략합니다.                                                                          |
-| to                   | (added)                                             | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
+| Ethereum Transaction Receipt Field | Klaytn ChainDataAnchoring Transaction Receipt Field | Description                                                                                                                      |
+| ---------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+|                                    | input(omitted)                                      | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                               |
+|                                    | inputJSON(omitted)                                  | :warning: This field is omitted because this field does not exist in Ethereum Transaction Receipt.                               |
+| to                                 | (added)                                             | :warning: 해당 필드는 Klaytn ChainDataAnchoring 트랜잭션 영수증에 존재하지 않고, `from`을 필드의 값으로 주는 것이 가장 의미에 부합하기 때문에, `from`과 항상 같은 주소를 값으로 가집니다. |
 
 **Klaytn ChainDataAnchoring Transaction Receipt**은 아래와 같이 Ethereum 트랜잭션 영수증으로써 제공됩니다.
 ```json
