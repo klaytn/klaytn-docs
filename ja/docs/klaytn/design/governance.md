@@ -1,6 +1,6 @@
 # Governance <a id="governance"></a>
 
-## 概要 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 ### Klaytnガバナンス:分権化への第一歩を踏み出すこと <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
