@@ -12,26 +12,26 @@
 
 스테이킹 기반 거버넌스 모델의 도입과 클레이튼 투표 메커니즘에서 지니 계수의 제거를 통해 클레이튼은 커뮤니티의 지지를 많이 받는 거버넌스 참여자들이 자신의 선호에 따라 클레이튼을 만들어 나갈 수 있도록 해줍니다. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
 
-When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with various types of entities. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
+메타버스화 수준이 임계치를 넘으면 클레이튼 거버넌스는 다양한 유형의 엔티티로 완전히 탈중앙화될 것입니다. 궁극적으로 클레이튼은 온체인 메커니즘을 통해 DAO들이 클레이튼 커뮤니티의 목소리를 전달할 수 있는 플랫폼이자 DAO들의 DAO로 진화할 것입니다.
 
 ## 거버넌스 사항 <a id="governance-topics"></a>
 
-The main topics that can be decided through the governance structure include the following three areas, and proposals that require additional decision making may be introduced in a regular meeting or temporary meeting for review. The Klaytn Governance Council must make decisions that are best for the growth of Klaytn.
+거버넌스 구조를 통해 결정할 수 있는 주요 안건은 다음 세 가지 영역이며, 추가 의사 결정이 필요한 안건은 정기 회의 또는 임시 회의에 상정하여 검토할 수 있습니다. 클레이튼 거버넌스 카운슬은 클레이튼의 성장을 위해 최선의 결정을 내려야 합니다.
 
 - **기술**
-  - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
+  - 플랫폼의 기술적 업데이트와 관련된 사항. 여기에는 블록체인의 기본 구조(예: 계정 구조), 새로운 기능(예: L2 솔루션) 또는 소프트웨어 업데이트 일정에 대한 이슈가 포함됩니다.
 - **Economy**
-  - Issues relating to additional issuance of KLAY and its distribution structure, changes in transaction fees, and Klaytn Improvement Reserve spending approval etc. are included in this category.
+  - KLAY 추가 발행 및 분배 구조, 트랜잭션 수수료 변경, Klaytn 개선 준비금(KIR) 지출 승인 등과 관련된 이슈가 이 범주에 포함됩니다.
 - **Governing Rule**
-  - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
+  - 거버넌스 주체와 프로세스, 거버넌스 기관의 책임과 권한에 대한 규칙이 이 범주에 포함됩니다.
 
 ## 거버넌스 프로세스 <a id="governance-process"></a>
 
-Klaytn principally aims for the governance process to occur within the protocol (on-chain). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
+클레이튼은 기본적으로 거버넌스 프로세스가 프로토콜(On-chain) 내에서 이루어지는 것을 목표로 합니다. 이 과정을 통해 투표가 블록체인에 기록되고, 투표 후 결과가 실행됩니다. 플랫폼이 성장함에 따라 더 많은 사안이 온체인 거버넌스를 통해 처리될 것입니다.
 
-### General Governance Process <a id="general-governance-process"></a>
+### 일반 거버넌스 절차(General Governance Process)<a id="general-governance-process"></a>
 
-The initial governance process proceeds in the following order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
+초기 거버넌스 프로세스는 제안서 소개, 자문위원의 의견서 제출, 거버넌스 카운슬 멤버들의 투표, 투표 결과에 따른 다양한 후속 절차의 순서로 진행됩니다.
 
 Those who have the right to introduce proposals can make sure each proposal is voted on by introducing it. Once the proposal is introduced, the advisors must conduct expert analysis on the proposal and submit a statement of opinion with their results.
 
