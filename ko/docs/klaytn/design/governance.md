@@ -33,23 +33,23 @@
 
 초기 거버넌스 프로세스는 제안서 소개, 자문위원의 의견서 제출, 거버넌스 카운슬 멤버들의 투표, 투표 결과에 따른 다양한 후속 절차의 순서로 진행됩니다.
 
-Those who have the right to introduce proposals can make sure each proposal is voted on by introducing it. Once the proposal is introduced, the advisors must conduct expert analysis on the proposal and submit a statement of opinion with their results.
+제안을 상정할 권한이 있는 사람은 제안을 상정함으로써 각 제안을 투표에 부칠 수 있습니다. 제안서가 상정되면 자문위원은 제안서에 대한 전문적인 분석을 수행하고 그 결과를 담은 의견서를 제출해야 합니다.
 
-During the initial phase of Klaytn governance, the Klaytn Governance Council members will have the right to vote on the introduced proposals and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. In its initial phase, the voting process may be replaced by a discussion process facilitated by the Klaytn foundation. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term.
+클레이튼 거버넌스 초기 단계에서 클레이튼 거버넌스 카운슬 멤버들은 도입된 제안에 대해 투표권을 가지며, 자문위원들의 의견서를 참고하여 최선의 선택이라고 생각되는 사항에 투표하게 될 것입니다. 투표 수가 임계치를 넘으면 제안이 통과되고, 그렇지 않으면 제안이 기각됩니다. 초기 단계에서는 투표 정차가 클레이튼 재단에서 진행하는 토론 절차로 대체될 수 있습니다. 승인된 제안에 대한 후속 조치는 의장이 주도하며, 의장은 임기 동안 협의회에서 통과된 모든 제안을 실행할 책임이 있습니다.
 
 ### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
 
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
+KIR 제안서 심사는 거버넌스 카운슬 위원들의 투표를 통해 결정되며, 위원 과반수 이상이 반대(부결)하면 제안서는 부결됩니다. For more details on the KIR Proposal review, refer to the following.
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit [KIR Forum](https://kir.klaytn.foundation/).
+자세한 내용은 [KIR 포럼](https://kir.klaytn.foundation/)에서 확인하세요.
 
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
-The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
+거버넌스에 참여하는 주체들은 개인의 이익보다는 클레이튼의 장기적인 이익을 고려하여 행동해야 하며, 거버넌스 프로세스에 적극적으로 참여해야 합니다. 또한 클레이튼 거버넌스 카운슬 멤버로서 네트워크에 기여하는 모든 참여자는 플랫폼 요구 사항보다 더 많은 컴퓨팅 자원(computing resources)을 확보해야 하며, 자체적으로 또는 제3자로부터 일정량의 KLAY를 스테이킹해야 합니다. 클레이튼 재단은 플랫폼 개발과 안정화의 원활한 운영을 위해 초기 개발 단계에서 거버넌스와 관련된 많은 역할을 맡게 될 것입니다. 그러나 앞으로는 의사 결정 과정에서 다른 기관의 역할이 점차 커질 것이며, 독립적으로 참여할 수 있는 권리를 갖게 될 것입니다.
 
-* **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. For this to be possible, many issues will be decided through gathering the opinions of the Klaytn Governance Council members, service providers, and community members. To secure initial stabilization, Klaytn Foundation will lead the decision-making process. Additionally, all decided matters will be transparently shared with the public.
-* **Stabilization Phase**: The Klaytn Governance Council has governing rights on many proposals and this phase will gradually begin starting Jan 2021. For special matters such as those concerning platform development, and matters that directly affect the overall Klaytn ecosystem, Klaytn foundation may facilitate the discussion and execution.
-* **Decentralization Phase**: Following the stabilization period, a number of non-traditional entities such as DAOs and builders may be brought into the decision-making process for additional opinions. Decentralization phase may be gradually achieved through multiple stages with different governing rules and participants.
+* **개발 단계(Development Phase)**: 메인넷 출시 후 초기 개발 단계에서는 매개변수 조정, 새로운 기능 개발 등이 신속하게 이루어져야 합니다. 이를 위해 클레이튼 거버넌스 카운슬 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 이슈를 결정할 것입니다. 초기 안정화를 위해 클레이튼 재단이 의사결정 과정을 주도할 것입니다. 또한 결정된 모든 사안은 대중과 투명하게 공유됩니다.
+* **안정화 단계(Stabilization Phase)**: 클레이튼 거버넌스 카운슬은 많은 제안에 대한 관리 권한을 가지고 있으며, 이 단계는 2021년 1월부터 점진적으로 시작될 예정입니다. 플랫폼 개발에 관한 사항이나 클레이튼 생태계 전반에 직접적인 영향을 미치는 사항과 같은 특별한 사안의 경우, 클레이튼 재단이 논의와 실행을 독려할 수 있습니다.
+* **탈중앙화 단계(Decentralization Phase)**: 안정화 기간 이후에는 DAO 및 빌더와 같은 다양한 비전통적 주체(non-traditional entities)가 의사결정 과정에 참여하여 추가적인 의견을 제시할 수 있습니다. 탈중앙화 단계는 서로 다른 운영 규칙과 참가자를 통한 여러 단계를 통해 점진적으로 달성될 수 있습니다.
