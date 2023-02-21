@@ -27,7 +27,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/cypress`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-cypress.klaytn.net`|klay,eth,net|Full|
-||`https://cypress.fautor.app/archive`|klay,eth,net|Archive|
+|Fantrie|`https://cypress.fautor.app/archive`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 
 **WebSocket** 
@@ -36,7 +36,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/cypress/ws`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
-||`wss://cypress.fautor.app/archive/ws`|klay,eth,net|Archive|
+|Fantrie|`wss://cypress.fautor.app/archive/ws`|klay,eth,net|Archive|
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
