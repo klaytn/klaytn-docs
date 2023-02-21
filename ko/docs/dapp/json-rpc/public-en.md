@@ -28,6 +28,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
 | Fantrie                                            | `https://cypress.fautor.app/archive`               | klay,eth,net | Archive |
 | [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/)             | `https://klaytn.blockpi.network/v1/rpc/public`     | klay,eth,net | Full    |
 
 **WebSocket**
 
@@ -42,14 +43,15 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **HTTPS**
 
-| Service Provider                                   | Endpoints                                         | Namespaces   | Type    |
-| -------------------------------------------------- | ------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net | Full    |
-| Fantrie                                            | `https://baobab01.fautor.app/`                    | klay,eth,net | Full    |
-|                                                    | `https://baobab02.fautor.app/`                    | klay,eth,net | Full    |
-|                                                    | `https://baobab.fautor.app/archive`               | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
+| Service Provider                                   | Endpoints                                             | Namespaces   | Type    |
+| -------------------------------------------------- | ----------------------------------------------------- | ------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab`     | klay,eth,net | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`                  | klay,eth,net | Full    |
+| Fantrie                                            | `https://baobab01.fautor.app/`                        | klay,eth,net | Full    |
+|                                                    | `https://baobab02.fautor.app/`                        | klay,eth,net | Full    |
+|                                                    | `https://baobab.fautor.app/archive`                   | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`      | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/)             | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net | Full    |
 
 **WebSocket**
 
