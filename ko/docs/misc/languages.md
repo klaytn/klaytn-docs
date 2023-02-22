@@ -16,7 +16,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 * Crowdin의 [ Klaytn-Docs 프로젝트로 이동합니다](https://crowdin.com/project/klaytn-docs).
 * 계정을 만들어 주세요.
 * Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
-* Join the translator team. Wait until one of the managers approves your request.
+* 'Translator'로 참여해 주세요. 관리자가 참여 요청을 승인할 때까지 기다려 주세요.
 * 번역하고자 하는 파일을 선택해주세요.
 * You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Klaytn Terminologies.
 
