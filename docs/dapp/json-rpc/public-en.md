@@ -115,7 +115,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 * [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
-### BlockPi
+### BlockPI
 
 BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
 
@@ -126,7 +126,7 @@ BlockPI provides free public endpoints to the Klaytn community and advanced feat
 * 20 requests per second on free services, and unlimited for paid packages.
 * Choice of Klaytn archive node and endpoint node
 * Whitelisting possible for endpoint nodes
-* WSS available and subscription coming soon
+* Supports WSS (including subscription)
 * Supports tracing
 
 #### References
