@@ -13,7 +13,7 @@ In this guide, you'll learn how to use the web3.js library to send a transaction
 * [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* [NodeJS and NPM](https://kinsta.com/blog/how-to-install-node-js/)
+* [NodeJS and NPM](https://nodejs.org/en/)
 
 
 # Setup Project
@@ -235,3 +235,6 @@ node interact.js
 ```
 
 If the transaction was succesful, in your terminal you'll see the transaction hash and the value stored.
+
+
+For more in-depth guide on web3.js, please refer to [web3.js docs](https://web3js.readthedocs.io/)
