@@ -96,7 +96,7 @@ To run the script and read data from the blockchain, you can run the following c
 node read.js
 ```
 
-If the transaction was succesful, you'll see the block number and user’s KLAY balance been logged out in your terminal
+If the transaction was succesful, you'll see the block number and user’s KLAY balance been logged in your terminal
 
 
 # Sending transaction to the blockchain
