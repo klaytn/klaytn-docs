@@ -143,7 +143,7 @@ To run the script and send data to the blockchain, you can run the following com
 node send.js
 ```
 
-If the transaction was succesful, you'll see the transaction receipt been logged out in your terminal.
+If the transaction was succesful, you'll see the transaction receipt been logged in your terminal.
 
 # Interact with smart contracts
 
