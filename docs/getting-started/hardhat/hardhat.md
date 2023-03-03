@@ -1,3 +1,5 @@
+![](./Klaytn-hardhat.png)
+
 # Introduction
 
 This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/). 
