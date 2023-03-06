@@ -162,7 +162,7 @@ For the purpose of this guide, a simple_storage contract was compiled and deploy
 To see this in action, paste the following code in your `interact.js`.
 
 ```js
-// replace with your contract abi
+// replace with your contract ABI
 const abi = [
     {
         "inputs": [],
