@@ -109,7 +109,7 @@ touch send.js
 
 After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KLAY to an address).
 
-To see this in action, paste the following code in your `send.js`
+To see this in action, paste the following code in your `send.js`.
 
 ```js
 const privKey = “Paste Privatekey”
