@@ -46,12 +46,16 @@ Import `web3` into your script file.
 const Web3 = require('web3');
 ```
 
-
 After successfully importing web3, you need to connect to Klaytn by instantiating a new web3.js  object with an RPC URL of the Klaytn network. Add the code below to the existing code:
 
 ```js
-const url = ‘RPC URL’  
+const url = "RPC URL"  
 const web3 = new Web3(url);
+```
+Further, you need to add your private key to sign transactions. Add the code below to the existing code:
+
+```js
+const privateKey = "Paste private key";
 ```
 
 # Reading data from the blockchain
@@ -108,12 +112,16 @@ After creating this file, initialize `web3` as done in the `initialize` section.
 To see this in action, paste the following code in your `send.js`
 
 ```js
-const privateKey = “Paste private key”;
+const Web3 = require('web3');
 
+const url = "RPC URL"  
+const web3 = new Web3(url);
+
+const privateKey = "Paste private key";
 
 async function sendTx() {
     const tx = await web3.eth.accounts.signTransaction({
-        to: "0x8B93b7d7Ed0960e9A0090851334e19b3c451E4E9",
+        to: "Paste recipient address",
         value: 90000000000,
         maxFeePerGas: 250000000000,
         maxPriorityFeePerGas: 250000000000,
@@ -123,7 +131,6 @@ async function sendTx() {
 const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction)
 console.log(receipt);
 }
-
 
 // call function
 sendTx();
@@ -146,7 +153,6 @@ To interact with an existing smart contract on Klaytn, create a new `interact.js
 touch interact.js
 ```
 
-
 After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
 
 For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
@@ -155,9 +161,14 @@ For the purpose of this guide, a simple_storage contract was compiled and deploy
 To see this in action, paste the following code in your `interact.js`
 
 ```js
-const privateKey = “Paste private key“;
+const Web3 = require('web3');
 
-// replace with your contract abi
+const url = "RPC URL"  
+const web3 = new Web3(url);
+
+const privateKey = "Paste private key";
+
+// replace with your contract ABI
 const abi = [
     {
         "inputs": [],

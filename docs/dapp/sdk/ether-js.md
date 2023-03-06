@@ -2,7 +2,7 @@
 
 # Introduction
 
-[ethers.js](https://docs.ethers.org/v5/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Klaytn without any significant modifications.
+[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Klaytn without any significant modifications.
 
 Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
 
@@ -50,8 +50,14 @@ const ethers = require('ethers');
 After successfully importing ethers, you need to connect to Klaytn by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Klaytn network. Add the code below to the existing code:
 
 ```js
-const url = 'RPC URL';
+const url = "RPC URL";
 const provider = new ethers.JsonRpcProvider(url)
+```
+Further, you need to add your private key to sign transactions. Add the code below to the existing code:
+
+```js
+const privKey = "Paste Privatekey"
+const signer = new ethers.Wallet(privKey, provider)
 ```
 
 # Reading data from the blockchain
@@ -70,16 +76,13 @@ To see this in action, paste the following code in your `read.js`.
 ```js
 async function getBlockNumber() {
     const blocknumber = await provider.getBlockNumber()
-    console.log("blocknumber", blocknumber)
-    
+    console.log("blocknumber", blocknumber) 
 }
 
 async function getKlayBalance() {
-
     const klayBalance  = await provider.getBalance("paste wallet address")
     const formatBalance = ethers.formatEther(klayBalance)
     console.log(`You have ${formatBalance} KLAY`)
-    
 }
 
 // call the functions below:
@@ -112,14 +115,18 @@ After creating this file, initialize ethers as done in the `initialize` section.
 To see this in action, paste the following code in your `send.js`.
 
 ```js
-const privKey = “Paste Privatekey”
-const signer = new ethers.Wallet(privKey, provider)
+const ethers = require('ethers');
 
+const url = "RPC URL";
+const provider = new ethers.JsonRpcProvider(url)
+
+const privKey = "Paste private key"
+const signer = new ethers.Wallet(privKey, provider)
 
 async function sendTx() {
 
     const tx = await signer.sendTransaction({
-               to: "0x8B93b7d7Ed0960e9A0090851334e19b3c451E4E9",
+               to: "Paste recipient address",
                value: 90000000000,
                maxFeePerGas: 250000000000,
                maxPriorityFeePerGas: 250000000000,
@@ -162,6 +169,14 @@ For the purpose of this guide, a simple_storage contract was compiled and deploy
 To see this in action, paste the following code in your `interact.js`.
 
 ```js
+const ethers = require('ethers');
+
+const url = "RPC URL";
+const provider = new ethers.JsonRpcProvider(url)
+
+const privKey = "Paste private key"
+const signer = new ethers.Wallet(privKey, provider)
+
 // replace with your contract ABI
 const abi = [
     {
@@ -230,4 +245,4 @@ node interact.js
 
 If the transaction was successful, in your terminal you'll see the transaction hash and the value stored.
 
-For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/v5/)
+For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/)

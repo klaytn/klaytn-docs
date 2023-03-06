@@ -22,11 +22,11 @@ By the end of this guide you will be able to:
 
 To follow this tutorial, the following are the prerequisites:
 
-Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-[Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-[AllthatNode](https://www.allthatnode.com/): an RPC Node provider.
- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-[NodeJS and NPM](https://nodejs.org/en/)
+* Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
+* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
+* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* [NodeJS and NPM](https://nodejs.org/en/)
 
 # 2. Setting Up Your Development Environment
 
@@ -98,8 +98,8 @@ touch .env
 * After creating our file, let's configure our .env file to look like this:
 
 ```js
- KLAYTN_BAOBAB_URL= “Your AllthatNode Baobab RPC link”
- PRIVATE_KEY= “your private key copied from MetaMask wallet”
+ KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
+ PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
 **Step 6**: Setup Hardhat Configs
@@ -171,7 +171,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **Code Walkthrough**
 
-This is your smart contract. **line 1** shows that Hardhat uses the Solidity version 0.8.7 or greater. Other than that, it imports KIP7.sol and other supporting contracts. From **lines 6-12**, a smart contract that inherits KIP7 is been created. Also, the token name and symbol was passed in the constructor.
+This is your smart contract. **line 1** shows that Hardhat uses the Solidity version 0.8.7 or greater. Other than that, it imports KIP17.sol and other supporting contracts. From **lines 6-12**, a smart contract that inherits KIP17 is been created. Also, the token name and symbol was passed in the constructor.
 
 As you can see in the code above, the token name and symbol have been set to **SoulBoundToken** and **SBT** respectively. You can change the token name and symbol to anything you desire.
 
@@ -318,8 +318,8 @@ async function main() {
 
   await sbtContract.deployed();
 
- console.log(`Token contract is deployed to ${sbtContract.address}`);
- console.log(`Congratulations! You have just successfully deployed your soulbound tokens.`);
+console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
+console.log(`SBT contract address is ${sbtContract.address}. You can verify on https://baobab.scope.klaytn.com/account/${sbtContract.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
