@@ -29,7 +29,7 @@ cd ethers-sample
 
 ## Install ethers.js
 
-To install ethers.js run the following command in your terminal:
+To install ethers.js, run the following command in your terminal:
 
 ```js
 npm install --save ethers
