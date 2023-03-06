@@ -107,7 +107,7 @@ To send a transaction to the blockchain, create a new `send.js` file in your pro
 touch send.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you ll learn how to send transaction to the blockchain e.g send KLAY to an address.
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KLAY to an address).
 
 To see this in action, paste the following code in your `send.js`
 
