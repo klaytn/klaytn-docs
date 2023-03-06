@@ -156,7 +156,7 @@ touch interact.js
 
 After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
 
-For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
+For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 
 
 To see this in action, paste the following code in your `interact.js`
