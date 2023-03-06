@@ -62,7 +62,7 @@ To read data from the blockchain, create a new `read.js` file in your project fo
 touch read.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you ll learn how to read data from the blockchain e.g blockNumber, KLAY balance. 
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
 
 To see this in action, paste the following code in your `read.js`
 
