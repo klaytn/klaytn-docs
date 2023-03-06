@@ -203,7 +203,7 @@
       * [subbridge](dapp/json-rpc/api-references/subbridge.md)
     * [Transaction Error Codes](dapp/json-rpc/transaction-error-codes.md)
   * [RPC Service Providers](dapp/rpc-service.md)
-  * [Client SDK & Libraries](dapp/sdk/README.md)
+  * [SDK & Libraries for interacting with Klaytn Node](dapp/sdk/README.md)
     * [caver-js](dapp/sdk/caver-js/README.md)
       * [Getting Started](dapp/sdk/caver-js/getting-started.md)
       * [Sending a sample transaction](dapp/sdk/caver-js/sending-transaction.md)
