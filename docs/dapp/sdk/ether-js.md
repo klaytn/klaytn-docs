@@ -101,7 +101,7 @@ If the transaction was succesful, you'll see the block number and user’s KLAY 
 
 # Sending a transaction to the blockchain
 
-To send transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
+To send a transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
 
 ```bash
 touch send.js
