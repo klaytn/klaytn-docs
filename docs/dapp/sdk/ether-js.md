@@ -31,7 +31,7 @@ cd ethers-sample
 
 To install ethers.js, run the following command in your terminal:
 
-```js
+```bash
 npm install --save ethers
 ```
 
