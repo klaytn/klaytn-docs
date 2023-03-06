@@ -76,7 +76,7 @@ async function getBlockNumber() {
 
 async function getKlayBalance() {
 
-    const klayBalance  = await provider.getBalance(“paste wallet address”)
+    const klayBalance  = await provider.getBalance("paste wallet address")
     const formatBalance = ethers.formatEther(klayBalance)
     console.log(`You have ${formatBalance} KLAY`)
     
