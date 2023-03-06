@@ -58,7 +58,7 @@ const provider = new ethers.JsonRpcProvider(url)
 
 To read data from the blockchain, create a new `read.js` file in your project folder by running this command:
 
-```js
+```bash
 touch read.js
 ```
 
