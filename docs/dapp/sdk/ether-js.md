@@ -139,7 +139,7 @@ sendTx();
 
 To run the script and send data to the blockchain, you can run the following command in your terminal: 
 
-```js
+```bash
 node send.js
 ```
 
