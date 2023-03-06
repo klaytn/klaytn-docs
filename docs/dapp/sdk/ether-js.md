@@ -69,7 +69,7 @@ To see this in action, paste the following code in your `read.js`.
 
 ```js
 async function getBlockNumber() {
-    const blocknumber  = await provider.getBlockNumber()
+    const blocknumber = await provider.getBlockNumber()
     console.log("blocknumber", blocknumber)
     
 }
