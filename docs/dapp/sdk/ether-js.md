@@ -37,7 +37,7 @@ npm install --save ethers
 
 ## Initialize ethers.js
 
-In this tutorial, we would be creating a bunch of scripts file to send transactions, read data from the blockchain, and also interact with existing smart contract. To get started, you need to know how to initialize ethers for each of your script files.
+In this tutorial, we would be creating a bunch of script files to send transactions, read data from the blockchain, and also interact with an existing smart contract. To get started, you need to know how to initialize ethers.js for each of your script files.
 
 
 Import `ethers` into your script file.
