@@ -150,7 +150,7 @@ If the transaction was succesful, you'll see the transaction receipt been logged
 To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
 
 
-```js
+```bash
 touch interact.js
 ```
 
