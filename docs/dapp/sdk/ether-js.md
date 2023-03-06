@@ -99,7 +99,7 @@ node read.js
 If the transaction was succesful, you'll see the block number and user’s KLAY balance in your terminal.
 
 
-# Sending transaction to the blockchain
+# Sending a transaction to the blockchain
 
 To send transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
 
