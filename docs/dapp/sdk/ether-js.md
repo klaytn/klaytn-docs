@@ -92,7 +92,7 @@ getKlayBalance()
 
 To run the script and read data from the blockchain, you can run the following command in your terminal: 
 
-```js
+```bash
 node read.js
 ```
 
