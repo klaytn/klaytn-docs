@@ -6,7 +6,7 @@
 
 Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
 
-In this guide, you'll learn how to use the Ethers.js library to send a transaction, read data from the blockchain and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the ethers.js library to send a transaction, read data from the blockchain and interact with an existing contract on the Klaytn Network.
 
 
 # Prerequisites
