@@ -84,6 +84,28 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 By using node services, you can focus on developing your application or product on Klaytn instead of spending your resources on node operation. Below is a list of node providers.
 
+### NodeReal
+
+NodeReal is more than just a blockchain provider - we're your all-in-one destination for everything related to Web3! Our goal is to make blockchain accessible, scalable and secure for everyone, no matter where they are. We have an enthusiastic team that is passionate about blockchain technology, and we're committed to helping the ecosystem grow and prosper over the long term. Our clients rely on us to provide dependable, effective and leading-edge solutions, and we take pride in delivering outcomes that go beyond their expectations. Come join us in promoting the widespread adoption of Web3 and transforming the future of technology!
+
+#### Features
+
+NodeReal supports Klaytn's key design goals of:
+- Immediate finality.
+- High TPS that meets real-world use cases.
+- Lower the cost of running Blockchain Applications.
+- Lower the barriers to entry for end-users.
+- Ease the technology adoption process for industry.
+- 50 QPS/method
+
+#### References
+
+[Docs] https://docs.nodereal.io/docs/getting-started
+[Subscription] https://nodereal.io/api-marketplace/klaytn-rpc
+[Website] https://nodereal.io
+
+
+
 ### Klaytn API Service (KAS)
 
 KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
