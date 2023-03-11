@@ -102,7 +102,7 @@ NodeReal supports Klaytn's key design goals of:
 
 * [Docs](https://docs.nodereal.io/docs/getting-started)
 * [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
-[Website] https://nodereal.io
+* [Website](https://nodereal.io)
 
 
 
