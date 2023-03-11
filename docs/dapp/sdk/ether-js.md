@@ -152,6 +152,8 @@ node send.js
 
 If the transaction was succesful, you'll see the transaction receipt been logged in your terminal.
 
+![](images/send-ethers.png)
+
 # Interact with smart contracts
 
 To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
