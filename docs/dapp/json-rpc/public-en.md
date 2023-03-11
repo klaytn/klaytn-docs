@@ -86,7 +86,7 @@ By using node services, you can focus on developing your application or product 
 
 ### NodeReal
 
-NodeReal is more than just a blockchain provider - we're your all-in-one destination for everything related to Web3! Our goal is to make blockchain accessible, scalable and secure for everyone, no matter where they are. We have an enthusiastic team that is passionate about blockchain technology, and we're committed to helping the ecosystem grow and prosper over the long term. Our clients rely on us to provide dependable, effective and leading-edge solutions, and we take pride in delivering outcomes that go beyond their expectations. Come join us in promoting the widespread adoption of Web3 and transforming the future of technology!
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
 
 #### Features
 
