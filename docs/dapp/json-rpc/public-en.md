@@ -90,11 +90,10 @@ NodeReal is a blockchain infrastructure and services provider. NodeReal helps d
 
 #### Features
 
-NodeReal supports Klaytn's key design goals of:
-- Free Tier, 3 API keys, 350M CU monthly , 300 CUPS monthly, Archive data
-- Growth Tier, 15 API keys, 500M CU monthly , 700 CUPS monthly, Archive data, Debug & Trace API
-- Enterprise Tier, Custom # of API Keys, Custom monthly usage, Dedicated support, SLA and other requirements
-- 50 QPS/method
+- Free Tier, 3 API keys, 350 Millions Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
+- Growth Tier, 15 API keys, 500 Millions Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
+- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
+- 50 Queries Per Seconds (QPS)/method
 
 #### References
 
