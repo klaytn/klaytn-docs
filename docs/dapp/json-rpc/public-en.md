@@ -100,23 +100,6 @@ KAS provides various APIs to support easier and quicker blockchain application d
 * [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 * [Website](https://www.klaytnapi.com/en/landing/main)
 
-### NodeReal
-
-NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
-
-#### Features
-
-- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
-- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
-- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
-- 50 Queries Per Seconds (QPS)/method
-
-#### References
-
-* [Docs](https://docs.nodereal.io/docs/getting-started)
-* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
-* [Website](https://nodereal.io)
-
 ### Tatum
 
 Tatum is the fastest way to build, test and run blockchain apps. We offer the most flexible platform for developers to turn their blockchain ideas into reality fast.
@@ -197,4 +180,21 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 * [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 * [Subscription](https://www.ankr.com/rpc/pricing/)
 * [Website](https://www.ankr.com/rpc/)
+
+### NodeReal
+
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+
+#### Features
+
+- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
+- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
+- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
+- 50 Queries Per Seconds (QPS)/method
+
+#### References
+
+* [Docs](https://docs.nodereal.io/docs/getting-started)
+* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
+* [Website](https://nodereal.io)
 
