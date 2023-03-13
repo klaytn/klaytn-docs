@@ -84,6 +84,22 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 By using node services, you can focus on developing your application or product on Klaytn instead of spending your resources on node operation. Below is a list of node providers.
 
+### Klaytn API Service (KAS)
+
+KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
+
+#### Features
+
+* 10,000 requests per day (100 requests per second) for the free plan
+* Community support for the free plan, and ticket support for paid plans (Starter, Pro, and Pro Plus)
+* Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
+
+#### References
+
+* [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
+* [Subscription](https://www.klaytnapi.com/en/landing/pricings)
+* [Website](https://www.klaytnapi.com/en/landing/main)
+
 ### NodeReal
 
 NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
@@ -100,24 +116,6 @@ NodeReal is a blockchain infrastructure and services provider. NodeReal helps d
 * [Docs](https://docs.nodereal.io/docs/getting-started)
 * [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
 * [Website](https://nodereal.io)
-
-
-
-### Klaytn API Service (KAS)
-
-KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
-
-#### Features
-
-* 10,000 requests per day (100 requests per second) for the free plan
-* Community support for the free plan, and ticket support for paid plans (Starter, Pro, and Pro Plus)
-* Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
-
-#### References
-
-* [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
-* [Subscription](https://www.klaytnapi.com/en/landing/pricings)
-* [Website](https://www.klaytnapi.com/en/landing/main)
 
 ### Tatum
 
