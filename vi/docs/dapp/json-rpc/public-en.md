@@ -26,7 +26,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 | -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
-| Klaytn Foundation                                  | `https://archive-en.cypress.klaytn.net`            | klay,eth,net | Archive |
+|                                                    | `https://archive-en.cypress.klaytn.net`            | klay,eth,net | Archive |
 | [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/)             | `https://klaytn.blockpi.network/v1/rpc/public`     | klay,eth,net | Full    |
 
@@ -36,7 +36,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 | -------------------------------------------------- | --------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | Full    |
-| Klaytn Foundation                                  | `wss://archive-en.cypress.klaytn.net/ws`            | klay,eth,net | Archive |
+|                                                    | `wss://archive-en.cypress.klaytn.net/ws`            | klay,eth,net | Archive |
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
@@ -47,6 +47,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 | -------------------------------------------------- | ----------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab`     | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`                  | klay,eth,net | Full    |
+|                                                    | `https://archive-en.baobab.klaytn.net/`               | klay,eth,net | Archive |
 | Fantrie                                            | `https://baobab01.fautor.app/`                        | klay,eth,net | Full    |
 |                                                    | `https://baobab02.fautor.app/`                        | klay,eth,net | Full    |
 |                                                    | `https://baobab.fautor.app/archive`                   | klay,eth,net | Archive |
@@ -59,6 +60,7 @@ Please keep in mind that these endpoints are provided to the community for testi
 | -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
 | [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net | Full    |
+|                                                    | `wss://archive-en.baobab.klaytn.net/ws`            | klay,eth,net | Archive |
 | Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | Full    |
 |                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | Full    |
 |                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | Archive |
