@@ -301,7 +301,7 @@
         * [Points to Note](toolkit/klaytn-safe/points.md)
         * [Frequently Asked Questions](toolkit/klaytn-safe/faqs.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
-    * [Covalent API](toolkit/covalent.md)
+   
 
 ## --- <a href="#misc" id="misc"></a>
 
