@@ -27,13 +27,9 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/cypress`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-cypress.klaytn.net`|klay,eth,net|Full|
-|Fantrie|`https://klaytn01.fautor.app/`|klay,eth,net|Full|
-||`https://klaytn02.fautor.app/`|klay,eth,net|Full|
-||`https://klaytn03.fautor.app/`|klay,eth,net|Full|
-||`https://klaytn04.fautor.app/`|klay,eth,net|Full|
-||`https://klaytn05.fautor.app/`|klay,eth,net|Full|
-||`https://cypress.fautor.app/archive`|klay,eth,net|Archive|
+|Klaytn Foundation|`https://archive-en.cypress.klaytn.net`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
+|[BlockPI Network](https://blockpi.io/)|`https://klaytn.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
 
 **WebSocket** 
 
@@ -41,12 +37,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/cypress/ws`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
-|Fantrie|`wss://klaytn01.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://klaytn02.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://klaytn03.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://klaytn04.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://klaytn05.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://cypress.fautor.app/archive/ws`|klay,eth,net|Archive|
+|Klaytn Foundation|`wss://archive-en.cypress.klaytn.net/ws`|klay,eth,net|Archive|
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
@@ -61,6 +52,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://baobab02.fautor.app/`|klay,eth,net|Full|
 ||`https://baobab.fautor.app/archive`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-baobab-rpc.allthatnode.com:8551`|klay,eth,net|Full|
+|[BlockPI Network](https://blockpi.io/)|`https://klaytn-baobab.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
 
 **WebSocket** 
 
@@ -123,7 +115,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 * [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
-### BlockPi
+### BlockPI
 
 BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
 
@@ -134,7 +126,7 @@ BlockPI provides free public endpoints to the Klaytn community and advanced feat
 * 20 requests per second on free services, and unlimited for paid packages.
 * Choice of Klaytn archive node and endpoint node
 * Whitelisting possible for endpoint nodes
-* WSS available and subscription coming soon
+* Supports WSS (including subscription)
 * Supports tracing
 
 #### References
@@ -188,4 +180,21 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 * [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 * [Subscription](https://www.ankr.com/rpc/pricing/)
 * [Website](https://www.ankr.com/rpc/)
+
+### NodeReal
+
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+
+#### Features
+
+- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
+- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
+- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
+- 50 Queries Per Seconds (QPS)/method
+
+#### References
+
+* [Docs](https://docs.nodereal.io/docs/getting-started)
+* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
+* [Website](https://nodereal.io)
 
