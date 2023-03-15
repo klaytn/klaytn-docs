@@ -5,7 +5,7 @@ A Klaytn node can be run with **Multi-channel**.
 If a node is executed with multi-channel configuration, 2 ports are set up for communication. On the otherhand, if a node is executed with single channel configuration, 1 port is set up.
 If 2 multi-channel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
 
-A multi-channel node can be enabled through the flag `--multichannel`. If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). To disable multi-channel, please replace the statement with `MULTICHANNEL=0`.
+A multi-channel node can be enabled through the flag `--multichannel`. If you use [`kend`](./../../installation-guide/deployment/endpoint-node/installation-guide/startup-the-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](./../../installation-guide/deployment/endpoint-node/installation-guide/configuration.md). To disable multi-channel, please replace the statement with `MULTICHANNEL=0`.
 If you want to run a node with specific ports, flags `port` and `subport` can be used. If you want to specify ports values of a connecting peer, check out [KNI](./kni.md).
 
 ## Architecture <a id="architecture"></a>
