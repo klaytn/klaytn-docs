@@ -7,8 +7,8 @@
 
 **Endpoint Node**
 
-* You [Endpoint Node](../node/endpoint-node/) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
-* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../node/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../dapp/json-rpc/). `ken` runs on Linux and MacOS.
+* You [Endpoint Node](../installation-guide/deployment/endpoint-node/README.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
+* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../installation-guide/deployment/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../dapp/json-rpc/). `ken` runs on Linux and MacOS.
 * `ken` CLI comes with several utility and node management functions.
 
 **Smart Contract Development**
