@@ -37,7 +37,7 @@ SCN은 탈중앙화 애플리케이션(dApp)에 의해 독립적으로 운영되
 
 **코어 셀 네트워크**와 **엔드포인트 노드 네트워크**은 클레이튼 메인체인과 메인넷을 구성합니다. 블록체인 애플리케이션은 클레이튼 메인 체인인 Cypress에서 실행하거나 자체적인 블록체인인 **서비스체인**에서 작동할 수 있습니다. 높은 TPS와 설정 변경이 가능한 네트워크 정책을 가진 전용 실행 환경을 원한다면 서비스체인을 사용하는 것을 추천합니다.
 
-> 애플리케이션을 위한 엔드포인트 노드를 구축하려면 [엔드포인트 노드의 설치 및 운영 가이드](../node/service-chain/README.md)를 읽어주세요.
+> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](./../installation-guide/deployment/service-chain/getting-started/README.md).
 
 ## 클레이튼 네트워크 토폴로지 <a id="klaytn-network-topology"></a>
 
@@ -50,13 +50,13 @@ SCN은 탈중앙화 애플리케이션(dApp)에 의해 독립적으로 운영되
 #### 코어 셀(CC): 컨센서스 노드(CN) + 프록시 노드(PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
 A Core Cell (CC) is composed of a single <strong>Consensus Node (CN)<strong> and two <strong>Proxy Nodes (PNs)<strong>. 합의 노드는 블록 생성 프로세서에 참여하고, 프록시 노드는 네트워크에 인터페이스를 제공합니다. PN은 트랜잭션 요청을 합의 노드로 전송하고 블록을 엔드포인트 노드로 전파합니다.
 
-> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
+> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
 
 #### Endpoint Node (EN) <a id="endpoint-node-en"></a>
 
 ENs serve as endpoints for Klaytn network handling RPC API requests and processing data sent to and from service chains.
 
-> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
+> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](./../installation-guide/deployment/endpoint-node/README.md).
 
 #### Bootnode <a id="bootnode"></a>
 
@@ -73,7 +73,7 @@ Below figure shows the overall topology of Klaytn mainnet, where Core Cell Netwo
 
 #### Consensus Node Network (CNN) <a id="consensus-node-network-cnn"></a>
 
-CNs form a full-mesh network among themselves called CNN. CNN applies BFT over a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](../node/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level.
+CNs form a full-mesh network among themselves called CNN. CNN applies BFT over a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../installation-guide/deployment/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level.
 
 #### Proxy Node Network (PNN) <a id="proxy-node-network-pnn"></a>
 
