@@ -8,7 +8,7 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
  - Minimum hardware requirements for testing
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
- - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../download/README.md).
+ - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../../download/README.md).
  - Assumptions and Limitations
    - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
    - A Baobab EN.
@@ -55,7 +55,7 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md) to synchronize blocks. 
+You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/installation-guide/configuration.md) to synchronize blocks. 
 ```
 EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
