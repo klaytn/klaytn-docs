@@ -4,7 +4,7 @@ Klaytn 노드는 **다중 채널**로 운영될 수 있습니다.
 
 노드가 다중 채널로 실행될 경우 커뮤니케이션을 위해 두 개의 포트가 설치됩니다. 단일 채널로 노드가 실행될 시, 하나의 포트만 설치됩니다. 두 다중 채널 노드가 연결될 때 두 개의 포트가 사용됩니다. 그 외의 경우에는 하나의 포트가 사용됩니다.
 
-다중 채널 노드는  `--multichannel` 플래그를 통해 활성화될 수 있습니다. [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md)를 사용할 경우 `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md) 선언문에 의해 다중 채널이 기본값으로 활성화됩니다.  다중 채널을 비활성화하기 위해서는 선언문을 `MULTICHANNEL=0`로 대체하면 됩니다. 특정 포트를 사용해 노드를 운영하고 싶다면 `port`와 `subport` 플래그가 사용될 수 있습니다. 연결되는 피어의 포트 값을 특정하고 싶다면 [KNI](./kni.md)를 확인해세요.
+다중 채널 노드는  `--multichannel` 플래그를 통해 활성화될 수 있습니다. If you use [`kend`](./../../installation-guide/deployment/endpoint-node/installation-guide/startup-the-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](./../../installation-guide/deployment/endpoint-node/installation-guide/configuration.md). 다중 채널을 비활성화하기 위해서는 선언문을 `MULTICHANNEL=0`로 대체하면 됩니다. 특정 포트를 사용해 노드를 운영하고 싶다면 `port`와 `subport` 플래그가 사용될 수 있습니다. 연결되는 피어의 포트 값을 특정하고 싶다면 [KNI](./kni.md)를 확인해세요.
 
 ## 구조<a id="architecture"></a>
 
