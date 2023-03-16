@@ -4,7 +4,7 @@
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - [Download](../references/download/README.md)에서 `kscn`, `homi` 바이너리 패키지를 다운로드하세요.
+ - Download packages for `kscn`, `homi` binary from [Download](../../../download/README.md).
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
