@@ -75,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-使用可能なコマンドは [API ドキュメント](../../../../bapp/json-rpc/README.md) で確認できます。
+You can check the usable commands on [API Document](../../../../../dapp/json-rpc/README.md)
 
 SCNのステータスを確認するのに役立つAPI:
 
