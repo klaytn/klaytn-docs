@@ -229,6 +229,10 @@ If the parameter is not set, it returns the chain configuration at the latest bl
 | --- | --- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
 **Return Value**
 
 | Type   | Description                          |
@@ -365,6 +369,10 @@ Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead
 | --- | --- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
 **Return Value**
 
 | Type   | Description                          |
@@ -444,7 +452,11 @@ The `getParams` returns governance parameters at specific block.
 | ------------- | ------------------------------------------------------------ |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
-**Return Value**x
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
@@ -498,7 +510,11 @@ Use <a href="#governance_getparams">`governance_getParams`</a> instead.
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**Return Value**x
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
