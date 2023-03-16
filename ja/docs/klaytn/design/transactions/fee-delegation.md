@@ -886,7 +886,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringは、サービスチェーンデータをKlaytnメインチェーンにアンカーする手数料委任されたトランザクションです。 Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md). 手数料委託された取引でもあるため、手数料支払者に取引手数料が課されます。 Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeFeeDelegatedChainDataAnchoringは、サービスチェーンデータをKlaytnメインチェーンにアンカーする手数料委任されたトランザクションです。 Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../installation-guide/deployment/service-chain/references/anchoring.md). 手数料委託された取引でもあるため、手数料支払者に取引手数料が課されます。 Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 
