@@ -90,7 +90,7 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 
 #### Fee Schedule <a id="fee-schedule"></a>
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. `プリコンパイル済み契約` および `口座`のような他の表については、 [このドキュメント](../../../transaction-fees.md#klaytns-gas-table) を参照してください。
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
 注: `イスタンブールEVM` プロトコルのアップグレード、または「ハードフォーク」後に手数料が変更されました。 前のドキュメントをご希望の場合は、 [前のドキュメント](klaytn-virtual-machine-previous.md) をご参照ください。
