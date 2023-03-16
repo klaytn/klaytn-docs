@@ -70,7 +70,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-キーストアとあなたが作成したパスワードは非常に重要なので、それらを管理するために注意が必要です。 `kcnd.conf` の詳細については、 [設定ファイル](../../operation-guide/configuration.md) セクションを参照してください。
+キーストアとあなたが作成したパスワードは非常に重要なので、それらを管理するために注意が必要です。 See more details about `kcnd.conf` on the [Configuration File](../../../../../operation-guide/configuration.md) section.
 
 ## 高速同期 \(オプション\) <a id="fast-sync-optional"></a>
 
