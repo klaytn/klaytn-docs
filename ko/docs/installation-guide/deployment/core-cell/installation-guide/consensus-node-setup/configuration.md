@@ -70,7 +70,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. `kcnd.conf`에 대한 자세한 내용은 [Configuration File](../../operation-guide/configuration.md) 장을 참조하세요.
+생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. See more details about `kcnd.conf` on the [Configuration File](../../../../../operation-guide/configuration.md) section.
 
 ## 패스트 싱크 \(선택 사항\) <a id="fast-sync-optional"></a>
 
