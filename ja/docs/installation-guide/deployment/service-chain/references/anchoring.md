@@ -30,7 +30,7 @@ KLAYを送った後、以下のように残高を確認することができま�
 1e+50
 ```
 
-以下のように、 `subbridge.anchoring`を介してアンカーを有効にすることができます。 詳細については、 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) を参照してください。
+以下のように、 `subbridge.anchoring`を介してアンカーを有効にすることができます。 You can refer to [subbridge APIs](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
 ```
 > subbridge.anchoring(true)
 true
@@ -40,7 +40,7 @@ true
 アンカー機能が有効になっている場合、SCN はブロックデータを定期的にメインチェーンにアンカーします。 アンカーされたデータは以下のように確認できます。
 
 ## サブブリッジ <a id="sub-bridge"></a>
-サブブリッジでは、最新のアンカーされたブロック番号を以下のように確認できます。 詳細については、 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) を参照してください。
+サブブリッジでは、最新のアンカーされたブロック番号を以下のように確認できます。 You can refer to [subbridge APIs](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
@@ -53,7 +53,7 @@ true
 ```
 
 ## メインブリッジ <a id="sub-bridge"></a>
-Main-Bridgeでは、チェーンインデックス作成オプションが有効になっている場合、以下のようにサービスチェーンブロックハッシュによってアンカーtxハッシュを見つけることができます。 詳細は [メインブリッジ API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) を参照してください。
+Main-Bridgeでは、チェーンインデックス作成オプションが有効になっている場合、以下のようにサービスチェーンブロックハッシュによってアンカーtxハッシュを見つけることができます。 You can refer to [mainbridge APIs](../../../../dapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
