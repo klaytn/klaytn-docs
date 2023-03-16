@@ -4,7 +4,7 @@ Klaytn ノードは **マルチチャンネル** で実行できます。
 
 マルチチャンネル構成でノードが実行される場合、通信のためのポートは 2 つに設定されます。 一方、単一のチャンネル構成でノードが実行されると、1 ポートが設定されます。 2 つのマルチチャネルノードが接続しようとしている場合、2 つのポートを使用して接続が確立されます。 そうでなければ、彼らは通信のために1ポートを使用します。
 
-フラグ `--multichannel` を介してマルチチャンネルノードを有効にすることができます。 If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). マルチチャネルを無効にするには、ステートメントを `MULTICHANNEL=0` に置き換えてください。 特定のポートを持つノードを実行したい場合は、フラグ `ポート` と `サブポート` を使用できます。 接続ピアのポート値を指定したい場合は、 [KNI](./kni.md) をチェックしてください。
+フラグ `--multichannel` を介してマルチチャンネルノードを有効にすることができます。 If you use [`kend`](./../../installation-guide/deployment/endpoint-node/installation-guide/startup-the-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](./../../installation-guide/deployment/endpoint-node/installation-guide/configuration.md). マルチチャネルを無効にするには、ステートメントを `MULTICHANNEL=0` に置き換えてください。 特定のポートを持つノードを実行したい場合は、フラグ `ポート` と `サブポート` を使用できます。 接続ピアのポート値を指定したい場合は、 [KNI](./kni.md) をチェックしてください。
 
 ## 建築 <a id="architecture"></a>
 
