@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### EN의 KNI 확인하기 <a id="get-the-ens-kni"></a>
 
-IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. [Service Chain API](../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
+IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. You can refer to [Service Chain API](../../../../dapp/json-rpc/api-references/subbridge.md).
 
 ```javascript
 > mainbridge.nodeInfo
