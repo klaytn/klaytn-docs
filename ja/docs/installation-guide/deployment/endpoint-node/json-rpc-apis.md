@@ -1,4 +1,4 @@
-エンドポイントノードは JSON-RPC API を公開します。 API の有効化/無効化は以下のとおりです。 詳細なAPI仕様については、 [JSON-RPC API](../../dapp/json-rpc/api-references/README.md) を参照してください。
+エンドポイントノードは JSON-RPC API を公開します。 API の有効化/無効化は以下のとおりです。 For the detailed API specification, please refer to the [JSON-RPC APIs](../../../dapp/json-rpc/README.md).
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone access to the APIs who can access this interface (DApps, browser tabs, etc). どのAPI を有効にするかに注意してください。 デフォルトで表示 Klaytn は IPC (`ipc`) インターフェイス上ですべての API を有効にしますが、必要な `rpc` と `ws` モジュールは明示的に有効にする必要があります。
 
@@ -21,7 +21,7 @@ The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
 ### 設定の使用 <a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](operation-guide/configuration.md).
+Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../../operation-guide/configuration.md).
 
 ## 有効なAPIのクエリ <a id="querying-enabled-apis"></a>
 
