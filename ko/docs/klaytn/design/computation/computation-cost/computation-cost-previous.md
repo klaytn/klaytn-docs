@@ -3,7 +3,9 @@
 Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 실행 시간이 관리되어야 합니다. 이를 위한 3가지 접근법이 있습니다.
 
 
-1. 트랜잭션의 가스 한도를 제한합니다. 2. 트랜잭션의 실행 시간을 제한합니다. 3. 트랜잭션의 연산 비용을 제한합니다.
+1. Limiting the gas limit of a transaction
+2. Limiting the execution time of a transaction
+3. Limiting the computation cost of a transaction
 
 그러나, 가스 한도를 제한하는 것은 실현 가능한 해결책이 아닙니다. 블록체인 플랫폼에서 연산, 저장공간, 네트워크 대역폭 등 여러 자원의 교환 값을 나타내는 것이 가스의 개념이기 때문입니다. 따라서, 트랜잭션 실행 시간을 관리하기 위한 방법으로는 적합하지 않습니다.
 
