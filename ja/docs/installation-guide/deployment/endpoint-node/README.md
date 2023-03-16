@@ -2,7 +2,7 @@
 
 ## Intended Audience <a id="intended-audience"></a>
 
-- [Klaytn API](../../dapp/json-rpc/README.md) を使用してトランザクションを送信したり、Klaytn ネットワークの状態をクエリしたい人は、エンドポイント ノードを介して行う必要があります。
+- Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../../dapp/json-rpc/README.md) needs to do so via an Endpoint Node.
 - エンドポイントノードは、Klaytn Networkへのインターフェイスです。
 
 ## エンドポイントノードの概要 <a id="endpoint-node-overview"></a>
@@ -16,8 +16,8 @@
 
 エンドポイントノードのインストールバイナリには、以下のインターフェースとユーティリティが付属しています。
 
-- JSON-RPC API: JSON-RPCサーバーはノード内で動作し、ブロックチェーンアプリケーション開発のための [API](../../dapp/json-rpc/README.md) を公開します。 複数のノード管理 API もあります。
-- コマンドラインインターフェイス: アカウント管理とノード設定機能を提供します。 ノードにアタッチされたインタラクティブな JavaScript コンソールも用意されています。 JavaScript コンソールは [caver-js API](../../dapp/sdk/caver-js/README.md) のほとんどを実装しています。 
+- JSON-RPC APIs: JSON-RPC server runs inside the node, and it exposes [APIs](../../../dapp/json-rpc/README.md) for Blockchain Application development. 複数のノード管理 API もあります。
+- コマンドラインインターフェイス: アカウント管理とノード設定機能を提供します。 ノードにアタッチされたインタラクティブな JavaScript コンソールも用意されています。 JavaScript console implements most of the [caver-js APIs](../../../dapp/sdk/caver-js/README.md). 
 
 
 
