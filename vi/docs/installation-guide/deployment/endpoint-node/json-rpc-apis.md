@@ -1,4 +1,4 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../dapp/json-rpc/api-references/README.md).
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../dapp/json-rpc/README.md).
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs you enable. By defaulti, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
@@ -21,7 +21,7 @@ The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
 ### Using Configuration <a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](operation-guide/configuration.md).
+Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../../operation-guide/configuration.md).
 
 ## Querying Enabled APIs <a id="querying-enabled-apis"></a>
 
