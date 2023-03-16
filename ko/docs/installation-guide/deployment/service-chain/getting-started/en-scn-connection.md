@@ -7,7 +7,7 @@
  - 테스트를 위한 최소 하드웨어 요구 사항
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
- - Baobab EN 실행파일을 다운로드하세요. 다운로드할 수 있는 바이너리의 전체 목록을 보려면 [Download](../../download/README.md)을 참고하세요.
+ - Baobab EN 실행파일을 다운로드하세요. For the full list of downloadable binaries, see [Download](../../../download/README.md).
  - 가정 및 제약
    - 서비스 체인이 설치되어 실행 중입니다. 네트워크를 설치하기 위해서는 [4개 노드 서비스 체인 설치하기](4nodes-setup-guide.md)를 참고해주세요.
    - Baobab EN.
@@ -52,7 +52,7 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-EN 노드를 시작하고, 콘솔에서 klay.blockNumber를 조회하면 블록 동기화 상태를 확인할 수 있습니다. If this number is not 0, the node is working fine. Baobab 네트워크의 모든 블록을 다운로드하는 과정에서 네트워크 조건 및 하드웨어 성능에 따라 시간이 오래 걸릴 수 있으며, [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md)를 사용하여 블록을 동기화하는 것을 권장합니다.
+EN 노드를 시작하고, 콘솔에서 klay.blockNumber를 조회하면 블록 동기화 상태를 확인할 수 있습니다. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/installation-guide/configuration.md) to synchronize blocks.
 ```
 EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
