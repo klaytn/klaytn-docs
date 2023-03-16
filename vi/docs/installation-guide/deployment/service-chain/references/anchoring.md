@@ -30,7 +30,7 @@ After sending KLAY, you can check the balance like below.
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
+Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
 ```
 > subbridge.anchoring(true)
 true
@@ -40,7 +40,7 @@ true
 If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain. You can check the anchored data like below.
 
 ## Sub-Bridge <a id="sub-bridge"></a>
-In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
@@ -53,7 +53,7 @@ Also, you can find the anchoring transaction hash by the service chain block num
 ```
 
 ## Main-Bridge <a id="sub-bridge"></a>
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
+In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../../../dapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
