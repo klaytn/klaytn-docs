@@ -75,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document](../../../../bapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../../../dapp/json-rpc/README.md)
 
 The useful APIs to check the status of SCN:
 
