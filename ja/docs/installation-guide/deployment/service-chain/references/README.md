@@ -18,7 +18,7 @@ ServiceChainは、価値転送、セキュリティ、高いパフォーマン�
 ![](../images/sc-overview.png)
 
 
-ServiceChain の詳細については、 [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) を参照してください。 以下のビデオは、Klaytn ServiceChainを理解するのに役立ちます。
+Read the [Klaytn Scaling Solution](../../../../klaytn/scaling-solutions.md) for more details about the ServiceChain. 以下のビデオは、Klaytn ServiceChainを理解するのに役立ちます。
 
 - [Klaytn のサービスチェーンを通じて水平スケーリングする | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
 - [Klaytnサービスチェーンの高可用性アーキテクチャ | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
