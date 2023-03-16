@@ -81,7 +81,7 @@ Welcome to the Klaytn JavaScript console
 
 ### モジュール API <a id="module-apis"></a>
 
-コンソールプロンプトでモジュール名を入力すると、モジュールの利用可能なプロパティと機能が表示されます。 関数の詳細については、 [Klaytn API](../../dapp/json-rpc/api-references/README.md) を参照してください。
+コンソールプロンプトでモジュール名を入力すると、モジュールの利用可能なプロパティと機能が表示されます。 For the details of functions, please see [Klaytn API](../../../dapp/json-rpc/README.md).
 
 ```javascript
 > personal
