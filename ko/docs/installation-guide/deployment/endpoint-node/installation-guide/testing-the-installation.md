@@ -75,7 +75,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../../dapp/json-rpc/README.md)
 
 EN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
