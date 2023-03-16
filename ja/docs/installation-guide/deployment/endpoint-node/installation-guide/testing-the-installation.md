@@ -75,7 +75,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../../dapp/json-rpc/README.md)
 
 ENの状態を確認するのに役立つAPI:
 
