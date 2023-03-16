@@ -1,3 +1,3 @@
 # 다운로드<a id="download"></a>
 
-[download page](../references/download/README.md)에서 CN과 PN 패키지를 다운받을 수 있습니다.
+You can get packages for CN, and PN in the [download page](../../../download/README.md).
