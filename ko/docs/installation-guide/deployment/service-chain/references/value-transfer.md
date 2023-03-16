@@ -66,7 +66,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator)를 참조하세요.
+You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator) for more details.
 
 ## 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
 앵커링과 마찬가지로 부모 체인 브리지 오퍼레이터는 밸류 트랜스퍼 트랜잭션을 생성하기 위해 KLAY가 필요합니다. If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
@@ -124,7 +124,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
     subscribed: false
 }]
 ```
-상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge)를 참조하세요.
+You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소 및 구독 상태를 보여줍니다. 서브 브리지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅시 서브 브리지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
 
@@ -171,7 +171,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 - pending : `request`와 ` lowerHandle`의 차이.
 
 ### RPC API <a id="rpc-api"></a>
-다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation)를 참조하세요.
+다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -202,7 +202,7 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")에 등록합니다. 그리고 부모 체인 토큰("0x53160735f7cc6ff75e48619f368bb94daff66a1b")을 부모 체인 브리지 컨트랙트("0x22c41ae528627b790233d2e59ea520be12350eb5")에 등록합니다.
 
-상세 사항은 [Service Chain API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_registerToken)를 참조하세요.
+You can refer to the [Service Chain API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) for more details.
 
 # 밸류 트랜스퍼 요청<a id="request-value-transfer"></a>
 이 장에서는 사용자가 밸류 트랜스퍼를 요청하기 위해 컨트랙트 메서드를 호출하는 방법에 대해 설명합니다. 0값 (KLAY/ERC-20) 전송 요청은 허용하지 않습니다.
