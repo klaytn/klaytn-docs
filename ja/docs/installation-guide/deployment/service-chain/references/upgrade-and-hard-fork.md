@@ -12,7 +12,7 @@ KlaytnとそのServiceChainは、常に新しい機能を開発し、バグを�
 
 KlaytnおよびServiceChainの最新バージョンのバイナリは、以下のいずれかのリンクから入手できます。
 
-* [Klaytn Docs](../../download/)
+* [Klaytn Docs](../../../download/README.md)
 * [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
 ServiceChainバイナリをアップグレードするには、ServiceChainノードを停止し、バイナリを置き換えます。 たとえば、以下のコマンドを使用して SCN ノードを停止し、バイナリを新しいものに置き換えることができます。
