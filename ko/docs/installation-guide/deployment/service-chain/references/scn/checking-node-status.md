@@ -75,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-[API 문서](../../../../bapp/json-rpc/README.md)에서 사용가능한 명령어를 확인할 수 있습니다.
+You can check the usable commands on [API Document](../../../../../dapp/json-rpc/README.md)
 
 SCN의 상태를 확인하기 위해 다음의 API를 사용할 수 있습니다.
 
