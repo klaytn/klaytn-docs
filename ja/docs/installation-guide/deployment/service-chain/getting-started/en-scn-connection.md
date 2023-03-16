@@ -7,7 +7,7 @@
  - テストのための最小ハードウェア要件
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - 詳細は [システム要件](../references/system-requirements.md) を参照してください。
- - Baobab EN 実行ファイルをダウンロードします。 ダウンロード可能なバイナリの完全なリストについては、 [ダウンロード](../../download/README.md) を参照してください。
+ - Baobab EN 実行ファイルをダウンロードします。 For the full list of downloadable binaries, see [Download](../../../download/README.md).
  - 仮定と制限
    - ServiceChain ネットワークがインストールおよび実行されています。 ネットワークをセットアップするには、 [4ノードサービスチェーンの設定](4nodes-setup-guide.md) を参照してください。
    - バオバブEN。
@@ -52,7 +52,7 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-`klay.blockNumber` を見ることで、ブロック同期の状態を確認できます。 If this number is not 0, the node is working fine. Baobabネットワーク上のすべてのブロックをダウンロードするには、ネットワークの状態とハードウェアのパフォーマンスに応じて長い時間がかかることがあります。 ブロックを同期させるには、 [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md) を使用することをお勧めします。
+`klay.blockNumber` を見ることで、ブロック同期の状態を確認できます。 If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/installation-guide/configuration.md) to synchronize blocks.
 ```
 EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
