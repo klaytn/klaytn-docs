@@ -12,7 +12,7 @@ This section shows how to upgrade the ServiceChain binary.
 
 You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
 
-* [Klaytn Docs](../../download/)
+* [Klaytn Docs](../../../download/README.md)
 * [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.

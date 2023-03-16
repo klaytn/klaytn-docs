@@ -70,7 +70,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../operation-guide/configuration.md) section.
+Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../../../operation-guide/configuration.md) section.
 
 ## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
 

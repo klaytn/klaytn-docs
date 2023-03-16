@@ -90,7 +90,7 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 
 #### Fee Schedule <a id="fee-schedule"></a>
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../../../transaction-fees.md#klaytns-gas-table)
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
 NOTE: Fee has been changed after `IstanbulEVM` protocol upgrade, or the "hard fork".
