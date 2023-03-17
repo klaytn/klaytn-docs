@@ -10,9 +10,9 @@ The following sections show the recommended specifications for both CNs and PNs.
 
 | Category | Specification                                                                                                                                                               |
 |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Server   | Intel® Server System R2312WFTZS                                                                                                                                             |
-| CPU      | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                                    |
-| Memory   | 256GB \(32GB \* 8\)                                                                                                                                                     |
+| Server   | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html)                        |
+| CPU      | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\)                                                                                                                           |
+| Memory   | 128GB \(32GB \* 4\)                                                                                                                                                     |
 | Storage  | 3TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Klaytn Team for more information.) |
 
 Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
@@ -23,10 +23,10 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 | Node Type |    Model    | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
 |:---------:|:-----------:|:----:|:----------------:|:----------------------:|:------------------------:|:-------------------------------:|
-|    CN     | c5.18xlarge |  72  |       144        |    3,000 (Minimum)     |     3,000 (Minimum)      |              3.456              |
-|    PN     | m5.8xlarge  |  32  |       128        |    3,000 (Minimum)     |     3,000 (Minimum)      |              1.888              |
+|    CN     | m6i.8xlarge |  32  |       128        |    3,000 (Minimum)     |          9,000           |              1.888              |
+|    PN     | m6i.4xlarge |  16  |        64        |    3,000 (Minimum)     |          9,000           |              0.944              |
 
-This storage specification is derived from AWS EBS SSD (gp2) specification.
+This storage specification is derived from AWS EBS SSD (gp3) specification.
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
@@ -34,8 +34,8 @@ The information above is from [https://aws.amazon.com/ec2/instance-types/](https
 
 | Node Type |  Model  | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Korea Central, USD/h\) |
 |:---------:|:-------:|:----:|:----------------:|:----------------------:|:------------------------:|:--------------------------------:|
-|    CN     | F72s v2 |  72  |       144        |       P50 (4096)       |           7500           |              3.456               |
-|    PN     | D32s v5 |  32  |       128        |       P50 (4096)       |           7500           |              1.625               |
+|    CN     | D32s v5 |  32  |       128        |       P50 (4096)       |           7500           |              1.888               |
+|    PN     | D16s v5 |  16  |        64        |       P50 (4096)       |           7500           |              0.944               |
 
 This storage specification is derived from Azure Premium Disk specification.
 
