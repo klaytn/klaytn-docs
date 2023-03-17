@@ -8,12 +8,12 @@
 
 ### 베어메탈 서버 <a id="bare-metal-server"></a>
 
-| Category | 사양                                                                                                 |
-|:-------- |:-------------------------------------------------------------------------------------------------- |
-| 서버       | Intel® Server System R2312WFTZS                                                                    |
-| CPU      | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)           |
-| 메모리      | 256GB \(32GB \* 8\)                                                                            |
-| Storage  | 3TB (또는 더 큰 용량의) SSD (체인 데이터 크기에 따라 적절한 스토리지 크기와 환경설정이 달라질 수 있습니다. 자세한 내용은 Klaytn 팀에게 문의하시기 바랍니다.) |
+| Category | 사양                                                                                                                                                   |
+|:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 서버       | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
+| CPU      | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\)                                                                                                    |
+| 메모리      | 128GB \(32GB \* 4\)                                                                                                                              |
+| Storage  | 3TB (또는 더 큰 용량의) SSD (체인 데이터 크기에 따라 적절한 스토리지 크기와 환경설정이 달라질 수 있습니다. 자세한 내용은 Klaytn 팀에게 문의하시기 바랍니다.)                                                   |
 
 이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확히 필요한 요구 사항은 아닙니다. 하드웨어 환경설정이 비슷하면 어떤 물리적 시스템이라도 CN 또는 PN을 작동시키기에 충분합니다.
 
@@ -23,10 +23,10 @@
 
 | 노드 타입 |     모델명     | vCPU 수 | 메모리 \(GiB\) | 스토리지 크기 \(GiB\) | 스토리지 속도 \(IOPS\) | 가격 \(서울 지역, USD/h\) |
 |:-----:|:-----------:|:------:|:-------------:|:-----------------:|:------------------:|:---------------------:|
-|  CN   | c5.18xlarge |   72   |      144      |    3,000 (최소)     |  3,000 (Minimum)   |         3.456         |
-|  PN   | m5.8xlarge  |   32   |      128      |  3,000 (Minimum)  |  3,000 (Minimum)   |         1.888         |
+|  CN   | m6i.8xlarge |   32   |      128      |    3,000 (최소)     |       9,000        |         1.888         |
+|  PN   | m6i.4xlarge |   16   |      64       |  3,000 (Minimum)  |       9,000        |         0.944         |
 
-이 스토리지 스펙은 AWS EBS SSD (gp2) 스펙을 참조했습니다.
+This storage specification is derived from AWS EBS SSD (gp3) specification.
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
@@ -34,8 +34,8 @@
 
 | Node Type |  Model  | vCPU | Memory \(GiB\) | 스토리지 타입 \(GiB\) | Storage speed \(IOPS\) | 비용 \(Korea Central, USD/h\) |
 |:---------:|:-------:|:----:|:----------------:|:-----------------:|:------------------------:|:-----------------------------:|
-|    CN     | F72s v2 |  72  |       144        |    P50 (4096)     |           7500           |             3.456             |
-|    PN     | D32s v5 |  32  |       128        |    P50 (4096)     |           7500           |             1.625             |
+|    CN     | D32s v5 |  32  |       128        |    P50 (4096)     |           7500           |             1.888             |
+|    PN     | D16s v5 |  16  |        64        |    P50 (4096)     |           7500           |             0.944             |
 
 이 스토리지 스펙은 Azure Premium Disk 스펙을 참조했습니다.
 
