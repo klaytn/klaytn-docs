@@ -8,12 +8,12 @@
 
 ### ベアメタルサーバー <a id="bare-metal-server"></a>
 
-| Category | 仕様                                                                                                |
-|:-------- |:------------------------------------------------------------------------------------------------- |
-| サーバー     | インテル® サーバー システム R2312WFTZS                                                                        |
-| CPU      | インテル® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40 core/80-thread\)           |
-| メモリ      | 256GB \(32GB \* 8\)                                                                           |
-| Storage  | 3TB (またはそれ以上のサイズ) SSD (推奨されるストレージサイズと構成はチェーンデータサイズによって異なる可能性があります。 詳細については、Klaytn チームにお問い合わせください。 |
+| Category | 仕様                                                                                                                                                   |
+|:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| サーバー     | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
+| CPU      | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\)                                                                                                    |
+| メモリ      | 128GB \(32GB \* 4\)                                                                                                                              |
+| Storage  | 3TB (またはそれ以上のサイズ) SSD (推奨されるストレージサイズと構成はチェーンデータサイズによって異なる可能性があります。 詳細については、Klaytn チームにお問い合わせください。                                                    |
 
 これは正確な要件ではなく、CNおよびPNの推奨ハードウェア仕様であることに注意してください。 同様のハードウェア構成を持つ物理マシンは、CNまたはPNを操作するのに十分です。
 
@@ -23,10 +23,10 @@
 
 | ノードタイプ |     モデル     | vCPU | Memory \(GiB\) | Storage size \(GiB\) | ストレージ速度 \(IOPS\) | 価格\（ソウル地方、USD/h\） |
 |:------:|:-----------:|:----:|:----------------:|:----------------------:|:------------------:|:-------------------:|
-|   CN   | c5.18xlarge |  72  |       144        |       3,000 (最小)       |  3,000 (Minimum)   |        3.456        |
-|   PN   | m5.8xlarge  |  32  |       128        |    3,000 (Minimum)     |  3,000 (Minimum)   |        1.888        |
+|   CN   | m6i.8xlarge |  32  |       128        |       3,000 (最小)       |       9,000        |        1.888        |
+|   PN   | m6i.4xlarge |  16  |        64        |    3,000 (Minimum)     |       9,000        |        0.944        |
 
-このストレージ仕様は、AWS EBS SSD (gp2) 仕様に基づいています。
+This storage specification is derived from AWS EBS SSD (gp3) specification.
 
 上記の情報は [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) および [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) から取得しており、AWSによって変更される場合があります。
 
@@ -34,8 +34,8 @@
 
 | Node Type |  Model  | vCPU | Memory \(GiB\) | ストレージタイプ \(GiB\) | Storage speed \(IOPS\) | 価格 \(Korea Central, USD/h\' |
 |:---------:|:-------:|:----:|:----------------:|:------------------:|:------------------------:|:-----------------------------:|
-|    CN     | F72s v2 |  72  |       144        |     P50 (4096)     |           7500           |             3.456             |
-|    PN     | D32s v5 |  32  |       128        |     P50 (4096)     |           7500           |             1.625             |
+|    CN     | D32s v5 |  32  |       128        |     P50 (4096)     |           7500           |             1.888             |
+|    PN     | D16s v5 |  16  |        64        |     P50 (4096)     |           7500           |             0.944             |
 
 このストレージ仕様は、Azure Premium Disk の仕様に基づいています。
 
