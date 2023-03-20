@@ -223,7 +223,7 @@ None
 
 ## governance_getChainConfig <a id="governance_getchainconfig"></a>
 
-The `getChainConfig` returns the chain configuration at specific block.
+The `getChainConfig` returns the chain configuration at a specific block.
 If the parameter is not set, it returns the chain configuration at the latest block.
 
 **Parameters**
@@ -291,10 +291,10 @@ The `chainConfig` property provides the latest chain configuration.
 This is equivalent to `chainConfigAt()` with an empty parameter.
 
 {% hint style="warning" %}
-`governance_chainConfig` API will be deprecated from Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+`governance_chainConfig` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
 Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
 
-NOTE: the RPC API will be deprecated from v1.11. However, the `governance.chainConfig` property in the Klaytn JavaScript console
+NOTE: the RPC API will be deprecated since v1.11. However, the `governance.chainConfig` property in the Klaytn JavaScript console
 is removed since Klaytn v1.10.2.
 {% endhint %}
 
@@ -358,11 +358,11 @@ None
 
 ## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-The `chainConfigAt` returns the chain configuration at specific block.
+The `chainConfigAt` returns the chain configuration at a specific block.
 If the parameter is not set, it returns the chain configuration at the latest block.
 
 {% hint style="warning" %}
-`governance_chainConfigAt` API will be deprecated from Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+`governance_chainConfigAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
 Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
 {% endhint %}
 
@@ -447,7 +447,7 @@ None
 
 ## governance_getParams <a id="governance_getparams"></a>
 
-The `getParams` returns governance parameters at specific block.
+The `getParams` returns governance parameters at a specific block.
 
 **Parameters**
 
@@ -496,10 +496,10 @@ NOTE: The block number can be larger than the latest block number, in which case
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-The `itemsAt` returns governance parameters at specific block.
+The `itemsAt` returns governance parameters at a specific block.
 
 {% hint style="warning" %}
-`governance_itemsAt` API will be deprecated from Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+`governance_itemsAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
 Use <a href="#governance_getparams">`governance_getParams`</a> instead.
 {% endhint %}
 
