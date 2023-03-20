@@ -42,7 +42,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | `"governance.unitprice"`| `NUMBER`. Price of unit gas. e.g., `25000000000`|
 | `"governance.addvalidator"`| `ADDRESS`. Address of a new validator candidate. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
 | `"governance.removevalidator"`| `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
-| `"governance.deriveshaimpl"`| `NUMBER`. Policy to generate transaction hash and receipt hash in a block header. See [here](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) for available options. e.g., `2` (DeriveShaConcat) |
+| `"governance.deriveshaimpl"`| `NUMBER`. Policy to generate the transaction hash and receipt hash in a block header. See [here](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) for available options. e.g., `2` (DeriveShaConcat) |
 | `"governance.govparamcontract"`| `ADDRESS`. Address of GovParam contract. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
 | `"istanbul.epoch"` | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`|
 | `"istanbul.committeesize"`| `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`|
