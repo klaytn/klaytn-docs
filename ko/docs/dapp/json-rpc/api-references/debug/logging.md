@@ -138,7 +138,7 @@ The verbosity of individual packages and source files can be raised using `debug
 
 | Name  | Type   | Description                  |
 | ----- | ------ | ---------------------------- |
-| 명칭    | string | 모듈의 이름입니다.                   |
+| name | string | 모듈의 이름                       |
 | level | int    | The logging verbosity level. |
 
 **Return Value**
@@ -178,7 +178,7 @@ The verbosity of individual packages and source files can be raised using `debug
 
 | Name  | Type | Description                  |
 | ----- | ---- | ---------------------------- |
-| id    | int  | 모듈의 ID입니다.                   |
+| id    | int  | 모듈의 ID                       |
 | level | int  | The logging verbosity level. |
 
 **Return Value**
@@ -216,7 +216,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **Return Value**
 
-None
+없음.
 
 **Example**
 
@@ -228,7 +228,7 @@ Console
 > debug.vmodule("p2p/*=5")
 ```
 
-하위 디렉토리는 제외하고 특정 패키지(*예를 들어*, p2p)의 메시지로 제한하려면 아래와 같이 입력하세요.
+하위 디렉토리는 제외하고 특정 패키지(*예*, p2p)의 메시지로 제한하려면 아래와 같이 입력하세요.
 
 ```javascript
 > debug.vmodule("p2p=4")
