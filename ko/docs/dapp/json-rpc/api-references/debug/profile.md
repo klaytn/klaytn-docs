@@ -69,7 +69,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_mutexProfile <a id="debug_mutexprofile"></a>
 
-nsec (nanosecond)에 대한 뮤텍스(mutex) 프로파일링을 시작하고 파일에 프로파일 데이터를 기록합니다. It uses a profile rate of 1 for most accurate information. 다른 속도를 원하는 경우, 속도 및 프로파일을 수동으로 설정, 작성하세요.
+nsec (nanosecond)에 대한 뮤텍스(mutex) 프로파일링을 시작하고 파일에 프로파일 데이터를 기록합니다. It uses a profile rate of 1 for most accurate information. 다른 속도를 원하는 경우, 속도를 설정하고 수동으로 프로파일을 작성하세요.
 
 | Client  | Method Invocation                                              |
 |:-------:| -------------------------------------------------------------- |
@@ -235,7 +235,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startPProf <a id="debug_startpprof"></a>
 
-pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 통해 접근할 수 있습니다. (기본 설정, 즉 localhost:6060인 경우입니다.)
+pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 통해 접근할 수 있습니다. (기본 설정의 경우, localhost:6060으로 설정됩니다.)
 - http://localhost:6060/debug/pprof (pprof 결과)
 - http://localhost:6060/memsize/ (메모리 크기 리포트)
 - http://localhost:6060/debug/vars (측정 수치)
