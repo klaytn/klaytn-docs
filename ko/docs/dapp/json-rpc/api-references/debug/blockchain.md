@@ -83,9 +83,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **Return Value**
 
-| Type        | Description      |
-| ----------- | ---------------- |
-| JSON string | 덤프 상태 트라이 결과입니다. |
+| Type        | Description |
+| ----------- | ----------- |
+| JSON string | 상태 트라이 덤프값  |
 
 **Example**
 
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
-블록 번호를 기분으로 RLP 인코딩된 블록을 검색하고 반환합니다.
+블록 번호를 기준으로 RLP 인코딩된 블록을 검색하여 반환합니다.
 
 | Client  | Method Invocation                                     |
 |:-------:| ----------------------------------------------------- |
@@ -237,7 +237,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
-| hash | string | sha3 해시입니다. |
+| hash | string | sha3 해시     |
 
 **Return Value**
 
