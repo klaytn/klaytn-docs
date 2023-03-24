@@ -2,7 +2,7 @@
 
 # introduction
 
-[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for[ Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Klaytn without any significant modifications.
+[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for[Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Klaytn without any significant modifications.
 
 Thus, developers can leverage this compatibility and use the web3.js library to interact with a Klaytn node.
 
@@ -22,7 +22,7 @@ In this guide, you'll learn how to use the web3.js library to send a transaction
 
 To get started, you need to create a project directory to house the files to be created in this guide.
 
-```js
+```bash
 mkdir web3js-sample
 cd web3js-sample
 ```
@@ -31,7 +31,7 @@ cd web3js-sample
 
 To install web3.js run the following command in your terminal:
 
-```js
+```bash
 npm install web3
 ```
 
@@ -60,15 +60,15 @@ const privateKey = "Paste private key";
 
 # Reading data from the blockchain
 
-To read data from the blockchain, create a new `read.js` file in your project folder by running this command
+To read data from the blockchain, create a new `read.js` file in your project folder by running this command:
 
-```js
+```bash
 touch read.js
 ```
 
-After creating this file, initialize `web3` as done in the `initialize` section. In this section, you ll learn how to read data from the blockchain e.g blockNumber, KLAY balance. 
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you'll learn how to read data from the blockchain (e.g., blockNumber, KLAY balance). 
 
-To see this in action, paste the following code in your `read.js`
+To see this in action, paste the following code in your `read.js`.
 
 ```js
 async function getLatestBlock() {
@@ -92,7 +92,7 @@ getKlayBalance();
 
 To run the script and read data from the blockchain, you can run the following command in your terminal: 
 
-```js
+```bash
 node read.js
 ```
 
@@ -102,14 +102,14 @@ If the transaction was succesful, you'll see the block number and user’s KLAY 
 
 To send transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
 
-```js
+```bash
 touch send.js
 ```
 
 
 After creating this file, initialize `web3` as done in the `initialize` section. In this section, you ll learn how to send transaction to the blockchain e.g send KLAY to an address.
 
-To see this in action, paste the following code in your `send.js`
+To see this in action, paste the following code in your `send.js`.
 
 ```js
 const Web3 = require('web3');
@@ -151,16 +151,16 @@ If the transaction was succesful, you'll see the transaction receipt been logged
 
 To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
 
-```js
+```bash
 touch interact.js
 ```
 
-After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract.
 
-For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
+For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 
 
-To see this in action, paste the following code in your `interact.js`
+To see this in action, paste the following code in your `interact.js`.
 
 ```js
 const Web3 = require('web3');
@@ -208,8 +208,8 @@ const abi = [
     // Can replace `10` with any value you want to store
     const storeTx = contract.methods.store(10);
     
-   // send transaction to smart contract
-   // modify contract
+    // send transaction to smart contract
+    // modify contract
     async function setValue() {
         
      // Sign Tx with private key
@@ -245,7 +245,7 @@ const abi = [
 
 To run the script and interact with smart contracts, you can run the following command in your terminal: 
 
-```js
+```bash
 node interact.js
 ```
 
