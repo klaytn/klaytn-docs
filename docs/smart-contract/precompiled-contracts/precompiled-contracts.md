@@ -183,7 +183,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## Address 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../../../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -210,7 +210,7 @@ function feePayer() internal returns (address addr) {
 
 ## Address 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
+The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
 
 * The sender's address to get the public keys
 * The message hash that is used to generate the signature

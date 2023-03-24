@@ -27,7 +27,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/cypress`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-cypress.klaytn.net`|klay,eth,net|Full|
-|Fantrie|`https://cypress.fautor.app/archive`|klay,eth,net|Archive|
+||`https://archive-en.cypress.klaytn.net`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
 
@@ -37,7 +37,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/cypress/ws`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
-|Fantrie|`wss://cypress.fautor.app/archive/ws`|klay,eth,net|Archive|
+||`wss://archive-en.cypress.klaytn.net/ws`|klay,eth,net|Archive|
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
@@ -48,6 +48,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/baobab`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://api.baobab.klaytn.net:8651`|klay,eth,net|Full|
+||`https://archive-en.baobab.klaytn.net/`|klay,eth,net|Archive|
 |Fantrie|`https://baobab01.fautor.app/`|klay,eth,net|Full|
 ||`https://baobab02.fautor.app/`|klay,eth,net|Full|
 ||`https://baobab.fautor.app/archive`|klay,eth,net|Archive|
@@ -60,6 +61,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/baobab/ws`|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://api.baobab.klaytn.net:8652`|klay,eth,net|Full|
+||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
 |Fantrie|`wss://baobab01.fautor.app/ws/`|klay,eth,net|Full|
 ||`wss://baobab02.fautor.app/ws/`|klay,eth,net|Full|
 ||`wss://baobab.fautor.app/archive/ws`|klay,eth,net|Archive|
@@ -180,4 +182,21 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 * [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 * [Subscription](https://www.ankr.com/rpc/pricing/)
 * [Website](https://www.ankr.com/rpc/)
+
+### NodeReal
+
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+
+#### Features
+
+- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
+- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
+- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
+- 50 Queries Per Seconds (QPS)/method
+
+#### References
+
+* [Docs](https://docs.nodereal.io/docs/getting-started)
+* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
+* [Website](https://nodereal.io)
 

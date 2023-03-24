@@ -124,6 +124,7 @@
         * [Upgrade & Hard Fork](installation-guide/deployment/service-chain/references/upgrade-and-hard-fork.md)
       * [How-To Guides](installation-guide/deployment/service-chain/howto/README.md)
     * [Download](installation-guide/download/README.md)
+      * [v1.10.2](installation-guide/download/v1.10.2.md)
       * [v1.10.1](installation-guide/download/v1.10.1.md)
       * [v1.10.0](installation-guide/download/v1.10.0.md)
       * [v1.9.1](installation-guide/download/v1.9.1.md)
@@ -304,7 +305,7 @@
         * [Points to Note](toolkit/klaytn-safe/points.md)
         * [Frequently Asked Questions](toolkit/klaytn-safe/faqs.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
-    * [Covalent API](toolkit/covalent.md)
+   
 
 ## --- <a href="#misc" id="misc"></a>
 
