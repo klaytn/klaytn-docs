@@ -1,10 +1,10 @@
 # 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
 
-1\) `src/index.js` - Entry point of our app  
-2\) `static/index.html` - index.html  
-3\) `src/routes.js` - Contains route definition  
-4\) `src/App.js` - Root component of our app  
-5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+1. `src/index.js` - Entry point of our app
+2. `static/index.html` - index.html
+3. `src/routes.js` - Contains route definition
+4. `src/App.js` - Root component of our app
+5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
 ## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -199,7 +199,7 @@ cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON s
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'https://public-en-baobab.klaytn.net/'
 }
 
 export const cav = new Caver(config.rpcURL)
