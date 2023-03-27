@@ -29,7 +29,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1} https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -63,7 +63,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -96,7 +96,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -130,7 +130,7 @@ false
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -163,7 +163,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -197,7 +197,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -228,7 +228,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -271,8 +271,8 @@ null
 
 HTTP RPC
 ```shell
-# ローカルホストでpprofサーバーを起動するには:6060
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://api.baobab.klaytn.net:8651
+# To start the pprof server at localhost:6060
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -304,7 +304,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -337,7 +337,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -370,7 +370,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -402,6 +402,6 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
