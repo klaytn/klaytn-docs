@@ -47,7 +47,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `https://public-node-api.klaytnapi.com/v1/baobab`|klay,eth,net|Full|
-|[Klaytn Foundation](https://www.klaytn.foundation)|`https://api.baobab.klaytn.net:8651`|klay,eth,net|Full|
+|[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-baobab.klaytn.net`|klay,eth,net|Full|
 ||`https://archive-en.baobab.klaytn.net/`|klay,eth,net|Archive|
 |Fantrie|`https://baobab01.fautor.app/`|klay,eth,net|Full|
 ||`https://baobab02.fautor.app/`|klay,eth,net|Full|
@@ -60,7 +60,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
 |[Klaytn API Service](https://www.klaytnapi.com/)| `wss://public-node-api.klaytnapi.com/v1/baobab/ws`|klay,eth,net|Full|
-|[Klaytn Foundation](https://www.klaytn.foundation)|`wss://api.baobab.klaytn.net:8652`|klay,eth,net|Full|
+|[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-baobab.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
 |Fantrie|`wss://baobab01.fautor.app/ws/`|klay,eth,net|Full|
 ||`wss://baobab02.fautor.app/ws/`|klay,eth,net|Full|
