@@ -33,7 +33,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 **HTTP**
 
 ```bash
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-baobab.klaytn.net
 ```
 
 はバージョン番号を含むすべての有効なモジュールを与えます:
