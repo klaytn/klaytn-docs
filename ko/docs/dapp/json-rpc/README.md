@@ -33,7 +33,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 **HTTP**
 
 ```bash
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-baobab.klaytn.net
 ```
 
 위 명령은 버전 번호를 포함하여 모든 활성화된 모듈을 제공합니다.
