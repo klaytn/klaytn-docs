@@ -56,7 +56,6 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn API Service](https://www.klaytnapi.com/)|klay,eth,net|Full|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://api.baobab.klaytn.net:8652`|klay,eth,net|Full|
 ||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
 |Fantrie|`wss://baobab01.fautor.app/ws/`|klay,eth,net|Full|
