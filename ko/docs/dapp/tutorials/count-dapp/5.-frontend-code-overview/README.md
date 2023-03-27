@@ -1,10 +1,10 @@
 # 5. 프론트엔드 코드 개요 <a id="5-frontend-code-overview"></a>
 
-1\) `src/index.js` - Entry point of our app  
-2\) `static/index.html` - index.html  
-3\) `src/routes.js` - Contains route definition  
-4\) `src/App.js` - Root component of our app  
-5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+1. `src/index.js` - Entry point of our app
+2. `static/index.html` - index.html
+3. `src/routes.js` - Contains route definition
+4. `src/App.js` - Root component of our app
+5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
 ## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -34,7 +34,7 @@ if (module.hot) {
 
 `'index.js'` is main javascript file for our tutorial app. It is the entry point of our app.
 
-'react-dom' 라이브러리를 사용하여 컨테이너('\#root'\)에서 리액트의 구성 요소들을 DOM으로 렌더링하고 해당 컴포넌트에 대한 참조를 반환합니다. 즉 'react-dom'을 통해 튜토리얼 애플리케이션의 DOM을 `public/index.html` 파일의 `<div id="root"></div>`로 채우게 됩니다.
+It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
 
 ## 2\) `static/index.html`: <a id="2-static-index-html"></a>
 
@@ -66,9 +66,9 @@ if (module.hot) {
 </html>
 ```
 
-`index.html`은 튜토리얼 애플리케이션을 렌더링하기 위한 HTML 파일입니다.
+`index.html` is a HTML file for rendering our tutorial app.
 
-자세한 내용은 리액트 공식 사이트를 참고해주세요. [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
+For further information, visit React official site [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
@@ -93,7 +93,7 @@ export default renderRoutes
 As a root component, `'App.js'` component renders child components defined in `'route.js'` file.  
 By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.
 
-자세한 내용은 리액트 라우터의 github를 참고해주세요. [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
+For further information, visit React router github [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
 ## 4\) `src/App.js`: <a id="4-src-app-js"></a>
 
@@ -138,7 +138,7 @@ class App extends Component {
 export default App
 ```
 
-`'App.js'`는 본 튜토리얼 애플리케이션의 루트 컴포넌트입니다.
+`'App.js'` is the root component of our tutorial app.
 
 ```javascript
 render() {
@@ -181,7 +181,7 @@ Otherwise, `walletInstance` session will exist as a JSON string, if so, it attem
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
 For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#wallet-add)
 
-참고\) `walletInstance` 세션이 JSON 문자열로 저장되기 때문에 `JSON.parse`가 필요합니다.
+cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
 
 ## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
@@ -195,7 +195,7 @@ For further information related `caver.klay.accounts.wallet.add`, see [caver.kla
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'https://public-en-baobab.klaytn.net/'
 }
 
 export const cav = new Caver(config.rpcURL)
@@ -206,7 +206,7 @@ export default cav
 `caver-js` library makes a connection to a Klaytn node.  
 After the connection is made, you can get the current block number from the node and invoke contract methods.
 
-'rpcURL'에 특정 Klaytn 노드를 지정하여 연결할 수 있습니다.
+You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
 * Klaytn 풀노드를 운용 중이라면 rpcURL을 운용 중인 풀노드의 URL로 설정하세요.
 
