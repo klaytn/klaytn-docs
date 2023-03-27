@@ -31,7 +31,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -75,7 +75,7 @@ See [klay_getFilterChanges](#klay_getfilterchanges)
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -128,7 +128,7 @@ See [klay_getFilterChanges](#klay_getfilterchanges)
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -185,7 +185,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -259,7 +259,7 @@ None
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -308,7 +308,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' https://public-en-baobab.klaytn.net
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
@@ -333,7 +333,7 @@ None
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -408,7 +408,7 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' https://public-en-baobab.klaytn.net
 
 // Result
 {
