@@ -1,10 +1,10 @@
 # 5. フロントエンドコードの概要 <a id="5-frontend-code-overview"></a>
 
-1\) `src/index.js` - Entry point of our app  
-2\) `static/index.html` - index.html  
-3\) `src/routes.js` - Contains route definition  
-4\) `src/App.js` - Root component of our app  
-5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+1. `src/index.js` - Entry point of our app
+2. `static/index.html` - index.html
+3. `src/routes.js` - Contains route definition
+4. `src/App.js` - Root component of our app
+5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
 ## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -32,9 +32,9 @@ if (module.hot) {
 }
 ```
 
-`'index.js'` はチュートリアルアプリ用のメインの javascript ファイルです。 アプリのエントリポイントです。
+`'index.js'` is main javascript file for our tutorial app. It is the entry point of our app.
 
-与えられた container\('\#root'\' のDOMにReact 要素をレンダリングし、コンポーネントへの参照を返すために、'react-dom' ライブラリを使用します。 要するに、「react-dom」を通じて、チュートリアルアプリのDOMは `<div id="root"></div>` `public/index.html` ファイルに表示されます。
+It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
 
 ## 2\) `static/index.html`: <a id="2-static-index-html"></a>
 
@@ -66,9 +66,9 @@ if (module.hot) {
 </html>
 ```
 
-`index.html` はチュートリアルアプリをレンダリングするための HTML ファイルです。
+`index.html` is a HTML file for rendering our tutorial app.
 
-詳細については、React の公式サイトを参照してください [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
+For further information, visit React official site [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
@@ -140,7 +140,7 @@ class App extends Component {
 export default App
 ```
 
-`'App.js'` はチュートリアルアプリのルートコンポーネントです。
+`'App.js'` is the root component of our tutorial app.
 
 ```javascript
 render() {
@@ -185,7 +185,7 @@ Otherwise, `walletInstance` session will exist as a JSON string, if so, it attem
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
 For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#wallet-add)
 
-cf\) `JSON.parse` は `walletInstance` セッションが JSON 文字列として格納されているため必要です。
+cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
 
 ## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
@@ -199,7 +199,7 @@ cf\) `JSON.parse` は `walletInstance` セッションが JSON 文字列とし�
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'https://public-en-baobab.klaytn.net/'
 }
 
 export const cav = new Caver(config.rpcURL)
@@ -210,7 +210,7 @@ export default cav
 `caver-js` library makes a connection to a Klaytn node.  
 After the connection is made, you can get the current block number from the node and invoke contract methods.
 
-「rpcURL」で特定の Klaytn ノードに接続することができます。
+You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
 * Klaytnフルノードを実行している場合は、rpcURLをノードのURLに設定できます。
 
