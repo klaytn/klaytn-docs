@@ -125,7 +125,7 @@ KLAYを転送するトランザクションを送信するために、このフ�
 ```javascript
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://public-en-baobab.klaytn.net/')
 ```
 
 ### 6. キーストアを提供し、キーリングを作成し、Caverウォレットに追加 <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
@@ -257,7 +257,7 @@ SingleKeyring {
 ```
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function sendKLAY() {
     // Read keystore json file
