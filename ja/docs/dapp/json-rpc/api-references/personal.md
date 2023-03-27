@@ -45,10 +45,10 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}", "mypassword"],"id":1}) https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c44464378a1673ef"}
-$ curl -H "Content-Type: application/json" ---data '{"jsonr ","method":"personal_importRawKey","params":["{private key}0x000x{address}", "mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":2.0","id":1,"result":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673"}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}", "mypassword"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}0x000x{address}", "mypassword"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
 ## 個人用リストアカウント <a id="personal_listaccounts"></a>
@@ -81,8 +81,8 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":["0xd8d81f52b595cc6135177c9c34ae6130ecad46",36","0xda04fb00e2cb5745cef7d8c4464378202a167ef"]}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":["0xd8d81f52b595cc6135177c9c34ae6130ecad4636","0xda04fb00e2cb5745cef7d8c4464378202a1673ef"]}
 ```
 
 ## 個人用リストウォレット(_L) <a id="personal_listwallets"></a>
@@ -123,8 +123,8 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","status":"ロックされている","accounts":[{"accounts":"0x336010a2f91728ffe014a87ae5d8af55f310c6",",
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","status":"Locked","accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]}]}
 ```
 
 ## Personal_openWallet <a id="personal_openwallet"></a>
@@ -162,7 +162,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_openWallet","params":["keystore://", "pasphrase"],"id":1}) https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_openWallet","params":["keystore://", "passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -199,8 +199,8 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_deriveAccount","params":[url, path, pin],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcd4dae6}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_deriveAccount","params":[url, path, pin],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"}
 ```
 
 ## personal_newAccount <a id="personal_newaccount"></a>
@@ -245,8 +245,8 @@ Repeat passphrase:
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["helloWorld"],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85ae32aead06c7789d3fcd4dae6}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["helloWorld"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"}
 ```
 
 
@@ -280,7 +280,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a167ef"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -341,8 +341,8 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a167ef","mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0",","id":1,"result":true}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":true}
 ```
 
 ## personal_replaceRawKey <a id="personal_replacerawkey"></a>
@@ -381,9 +381,9 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":[]{private key}", "myoldpassword", mypassword"],"id":1}) https://api.baobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378a1673ef"}
-$ curl -H "Content-Type: application/json" --json" ","method":"personal_replaceRawKey","params":["{private key}0x000x{address}", "myoldpassword", mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}", "myoldpassword", mypassword"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}0x000x{address}", "myoldpassword", mypassword"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
@@ -422,7 +422,7 @@ HTTP RPC
 
 **注**: 関数 `klay.toPeb()` は HTTP RPCでは実行できません。
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
@@ -461,8 +461,8 @@ HTTP RPC
 
 **NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to","to":":"0xafa3f8684e54059998bc3a7b0d2b0da015475d66","value":"0x1230000000},"sphrase"],"id":1}) https://api.baab.klaynet:8651
-{
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
 ## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
@@ -500,7 +500,7 @@ HTTP RPC
 
 **NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
@@ -540,8 +540,8 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a167ef","mypassword"],"id":1}' https://apbaobab.klaytn.net:8651
-{"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3900b5e938a60800e5
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://public-en-baobab.klaytn.net
+{"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
 
 ## personal_signTransaction <a id="personal_signtransaction"></a>
@@ -599,9 +599,9 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_ecRecover","params":["0xdead","0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"],"id":1}' https://api.baobab.klaytn.net:8651
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_ecRecover","params":["0xdead","0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
