@@ -125,7 +125,7 @@ We will import the `caver-js` and `read` module and connect to a Klaytn node in 
 ```javascript
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://public-en-baobab.klaytn.net/')
 ```
 
 ### 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a> 
@@ -257,7 +257,7 @@ You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfind
 ```
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function sendKLAY() {
     // Read keystore json file
