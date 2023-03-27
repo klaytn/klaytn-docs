@@ -34,7 +34,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Klaytn Foundation](https://www.klaytn.foundation)|klay,eth,net|Full|
+|[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.cypress.klaytn.net/ws`|klay,eth,net|Archive|
 
 
