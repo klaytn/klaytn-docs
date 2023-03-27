@@ -43,7 +43,7 @@ caver-js 설치가 끝나면 이제 caver-js를 Klaytn 노드와 연결할 수 �
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+> const caver = new Caver('https://public-en-baobab.klaytn.net/')
 ```
 
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
@@ -446,7 +446,7 @@ test.js에 다음 코드를 작성하세요.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
     const version = await caver.klay.getNodeInfo()
