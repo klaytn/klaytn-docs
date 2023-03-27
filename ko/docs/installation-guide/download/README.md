@@ -1,4 +1,4 @@
-# Download <a id="download"></a>
+# 다운로드<a id="download"></a>
 
 ## 패키지 받기 <a id="get-the-packages"></a>
 CN, PN, EN, SCN, SPN 및 SEN 용 패키지를 받을 수 있습니다.
