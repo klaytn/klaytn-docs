@@ -65,7 +65,7 @@
 
 * Baobab
   * Network Name: Klaytn Baobab
-  * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
+  * New RPC URL: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
   * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
   * Chain ID: 1001
   * Currency Symbol: KLAY
