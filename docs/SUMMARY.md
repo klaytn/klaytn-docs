@@ -201,7 +201,7 @@
       * [mainbridge](dapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](dapp/json-rpc/api-references/subbridge.md)
     * [Transaction Error Codes](dapp/json-rpc/transaction-error-codes.md)
-  * [RPC Service Providers](dapp/rpc-service/README.md.md)
+  * [RPC Service Providers](dapp/rpc-service/README.md)
     * [Public Endpoints](dapp/rpc-service/public-en.md)
   * [Klaytn SDKs](dapp/sdk/README.md)
     * [caver-js](dapp/sdk/caver-js/README.md)
