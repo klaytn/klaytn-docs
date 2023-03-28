@@ -14,7 +14,7 @@ Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical 
 
 ### Public JSON-RPC Endpoint Providers
 
-Below is the list of Klaytn’s Public Node Providers and the network domains. (06.23.2022)
+Below is the list of Klaytn’s Public Node Providers and the network domains.
 
 #### Mainnet (Cypress) Public JSON-RPC Endpoints
 
