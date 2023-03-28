@@ -79,5 +79,5 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Gas price: Fixed at 250 ston
+- Gas price: dynamically adjusted within the range [25, 750]. The range can be changed via on-chain governance. For more information, refer to [governance](https://docs.klaytn.foundation/content/dapp/json-rpc/api-references/governance).
 [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
