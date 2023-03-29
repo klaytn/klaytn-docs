@@ -13,4 +13,5 @@ redirects:
   toolkit/scope: ./toolkit/klaytnscope.md
   toolkit/wallet: ./toolkit/klaytn-wallet.md
   toolkit/truffle: ./toolkit/truffle.md
+  dapp/json-rpc/public-en: ./dapp/rpc-service/public-en.md
   
