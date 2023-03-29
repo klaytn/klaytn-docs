@@ -356,7 +356,7 @@ Now that we have our Hardhat project set up let’s fork the Klaytn Mainnet usin
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
-npx hardhat node --fork https://cypress.fautor.app/archive
+npx hardhat node --fork https://archive-en.cypress.klaytn.net
 ```
 You can also configure `hardhat.config.ts` - Hardhat Network to always do this:
 
@@ -395,7 +395,7 @@ With hardhat, you can fork the mainnet at a particular block.  In that case, let
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
-npx hardhat node --fork https://cypress.fautor.app/archive --fork-block-number 105701850
+npx hardhat node --fork https://archive-en.cypress.klaytn.net --fork-block-number 105701850
 ```
 
 To confirm the forked chain at the stated block, open a new terminal window and use the following command: 
@@ -409,4 +409,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
 
 
-For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started)
+For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)
