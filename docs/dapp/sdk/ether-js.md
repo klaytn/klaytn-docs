@@ -23,8 +23,8 @@ In this guide, you'll learn how to use the ethers.js library to send a transacti
 To get started, you need to create a project directory to house the files to be created in this guide.
 
 ```bash
-mkdir ethers-sample
-cd ethers-sample
+mkdir ethers-js
+cd ethers-js
 ```
 
 ## Install ethers.js

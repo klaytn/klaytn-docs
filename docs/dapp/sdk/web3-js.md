@@ -23,8 +23,8 @@ In this guide, you'll learn how to use the web3.js library to send a transaction
 To get started, you need to create a project directory to house the files to be created in this guide.
 
 ```bash
-mkdir web3js-sample
-cd web3js-sample
+mkdir web3-js
+cd web3-js
 ```
 
 ## Install web3.js
