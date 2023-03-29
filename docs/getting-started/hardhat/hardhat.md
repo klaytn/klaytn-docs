@@ -34,7 +34,7 @@ To make use of hardhat, we need to set up our development environment and get ha
 
 **Step 1**: Create a project directory
 
-```js
+```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
@@ -43,7 +43,7 @@ cd soulbound-tokens
 
 Paste this command in your terminal to create a package.json file
 
-```js
+```bash
 npm init -y
 ```
 
@@ -51,13 +51,13 @@ npm init -y
 
 * Paste the code below in your terminal to install hardhat
 
-```js
+```bash
 npm install --save-dev hardhat
 ```
 
 * Paste the code below to install other dependencies
 
-```js
+```bash
 npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
 ```
 
@@ -68,7 +68,7 @@ npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
 
 Run the command below to initiate an hardhat project
 
-```js
+```bash
 npx hardhat
 ```
 For this guide, you'll be selecting a typescript project as seen below:
@@ -91,7 +91,7 @@ Now create your .env file in the project folder. This file helps us load environ
 
 * Paste this command in your terminal to create a .env file
 
-```js
+```bash
 touch .env
 ```
 
@@ -283,7 +283,7 @@ The tests above check the following:
 
 **Step 3**: To run your test, run the command below:
 
-```js
+```bash
 npx hardhat test test/sbtTest.ts 
 ```
 
@@ -332,7 +332,7 @@ main().catch((error) => {
 
 **Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab) 
 
-```js
+```bash
 npx hardhat run scripts/sbtDeploy.ts --network baobab
 ```
 
@@ -353,7 +353,7 @@ For this feature to work effectively, you need to connect to an archive node. Yo
 ## Forking Mainnet
 Now that we have our Hardhat project set up let’s fork the Klaytn Mainnet using Hardhat.  Open your terminal and run this command
 
-```js
+```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
 npx hardhat node --fork https://cypress.fautor.app/archive
@@ -379,7 +379,7 @@ After successfully running this command, your terminal looks like the above imag
 
 The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command: 
 
-```js
+```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
@@ -392,7 +392,7 @@ The output is an hexadecimal as seen above. To get the block number from the hex
 ## Forking at a Block
 With hardhat, you can fork the mainnet at a particular block.  In that case, let’s fork the chain at block number `105701850`.
 
-```js
+```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
 npx hardhat node --fork https://cypress.fautor.app/archive --fork-block-number 105701850
@@ -400,7 +400,7 @@ npx hardhat node --fork https://cypress.fautor.app/archive --fork-block-number 1
 
 To confirm the forked chain at the stated block, open a new terminal window and use the following command: 
 
-```js
+```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
