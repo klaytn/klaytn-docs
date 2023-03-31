@@ -5,13 +5,13 @@ description: >-
 
 # Namespace eth <a id="namespace-eth"></a>
 
-The namespace `eth` provides functions related to accounts, blocks, transactions, configurations of networks or nodes, filters, and so on.
+`eth` namespace는 계정, 블록, 트랜잭션, 네트워크 또는 노드의 환경설정, 필터 등과 관련한 함수를 제공합니다.
 
-Klaytn now supports the namespace `eth` of [Ethereum's JSON-RPC API](https://eth.wiki/json-rpc/API). Please note that some return values have been adjusted to match the Ethereum's API response body.
+이제 Klaytn은 [이더리움의 JSON-RPC API](https://eth.wiki/json-rpc/API)의 네임스페이스 `eth`를 지원합니다. 이더리움의 API 응답 본문과 일치하도록 일부 반환 값이 조정되었음을 참고하시기 바랍니다.
 
-And due to the fundamental design differences between Klaytn and Ethereum, Klaytn's data structure (Transaction, Block, and TransactionReceipt) cannot be fully supported via `eth` namespace APIs.
+또한 클레이튼과 이더리움의 근본적인 설계 차이로 인해 클레이튼의 데이터 구조(트랜잭션, 블록, 트랜잭션 영수증)는 `eth` 네임스페이스 API를 통해 완전히 지원되지 않습니다.
 
-Please check the [Differences Overview from Ethereum](#differences_overview_from_ethereum) in this document.
+해당 [이더리움과의 차이점 개요](#differences_overview_from_ethereum) 문서를 참조하세요.
 
 **NOTE**: `eth` namespace APIs are supported from Klaytn v1.8.0.
 
