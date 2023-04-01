@@ -9,13 +9,13 @@ description: >-
 
 이제 Klaytn은 [이더리움의 JSON-RPC API](https://eth.wiki/json-rpc/API)의 네임스페이스 `eth`를 지원합니다. 이더리움의 API 응답 본문과 일치하도록 일부 반환 값이 조정되었음을 참고하시기 바랍니다.
 
-또한 클레이튼과 이더리움의 근본적인 설계 차이로 인해 클레이튼의 데이터 구조(트랜잭션, 블록, 트랜잭션 영수증)는 `eth` 네임스페이스 API를 통해 완전히 지원되지 않습니다.
+또한 클레이튼과 이더리움의 근본적인 설계 차이로 인해 클레이튼의 데이터 구조(트랜잭션, 블록, 트랜잭션 영수증)는 `eth` 네임스페이스 API를 통해 완전하게 지원되지 않습니다.
 
-해당 [이더리움과의 차이점 개요](#differences_overview_from_ethereum) 문서를 참조하세요.
+본 문서에 있는 [이더리움과의 차이점 개요](#differences_overview_from_ethereum)를 확인하세요.
 
-**NOTE**: `eth` namespace APIs are supported from Klaytn v1.8.0.
+**참고**: `eth` 네임스페이스 API들은 Klaytn v1.8.0. 부터 지원됩니다.
 
-The list below enumerates the API functions. All `eth` namespace APIs are supported on Klaytn.
+아래 목록에 API 함수들이 나열되어 있습니다. 아래의 모든 `eth` 네임스페이스 API들은 Klaytn에서 지원됩니다.
 
 ### [계정(Account)](./eth/account.md) <a id="account"></a>
 - [eth_accounts](./eth/account.md#eth_accounts)
@@ -83,53 +83,53 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_submitWork](./eth/misc.md#eth_submitwork)
 - [eth_submitHashrate](./eth/misc.md#eth_submithashrate)
 
-## Differences Overview from Ethereum <a id="differences_overview_from_ethereum">
+## 이더리움과의 차이점 개요 <a id="differences_overview_from_ethereum">
 
-> Please check the [Caution](./eth/caution.md) section which describes the differences between Klaytn and Ethereum when serving eth namespace APIs in more detail.
+> eth 네임스페이스 API를 제공할 때 클레이튼과 이더리움의 차이점에 대해 더 자세히 설명하는 [주의](./eth/caution.md) 장을 확인하시기 바랍니다.
 
 ### 블록 <a id="block"></a>
 
-Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./eth/block/#eth_getHeaderByHash), [eth_getBlockByHash](./eth/block/#eth_getBlockByHash), [eth_getBlockByNumber](./eth/block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./eth/block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./eth/block/#eth_getUncleByBlockNumberAndIndex).
+관련된 APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./eth/block/#eth_getHeaderByHash), [eth_getBlockByHash](./eth/block/#eth_getBlockByHash), [eth_getBlockByNumber](./eth/block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./eth/block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./eth/block/#eth_getUncleByBlockNumberAndIndex).
 
-| 필드              | Description                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas   | This field always has the value `0x0` because Klaytn does not have a baseFeePerGas scheme.                                                                                                                                                                                                                                                                                                                                   |
-| difficulty      | This field corresponds to `blockScore` in the Klaytn header, which is fixed to `0x1`. This is because Klaytn's consensus mechanism is not based on PoW, indicating the technical concept of block difficulty is not applicable to Klaytn core.                                                                                                                                                                               |
-| extraData       | This field always has the value `0x` indicating the empty value. Owing to the fact that Klaytn's `extraData` contains consensus data such as validators addresses, validators signatures, and proposer signature, it is not applicable to `eth` namespace API.                                                                                                                                                               |
-| gasLimit        | This field always has the value `0xe8d4a50fff`(=`999999999999` in decimal), which is an arbitrary figure since Klaytn has no GasLimit. At the time of writing, this figure is 30 times higher than the [block gas limit of Ethereum](https://ethereum.org/en/developers/docs/gas/#block-size). Please refer to [Computation Cost](../../../klaytn/design/computation/computation-cost/computation-cost.md) for more details. |
-| miner           | This field returns the block proposer's address, because Klaytn's [consensus mechanism](../../../klaytn/design/consensus-mechanism.md) is [PBFT](../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance), which has a block proposer instead of miners.                                                                                                                                      |
-| mixHash         | This field always has zeroHash (`0x00...`) because Klaytn's consensus mechanism is not based on PoW.                                                                                                                                                                                                                                                                                                                         |
-| nonce           | This field always has zeroNonce (`0x00...`) because Klaytn's consensus mechanism is not based on PoW.                                                                                                                                                                                                                                                                                                                        |
-| sha3Uncles      | This field always has `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347`, which is the Keccak256 hash of the RLP-encoded bytes of the list containing empty block header because there are no uncles blocks on Klaytn.                                                                                                                                                                                     |
-| totalDifficulty | The total difficulty of the chain until the querying block.                                                                                                                                                                                                                                                                                                                                                                  |
-| uncles          | This field always has the value `[]` because there is no technical concept of uncles block in Klaytn core.                                                                                                                                                                                                                                                                                                                   |
+| 필드              | 설명                                                                                                                                                                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| baseFeePerGas   | Klaytn은 baseFeePerGas 스킴을 가지고 있지 않기 때문에, 해당 필드는 항상 `0x0` 값을 가집니다.                                                                                                                                                                                                                                 |
+| difficulty      | Klaytn 헤더에서 해당 필드는 `blockScore`에 해당하며, `0x1`로 값이 고정되어 있습니다. 이는 Klaytn의 합의 메커니즘이 작업증명을 기반으로 하지 않기 때문에, 블록 난이도라는 기술적 개념이 Klaytn 코어에 적용되지 않기 때문입니다.                                                                                                                                                  |
+| extraData       | 해당 필드는 빈 값을 나타내며 항상 `0x`를 값으로 가집니다. 클레이튼의 `extraData`에는 검증자 주소, 검증자 서명, 제안자 서명 등의 합의 데이터가 포함되어 있기 때문에, `eth` 네임스페이스 API에는 적용되지 않습니다.                                                                                                                                                              |
+| gasLimit        | Klaytn은 GasLimit이 없기 때문에 해당 필드는 임의의 숫자인 `0xe8d4a50fff`(=`999999999999` in decimal)를 값으로 가집니다. 이 수치는 [이더리움의 블록 가스 한도](https://ethereum.org/en/developers/docs/gas/#block-size)보다 30배 높은 수치입니다. 더 자세한 내용은 [계산 비용](../../../klaytn/design/computation/computation-cost/computation-cost.md)을 참조하십시오. |
+| miner           | 해당 필드는 블록 제안자의 주소를 반환합니다. 클레이튼의 [합의 메커니즘](../../../klaytn/design/consensus-mechanism.md)은 [PBFT](../../../klaytn/design/consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance)이기 때문에, 채굴자 대신 블록 제안자를 가집니다.                                                                              |
+| mixHash         | Klaytn의 합의 메커니즘은 PoW기반이 아니기 때문에, 해당 필드는 항상 zeroHash(`0x00...`)를 값으로 가집니다.                                                                                                                                                                                                                         |
+| nonce           | Klaytn의 합의 메커니즘은 PoW기반이 아니기 때문에, 해당 필드는 항상 zeroNonce(`0x00...`)를 값으로 가집니다.                                                                                                                                                                                                                        |
+| sha3Uncles      | Klaytn은 엉클블록이 없기 때문에, 해당 필드는 항상 빈 블록 헤더를 포함하는 목록의 RLP-encoded 바이트의 Keccak256해시인 `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347`를 값으로 가집니다.                                                                                                                                   |
+| totalDifficulty | 쿼리 블록까지 체인의 총 난이도입니다.                                                                                                                                                                                                                                                                             |
+| uncles          | Klaytn core에는 엉클블록에 관한 기술적 개념이 없기 때문에, 해당 필드는 항상 `[]`을 값으로 가집니다.                                                                                                                                                                                                                                  |
 
-Fields not covered here will stick to the block fields of Ethereum.
+여기서 다루지 않은 필드는 이더리움의 블록 필드에 고정됩니다.
 
 ### 트랜잭션(Transaction)<a id="transaction"></a>
 
-Related APIs: [eth_getTransactionByHash](./eth/transaction/#eth_getTransactionByHash), [eth_getTransactionByBlockHashAndIndex](./eth/transaction/#eth_getTransactionByBlockHashAndIndex), [eth_getTransactionByBlockNumberAndIndex](./eth/transaction/#eth_getTransactionByBlockNumberAndIndex), [eth_pendingTransactions](./eth/transaction/#eth_pendingTransactions).
+관련된 APIs: [eth_getTransactionByHash](./eth/transaction/#eth_getTransactionByHash), [eth_getTransactionByBlockHashAndIndex](./eth/transaction/#eth_getTransactionByBlockHashAndIndex), [eth_getTransactionByBlockNumberAndIndex](./eth/transaction/#eth_getTransactionByBlockNumberAndIndex), [eth_pendingTransactions](./eth/transaction/#eth_pendingTransactions).
 
-> Due to the fundamental design differences between Klaytn and Ethereum, Klaytn transactions cannot be fully supported via `eth` namespace APIs.
+> 클레이튼과 이더리움의 근본적인 설계 차이로 인해 클레이튼 트랜잭션은 `eth` 네임스페이스 API를 통해 완전하게 지원되지 않습니다.
 
-| Field    | Description                                                                                                                                                                                                                          |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| gasPrice | Also known as [Unit Price](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) in Klaytn's context, this value is determined in the system via the governance processes.                                         |
-| 형식       | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
+| 필드       | 설명                                                                                                                                              |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| gasPrice | Klaytn의 맥락에서는 [단가](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)로도 알려져 있으며, 해당 값은 거버넌스 프로세스를 통해 시스템에서 결정됩니다.          |
+| 형식       | Klaytn에서 `type` 은 트랜잭션 타입을 문자열로 반환하지만 (예: `"LegacyTransaction"`), 이더리움과 일치하도록 16진수로 변환되었습니다 (예: `0x0`). Klaytn에서만 유효한 트랜잭션 유형은 항상 `0x0`를 반환합니다. |
 
-Klaytn transactions can have more than one signature because Klaytn supports MultiSig (Ethereum transactions only have one signature field (= v, r, s)) even on protocol-level. In that context, fields related to signature (v, r, s) will match `tx.signatures[0].V`, `tx.signatures[0].R`, and `tx.signatures[0].S`.
+Klaytn 트랜잭션은 프로토콜 수준에서도 멀티시그(이더리움 트랜잭션은 서명 필드(= v, r, s)가 하나만 있음)를 지원하기 때문에 둘 이상의 서명을 가질 수 있습니다. 이러한 맥락에서 서명(v, r, s)과 관련된 필드는 `tx.signatures[0].V`, `tx.signatures[0].R`, `tx.signatures[0].S`와 일치합니다.
 
-Fields not covered here will stick to the transaction fields of Ethereum.
+여기서 다루지 않은 필드는 이더리움의 트랜잭션 필드에 고정됩니다.
 
 ### Transaction Receipt <a id="transaction_receipt"></a>
 
-Related APIs: [eth_getTransactionReceipt](./eth/transaction/#eth_getTransactionReceipt).
+관련된 APIs: [eth_getTransactionReceipt](./eth/transaction/#eth_getTransactionReceipt).
 
-> Due to the fundamental design differences existing between Klaytn and Ethereum, Klaytn transaction receipt cannot be fully supported when served via Ethereum namespace APIs.
+> 클레이튼과 이더리움의 근본적인 설계 차이로 인해 이더리움 네임스페이스 API를 통해 클레이튼 트랜잭션 영수증을 완전하게 지원할 수 없습니다.
 
-| Field             | Description                                                                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| effectiveGasPrice | Since Klaytn uses a fixed gas price policy, the gasPrice value is returned. gasPrice(also called [Unit Price](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)) is set in the system by the governance. |
-| transactionIndex  | Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                               |
+| 필드                | 설명                                                                                                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| effectiveGasPrice | Klaytn은 고정된 가스 가격 정책을 사용하므로, gasPrice 값을 반환합니다. gasPrice([단가](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price)라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. |
+| transactionIndex  | 거의 이더리움과 동일하지만, 이더리움과 다르게 Klaytn은 트랜잭션이 보류 중인 상태에서 그대로 정수를 반환합니다.                                                                                                     |
 
-Fields not covered here will stick to Ethereum's suggested fields of transaction_receipt.
+여기서 다루지 않은 필드는 이더리움의 권장 필드인 트랜잭션 영수증을 따릅니다.
