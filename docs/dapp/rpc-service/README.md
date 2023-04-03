@@ -18,6 +18,31 @@ KAS provides various APIs to support easier and quicker blockchain application d
 * [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 * [Website](https://www.klaytnapi.com/en/landing/main)
 
+## All That Node
+
+All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
+
+### Features
+
+- 50,000 Requests Per Day with Free Tier
+- Public Nodes & Faucets for the Ecosystem
+- Pay-As-You-Go-plan supported if you need more
+- Dedicated Nodes
+- 24+ Blockchains Supported
+- Archival Data Available
+- Websocket API Available
+- Trace/Debug API Available
+- Uptime 99.9%+
+- Load-Balancing implemented
+- Infinite Scalability
+- 24/7 Support with the Discord Community
+
+### **References**
+
+- [Docs](https://docs.allthatnode.com/)
+- [Subscription](https://www.allthatnode.com/pricing.dsrv)
+- [Website](https://www.allthatnode.com/main.dsrv)
+
 ## Tatum
 
 Tatum is the fastest way to build, test and run blockchain apps. We offer the most flexible platform for developers to turn their blockchain ideas into reality fast.
@@ -98,3 +123,20 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 * [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 * [Subscription](https://www.ankr.com/rpc/pricing/)
 * [Website](https://www.ankr.com/rpc/)
+
+## NodeReal
+
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+
+### Features
+
+- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
+- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
+- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
+- 50 Queries Per Seconds (QPS)/method
+
+### References
+
+* [Docs](https://docs.nodereal.io/docs/getting-started)
+* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
+* [Website](https://nodereal.io)
