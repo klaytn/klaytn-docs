@@ -30,7 +30,7 @@
 * Enter the Endpoint Node (EN) data of the Klaytn chain.
   * Cypress
     * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * New RPC URL: (Default: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
     * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
     * Chain ID: 8217
     * Currency Symbol: KLAY
