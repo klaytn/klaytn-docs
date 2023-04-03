@@ -30,7 +30,7 @@
 * 연결할 Klaytn 체인의 EN 정보를 입력합니다.
   * Cypress
     * 네트워크 이름: Klaytn Cypress
-    * 새 RPC URL: (기본값: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * New RPC URL: (Default: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
     * 블록 탐색기 URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
     * 체인 ID: 8217
     * 화폐 심볼: KLAY
