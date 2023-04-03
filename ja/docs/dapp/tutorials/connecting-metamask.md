@@ -30,7 +30,7 @@
 * Klaytn チェーンのエンドポイント ノード (EN) データを入力します。
   * Cypress
     * ネットワーク名: Klaytn Cypress
-    * 新しい RPC URL: (デフォルト: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * New RPC URL: (Default: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
     * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
     * チェーン ID: 8217
     * 通貨記号: KLY
