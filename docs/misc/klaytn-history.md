@@ -2,6 +2,29 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
+## KIP-103
+| ` ` | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Apr 06, 2023 04:20:20 / UTC+9 (Estimated time) | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
+| Block number  | `#119,145,600`  | `#119,750,400` |
+
+### Summary
+
+KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of [KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)
+
+
+## Kore
+| ` ` | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Jan 10, 2023 10:20:50 / UTC+9 | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
+| Block number  | `#111,736,800`  | `#119,750,400` |
+
+### Summary
+
+Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
+
+
+
 ## Magma
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
