@@ -7,6 +7,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 | --------------- | --------------- | --------------- |
 | Date | Apr 06, 2023 04:20:20 / UTC+9 (Estimated time) | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
 | Block number  | `#119,145,600`  | `#119,750,400` |
+| TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
 
 ### Summary
 
