@@ -32,7 +32,7 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 ### Summary
 
-Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
+Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
 
 
 
