@@ -7,13 +7,19 @@ This page shows all the hard forks to the Klaytn blockchain.
 | --------------- | --------------- | --------------- |
 | Date | Apr 06, 2023 04:20:20 / UTC+9 (Estimated time) | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
 | Block number  | `#119,145,600`  | `#119,750,400` |
-| TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
 
 ### Summary
 
-KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of [KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)
+KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
 
+### Treasury Rebalance
+| ` ` | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
+| KCV address | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
+| KFF address | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
+| KCF address | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 ## Kore
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
@@ -34,7 +40,7 @@ Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klayt
 
 ### Summary
 
-Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)
+Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
 ## EthTxType
 
@@ -45,7 +51,7 @@ Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klayt
 
 ### Summary
 
-Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158))
+Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
 ## London EVM
 
