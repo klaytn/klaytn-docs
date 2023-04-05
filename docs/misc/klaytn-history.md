@@ -3,6 +3,7 @@
 This page shows all the hard forks to the Klaytn blockchain.
 
 ## KIP-103
+
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
 | Date | Apr 06, 2023 04:20:20 / UTC+9 (Estimated time) | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
@@ -14,12 +15,15 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 
 ### Treasury Rebalance
+
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
 | TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
 | KCV address | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
 | KFF address | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
 | KCF address | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
+
+
 ## Kore
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
