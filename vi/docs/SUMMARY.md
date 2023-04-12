@@ -31,6 +31,7 @@
     * [KNI](klaytn/design/kni.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
 * [Getting Started](getting-started/README.md)
+  * [Deploying Smart Contract Using Foundry](getting-started/foundry/foundry.md)
   * [Deploying Smart Contract Using Hardhat](getting-started/hardhat/hardhat.md)
   * [Deploying Smart Contract Using KEN](getting-started/quick-start/README.md)
     * [Launch an Endpoint Node](getting-started/quick-start/launch-an-en.md)
