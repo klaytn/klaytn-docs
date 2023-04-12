@@ -5,9 +5,9 @@ Foundry is a smart contract development framework written in Rust that enables d
 
 Foundry consists of four main CLI tools that allow for fast and modular smart contract development, namely:
 
-* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  You can deploy, test, and compile smart contracts using Forge..
+* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  You can deploy, test, and compile smart contracts using Forge.
 * [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast has made it simple to interact with EVM smart contracts. This includes obtaining chain data, sending transactions, and other things.
-* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): Do you need to spin up a local node? Anvil is a local node environment offered by Foundry
+* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): Do you need to spin up a local node? Anvil is a local node environment offered by Foundry.
 * [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): Fast, useful, and verbose solidity REPL.
 
 In this guide, you will:
@@ -58,7 +58,7 @@ After initializing a foundry project, your current directory should include:
 # Sample smart contract 
 In this section, we will be using the sample counter contract in the initialized foundry project. The `counter.sol` file in the `src/` folder should look like this:
 
-```js
+```solidity
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 contract Counter {
@@ -78,7 +78,7 @@ This is your smart contract. **Line 1** shows it uses the Solidity version 0.8.1
 # Testing smart contract 
 Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. In our initialized foundry project, the `test/Counter.t.sol` is an example of a test written in solidity. The code looks like this:
 
-```js
+```solidity
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
@@ -221,7 +221,7 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 
 ![](./../images/foundry/cast-call-result-10.png)
 
-# Forking mainnet with cast and anvil
+# Forking Mainnet with Cast and Anvil
 Foundry allows us to fork the mainnet to a local development network ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Also, you can interact and test with contracts on a real network using [Cast](https://book.getfoundry.sh/reference/cast/).
 
 ## Getting Started
@@ -318,5 +318,5 @@ cast call $oUSDC \
 
 ![](./../images/foundry/oUsdcHolderAfter.png)
 
-For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens).
+For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/foundry).
 
