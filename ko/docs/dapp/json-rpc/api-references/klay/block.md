@@ -93,9 +93,9 @@ Returns information about a header by hash. This API works only on RPC call, not
 
 **Parameters**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 32-byte DATA | Hash of a block. |
+| Type         | Description |
+| ------------ | ----------- |
+| 32-byte DATA | 블록의 해시입니다.  |
 
 **Return Value**
 
