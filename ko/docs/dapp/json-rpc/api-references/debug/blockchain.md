@@ -519,9 +519,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **Parameters**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 20-byte DATA | Contract address |
+| Type         | Description |
+| ------------ | ----------- |
+| 20-byte DATA | 컨트랙트 주소입니다. |
 
 **Return Value**
 
