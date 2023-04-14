@@ -4,6 +4,8 @@
 
 ネットワーク性能は、ネットワーク内の最悪のハードウェア仕様に基づいて測定されます。 ブロックチェーンのネットワーク構造によれば、縦方向にスケールアップすることが可能です(ハードウェア容量を増やすこと)。 したがって、ネットワーク内のすべてのノードは、少なくともお互いに同様の仕様を持つ最高のハードウェアを持つことをお勧めします。
 
+If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Klaytn node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
+
 次のセクションでは、CNとPNの両方について推奨される仕様を示します。
 
 ### ベアメタルサーバー <a id="bare-metal-server"></a>
