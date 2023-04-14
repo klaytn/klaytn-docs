@@ -4,6 +4,8 @@
 
 The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically \(increasing hardware capacity\). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
 
+If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Klaytn node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
+
 The following sections show the recommended specifications for both CNs and PNs.
 
 ### Bare-metal Server <a id="bare-metal-server"></a>
