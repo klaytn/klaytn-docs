@@ -4,10 +4,10 @@ This page shows all the hard forks to the Klaytn blockchain.
 
 ## KIP-103
 
-| ``           | Baobab                                         | Cypress                                        |
-| ------------ | ---------------------------------------------- | ---------------------------------------------- |
-| Date         | Apr 06, 2023 04:20:20 / UTC+9 (Estimated time) | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
-| Block number | `#119,145,600`                                 | `#119,750,400`                                 |
+| ``           | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Apr 06, 2023 04:25:03 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
+| Block number | `#119,145,600`                | `#119,750,400`                |
 
 ### Summary
 
@@ -25,10 +25,10 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 
 ## Kore
-| ``           | Baobab                        | Cypress                                        |
-| ------------ | ----------------------------- | ---------------------------------------------- |
-| Date         | Jan 10, 2023 10:20:50 / UTC+9 | Apr 17, 2023 01:01:00 / UTC+9 (Estimated time) |
-| Block number | `#111,736,800`                | `#119,750,400`                                 |
+| ``           | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Jan 10, 2023 10:20:50 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
+| Block number | `#111,736,800`                | `#119,750,400`                |
 
 ### Summary
 
