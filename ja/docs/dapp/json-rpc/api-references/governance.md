@@ -30,25 +30,28 @@ Klaytnには3つの異なるガバナンスモードがあります。
 - `Key` : 変更する設定の名前。 キーは `domain.field` のフォームを持っています
 - `値` : 各キーの値の種類。
 
-| キー                                  | Description                                                                                                                        |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.goverancemode"`        | `STRING`. 三つのガバナンスモードの一つ。 `"none"`, `"single"`, `"ballot"`                                                                         |
-| `"governance.governingnode"`        | `アドレス`. 指定された管理ノードのアドレス。 ガバナンスモードが `"single"` などの場合にのみ動作します。`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                         |
-| `"governance.unitprice"`            | `NUMBER`. ユニットガスの価格。 例えば、 `25000000000`                                                                                            |
-| `"governance.addvalidator"`         | `ADDRESS`. 新しいバリデータ候補のアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                     |
-| `"governance.removevalidator"`      | `ADDRESS`. 削除する必要がある現在のバリデータのアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                              |
-| `"istanbul.epoch"`                  | `NUMBER`. 投票がブロックに集められる期間。 エポックが終了すると、まだ合格していないすべての投票がクリアされます。 例： `86400`                                                          |
-| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a commitage.(`sub` in chain configuration) e. `7`                                            |
-| `"reward.mintingamount"`            | `STRING`. ブロックが生成されたときに生成されるペブの量。 値には二重引用符が必要です。 例えば、 `"960000000000000"`                                                          |
-| `"reward.ratio"`                    | `STRING`. CN/KGF/KIR の分布率は `"/"` で区切られています。 すべての値の合計は `100` でなければなりません。 例えば、 `"50/40/10"` は CN 50%、KGF 40%、KIR 10% を意味します          |
-| `"reward.useginicoeff"`             | `BOOL`. ジニ係数を使用するかどうか。 `true`, `false`                                                                                             |
-| `"reward.deferredtxfee"`            | `BOOL`. 提案者に取引手数料を与える方法。 trueの場合、tx手数料がブロック報酬と合計され、提案者、KIR、KGFに配布されることを意味します。 そうでない場合は、すべてのtx手数料が提案者に与えられます。 `true`, `false`       |
-| `"reward.minimumstake"`             | `STRING`. Klay の量は CN (コンセンサスノード) である必要があります。 Double quotation marks are needed for a value. 例: `"5000000"`                        |
-| `"kip71.lowerboundbasefee"`         | `NUMBER`. 最低限の基本料金。 See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. e.g., `25000000000` |
-| `"kip71.upperboundbasefee"`         | `NUMBER`. 可能な限り最高の基本料金。 例: `750000000000`                                                                                          |
-| `"kip71.gastarget"`                 | `NUMBER`. 基本料金が達成したいブロックガス。 親ブロックにガスターゲット以上のものが含まれている場合は基本料金が増加し、親ブロックにガスターゲット以下のものが含まれている場合は減少します。 例えば、 `3000万`                   |
-| `"kip71.basefeedenominator"`        | `NUMBER`. 基本手数料の変更速度を制御します。 例: `20`                                                                                                |
-| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. 基本料金計算で認識される最大ブロックガス。 例えば、 `60000000`                                                                                    |
+| キー                                  | Description                                                                                                                                                                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.goverancemode"`        | `STRING`. 三つのガバナンスモードの一つ。 `"none"`, `"single"`, `"ballot"`                                                                                                                                                                                                                                        |
+| `"governance.governingnode"`        | `アドレス`. 指定された管理ノードのアドレス。 ガバナンスモードが `"single"` などの場合にのみ動作します。`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                                                                                                                        |
+| `"governance.unitprice"`            | `NUMBER`. ユニットガスの価格。 例えば、 `25000000000`                                                                                                                                                                                                                                                           |
+| `"governance.addvalidator"`         | `ADDRESS`. 新しいバリデータ候補のアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                    |
+| `"governance.removevalidator"`      | `ADDRESS`. 削除する必要がある現在のバリデータのアドレス。 e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                             |
+| `"governance.deriveshaimpl"`        | `NUMBER`. Policy to generate the transaction hash and receipt hash in a block header. See [here](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) for available options. e.g., `2` (DeriveShaConcat)                                                             |
+| `"governance.govparamcontract"`     | `ADDRESS`. Address of the GovParam contract. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                   |
+| `"istanbul.epoch"`                  | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                                                                                   |
+| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                                                                        |
+| `"reward.mintingamount"`            | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                                                                            |
+| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                                                                                       |
+| `"reward.kip82ratio"`               | `STRING`. Distribution ratio of the block proposer to stakers separated by `"/"`. The sum of all values has to be `"100"`. See [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) for further details. e.g., `"20/80"` means that the proposer takes 20% while stakers take 80%. |
+| `"reward.useginicoeff"`             | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                                                                          |
+| `"reward.deferredtxfee"`            | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`                                                         |
+| `"reward.minimumstake"`             | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                                                                                   |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. e.g., `25000000000`                                                                                                                                            |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                                                                                                     |
+| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000`                                                                                   |
+| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                                                                                                          |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                                                                                                               |
 
 
 **Return Value**
@@ -211,10 +214,78 @@ None
 
 ```
 
+## governance_getChainConfig <a id="governance_getchainconfig"></a>
+
+The `getChainConfig` returns the chain configuration at a specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
+
+| Type | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
+
+**Example**
+
+```javascript
+> governance.getChainConfig()
+{
+  chainId: 1001,
+  deriveShaImpl: 0,
+  ethTxTypeCompatibleBlock: 86513895,
+  governance: {
+    govParamContract: "0x84214cec245d752a9f2faf355b59ddf7f58a6edb",
+    governanceMode: "single",
+    governingNode: "0x99fb17d324fa0e07f23b49d09028ac0919414db6",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
+    reward: {
+      deferredTxFee: true,
+      kip82ratio: "20/80",
+      minimumStake: 5000000,
+      mintingAmount: 6400000000000000000,
+      proposerUpdateInterval: 3600,
+      ratio: "50/40/10",
+      stakingUpdateInterval: 86400,
+      useGiniCoeff: true
+    }
+  },
+  istanbul: {
+    epoch: 604800,
+    policy: 2,
+    sub: 22
+  },
+  istanbulCompatibleBlock: 75373312,
+  koreCompatibleBlock: 111736800,
+  londonCompatibleBlock: 80295291,
+  magmaCompatibleBlock: 98347376,
+  unitPrice: 250000000000
+}
+```
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
 The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+
+{% hint style="warning" %}
+`governance_chainConfig` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
+
+NOTE: the RPC API will be deprecated since v1.11. However, the `governance.chainConfig` property in the Klaytn JavaScript console is removed since Klaytn v1.10.2.
+{% endhint %}
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration. However, due to its confusing name, it is updated since Klaytn v1.10.0. To query the initial chain configuration, use `chainConfigAt(0)` instead.
@@ -226,9 +297,9 @@ None
 
 **Return Value**
 
-| Type | Description |
-| ---- | ----------- |
-| JSON | 現在のチェーン構成   |
+| Type | Description                 |
+| ---- | --------------------------- |
+| JSON | Current chain configuration |
 
 **Example**
 
@@ -274,13 +345,21 @@ None
 
 ## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-The `chainConfigAt` returns the chain configuration at specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+The `chainConfigAt` returns the chain configuration at a specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+{% hint style="warning" %}
+`governance_chainConfigAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
+{% endhint %}
 
 **Parameters**
 
 | Type                | Description                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
 
 **Return Value**
 
@@ -351,9 +430,62 @@ None
 "0xe733cb4d279da696f30d470f8c04decb54fcb0d2"
 ```
 
+## governance_getParams <a id="governance_getparams"></a>
+
+The `getParams` returns governance parameters at a specific block.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
+
+| Type | Description           |
+| ---- | --------------------- |
+| JSON | governance parameters |
+
+**Example**
+
+```javascript
+> governance.getParams(89)
+{
+  governance.deriveshaimpl: 2,
+  governance.governancemode: "single",
+  governance.governingnode: "0x99fb17d324fa0e07f23b49d09028ac0919414db6",
+  governance.govparamcontract: "0x0000000000000000000000000000000000000000",
+  governance.unitprice: 25000000000,
+  istanbul.committeesize: 22,
+  istanbul.epoch: 604800,
+  istanbul.policy: 2,
+  kip71.basefeedenominator: 20,
+  kip71.gastarget: 30000000,
+  kip71.lowerboundbasefee: 25000000000,
+  kip71.maxblockgasusedforbasefee: 60000000,
+  kip71.upperboundbasefee: 750000000000,
+  reward.deferredtxfee: true,
+  reward.kip82ratio: "20/80",
+  reward.minimumstake: "5000000",
+  reward.mintingamount: "9600000000000000000",
+  reward.proposerupdateinterval: 3600,
+  reward.ratio: "34/54/12",
+  reward.stakingupdateinterval: 86400,
+  reward.useginicoeff: true
+}
+```
+
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+The `itemsAt` returns governance parameters at a specific block.
+
+{% hint style="warning" %}
+`governance_itemsAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getparams">`governance_getParams`</a> instead.
+{% endhint %}
 
 **Parameters**
 
@@ -365,7 +497,11 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**Return Value**x
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
 
 | Type | Description      |
 | ---- | ---------------- |
@@ -376,8 +512,10 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 ```javascript
 > governance.itemsAt(89)
 {
+  governance.deriveshaimpl: 2,
   governance.governancemode: "single",
   governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
+  governance.govparamcontract: "0x0000000000000000000000000000000000000000",
   governance.unitprice: 25000000000,
   istanbul.committeesize: 13,
   istanbul.epoch: 30,
@@ -388,6 +526,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
   kip71.maxblockgasusedforbasefee: 60000000,
   kip71.upperboundbasefee: 750000000000,
   reward.deferredtxfee: true,
+  reward.kip82ratio: "20/80",
   reward.minimumstake: "5000000",
   reward.mintingamount: "9600000000000000000",
   reward.proposerupdateinterval: 30,
@@ -396,6 +535,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
   reward.useginicoeff: true
 }
 ```
+
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
 The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
