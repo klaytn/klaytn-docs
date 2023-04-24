@@ -88,7 +88,7 @@ The machine can execute exception code for several reasons, including stack unde
 
 ### Fees Overview <a id="fees-overview"></a>
 
-Fees \(denominated in gas\) are charged under three distinct circumstances. Sometimes, some policies may be omitted.
+Fees \(denominated in gas\) are charged under three distinct circumstances.
 * The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
 * Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
 * Finally, gas may be charged due to an increase in memory usage.
