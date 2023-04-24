@@ -3,9 +3,9 @@
 {% hint style="success" %}
 NOTE: KLVM has changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
 
-`Kore` hardfork block number is as follows.
-* Baobab Testnet: please refer to this [link](https://github.com/klaytn/klaytn/blob/dev/params/config.go#L79)
-* Cypress Mainnet: please refer to this [link](https://github.com/klaytn/klaytn/blob/dev/params/config.go#L49)
+`Kore` hardfork block numbers are as follows.
+* Baobab Testnet: `#111736800`
+* Cypress Mainnet: `#119750400`
 {% endhint %}
 
 ## Overview <a id="overview"></a>
