@@ -81,7 +81,7 @@ IntrinsicGasCost = TxTypedGas + KeyCreationGas + PayloadGas
 | Fail | 0 |
 | Public | GasCreationPerKey (20000) |
 | MultiSig | (number of keys) x GasCreationPerKey |
-| RoleBased | Gas fee calculated based on keys in each role. |
+| RoleBased | Gas fee calculated based on keys in each role. </br> For example, </br> * GasRoleTransaction = \(number of this role keys\) * GasCreationPerKey </br> * GasRoleAccountUpdate = \(number of this role keys\) * GasCreationPerKey </br> * GasRoleFeePayer = \(number of this role keys\) \* GasCreationPerKey|
 
 There are three kinds of the klaytn's transaction type; `base type`, `fee-delegated type`, and `fee-delegatedWithFeeRatio type`.
 For example, the kind of the `valueTransfer` txType is a `base type`. Then, the kind of the `valueTransferFeeDelegated` txType is `fee-delegated type` and the kind of the `valueTransferFeeDelegatedWithRatio` is `fee-delegatedDelegatedWithRatio`.
