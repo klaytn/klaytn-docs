@@ -92,7 +92,6 @@ The intrinsic gas cost of the base type is calculated based on the following tab
 | LegacyTransaction | if it creates contract: </br>-> TxGas (21000) </br> if it does not create contract: </br> -> TxGasContractCreation (53000) | X | O |
 | ValueTransfer | TxGas | X | X |
 | ValueTransferMemo | TxGas | X | O |
-| AccountCreation | TxGas | O | X |
 | AccountUpdate | TxGas | O | X |
 | SmartContractDeploy | TxGasContractCreation | X | O |
 | SmartContractExecution | TxGas | X | O |
