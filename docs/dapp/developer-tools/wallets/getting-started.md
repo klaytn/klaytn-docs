@@ -7,7 +7,8 @@ Wallets on Klaytn allows for access to accounts controlled by private keys, thus
 
 | Wallet      | Custody |     Account Type        |  Platforms            |    Multi-sig         |        Browser Extension     |      NFT       |   Bridge Support          |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| [1inch](https://1inch.io/wallet/)      | Non-custodial       |  EOA           | Mobile            |      No       |      No       |  Support           |      Yes       |
+| [1inch](https://1inch.io/wallet/)      | Non-custodial       |  EOA           | Mobile            |      No       |      Yes       |  Support           |      No       |
+| [ABC Wallets](https://myabcwallet.io/en/)      | Non-custodial       |  EOA           | Mobile, Browser           |      No       |      No       |  Support           |      Yes       |
 | [Alpha Wallet](https://alphawallet.com/)   | Non-custodial        |  EOA           |   Broswer, Mobile, API-SDK          |    No         |       No     |   Support          |     Yes        |
 | [Bit2Me](https://bit2me.com/suite/wallet-klaytn)   | Non-custodial        |  EOA           |  Mobile, Web App           |      No       |      No       |    No         |    No         |
 | [BitKeep](https://bitkeep.com/)   | Non-custodial        |   EOA          |      Browser, Mobile, Desktop       |    No         |    Yes         |   Support          |    Yes         |
