@@ -11,7 +11,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 # Prerequisite
 
 * A working react project (npx create-react-app project-name)
-* Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)). 
+* Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 
@@ -62,7 +62,7 @@ const providerOptions = {
     package: CoinbaseWalletSDK, // required
     options: {
       appName: "Web3Modal Klaytn dApp", // required
-      infuraId: “NFURA_KEY”, // required
+      infuraId: "NFURA_KEY", // required
       rpc: "https://klaytn-mainnet-rpc.allthatnode.com:8551", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
@@ -94,7 +94,7 @@ const  web3Modal = new Web3Modal( {
 
 # Establishing Wallet Connection
 
-To establish a connection to the user’s wallet, call the **connect()** method on the Web3Modal instance. We recommend you to wrap this operation around an async function and store the retrieved provider in your state to reuse throughout the app.
+To establish a connection to the user’s wallet, call the `connect()` method on the Web3Modal instance. We recommend you to wrap this operation around an async function and store the retrieved provider in your state to reuse throughout the app.
 
 ```js
 import { ethers } from 'ethers';
@@ -102,7 +102,6 @@ import { useState } from 'react';
 
 function App() {
   const [provider, setProvider] = useState();
-  const [library, setLibrary] = useState();
 
   const connectWallet = async () => {
     try {
@@ -131,7 +130,7 @@ function App() {
 
 # Setting up Utils function
 
-In this guide, we will be making use of the utils functions such as **truncateAddress()** and **toHex()**. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. While the toHex() function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. While the toHex() function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
 
 **Step 1**: Create a `utils.js` file in the `src` root folder.
 
@@ -176,11 +175,12 @@ const connectWallet = async () => {
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3ModalProvider);
 
-    const accounts = await library.listAccounts();
-    const network = await library.getNetwork();
+    const accounts = await ethersProvider.listAccounts();
+    const network = await ethersProvider.getNetwork();
+
     setProvider(provider);
     if (accounts) setAccount(accounts[0]);
-     setChainId(network.chainId.toString());
+    setChainId(network.chainId.toString());
   } catch (error) {
     console.error(error);
   }
@@ -196,7 +196,7 @@ return (
 ```
 # Disconnecting Wallet
 
-Disconnecting from the wallet is achieved by using the **clearCachedProvider()** method on the web3Modal instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
+Disconnecting from the wallet is achieved by using the `clearCachedProvider()` method on the web3Modal instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
 
 ```js
 function App() {
@@ -296,7 +296,7 @@ return (
 
 # Signing Messages
 
-Having initialised the provider and signer object, users can sign arbitrary string. 
+Having initialised the provider and signer object, users can sign an arbitrary string. 
 
 ```js
  // add to the existing useState hook.
@@ -367,11 +367,11 @@ return (
 );
 ```
 
-# Working with smart contract
+# Working with a smart contract
 
-With the web3Auth provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
+With the Web3Modal provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
 
-1. **Write to Contract**
+1. **Writing to a Contract**
 
 ```js
 // add to existing useState hook
@@ -456,7 +456,7 @@ return (
 )
 ```
 
-2. **Read from contract**
+2. **Reading from a contract**
 
 ```js
 // add to existing useState hook
@@ -517,10 +517,9 @@ return (
      // paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C"; 
   
-    // const contract = new Contract(contractAddress, contractABI, provider);
     const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
   
-    // Read message from smart contract
+    // Reading a message from the smart contract
     const contractMessage = await contract.retrieve();
     setContractMessage(contractMessage.toString())
   }
@@ -559,7 +558,7 @@ This occurs when you install Klip-web3-provider.  To fix this issue,  follow the
 2. **Polyfill node core module error**
 
 ```js
-BREAKING CHANGE: webpack<5 used to include polyfills for node.js core modules by default.
+BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
 

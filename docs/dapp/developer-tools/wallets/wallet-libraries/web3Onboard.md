@@ -4,7 +4,7 @@
 
 # Introduction
 
-Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
+Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3-Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
 
 In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Klaytn Network.
 
@@ -17,7 +17,7 @@ In this guide, you will use Web3-Onboard library to integrate multiple wallets (
 
 # Getting Started
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3Onboard into your dApp built on Klaytn Network.
+Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Klaytn Network.
 
 # Setting up Onboard and Wallet Modules
 
@@ -113,7 +113,7 @@ const onboard = Onboard({
 
 # Setting up Utils function
 
-In this guide, we will be making use of the utils functions such as **truncateAddress()** and **toHex()**. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. While the toHex() function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. While the toHex() function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
 
 **Step 1**: Create a `utils.js` file in the `src` root folder.
 
@@ -136,12 +136,12 @@ export const truncateAddress = (address) => {
 ```
 **Step 2**: Import the functions in your `App.js` file.
 
-```bash
+```js
 import { truncateAddress, toHex } from "./utils";
 ```
 # Connecting Wallet
 
-Inside your App function in your `App.js` file, call the **connectWallet()** method on the onboard instance to initiate the onboard popup modal.
+Inside your App function in your `App.js` file, call the `connectWallet()` method on the onboard instance to initiate the onboard popup modal.
 
 ```js
 function App() {
@@ -165,7 +165,7 @@ Once you click your Connect Wallet button, you should see a modal that allows yo
 ![](../../images/web3-Onboard.png)
 
 # Disconnecting Wallet
-Disconnecting a connected wallet can be achieved by calling the **disconnectWallet()** method on the onboard instance along with the label of the user's primary wallet. Also, one good practice is to refresh the state to clear any previously stored connection data.
+Disconnecting a connected wallet can be achieved by calling the `disconnectWallet()` method on the onboard instance along with the label of the user's primary wallet. Also, one good practice is to refresh the state to clear any previously stored connection data.
 
 ```js
 function App() {
@@ -474,7 +474,7 @@ With the Web3-Onboard provider and signer object, you can make contract interact
 **Polyfill node core module error**
 
 ```js
-BREAKING CHANGE: webpack<5 used to include polyfills for node.js core modules by default.
+BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
