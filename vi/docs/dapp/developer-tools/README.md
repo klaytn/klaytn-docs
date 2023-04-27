@@ -3,7 +3,7 @@ description: >-
   This page contains the list of development tools to help you build Decentralized Applications on Klaytn.
 ---
 
-# Developer Tools <a id="developer-tools"></a>
+# Công cụ dành cho nhà phát triển <a id="developer-tools"></a>
 
 #### Kaikas <a id="kaikas"></a>
 
