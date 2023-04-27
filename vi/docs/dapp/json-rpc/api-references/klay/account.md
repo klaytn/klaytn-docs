@@ -4,7 +4,7 @@ Returns `true` if the account associated with the address is created. It returns
 
 **Parameters**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
+| Tên                  | Type                            | Description                                                                                                                                                                            |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account              | 20-byte DATA                    | Address                                                                                                                                                                                |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
