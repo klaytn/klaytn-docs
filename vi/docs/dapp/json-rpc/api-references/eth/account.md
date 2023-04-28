@@ -1,24 +1,24 @@
 ## eth_accounts <a id="eth_accounts"></a>
 
-Returns a list of addresses owned by client.
+Trả về danh sách các địa chỉ thuộc sở hữu của khách hàng.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type                  | Description                    |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
+| Loại                  | Mô tả                                    |
+| --------------------- | ---------------------------------------- |
+| Chuỗi DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của khách hàng. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -29,14 +29,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBalance <a id="eth_getbalance"></a>
 
-Returns the balance of the account of given address.
+Trả về số dư tài khoản của địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                   | Loại                            | Mô tả                                                                                                                                                                                  |
+| --------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ               | DỮ LIỆU 20 byte                 | Địa chỉ để kiểm tra số dư.                                                                                                                                                             |
+| số chuỗi hoặc hàm băm | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 
