@@ -1,21 +1,21 @@
 ## klay_accountCreated <a id="klay_accountcreated"></a>
 
-Returns `true` if the account associated with the address is created. It returns `false` otherwise.
+Trả về `true` nếu tài khoản được liên kết với địa chỉ được tạo. It returns `false` otherwise.
 
-**Parameters**
+**Các tham số**
 
-| Tên                  | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20-byte DATA                    | Address                                                                                                                                                                                |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                  | Loại                              | Mô tả                                                                                                                                                                               |
+| -------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tài khoản            | 20-byte DATA                       | Địa chỉ                                                                                                                                                                             |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả lại**
 
-| Type    | Description                       |
+| Loại   | Mô tả                             |
 | ------- | --------------------------------- |
 | Boolean | The existence of an input address |
 
