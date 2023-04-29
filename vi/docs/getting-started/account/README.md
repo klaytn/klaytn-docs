@@ -1,75 +1,72 @@
-# Account Management <a id="account-management"></a>
+# Quản lý tài khoản <a id="account-management"></a>
 
-**`WARNING`**: Remember your password. If you lose the password of your account, you will not be able to access that account. **There is no** _**forgot my password**_ **option here. Never forget it.**
+**`CẢNH BÁO`**: Hãy ghi nhớ mật khẩu của nj. Nếu bạn quên mật khẩu của tài khoản, bạn sẽ không thể truy cập tài khoản đó nữa. **Không có**_**tùy chọn quên mật khẩu**_ **ở đây. Đừng bao giờ quên mật khẩu. **
 
-Klaytn provides two handy command-line tools, `ken` and `JavaScript console`, for developers to manage accounts. Note that exporting your private key in an unencrypted format is NOT supported.
+Klaytn cung cấp hai công cụ tạo dòng lệnh hữu ích, `ken` và `bảng điều khiển JavaScript`, để các nhà phát triển có thể quản lý tài khoản. Lưu ý rằng chúng tôi KHÔNG hỗ trợ việc xuất khóa riêng tư của bạn dưới định dạng không được mã hóa.
 
 ## ken <a id="ken"></a>
 
-The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. The command `account` lets you create new accounts, lists all existing accounts, imports a private key into a new account, migrates to the newest key format, and changes your password.
+Mã nhị phân nút điểm cuối Klaytn `ken` cung cấp khả năng quản lý tài khoản thông qua lệnh `account`. Lệnh `account` cho phép bạn tạo ra các tài khoản mới, liệt kê tất cả các tài khoản hiện có, nhập một khóa riêng tư vào một tài khoản mới, chuyển sang định dạng khóa mới nhất và thay đổi mật khẩu của bạn.
 
-### Usage <a id="usage"></a>
+### Sử dụng <a id="usage"></a>
 
 ```bash
 $ ken account <command> [options...] [arguments...]
 ```
 
-**Commands**
+**Lệnh**
 
 ```bash
-$ ken account -help
-...
-COMMANDS:
-     list    Print summary of existing accounts
-     new     Create a new account
-     update  Update an existing account
-     import  Import a private key into a new account
-...
+$ ken account -help...
+CÁC LỆNH:
+     list    In tóm tắt về các tài khoản hiện có
+     new     Tạo một tài khoản mới
+     update  Cập nhật một tài khoản hiện có
+     import  Nhập một khóa riêng tư vào một tài khoản mới...
 ```
 
-You can get info about subcommands by `ken account <command> --help`.
+Bạn có thể nhận thông tin về các lệnh con từ trợ giúp</code> của `tài khoản ken&lt;command&gt;.</p>
 
-```text
-$ ken account list --help
-list [command options] [arguments...]
+<pre><code class="text">$ danh sách tài khoản ken --danh sách
+trợ giúp [các tùy chọn lệnh] [arguments...]
 
-Print a short summary of all accounts
+In một danh sách ngắn liệt kê toàn bộ các tài khoản
 
-KLAY OPTIONS:
-  --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
-  --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
-  --keystore                            Directory for the keystore (default = inside the datadir)
+TÙY CHỌN KLAY:
+  --dbtype value                        Loại cơ sở dữ liệu lưu trữ chuỗi khối ("leveldb", "badger") (default: "leveldb")
+  --datadir "/Users/ethan/Library/KEN"  Thư mục dữ liệu dành cho cơ sở dữ liệu và kho khóa
+  --keystore                            Thư mục dành cho kho khóa (mặc định = bên trong datadir)
 
-DATABASE OPTIONS:
-  --db.no-partitioning  Disable partitioned databases for persistent storage
-```
+TÙY CHỌN CƠ SỞ DỮ LIỆU:
+  --db.no-partitioning  Vô hiệu hóa cơ sở dữ liệu được phân vùng để lưu trữ liên tục
+`</pre>
 
-### Data Directory <a id="data-directory"></a>
+### Danh mục dữ liệu <a id="data-directory"></a>
 
-Keystore files are stored under `<DATADIR>/keystore`. You can specify the data directory as below. It is highly recommended to execute `ken account` command with `--datadir` option. Make the data directory point to the `DATA_DIR` set in the `kend.conf` to seamlessly share the accounts with your Endpoint Node.
+Các tập tin kho khóa được lưu trữ dưới `<DATADIR>/kho khóa`. Bạn có thể chỉ định thư mục dữ liệu như dưới đây. Chúng tôi khuyên bạn nên thực thi lệnh `tài khoản ken` với tùy chọn `--datadir`. Chỉ dẫn thư mục dữ liệu tới `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
 
 ```bash
-$ ken account new --datadir <DATADIR>
-$ ken account new --datadir "~/kend_home"
+$ tài khoản ken mới --datadir <DATADIR>
+$ tài khoản ken mới --datadir "~/kend_home"
 ```
 
-If you do not specify the data directory, the default location is as follows.
+Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định là nhu sau.
 
 * Mac: `~/Library/KEN`
 * Linux: `~/.ken`
 
-## JavaScript Console <a id="javascript-console"></a>
+## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../quick-start/launch-an-en.md). Start an EN and attach to the console as follows.
+Để điều khiển bảng điều khiển JavaScript, EN phải có trạng thái đang chạy. Để biết thêm thông tin, hãy xem [Khởi chạy một EN](../quick-start/launch-an-en.md). Khởi chạy một EN và đính kèm vào bảng điều khiển như dưới đây.
 
-### Usage <a id="usage"></a>
+### Sử dụng <a id="usage"></a>
 
 ```bash
 $ kend start
-Starting kend: OK
+Đang bắt đầu kend: OK
 
 $ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển JavaScript của Klaytn!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
@@ -78,7 +75,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-**Commands**
+**Lệnh**
 
 Type `personal` or `klay` to get the list of available functions. In this tutorial, we are going to visit the following functions.
 
