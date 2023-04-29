@@ -1,17 +1,17 @@
-# Development Environment
+# Môi trường phát triển
 
-**Klaytn Networks**
+**Mạng lưới Klaytn**
 
-* Baobab testnet
-* Cypress mainnet
+* Mạng thử nghiệm Baobab
+* Mạng lưới chính thức Cypress
 
-**Endpoint Node**
+**Nút điểm cuối**
 
-* You [Endpoint Node](../installation-guide/deployment/endpoint-node/README.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
-* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../installation-guide/deployment/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../dapp/json-rpc/). `ken` runs on Linux and MacOS.
-* `ken` CLI comes with several utility and node management functions.
+* Bạn cần có [Nút điểm cuối](../installation-guide/deployment/endpoint-node/README.md) để kết nối với mạng lưới Klaytn và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
+* `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` hiển thị hai giao dịch, [giao diện dòng lệnh](../installation-guide/deployment/endpoint-node/ken-cli-commands.md) và [JSON-RPC API](../dapp/json-rpc/). `ken` chạy trên Linux và MacOS.
+* `ken` CLI đi kèm với một số chức năng quản lý nút và tiện ích.
 
-**Smart Contract Development**
+**Phát triển hợp đồng thông minh**
 
 * [Klaytn Plugin for Remix](https://ide.klaytn.foundation) - Klaytn Plugin for Remix, a browser-based compiler and IDE.
 * [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
