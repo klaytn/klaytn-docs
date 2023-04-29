@@ -78,16 +78,16 @@ $ ln -s node_modules/truffle/build/cli.bundled.js truffle
 $ export PATH=`pwd`:$PATH
 ```
 
-## Installing vvisp <a id="installing-vvisp"></a>
+## Đang cài đặt vvisp <a id="installing-vvisp"></a>
 
-vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by [HEACHI LABS](https://henesis.io/). You can easily set environment, deploy and execute Klaytn smart contracts with a single-command. It supports the Truffle framework, so developers familiar with Truffle can use vvisp without difficulty.
+vvisp là một công cụ/khung làm việc cli dễ sử dụng để phát triển các hợp đồng thông minh, được cung cấp bởi [HEACHI LABS](https://henesis.io/). Bạn có thể dễ dàng đặt môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ khung làm việc Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể sử dụng vvisp mà không gặp khó khăn gì.
 
-Here, we introduce how to install vvisp and use it to set up the Klaytn dApp development environment.
+Ở đây, chúng tôi giới thiệu cách để cài đặt vvisp và dùng nó để thiết lập môi trường phát triển Klaytn dApp.
 
-* vvisp repository - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)​
-* vvisp document - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)​
+* kho vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+* tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
-vvisp can be easily installed if you have npm or yarn by executing the following command:
+vvisp có thể dễ dàng được cài đặt nếu bạn có npm hoặc yarn bằng cách thực thi lệnh sau:
 
 ```bash
 $ npm install -g @haechi-labs/vvisp
@@ -95,7 +95,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-Upon installation, you can utilize the vvisp command to ensure it has been installed properly. **NOTE**: You should use version over **v2.1.0**.
+Khi cài đặt xong, bạn có thể sử dụng lệnh vvisp để đảm bảo nó đã được cài đặt đúng cách. **LƯU Ý**: Bạn nên sử dụng phiên bản cao hơn **v2.1.0**.
 
 ```bash
 $ vvisp
