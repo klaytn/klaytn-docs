@@ -1,35 +1,35 @@
-# Blockchain Inspection <a id="blockchain-inspection"></a>
+# Kiểm soát Chuỗi khối <a id="blockchain-inspection"></a>
 
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
-Retrieves the state that corresponds to the block number and returns a list of accounts (including storage and code).
+Truy xuất trạng thái tương ứng với số khối và trả về danh sách tài khoản (bao gồm lưu trữ và mã).
 
-**NOTE**: This function correctly returns the state for a few latest, currently 4, block numbers.  Retrieving older block state is restricted depending on the value set for the command-line option `--state.block-interval` (default: 128).  This means that the function performs the state retrieval against only the block numbers that are multiples of state.block-interval.  For example, when state.block-interval is 128, this function returns the state for the block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval, it returns 'missing trie node' error.
+**LƯU Ý**: Hàm này trả về trạng thái chính xác cho một vài khối mới nhất, hiện tại là 4, số khối.  Truy xuất trạng thái khối cũ hơn bị hạn chế tùy thuộc vào giá trị được đặt cho dòng lệnh tùy chọn `--state.block-interval` (mặc định: 128).  Điều này có nghĩa là chức năng thực hiện truy xuất trạng thái chỉ đối với các số khối là bội số của state.block-interval.  Ví dụ, khi state.block-interval là 128, hàm này trả về trạng thái cho số khối "0x0", "0x80", "0x100", "0x180", v.v.  Nếu số khối không phải là bội số của của state.block-interval, nó sẽ trả về lỗi 'thiếu nút trie'.
 
-| Client  | Method Invocation                                   |
-|:-------:| --------------------------------------------------- |
-| Console | `debug.dumpBlock(number)`                           |
-|   RPC   | `{"method": "debug_dumpBlock", "params": [number]}` |
+|   Khách hàng    | Gọi phương thức                                     |
+|:---------------:| --------------------------------------------------- |
+| Bảng điều khiển | `debug.dumpBlock(number)`                           |
+|       RPC       | `{"method": "debug_dumpBlock", "params": [number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                                  |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| Tên                 | Loại                              | Mô tả                                                                                                                                                                                        |
+| ------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc mã băm khối. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
+LƯU Ý: Chỉ có loại chuỗi hex trong các phiên bản cũ hơn Klaytn v1.7.0.
 {% endhint %}
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description            |
-| ----------- | ---------------------- |
-| JSON string | The block information. |
+| Loại       | Mô tả           |
+| ---------- | --------------- |
+| Chuỗi JSON | Thông tin khối. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.dumpBlock("0x80")
 {
@@ -130,9 +130,9 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 | ------ | ---------------------- |
 | string | The RLP-encoded block. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.getBlockRlp(100)
 "f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0"
@@ -146,30 +146,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in `endBlockHash` are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi mã băm khối của chúng. Các thay đổi được thực hiện trong `endBlockHash` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockHash` thì không. Nếu không cung cấp `endBlockHash`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockHash`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, mã băm hoặc mã băm lưu trữ.
 
 
-| Client  | Method Invocation                                                                           |
-|:-------:| ------------------------------------------------------------------------------------------- |
-| Console | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
-|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
+|   Khách hàng    | Gọi phương thức                                                                             |
+|:---------------:| ------------------------------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
+|       RPC       | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
-**Parameters**
+**Tham số**
 
-| Name           | Type         | Description                                  |
-| -------------- | ------------ | -------------------------------------------- |
-| startBlockHash | 32-byte DATA | The first block hash of the range to check.  |
-| endBlockHash   | 32-byte DATA | (optional) The last block hash of the range. |
+| Tên            | Loại            | Mô tả                                          |
+| -------------- | --------------- | ---------------------------------------------- |
+| startBlockHash | DỮ LIỆU 32-byte | Mã băm khối đầu tiên của phạm vi cần kiểm tra. |
+| endBlockHash   | DỮ LIỆU 32-byte | (tùy chọn) Mã băm khối cuối cùng của phạm vi.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                             |
-| ----------- | ------------------------------------------------------- |
-| JSON string | The list of addresses modified between the given range. |
+| Loại       | Mô tả                                                   |
+| ---------- | ------------------------------------------------------- |
+| Chuỗi JSON | Danh sách các địa chỉ được sửa đổi giữa phạm vi đã cho. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.getModifiedAccountsByHash("0x583a02df4222c82d4ffe5d3658d0f7ac233f4dc5de83f6430d74199038b606b6", "0x69833f0fc012dc36be910aa6909f5395cd35136dbeae29ed2170a7d4162a009c")
 
@@ -186,17 +186,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block numbers. Changes made in `endBlockNum` are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi số khối của chúng. Các thay đổi được thực hiện trong `endBlockNum` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockNum` thì không. Nếu không cung cấp `endBlockNum`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockNum`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, mã băm hoặc mã băm lưu trữ.
 
 
-| Client  | Method Invocation                                                                         |
-|:-------:| ----------------------------------------------------------------------------------------- |
-| Console | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
-|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
+|   Khách hàng    | Gọi phương thức                                                                           |
+|:---------------:| ----------------------------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
+|       RPC       | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
-**Parameters**
+**Tham số**
 
-| Name          | Type | Description                                    |
+| Tên           | Loại | Description                                    |
 | ------------- | ---- | ---------------------------------------------- |
 | startBlockNum | int  | The first block number of the range to check.  |
 | endBlockNum   | int  | (optional) The last block number of the range. |
@@ -268,19 +268,19 @@ Returns a list of the last 'bad blocks' that the client has seen on the network.
 | Console | `debug.getBadBlocks()`                           |
 |   RPC   | `{"method": "debug_getBadBlocks", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name     | Type | Description               |
-| -------- | ---- | ------------------------- |
-| badBlock | JSON | JSON list of block-hashes |
+| Tên      | Loại | Mô tả                              |
+| -------- | ---- | ---------------------------------- |
+| badBlock | JSON | Danh sách JSON của các mã băm khối |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.getBadBlocks()
 []
@@ -293,32 +293,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
-Retrieves a block and returns its pretty printed form.
+Truy xuất một khối và trả về dạng in đẹp của nó.
 
-| Client  | Method Invocation                                    |
-|:-------:| ---------------------------------------------------- |
-| Console | `debug.printBlock(number)`                           |
-|   RPC   | `{"method": "debug_printBlock", "params": [number]}` |
+|   Khách hàng    | Gọi phương thức                                      |
+|:---------------:| ---------------------------------------------------- |
+| Bảng điều khiển | `debug.printBlock(number)`                           |
+|       RPC       | `{"method": "debug_printBlock", "params": [number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                                  |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| Tên                 | Loại                              | Mô tả                                                                                                                                                                                        |
+| ------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc mã băm khối. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+LƯU Ý: Chỉ có loại số nguyên trong các phiên bản cũ hơn Klaytn v1.7.0,.
 {% endhint %}
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description             |
-| ------ | ----------------------- |
-| string | Dump of a block struct. |
+| Loại  | Mô tả                           |
+| ----- | ------------------------------- |
+| chuỗi | Kết xuất của một cấu trúc khối. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.printBlock(65120)
 "(*types.Block)(0xc436fad3b0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:      e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:       0000000000000000000000000000000000000000\n\tRoot: ... 0xc3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebf\n\tS:       0x53d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n\tHex:      f863829d9280825208949619a83fcefc5647736cfd28845fcc4f716ff53b8080820fe7a0c3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebfa053d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n]\n}\n)\n"
@@ -333,16 +333,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
+**`CẢNH BÁO`**: API này chưa được triển khai và luôn trả về lỗi "API chưa được triển khai".
 
-Sets the current head of the local chain by block number.
+Thiết lập phần đầu hiện tại của chuỗi cục bộ theo số khối.
 
-**NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
+**LƯU Ý**: Đây là một hành động phá hoại và có thể gây hư hỏng nghiêm trọng đến chuỗi của bạn. Hãy sử dụng *thật* thận trọng.
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.setHead(number)`                           |
-|   RPC   | `{"method": "debug_setHead", "params": [number]}` |
+| Khách hàng | Method Invocation                                 |
+|:----------:| ------------------------------------------------- |
+|  Console   | `debug.setHead(number)`                           |
+|    RPC     | `{"method": "debug_setHead", "params": [number]}` |
 
 
 **Parameters**
@@ -409,24 +409,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 The `startWarmUp` iterates the latest state trie to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
 
-| Client  | Method invocation                 |
-|:-------:| --------------------------------- |
-| Console | `debug.startWarmUp()`             |
-|   RPC   | `{"method": "debug_startWarmUp"}` |
+|   Khách hàng    | Gọi phương thức                   |
+|:---------------:| --------------------------------- |
+| Bảng điều khiển | `debug.startWarmUp()`             |
+|       RPC       | `{"method": "debug_startWarmUp"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                         |
-| ----- | --------------------------------------------------- |
-| Error | `null` if a warm-up is started, or an error if not. |
+| Loại | Mô tả                                                                   |
+| ---- | ----------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình khởi động đã được bắt đầu hoặc lỗi nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > debug.startWarmUp()
@@ -441,28 +441,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
+`startContractWarmUp` lặp lại trie lưu trữ mới nhất của địa chỉ hợp đồng nhất định để khởi động bộ đệm trie. Quá trình lặp lại sẽ tự động dừng nếu 90% bộ đệm trie đã bị đầy. Phương thức trả về lỗi nếu không khởi động được hoặc địa chỉ đã cho không phải là địa chỉ hợp đồng, hoặc `null` nếu đã khởi động thành công.
 
-| Client  | Method invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.startContractWarmUp(address)`                           |
-|   RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+|   Khách hàng    | Gọi phương thức                                                |
+|:---------------:| -------------------------------------------------------------- |
+| Bảng điều khiển | `debug.startContractWarmUp(address)`                           |
+|       RPC       | `{"method": "debug_startContractWarmUp", "params": [address]}` |
 
-**Parameters**
+**Tham số**
 
-| Type         | Description      |
-| ------------ | ---------------- |
-| 20-byte DATA | Contract address |
+| Loại            | Mô tả            |
+| --------------- | ---------------- |
+| DỮ LIỆU 20-byte | Địa chỉ hợp đồng |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                         |
-| ----- | --------------------------------------------------- |
-| Error | `null` if a warm-up is started, or an error if not. |
+| Loại | Mô tả                                                                   |
+| ---- | ----------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình khởi động đã được bắt đầu hoặc lỗi nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
@@ -477,12 +477,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
-The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
+`stopWarmUp` dừng khởi động hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc một lỗi tùy thuộc vào việc khởi động có bị dừng hay không.
 
-| Client  | Method invocation          |
-|:-------:| -------------------------- |
-| Console | `debug.stopWarmUp()`       |
-|   RPC   | `{"method": "stopWarmUp"}` |
+|   Khách hàng    | Gọi phương thức            |
+|:---------------:| -------------------------- |
+| Bảng điều khiển | `debug.stopWarmUp()`       |
+|       RPC       | `{"method": "stopWarmUp"}` |
 
 **Parameters**
 
