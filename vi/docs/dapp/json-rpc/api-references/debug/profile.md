@@ -1,28 +1,28 @@
-# Profiling <a id="profiling"></a>
+# Đang cấu hình <a id="profiling"></a>
 
 ## debug_blockProfile <a id="debug_blockprofile"></a>
 
-Turns on block profiling for the given duration and writes profile data to disk. It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually using [debug_writeBlockProfile](#debug_writeblockprofile).
+Bật cấu hình khối trong khoảng thời gian nhất định và ghi dữ liệu cấu hình vào đĩa. Nó sử dụng tốc độ cấu hình là 1 để có thông tin chính xác nhất. Nếu yêu cầu một tốc độ khác, hãy thiết lập tỷ lệ và cấu hình theo cách thủ công bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.blockProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
+|   Khách hàng    | Gọi Phương thức                                                |
+|:---------------:| -------------------------------------------------------------- |
+| Bảng điều khiển | `debug.blockProfile(file, seconds)`                            |
+|       RPC       | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                            |
-| ------- | ------ | -------------------------------------- |
-| file    | string | The filename for the profiling result. |
-| seconds | int    | The profiling duration in seconds.     |
+| Tên     | Loại  | Mô tả                               |
+| ------- | ----- | ----------------------------------- |
+| tệp tin | chuỗi | Tên tệp cho kết quả hồ sơ.          |
+| giây    | int   | Thời lượng cấu hình tính bằng giây. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.blockProfile("block.profile", 10)
 null
@@ -36,7 +36,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_cpuProfile <a id="debug_cpuprofile"></a>
 
-Turns on CPU profiling for the given duration and writes profile data to disk.
+Bật cấu hình CPU trong khoảng thời gian nhất định và ghi dữ liệu cấu hình vào đĩa.
 
 | Client  | Method Invocation                                            |
 |:-------:| ------------------------------------------------------------ |
@@ -103,26 +103,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
-Returns `true` if the pprof HTTP server is running and `false` otherwise.
+Trả về `true` nếu máy chủ HTTP pprof đang chạy và trả về `false` nếu không phải.
 
-| Client  | Method Invocation                                  |
-|:-------:| -------------------------------------------------- |
-| Console | `debug.isPProfRunning()`                           |
-|   RPC   | `{"method": "debug_isPProfRunning", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                                    |
+|:---------------:| -------------------------------------------------- |
+| Bảng điều khiển | `debug.isPProfRunning()`                           |
+|       RPC       | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                                       |
-| ---- | ----------------------------------------------------------------- |
-| bool | `true` if the pprof HTTP server is running and `false` otherwise. |
+| Loại | Mô tả                                                              |
+| ---- | ------------------------------------------------------------------ |
+| bool | `true` nếu máy chủ HTTP pprof đang chạy và `false` nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.isPProfRunning()
 false
@@ -137,7 +137,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
+Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định hình khối, đặt nó thành 0 sẽ dừng cấu hình. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
 
 | Client  | Method Invocation                                             |
 |:-------:| ------------------------------------------------------------- |
