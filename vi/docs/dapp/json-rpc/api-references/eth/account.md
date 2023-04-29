@@ -33,14 +33,14 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                   | Loại                               | Mô tả                                                                                                                                                                                               |
-| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ               | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                          |
-| số chuỗi hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số nguyên hoặc số khối thập lục phân hoặc chuỗi `"sớm nhất"`, `"trễ nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter), hay hàm băm của khối. |
+| Tên                   | Loại                               | Mô tả                                                                                                                                                                               |
+| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ               | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                          |
+| số chuỗi hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
-**Giá trị Trả về**
+**Giá trị Trả lại**
 
-| Loại     | Mô tả                                   |
+| Kiểu     | Mô tả                                   |
 | -------- | --------------------------------------- |
 | SỐ LƯỢNG | Số nguyên của số dư hiện tại trong peb. |
 
@@ -64,24 +64,24 @@ Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| Loại                            | Mô tả                                                                                                                                                                                  |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                 | Địa chỉ                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Loại                              | Mô tả                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
-**Return Value**
+**Giá trị Trả lại**
 
-| Type | Description                      |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| Kiểu    | Mô tả                 |
+| ------- | --------------------- |
+| DỮ LIỆU | Mã từ địa chỉ đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -92,28 +92,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+Trả về số lượng giao dịch *gửi* từ một địa chỉ.
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Kiểu                              | Mô tả                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| Loại     | Mô tả                                                |
+| -------- | ---------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số lượng giao dịch gửi từ địa chỉ này. |
 
-**Example**
+**Ví dụ**
 
  ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -124,35 +124,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sign <a id="eth_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+Phương thức ký tính toán chữ ký dành riêng cho Klaytn với:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious dApp signs arbitrary data (e.g. transaction) and uses the signature for impersonation.
+Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn hành vi lạm dụng khi một ứng dụng phi tập trung chứa mã độc ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
 
-**NOTE**: The address to sign with must be unlocked.
+**LƯU Ý**: Địa chỉ để ký phải được mở khóa.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description     |
-| ------- | ------------ | --------------- |
-| account | 20-byte DATA | Address         |
-| message | N-byte DATA  | Message to sign |
+| Tiêu đề   | Loại           | Mô tả     |
+| --------- | --------------- | --------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ   |
+| tin nhắn  | DỮ LIỆU N byte  | Thư để ký |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description |
-| ---- | ----------- |
-| DATA | Signature   |
+| Loại    | Mô tả  |
+| ------- | ------ |
+| DỮ LIỆU | Chữ ký |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
