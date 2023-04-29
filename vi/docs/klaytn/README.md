@@ -17,63 +17,63 @@ Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/201
 - 19 reputable corporations worldwide initially formed Klaytn Governance Council to operate consensus nodes. The current number of consensus nodes is shown in the [Klaytnscope](https://scope.klaytn.com/).
 - More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
-## Klaytn: The Big Picture <a id="klaytn-the-big-picture"></a>
+## Klaytn: Bức tranh toàn cảnh <a id="klaytn-the-big-picture"></a>
 
-Klaytn can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn ecosystem.
+Klaytn có thể được phân vùng thành ba mạng con hợp logic dựa trên vai trò và mục đích của chúng. Hình dưới đây hiển thị chế động xem cấp cao của hệ sinh thái Klaytn.
 
-![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
+![Hệ sinh thái Klaytn và các mạng con logic (CNN, ENN, SCN)](images/klaytn_network_overview.png)
 
-### Core Cell Network (CCN) <a id="core-cell-network-ccn"></a>
+### Mạng lưới Core Cell (CCN) <a id="core-cell-network-ccn"></a>
 
-CCN consists of Core Cells (CCs) that verify and execute transactions submitted through Endpoint Nodes (ENs). CCN is responsible for creating and propagating blocks throughout the network.
+CCn có chứa các Core Cell (CC) xác thực và thực thi các giao dịch được gửi qua các Nút điểm cuối (EN). CCN chịu trách nhiệm tạo và truyền các khối xuyên suốt mạng lưới.
 
-### Endpoint Node Network (ENN) <a id="endpoint-node-network-enn"></a>
+### Mạng lưới nút điểm cuối (ENN) <a id="endpoint-node-network-enn"></a>
 
-ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC API requests, and process data requests from service chains.
+ENN bao gồm các Nút điểm cuối (EN) chủ yếu tạo giao dịch, xử lý các yêu cầu API RPC và xử lý các yêu cầu dữ liệu từ chuỗi dịch vụ.
 
-### Service Chain Network (SCN) <a id="service-chain-network-scn"></a>
+### Mạng lưới chuỗi dịch vụ (SCN) <a id="service-chain-network-scn"></a>
 
-SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by dApps (Decentralized Applications). Service chains are connected to the main chain via ENs.
+SCN là các mạng con của Klaytn có chứa các chuỗi khối phụ trợ được vận hành độc lập bởi dApp (Ứng dụng phi tập trung). Các chuỗi dịch vụ được kết nối với chuỗi chính thông qua các EN.
 
-**Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet. Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain.
+**Mạng lưới Core Cell** và **Mạng lưới nút điểm cuối** tạo nên chuỗi chính của Klaytn, hay mạng lưới chính thức. Các ứng dụng chuỗi khối có thể chạy trên chuỗi chính của Klaytn, Cypress hoặc có thể vận hành trên các chuỗi khối của riêng chúng, được gọi là **Chuỗi dịch vụ**. Nếu bạn muốn có một môi trường thực thi riêng cho ứng dụng của mình, đảm bảo có TPS cao và các chính sách mạng lưới cấu hình được, chúng tôi khuyến khích bạn dùng Chuỗi dịch vụ.
 
-> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](./../installation-guide/deployment/service-chain/getting-started/README.md).
+> Để thiết lập một Chuỗi dịch vụ cho ứng dụng của mình, hãy đọc [hướng dẫn cài đặt và vận hành Chuỗi dịch vụ](./../installation-guide/deployment/service-chain/getting-started/README.md).
 
-## Klaytn Network Topology <a id="klaytn-network-topology"></a>
+## Mô hình cấu trúc mạng Klaytn <a id="klaytn-network-topology"></a>
 
-In this section, we will describe the network topology of Klaytn main chain. A tiered network architecture with role-based node types is implemented in Klaytn to optimize the network performance.
+Trong phần này, chúng tôi sẽ mô tả mô hình cấu trúc chuỗi chính của Klaytn. Một kiến trúc mạng theo tầng với các loại nút dựa trên vai trò, được triển khai trong Klaytn nhằm tối ưu hóa hiệu suất mạng.
 
-### Role-based Node Types <a id="role-based-node-types"></a>
+### Các loại nút dựa trên vai trò <a id="role-based-node-types"></a>
 
-Before we go over the Klaytn main chain network topology, we need to get familiar with the different types of Klaytn nodes.
+Trước khi tìm hiểu về mô hình cấu trúc chuỗi chính của Klaytn, chúng ta cần làm quen với các loại nút Klaytn khác nhau.
 
-#### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
-A Core Cell (CC) is composed of a single <strong>Consensus Node (CN)<strong> and two <strong>Proxy Nodes (PNs)<strong>. Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+#### Core Cell (CC): Nút đồng thuận (CN) + Nút Proxy (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
+Một Core Cell (CC) được tạo thành bởi một <strong>Nút đồng thuận (CN)<strong> duy nhất và hai <strong>Nút proxy (PN)<strong>. Nút đồng thuận tham gia vào quá trình tạo khối, trong khi Nút proxy cung cấp giao diện cho mạng lưới. PN truyền yêu cầu giao dịch tới các Nút đồng thuận, và đưa các khối xuống các Nút điểm cuối.
 
-> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
+> Nếu bạn muốn trở thành Người vận hành Core Cell, hãy đọc[hướng dẫn cài đặt và vận hành Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
 
-#### Endpoint Node (EN) <a id="endpoint-node-en"></a>
+#### Nút điểm cuối (EN) <a id="endpoint-node-en"></a>
 
-ENs serve as endpoints for Klaytn network handling RPC API requests and processing data sent to and from service chains.
+EN đóng vai trò là điểm cuối cho mạng Klaytn xử lý các yêu cầu API RPC và xử lý dữ liệu gửi tới và từ các chuỗi dịch vụ.
 
-> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](./../installation-guide/deployment/endpoint-node/README.md).
+> Để thiết lập một Nút điểm cuối cho ứng dụng của bạn, hãy đọc [hướng dẫn cài đặt và vận hành Nút điểm cuối](./../installation-guide/deployment/endpoint-node/README.md).
 
-#### Bootnode <a id="bootnode"></a>
+#### Nút ban đầu <a id="bootnode"></a>
 
-Bootnodes are special-type nodes operated by Klaytn to help newly joining nodes register to the network and to discover other nodes to connect with. CN bootnodes reside within the CNN and are not exposed to the public, while PN and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to be registered, and let eligible PNs connect with ENs.  EN bootnodes provide ENs with information on which PNs to connect to.
+Nút ban đầu là một loại nút đặc biệt được Klaytn vận hành để giúp các nút mới tham gia đăng ký vào mạng lưới, và để khám phá các nút khác nhằm kết nối cùng. Nút ban đầu CN nằm trong CNN và không công khai, còn các nút ban đầu PN và EN thì công khai.  Các nút ban đầu PN chỉ cho phép các PN được cấp quyền đăng ký, và cho phép các PN đủ điều kiện kết nối với các EN.  Các nút ban đầu EN cung cấp cho các EN thông tin về các PN cần kết nối.
 
-### Tiered Networks <a id="tiered-networks"></a>
+### Mạng phân tầng <a id="tiered-networks"></a>
 
-CNs, PNs, and ENs form logical networks, Consensus Node Network (CNN), Proxy Node Network (PNN), and Endpoint Node Network (ENN), respectively.
+CN, PN và EN lần lượt tạo thành các mạng logic, Mạng nút đồng thuận (CNN), Mạng nút proxy (PNN) và Mạng nút điểm cuối (ENN).
 
-Below figure shows the overall topology of Klaytn mainnet, where Core Cell Network (CCN) is further broken down into Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node Network (ENN) is also shown as the surrounding network connected directly to PNN.
+Hình bên dưới hiển thị mô hình cấu trúc tổng thể của mạng lưới chính thức của Klaytn, trong đó mạng Core Cell (CCN) được chia nhỏ thành Mạng nút đồng thuận (CNN) và Mạng nút proxy (PNN).
 
 ![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
 
 
-#### Consensus Node Network (CNN) <a id="consensus-node-network-cnn"></a>
+#### Mạng nút đồng thuận (CNN) <a id="consensus-node-network-cnn"></a>
 
-CNs form a full-mesh network among themselves called CNN. CNN applies BFT over a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../installation-guide/deployment/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level.
+CN hình thành một mạng mesh đầy đủ gọi là CNN. CNN applies BFT over a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../installation-guide/deployment/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level.
 
 #### Proxy Node Network (PNN) <a id="proxy-node-network-pnn"></a>
 
