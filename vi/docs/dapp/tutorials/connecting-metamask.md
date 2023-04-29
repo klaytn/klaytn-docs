@@ -1,90 +1,90 @@
-# Connecting MetaMask
+# Đang kết nối đến MetaMask
 
-> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Klaytn due to the identical address structures. Klaytn also has a browser extension wallet called [Kaikas](../developer-tools/#kaikas), so it basically provides the same features as MetaMask, except for Remix.
+> **Lưu ý**: MetaMask chủ yếu được sử dụng làm ví cho Ethereum, nhưng nó cũng tương thích với Klaytn vì có cấu trúc địa chỉ đồng nhất. Klaytn cũng có ví dạng tiện ích mở rộng của trình duyệt gọi là [Kaikas](../developer-tools/#kaikas), nên về cơ bản nó cũng cung cấp các tính năng giống với MetaMask, không kể Remix.
 
-## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask"></a>
+## Bước 1. Cài đặt MetaMask <a href="#install-metamask" id="install-metamask"></a>
 
-* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en\_us/chrome/))
-*   Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
+* Chúng tôi sẽ sử dụng trình duyệt Chrome trong ví dụ này. ([**Cài đặt Chrome**](https://www.google.com/intl/en\_us/chrome/))
+*   Thêm [**Tiện ích mở rộng MetaMask**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) vào Chrome.
 
-    > **Note:** You may need additional installations if you are using another browser.
-* You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
+    > **Lưu ý:** Bạn có thể cần cài đặt thêm nếu đang sử dụng trình duyệt khác.
+* Bạn có thể khởi động MetaMask bằng cách nhấn vào biểu tượng góc trên bên phải của trình duyệt chrome.
 
-## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask"></a>
+## Bước 2. Tạo Ví MetaMask <a href="#generate-a-metamask" id="generate-a-metamask"></a>
 
-![Create a Wallet](../../bapp/tutorials/img/new-to-metamask.png)
+![Tạo Ví](../../bapp/tutorials/img/new-to-metamask.png)
 
-* Click on \[Create a Wallet].
-* Set a password.
-*   You will be given a 12 word seed phrase; back it up somewhere secure.
+* Nhấn vào \[Tạo Ví].
+* Đặt mật khẩu.
+*   Bạn sẽ nhận được một cụm từ khôi phục gồm 12 từ; lưu dự phòng nó ở nơi an toàn.
 
-    > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
+    > **Lưu ý:** Bạn chỉ có thể khôi phục lại ví của mình với cụm từ khôi phục. Chia sẻ cụm từ khôi phục với người khác có thể dẫn đến mất toàn bộ số tiền quỹ của bạn. Vì vậy, chúng tôi khuyên bạn nên hoặc là viết ra bằng tay hoặc lưu lại ở một thiết bị ngoại tuyến.
 
-![Seed phrase and Wallet](../../bapp/tutorials/img/metamask-secret-backup.png)
+![Cụm từ khôi phục và Ví](../../bapp/tutorials/img/metamask-secret-backup.png)
 
-## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
+## Bước 3. Kết nối với Mạng lưới Cypress Klaytn (Mainet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
 
-> Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
+> Có một cách dễ làm. [Kết nối ví của bạn với Mạng lưới Cypress Klaytn (Mainnet)](https://chainlist.org/chain/8217).
 
-* Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
-* Enter the Endpoint Node (EN) data of the Klaytn chain.
+* Nhấn vào tab Networks phía trên, mặc định có trên Mainnet Ethereum, và chọn \[Thêm mạng lưới].
+* Nhập dữ liệu Nút điểm cuối (EN) của chuỗi Klaytn.
   * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
-    * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * Chain ID: 8217
-    * Currency Symbol: KLAY
-* Click \[Save] to add Klaytn Cypress Network.
+    * Tên Mạng: Cypress Klaytn
+    * URL RPC mới: (Mặc định: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
+    * URL Trình khám phá Block: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * ID Chuỗi: 8217
+    * Ký hiệu Tiền tệ: KLAY
+* Nhấn \[Save] để thêm Mạng Cypress Klaytn.
 
-![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](../../bapp/tutorials/img/metamask-add-cypress-2.png)
+![RPC thiết lập và điều chỉnh mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![RPC thiết lập và điều chỉnh mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-2.png)
 
-## Step 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
+## Bước 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
 
-**Note:** The following steps require KLAY.
+**Lưu ý:** Các bước tiếp theo yêu cầu phải có KLAY.
 
-* Click \[Send] on the main page and enter the recipient address and the amount of KLAY.
+* Nhấn \[Send] trên trang chính và nhập vào địa chỉ người nhận và số lượng KLAY.
 
 ![Send KLAY 1](img/metamask-send-klay-1.png)
 
-**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+**LƯU Ý:** Gửi KLAY yêu cầu có một giao dịch, nên bạn cần KLAY cho giao dịch đó.
 
-* Since Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
-* So you don't have to set the fixed gas fee manually.
-* Check the amount to send and the transaction fee and click \[Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
-* Click \[Activity] on the main page to confirm the transaction history.
+* Vì Klaytn v1.9.0, một [cơ chế phí gas động](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) đã thay thế chính sách giá cố định hiện có.
+* Vậy nên bạn không phải đặt phí gas cố định thủ công.
+* Kiểm tra số lượng sẽ gửi đi và phí giao dịch và nhấn \[Confirm] để hoàn tất việc chuyển KLAY, sau đó bạn sẽ được chuyển đến trang chính.
+* Nhấn \[Activity] trên trang chính để xác nhận lịch sử giao dịch.
 
 ![Send KLAY 2](img/metamask-send-klay-2.png)
 
-## Connect to Klaytn Baobab Network (Testnet) <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
+## Kết nối với Mạng lưới Baobab (Testnet) <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
 
-### Obtain KLAY to make a transaction
+### Nhận KLAY để thực hiện giao dịch
 
-> **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
+> **Lưu ý:** Bài hướng dẫn này sử dụng EN Công khai của Testnet (Baobab) để kết nối với mạng này. Hãy nhớ sử dụng Baobab khi bạn chạy thử.
 
-> Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
+> Có một cách dễ làm. [Kết nối ví của bạn với Mạng lưới Baobab Klaytn (Testnet)](https://chainlist.org/chain/1001).
 
 * Baobab
-  * Network Name: Klaytn Baobab
-  * New RPC URL: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
-  * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-  * Chain ID: 1001
-  * Currency Symbol: KLAY
-* Click \[Save] to add Klaytn Baobab Network.
+  * Tên Mạng: Baobab Klaytn
+  * URL RPC mới: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
+  * URL Trình khám phá Block: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+  * ID Chuỗi: 1001
+  * Ký hiệu Tiền tệ: KLAY
+* Nhấn \[Save] để thêm Mạng Baobab Klaytn.
 
-![Network Setup](img/connect-testnet-1.png)
+![Thiết lập Mạng lưới](img/connect-testnet-1.png)
 
-* To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
-* Click on the kebab menu (three dots) in the upper right corner and select \[Account details].
-* Click \[Export Private Key] to obtain your private key.
+* Để thử kết nối của Ví Klaytn, bạn sẽ cần thực hiện giao dịch có yêu cầu KLAY.
+* Nhấn vào menu kebab (ba chấm) ở góc trên bên phải và chọn \[Thông tin Tài khoản].
+* Nhấn \[Xuất Khóa riêng tư] để lấy khóa riêng tư của bạn.
 
-![Export Private Key](img/connect-testnet-2.png)
+![Xuất ra khóa riêng tư](img/connect-testnet-2.png)
 
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-* Enter your private key on Klaytn Wallet and log in by clicking \[Access]. (Attach 0x in front of the private key.)
-* Click \[Run Faucet]. 150 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
+* Khi sử dụng Testnet Baobab, bạn có thể nhận được Klay Thử trong [**Faucet Klaytn**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+* Nhập khóa riêng tư của bạn vào Ví Klaytn và nhấn vào \[Access] để đăng nhập. (Gắn 0x vào trước khóa riêng tư.)
+* Nhấn \[Run Faucet]. 150 KLAY Testnet sẽ được gửi tới tài khoản của bạn và số dư sẽ được cập nhật tương ứng. Bạn có thể nhận KLAY Testnet từ Faucet một lần trong 24 giờ cho mỗi tài khoản.
 
-![Obtain KLAY from Faucet](img/connect-testnet-3.png)
+![Nhận KLAY từ Faucet](img/connect-testnet-3.png)
 
-* Come back to MetaMask and confirm the KLAY that you received.
+* Quay lại MetaMask và xác nhận KLAY bạn đã nhận được.
 
-![Check your balance](img/connect-testnet-4.png)
+![Kiểm tra số dư của bạn](img/connect-testnet-4.png)
