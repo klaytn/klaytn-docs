@@ -69,10 +69,10 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
+- [Tùy chọn theo dõi tiêu chuẩn](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [Blockchain Inspection](./debug/blockchain.md) <a id="blockchain-inspection"></a>
+## [Kiểm soát Chuỗi khối](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_dumpStateTrie](./debug/blockchain.md#debug_dumpstatetrie)
