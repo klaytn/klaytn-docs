@@ -120,5 +120,5 @@ Vì hàm này sẽ biến mất sau khi khởi động lại `ken`, có thể s�
 true
 ```
 
-The file will modify your JavaScript environment as if you have typed the commands manually. Feel free to experiment!
+Tập tin sẽ thay đổi môi trường JavaScript của bạn như thể bạn đã nhập lệnh theo cách thủ công. Bạn cứ thoải mái thử nghiệm!
 
