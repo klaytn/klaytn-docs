@@ -33,24 +33,24 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                   | Loại                            | Mô tả                                                                                                                                                                                  |
-| --------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ               | DỮ LIỆU 20 byte                 | Địa chỉ để kiểm tra số dư.                                                                                                                                                             |
-| số chuỗi hoặc hàm băm | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                   | Loại                               | Mô tả                                                                                                                                                                                               |
+| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ               | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                          |
+| số chuỗi hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số nguyên hoặc số khối thập lục phân hoặc chuỗi `"sớm nhất"`, `"trễ nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter), hay hàm băm của khối. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description                            |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| Loại     | Mô tả                                   |
+| -------- | --------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số dư hiện tại trong peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0","id":1,
   "result": "0x0234c8a3397aab58" // 158972490234375000
@@ -60,13 +60,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getCode <a id="eth_getcode"></a>
 
-Returns code at a given address.
+Trả về mã ở địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                            |
+| Loại                            | Mô tả                                                                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
+| DỮ LIỆU 20 byte                 | Địa chỉ                                                                                                                                                                                |
 | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
