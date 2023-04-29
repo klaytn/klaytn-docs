@@ -1,8 +1,8 @@
-# Top up your Account <a id="top-up-your-account"></a>
+# Nạp tiền vào tài khoản của bạn <a id="top-up-your-account"></a>
 
-## Attaching to the Console <a id="attaching-to-the-console"></a>
+## Đính kèm vào Bảng điều khiển <a id="attaching-to-the-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh bảng điều khiển, bạn có thể khởi tạo một phần của các cuộc gọi API Klaytn tới EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
