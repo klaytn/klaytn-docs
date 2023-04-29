@@ -49,15 +49,15 @@ Sets the output target of vmlog precompiled contract.  When the output target is
 | ------ | ---- | -------------------------------------------------------------------------- |
 | target | int  | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                              |
-| ------ | ------------------------------------------------------------------------ |
-| string | The output target.  See the examples below for the actual return values. |
+| Loại  | Mô tả                                                                        |
+| ----- | ---------------------------------------------------------------------------- |
+| chuỗi | Mục tiêu đầu ra.  Xem các ví dụ bên dưới để biết các giá trị trả về thực tế. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.setVMLogTarget(0)
 "no output"
@@ -87,30 +87,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosity <a id="debug_verbosity"></a>
 
-Sets the logging verbosity ceiling. Log messages with level up to and including the given level will be printed.
+Thiết lập trần độ chi tiết ghi nhật ký. Tin nhắn nhật ký với cấp độ lên đến và bao gồm mức đã cho sẽ được in ra.
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(Cấp độ: 0=crit, 1=lỗi, 2=cảnh báo, 3=thông tin, 4=gỡ lỗi, 5=truy vết)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.verbosity(level)`                          |
-|   RPC   | `{"method": "debug_vmodule", "params": [number]}` |
+|   Khách hàng    | Gọi phương thức                                   |
+|:---------------:| ------------------------------------------------- |
+| Bảng điều khiển | `debug.verbosity(level)`                          |
+|       RPC       | `{"method": "debug_vmodule", "params": [number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name  | Type | Description                  |
-| ----- | ---- | ---------------------------- |
-| level | int  | The logging verbosity level. |
+| Tên    | Loại | Mô tả                        |
+| ------ | ---- | ---------------------------- |
+| cấp độ | int  | Cấp độ chi tiết ghi nhập ký. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.verbosity(3)
 null
@@ -123,20 +123,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByName <a id="debug_verbositybyname"></a>
 
-Sets the verbosity of log module with given name. Please note that VerbosityByName only works with zapLogger.
+Thiết lập mức độ chi tiết của mô-đun nhật ký với tên đã cho. Xin lưu ý rằng VerbosityByName chỉ hoạt động với zapLogger.
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(Cấp độ: 0=crit, 1=lỗi, 2=cảnh báo, 3=thông tin, 4=gỡ lỗi, 5=truy vết)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-| Client  | Method Invocation                                                 |
-|:-------:| ----------------------------------------------------------------- |
-| Console | `debug.verbosityByName(name, level)`                              |
-|   RPC   | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+|   Khách hàng    | Gọi phương thức                                                   |
+|:---------------:| ----------------------------------------------------------------- |
+| Bảng điều khiển | `debug.verbosityByName(name, level)`                              |
+|       RPC       | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name  | Type   | Description                  |
+| Tên   | Loại   | Description                  |
 | ----- | ------ | ---------------------------- |
 | name  | string | The module name.             |
 | level | int    | The logging verbosity level. |
@@ -208,33 +208,33 @@ Sets the logging verbosity pattern.
 | Console | `debug.vmodule(module)`                           |
 |   RPC   | `{"method": "debug_vmodule", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name   | Type   | Description                  |
-| ------ | ------ | ---------------------------- |
-| module | string | The module name for logging. |
+| Tên    | Loại  | Mô tả                      |
+| ------ | ----- | -------------------------- |
+| mô-đun | chuỗi | Tên mô-đun để ghi nhật ký. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
-If you want to see messages from a particular Go package (directory) and all subdirectories, use
+Nếu bạn muốn xem tin nhắn từ một gói Go cụ thể (thư mục) và tất cả các thư mục con, sử dụng
 
 ```javascript
 > debug.vmodule("p2p/*=5")
 ```
 
-If you want to restrict messages to a particular package (*e.g.*, p2p) but exclude subdirectories, use
+Nếu bạn muốn giới hạn thư trong một gói cụ thể (*ví dụ:*, p2p) nhưng loại trừ các thư mục con, sử dụng
 
 ```javascript
 > debug.vmodule("p2p=4")
 ```
 
-If you want to see log messages from a particular source file, use
+Nếu bạn muốn xem tin nhắn nhật ký từ một tệp nguồn cụ thể, hãy sử dụng
 
 ```javascript
 > debug.vmodule("server.go=3")
