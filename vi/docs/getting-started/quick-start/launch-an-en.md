@@ -1,33 +1,33 @@
-# Launch an Endpoint Node
+# Khởi chạy nút điểm cuối
 
-## Download and Initialize an Endpoint Node (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
+## Tải về và khởi chạy nút điểm cuối (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-Unzip the provided [ken binary package](../../installation-guide/download/#get-the-packages) and copy the files into the klaytn folder.\
-**Note**: Please download appropriate package starting with `ken`.
+Giải nén [gói nhị phân ken](../../installation-guide/download/#get-the-packages) và sao chép các tập tin vào thư mục klaytn.\
+**Lưu ý**: Vui lòng tải về gói phù hợp có tên bắt đầu bằng `ken`.
 
-For Mac users, unzip the downloaded file with the following command.
+Đối với người dùng Mac, giải nén tập tin đã tải về bằng lệnh sau.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-darwin-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-darwin-amd64/bin
 ```
 
-For Linux users, unzip the downloaded file with the following command.
+Đối với người dùng Linux, giải nén tập tin đã tải về bằng lệnh sau.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-linux-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-linux-amd64/bin
 ```
 
-You should create a data directory to store the blockchain data. In this tutorial, we will create a `kend_home` folder in the home directory.
+Bạn nên tạo một thư mục dữ liệu để lưu trữ dữ liệu chuỗi khối. Trong phần hướng dẫn này, chúng ta sẽ tạo một thư mục `kend_home` trong thư mục chủ.
 
 ```bash
 $ mkdir -p ~/kend_home
 ```
 
-## Configuring the EN <a href="#configuring-the-en" id="configuring-the-en"></a>
+## Cấu hình EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../operation-guide/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+Tập tin cấu hình, `kend.conf`, được đặt dưới `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem [Hướng dẫn cấu hình EN](../../operation-guide/configuration.md). Để khởi chạy một EN của mạng kiểm tra Baobab, vui lòng cập nhật tập tin `kend.conf` phù hợp như sau.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -40,27 +40,27 @@ RPC_API="klay,net" # net module should be opened for truffle later on.
 DATA_DIR=~/kend_home
 ```
 
-## Launching the EN <a href="#launching-the-en" id="launching-the-en"></a>
+## Khởi chạy EN <a href="#launching-the-en" id="launching-the-en"></a>
 
-To launch the EN, execute the following command.
+Để khởi chạy EN, hãy thực thi lệnh sau.
 
 ```bash
 $ kend start
  Starting kend: OK
 ```
 
-## Checking the EN <a href="#checking-the-en" id="checking-the-en"></a>
+## Kiểm tra EN <a href="#checking-the-en" id="checking-the-en"></a>
 
-To check if the EN is running, execute the following command.
+Để kiểm tra xem EN có chạy không, hãy thực thi lệnh sau.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Checking the log of the EN <a href="#checking-the-log-of-the-en" id="checking-the-log-of-the-en"></a>
+## Kiểm tra nhật ký của EN <a href="#checking-the-log-of-the-en" id="checking-the-log-of-the-en"></a>
 
-To check the log of the EN, execute the following command.
+Để kiểm tra nhật ký của EN, hãy thực thi lệnh sau.
 
 ```bash
 $ tail -f ~/kend_home/logs/kend.out
@@ -69,6 +69,6 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 ...
 ```
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## Khắc phục sự cố <a href="#troubleshooting" id="troubleshooting"></a>
 
-Please refer to the [Troubleshooting](../../operation-guide/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Vui lòng xem mục [Khắc phục sự cố](../../operation-guide/errors-and-troubleshooting.md) nếu bạn gặp vấn đề trong việc khởi chạy Nút điểm cuối Klaytn.
