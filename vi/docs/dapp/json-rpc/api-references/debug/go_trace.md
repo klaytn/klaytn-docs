@@ -9,20 +9,20 @@ Turns on Go runtime tracing for the given duration and writes trace data to disk
 | Console | `debug.goTrace(file, seconds)`                            |
 |   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                        |
-| ------- | ------ | ---------------------------------- |
-| file    | string | The filename for the trace output. |
-| seconds | int    | The tracing duration in seconds.   |
+| Tên     | Loại  | Mô tả                               |
+| ------- | ----- | ----------------------------------- |
+| tập tin | chuỗi | Tên tệp cho đầu ra theo dõi.        |
+| giây    | int   | Thời lượng theo dõi tính bằng giây. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.goTrace("go.trace", 5)
 null
@@ -37,26 +37,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startGoTrace <a id="debug_startgotrace"></a>
 
-Starts writing a Go runtime trace to the given file.
+Bắt đầu viết theo dõi thời gian chạy Go vào tệp đã cho.
 
-| Client  | Method Invocation                                      |
-|:-------:| ------------------------------------------------------ |
-| Console | `debug.startGoTrace(file)`                             |
-|   RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
+|   Khách hàng    | Gọi phương thức                                        |
+|:---------------:| ------------------------------------------------------ |
+| Bảng điều khiển | `debug.startGoTrace(file)`                             |
+|       RPC       | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                          |
-| ---- | ------ | ------------------------------------ |
-| file | string | The filename for the tracing output. |
+| Tên     | Loại  | Mô tả                        |
+| ------- | ----- | ---------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra theo dõi. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.startGoTrace("go.trace")
 null
@@ -70,12 +70,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopGoTrace <a id="debug_stopgotrace"></a>
 
-Stops writing the Go runtime trace.
+Dừng ghi dấu vết thời gian chạy Go.
 
-| Client  | Method Invocation                               |
-|:-------:| ----------------------------------------------- |
-| Console | `debug.stopGoTrace()`                           |
-|   RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
+|   Khách hàng    | Gọi phương thức                                 |
+|:---------------:| ----------------------------------------------- |
+| Bảng điều khiển | `debug.stopGoTrace()`                           |
+|       RPC       | `{"method": "debug_stopGoTrace", "params": []}` |
 
 **Parameters**
 
