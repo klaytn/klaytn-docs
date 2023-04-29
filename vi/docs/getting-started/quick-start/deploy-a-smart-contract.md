@@ -1,27 +1,27 @@
-# Deploy a Smart Contract <a id="deploy-a-smart-contract"></a>
+# Triển khai hợp đồng thông minh <a id="deploy-a-smart-contract"></a>
 
-Now we are ready to develop and deploy Klaytn smart contracts!
+Giờ chúng ta đã sẵn sàng phát triển và triển khai các hợp đồng thông minh Klaytn!
 
-## Creating a Project Directory <a id="creating-a-project-directory"></a>
+## Tạo một Thư mục dự án <a id="creating-a-project-directory"></a>
 
-First of all, create a directory where the source code locates.
+Trước tiên, hãy tạo một thư mục có chứa mã nguồn.
 
 ```bash
 $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-## Initializing Truffle <a id="initializing-truffle"></a>
+## Đang khởi chạy Truffle <a id="initializing-truffle"></a>
 
-Initialize Truffle for contract deployment.
+Khởi chạy Truffle để triển khai hợp đồng.
 
 ```bash
 $ truffle init
 ```
 
-## Writing a Simple Smart Contract in Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
+## Soạn một Hợp đồng thông minh đơn giản bằng Solidify <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
-Create `KlaytnGreeter.sol` at `klaytn-testboard/contracts` directory.
+Tạo `KlaytnGreeter.sol` trong thư mục `klaytn-testboard/contracts`.
 
 ```bash
 $ cd contracts
@@ -29,7 +29,7 @@ $ touch KlaytnGreeter.sol
 $ vi KlaytnGreeter.sol
 ```
 
-Write the following code in KlaytnGreeter.sol.
+Viết mã sau trong KlaytnGreeter.sol.
 
 ```text
 pragma solidity 0.5.6;
@@ -56,7 +56,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Modifying the Migration Script <a id="modifying-the-migration-script"></a>
+## Sửa đổi Mã chuyển đổi <a id="modifying-the-migration-script"></a>
 
 ```bash
 $ cd ..
@@ -64,7 +64,7 @@ $ cd migrations
 $ vi 1_initial_migration.js
 ```
 
-Modify `1_initial_migration.js` as the following.
+Sửa đổi `1_initial_migration.js` như sau.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
@@ -75,18 +75,18 @@ module.exports = function(deployer) {
 };
 ```
 
-## Deploying a Smart Contract using Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
+## Triển khai Hợp đồng thông minh bằng Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
 
-Enter Klaytn's network information into truffle.js.
+Nhập thông tin mạng của Lkaytn vào truffle.js.
 
-**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb \(**It returns an error if you attempt to use any other number**\).
+**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb \(**Kết quả trả về là lỗi nếu bạn thử dùng số khác**\).
 
 ```bash
 $ cd ..
 $ vi truffle-config.js
 ```
 
-Modify configuration as below
+Sửa đổi cấu hình như sau
 
 ```javascript
 // truffle-config.js
@@ -109,19 +109,19 @@ module.exports = {
 };
 ```
 
-Deploy the contract using the following command.
+Triển khai hợp đồng bằng lệnh sau.
 
-**NOTE**: Use `--network` to select which network to deploy and `--reset` to overwrite.
+**LƯU Ý**: Sử dụng `--network` để chọn mạng lưới cần triển khai và `--reset` để ghi đè.
 
-**NOTE**: Make sure that your Klaytn node is running.
+**LƯU Ý**: Đảm bảo rằng nút Klaytn của bạn đang chạy.
 
-Your contract address is displayed followed \`KlaytnGreeter:
+Địa chỉ hợp đồng của bạn được hiển thị sau \`KlaytnGreeter:
 
 ```bash
 $ truffle deploy --network klaytn --reset
 Using network 'klaytn'.
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
+Chạy chuyển đổi: 1_initial_migration.js
+  Triển khai chuyển đổi...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
   Deploying KlaytnGreeter...
