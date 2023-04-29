@@ -1,7 +1,7 @@
 ---
 description: >-
-  This chapter contains practical dApp examples with complete source code and explanations.
+  Chương này gồm các ví dụ dApp thực tế với đầy đủ mã nguồn và giải thích.
 ---
 
-# Tutorials <a id="tutorials"></a>
+# Hướng dẫn <a id="tutorials"></a>
 
