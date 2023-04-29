@@ -19,6 +19,6 @@ description: >-
 
 #### API Covalent <a id="Covalent"></a>
 
-* Covalent tập hợp thông tin từ hàng chục nguồn bao gồm các node, chuỗi và nguồn cấp dữ liệu. This Covalent RESTful API allows you to pull detailed, granular and historical blockchain transaction data from Klaytn (and other blockchains) with no code. The Covalent API allows you to create entirely new applications or augment existing ones without configuring or maintaining blockchain infrastructure.
+* Covalent tập hợp thông tin từ hàng chục nguồn bao gồm các node, chuỗi và nguồn cấp dữ liệu. API RESTful Covalent này chco phép bạn kéo dữ liệu chi tiết, dạng hạt và lịch sử giao dịch blockchain từ Klaytn (và các blockchain khác) mà không cần dòng lệnh nào. API Covalent cho phép bạn tạo ứng dụng hoàn toàn mới hoặc bổ sung cho ứng dụng đã có mà không cần cấu hình hoặc bảo trì hạ tầng blockchain.
 
-* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId. For more information, see [Covalent Docs](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
+* Điểm cuối được hỗ trợ - Tất cả các điểm cuối hạng A được hỗ trợ cho Cypress mainnet Klaytn và Baobab testnet Klaytn. Bạn có thể truy vấn các mạng này qua API hợp nhất nhờ thay đổi chainId. Để biết thêm thông tin, hãy xem [Tài liệu Covalent](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
