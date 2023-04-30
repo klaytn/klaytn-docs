@@ -1,36 +1,36 @@
-# Fee Delegation Example
+# Ví dụ về ủy thác phí
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. Introduction](fee-delegation-example.md#1-introduction)
-* [2. How fee delegation works](fee-delegation-example.md#2-how-fee-delegation-works)
-  * 2.1 Transaction signing by the sender
-  * 2.2 Transaction signing by the fee payer
-* [3. Simple server and client for fee delegation](fee-delegation-example.md#3-simple-server-and-client-for-fee-delegation)
-  * 3.1 Sender's client
-  * 3.2 Fee payer's server
-* [4. Run example](fee-delegation-example.md#4-run-example)
-  * 4.1 Run `feepayer_server.js`
-  * 4.2 Run `sender_client.js`
-  * 4.3 Check `feepayer_server.js`
-  * 4.4 Klaytn scope
+* [1. Giới thiệu](fee-delegation-example.md#1-introduction)
+* [2. Cách hoạt động của ủy thác phí](fee-delegation-example.md#2-how-fee-delegation-works)
+  * 2.1 Ký giao dịch do người gửi thực hiện
+  * 2.2 Ký giao dịch do người trả phí thực hiện
+* [3. Máy chủ và máy khách đơn giản dành cho ủy thác phí](fee-delegation-example.md#3-simple-server-and-client-for-fee-delegation)
+  * 3.1 Máy khách của người gửi
+  * 3.2 Máy chủ của người trả phí
+* [4. Chạy ví dụ](fee-delegation-example.md#4-run-example)
+  * 4.1 Chạy `feepayer_server.js`
+  * 4.2 Chạy `sender_client.js`
+  * 4.3 Kiểm tra `feepayer_server.js`
+  * 4.4 Phạm vi Klaytn
 
-## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
+## 1. Giới thiệu <a href="#1-introduction" id="1-introduction"></a>
 
-This tutorial helps you to write a simple server-client example using caver-js SDK to illustrate how fee delegated value transfer transaction works in Klaytn. This tutorial and the example code is using the Baobab testnet.
+Hướng dẫn này giúp bạn sử dụng SDK caver-js để viết một ví dụ máy chủ-máy khách đơn giản nhằm minh họa cách hoạt động của giao dịch chuyển giá trị được ủy thác có phí trong Klaytn. Hướng dẫn và mã ví dụ đều sử dụng mạng testnet Baobab.
 
-## 2. How fee delegation works <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
+## 2. Cách hoạt động của ủy thác phí <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-Let's skim through how fee delegation works.
+Hãy xem lướt qua cách hoạt động của ủy thác phí.
 
-### 2.1 Transaction signing by the sender <a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
+### 2.1 Ký giao dịch do người gửi thực hiện <a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
-`Sender` always should sign the transaction before sending a transaction.
+`Sender` luôn phải ký giao dịch trước khi gửi giao dịch.
 
-To sign a transaction, use [signTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction) which signs a transaction with given private key.
+Để ký giao dịch, hãy dùng [signTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction) nào ký giao dịch với khóa riêng tư đã cho.
 
 ```
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
@@ -44,15 +44,15 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 }, senderPrivateKey)
 ```
 
-If there are no errors, then `senderRawTransaction` will have a signed transaction which is signed by the `senderPrivateKey`.
+Nếu không có lỗi, `senderRawTransaction` sẽ có một giao dịch đã ký do `senderPrivateKey` ký.
 
-Now, you need to send the `senderRawTransaction` to the fee payer. There will be various ways to implement this. In this tutorial, we will provide you a simple server-client code as an example of sending a `senderRawTransaction` to the fee payer.
+Bây giờ, bạn cần gửi `senderRawTransaction` tới người trả phí. Có nhiều cách thực hiện khác nhau. Trong hướng dẫn này, chúng tôi sẽ cung cấp cho bạn một mã máy chủ-máy khách đơn giản để ví dụ về việc gửi `senderRawTransaction` cho người trả phí.
 
-### 2.2 Transaction signing by the fee payer <a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
+### 2.2 Ký giao dịch do người trả phí thực hiện <a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-When `fee payer` receives the `senderRawTransaction`, `fee payer` signs the `senderRawTransaction` again with their private key and sends the transaction to Klaytn. The below code snippet illustrates the process. `klay.sendTransaction` method signs the transaction with the given account's private key before sending the transaction. Before running the code, please replace `"FEEPAYER_ADDRESS"` and `"PRIVATE_KEY"` with the actual values.
+Khi `fee payer` nhận `senderRawTransaction`, `fee payer` ký lại `senderRawTransaction` bằng khóa riêng tư của mình và gửi giao dịch đến Klaytn. Đoạn mã dưới đây minh họa quá trình đó. Phương thức `klay.sendTransaction` ký giao dịch bằng khóa riêng tư của tài khoản đã cho trước khi gửi giao dịch. Trước khi chạy mã, hãy thay thế `"FEEPAYER_ADDRESS"` và `"PRIVATE_KEY"` bằng các giá trị thật.
 
-Note that when the `fee payer` submits the transaction to Klaytn on behalf of the `sender`, the `senderRawTransaction` type must be a `FEE_DELEATED` type of transaction. In the below example, [sendTransaction(FEE\_DELEGATED\_VALUE\_TRANSFER)](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx\_value\_transfer.md#sendtransaction-fee\_delegated\_value\_transfer) method is invoked, because the original `senderRawTransaction` generated by the sender was [TxTypeFeeDelegatedValueTransfer](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+Chú ý rằng khi `fee payer` đại diện cho `sender` gửi giao dịch tới Klaytn, loại `senderRawTransaction` phải là một `FEE_DELEATED` loại giao dịch. Ví dụ dưới đây gọi ra phương thức [sendTransaction(FEE\_DELEGATED\_VALUE\_TRANSFER)](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx\_value\_transfer.md#sendtransaction-fee\_delegated\_value\_transfer), vì `senderRawTransaction` nguyên bản do người gửi tạo là [TxTypeFeeDelegatedValueTransfer](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -70,16 +70,16 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Nếu có lỗi hết gas thì tham số thứ 2 là biên lai.
 ```
 
-## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. Máy chủ và máy khách đơn giản dành cho ủy thác phí <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
-Let's write a simple server and client using above fee delegation code.
+Hãy viết một máy chủ và máy khách đơn giản bằng mã ủy thác phí trên.
 
-### 3.1 Environment setup <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
+### Thiết lập môi trường <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
 
-We will use `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started\_1.4.1.md) to setup environment for this example as below.
+Chúng ta sử dụng `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started\_1.4.1.md) để thiết lập môi trường cho ví dụ này như dưới đây.
 
 ```
 $ mkdir example
@@ -88,11 +88,11 @@ $ npm init
 $ npm install caver-js@latest
 ```
 
-### 3.1 Sender's client <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
+### 3.1 Máy khách của người gửi <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
 
-First, we are going to write a `sender_client.js` as below.
+Đầu tiên, chúng ta sẽ viết một `sender_client.js` như dưới đây.
 
-In the example, please replace `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` and `"TO_ADDRESS"` with the actual values.
+Hãy thay thế `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` và `"TO_ADDRESS"` trong ví dụ bằng giá trị thật.
 
 ```javascript
 var net = require('net');
@@ -105,7 +105,7 @@ const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
-    // sign transaction with private key of sender
+    // ký giao dịch với khóa riêng tư của người gửi
     const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
@@ -114,18 +114,18 @@ sendFeeDelegateTx = async() => {
       value: caver.utils.toPeb('0.00001', 'KLAY'),
     }, senderPrivateKey)
 
-    // send signed raw transaction to fee payer's server
+    // gửi giao dịch thô đã ký đến máy chủ của người trả phí
     client.connect(1337, '127.0.0.1', function() {
-            console.log('Connected to fee delegated service');
+            console.log('Đã kết nối với dịch vụ ủy thác phí');
     });
     client.write(senderRawTransaction);
 
     client.on('data', function(data) {
-            console.log('Received data from server: ' + data);
+            console.log('Đã nhận dữ liệu từ máy chủ: ' + data);
     });
 
     client.on('close', function() {
-            console.log('Connection closed');
+            console.log('Kết nối đã đóng');
     });
 }
 
