@@ -1,14 +1,14 @@
 ---
 - >-
 
-- APIs error codes
+- Mã lỗi API
 ---
 
-# API Error Codes <a id="api-error-codes"></a>
+# Mã Lỗi API <a id="api-error-codes"></a>
 
-Klaytn provides an `error` field in the API response to give developers more information about the reason for the failed API execution. This field exists only if the API execution fails. This field contains `error code` and `error message`.
+Klaytn cung cấp trường `lỗi` trong phản hồi API để cung cấp thêm thông tin cho nhà phát triển về lý do triển khai API không thành công. Trường này chỉ tồn tại nếu quá trình triển khai API không thành công. Trường này chứa `mã lỗi` và `thông báo lỗi`.
 
-Example Response
+Phản hồi ví dụ
 ```
 {
  "jsonrpc":"2.0",
@@ -21,18 +21,18 @@ Example Response
 ```
 
 ---
-HTTP Errors
-> **NOTE**
+Lỗi HTTP
+> **LƯU Ý**
 > 
-> Only HTTP errors that are explicitly returned on Klaytn are listed. Please refer to [**FastHTTP repository**](https://github.com/valyala/fasthttp/blob/5d73da31aed12047d2625e86bf405a0cd1f77f2b/status.go) for all status codes.
+> Chỉ các lỗi HTTP được trả về rõ ràng trên Klaytn mới được liệt kê. Vui lòng tham khảo [**Kho lưu trữ FastHTTP**](https://github.com/valyala/fasthttp/blob/5d73da31aed12047d2625e86bf405a0cd1f77f2b/status.go) để biết tất cả các mã trạng thái.
 
-| Status Code | Error                       | Ví dụ Tin nhắn                                         |
-|:----------- |:--------------------------- |:------------------------------------------------------ |
-| 403         | StatusForbidden             | "máy chủ được chỉ định không hợp lệ"                   |
-| 404         | StatusNotFound              | "404 không tìm thấy trang"                             |
-| 405         | StatusMethodNotAllowed      | "phương thức không được phép"                          |
-| 413         | StatusRequestEntityTooLarge | "độ dài nội dung quá lớn n > 524288"                   |
-| 415         | StatusUnsupportedMediaType  | "loại nội dung không hợp lệ, chỉ hỗ trợ ứng dụng/json" |
+| Mã trạng thái | Lỗi                         | Ví dụ Tin nhắn                                         |
+|:------------- |:--------------------------- |:------------------------------------------------------ |
+| 403           | StatusForbidden             | "máy chủ được chỉ định không hợp lệ"                   |
+| 404           | StatusNotFound              | "404 không tìm thấy trang"                             |
+| 405           | StatusMethodNotAllowed      | "phương thức không được phép"                          |
+| 413           | StatusRequestEntityTooLarge | "độ dài nội dung quá lớn n > 524288"                   |
+| 415           | StatusUnsupportedMediaType  | "loại nội dung không hợp lệ, chỉ hỗ trợ ứng dụng/json" |
 
 ---
 
@@ -57,4 +57,4 @@ Lỗi JSON-RPC tiêu chuẩn
 | -32602 | InvalidParamsError       | "thiếu giá trị cho đối số bắt buộc 0"                                                   |
 |        |                          | "đối số 0 không hợp lệ: chuỗi hex không có tiền tố 0x"                                  |
 |        |                          | "đối số không hợp lệ 0: json: không thể sắp xếp chuỗi thành giá trị Go của loại uint64" |
-| -32700 | InvalidMessageError      | "unexpected end of JSON input"                                                          |
+| 32700  | InvalidMessageError      | "đầu vào JSON kết thúc ngoài dự kiến"                                                   |
