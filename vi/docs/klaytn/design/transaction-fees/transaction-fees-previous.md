@@ -23,38 +23,38 @@ Every action that changes the state of the blockchain requires gas. When a node 
 
 `Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It is currently set to 250 ston \(_i.e._, 250 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
 
-In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
+In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. Việc này cũng giống như mang các nguồn lực hạn chế ra để đấu giá. Hướng tiếp cận này đã có hiệu quả vì nó dựa trên thị trường. Tuy nhiên, chi phí giao dịch có thể biến động và thường sẽ trở nên quá cao để đảm bảo cho việc thực thi.
 
-To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
+Để giải quyết vấn đề này, Klaytn sử dụng đơn giá cố định và giá có thể được điều chỉnh bởi hội đồng quản trị. Chính sách này đảm bảo rằng mọi giao dịch đều sẽ được xử lý công bằng và chắc chắn sẽ được thực thi. Vì thế, người dùng không cần phải vất vả xác định đơn giá phù hợp.
 
-#### Transaction Validation against Unit Price <a id="transaction-validation-against-unit-price"></a>
+#### Xác thực giao dịch so với Đơn giá <a id="transaction-validation-against-unit-price"></a>
 
-Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
+Klaytn chỉ chấp nhận các giao dịch bằng giá gas, giá này có thể do người dùng đặt, ở mức bằng với đơn giá của Klaytn; Klaytn từ chối các giao dịch với giá gas khác với đơn giá của Klaytn.
 
-#### Unit Price Error <a id="unit-price-error"></a>
+#### Lỗi đơn giá <a id="unit-price-error"></a>
 
-The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
+Thông báo lỗi `invalid unit price` được trả về khi giá gas của một giao dịch không bằng với đơn giá của Klaytn.
 
-### Transaction Replacement <a id="transaction-replacement"></a>
+### Thay thế giao dịch <a id="transaction-replacement"></a>
 
-Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
+Klaytn hiện không cung cấp phương pháp để thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp khác để thay thế giao dịch trong tương lai. Hãy lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
 
-## Klaytn's Gas table  <a id="klaytns-gas-table"></a>
+## Bảng giá ga của Klaytn  <a id="klaytns-gas-table"></a>
 
-Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
+Về cơ bản, Klaytn luôn duy trì tương thích với Ethereum. Vì thế, bảng giá gas của Klaytn cũng khá tương đồng với bảng của Ethereum. Tuy nhiên, do sự tồn tại của những tính năng độc đáo của Klaytn, có một số hằng số mới cho những tính năng đó.
 
 {% hint style="success" %}
-NOTE: This document contains the gas table used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](transaction-fees.md).
+LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước khi kích hoạt nâng cấp giao thức. Nếu bạn muốn nhận tài liệu mới nhất, vui lòng tham khảo [tài liệu mới nhất](transaction-fees.md).
 {% endhint %}
 
-### Common Fee <a id="common-fee"></a>
+### Phí phổ biến <a id="common-fee"></a>
 
-| Item              | Gas   | Description                                                                                        |
+| Mục               | Gas   | Mô tả                                                                                              |
 |:----------------- |:----- |:-------------------------------------------------------------------------------------------------- |
-| G\_zero         | 0     | Nothing paid for operations of the set Wzero                                                       |
-| G\_base         | 2     | Amount of gas to pay for operations of the set Wbase                                               |
-| G\_verylow      | 3     | Amount of gas to pay for operations of the set Wverylow                                            |
-| G\_low          | 5     | Amount of gas to pay for operations of the set Wlow                                                |
+| G\_zero         | 0     | Các hoạt động của bộ Wzero                                                                         |
+| G\_base         | 2     | Lượng gas phải trả cho các hoạt động của bộ Wbase                                                  |
+| G\_verylow      | 3     | Lượng gas phải trả cho các hoạt động của bộ Wverylow                                               |
+| G\_low          | 5     | Lượng gas phải trả cho các hoạt động của bộ Wlow                                                   |
 | G\_mid          | 8     | Amount of gas to pay for operations of the set Wmid                                                |
 | G\_high         | 10    | Amount of gas to pay for operations of the set Whigh                                               |
 | G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
