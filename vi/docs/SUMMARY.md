@@ -313,7 +313,7 @@
 * [Lịch sử nâng cấp căn bản của Klaytn](misc/klaytn-history.md)
 * [Klaytn 2.0](misc/klaytn2/README.md)
   * [Gói Metaverse](misc/klaytn2/metaverse-package.md)
-  * [Tính cuối cùng và cải tiến](misc/klaytn2/finality-and-improvements.md)
+  * [Tính hoàn thiện và cải tiến](misc/klaytn2/finality-and-improvements.md)
   * [Tính tương thích với Ethereum](misc/klaytn2/ethereum-compatibility.md)
   * [Quản trị phi tập trung](misc/klaytn2/decentralizing-governance.md)
   * [Quỹ sinh thái lớn](misc/klaytn2/massive-ecofund.md)
