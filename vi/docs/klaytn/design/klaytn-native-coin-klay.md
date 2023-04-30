@@ -29,9 +29,9 @@ Klaytn uses the following unit system for KLAY.
 | GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000     |
 | TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
 
-#### APIs Related to KLAY Units <a id="apis-related-to-klay-units"></a>
+#### Các API liên quan tới các Đơn vị KLAY <a id="apis-related-to-klay-units"></a>
 
-`klay.toPeb` and `klay.fromPeb` are convenient APIs for converting between KLAY units.
+`klay.toPeb` và `klay.fromPeb` là các API thuận tiện để chuyển đổi giữa các đơn vị KLAY.
 
 ```text
 $ ./klay attach data/dd/klay.ipc
@@ -52,7 +52,7 @@ $ ./klay attach data/dd/klay.ipc
 "25000000000000000000"
 ```
 
-You can get the list of all units supported by `klay.toPeb` and `klay.fromPeb` by sending an invalid unit string such as the one below.
+Bạn có thể nhận danh sách tất cả các đơn vị được hỗ trợ bởi `klay.toPeb` và `klay.fromPeb` bằng cách gửi một chuỗi đơn vị không hợp lệ, ví dụ như chuỗi dưới đây.
 
 ```text
 > klay.toPeb(1, "something-does-not-exist")
