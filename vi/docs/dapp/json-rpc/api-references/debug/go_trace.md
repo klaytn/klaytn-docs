@@ -1,13 +1,13 @@
-# Go Runtime Tracing <a id="go-runtime-tracing"></a>
+# Theo dõi thời gian chạy <a id="go-runtime-tracing"></a>
 
 ## debug_goTrace <a id="debug_gotrace"></a>
 
-Turns on Go runtime tracing for the given duration and writes trace data to disk.
+Bật theo dõi thời gian chạy Go trong khoảng thời gian nhất định và ghi dữ liệu theo dõi vào đĩa.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.goTrace(file, seconds)`                            |
-|   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
+|   Khách hàng    | Gọi Phương thức                                           |
+|:---------------:| --------------------------------------------------------- |
+| Bảng điều khiển | `debug.goTrace(file, seconds)`                            |
+|       RPC       | `{"method": "debug_goTrace", "params": [string, number]}` |
 
 **Tham số**
 
@@ -77,17 +77,17 @@ Dừng ghi dấu vết thời gian chạy Go.
 | Bảng điều khiển | `debug.stopGoTrace()`                           |
 |       RPC       | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.stopGoTrace()
 null
