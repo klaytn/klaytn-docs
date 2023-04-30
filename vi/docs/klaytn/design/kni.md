@@ -1,33 +1,33 @@
 # KNI <a id="KNI"></a>
 
-**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. Its syntax is shown below:
+**KNI (Mã định danh mạng Klaytn)** là một lược đồ URL dùng để xác định một nút Klaytn. Cú pháp của mã này được hiển thị như sau:
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
-![KNI scheme](../images/kni_scheme.png)
+![Lược đồ KNI](../images/kni_scheme.png)
 
-**nodeID** is a 512-bit public key corresponding to the node's private key. It is used to verify communication with peers on p2p network.
+**nodeID** là khóa công khai 512 bit tương ứng với khóa riêng tư của nút. Nó được dùng để xác thực giao tiếp với các nút ngang hàng trên mạng p2p.
 
-**hostname** describes the address of a node, located between `@` and `:`. The address format can be one of the following:
-* IPv4 dotted decimal (`192.0.2.1`)
+**hostname** mô tả địa chỉ của một nút, nằm giữa `@` và `:`. Định dạng của địa chỉ có thể là một trong những định dạng sau:
+* IPv4 phân định bằng dấu chấm thập phân (`192.0.2.1`)
 * IPv6 (`[2001:db8::68]`)
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
-* Domain name (`your.node.com`)
+* Tên miền (`your.node.com`)
 
-**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**port** được sử dụng để tạo kết nối với các nút ngang hàng thông qua TCP. Trong Klaytn, `port` mặc định là `32323` và `subport` mặc định là `32324`. Lưu ý rằng `subport` mặc định được cấu hình là `port + 1` trong `kend.conf`. Tùy thuộc vào số lượng cổng lắng nghe TCP, Klaytn cung cấp hai [loại kết nối](./multiport.md).
 
-**discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port. By default, the UDP port, or `discport`, uses the same port with the TCP port. If the node uses a different port for `discport`, it can be specified by the `discport` query parameter.
+**discport** được dùng để kiểm tra xem những nút lân cận đã biết có thể tiếp cận các nút Klaytn không, và tìm địa chỉ của các nút lân cận để tạo các kết nối mới. Lưu ý rằng đây là cổng UDP. Theo mặc định, cổng UDP hoặc `discport`, sử dụng cùng một cổng với cổng TCP. Nếu nút sử dụng một cổng khác cho `discport`, cổng đó có thể được chỉ định bởi tham số truy vấn `discport`.
 
-The following two URLs shows a KNI example of a node having IP address `10.0.0.1` and TCP listening port `32323` and `32324`. If `discport` is omitted, it is set to the UDP port of `32323`, same as the value of `port`.
+Hai URL sau đây hiển thị ví dụ về KNI của một nút có địa chỉ IP `10.0.0.1` và cổng lắng nghe TCP `32323` và `32324`. Nếu `discport` bị bỏ qua thì nó được đặt thành cổng UDP `32323`, giống với giá trị của `port`.
 ```
 kni://a979...163c@10.0.0.1:32323                 # either single-channel or multi-channel peer with omitted subport
 kni://a979...163c@10.0.0.1:32323?subport=32324   # multi-channel peer
 ```
 
-The next two shows KNI examples of nodes having `discport` of `30301`.
+Hai URL tiếp theo hiển thị các ví dụ KNI về các nút có `discport` là `30301`.
 ```
 kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-channel or multi-channel peer with omitted subport
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../../installation-guide/deployment/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation). The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../installation-guide/deployment/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](./../../operation-guide/configuration.md#properties) and etc.
+Nếu bạn muốn biết cách tạo KNI của một nút, vui lòng tham khảo [Tạo khóa nút & nút URI](../../installation-guide/deployment/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation). Lược đồ KNI được dùng trong giao thức khám phá nút, [thiết lập `static-nodes.json` ](../../installation-guide/deployment/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [API addPeer](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [tùy chọn nút ban đầu](./../../operation-guide/configuration.md#properties) và vân vân.
