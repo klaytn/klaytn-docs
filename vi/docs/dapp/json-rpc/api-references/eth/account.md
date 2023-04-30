@@ -6,7 +6,7 @@ Trả về danh sách các địa chỉ thuộc sở hữu của khách hàng.
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại                  | Mô tả                                    |
 | --------------------- | ---------------------------------------- |
