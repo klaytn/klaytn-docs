@@ -272,22 +272,22 @@ Phương thức này trả về một cờ boolean chỉ định xem trình nghe
 
 **Tham số**
 
-| Tên     | Loại   | Mô tả                                                                                                                                   |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| máy chủ | chuỗi  | (tùy chọn) giao diện mạng để mở ổ cắm trình nghe (mặc định: `"localhost"`).                                                             |
-| cổng    | int    | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
-| cors    | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis    | string | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                                       |
+| Tên     | Loại  | Mô tả                                                                                                                                              |
+| ------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở ổ cắm trình nghe (mặc định: `"localhost"`).                                                                        |
+| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8551`).                                                                                   |
+| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) để sử dụng (mặc định: `""`). |
+| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,rpc"`).                                                             |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                                 |
-| ---- | ----------------------------------------------------------- |
-| bool | `true` if the HTTP RPC listener was opened, `false` if not. |
+| Loại | Mô tả                                                              |
+| ----- | ------------------------------------------------------------------ |
+| bool  | `true` nếu trình nghe HTTP RPC đã được mở, `false` nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.startHTTP("127.0.0.1", 8551)
@@ -302,14 +302,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
 
-**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
+**LƯU Ý**: API này thay thế cho `admin_stopRPC`. `admin_stopRPC` sẽ sớm ngừng hoạt động.
 
-The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopHTTP` là một phương thức quản trị đóng điểm cuối HTTP RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối HTTP duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `admin.stopHTTP()`             |
-|   RPC   | `{"method": "admin_stopHTTP"}` |
+|   Khách hàng    | Gọi phương thức                |
+|:---------------:| ------------------------------ |
+| Bảng điều khiển | `admin.stopHTTP()`             |
+|       RPC       | `{"method": "admin_stopHTTP"}` |
 
 **Tham số**
 
@@ -379,26 +379,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopWS` là một phương thức quản trị đóng điểm cuối WebSocket RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối WebSocket duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-| Client  | Method invocation            |
-|:-------:| ---------------------------- |
-| Console | `admin.stopWS()`             |
-|   RPC   | `{"method": "admin_stopWS"}` |
+|   Khách hàng    | Gọi phương thức              |
+|:---------------:| ---------------------------- |
+| Bảng điều khiển | `admin.stopWS()`             |
+|       RPC       | `{"method": "admin_stopWS"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| Loại | Mô tả                                                 |
+| ---- | ----------------------------------------------------- |
+| bool | `true` nếu điểm cuối đã đóng, `false` nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stopWS()
@@ -413,28 +413,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` is an administrative method that exports the blockchain to a file.
+`exportChain` là một phương thức quản trị xuất chuỗi khối thành một tệp.
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.exportChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+|   Khách hàng    | Gọi phương thức                                          |
+|:---------------:| -------------------------------------------------------- |
+| Bảng điều khiển | `admin.exportChain(fileName)`                            |
+|       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                                                 |
-| -------- | ------ | --------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file where the blockchain must be exported. |
+| Tên         | Loại  | Mô tả                                                        |
+| ----------- | ----- | ------------------------------------------------------------ |
+| tên tệp tin | chuỗi | đường dẫn đủ điều kiện đến tệp mà chuỗi khối phải được xuất. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was exported, `false` if not. |
+| Loại | Mô tả                                               |
+| ----- | --------------------------------------------------- |
+| bool  | `true` nếu chuỗi được xuất, `false` nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
@@ -449,7 +449,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` is an administrative method that imports an exported chain from a file into a node. This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
+`importChain` là một phương thức quản trị để nhập một chuỗi đã xuất từ ​​một tệp vào một nút. Phương thức này chỉ nhập các khối chưa có trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
 |   Khách hàng    | Gọi phương thức                                          |
 |:---------------:| -------------------------------------------------------- |
@@ -519,26 +519,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+`startStateMigration` là một phương thức quản trị để bắt đầu di chuyển trạng thái và loại bỏ các nút trie lưu trữ/trạng thái cũ. Nó có thể giúp tiết kiệm không gian lưu trữ của nút Klaytn. Phương thức trả về lỗi nếu không thể bắt đầu di chuyển trạng thái hoặc `null` khi bắt đầu thành công. LƯU Ý: Sau khi di chuyển trạng thái, nút không thể cung cấp API với các trạng thái trước đó.
 
-| Client  | Method invocation                         |
-|:-------:| ----------------------------------------- |
-| Console | `admin.startStateMigration()`             |
-|   RPC   | `{"method": "admin_startStateMigration"}` |
+|   Khách hàng    | Gọi phương thức                           |
+|:---------------:| ----------------------------------------- |
+| Bảng điều khiển | `admin.startStateMigration()`             |
+|       RPC       | `{"method": "admin_startStateMigration"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                                            |
-| ----- | ---------------------------------------------------------------------- |
-| Error | `null` if the state migration has started, or an error message if not. |
+| Loại | Mô tả                                                                                   |
+| ---- | --------------------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bắt đầu hoặc thông báo lỗi nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.startStateMigration()
@@ -554,27 +554,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an administrative method that stops the currently running state migration. This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+`stopStateMigration` là một phương thức quản trị để dừng quá trình di chuyển trạng thái hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc một lỗi cho dù quá trình di chuyển trạng thái có bị dừng hay không.
 
-| Client  | Method invocation                        |
-|:-------:| ---------------------------------------- |
-| Console | `admin.stopStateMigration()`             |
-|   RPC   | `{"method": "admin_stopStateMigration"}` |
+|   Khách hàng    | Gọi phương thức                          |
+|:---------------:| ---------------------------------------- |
+| Bảng điều khiển | `admin.stopStateMigration()`             |
+|       RPC       | `{"method": "admin_stopStateMigration"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                                   |
-| ----- | ------------------------------------------------------------- |
-| Error | `null` if the state migration is stopped, or an error if not. |
+| Loại | Mô tả                                                                         |
+| ---- | ----------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bị dừng hoặc lỗi nếu không phải. |
 
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stopStateMigration()
@@ -588,9 +588,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. This method takes no parameters and returns the status of the currently running state migration.
+`stateMigrationStatus` là một phương thức quản trị trả về thông tin trạng thái của quá trình di chuyển trạng thái. Phương thức này không nhận tham số và trả về trạng thái của quá trình di chuyển trạng thái hiện đang chạy.
 
-|     Client      | Method invocation                          |
+|   Khách hàng    | Gọi phương thức                            |
 |:---------------:| ------------------------------------------ |
 | Bảng điều khiển | `admin.stateMigrationStatus`               |
 |       RPC       | `{"method": "admin_stateMigrationStatus"}` |
@@ -646,15 +646,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                                             |
-| ----- | ----------------------------------------------------------------------- |
-| Error | `null` if saving the trie node has started, or an error message if not. |
+| Loại | Mô tả                                                                     |
+| ---- | ------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình lưu nút trie đã bắt đầu hoặc báo lỗi nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.saveTrieNodeCacheToDisk()
@@ -669,28 +669,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn` là phương thức quản trị đặt số lượng đăng ký tối đa được phép cho mỗi kết nối WebSocket. Ví dụ: nếu số lượng tối đa được đặt là năm và người dùng yêu cầu nhiều hơn năm đăng ký thông qua API `klay_subscribe`, một thông báo lỗi "Cho phép tối đa 5 đăng ký cho một kết nối WebSocket" sẽ được hiển thị. Tính năng này được hỗ trợ kể từ Klaytn 1.6.0.
 
-| Client  | Method invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `admin.setMaxSubscriptionPerWSConn(limit)`        |
-|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+|   Khách hàng    | Gọi phương thức                                   |
+|:---------------:| ------------------------------------------------- |
+| Bảng điều khiển | `admin.setMaxSubscriptionPerWSConn(limit)`        |
+|       RPC       | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
-**Parameters**
+**Tham số**
 
-| Name  | Type | Description                                                                  |
-| ----- | ---- | ---------------------------------------------------------------------------- |
-| limit | int  | The maximum allowed number of subscriptions per single WebSocket connection. |
+| Tên      | Loại | Mô tả                                                        |
+| -------- | ---- | ------------------------------------------------------------ |
+| giới hạn | int  | Số lượng đăng ký tối đa cho phép trên mỗi kết nối WebSocket. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                                                                      |
-| ----- | -------------------------------------------------------------------------------- |
-| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
+| Loại | Mô tả                                                                      |
+| ---- | -------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu đặt giới hạn thành công; nếu không sẽ trả về một thông báo lỗi. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.setMaxSubscriptionPerWSConn(5)
