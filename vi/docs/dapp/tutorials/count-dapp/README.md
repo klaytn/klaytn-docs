@@ -3,7 +3,7 @@
 ## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. Thiết lập môi trường](1.-environment-setup.md)
-* [2. Clone Count DApp](2.-clone-count-dapp.md)
+* [2. Sao chép Count DApp](2.-clone-count-dapp.md)
 * [3. Cấu trúc thư mục](3.-directory-structure.md)
 * [4. Viết hợp đồng thông minh](4.-write-smart-contract.md)
 * [5. Tổng quan về mã Frontend](5.-frontend-code-overview/)
