@@ -1,18 +1,18 @@
 ## klay_feeHistory<a id="klay_feehistory"></a>
 
-Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
+Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với khoảng khối được yêu cầu nếu có.
 
 {% hint style="success" %}
-**NOTE**: This API is effective after Klaytn v1.8.0
+**LƯU Ý**: API này có hiệu lực sau Klaytn v1.8.0
 {% endhint %}
 
-**Parameters**
+**Tham số**
 
-| Name              | Type                | Description                                                                                                                                                                                              |
-| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | QUANTITY            | Number of blocks in the requested range in hexadecimal. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
-| lastBlock         | QUANTITY &#124; TAG | Highest numbered block of the requested range as block number or block tag.                                                                                                                              |
-| rewardPercentiles | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                     |
+| Tên               | Loại                | Mô tả                                                                                                                                                                                                                                       |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | SỐ LƯỢNG            | Số khối trong phạm vi được yêu cầu ở dạng thập lục phân. Có thể yêu cầu giữa 1 (0x1) và 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
+| lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                    |
+| rewardPercentiles | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                                                        |
 
 
 **Return Value**
