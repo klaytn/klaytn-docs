@@ -1,4 +1,4 @@
-# VM Tracing <a id="vm-tracing"></a>
+# Theo dõi VM <a id="vm-tracing"></a>
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
@@ -70,20 +70,20 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name     | Type   | Description                              |
-| -------- | ------ | ---------------------------------------- |
-| blockRlp | string | The RLP-encoded block.                   |
-| options  | object | See [tracing options](#tracing-options). |
+| Name     | Type   | Description                                |
+| -------- | ------ | ------------------------------------------ |
+| blockRlp | string | The RLP-encoded block.                     |
+| options  | object | Xem [tùy chọn theo dõi](#tracing-options). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                         |
+| ---------- | ------------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.traceBlock("0xblock_rlp")
 [{
@@ -105,29 +105,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
+Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` chấp nhận một mã băm khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.traceBlockByHash(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
+|   Khách hàng    | Gọi Phương thức                                              |
+|:---------------:| ------------------------------------------------------------ |
+| Bảng điều khiển | `debug.traceBlockByHash(hash, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                              |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| Tên      | Loại           | Mô tả                                      |
+| -------- | --------------- | ------------------------------------------ |
+| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                       |
+| tùy chọn | đối tượng       | Xem [tùy chọn theo dõi](#tracing-options). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                         |
+| ---------- | ------------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.traceBlockByHash("0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890")
 [{
@@ -148,12 +148,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
+Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` chấp nhận một số khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
 
-| Client  | Method Invocation                                                |
-|:-------:| ---------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumber(number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
+|   Khách hàng    | Gọi Phương thức                                                  |
+|:---------------:| ---------------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceBlockByNumber(number, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
 **Parameters**
 
@@ -211,13 +211,13 @@ Returns the structured logs created during the execution of EVM between two bloc
 
 **Return Value**
 
-| Type                                       | Description                                                              |
-| ------------------------------------------ | ------------------------------------------------------------------------ |
-| map(key: block number. value: JSON string) | Value contains the structured logs created during the execution of KLVM. |
+| Type                                        | Description                                                                |
+| ------------------------------------------- | -------------------------------------------------------------------------- |
+| map(key: block number. giá trị: chuỗi JSON) | Giá trị chứa nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.traceBlockByNumberRange(21, 30, {})
 {
@@ -248,39 +248,39 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
+Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` chấp nhận một tệp chứa RLP của khối.
 
-**NOTE**: the file must include the associated hexadecimal string without `0x`.
+**LƯU Ý**: tệp phải bao gồm chuỗi thập lục phân được liên kết mà không có `0x`.
 
-| Client  | Method Invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `debug.traceBlockFromFile(fileName, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
+|   Khách hàng    | Gọi Phương thức                                                    |
+|:---------------:| ------------------------------------------------------------------ |
+| Bảng điều khiển | `debug.traceBlockFromFile(fileName, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                        |
-| -------- | ------ | -------------------------------------------------- |
-| fileName | string | The file name which contains the RLP of the block. |
-| options  | object | See [tracing options](#tracing-options).           |
+| Tên         | Loại      | Mô tả                                      |
+| ----------- | --------- | ------------------------------------------ |
+| tên tệp tin | chuỗi     | Tên tệp chứa RLP của khối.                 |
+| tùy chọn    | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                         |
+| ---------- | ------------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
 
-**Example**
+**Ví dụ**
 
-The contents of the `block.rlp` file was printed on the running node as follows.
+Nội dung của tệp `block.rlp` được in trên nút đang chạy như sau.
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
 ```
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.traceBlockFromFile("block.rlp")
 [{
@@ -303,12 +303,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo cách tương tự như khi nó được triển khai trên mạng. Nó sẽ phát lại bất kỳ giao dịch nào có thể đã được thực hiện trước giao dịch này trước khi cuối cùng nó sẽ cố gắng thực hiện giao dịch tương ứng với mã băm đã cho.
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.traceTransaction(txHash, [options])`                    |
-|   RPC   | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
+|   Khách hàng    | Gọi Phương thức                                                |
+|:---------------:| -------------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceTransaction(txHash, [options])`                    |
+|       RPC       | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
 **Parameters**
 
@@ -485,7 +485,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
+## Theo dõi dựa trên JavaScript <a id="javascript-based-tracing"></a>
 Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
 `step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
