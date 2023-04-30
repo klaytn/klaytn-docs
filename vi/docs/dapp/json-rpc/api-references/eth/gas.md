@@ -1,21 +1,21 @@
 ## eth_feeHistory<a id="eth_feehistory"></a>
 
-Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
+Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với khoảng khối được yêu cầu nếu có.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type                | Description                                                                                                                                                                                                                 |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | QUANTITY            | Number of blocks in the requested range expressed as a hexidecimal number. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
-| lastBlock         | QUANTITY &#124; TAG | Highest number block of the requested range as a block number or block tag.                                                                                                                                                 |
-| rewardPercentiles | Array of FLOAT      | Array of floating point value between 0 and 100.                                                                                                                                                                            |
+| Tên               | Loại               | Mô tả                                                                                                                                                                                                                                                            |
+| ----------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | SỐ LƯỢNG            | Số lượng khối trong khoảng yêu cầu được trình bày dưới dạng số thập lục phân. Có thể yêu cầu giữa 1 (0x1) và 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
+| lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                                         |
+| rewardPercentiles | Mảng DẤU PHẢY ĐỘNG  | Mảng số thực dấu phảy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                                        |
 
 
-**Return Value**
+**Giá trị trả về**
 
-| Name          | Type              | Description                                                                                                                                                        |
+| Tên           | Loại              | Mô tả                                                                                                                                                              |
 | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| oldestBlock   | QUANTITY          | Lowest number block of the returned range expressed as a hexidecimal number.                                                                                       |
+| oldestBlock   | SỐ LƯỢNG          | Khối thấp nhất trong khoảng trả về được trình bày dưới dạng số thập lục phân.                                                                                      |
 | baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
 | gasUsedRatio  | Array of FLOAT    | An array of block gas used ratios. These are calculated as the ratio of gasUsed and gasLimit.                                                                      |
 | reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
