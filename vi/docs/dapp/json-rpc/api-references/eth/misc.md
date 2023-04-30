@@ -1,26 +1,26 @@
 ## eth_hashrate <a id="eth_hashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Please note that it always return `0x0` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `0x0`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| Loại    | Mô tả                |
+| -------- | -------------------- |
+| SỐ LƯỢNG | Số lần băm mỗi giây. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -30,27 +30,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHashrate <a id="eth_gethashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Please note that it always return `0` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `0`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| Loại     | Mô tả                |
+| -------- | -------------------- |
+| SỐ LƯỢNG | Số lần băm mỗi giây. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getHashrate","params":[],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -60,27 +60,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getWork <a id="eth_getwork"></a>
 
-Returns the hash of the current block, the seedHash, and the boundary condition to be met ("target").
+Trả về mã băm của khối hiện tại, seedHash, và điều kiện biên cần đáp ứng ("mục tiêu").
 
-Please note that it always return `errNoMiningWork` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `errNoMiningWork`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type                  | Description                                                                                                                   |
+| Loại                  | Mô tả                                                                                                                   |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Array of 32-byte DATA | List of current block header pow-hash, the seed hash used for the DAG, the boundary condition ("target"), 2^256 / difficulty. |
+| Mảng DỮ LIỆU 32 byte | Danh sách mã băm pow, mã băm bổ sung của tiêu đề khối hiện tại được sử dụng cho DAG, điều kiện biên ("mục tiêu"), 2^256 / độ khó. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -94,31 +94,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitWork <a id="eth_submitwork"></a>
 
-Used for submitting a proof-of-work solution.
+Được dùng để gửi giải pháp bằng chứng công việc.
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `false`.
 
-**Parameters**
+**Tham số**
 
-| Type         | Description                      |
-| ------------ | -------------------------------- |
-| 8-byte DATA  | The nonce found (64 bits)        |
-| 32-byte DATA | The header’s pow-hash (256 bits) |
-| 32-byte DATA | The mix digest (256 bits)        |
+| Loại            | Mô tả                                     |
+| --------------- | ----------------------------------------- |
+| DỮ LIỆU 8 byte  | Tìm thấy giá trị số dùng một lần (64 bit) |
+| DỮ LIỆU 32 byte | Mã băm pow của tiêu đề (256 bit)          |
+| DỮ LIỆU 32 byte | Băm pha trộn (256 bit)                    |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | Returns true if the provided solution is valid, otherwise false. |
+| Loại | Mô tả                                                                                 |
+| ----- | ------------------------------------------------------------------------------------- |
+| Logic | Nếu giải pháp cung cấp hợp lệ, giá trị trả về là true, nếu không giá trị sẽ là false. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submitWork","params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -129,30 +129,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitHashrate <a id="eth_submithashrate"></a>
 
-Used for submitting mining hashrate.
+Được dùng để gửi tốc độ băm khai thác.
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `false`.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type         | Description                                                      |
-| -------- | ------------ | ---------------------------------------------------------------- |
-| hashrate | 32-byte DATA | A hexadecimal string representation (32 bytes) of the hash rate. |
-| id       | 32-byte DATA | A random hexadecimal(32 bytes) ID identifying the client.        |
+| Tên      | Loại           | Mô tả                                                                         |
+| -------- | --------------- | ----------------------------------------------------------------------------- |
+| hashrate | DỮ LIỆU 32 byte | Chuỗi thập lục phân (32 byte) biểu thị tốc độ băm.                            |
+| id       | DỮ LIỆU 32 byte | ID ngẫu nhiên dưới dạng chuỗi thập lục phân (32 byte) để xác định khách hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | Returns true if submitting went through succesfully and false otherwise. |
+| Loại | Mô tả                                                                     |
+| ----- | ------------------------------------------------------------------------- |
+| Logic | Kết quả trả về là true nếu gửi thành công, nếu không kết quả sẽ là false. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submithashrate","params":["0x5", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
