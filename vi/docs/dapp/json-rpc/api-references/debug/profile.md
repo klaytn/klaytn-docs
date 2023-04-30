@@ -38,25 +38,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Bật cấu hình CPU trong khoảng thời gian nhất định và ghi dữ liệu cấu hình vào đĩa.
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.cpuProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
+|   Khách hàng    | Gọi Phương thức                                              |
+|:---------------:| ------------------------------------------------------------ |
+| Bảng điều khiển | `debug.cpuProfile(file, seconds)`                            |
+|       RPC       | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                            |
-| ------- | ------ | -------------------------------------- |
-| file    | string | The filename for the profiling result. |
-| seconds | int    | The profiling duration in seconds.     |
+| Tên     | Loại  | Mô tả                               |
+| ------- | ----- | ----------------------------------- |
+| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.       |
+| giây    | int   | Thời lượng cấu hình tính bằng giây. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.cpuProfile("block.profile", 10)
 null
@@ -69,27 +69,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_mutexProfile <a id="debug_mutexprofile"></a>
 
-Turns on mutex profiling for nsec (nanosecond) and writes profile data to file. It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually.
+Bật cấu hình mutex cho nsec (nano giây) và ghi dữ liệu cấu hình vào tệp. Nó sử dụng tốc độ cấu hình là 1 để có thông tin chính xác nhất. Nếu muốn một tốc độ khác, hãy thiết lập tốc độ và cấu hình theo cách thủ công.
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.mutexProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+|   Khách hàng    | Gọi Phương thức                                                |
+|:---------------:| -------------------------------------------------------------- |
+| Bảng điều khiển | `debug.mutexProfile(file, seconds)`                            |
+|       RPC       | `{"method": "debug_mutexProfile", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                            |
-| ------- | ------ | -------------------------------------- |
-| file    | string | The filename for the profiling result. |
-| seconds | int    | The profiling duration in seconds.     |
+| Tên     | Loại | Mô tả                               |
+| ------- | ----- | ----------------------------------- |
+| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.       |
+| giây    | int   | Thời lượng cấu hình tính bằng giây. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.mutexProfile("mutex.profile", 10)
 null
@@ -137,26 +137,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định hình khối, đặt nó thành 0 sẽ dừng cấu hình. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
+Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định hình khối, đặt nó thành 0 sẽ dừng cấu hình. Dữ liệu cấu hình được thu thập có thể được viết bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
 
-| Client  | Method Invocation                                             |
-|:-------:| ------------------------------------------------------------- |
-| Console | `debug.setBlockProfileRate(rate)`                             |
-|   RPC   | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
+|   Khách hàng    | Gọi Phương thức                                               |
+|:---------------:| ------------------------------------------------------------- |
+| Bảng điều khiển | `debug.setBlockProfileRate(rate)`                             |
+|       RPC       | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type | Description                        |
-| ---- | ---- | ---------------------------------- |
-| rate | int  | The profiling rate in samples/sec. |
+| Tên    | Loại | Mô tả                               |
+| ------ | ----- | ----------------------------------- |
+| tốc độ | int   | Tốc độ cấu hình tính bằng mẫu/giây. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.setBlockProfileRate(1)
 null
@@ -170,26 +170,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCPUProfile <a id="debug_startcpuprofile"></a>
 
-Turns on CPU profiling indefinitely, writing to the given file.
+Bật cấu hình CPU vô thời hạn, ghi vào tệp đã cho.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.startCPUProfile(file)`                             |
-|   RPC   | `{"method": "debug_startCPUProfile", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                           |
+|:---------------:| --------------------------------------------------------- |
+| Bảng điều khiển | `debug.startCPUProfile(file)`                             |
+|       RPC       | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                            |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| Tên     | Loại  | Mô tả                        |
+| ------- | ----- | ---------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > debug.startCPUProfile("cpu.profile")
@@ -204,24 +204,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopCPUProfile <a id="debug_stopcpuprofile"></a>
 
-Turns off CPU profiling.
+Tắt cấu hình CPU.
 
-| Client  | Method Invocation                                  |
-|:-------:| -------------------------------------------------- |
-| Console | `debug.stopCPUProfile()`                           |
-|   RPC   | `{"method": "debug_stopCPUProfile", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                                    |
+|:---------------:| -------------------------------------------------- |
+| Bảng điều khiển | `debug.stopCPUProfile()`                           |
+|       RPC       | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.stopCPUProfile()
 null
@@ -318,19 +318,19 @@ Writes a goroutine blocking profile to the given file.
 | Console | `debug.writeBlockProfile(file)`                             |
 |   RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                            |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| Tên     | Loại  | Mô tả                        |
+| ------- | ----- | ---------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.writeBlockProfile("block.profile")
 null
@@ -344,26 +344,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
-Writes an allocation profile to the given file.  Note that the profiling rate cannot be set through the API, it must be set on the command line using the `--memprofilerate` flag.
+Viết một cấu hình phân bổ vào tệp đã cho.  Lưu ý rằng tốc độ cấu hình không thể được đặt thông qua API, nó phải được đặt trên dòng lệnh bằng cách sử dụng cờ `--memprofilerate`.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.writeMemProfile(file)`                             |
-|   RPC   | `{"method": "debug_writeMemProfile", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                           |
+|:---------------:| --------------------------------------------------------- |
+| Bảng điều khiển | `debug.writeMemProfile(file)`                             |
+|       RPC       | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                            |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| Tên     | Loại  | Mô tả                        |
+| ------- | ----- | ---------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.writeMemProfile("mem.profile")
 null
@@ -376,26 +376,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
 
-Writes a goroutine blocking profile to the given file.
+Viết một cấu hình khối goroutine vào tệp đã cho.
 
-| Client  | Method Invocation                                           |
-|:-------:| ----------------------------------------------------------- |
-| Console | `debug.writeMutexProfile(file)`                             |
-|   RPC   | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                             |
+|:---------------:| ----------------------------------------------------------- |
+| Bảng điều khiển | `debug.writeMutexProfile(file)`                             |
+|       RPC       | `{"method": "debug_writeMutexProfile", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                            |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| Tên     | Loại  | Mô tả                        |
+| ------- | ----- | ---------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.writeMutexProfile("mutex.profile")
 null
