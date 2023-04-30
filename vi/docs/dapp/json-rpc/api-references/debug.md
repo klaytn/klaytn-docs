@@ -1,14 +1,14 @@
 ---
 description: >-
-  APIs used to inspect and debug node state and blockchain data at run time.
+  API được sử dụng để kiểm tra và gỡ lỗi trạng thái nút và dữ liệu chuỗi khối trong thời gian chạy.
 ---
 
-# Namespace debug <a id="namespace-debug"></a>
+# Gỡ lỗi Namespace <a id="namespace-debug"></a>
 
-The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
+`Gỡ lỗi` namespace cung cấp cho bạn quyền truy cập vào một số phương thức RPC không chuẩn, cho phép bạn kiểm tra, gỡ lỗi và đặt các cờ gỡ lỗi nhất định trong thời gian chạy.
 
 
-## [Logging](./debug/logging.md) <a id="logging"></a>
+## [Đang ghi nhật ký](./debug/logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
@@ -18,7 +18,7 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_vmodule](./debug/logging.md#debug_vmodule)
 
 
-## [Profiling](./debug/profile.md) <a id="profiling"></a>
+## [Đang cấu hình](./debug/profile.md) <a id="profiling"></a>
 
 - [debug_blockProfile](./debug/profile.md#debug_blockprofile)
 - [debug_cpuProfile](./debug/profile.md#debug_cpuprofile)
@@ -34,14 +34,14 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_writeMutexProfile](./debug/profile.md#debug_writemutexprofile)
 
 
-## [Runtime Tracing](./debug/go_trace.md) <a id="runtime-tracing"></a>
+## [Theo dõi thời gian chạy](./debug/go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./debug/go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./debug/go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./debug/go_trace.md#debug_stopgotrace)
 
 
-## [Runtime Debugging](./debug/runtime.md) <a id="runtime-debugging"></a>
+## [Gỡ lỗi thời gian chạy](./debug/runtime.md) <a id="runtime-debugging"></a>
 
 - [debug_freeOSMemory](./debug/runtime.md#debug_freeosmemory)
 - [debug_gcStats](./debug/runtime.md#debug_gcstats)
@@ -51,7 +51,7 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_stacks](./debug/runtime.md#debug_stacks)
 
 
-## [VM Tracing](./debug/tracing.md) <a id="vm-tracing"></a>
+## [Theo dõi VM](./debug/tracing.md) <a id="vm-tracing"></a>
 
 - [debug_traceBadBlock](./debug/tracing.md#debug_tracebadblock)
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
@@ -61,11 +61,11 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
-- [Tracing Options](./debug/tracing.md#tracing-options)
-- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
+- [Tùy chọn theo dõi](./debug/tracing.md#tracing-options)
+- [Truy tìm dựa trên JavaScript](./debug/tracing.md#javascript-based-tracing)
 
 
-## [VM Standard Tracing](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
+## [Theo dõi tiêu chuẩn VM](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
