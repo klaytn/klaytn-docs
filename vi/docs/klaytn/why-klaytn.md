@@ -1,24 +1,24 @@
 ---
 description: >-
-  This document explains how Klaytn is different based on its the key design principles.
+  Tài liệu này giải thích về sự khác biệt của Klaytn dựa trên các nguyên tắc thiết kế chủ đạo của nó.
 ---
 
-# Why Klaytn <a id="why-klaytn"></a>
+# Vì sao nên chọn Klaytn <a id="why-klaytn"></a>
 
-## Klaytn as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
-​ Klaytn is built to be the fundamental trust layer for the metaverse, respecting the participation and contribution from all communities, empowering and bringing them together in the new world. ​ The foremost design principle is; ​
+## Klaytn với vai trò là lớp tin cậy của vũ trụ ảo <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
+Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho vũ trụ ảo, tôn trọng sự tham gia và đóng góp đến từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới. Nguyên tắc thiết kế đứng đầu là
 {% hint style="success" %}
-Helping the pioneers to easily build the applications and organize the community in scalable way.
+Giúp những người tiên phong dễ dàng xây dựng các ứng dụng và tổ chức cộng đồng theo cách có thể mở rộng.
 {% endhint %}
-​ As per this principle, Klaytn has been designed to meet the following requirements: ​
-### High Performance <a id="high-performance"></a>
-#### Throughput(TPS) and Finality <a id="throughput-and-finality"></a>
-- Main chain should handle at least 4,000 TPS.
-- Main chain should guarantee immediate transaction finality with one-second block generation time.
-- See [Consensus Mechanism][]. ​
-#### Scalability <a id="scalability"></a>
-- Service chain is the default L2 solution for Klaytn 2.0 that is customizable and easily deployable. The service chain can have its own governance and connect to the Klaytn main chain to anchor data or transfer assets.
-- See [Service Chain][]. Enterprises or large networks often want to have their own dedicated execution environment. With the service chain, they can maintain an isolated high-performing execution environment that is not affected by other blockchain applications.
+Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng những yêu cầu sau:
+### Hiệu suất cao <a id="high-performance"></a>
+#### Thông lượng (TPS) và Tính hoàn thiện <a id="throughput-and-finality"></a>
+- Chuỗi chính nên xử lý tối thiểu 4.000 TPS.
+- Chuỗi chính nên đảm bảo tính hoàn thiện giao dịch tức thời với thời gian tạo khối là một giây.
+- Hãy xem [Cơ chế đồng thuận][].
+#### Khả năng mở rộng <a id="scalability"></a>
+- Chuỗi dịch vụ là giải pháp L2 mặc định dành cho Klaytn 2.0, có thể tùy chỉnh và dễ dàng triển khai. Chuỗi dịch vụ có thể được quản trị riêng và kết nối với chuỗi chính của Klaytn để neo dữ liệu hoặc chuyển giao tài sản.
+- Hãy xem [Chuỗi dịch vụ][]. Các doanh nghiệp hoặc mạng lưới lớn thường muốn có môi trường thực thi của riêng họ. With the service chain, they can maintain an isolated high-performing execution environment that is not affected by other blockchain applications.
 - Other scalability solutions will be available in the near future, such as sharding or rollups. ​
 ### Low Cost  <a id="low-cost"></a>
 - End-users should not be burdened with any higher transaction fee beyond what the traditional systems require.
@@ -51,11 +51,11 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 ### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
 - In addition to the current traditional enterprises as Klaytn Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
 
-[Consensus Mechanism]: design/consensus-mechanism.md
+[Cơ chế đồng thuận]: design/consensus-mechanism.md
 [Affordable Smart Contract Execution Cost]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
 [Transaction Fees]: design/transaction-fees/transaction-fees.md
 [Fee Delegation]: design/transactions/README.md#fee-delegation
-[Service Chain]: scaling-solutions.md#service-chain
+[Chuỗi dịch vụ]: scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Migrating Ethereum App to Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Klaytn Improvement Reserve]: design/token-economy.md#klaytn-improvement-reserve
