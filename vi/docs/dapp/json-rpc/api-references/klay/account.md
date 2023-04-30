@@ -1,6 +1,6 @@
 ## klay_accountCreated <a id="klay_accountcreated"></a>
 
-Trả về `true` nếu tài khoản được liên kết với địa chỉ được tạo. It returns `false` otherwise.
+Trả về `true` nếu tài khoản được liên kết với địa chỉ được tạo. Hoặc là sẽ trả lại `false`.
 
 **Các tham số**
 
@@ -15,17 +15,17 @@ LƯU Ý: Trong các phiên bản trước Klaytn v1.7.0, chỉ có số khối n
 
 **Giá trị trả lại**
 
-| Loại   | Mô tả                             |
-| ------- | --------------------------------- |
-| Boolean | The existence of an input address |
+| Loại   | Mô tả              |
+| ------- | ------------------ |
+| Boolean | Có địa chỉ đầu vào |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accountCreated","params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -36,25 +36,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_accounts <a id="klay_accounts"></a>
 
-Returns a list of addresses owned by client.
+Trả về danh sách các địa chỉ thuộc sở hữu của khách hàng.
 
-**Parameters**
+**Tham số**
 
-None
+Trống
 
-**Return Value**
+**Giá trị trả về**
 
-| Type                  | Description                    |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
+| Loại                 | Mô tả                                    |
+| --------------------- | ---------------------------------------- |
+| Chuỗi DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của khách hàng. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -65,29 +65,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_encodeAccountKey <a id="klay_encodeaccountkey"></a>
 
-Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
+Mã hóa khóa tài khoản bằng sơ đồ mã hóa Tiền tố độ dài đệ quy (RLP).
 
-**Parameters**
+**Tham số**
 
-| Name    | Type      | Description                                                                                                                                              |
-| ------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keytype | QUANTITY  | Integer value indicating account key type. For the value of each account key type, see [Account Key](../../../../klaytn/design/accounts.md#account-key). |
-| key     | JSON DATA | Account key object                                                                                                                                       |
+| Tên     | Type         | Mô tả                                                                                                                                                                      |
+| ------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại khóa tài khoản. Để biết giá trị của từng loại khóa tài khoản, hãy xem [Khóa tài khoản](../../../../klaytn/design/accounts.md#account-key). |
+| khóa    | DỮ LIỆU JSON | Đối tượng khóa tài khoản                                                                                                                                                   |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description             |
-| ---- | ----------------------- |
-| DATA | RLP encoded account key |
+| Kiểu    | Mô tả                          |
+| ------- | ------------------------------ |
+| DỮ LIỆU | Khóa tài khoản được mã hóa RLP |
 
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request to encode AccountKeyNil
+// Yêu cầu mã hóa AccountKeyNil
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 0, "key": {}}], "id": 66}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 66,
     "jsonrpc": "2.0",
@@ -95,10 +95,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 ```shell
-// Request to encode AccountKeyLegacy
+// Yêu cầu mã hóa AccountKeyLegacy
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 1, "key": {}}], "id": 30}' http://127.0.0.1:8551
 
-// Result
+// Resulkết quả
 {
     "id": 30,
     "jsonrpc": "2.0",
@@ -106,10 +106,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 ```shell
-// Request to encode AccountKeyPublic
+// Yêu cầu mã hóa AccountKeyPublic
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 2, "key": {"x": "0xdbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8", "y": "0x906d7170ba349c86879fb8006134cbf57bda9db9214a90b607b6b4ab57fc026e"}}], "id": 59}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 59,
     "jsonrpc": "2.0",
@@ -117,10 +117,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 ```shell
-// Request to encode AccountKeyFail
+// Yêu cầu mã hóa AccountKeyFail
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 3, "key": {}}], "id": 79}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 79,
     "jsonrpc": "2.0",
@@ -128,10 +128,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 ```shell
-// Request to encode AccountKeyWeightedMultiSig
+// Yêu cầu mã hóa AccountKeyWeightedMultiSig
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 4, "key": {"threshold": 3, "keys": [{"weight": 1, "key": {"x": "0xc734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110e", "y": "0x61a443ac3ffff164d1fb3617875f07641014cf17af6b7dc38e429fe838763712"}}, {"weight": 1, "key": {"x": "0x12d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb", "y": "0x8ef355a8d524eb444eba507f236309ce08370debaa136cb91b2f445774bff842"}}, {"weight": 1, "key": {"x": "0xea9a9f85065a00d7b9ffd3a8532a574035984587fd08107d8f4cbad6b786b0cd", "y": "0xb95ebb02d9397b4a8faceb58d485d612f0379a923ec0ddcf083378460a56acca"}}, {"weight": 1, "key": {"x": "0x8551bc489d62fa2e6f767ba87fe93a62b679fca8ff3114eb5805e6487b51e8f6", "y": "0x4206aa84bc8955fcbfcc396854228aa63ebacd81b7311a31ab9d71d90b7ec3d7"}}]}}], "id": 18}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 18,
     "jsonrpc": "2.0",
@@ -139,10 +139,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 ```shell
-// Request to encode AccountKeyRoleBased
+// Yêu cầu mã hóa AccountKeyRoleBased
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_encodeAccountKey", "params": [{"keyType": 5, "key": [{"keyType": 2, "key": {"x": "0xe4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512d", "y": "0xa5735a23ce1654b14680054a993441eae7c261983a56f8e0da61280758b5919"}}, {"keyType": 4, "key": {"threshold": 2, "keys": [{"weight": 1, "key": {"x": "0xe4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512d", "y": "0xa5735a23ce1654b14680054a993441eae7c261983a56f8e0da61280758b5919"}}, {"weight": 1, "key": {"x": "0x36f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06", "y": "0x6fdf9fc87a16ac359e66d9761445d5ccbb417fb7757a3f5209d713824596a50d"}}]}}, {"keyType": 2, "key": {"x": "0xc8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447", "y": "0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2"}}]}], "id": 49}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 49,
     "jsonrpc": "2.0",
@@ -153,28 +153,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_decodeAccountKey <a id="klay_decodeaccountkey"></a>
 
-Decodes an RLP encoded account key.
+Giải mã khóa tài khoản được mã hóa RLP.
 
-**Parameters**
+**Tham số**
 
-| Type | Description             |
-| ---- | ----------------------- |
-| DATA | RLP encoded account key |
+| Loại   | Mô tả                          |
+| ------- | ------------------------------ |
+| DỮ LIỆU | Khóa tài khoản được mã hóa RLP |
 
-**Return Value**
+**Giá trị trả về**
 
-| Name    | Type      | Description                                |
-| ------- | --------- | ------------------------------------------ |
-| keytype | QUANTITY  | Integer value indicating account key type. |
-| key     | JSON DATA | Account key object                         |
+| Tên     | Loại        | Mô tả                                           |
+| ------- | ------------ | ----------------------------------------------- |
+| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại khóa tài khoản. |
+| khóa    | DỮ LIỆU JSON | Đối tượng khóa tài khoản                        |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_decodeAccountKey", "params": ["0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447"], "id": 47}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 47,
     "jsonrpc": "2.0",
@@ -224,32 +224,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_getAccount <a id="klay_getaccount"></a>
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
+Trả về thông tin tài khoản của một địa chỉ nhất định. Có hai loại tài khoản trong Klaytn: các tài khoản được sở hữu bên ngoài (\EOA\) và các tài khoản hợp đồng thông minh. Xem [Các tài khoản Klaytn ](../../../../klaytn/design/accounts.md#klaytn-accounts).
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20-byte DATA                    | Address                                                                                                                                                                                |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                 | Loại                             | Mô tả                                                                                                                                                                               |
+| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ             | DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                 |
-| ------- | ------------------------------------------- |
-| Account | Each account type has different attributes. |
+| Loại     | Mô tả                                           |
+| --------- | ----------------------------------------------- |
+| Tài khoản | Mỗi loại tài khoản có các thuộc tính khác nhau. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request (Account type: Externally Owned Account)
+// Yêu cầu (Loại tài khoản: Tài khoản thuộc sở hữu bên ngoài)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -271,10 +271,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 ```shell
-// Request (Account type: Smart Contract Account)
+// Yêu cầu (Loại tài khoản: Tài khoản hợp đồng thông minh)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -299,32 +299,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+Trả về khóa tài khoản của Tài khoản thuộc sở hữu bên ngoài (EOA) của một địa chỉ nhất định. Nếu tài khoản có AccountKeyLegacy hoặc tài khoản của địa chỉ đã cho là Tài khoản hợp đồng thông minh, nó sẽ trả về một giá trị khóa trống. Tham khảo [Khóa tài khoản](../../../../klaytn/design/accounts.md#account-key).
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Loại                             | Mô tả                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type       | Description                                              |
-| ---------- | -------------------------------------------------------- |
-| AccountKey | The account key consist of public key(s) and a key type. |
+| Loại      | Mô tả                                                         |
+| ---------- | ------------------------------------------------------------- |
+| AccountKey | Khóa tài khoản bao gồm (các) khóa công khai và một loại khóa. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request (AccountKey type: AccountKeyPublic)
+// Yêu cầu (loại AccountKey: AccountKeyPublic)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -338,10 +338,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 ```shell
-// Request (AccountKey type: AccountKeyRoleBased)
+// Yêu cầu (loại AccountKey: AccountKeyRoleBased)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x68756d616e616161000000000000000000000000", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result (AccountKeyRoleBased has nested key structure)
+// Kết quả (AccountKeyRoleBased có cấu trúc khóa lồng nhau)
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -370,10 +370,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 ```shell
-// Request (AccountKey type: AccountKeyLegacy)
+// Yêu cầu (loại AccountKey: AccountKeyLegacy)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -387,32 +387,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBalance <a id="klay_getbalance"></a>
 
-Returns the balance of the account of given address.
+Trả về số dư tài khoản của địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                 | Loại                              | Mô tả                                                                                                                                                                               |
+| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ             | DỮ LIỆU 20 byte                   | Địa chỉ để kiểm tra số dư.                                                                                                                                                          |
+| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                            |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| Loại     | Mô tả                                   |
+| -------- | --------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số dư hiện tại trong peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0","id":1,
   "result": "0x0234c8a3397aab58" // 158972490234375000
@@ -422,32 +422,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getCode <a id="klay_getcode"></a>
 
-Returns code at a given address.
+Trả về mã ở địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Loại                             | Mô tả                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                      |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| Loại   | Mô tả                 |
+| ------- | --------------------- |
+| DỮ LIỆU | Mã từ địa chỉ đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -458,32 +458,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+Trả về số lượng giao dịch *gửi* từ một địa chỉ.
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Loại                             | Mô tả                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| Loại    | Mô tả                                                |
+| -------- | ---------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số lượng giao dịch gửi từ địa chỉ này. |
 
-**Example**
+**Ví dụ**
 
  ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -496,7 +496,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isContractAccount <a id="klay_iscontractaccount"></a>
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+Trả về `true` nếu tài khoản đầu vào có codeHash không trống tại thời điểm có số khối cụ thể. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
 
 **Parameters**
 
