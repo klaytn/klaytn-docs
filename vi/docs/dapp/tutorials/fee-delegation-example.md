@@ -17,7 +17,7 @@
 
 ## 1. Giới thiệu <a href="#1-introduction" id="1-introduction"></a>
 
-Hướng dẫn này giúp bạn sử dụng SDK caver-js để viết một ví dụ máy chủ-máy khách đơn giản nhằm minh họa cách hoạt động của giao dịch chuyển giá trị được ủy thác có phí trong Klaytn. Hướng dẫn và mã ví dụ đều sử dụng mạng testnet Baobab.
+Hướng dẫn này giúp bạn sử dụng SDK caver-js để viết một ví dụ máy chủ-máy khách đơn giản nhằm minh họa cách hoạt động của giao dịch chuyển giá trị ủy thác phí trong Klaytn. Hướng dẫn và mã ví dụ đều sử dụng mạng testnet Baobab.
 
 ## 2. Cách hoạt động của ủy thác phí <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -116,7 +116,7 @@ sendFeeDelegateTx = async() => {
 
     // gửi giao dịch thô đã ký đến máy chủ của người trả phí
     client.connect(1337, '127.0.0.1', function() {
-            console.log('Đã kết nối với dịch vụ ủy thác phí');
+            console.log('Đã kết nối với dịch vụ phí ủy thác');
     });
     client.write(senderRawTransaction);
 
@@ -132,13 +132,13 @@ sendFeeDelegateTx = async() => {
 sendFeeDelegateTx();
 ```
 
-The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderRawTransaction` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
+Mã trên ký một giao dịch chuyển giá trị ủy thác phí bằng `senderPrivateKey` và gửi `senderRawTransaction` đã ký tới máy chủ của người trả phí đang chạy trên cổng `1337` trên `127.0.0.1`, tức là localhost.
 
-### 3.2 Fee payer's server <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
+### 3.2 Máy chủ của người trả phí <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-Now let's write the fee payer's server, `feepayer_server.js`, which signs received `senderRawTransaction` with `feePayerPrivateKey` and sends it to Baobab testnet.
+Bây giờ hãy viết máy chủ của người trả phí `feepayer_server.js`, chính là máy chủ ký `senderRawTransaction` đã nhận bằng `feePayerPrivateKey` và gửi nó đến testnet Baobab.
 
-In the below example, please replace `"FEEPAYER_ADDRESS"` and `"FEEPAYER_PRIVATEKEY"` with actual values.
+Hãy thay thế `"FEEPAYER_ADDRESS"` và `"FEEPAYER_PRIVATEKEY"` trong ví dụ dưới đây bằng giá trị thật.
 
 ```javascript
 const Caver = require('caver-js');
@@ -166,68 +166,68 @@ feePayerSign = (senderRawTransaction, socket) => {
         socket.write('Tx hash is '+ receipt.transactionHash);
         socket.write('Sender Tx hash is '+ receipt.senderTxHash);
     })
-    .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+    .on('error', console.error); // Nếu có lỗi hết gas thì tham số thứ 2 là biên lai.
 }
 
 var server = net.createServer(function(socket) {
-       console.log('Client is connected ...');
-    socket.write('This is fee delegating service');
-    socket.write('Fee payer is ' + feePayerAddress);
+       console.log('Máy khách đã kết nối ...');
+    socket.write('Đây là dịch vụ ủy thác phí');
+    socket.write('Người trả phí là ' + feePayerAddress);
         socket.on('data', function(data) {
-            console.log('Received data from client:', data.toString());
+            console.log('Dữ liệu đã nhận từ máy khách:', data.toString());
             feePayerSign(data.toString(), socket);
         });
 });
 
 server.listen(1337, '127.0.0.1');
-console.log('Fee delegate service started ...');
+console.log('Dịch vụ ủy thác phí đã bắt đầu ...');
 ```
 
-The server listens on port `1337`.
+Máy chủ nghe trên cổng `1337`.
 
-When there is incoming `data`, it signs the `data` with `feePayerPrivateKey` and sends it to the Klaytn blockchain. It assumes that the `data` is `senderRawTransaction` from the `sender_client.js`.
+Khi có `data` đến, nó sẽ báo hiệu `data` với `feePayerPrivateKey` và gửi đến chuỗi khối Klaytn. Giả định rằng `data` là `senderRawTransaction` từ `sender_client.js`.
 
-## 4. Run example <a href="#4-run-example" id="4-run-example"></a>
+## 4. Chạy ví dụ <a href="#4-run-example" id="4-run-example"></a>
 
-Prepare two terminals, one for `sender_client.js` and another for `feepayer_server.js`.
+Chuẩn bị hai cửa sổ lệnh, một cho `sender_client.js` và một cho `feepayer_server.js`.
 
-### 4.1 Run `feepayer_server.js` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
+### 4.1 Chạy `feepayer_server.js` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
-Below the command will start the fee payer's server.
+Máy chủ của người trả phí sẽ khởi động bên dưới lệnh.
 
 ```
 $ node feepayer_server.js
-Fee delegate service started ...
+Dịch vụ ủy thác phí đã bắt đầu ...
 ```
 
-The server starts and is now listening on port 1337.
+Máy chủ bắt đầu và đang nghe trên cổng 1337.
 
-### 4.2 Run `sender_client.js` <a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
+### 4.2 Chạy `sender_client.js` <a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
 
-Let's run `sender_client.js` to send a fee delegated transaction.
+Hãy chạy `sender_client.js` để gửi giao dịch có phí ủy thác.
 
 ```
 $ node sender_client.js
-Signed a fee delegated value transfer transaction.
-Sending a signed transaction to fee delegated service.
-Connected to fee delegated service
-Received data from server: This is fee delegating service
-Received data from server: Fee payer is 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410
-Received data from server: Tx hash is 0xd99086aa8188255d4ee885d9f1933b6cc062085c1196731ba599b2fb8f2dbbd7
-Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
+Đã ký giao dịch chuyển giá trị ủy thác phí.
+Đang gửi giao dịch đã ký tới dịch vụ ủy thác phí.
+Đã kết nối với dịch vụ ủy thác phí
+Đã nhận dữ liệu từ máy chủ: Đây là dịch vụ ủy thác phí
+Đã nhận dữ liệu từ máy chủ: Người trả phí là 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410
+Đã nhận dữ liệu từ máy chủ: Mã băm Tx là 0xd99086aa8188255d4ee885d9f1933b6cc062085c1196731ba599b2fb8f2dbbd7
+Đã nhận dữ liệu từ máy chủ: Mã băm Người gửi Tx là 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-It will sign a transaction with the `sender` private key and send the signed transaction to the fee delegated service (i.e., fee payer's server). Then it will receive the response from the fee delegate service including the `Fee payer` address, `Tx hash`, and `Sender Tx hash`. `Tx hash` is hash of a transaction submitted to the Klaytn network, while `Sender Tx hash` is hash of a transaction without the fee payer's address and signature. For more details, please take a look at [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
+Giao dịch sẽ được ký với khóa riêng tư `sender`; giao dịch đã ký được gửi đến dịch vụ ủy thác phí (nghĩa là máy chủ của người trả phí). Sau đó máy chủ sẽ nhận phản hồi từ dịch vụ ủy thác phí bao gồm địa chỉ của `Fee payer`, `Tx hash`, và `Sender Tx hash`. `Tx hash` là mã băm của giao dịch được gửi tới mạng lưới Klaytn, trong khi đó `Sender Tx hash` là mã băm của giao dịch không có địa chỉ, chữ ký của người trả phí. Để biết thêm chi tiết, vui lòng xem [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
 
-### 4.3 Check `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 Kiểm tra `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-On the server's console, you will see below outputs. It prints the transaction receipt from the Klaytn.
+Tại bảng điều khiển của máy chủ, bạn sẽ thấy kết quả đầu ra dưới đây. Đây là biên lai giao dịch từ Klaytn.
 
 ```
 $ node feepayer_server.js
-Fee delegate service started ...
-Client is connected ...
-Received data from client: 0x09f88b3a8505d21dba00830493e094fc83add44939ef818ce62dacea23697fa17257838609184e72a000940ecc24157e38b1997aace56f32ccb381b16e1710f847f8458207f5a0e636e67d01acc1f368db5e60290721e9059b13b0bf74af6d46391cc48bd31a81a0135118878be87f808e064f64fa4f13d6dc5bd9888b154ecd17f02980063b9e4280c4c3018080
+Dịch vụ ủy thác phí đã bắt đầu ...
+Máy khách đã được kết nối ...
+Dữ liệu đã nhận từ máy khách: 0x09f88b3a8505d21dba00830493e094fc83add44939ef818ce62dacea23697fa17257838609184e72a000940ecc24157e38b1997aace56f32ccb381b16e1710f847f8458207f5a0e636e67d01acc1f368db5e60290721e9059b13b0bf74af6d46391cc48bd31a81a0135118878be87f808e064f64fa4f13d6dc5bd9888b154ecd17f02980063b9e4280c4c3018080
 transactionHash { messageHash:
    '0xa4cd7d479d19251a1981086431eff5514c5edf61731a6e5271b2a137a156f7e7',
   v: '0x07f6',
@@ -277,10 +277,10 @@ receipt { blockHash:
   value: '0x9184e72a000' }
 ```
 
-### 4.4 Klaytn scope <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
+### 4.4 Phạm vi Klaytn <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
 
-You can also find the above transaction on the [Klaytn scope](https://baobab.scope.klaytn.com).
+Bạn cũng có thể tìm thấy giao dịch trên tại [Klaytn scope](https://baobab.scope.klaytn.com).
 
-It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
+Nó cho thấy giao dịch là `TxTypeFeeDelegatedValueTransfer` và `Fee payer` là `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` hoặc `feepayerAddress` mà bạn đã nhập, đồng thời `From` là một địa chỉ khác lẽ ra phải là `senderAddress` trong ví dụ trên.
 
-![Fee delegated Tx](../../bapp/tutorials/img/fee-delegation-example.png)
+![Ủy thác phí Tx](../../bapp/tutorials/img/fee-delegation-example.png)
