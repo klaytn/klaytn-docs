@@ -46,4 +46,4 @@ And also the issue of increasing communication volume in the BFT algorithm is so
 
 Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
 
-Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
+Hiện tại, mạng lưới chính thức của Klaytn, Cypress có thể cung cấp thông lượng cao ở mức 400 giao dịch mỗi giây, với khoảng thời gian tạo khối là một giây. Hiện tại, hơn 50 nút đồng thuận có thể tham gia vào CNN (Mạng nút đồng thuận), và con số này sẽ liên tục tăng lên khi Klaytn tiếp tục tích cực tối ưu hóa thuật toán.
