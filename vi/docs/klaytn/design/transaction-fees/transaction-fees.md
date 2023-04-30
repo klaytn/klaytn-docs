@@ -52,74 +52,74 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 {% hint style="success" %}
 NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
+Giao thức `IstanbulEVM` nâng cấp số khối như dưới đây.
+* Mạng thử nghiệm: `#75373312`
+* Mạng lưới chính thức Cypress: `#86816005`
 {% endhint %}
 
-### Common Fee <a id="common-fee"></a>
+### Phí phổ biến <a id="common-fee"></a>
 
-| Item              | Gas   | Description                                                                                        |
-|:----------------- |:----- |:-------------------------------------------------------------------------------------------------- |
-| G\_zero         | 0     | Nothing paid for operations of the set Wzero                                                       |
-| G\_base         | 2     | Amount of gas to pay for operations of the set Wbase                                               |
-| G\_verylow      | 3     | Amount of gas to pay for operations of the set Wverylow                                            |
-| G\_low          | 5     | Amount of gas to pay for operations of the set Wlow                                                |
-| G\_mid          | 8     | Amount of gas to pay for operations of the set Wmid                                                |
-| G\_high         | 10    | Amount of gas to pay for operations of the set Whigh                                               |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcode      | 700   | Amount of gas to pay for operations of the set Wextcode                                            |
-| G\_balance      | 700   | Amount of gas to pay for a BALANCE operation                                                       |
-| G\_sload        | 800   | Paid for a SLOAD operation                                                                         |
-| G\_jumpdest     | 1     | Paid for a JUMPDEST operation                                                                      |
-| G\_sset         | 20000 | Paid for an SSTORE operation when the storage value is set to non-zero from zero                   |
-| G\_sreset       | 5000  | Paid for an SSTORE operation when the storage value’s zeroness remains unchanged or is set to zero |
-| G\_sclear       | 15000 | Refund given \(added into refund counter\) when the storage value is set to zero from non-zero   |
-| R\_selfdestruct | 24000 | Refund given \(added into refund counter\) for self-destructing an account                       |
-| G\_selfdestruct | 5000  | Amount of gas to pay for a SELFDESTRUCT operation                                                  |
-| G\_create       | 32000 | Paid for a CREATE operation                                                                        |
-| G\_codedeposit  | 200   | Paid per byte for a CREATE operation to succeed in placing code into state                         |
-| G\_call         | 700   | Paid for a CALL operation                                                                          |
-| G\_callvalue    | 9000  | Paid for a non-zero value transfer as part of the CALL operation                                   |
-| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer         |
-| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                                 |
-| G\_exp          | 10    | Partial payment for an EXP operation                                                               |
-| G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation                    |
-| G\_memory       | 3     | Paid for every additional word when expanding memory                                               |
-| G\_txcreate     | 32000 | Paid by all contract-creating transactions                                                         |
-| G\_transaction  | 21000 | Paid for every transaction                                                                         |
-| G\_log          | 375   | Partial payment for a LOG operation                                                                |
-| G\_logdata      | 8     | Paid for each byte in a LOG operation’s data                                                       |
-| G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                             |
-| G\_sha3         | 30    | Paid for each SHA3 operation                                                                       |
-| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                             |
-| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                    |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcodehash  | 700   | Paid for getting keccak256 hash of a contract's code                                               |
-| G\_create2      | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments          |
+| Mục               | Gas   | Mô tả                                                                                                                         |
+|:----------------- |:----- |:----------------------------------------------------------------------------------------------------------------------------- |
+| G\_zero         | 0     | Không cần thanh toán cho các hoạt động của bộ Wzero                                                                           |
+| G\_base         | 2     | Lượng gas phải trả cho các hoạt động của bộ Wbase                                                                             |
+| G\_verylow      | 3     | Lượng gas phải trả cho các hoạt động của bộ Wverylow                                                                          |
+| G\_low          | 5     | Lượng gas phải trả cho các hoạt động của bộ Wlow                                                                              |
+| G\_mid          | 8     | Lượng gas phải trả cho các hoạt động của bộ Wmid                                                                              |
+| G\_high         | 10    | Lượng gas phải trả cho các hoạt động của bộ Whigh                                                                             |
+| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                                                      |
+| G\_extcode      | 700   | Lượng gas phải trả cho các hoạt động của bộ Wextcode                                                                          |
+| G\_balance      | 700   | Lượng gas phải trả cho một hoạt động BALANCE                                                                                  |
+| G\_sload        | 800   | Đã trả cho một hoạt động SLOAD                                                                                                |
+| G\_jumpdest     | 1     | Đã trả cho một hoạt động JUMPDEST                                                                                             |
+| G\_sset         | 20000 | Đã trả cho một hoạt động SSTORE khi giá trị lưu trữ được đặt từ số không sang số khác không                                   |
+| G\_sreset       | 5000  | Đã trả cho một hoạt động SSTORE khi giá trị bằng không của giá trị không đổi, hoặc được đặt thành số không                    |
+| G\_sclear       | 15000 | Khoản hoàn tiền đã thực hiện \(được thêm vào quầy hoàn thiền\) khi giá trị lưu trữ được đặt từ số khác không thành số không |
+| R\_selfdestruct | 24000 | Khoản hoàn tiền đã thực hiện \(được thêm vào quầy hoàn tiền\) cho hành động tự hủy một tài khoản                            |
+| G\_selfdestruct | 5000  | Lượng gas phải trả cho một hoạt động SELFDESTRUCT                                                                             |
+| G\_create       | 32000 | Đã trả cho một hoạt động CREATE                                                                                               |
+| G\_codedeposit  | 200   | Đã trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                          |
+| G\_call         | 700   | Paid for a CALL operation                                                                                                     |
+| G\_callvalue    | 9000  | Paid for a non-zero value transfer as part of the CALL operation                                                              |
+| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer                                    |
+| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                                                            |
+| G\_exp          | 10    | Partial payment for an EXP operation                                                                                          |
+| G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation                                               |
+| G\_memory       | 3     | Paid for every additional word when expanding memory                                                                          |
+| G\_txcreate     | 32000 | Paid by all contract-creating transactions                                                                                    |
+| G\_transaction  | 21000 | Paid for every transaction                                                                                                    |
+| G\_log          | 375   | Partial payment for a LOG operation                                                                                           |
+| G\_logdata      | 8     | Paid for each byte in a LOG operation’s data                                                                                  |
+| G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                                                        |
+| G\_sha3         | 30    | Paid for each SHA3 operation                                                                                                  |
+| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                                                        |
+| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                                               |
+| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                                               |
+| G\_extcodehash  | 700   | Paid for getting keccak256 hash of a contract's code                                                                          |
+| G\_create2      | 32000 | Được trả cho mã vận hành CREATE2, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                                 |
 
-### Precompiled Contracts <a id="precompiled-contracts"></a>
+### Hợp đồng biên dịch trước <a id="precompiled-contracts"></a>
 
-Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
+Hợp đồng được biên dịch trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mật mã phức tạp, và được khởi tạo bởi những hợp đồng khác.
 
-| Item                    | Gas                | Description                                               |
-|:----------------------- |:------------------ |:--------------------------------------------------------- |
-| EcrecoverGas            | 3000               | Perform ECRecover operation                               |
-| Sha256BaseGas           | 60                 | Perform sha256 hash operation                             |
-| Sha256PerWordGas        | 12                 | ​                                                         |
-| Ripemd160BaseGas        | 600                | Perform Ripemd160 operation                               |
-| Ripemd160PerWordGas     | 120                | ​                                                         |
-| IdentityBaseGas         | 15                 | ​                                                         |
-| IdentityPerWordGas      | 3                  | ​                                                         |
-| ModExpQuadCoeffDiv      | 20                 | ​                                                         |
-| Bn256AddGas             | 150                | Perform Bn256 elliptic curve operation                    |
-| Bn256ScalarMulGas       | 6000               | ​                                                         |
-| Bn256PairingBaseGas     | 45000              | ​                                                         |
-| Bn256PairingPerPointGas | 34000              | ​                                                         |
-| VMLogBaseGas            | 100                | Write logs to node's log file - Klaytn only               |
-| VMLogPerByteGas         | 20                 | Klaytn only                                               |
-| FeePayerGas             | 300                | Get feePayer's address - Klaytn only                      |
-| ValidateSenderGas       | 5000 per signature | Validate the sender's address and signature - Klaytn only |
+| Mục                     | Gas                | Mô tả                                                         |
+|:----------------------- |:------------------ |:------------------------------------------------------------- |
+| EcrecoverGas            | 3000               | Thực hiện hoạt động ECRecover                                 |
+| Sha256BaseGas           | 60                 | Thực hiện hoạt động hàm băm sha256                            |
+| Sha256PerWordGas        | 12                 |                                                               |
+| Ripemd160BaseGas        | 600                | Thực hiện hoạt động Ripemd160                                 |
+| Ripemd160PerWordGas     | 120                |                                                               |
+| IdentityBaseGas         | 15                 |                                                               |
+| IdentityPerWordGas      | 3                  |                                                               |
+| ModExpQuadCoeffDiv      | 20                 |                                                               |
+| Bn256AddGas             | 150                | Thực hiện hoạt động đường cong elliptic Bn256                 |
+| Bn256ScalarMulGas       | 6000               |                                                               |
+| Bn256PairingBaseGas     | 45000              |                                                               |
+| Bn256PairingPerPointGas | 34000              |                                                               |
+| VMLogBaseGas            | 100                | Ghi nhật ký vào tập tin nhật ký của nút - chỉ dành cho Klaytn |
+| VMLogPerByteGas         | 20                 | Chỉ dành cho Klaytn                                           |
+| FeePayerGas             | 300                | Get feePayer's address - Klaytn only                          |
+| ValidateSenderGas       | 5000 per signature | Validate the sender's address and signature - Klaytn only     |
 
 Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calculated as
 
@@ -170,25 +170,25 @@ GasPayload = number_of_bytes * TxDataGas
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
 | Cancel                 | TxGasCancel + KeyValidationGas                         |
 
-KeyValidationGas is defined as below based on the key type,
+Dựa theo loại khóa, KeyValidationGas được định nghĩa như sau,
 
-| Key Type  | Gas                                                                 |
-|:--------- |:------------------------------------------------------------------- |
-| Nil       | N/A                                                                 |
-| Legacy    | 0                                                                   |
-| Fail      | 0                                                                   |
-| Public    | 0                                                                   |
-| MultiSig  | \(number of signatures - 1\) \* GasValidationPerKey \(15000\) |
-| RoleBased | Based on keys in the role used in the validation                    |
+| Loại khóa | Gas                                                                   |
+|:--------- |:--------------------------------------------------------------------- |
+| Nil       | Không có                                                              |
+| Legacy    | 0                                                                     |
+| Fail      | 0                                                                     |
+| Public    | 0                                                                     |
+| MultiSig  | \(number of signatures - 1\) \* GasValidationPerKey \(15000\)   |
+| RoleBased | Dựa theo các khóa trong vai trò được sử dụng trong quá trình xác thực |
 
-KeyCreationGas is defined as below based on the key type,
+Dựa theo loại khóa, KeyCreationGas được định nghĩa như sau,
 
-| Key Type  | Gas                                                                                                                                                                                                                |
-|:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Nil       | N/A                                                                                                                                                                                                                |
-| Legacy    | 0                                                                                                                                                                                                                  |
-| Fail      | 0                                                                                                                                                                                                                  |
-| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                      |
-| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                                                  |
-| RoleBased | Gas fee calculated based on keys in each role. e.g., GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
+| Loại khóa | Gas                                                                                                                                                                                                                              |
+|:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nil       | Không có                                                                                                                                                                                                                         |
+| Legacy    | 0                                                                                                                                                                                                                                |
+| Fail      | 0                                                                                                                                                                                                                                |
+| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                                    |
+| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                                                                |
+| RoleBased | Phí gas được tính toán dựa trên các khóa trong mỗi vai trò. ví dụ: GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
 
