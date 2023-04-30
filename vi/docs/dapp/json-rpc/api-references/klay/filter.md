@@ -15,25 +15,25 @@ Polling method for a filter, which returns an array of logs which occurred since
 - For filters created with [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
 - For filters created with [klay_newFilter](#klay_newfilter), logs are objects with following parameters:
 
-| Name             | Type          | Description                                                                                                                                                                                                                                  |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| transactionIndex | QUANTITY      | Integer of the transactions index position log was created from. `null` when pending.                                                                                                                                                        |
-| transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| Name             | Type            | Description                                                                                                                                                                                                                                        |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đã xoá           | THẺ             | `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. `false` nếu đó là bản ghi hợp lệ.                                                                                                                                                               |
+| logIndex         | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                              |
+| transactionIndex | SỐ LƯỢNG        | Số nguyên bản ghi vị trí chỉ mục giao dịch đã được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                           |
+| transactionHash  | DỮ LIỆU 32 byte | Mã băm của giao dịch mà bản ghi này được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                                     |
+| blockHash        | DỮ LIỆU 32 byte | Mã băm của khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                       |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                               |
+| địa chỉ          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                      |
+| dữ liệu          | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                |
+| chủ đề           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục của bản ghi. (Trong Solidity: Chủ đề đầu tiên là mã băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với từ khóa `anonymous`.). |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "id":1,
     "jsonrpc":"2.0",
@@ -55,17 +55,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getFilterLogs <a id="klay_getfilterlogs"></a>
 
-Returns an array of all logs matching filter with given id, which has been obtained using [klay_newFilter](#klay_newfilter).  Note that filter ids returned by other filter creation functions, such as [klay_newBlockFilter](#klay_newblockfilter) or [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), cannot be used with this function.
+Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id đã cho, có được bằng cách sử dụng [klay_newFilter](#klay_newfilter).  Lưu ý rằng các id bộ lọc được trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [klay_newBlockFilter](#klay_newblockfilter) hoặc [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), không thể sử dụng được với hàm này.
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+- Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
+- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description   |
-| -------- | ------ | ------------- |
-| QUANTITY | string | The filter id |
+| Tên      | Loại  | Mô tả     |
+| -------- | ----- | --------- |
+| SỐ LƯỢNG | chuỗi | Id bộ lọc |
 
 **Return Value**
 
@@ -251,17 +251,17 @@ None
 
 **Return Value**
 
-| Type     | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| Type     | Description |
+| -------- | ----------- |
+| QUANTITY | Id bộ lọc.  |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":73,
@@ -272,60 +272,60 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
-- To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
-- To obtain all logs matching the filter created by `klay_newFilter`, call [klay_getFilterLogs](#klay_getfilterlogs).
+Tạo một đối tượng bộ lọc dựa trên các tùy chọn bộ lọc để thông báo khi trạng thái thay đổi (bản ghi).
+- Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `klay_newFilter`, hãy gọi [klay_getFilterLogs](#klay_getfilterlogs).
 
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
-* `[]` "anything"
-* `[A]` "A in first position (and anything after)"
-* `[null, B]` "anything in first position AND B in second position (and anything after)"
-* `[A, B]` "A in first position AND B in second position (and anything after)"
-* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+**Lưu ý về việc xác định bộ lọc chủ đề:** Các chủ đề phụ thuộc vào thứ tự. Một giao dịch với bản ghi có các chủ đề `[A, B]` sẽ được khớp bởi các bộ lọc chủ đề như sau:
+* `[]` "bất cứ thứ gì"
+* `[A]` "A ở vị trí đầu tiên (và bất cứ thứ gì sau đó)"
+* `[null, B]` "bất cứ thứ gì ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
 
-**Parameters**
+**Tham số**
 
-`Object` - The filter options:
+`Object` - Các tùy chọn bộ lọc:
 
-| Name      | Type                      | Description                                                                                                                                                                                           |
-| --------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                  |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                                                                       |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                               |
+| --------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                            |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                    |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description |
-| -------- | ----------- |
-| QUANTITY | A filter id |
+| Loại     | Mô tả     |
+| -------- | --------- |
+| SỐ LƯỢNG | Id bộ lọc |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
 ```
 
 
 ## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description  |
+| Loại    | Description  |
 | -------- | ------------ |
 | QUANTITY | A filter id. |
 
@@ -425,25 +425,25 @@ Cancels the subscription with a specific subscription id by using either RPC Pub
 
 **Parameters**
 
-| Type     | Description        |
-| -------- | ------------------ |
-| QUANTITY | A subscription id. |
+| Type     | Mô tả       |
+| -------- | ----------- |
+| SỐ LƯỢNG | Id đăng ký. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+| Loại    | Mô tả                                                       |
+| ------- | ----------------------------------------------------------- |
+| Boolean | `true` nếu hủy đăng ký thành công, nếu không sẽ là `false`. |
 
 
-**Example**
+**Ví dụ**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
-// Request
+// Yêu cầu
 > {"jsonrpc":"2.0", "id": 1, "method": "klay_unsubscribe", "params": ["0xab8ac7a4045025d0c2807d63060eea6d"]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":true}
 ```
