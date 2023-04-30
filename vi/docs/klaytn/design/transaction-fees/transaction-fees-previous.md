@@ -51,14 +51,14 @@ LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước k
 
 | Mục               | Gas   | Mô tả                                                                                              |
 |:----------------- |:----- |:-------------------------------------------------------------------------------------------------- |
-| G\_zero         | 0     | Các hoạt động của bộ Wzero                                                                         |
+| G\_zero         | 0     | Không cần thanh toán cho các hoạt động của bộ Wzero                                                |
 | G\_base         | 2     | Lượng gas phải trả cho các hoạt động của bộ Wbase                                                  |
 | G\_verylow      | 3     | Lượng gas phải trả cho các hoạt động của bộ Wverylow                                               |
 | G\_low          | 5     | Lượng gas phải trả cho các hoạt động của bộ Wlow                                                   |
-| G\_mid          | 8     | Amount of gas to pay for operations of the set Wmid                                                |
-| G\_high         | 10    | Amount of gas to pay for operations of the set Whigh                                               |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcode      | 700   | Amount of gas to pay for operations of the set Wextcode                                            |
+| G\_mid          | 8     | Lượng gas phải trả cho các hoạt động của bộ Wmid                                                   |
+| G\_high         | 10    | Lượng gas phải trả cho các hoạt động của bộ Whigh                                                  |
+| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                           |
+| G\_extcode      | 700   | Lượng gas phải trả cho các hoạt động của bộ Wextcode                                               |
 | G\_balance      | 400   | Amount of gas to pay for a BALANCE operation                                                       |
 | G\_sload        | 200   | Paid for a SLOAD operation                                                                         |
 | G\_jumpdest     | 1     | Paid for a JUMPDEST operation                                                                      |
@@ -82,28 +82,28 @@ LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước k
 | G\_logdata      | 8     | Paid for each byte in a LOG operation’s data                                                       |
 | G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                             |
 | G\_sha3         | 30    | Paid for each SHA3 operation                                                                       |
-| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                             |
-| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                    |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcodehash  | 400   | Paid for getting keccak256 hash of a contract's code                                               |
-| G\_create2      | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments          |
+| G\_sha3word     | 6     | Được trả cho từng từ \(được làm tròn\) cho dữ liệu nhập vào hoạt động SHA3                       |
+| G\_copy         | 3     | Thanh toán một phần cho các hoạt động \*COPY, nhân lên theo số từ được sao chép, được làm tròn   |
+| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                           |
+| G\_extcodehash  | 400   | Được trả cho việc nhận hàm băm keccak256 của mã hợp đồng                                           |
+| G\_create2      | 32000 | Được trả cho mã vận hành CREATE2, hoạt động giống hệt như CREATE nhưng dùng những đối số khác      |
 
-### Precompiled Contracts <a id="precompiled-contracts"></a>
+### Hợp đồng biên dịch trước <a id="precompiled-contracts"></a>
 
-Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
+Hợp đồng được biên dịch trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mật mã phức tạp, và được khởi tạo bởi những hợp đồng khác.
 
-| Item                    | Gas                | Description                                               |
+| Mục                     | Gas                | Mô tả                                                     |
 |:----------------------- |:------------------ |:--------------------------------------------------------- |
-| EcrecoverGas            | 3000               | Perform ECRecover operation                               |
-| Sha256BaseGas           | 60                 | Perform sha256 hash operation                             |
-| Sha256PerWordGas        | 12                 | ​                                                         |
-| Ripemd160BaseGas        | 600                | Perform Ripemd160 operation                               |
-| Ripemd160PerWordGas     | 120                | ​                                                         |
-| IdentityBaseGas         | 15                 | ​                                                         |
-| IdentityPerWordGas      | 3                  | ​                                                         |
-| ModExpQuadCoeffDiv      | 20                 | ​                                                         |
-| Bn256AddGas             | 500                | Perform Bn256 elliptic curve operation                    |
-| Bn256ScalarMulGas       | 40000              | ​                                                         |
+| EcrecoverGas            | 3000               | Thực hiện hoạt động ECRecover                             |
+| Sha256BaseGas           | 60                 | Thực hiện hoạt động hàm băm sha256                        |
+| Sha256PerWordGas        | 12                 |                                                           |
+| Ripemd160BaseGas        | 600                | Thực hiện hoạt động Ripemd160                             |
+| Ripemd160PerWordGas     | 120                |                                                           |
+| IdentityBaseGas         | 15                 |                                                           |
+| IdentityPerWordGas      | 3                  |                                                           |
+| ModExpQuadCoeffDiv      | 20                 |                                                           |
+| Bn256AddGas             | 500                | Thực hiện hoạt động đường cong elliptic Bn256             |
+| Bn256ScalarMulGas       | 40000              |                                                           |
 | Bn256PairingBaseGas     | 100000             | ​                                                         |
 | Bn256PairingPerPointGas | 80000              | ​                                                         |
 | VMLogBaseGas            | 100                | Write logs to node's log file - Klaytn only               |
@@ -135,15 +135,15 @@ TotalGas = number of signatures * ValidateSenderGas
 | TxGasCancel                | 21000 | Gas required to cancel a transaction which has a same nonce |
 | TxGasValueTransfer         | 21000 | Gas required to transfer KLAY                               |
 | TxGasContractExecution     | 21000 | Base gas for contract execution                             |
-| TxDataGas                  | 100   | Gas required per transaction's single byte                  |
+| TxDataGas                  | 100   | Mức gas cần cho mỗi byte đơn lẻ của giao dịch               |
 
-Gas for payload data is calculated as below
+Mức gas cho dữ liệu vận chuyển được tính toán như dưới đây
 
 ```text
 GasPayload = number_of_bytes * TxDataGas
 ```
 
-### Gas Formula for Transaction Types <a id="gas-formula-for-transaction-types"></a>
+### Công thức gas cho các loại giao dịch <a id="gas-formula-for-transaction-types"></a>
 
 | TxType                 | Gas                                                    |
 |:---------------------- |:------------------------------------------------------ |
@@ -155,22 +155,22 @@ GasPayload = number_of_bytes * TxDataGas
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
 | Cancel                 | TxGasCancel + KeyValidationGas                         |
 
-KeyValidationGas is defined as below based on key type,
+Dựa theo loại khóa, KeyValidationGas được định nghĩa như sau,
 
-| Key Type  | Gas                                               |
-|:--------- |:------------------------------------------------- |
-| Nil       | N/A                                               |
-| Legacy    | 0                                                 |
-| Fail      | 0                                                 |
-| Public    | 0                                                 |
-| MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\) |
-| RoleBased | Based on keys in the role used in the validation  |
+| Loại khóa | Gas                                                                   |
+|:--------- |:--------------------------------------------------------------------- |
+| Nil       | Không có                                                              |
+| Legacy    | 0                                                                     |
+| Fail      | 0                                                                     |
+| Public    | 0                                                                     |
+| MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\)                     |
+| RoleBased | Dựa theo các khóa trong vai trò được sử dụng trong quá trình xác thực |
 
-KeyCreationGas is defined as below based on key type,
+Dựa theo loại khóa, KeyCreationGas được định nghĩa như sau,
 
-| Key Type  | Gas                                                                                                                                                                                                                |
+| Loại khóa | Gas                                                                                                                                                                                                                |
 |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Nil       | N/A                                                                                                                                                                                                                |
+| Nil       | Không có                                                                                                                                                                                                           |
 | Legacy    | 0                                                                                                                                                                                                                  |
 | Fail      | 0                                                                                                                                                                                                                  |
 | Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                      |
