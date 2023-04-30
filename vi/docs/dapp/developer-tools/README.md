@@ -1,17 +1,17 @@
 ---
 description: >-
-  Trang này bao gồm danh sách các công cụ phát triển giúp bạn xây dựng Ứng dụng phi tập trung trên Klaytn.
+  Trang này bao gồm danh sách những công cụ phát triển giúp bạn xây dựng các ứng dụng phi tập trung trên Klaytn.
 ---
 
 # Công cụ dành cho nhà phát triển <a id="developer-tools"></a>
 
 #### Kaikas <a id="kaikas"></a>
 
-* Kaikas là ví an toàn, thân thuộc với nhà phát triển cho Mạng lưới Klaytn và được tích hợp liền mạch với trang web theo dạng tiện ích mở rộng của trình duyệt. Kaikas cho phép bạn lưu trữ và tương tác với token KLAY/Klaytn và ký giao dịch từ Klaytn dApps (ứng dụng phi tập trung) trên trang web trong thời gian thực.
+* Kaikas là ví an toàn, thân thiện với nhà phát triển dành cho Mạng lưới Klaytn và được tích hợp liền mạch với trang web theo dạng tiện ích của trình duyệt. Kaikas cho phép bạn lưu trữ và tương tác với KLAY/các token của Klaytn và ký giao dịch từ các dApp (ứng dụng phi tập trung) của Klaytn trực tuyến tức thì.
 
-#### Ví Klaytn  <a id="klaytn-wallet"></a>
+#### Ví Klaytn<a id="klaytn-wallet"></a>
 
-* Ví Klaytn là công cụ quản lý tài khoản chạy trên trình duyệt cho nhà phát triển dApp (Ứng dụng phi tập trung). Bạn có thể tạo/ tải tài khoản về, xem xét số dư tài khoản và chuyển KLAY. Bạn cũng có thể đăng ký token Klaytn của chính mình để kiểm nghiệm các hành vi cơ bản.
+* Ví Klaytn là công cụ quản lý tài khoản chạy trên trình duyệt dành cho nhà phát triển dApp (ứng dụng phi tập trung). Bạn có thể tạo/tải về tài khoản, xem số dư tài khoản và chuyển KLAY. Bạn cũng có thể đăng ký token Klaytn của chính mình để kiểm nghiệm các hành vi cơ bản.
 
 #### Klaytnscope <a id="klaytnscope"></a>
 
