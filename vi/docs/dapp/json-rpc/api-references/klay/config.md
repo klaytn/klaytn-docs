@@ -37,17 +37,17 @@ None
 
 **Return Value**
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| String | The current client version of a Klaytn node. |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
+| String | Phiên bản khách hiện tại của nút Klaytn. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -58,25 +58,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-Returns a suggestion for a gas price in peb.
+Trả về một gợi ý cho giá gas tính bằng peb.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| Loại    | Mô tả                                     |
+| -------- | ----------------------------------------- |
+| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -86,32 +86,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-Returns different values based on the condition described below. The unit of the return value is peb.
+Trả về các giá trị khác nhau dựa trên điều kiện được mô tả bên dưới. Đơn vị của giá trị trả về là peb.
 
-- If `baseFee` is undefined in the header, it returns the unit price from the governance parameter
-- If the block is a pending block, it returns the gas price of the txpool.
-- Otherwise, it returns the base fee of the given block.
+- Nếu `baseFee` không được xác định trong tiêu đề, nó sẽ trả về đơn giá từ tham số quản trị
+- Nếu khối là một khối đang chờ xử lý, nó sẽ trả về giá gas của txpool.
+- Mặt khác, nó trả về phí cơ bản của khối đã cho.
 
 
-**Parameters**
+**Tham số**
 
-| Type   | Description                                                   |
-| ------ | ------------------------------------------------------------- |
-| NUMBER | Block number. If omitted, latest unit price will be returned. |
+| Loại | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| SỐ   | Số khối. Nếu bỏ qua, đơn giá mới nhất sẽ được trả lại. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| Loại    | Mô tả                                     |
+| -------- | ----------------------------------------- |
+| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPriceAt","params":["0x64"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -121,25 +121,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
+Trả về `true` nếu nút đang ghi dữ liệu chuỗi khối theo cách song song. Nó được kích hoạt theo mặc định.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                                                                          |
+| Loại   | Mô tả                                                                                                                                |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
+| Boolean | `true` có nghĩa là nút đang ghi dữ liệu chuỗi khối theo cách song song. Giá trị `false` nếu nút đang ghi dữ liệu theo cách nối tiếp. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -150,9 +150,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. It is disabled by default and can be enabled by `--sendertxhashindexing`.
+Trả về `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
 
-**Parameters**
+**Tham số**
 
 None
 
