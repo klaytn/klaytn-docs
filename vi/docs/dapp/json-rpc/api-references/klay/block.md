@@ -101,30 +101,30 @@ Trả về thông tin tiêu đề theo mã băm. API này chỉ hoạt động t
 
 `Đối tượng` - Một đối tượng tiêu đề, hoặc `lỗi` khi không tìm thấy tiêu đề:
 
-| Tên              | Loại            | Mô tả                                                                                                       |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------- |
-| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                              |
-| parentHash       | DỮ LIỆU 32-byte  | Mã băm của khối cha.                                                                                        |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                |
-| transactionsRoot | DỮ LIỆU 32-byte  | Gốc của trie giao dịch trong khối.                                                                          |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                      |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                   |
-| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khối.                                                       |
-| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                               |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                      |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                        |
-| mốc thời gian    | SỐ LƯỢNG         | Mốc thời gian Unix khi khối được đối chiếu.                                                                 |
-| timestampFoS     | SỐ LƯỢNG         | Phần giây của mốc thời gian khi khối được đối chiếu.                                                        |
-| governanceData   | DỮ LIỆU          | RLP encoded governance configuration                                                                        |
-| voteData         | DATA             | RLP encoded governance vote of the proposer                                                                 |
-| baseFeePerGas    | QUANTITY         | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
+| Tên              | Loại            | Mô tả                                                                                                               |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------- |
+| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                      |
+| parentHash       | DỮ LIỆU 32-byte  | Mã băm của khối cha.                                                                                                |
+| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                        |
+| transactionsRoot | DỮ LIỆU 32-byte  | Gốc của trie giao dịch trong khối.                                                                                  |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                              |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                           |
+| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khối.                                                               |
+| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                       |
+| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                              |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                                |
+| mốc thời gian    | SỐ LƯỢNG         | Mốc thời gian Unix khi khối được đối chiếu.                                                                         |
+| timestampFoS     | SỐ LƯỢNG         | Phần giây của mốc thời gian khi khối được đối chiếu.                                                                |
+| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                   |
+| voteData         | DỮ LIỆU          | Phiếu quản trị được mã hóa RLP của người đề xuất                                                                    |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c"],"id":1}' https://public-en-baobab.klaytn.net
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -152,14 +152,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
+Trả về thông tin về một khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
-**Parameters**
+**Tham số**
 
-| Type                | Description                                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
-| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
+| Kiểu                | Mô tả                                                                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| Boolean             | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về mã băm của các giao dịch.                                                     |
 
 {% hint style="success" %}
 LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
@@ -492,28 +492,28 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
 | --------------- | -------------------- |
 | DỮ LIỆU 32-byte | Mã băm của một khối. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
+`Đối tượng` - Đối tượng khối có thông tin đồng thuận (người đề xuất và danh sách thành viên ủy ban) hoặc `lỗi` khi không tìm thấy khối:
 
-| Name             | Type            | Description                                                                                                                                           |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                        |
-| committee        | Array           | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
-| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                 |
-| hash             | 32-byte DATA    | Hash of the block. `null` when it is pending block.                                                                                                   |
-| number           | QUANTITY        | The block number. `null` when it is pending block.                                                                                                    |
-| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
-| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                    |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                           |
-| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                              |
-| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                        |
-| timestamp        | QUANTITY        | The Unix timestamp for when the block was collated.                                                                                                   |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| transactions     | Array           | Mảng đối tượng giao dịch.                                                                                                                             |
-| transactionsRoot | DỮ LIỆU 32-byte | Gốc của trie giao dịch trong khối.                                                                                                                    |
-| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                   |
+| Tên              | Loại            | Mô tả                                                                                                                                                      |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | SỐ LƯỢNG        | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                                                              |
+| totalBlockScore  | SỐ LƯỢNG        | Số nguyên của tổng số blockScore của chuỗi cho đến khối này.                                                                                               |
+| uỷ ban           | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
+| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                                                                       |
+| mã băm           | DỮ LIỆU 32-byte | Mã băm của khối. `null` khi đó là khối đang chờ xử lý.                                                                                                     |
+| số               | SỐ LƯỢNG        | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                             |
+| parentHash       | DỮ LIỆU 32-byte | Mã băm của khối lớn.                                                                                                                                       |
+| người đề xuất    | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                            |
+| receiptsRoot     | DỮ LIỆU 32-byte | Gốc của trie biên lai giao dịch của khối.                                                                                                                  |
+| kích thước       | SỐ LƯỢNG        | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                                                              |
+| stateRoot        | DỮ LIỆU 32-byte | Gốc của trie trạng thái cuối của khối.                                                                                                                     |
+| mốc thời gian    | SỐ LƯỢNG        | Mốc thời gian Unix khi khối được đối chiếu.                                                                                                                |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của mốc thời gian khi khối được đối chiếu.                                                                                                       |
+| giao dịch        | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                  |
+| transactionsRoot | DỮ LIỆU 32-byte | Gốc của trie giao dịch trong khối.                                                                                                                         |
+| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                        |
 
 **Ví dụ**
 
@@ -721,16 +721,16 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 
 `Integer` - The size of the council, or `-1` when no council was found:
 
-| Type     | Description             |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| Type     | Mô tả               |
+| -------- | ------------------- |
+| SỐ LƯỢNG | Quy mô của hội đồng |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncilSize", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -741,43 +741,43 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_getStorageAt <a id="klay_getstorageat"></a>
 
-Returns the value from a storage position at a given address.
+Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Type                            | Description                                                                                                                                                                          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 20-byte DATA                    | Address of the storage.                                                                                                                                                              |
-| QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
+| Loại                              | Mô tả                                                                                                                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DỮ LIỆU 20 byte                   | Địa chỉ lưu trữ.                                                                                                                                                                     |
+| SỐ LƯỢNG                          | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                        |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](block.md#the-default-block-parameter) hoặc mã băm khối. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
- **Return Value**
+ **Giá trị trả về**
 
-| Type | Description                         |
-| ---- | ----------------------------------- |
-| DATA | The value at this storage position. |
+| Loại   | Mô tả                           |
+| ------- | ------------------------------- |
+| DỮ LIỆU | Giá trị tại vị trí lưu trữ này. |
 
-**Example**
+**Ví dụ**
 
-Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+Việc tính toán vị trí chính xác tùy thuộc vào kho lưu trữ để truy xuất. Xem xét hợp đồng sau được triển khai tại `0x295a70b2de5e3953354a6a8344e616ed314d7251` theo địa chỉ `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
-contract Storage {
+hợp đồng lưu trữ {
     uint pos0;
     mapping(address => uint) pos1;
 
-    function Storage() {
+    chức nang lưu trữ() {
         pos0 = 1234;
         pos1[msg.sender] = 5678;
     }
 }
 ```
 
-Retrieving the value of `pos0` is straight forward:
+Truy xuất giá trị của `pos0` rất đơn giản:
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
@@ -785,23 +785,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
-Retrieving an element of the map is harder. The position of an element in the map is calculated with:
+Truy xuất chi tiết của bản đồ thì khó hơn. Vị trí của một chi tiết trên bản đồ được tính bằng:
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
-This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
+Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` chúng ta cần tính toán vị trí bằng:
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-The Klaytn console which comes with the `klay` library can be used to make the calculation
+Có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Now to fetch the storage:
+Bây giờ để lấy kho lưu trữ:
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
@@ -811,19 +811,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 ## klay_syncing <a id="klay_syncing"></a>
 
-Returns an object with data about the sync status or `false`.
+Trả về đối tượng với dữ liệu về trạng thái đồng bộ hóa hoặc `false`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Object|Boolean`, an object with sync status data or `false` when not syncing:
+`Object|Boolean`, đối tượng với dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
 
-| Name          | Type     | Description                                                                                                        |
+| Tên           | Loại     | Mô tả                                                                                                              |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
+| startingBlock | SỐ LƯỢNG | The block at which the import started (will only be reset, after the sync reached his head).                       |
 | currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
 | highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
 | pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
