@@ -38,16 +38,16 @@ CountDApp is tested in the following environment.
 
 Môi trường thực thi của Klaytn tương thích với Máy ảo Ethereum và thực thi các hợp đồng thông minh được viết trong Solidity. API RPC của Klaytn và các thư viện khách hàng khác duy trì gần như tất cả các thông số API giống với thông số của Ethereum nếu có. Do đó, việc chuyển các ứng dụng Ethereum sang Klaytn khá đơn giản. Điều này giúp các nhà phát triển dễ dàng chuyển sang nền tảng blockchain mới.
 
-## 3. Change node connection from Ethereum to Klaytn <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
+## 3. Thay đổi kết nối nút từ Ethereum sang Klaytn <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. (FYI. [The Ropsten testnet in ethereum will be shut down in Q4 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
+Đầu tiên, bạn cần thay đổi thư viện tạo kết nối với nút. Sau đó, bạn sẽ xác định URL của nút trong "rpcURL". (thông tin để bạn biết) [Testnet Ropsten trong Ethereum sẽ bị tắt vào quý 4 năm 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
 * Ethereum
-  * `web3` library connects to and communicates with Ethereum node.
-  * `Ropsten testnet` URL is assigned to 'rpcURL' .
+  * `web3` thư viện kết nối và giao tiếp với nút Ethereum.
+  * URL của `Testnet Ropsten` được gán cho "rpcURL" .
 * Klaytn
-  * `caver-js` library is used to connect to and communicate with Klaytn node.
-  * `Baobab testnet` URL is assigned to 'rpcURL'.
+  * Thư viện `caver-js` được dùng để kết nối và giao tiếp với nút Klaytn.
+  * URL của `testnet Baobab` được gán cho "rpcURL".
 
 `src/klaytn/caver.js`
 
@@ -68,13 +68,13 @@ const caver = new Caver(rpcURL)
 export default caver
 ```
 
-## 4. Interact with Klaytn node: `BlockNumber` component <a href="#4-interact-with-klaytn-node-blocknumber-component" id="4-interact-with-klaytn-node-blocknumber-component"></a>
+## 4. Tương tác với nút Klaytn: Thành phần `BlockNumber` <a href="#4-interact-with-klaytn-node-blocknumber-component" id="4-interact-with-klaytn-node-blocknumber-component"></a>
 
-![blocknumber component](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
+![thành phần blocknumber](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
 
-BlockNumber component gets the current block number every 1 second (1000ms).
+Thành phần BlockNumber lấy số khối hiện tại từng giây (1000ms).
 
-By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
+Chỉ cần thay thế thư viện `web3` bằng `caver-js`, bạn có thể đồng bộ hóa BlockNumber của Klaytn theo thời gian thực thay vì BlockNumber của Ethereum.
 
 > Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)\
   Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
@@ -98,28 +98,28 @@ class BlockNumber extends Component {
 export default BlockNumber
 ```
 
-For more detail about `BlockNumber` component, see [CountDApp tutorial - Blocknumber Component](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
+Để biết thêm chi tiết về thành phần `BlockNumber`, hãy tham khảo [Hướng dẫn về CountDApp - Thành phần Blocknumber](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
-## 5. Interact with the contract: `Count` component <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
+## 5. Tương tác với hợp đồng: Thành phần `Count` <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
-![count component](../../bapp/tutorials/count-bapp/images/count-component.gif)
+![thành phần Count](../../bapp/tutorials/count-bapp/images/count-component.gif)
 
-To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.
+Để tương tác với hợp đồng, ta cần tạo một phiên bản của hợp đồng đã được triển khai. Với phiên bản đó, ta có thể đọc và viết dữ liệu của hợp đồng.
 
-Let's learn step by step how to migrate `CountDApp` from Ethereum to Klaytn!
+Hãy tìm hiểu từng bước về cách chuyển `CountDApp` từ Ethereum sang Klaytn!
 
-* 5-1. Deploy `Count` contract on Klaytn
-* 5-2. Create a contract instance
-* 5-3. Interact with contract
+* 5-1. Triển khai hợp đồng `Count` trên Klaytn
+* 5-2. Tạo một phiên bản hợp đồng
+* 5-3. Tương tác với hợp đồng
 
-### 5-1. Deploy `Count` contract on Klaytn <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
+### 5-1. Triển khai hợp đồng `Count` trên Klaytn <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
 
-The first step is deploying Count contract on Klaytn and get the contract address. Most of the cases, you can use Etherem contracts on Klaytn without modification. See [Porting Etherem Contract](../../smart-contract/porting-ethereum-contract.md). In this guide, we will use Truffle to deploy the contract.
+Bước đầu tiên là triển khai hợp đồng Count trên Klaytn và lấy địa chỉ hợp đồng. Trong hầu hết trường hợp, bạn có thể dùng hợp đồng Ethereum trên Klaytn mà không cần sửa đổi. Tham khảo [Di chuyển hợp đồng Ethereum](../../smart-contract/porting-ethereum-contract.md). Trong hướng dẫn này, chúng tôi sẽ sử dụng Truffle để triển khai hợp đồng.
 
-1. Change network properties in `truffle-config.js` to deploy the contract on Klaytn.
-2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-3. Type `$ truffle deploy --network baobab --reset`
-4. `Count` contract will be deployed on Baobab testnet, Klaytn.
+1. Thay đổi thuộc tính mạng lưới trong `truffle-config.js` để triển khai hợp đồng trên Klaytn.
+2. Nạp tiền vào tài khoản của bạn bằng [KLAY Faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+3. Gõ `$ truffle deploy --network baobab --reset`
+4. Hợp đồng `Count` sẽ được triển khai trên testnet Baobab, Klaytn.
 
 `truffle-config.js`
 
