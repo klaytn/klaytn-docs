@@ -1,39 +1,39 @@
 ## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+Phương thức truy vấn thay đổi (poll) đối với bộ lọc, trả về một mảng các bản ghi phát sinh kể từ lần truy vấn thay đổi trước đó.
 
-**Parameters**
+**Tham số**
 
-| Name | Type     | Description                           |
-| ---- | -------- | ------------------------------------- |
-| id   | QUANTITY | The filter id (*e.g.*, "0x16" // 22). |
+| Tên | Loại     | Mô tả                              |
+| --- | -------- | ---------------------------------- |
+| id  | SỐ LƯỢNG | Id bộ lọc (*ví dụ*: "0x16" // 22). |
 
-**Return Value**
+**Giá trị trả về**
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
-- For filters created with [eth_newBlockFilter](#eth_newblockfilter), the return are block hashes (32-byte DATA), *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [eth_newFilter](#eth_newfilter), logs are objects with following parameters:
+`Array` - Mảng các đối tượng bản ghi, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn thay đổi trước đó.
+- Đối với các bộ lọc được tạo bằng [eth_newBlockFilter](#eth_newblockfilter), giá trị trả về là các mã băm của khối (DỮ LIỆU 32 byte), *ví dụ*: `["0x3454645634534..."]`.
+- Đối với các bộ lọc được tạo bằng [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), giá trị trả về là các mã băm của giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
+- Đối với các bộ lọc được tạo bằng [eth_newFilter](#eth_newfilter), các bản ghi là các đối tượng có tham số như sau:
 
-| Name             | Type          | Description                                                                                                                                                                                                                                  |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| transactionIndex | QUANTITY      | Integer of the transactions index position log was created from. `null` when pending.                                                                                                                                                        |
-| transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| Tên              | Loại            | Mô tả                                                                                                                                                                                                                                              |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| removed          | THẺ             | `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. `false` nếu đó là bản ghi hợp lệ.                                                                                                                                                               |
+| logIndex         | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                              |
+| transactionIndex | SỐ LƯỢNG        | Số nguyên bản ghi vị trí chỉ mục giao dịch đã được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                           |
+| transactionHash  | DỮ LIỆU 32 byte | Mã băm của giao dịch mà bản ghi này được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                                     |
+| blockHash        | DỮ LIỆU 32 byte | Mã băm của khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                       |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                               |
+| address          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                      |
+| data             | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                |
+| topics           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục của bản ghi. (Trong Solidity: Chủ đề đầu tiên là mã băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với từ khóa `anonymous`.). |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}' http://localhost:8551
 
-// Result
+// Kết quả
 {
     "id":1,
     "jsonrpc":"2.0",
@@ -55,29 +55,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getFilterLogs <a id="eth_getfilterlogs"></a>
 
-Returns an array of all logs matching filter with given id, which has been obtained using [eth_newFilter](#eth_newfilter).  Note that filter ids returned by other filter creation functions, such as [eth_newBlockFilter](#eth_newblockfilter) or [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), cannot be used with this function.
+Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id đã cho, có được bằng cách sử dụng [eth_newFilter](#eth_newfilter).  Lưu ý rằng các id bộ lọc được trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [eth_newBlockFilter](#eth_newblockfilter) hoặc [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), không thể sử dụng được với hàm này.
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+- Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
+- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
 
-**Parameters**
+**Tham số**
 
-| Name | Type     | Description   |
-| ---- | -------- | ------------- |
-| id   | QUANTITY | The filter id |
+| Tên | Loại     | Mô tả     |
+| --- | -------- | --------- |
+| id  | SỐ LƯỢNG | Id bộ lọc |
 
-**Return Value**
+**Giá trị trả về**
 
-See [eth_getFilterChanges](#eth_getfilterchanges)
+Tham khảo [eth_getFilterChanges](#eth_getfilterchanges)
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -98,35 +98,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getLogs <a id="eth_getlogs"></a>
 
-Returns an array of all logs matching a given filter object.
+Trả về một mảng gồm tất cả bản ghi khớp với một đối tượng bộ lọc đã cho.
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+- Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
+- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
 
-**Parameters**
+**Tham số**
 
-`Object` - The filter options:
+`Object` - Các tùy chọn bộ lọc:
 
-| Name      | Type                      | Description                                                                                                                                                                                                                                                                                                      |
-| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
-| blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+| Tên       | Loại                        | Mô tả                                                                                                                                                                                                                                                                                            |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
+| address   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                                                                                                         |
+| topics    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                 |
+| blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế các bản ghi được trả về cho một khối với mã băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với mã băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
 
-**Return Value**
+**Giá trị trả về**
 
-See [eth_getFilterChanges](#eth_getfilterchanges)
+Tham khảo [eth_getFilterChanges](#eth_getfilterchanges)
 
-**Examples**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -180,10 +180,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 ```
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":2,
@@ -239,25 +239,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ## eth_newBlockFilter <a id="eth_newblockfilter"></a>
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| Loại     | Mô tả      |
+| -------- | ---------- |
+| SỐ LƯỢNG | Id bộ lọc. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":73,
@@ -268,70 +268,70 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_newFilter <a id="eth_newfilter"></a>
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
-- To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
-- To obtain all logs matching the filter created by `eth_newFilter`, call [eth_getFilterLogs](#eth_getfilterlogs).
+Tạo một đối tượng bộ lọc dựa trên các tùy chọn bộ lọc để thông báo khi trạng thái thay đổi (bản ghi).
+- Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `eth_newFilter`, hãy gọi [eth_getFilterLogs](#eth_getfilterlogs).
 
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
-* `[]` "anything"
-* `[A]` "A in first position (and anything after)"
-* `[null, B]` "anything in first position AND B in second position (and anything after)"
-* `[A, B]` "A in first position AND B in second position (and anything after)"
-* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+**Lưu ý về việc xác định bộ lọc chủ đề:** Các chủ đề phụ thuộc vào thứ tự. Một giao dịch với bản ghi có các chủ đề `[A, B]` sẽ được khớp bởi các bộ lọc chủ đề như sau:
+* `[]` "bất cứ thứ gì"
+* `[A]` "A ở vị trí đầu tiên (và bất cứ thứ gì sau đó)"
+* `[null, B]` "bất cứ thứ gì ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
 
-**Parameters**
+**Tham số**
 
-`Object` - The filter options:
+`Object` - Các tùy chọn bộ lọc:
 
-| Name      | Type                      | Description                                                                                                                                                                                           |
-| --------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                  |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                                                                       |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                               |
+| --------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| address   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                            |
+| topics    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                    |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description |
-| -------- | ----------- |
-| QUANTITY | A filter id |
+| Loại     | Mô tả     |
+| -------- | --------- |
+| SỐ LƯỢNG | Id bộ lọc |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
 ```
 
 
 ## eth_newPendingTransactionFilter <a id="eth_newpendingtransactionfilter"></a>
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| Loại    | Mô tả      |
+| -------- | ---------- |
+| SỐ LƯỢNG | Id bộ lọc. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":73,
@@ -341,44 +341,44 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_subscribe <a id="eth_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép khách hàng đợi các sự kiện thay vì phải truy vấn thay đổi.
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+Nút sẽ trả về id đăng ký cho mỗi đăng ký được tạo. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
 
-**Parameters**
+**Tham số**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
-
-
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [eth_newFilter > parameters](./filter#eth_newfilter).
-
-**Return Value**
-
-| Type     | Description                                                                                                                                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+`Object` - Loại thông báo: `"newHeads"` hoặc `"logs"`.
 
 
-**Example**
+`"newHeads"` thông báo cho bạn khi mỗi khối được thêm vào chuỗi khối. `"logs"` thông báo cho bạn khi các bản ghi được đưa vào các khối mới. Loại thông báo này yêu cầu phải có tham số thứ hai chỉ định tùy chọn bộ lọc. Để biết thêm thông tin, vui lòng truy cập [eth_newFilter > tham số](./filter#eth_newfilter).
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+**Giá trị trả về**
+
+| Loại     | Mô tả                                                                                                                |
+| -------- | -------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG | Id đăng ký khi tạo đăng ký. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan cũng sẽ được gửi. |
+
+
+**Ví dụ**
+
+API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
-// Request
+// Yêu cầu
 wscat -c http://localhost:8551
 > {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newHeads"]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
 < {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
 
 ```shell
-// Request
+// Yêu cầu
 wscat -c http://localhost:8551
 > {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
 < {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0xbdab16c8e4ae1b9e6930c78359de3e0e","result":{"address":"0x2e4bb340e26caffb4073d7f1151f37d17524cdbc","topics":["0xb1a7310b1a46c788fcf30784cad70442d5232acaef480b0c094c76bee8d9c77d"],"data":"0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000d2588fe96a34c56a5d0a484cb603bc16fc5cdbbc","blockNumber":"0x3041201","transactionHash":"0xdacdebc77006fc566f65448524a0bc770056d8c7a05244bc7bfb2123b1bd398c","transactionIndex":"0x0","blockHash":"0x899b2dbfe96a34ce5d965dbcfcf39d072b4ce1097d479923e6b6355f3e2609ec","logIndex":"0x0","removed":false}}}
 ```
@@ -386,27 +386,27 @@ wscat -c http://localhost:8551
 
 ## eth_uninstallFilter <a id="eth_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [eth_getFilterChanges](#eth_getfilterchanges) for a period of time.
+Gỡ cài đặt bộ lọc với id đã cho. Nên luôn được gọi khi không còn cần theo dõi. Ngoài ra, bộ lọc hết thời gian chờ nếu không được yêu cầu [eth_getFilterChanges](#eth_getfilterchanges) trong một khoảng thời gian.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
-| filter | QUANTITY | A filter id. |
+| Tên    | Loại     | Mô tả      |
+| ------ | -------- | ---------- |
+| bộ lọc | SỐ LƯỢNG | Id bộ lọc. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| Loại | Mô tả                                                             |
+| ----- | ----------------------------------------------------------------- |
+| Logic | `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -417,30 +417,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_unsubscribe <a id="eth_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ có kết nối đã tạo đăng ký mới có thể hủy đăng ký.
 
-**Parameters**
+**Tham số**
 
-| Type     | Description        |
-| -------- | ------------------ |
-| QUANTITY | A subscription id. |
+| Loại    | Mô tả       |
+| -------- | ----------- |
+| SỐ LƯỢNG | Id đăng ký. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+| Loại  | Mô tả                                                       |
+| ----- | ----------------------------------------------------------- |
+| Logic | `true` nếu hủy đăng ký thành công, nếu không sẽ là `false`. |
 
 
-**Example**
+**Ví dụ**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
-// Request
+// Yêu cầu
 > {"jsonrpc":"2.0", "id": 1, "method": "eth_unsubscribe", "params": ["0xab8ac7a4045025d0c2807d63060eea6d"]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
