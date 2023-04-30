@@ -1,6 +1,6 @@
 ## eth_feeHistory<a id="eth_feehistory"></a>
 
-Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với khoảng khối được yêu cầu nếu có.
+Trả về lịch sử phí cơ sở trên mỗi gas cùng với phí ưu tiên thực hiện giao dịch trên mỗi gas cho khoảng khối được yêu cầu, nếu có.
 
 **Tham số**
 
@@ -13,21 +13,21 @@ Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của m�
 
 **Giá trị trả về**
 
-| Tên           | Loại              | Mô tả                                                                                                                                                              |
-| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| oldestBlock   | SỐ LƯỢNG          | Khối thấp nhất trong khoảng trả về được trình bày dưới dạng số thập lục phân.                                                                                      |
-| baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
-| gasUsedRatio  | Array of FLOAT    | An array of block gas used ratios. These are calculated as the ratio of gasUsed and gasLimit.                                                                      |
-| reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
+| Tên           | Loại               | Mô tả                                                                                                                                                             |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | SỐ LƯỢNG           | Khối thấp nhất trong khoảng trả về được trình bày dưới dạng số thập lục phân.                                                                                     |
+| baseFeePerGas | Mảng SỐ LƯỢNG      | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
+| gasUsedRatio  | Mảng DẤU PHẢY ĐỘNG | Mảng tỷ lệ sử dụng gas của khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                                     |
+| reward        | Mảng SỐ LƯỢNG      | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, tất cả các giá trị được trả về sẽ là 0.           |
 
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x10", "latest", [0.1, 0.2, 0.3]],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -159,27 +159,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
 
-Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
+Trả về gợi ý về giới hạn tối đa phí gas trả thêm cho giao dịch có mức phí thay đổi theo đơn vị peb.
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| Loại     | Mô tả                                     |
+| -------- | ----------------------------------------- |
+| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1)
