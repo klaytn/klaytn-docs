@@ -1,25 +1,25 @@
-# Runtime Debugging <a id="runtime-debugging"></a>
+# Gỡ lỗi thời gian chạy <a id="runtime-debugging"></a>
 
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
-Returns unused memory to the OS.
+Trả lại bộ nhớ chưa sử dụng cho hệ điều hành.
 
-| Client  | Method Invocation                  |
-|:-------:| ---------------------------------- |
-| Console | `debug.freeOSMemory()`             |
-|   RPC   | `{"method": "debug_freeOSMemory"}` |
+|   Khách hàng    | Gọi Phương thức                    |
+|:---------------:| ---------------------------------- |
+| Bảng điều khiển | `debug.freeOSMemory()`             |
+|       RPC       | `{"method": "debug_freeOSMemory"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.freeOSMemory()
 null
@@ -33,24 +33,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_gcStats <a id="debug_gcstats"></a>
 
-Returns GC statistics.
+Trả về số liệu thống kê GC.
 
-| Client  | Method Invocation                           |
-|:-------:| ------------------------------------------- |
-| Console | `debug.gcStats()`                           |
-|   RPC   | `{"method": "debug_gcStats", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                             |
+|:---------------:| ------------------------------------------- |
+| Bảng điều khiển | `debug.gcStats()`                           |
+|       RPC       | `{"method": "debug_gcStats", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+Xem [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) để biết thông tin về các trường của đối tượng được trả về.
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.gcStats()
 {
@@ -71,24 +71,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_memStats <a id="debug_memstats"></a>
 
-Returns detailed runtime memory statistics.
+Trả về số liệu thống kê bộ nhớ thời gian chạy chi tiết.
 
-| Client  | Method Invocation                            |
-|:-------:| -------------------------------------------- |
-| Console | `debug.memStats()`                           |
-|   RPC   | `{"method": "debug_memStats", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                              |
+|:---------------:| -------------------------------------------- |
+| Bảng điều khiển | `debug.memStats()`                           |
+|       RPC       | `{"method": "debug_memStats", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+Xem [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) để biết thông tin về các trường của đối tượng được trả về.
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.memStats()
 {
@@ -120,28 +120,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_metrics <a id="debug_metrics"></a>
 
-Retrieves all the known system metrics collected by the node.
+Truy xuất tất cả các số liệu hệ thống đã biết do nút thu thập.
 
-| Client  | Method Invocation                              |
-|:-------:| ---------------------------------------------- |
-| Console | `debug.metrics(raw)`                           |
-|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
+|   Khách hàng    | Gọi Phương thức                                |
+|:---------------:| ---------------------------------------------- |
+| Bảng điều khiển | `debug.metrics(raw)`                           |
+|       RPC       | `{"method": "debug_metrics", "params": [raw]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type | Description                                           |
-| ---- | ---- | ----------------------------------------------------- |
-| raw  | bool | `true` If raw data is output as it is, `false` If not |
+| Tên | Loại | Mô tả                                                                    |
+| --- | ---- | ------------------------------------------------------------------------ |
+| thô | bool | `true` Nếu dữ liệu thô được xuất ra đúng như vậy, `false` nếu không phải |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                   |
-| ----------- | --------------------------------------------- |
-| JSON string | The structured metrics collected by the node. |
+| Loại      | Mô tả                                      |
+| ---------- | ------------------------------------------ |
+| Chuỗi JSON | Các số liệu có cấu trúc được nút thu thập. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -206,11 +206,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
-Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
+Thiết lập phần trăm mục tiêu thu gom rác. Nó sẽ trả về cài đặt trước đó. Giá trị âm sẽ vô hiệu hóa GC.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type    | Description                           |
+| Tên     | Loại   | Description                           |
 | ------- | ------- | ------------------------------------- |
 | Percent | integer | Garbage collection target percentage. |
 
