@@ -1,52 +1,52 @@
-# Governance <a id="governance"></a>
+# Quản trị <a id="governance"></a>
 
-## Overview <a id="overview"></a>
+## Tổng quan <a id="overview"></a>
 
-### Klaytn Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
+### Quản trị Klaytn: Bước đi đầu tiên đến với phi tập trung <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
-The Klaytn Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council have been limited to trusted organizations. This was chosen for the sake of efficiency in the platform's development and stabilization stage. Klaytn reached the stage by joining hands with 31 Governance Council Members and a seamless operation of the Klaytn Mainnet.
+Hội đồng quản trị Klaytn là một hội đồng có quyền quyết định về nhiều vấn đề quản trị khác nhau. Để bảo đảm cho độ tin cậy của Hội đồng, các thành viên ban đầu của Hội quản trị đã được giới hạn trong các tổ chức đáng tin cậy. Điều này được lựa chọn vì mục đích đảm bảo hiệu quả trong giai đoạn phát triển và ổn định của nền tảng. Klaytn đạt tới giai đoạn này bằng cách hợp tác với 31 thành viên Hội đồng quản trị và một cơ chế vận hành trơn tru của Mạng lưới chính thức Klaytn.
 
-Klaytn believes that Klaytn governance should lead Klaytn’s growth aligned with the transition of our world. One of the key transitions in the world is coming from the growth of the metaverse. The technological advancements are ushering in a more metaversified world. In particular, we are witnessing the growth of the influence of non-traditional entities such as Decentralized Autonomous Organizations (DAOs) and builders. As an organization operating on smart contracts without a centralized structure, DAOs will be a core entity in the metaverse. Builders will have more influence by contributing to the operation and growth of the metaverse.
+Klaytn tin rằng việc quản trị Klaytn sẽ dẫn dắt sự tăng trưởng của Klaytn theo hướng phù hợp với sự chuyển mình của thế giới này. Một trong những sự chuyển đổi quan trọng của thế giới này đến từ sự phát triển của vũ trụ ảo. Những tiến bộ công nghệ đang mở ra một thế giới được pha trộn với vũ trụ ảo. Cụ thể, chúng ta đang chứng kiến tầm ảnh hưởng ngày càng lớn mạnh của các thực thể phi truyền thống, ví dụ như Tổ chức tự trị phi tập trung (DAO) và các nhà xây dựng. Là một tổ chức vận hành dựa trên hợp đồng thông minh mà không có cấu trúc tập trung, DAO sẽ là thực thể cốt lõi trong vũ trụ ảo. Các nhà xây dựng sẽ có nhiều ảnh hưởng hơn nhờ đóng góp vào quá trình vận hành và phát triển của vũ trụ ảo.
 
-We are reorganizing our governance structure to better accommodate to the changing world. In addition to traditional enterprises, Klaytn is opening up the Membership of the Klaytn Governance Council to the non-traditional entities mentioned above.
+Chúng tôi đang sắp xếp lại cấu trúc quản trị của mình để có thể trở nên phù hợp hơn với một thế giới luôn thay đổi. Ngoài các doanh nghiệp truyền thống, Klaytn cũng bắt đầu cung cấp Tư cách thành viên của Hội đồng quản trị Klaytn cho các thực thể phi truyền thống được nhắc đến ở trên.
 
-By introducing a stake-based governance model and eliminating the Gini Coefficient from Klaytn’s voting mechanism, Klaytn enables governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
+Bằng cách giới thiệu một mô hình quản trị dựa trên cổ phần và loại bỏ Hệ số Gini khỏi cơ chế bỏ phiếu bình chọn của Klaytn, Klaytn cho phép những người tham gia quản trị nhận thêm sự hỗ trợ từ Cộng đồng Klaytn nhằm định hình Klaytn sao cho phù hợp với ý thích của họ. Các thực thể có thể đưa ra quyết định phù hợp trong một thế giới pha trộn vũ trụ ảo sẽ có tầm ảnh hưởng lớn hơn tròng Klaytn GC. Chúng tôi tin rằng DAO và các nhà xây dựng sẽ dẫn dắt lĩnh vực này trong tương lai.
 
-When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with various types of entities. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
+Khi cấp độ của quá trình pha trộn vũ trụ ảo vượt quá ngưỡng quan trọng, việc quản trị Klaytn sẽ được phân quyền hoàn toàn với nhiều loại thực thế khác nhau. Cuối cùng, Klaytn sẽ phát triển thành một DAO của các DAO và một nền tảng để các DAO truyền đạt tiếng nói của Cộng đồng Klaytn thông qua các cơ chế trên chuỗi.
 
-## Governance Topics <a id="governance-topics"></a>
+## Các chủ đề về quản trị <a id="governance-topics"></a>
 
-The main topics that can be decided through the governance structure include the following three areas, and proposals that require additional decision making may be introduced in a regular meeting or temporary meeting for review. The Klaytn Governance Council must make decisions that are best for the growth of Klaytn.
+Các chủ đề chính có thể được quyết định thông qua cấu trúc quản trị, bao gồm ba lĩnh vực sau đây, và các đề xuất cần được thảo luận thêm để đưa ra quyết định có thể sẽ được giới thiệu trong một buổi họp định kỳ, hoặc một buổi họp tạm thời để đánh giá. Hội đồng quản trị Klaytn phải đưa ra những quyết định tốt nhất cho sự phát triển của Klaytn.
 
-- **Technology**
-  - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
-- **Economy**
-  - Issues relating to additional issuance of KLAY and its distribution structure, changes in transaction fees, and Klaytn Improvement Reserve spending approval etc. are included in this category.
-- **Governing Rule**
-  - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
+- **Công nghệ**
+  - Những việc liên quan tới cập nhật kỹ thuật của nền tảng. Trong này bao gồm các vấn đề về cấu trúc cơ bản của chuỗi khối (ví dụ như Cấu trúc tài khoản), các tính năng mới (ví dụ như giải pháp L2) hoặc lịch trình cập nhật phần mềm.
+- **Nền kinh tế**
+  - Các vấn đề liên quan tới việc phát hành và cấu trúc phân phối của KLAY, các thay đổi về phí giao dịch, và phê duyệt chi tiêu cho Bảo lưu cải tiến của Klaytn, v. v. nằm trong danh mục này.
+- **Quy định quản trị**
+  - Các chủ thể và quy trình quản trị, cũng như các quy định về trách nhiệm và quyền hạn của các cơ quan quản lý, nằm trong danh mục này.
 
-## Governance Process <a id="governance-process"></a>
+## Quy trình quản trị <a id="governance-process"></a>
 
-Klaytn principally aims for the governance process to occur within the protocol (on-chain). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
+Klaytn chủ yếu hướng tới quy trình quản trị diễn ra trong giao dịch (trên chuỗi). Thông qua quá trình này, phiếu bình chọn sẽ được ghi lại trên chuỗi khối, và kết quả sẽ được áp dụng theo bình chọn. Khi nền tảng phát triển, sẽ có thêm nhiều việc khác được xử lý thông qua quy trình quản trị trên chuỗi.
 
-### General Governance Process <a id="general-governance-process"></a>
+### Quy trình quản trị chung <a id="general-governance-process"></a>
 
-The initial governance process proceeds in the following order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
+Quy trình quản trị ban đầu được tiến hành theo trình tự sau: giới thiệu đề xuất, các nhà cố vấn gửi phát biểu quan điểm của mình, các thành viên hội đồng bỏ phiếu bình chọn, và nhiều thủ tục tiếp theo khác nhau sẽ diễ ra tùy thuộc vào kết quả bình chọn.
 
-Those who have the right to introduce proposals can make sure each proposal is voted on by introducing it. Once the proposal is introduced, the advisors must conduct expert analysis on the proposal and submit a statement of opinion with their results.
+Những người có quyền giới thiệu đề xuất có thể đảm bảo mỗi đề xuất đều được bình chọn thông qua việc giới thiệu về đề xuất. Khi đề xuất đã được giới thiệu, những người cố vấn phải thực hiện phân tích chuyên môn cho đề xuất đó, và gửi phát biểu quan điểm kèm theo kết quả của họ.
 
-During the initial phase of Klaytn governance, the Klaytn Governance Council members will have the right to vote on the introduced proposals and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. In its initial phase, the voting process may be replaced by a discussion process facilitated by the Klaytn foundation. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term.
+Trong giai đoạn đầu của việc quản trị Klaytn, các thành viên của Hội đồng quản trị Klaytn sẽ có quyền bỏ phiếu bình chọn cho các đề xuất được giới thiệu, và họ sẽ tham khảo phát biểu quan điểm của các nhà cố vấn đề bình chọn cho những đề xuất mà họ tin là lựa chọn tốt nhất. Nếu số phiếu bình chọn vượt qua ngưỡng, đề xuất sẽ được thông qua; nếu không, đề xuất sẽ bị bác bỏ. Trong giai đoạn đầu, quy trình bỏ phiếu có thể được thay thế bằng quy trình thảo luận do quỹ Klaytn hỗ trợ điều phối. Các biện pháp tiếp theo đối với một đề xuất được phê duyệt sẽ được chủ tịch phụ trách, và chủ tịch có trách nhiệm thực thi tất cả các đề xuất được hội đồng thông qua trong nhiệm kỳ của mình.
 
-### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
+### Quy trình đánh giá bảo lưu cải tiến của Klaytn <a id="klaytn-improvement-reserve-review-process"></a>
 
 
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
+Việc đánh giá Đề xuất KIR sẽ được quyết định thông qua phiếu bình chọn của các thành viên Hội đồng quản trị, và đề xuất sẽ bị bác bỏ nếu có từ hơn một nửa thành viên ủy ban bỏ phiếu từ chối (bác bỏ) đề xuất đó. Để biết thêm chi tiết về việc đánh giá Đề xuất KIR, hãy tham khảo các tài liệu sau.
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit [KIR Forum](https://kir.klaytn.foundation/).
+Để biết thêm thông tin, hãy truy cập [Diễn đàn KIR](https://kir.klaytn.foundation/).
 
-## Governance Roadmap <a id="governance-roadmap"></a>
+## Lộ trình quản trị <a id="governance-roadmap"></a>
 
 The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
 
