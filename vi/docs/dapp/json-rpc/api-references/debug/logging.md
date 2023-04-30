@@ -1,4 +1,4 @@
-# Logging <a id="logging"></a>
+# Đang ghi nhật ký <a id="logging"></a>
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
@@ -161,33 +161,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByID <a id="debug_verbositybyid"></a>
 
-Sets the verbosity of log module with given ModuleID. Please note that VerbosityByID only works with zapLogger.
+Thiết lập mức độ chi tiết của mô-đun nhật ký với ModuleID đã cho. Xin lưu ý rằng VerbosityByID chỉ hoạt động với zapLogger.
 
-(ModuleID : Please refer to the code on the [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
+(ModuleID : Vui lòng tham khảo mã trên [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
 
-(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+(Cấp độ: 0=crit, 1=lỗi, 2=cảnh báo, 3=thông tin, 4=gỡ lỗi, 5=truy vết)
 
-The verbosity of individual packages and source files can be raised using `debug_vmodule`.
+Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-| Client  | Method Invocation                                               |
-|:-------:| --------------------------------------------------------------- |
-| Console | `debug.verbosityByID(id, level)`                                |
-|   RPC   | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+|   Khách hàng    | Gọi Phương thức                                                 |
+|:---------------:| --------------------------------------------------------------- |
+| Bảng điều khiển | `debug.verbosityByID(id, level)`                                |
+|       RPC       | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name  | Type | Description                  |
-| ----- | ---- | ---------------------------- |
-| id    | int  | The module id.               |
-| level | int  | The logging verbosity level. |
+| Tên    | Loại | Mô tả                        |
+| ------ | ---- | ---------------------------- |
+| id     | int  | Id mô-đun.                   |
+| cấp độ | int  | Cấp độ chi tiết ghi nhập ký. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.verbosityById(1, 3)
 null
@@ -201,12 +201,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 
-Sets the logging verbosity pattern.
+Thiết lập mẫu mức độ chi tiết ghi nhật ký.
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.vmodule(module)`                           |
-|   RPC   | `{"method": "debug_vmodule", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                   |
+|:---------------:| ------------------------------------------------- |
+| Bảng điều khiển | `debug.vmodule(module)`                           |
+|       RPC       | `{"method": "debug_vmodule", "params": [string]}` |
 
 **Tham số**
 
