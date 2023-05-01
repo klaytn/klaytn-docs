@@ -2,24 +2,24 @@
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
-Sets the logging backtrace location. When a backtrace location is set and a log message is emitted at that location, the stack of the goroutine executing the log statement will be printed to `stderr`.
+Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyên được thiết lập và một thông báo nhật ký được phát ra tại vị trí đó, ngăn xếp của goroutine đang thực thi câu lệnh nhật ký sẽ được in ra `stderr`.
 
-| Client  | Method Invocation                                     |
-|:-------:| ----------------------------------------------------- |
-| Console | `debug.backtraceAt(location)`                         |
-|   RPC   | `{"method": "debug_backtraceAt", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                       |
+|:---------------:| ----------------------------------------------------- |
+| Bảng điều khiển | `debug.backtraceAt(location)`                         |
+|       RPC       | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                                                  |
-| -------- | ------ | ---------------------------------------------------------------------------- |
-| location | string | The logging backtrace location specified as `<filename>:<line>`. |
+| Tên    | Loại | Mô tả                                                                        |
+| ------ | ----- | ---------------------------------------------------------------------------- |
+| vị trí | chuỗi | Vị trí truy nguyên nhật ký được chỉ định là `<filename>:<line>`. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
 ``` javascript
 > debug.backtraceAt("server.go:443")
@@ -36,18 +36,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
-Sets the output target of vmlog precompiled contract.  When the output target is a file, logs from `vmlog` calls in smart contracts will be written to `DATADIR/log/vm.log`.  Here `DATADIR` is the directory specified by `--datadir` when launching `klay`.  On the other hand, the output target is `stdout`, logs will be displayed like a debug message on the standard output.
+Thiết lập mục tiêu đầu ra của hợp đồng biên dịch trước vmlog.  Khi mục tiêu đầu ra là một tệp, nhật ký từ lệnh gọi `vmlog` trong hợp đồng thông minh sẽ được ghi vào `DATADIR/log/vm.log`.  `DATADIR` ở đây là thư mục được chỉ định bởi `--datadir` khi khởi chạy `klay`.  Mặt khác, mục tiêu đầu ra là `stdout`, nhật ký sẽ được hiển thị như một thông báo gỡ lỗi trên đầu ra tiêu chuẩn.
 
-| Client  | Method Invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `debug.setVMLogTarget(target)`                           |
-|   RPC   | `{"method": "debug_setVMLogTarget", "params": [number]}` |
+|   Khách hàng    | Gọi Phương thức                                          |
+|:---------------:| -------------------------------------------------------- |
+| Bảng điều khiển | `debug.setVMLogTarget(target)`                           |
+|       RPC       | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name   | Type | Description                                                                |
-| ------ | ---- | -------------------------------------------------------------------------- |
-| target | int  | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
+| Tên      | Loại | Mô tả                                                                            |
+| -------- | ----- | -------------------------------------------------------------------------------- |
+| mục tiêu | int   | Mục tiêu đầu ra (0: không có đầu ra, 1: tệp, 2: stdout, 3: cả hai) (mặc định: 0) |
 
 **Giá trị Trả về**
 
@@ -136,18 +136,18 @@ Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng 
 
 **Tham số**
 
-| Tên   | Loại   | Description                  |
-| ----- | ------ | ---------------------------- |
-| name  | string | The module name.             |
-| level | int    | The logging verbosity level. |
+| Tên    | Loại  | Mô tả                        |
+| ------ | ----- | ---------------------------- |
+| tên    | chuỗi | Tên mô-đun.                  |
+| cấp độ | int   | Cấp độ chi tiết ghi nhập ký. |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.verbosityByName("name", 3)
 null
