@@ -1,21 +1,21 @@
-# VM Standard Tracing <a id="vm-standard-tracing"></a>
+# Theo dõi tiêu chuẩn VM <a id="vm-standard-tracing"></a>
 
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
+Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` chấp nhận mã băm khối hỏng và sẽ phát lại khối hỏng. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
 
 
-| Client  | Method Invocation                                                       |
-|:-------:| ----------------------------------------------------------------------- |
-| Console | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
-|   RPC   | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
+|   Khách hàng    | Gọi Phương thức                                                         |
+|:---------------:| ----------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
+|       RPC       | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type         | Description                                                        |
-| -------- | ------------ | ------------------------------------------------------------------ |
-| hash     | 32-byte DATA | Mã băm của một khối.                                               |
-| tùy chọn | đối tượng    | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
+| Tên      | Loại           | Mô tả                                                              |
+| -------- | --------------- | ------------------------------------------------------------------ |
+| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                                               |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Giá trị Trả về**
 
