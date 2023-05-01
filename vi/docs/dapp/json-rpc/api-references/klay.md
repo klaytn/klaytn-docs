@@ -1,14 +1,14 @@
 ---
 description: >-
-  APIs related to accounts, blocks, transactions, and nodes.
+  API liên quan đến tài khoản, khối, giao dịch và nút.
 ---
 
 # Namespace klay <a id="namespace-klay"></a>
 
-The namespace `klay` provides functions related to accounts, blocks, transactions, configurations of networks or nodes, filters, and so on. The list below enumerates the API functions that are currently supported in Klaytn.
+`klay` namespacce cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v. v. Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
 
 
-### [Account](./klay/account.md) <a id="account"></a>
+### [Tài khoản](./klay/account.md) <a id="account"></a>
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_encodeAccountKey](./klay/account.md#klay_encodeaccountkey)
@@ -22,7 +22,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [Block](./klay/block.md) <a id="block"></a>
+### [Khối](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getHeaderByNumber](./klay/block.md#klay_getheaderbynumber)
 - [klay_getHeaderByHash](./klay/block.md#klay_getheaderbyhash)
@@ -42,7 +42,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_getRewards](./klay/block.md#klay_getrewards)
 
 
-### [Transaction](./klay/transaction.md) <a id="transaction"></a>
+### [Giao dịch](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
