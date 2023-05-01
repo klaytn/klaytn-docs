@@ -1,4 +1,4 @@
-# Basic type transaction class <a id="basic-type-transaction-class"></a>
+# Lớp giao dịch cơ bản <a id="basic-type-transaction-class"></a>
 
 ## LegacyTransaction <a id="legacytransaction"></a>
 
@@ -6,54 +6,54 @@
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy][]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
+`LegacyTransaction` biểu thị một [giao dịch cũ](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi `LegacyTransaction` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. The `transactionObject` có thể có các thuộc tính dưới đây để tạo `LegacyTransaction`.
 
-`LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
+`LegacyTransaction` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo `LegacyTransaction`.
 
 {% hint style="success" %}
-NOTE: You can create an instance of `LegacyTransaction` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.legacyTransaction.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+LƯU Ý: Bạn có thể tạo một phiên bản `LegacyTransaction` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.legacyTransaction.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.legacyTransaction({...})`, please change it to `caver.transaction.legacyTransaction.create({...})`.
+LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.legacyTransaction({...})`, vui lòng đổi thành `caver.transaction.legacyTransaction.create({...})`.
 {% endhint %}
 
-**properties**
+**thuộc tính**
 
-| Name       | Type   | Description                                                                                                                                                                                                                                          |
-| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                             |
-| value      | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                           |
-| from       | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set.                                                                                                                                                  |
-| to         | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
-| input      | string | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                           |
-| signatures | Array  | (optional) An array of signatures. A legacy transaction can have only one signature.                                                                                                                                                                 |
-| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                 |
-| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                        |
-| chainId    | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                  |
+| Tên        | Loại  | Mô tả                                                                                                                                                                                                                                       |
+| ---------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas        | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                |
+| value      | chuỗi | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                       |
+| from       | chuỗi | (tùy chọn) Địa chỉ của người gửi. Nếu bỏ qua tham số này, địa chỉ của keyring được sử dụng để ký sẽ được thiết lập.                                                                                                                         |
+| to         | chuỗi | (tùy chọn, mặc định: `'0x'`) Địa chỉ tài khoản sẽ nhận giá trị được chuyển hoặc địa chỉ hợp đồng thông minh nếu giao dịch cũ thực thi hợp đồng thông minh. Nếu một giao dịch cũ triển khai hợp đồng thông minh thì không cần xác định `to`. |
+| input      | chuỗi | (tùy chọn) Dữ liệu gắn kèm giao dịch, được sử dụng để triển khai/thực thi hợp đồng thông minh.                                                                                                                                              |
+| signatures | Mảng  | (tùy chọn) Mảng các chữ ký. Một giao dịch cũ có thể chỉ có một chữ ký.                                                                                                                                                                      |
+| nonce      | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                       |
+| gasPrice   | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                              |
+| chainId    | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                             |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a legacyTransaction for sending KLAY
+// Tạo một giao dịch cũ để gửi KLAY
 > caver.transaction.legacyTransaction.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
 })
 
-// Create a legacyTransaction to deploy smart contract
+// Tạo một giao dịch cũ để triển khai hợp đồng thông minh
 > caver.transaction.legacyTransaction.create({
     input: '0x60806...',
     gas: 200000,
 })
 
-// Create a legacyTransaction to execute smart contract
+// Tạo một giao dịch cũ để thực thi hợp đồng thông minh
 > caver.transaction.legacyTransaction.create({
     to: '0xfe6c9118e56a42cbc77aa3b7ee586455e3dc5b6d', // Smart contact address
     input: '0xa9059...',
     gas: 200000,
 })
 
-// Create a legacyTransaction from RLP-encoded string
+// Tạo một giao dịch cũ từ chuỗi mã hóa RLP
 > caver.transaction.legacyTransaction.create('0xf8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567')
 LegacyTransaction {
     _type: 'TxTypeLegacyTransaction',
@@ -74,33 +74,33 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer` represents a [value transfer transaction](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). The `transactionObject` can have properties below to create a `ValueTransfer` transaction.
+`ValueTransfer` biểu thị một [giao dịch chuyển giá trị](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransfer`.
 
-`ValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransfer` transaction.
+`ValueTransfer` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `ValueTransfer`.
 
 {% hint style="success" %}
-NOTE: You can create an instance of `ValueTransfer` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.valueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+LƯU Ý: Bạn có thể tạo một đối tượng `ValueTransfer` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.valueTransfer.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransfer({...})`, please change it to `caver.transaction.valueTransfer.create({...})`.
+LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransfer({...})`, vui lòng đổi thành `caver.transaction.valueTransfer.create({...})`.
 {% endhint %}
 
-**properties**
+**thuộc tính**
 
-| Name       | Type   | Description                                                                                                                                                          |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value      | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                        |
-| from       | string | The address of the sender.                                                                                                                                           |
-| to         | string | The account address that will receive the transferred value.                                                                                                         |
-| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
-| signatures | Array  | (optional) An array of signatures.                                                                                                                                   |
-| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId    | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                  |
+| Tên        | Loại | Mô tả                                                                                                                                                                                                                 |
+| ---------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value      | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                               |
+| from       | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
+| to         | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                        |
+| gas        | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
+| signatures | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
+| nonce      | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| gasPrice   | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
+| chainId    | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a valueTransfer
+// Tạo một giao dịch valueTransfer
 > caver.transaction.valueTransfer.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
@@ -108,7 +108,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
     gas: 25000,
 })
 
-// Create a valueTransfer from RLP-encoded string
+// Tạo một giao dịch valueTransfer từ chuỗi mã hóa RLP
 > caver.transaction.valueTransfer.create('0x08f87f3a8505d21dba0083015f90948723590d5d60e35f7ce0db5c09d3938b26ff80ae01947d0104ac150f749d36bb34999bcade9f2c0bd2e6f847f845820feaa03d820b27d0997baf16f98df01c7b2b2e9734ad05b2228c4d403c2facff8397f3a01f4a44eeb8b7f0b0019162d1d6b90c401078e56fcd7495e74f7cfcd37e25f017')
 ValueTransfer {
     _type: 'TxTypeValueTransfer',
@@ -128,34 +128,34 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-`ValueTransferMemo` represents a [value transfer memo transaction](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo). The `transactionObject` can have properties below to create a `ValueTransferMemo` transaction.
+`ValueTransferMemo` biểu thị một [giao dịch chuyển giá trị kèm ghi chú](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransferMemo`.
 
-`ValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransferMemo` transaction.
+`ValueTransferMemo` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `ValueTransferMemo`.
 
 {% hint style="success" %}
-NOTE: You can create an instance of `ValueTransferMemo` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.valueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+LƯU Ý: Bạn có thể tạo một đối tượng `ValueTransferMemo` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.valueTransferMemo.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransferMemo({...})`, please change it to `caver.transaction.valueTransferMemo.create({...})`.
+LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransferMemo({...})`, vui lòng đổi thành `caver.transaction.valueTransferMemo.create({...})`.
 {% endhint %}
 
-**properties**
+**thuộc tính**
 
-| Name       | Type   | Description                                                                                                                                                          |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value      | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                        |
-| from       | string | The address of the sender.                                                                                                                                           |
-| to         | string | The account address that will receive the transferred value.                                                                                                         |
-| input      | string | Data attached to the transaction. The message should be passed to this property.                                                                                     |
-| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
-| signatures | Array  | (optional) An array of signatures.                                                                                                                                   |
-| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId    | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                  |
+| Tên        | Loại  | Mô tả                                                                                                                                                                                                                 |
+| ---------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value      | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                               |
+| from       | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
+| to         | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                        |
+| input      | chuỗi | Dữ liệu gắn kèm theo giao dịch. Tin nhắn cần được truyền vào thuộc tính này.                                                                                                                                          |
+| gas        | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
+| signatures | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
+| nonce      | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| gasPrice   | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
+| chainId    | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a valueTransferMemo
+// Tạo một giao dịch valueTransferMemo
 > caver.transaction.valueTransferMemo.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
@@ -164,7 +164,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
     input: '0x68656c6c6f',
 })
 
-// Create a valueTransferMemo from RLP-encoded string
+// Tạo một giao dịch valueTransferMemo từ chuỗi mã hóa RLP
 > caver.transaction.valueTransferMemo.create('0x10f8808204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84325a07d2b0c89ee8afa502b3186413983bfe9a31c5776f4f820210cffe44a7d568d1ca02b1cbd587c73b0f54969f6b76ef2fd95cea0c1bb79256a75df9da696278509f3')
 ValueTransferMemo {
     _type: 'TxTypeValueTransferMemo',
@@ -185,42 +185,42 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate` represents a [account update transaction](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). The `transactionObject` can have properties below to create an `AccountUpdate` transaction.
+`AccountUpdate` biểu thị một [giao dịch cập nhật tài khoản](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `AccountUpdate`.
 
-`AccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `AccountUpdate` transaction.
+`AccountUpdate` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `AccountUpdate`.
 
 
 {% hint style="success" %}
-NOTE: You can create an instance of `AccountUpdate` from RLP-encoded strings. Please refer to the below example. NOTE: `caver.transaction.accountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+LƯU Ý: Bạn có thể tạo một đối tượng `AccountUpdate` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.accountUpdate.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.accountUpdate({...})`, please change it to `caver.transaction.accountUpdate.create({...})`.
+LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.accountUpdate({...})`, vui lòng đổi thành `caver.transaction.accountUpdate.create({...})`.
 {% endhint %}
 
-**properties**
+**thuộc tính**
 
-| Name       | Type        | Description                                                                                                                                                          |
-| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from       | string      | The address of the sender.                                                                                                                                           |
-| account    | [Account][] | An [Account][] instance that contains the information needed to update your account.                                                                                 |
-| gas        | string      | The maximum amount of transaction fee the transaction is allowed to use.                                                                                             |
-| signatures | Array       | (optional) An array of signatures.                                                                                                                                   |
-| nonce      | string      | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice   | string      | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId    | string      | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                  |
+| Tên        | Loại         | Mô tả                                                                                                                                                                                                                 |
+| ---------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | chuỗi         | Địa chỉ của người gửi.                                                                                                                                                                                                |
+| account    | [Tài khoản][] | Một đối tượng [Tài khoản][] chứa các thông tin cần thiết để cập nhật tài khoản của bạn.                                                                                                                               |
+| gas        | chuỗi         | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
+| signatures | Mảng          | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
+| nonce      | chuỗi         | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| gasPrice   | chuỗi         | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
+| chainId    | chuỗi         | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
 
-For how to create an [Account][] instance for each `AccountKey`, refer to [Getting Started - Account Update](../../getting-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
+Để biết cách tạo một đối tượng [Tài khoản][] cho mỗi `AccountKey`, hãy tham khảo [Bắt đầu - Cập nhật tài khoản](../../getting-started.md#account-update) hoặc [caver.account.create](../caver.account.md#caver-account-create).
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a accountUpdate
+// Tạo giao dịch accountUpdate
 > caver.transaction.accountUpdate.create({
     from: '0x{address in hex}',
     gas: 50000,
     account: caver.account.createWithAccountKeyLegacy('0x{address in hex}'),
 })
 
-// Create a accountUpdate from RLP-encoded string
+// Tạo giao dịch accountUpdate từ chuỗi mã hóa RLP
 > caver.transaction.accountUpdate.create('0x20f88d808505d21dba0083030d4094ffb52bc54635f840013e142ebe7c06c9c91c1625a302a102c93fcbdb2b9dbef8ee5c4748ffdce11f1f5b06d7ba71cc2b7699e38be7698d1ef847f845820fe9a09c2ca281e94567846acbeef724b1a7a5f882d581aff9984755abd92272592b8ea0344fd23d7774ae9c227809bb579387dfcd69e74ae2fe3a788617f54a4001e5ab')
 AccountUpdate {
     _type: 'TxTypeAccountUpdate',
@@ -242,7 +242,7 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-`SmartContractDeploy` represents a [smart contract deploy transaction](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy). The `transactionObject` can have properties below to create a `SmartContractDeploy` transaction.
+`SmartContractDeploy` biểu thị một [giao dịch triển khai hợp đồng thông minh](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy). The `transactionObject` can have properties below to create a `SmartContractDeploy` transaction.
 
 `SmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractDeploy` transaction.
 
@@ -592,5 +592,7 @@ EthereumDynamicFee {
 }
 ```
 
+[AccountKeyLegacy (Khóa tài khoản cũ)]: ../../../../../klaytn/design/accounts.md#accountkeylegacy
+
 [AccountKeyLegacy]: ../../../../../klaytn/design/accounts.md#accountkeylegacy
-[Account]: ../caver.account.md#account
+[Tài khoản]: ../caver.account.md#account
