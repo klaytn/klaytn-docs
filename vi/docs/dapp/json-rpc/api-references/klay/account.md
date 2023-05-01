@@ -496,32 +496,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isContractAccount <a id="klay_iscontractaccount"></a>
 
-Trả về `true` nếu tài khoản đầu vào có codeHash không trống tại thời điểm có số khối cụ thể. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+Trả về `true` nếu tài khoản đầu vào có codeHash không trống tại thời điểm có số khối cụ thể. Trả về `false` nếu tài khoản là EOA hoặc tài khoản hợp đồng thông minh không có codeHash.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                            | Description                                                                                                                                                                            |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20-byte DATA                    | Address                                                                                                                                                                                |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Tên                 | Loại                              | Mô tả                                                                                                                                                                               |
+| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tài khoản           | DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
+| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                             |
-| ------- | ----------------------------------------------------------------------- |
-| Boolean | `true` means the input parameter is an existing smart contract address. |
+| Loại   | Mô tả                                                                          |
+| ------- | ------------------------------------------------------------------------------ |
+| Boolean | `true` có nghĩa là tham số đầu vào là một địa chỉ hợp đồng thông minh hiện có. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isContractAccount","params":["0x2f07d5b3fa1051460099dc9ea0c2975b6ea67776", "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -531,35 +531,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign <a id="klay_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+Phương thức ký tính toán chữ ký dành riêng cho Klaytn với:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious dApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
+Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một dApp độc hại có thể ký dữ liệu tùy ý, *ví dụ:*, giao dịch và sử dụng chữ ký để mạo danh nạn nhân.
 
-**NOTE**: The address to sign with must be unlocked.
+**LƯU Ý**: Địa chỉ để ký phải được mở khóa.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description     |
-| ------- | ------------ | --------------- |
-| account | 20-byte DATA | Address         |
-| message | N-byte DATA  | Message to sign |
+| Tên       | Loại            | Mô tả               |
+| --------- | --------------- | ------------------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ             |
+| tin nhắn  | DỮ LIỆU N byte  | Thông báo có thể ký |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description |
-| ---- | ----------- |
-| DATA | Signature   |
+| Loại   | Mô tả  |
+| ------- | ------ |
+| DỮ LIỆU | Chữ ký |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
