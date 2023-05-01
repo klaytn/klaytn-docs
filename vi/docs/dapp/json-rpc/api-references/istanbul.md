@@ -18,11 +18,11 @@ Returns the state snapshot at a given block number. The state snapshot contains 
 
 **Return Value**
 
-`Object` - A snapshot object, or `error` when no snapshot was found:
+`Đối tượng` - Đối tượng chụp nhanh hoặc thông báo `lỗi` khi không tìm thấy ảnh chụp nhanh:
 
-| Name | Type | Description | | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes | | Number | 64-byte DATA | The block number where the snapshot was created | | Number | 64-byte DATA | The block number where the snapshot was created | | ValSet | 64-byte DATA | Set of validators at the moment | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | List of votes cast in chronological order | | Tally | 64-byte DATA | Current vote tally to avoid recalculating |
+| Tên | Loại | Mô tả | | Epoch | DỮ LIỆU 64-byte | Số lượng khối mà sau đó để kiểm tra và đặt lại các phiếu đang chờ xử lý | | Số | DỮ LIỆU 64-byte | Số khối nơi ảnh chụp nhanh được tạo | | Số | DỮ LIỆU 64-byte | Số khối nơi ảnh chụp nhanh được tạo | | Giá trị thiết lập | DỮ LIỆU 64-byte | Tập hợp các nút xác thực tại thời điểm này | | Chính sách | DỮ LIỆU 64-byte | | | CommiteeSize | DỮ LIỆU 64-byte | | | Số phiếu | DỮ LIỆU 64-byte | Danh sách bỏ phiếu theo thứ tự thời gian | | Tally | DỮ LIỆU 64-byte | Kiểm phiếu hiện tại để tránh tính toán lại |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -33,19 +33,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getSnapshotAtHash <a id="istanbul_getsnapshotAtHash"></a>
 
-Returns the state snapshot at a given block hash.
+Trả về ảnh chụp nhanh trạng thái tại một mã băm khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type         | Description          |
-| ---------- | ------------ | -------------------- |
-| block hash | 32-byte DATA | The hash of a block. |
+| Tên         | Loại           | Mô tả                |
+| ----------- | --------------- | -------------------- |
+| mã băm khối | DỮ LIỆU 32-byte | Mã băm của một khối. |
 
-**Return Value**
+**Giá trị Trả về**
 
-See [istanbul_getSnapshot](#istanbul_getsnapshot)
+Xem [istanbul_getSnapshot](#istanbul_getsnapshot)
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -57,21 +57,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidators <a id="istanbul_getvalidators"></a>
 
-Returns the list of validators at a given block number.
+Trả về danh sách nút xác thực tại một số khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                | Description                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| Tên     | Loại                | Mô tả                                                                                                                                      |
+| ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"cũ nhất"` hoặc `"mới nhất"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name       | Type         | Description                  |
-| ---------- | ------------ | ---------------------------- |
-| validators | 20-byte DATA | List of validator addresses. |
+| Tên          | Loại           | Mô tả                           |
+| ------------ | --------------- | ------------------------------- |
+| nút xác thực | DỮ LIỆU 20-byte | Danh sách địa chỉ nút xác thực. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -82,19 +82,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidatorsAtHash <a id="istanbul_getvalidatorsathash"></a>
 
-Returns the list of authorized validators at a given block hash.
+Trả về danh sách các nút xác thực được ủy quyền tại một mã băm khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type         | Description          |
-| ---------- | ------------ | -------------------- |
-| block hash | 32-byte DATA | The hash of a block. |
+| Tên         | Loại           | Mô tả                |
+| ----------- | --------------- | -------------------- |
+| mã băm khối | DỮ LIỆU 32-byte | Mã băm của một khối. |
 
-**Return Value**
+**Giá trị Trả về**
 
-See [istanbul_getValidators](#istanbul_getvalidators)
+Xem [istanbul_getValidators](#istanbul_getvalidators)
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_candidates <a id="istanbul_candidates"></a>
 
-Returns the current candidates the node tries to uphold and vote on.
+Trả về các ứng cử viên hiện tại mà nút tán thành và bỏ phiếu.
 
 **Parameters**
 
@@ -186,7 +186,7 @@ None
 | ------- | ---- | -------------- |
 | timeout | int  | config timeout |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
