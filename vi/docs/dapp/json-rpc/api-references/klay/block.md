@@ -1,12 +1,12 @@
-## The Default Block Parameter <a id="the-default-block-parameter"></a>
+## Tham số khối mặc định <a id="the-default-block-parameter"></a>
 
-When requests are made that act on the state of Klaytn, the last default block parameter determines the height of the block.
+Khi các yêu cầu được thực hiện hành động theo trạng thái của Klaytn, tham số khối mặc định cuối cùng sẽ xác định chiều cao của khối.
 
-The following options are possible for the `defaultBlock` parameter:
+Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
-- `HEX String` - an integer block number
-- `String "earliest"` for the earliest/genesis block
-- `String "latest"` - for the latest mined block
+- `HEX String` - số khối là số nguyên
+- `String "earliest"` cho khối sớm nhất/đầu tiên
+- `String "latest"` - cho khối đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
 
 
@@ -633,28 +633,28 @@ Trả về kích thước của ủy ban tại khối được chỉ định. N�
 
 **Tham số**
 
-| Tên                 | Loại    | Mô tả                                                                                                                                                               |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Tên                 | Loại    | Mô tả                                                                                                                                                                  |
+| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-`Integer` - The size of the committee, or `-1` when no committee was found:
+`Số nguyên` - Quy mô của ủy ban hoặc `-1` khi không tìm thấy ủy ban nào:
 
-| Type     | Description             |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| Loại    | Mô tả               |
+| -------- | ------------------- |
+| SỐ LƯỢNG | Quy mô của hội đồng |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCommitteeSize", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -664,34 +664,34 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCouncil <a id="klay_getcouncil"></a>
-Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
+Trả về danh sách tất cả những người xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, trả về danh sách tất cả những người xác thực của hội đồng tại khối mới nhất.
 
-**NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
+**LƯU Ý**: `klay_getValidators` được thay thế bằng phương pháp này và không được hỗ trợ nữa.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Tên                 | Loại    | Mô tả                                                                                                                                                                  |
+| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-`Array` - Array of validator addresses of the council, or `null` when no council was found:
+`Mảng` - Mảng địa chỉ trình xác thực của hội đồng hoặc `null` khi không tìm thấy hội đồng nào:
 
-| Type                  | Description                                 |
-| --------------------- | ------------------------------------------- |
-| Array of 20-byte DATA | Addresses of all validators of the council. |
+| Loại                | Mô tả                                                 |
+| -------------------- | ----------------------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Địa chỉ của tất cả những người xác nhận của hội đồng. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncil", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -705,23 +705,23 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
-Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+Trả về kích thước của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, trả về kích thước của hội đồng tại khối mới nhất.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type         | Description                                                                                                                                                         |
-| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| Tên                 | Loại   | Mô tả                                                                                                                                                                  |
+| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-`Integer` - The size of the council, or `-1` when no council was found:
+`Số nguyên` - Quy mô của hội đồng hoặc `-1` khi không tìm thấy hội đồng nào:
 
-| Type     | Mô tả               |
+| Loại     | Mô tả               |
 | -------- | ------------------- |
 | SỐ LƯỢNG | Quy mô của hội đồng |
 
