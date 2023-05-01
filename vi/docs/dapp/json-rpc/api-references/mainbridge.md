@@ -60,7 +60,7 @@ It Adds a new remote node to the peer list. The node will try to maintain connec
 
 **Parameters**
 
-| Name | Type   | Description        |
+| Name | Type   | Mô tả              |
 | ---- | ------ | ------------------ |
 | url  | string | Peer's  `kni` URL. |
 
