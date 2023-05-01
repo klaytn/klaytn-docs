@@ -10,7 +10,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 
 # Prerequisite
 
-* A working react project (npx create-react-app project-name)
+* A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.

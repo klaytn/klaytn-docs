@@ -12,7 +12,8 @@ Wallets on Klaytn allows for access to accounts controlled by private keys, thus
 | [Alpha Wallet](https://alphawallet.com/)   | Non-custodial        |  EOA           |   Broswer, Mobile, API-SDK          |    No         |       No     |   Support          |     Yes        |
 | [Bit2Me](https://bit2me.com/suite/wallet-klaytn)   | Non-custodial        |  EOA           |  Mobile, Web App           |      No       |      No       |    No         |    No         |
 | [BitKeep](https://bitkeep.com/)   | Non-custodial        |   EOA          |      Browser, Mobile, Desktop       |    No         |    Yes         |   Support          |    Yes         |
-| [Biport](https://biport.io/#/)   | Non-custodial        | EOA            |    Browser, Mobile         |    No         |   Yes          |    Support         |   Yes          |
+| [Biport](https://biport.io/#/)   | Non-custodial        | EOA            |     Mobile         |    No         |   No          |    Support         |   No          |
+| [Burrito Wallet](https://www.burritowallet.com/en)   | Non-custodial        | EOA            |    Browser, Mobile         |    No         |   Yes          |    Support         |   Yes          |
 | [Coin98](https://coin98.com/)   | Non-custodial        |   EOA          |   Browser, Mobile, Web App          |   No          |    Yes         |    Support         |       Yes      |
 | [D'cent](https://dcentwallet.com/)   | Hybrid        |    EOA         |   Mobile          |  No           |     No        |      Support       |   Yes          |
 | [DeFi Wallet](https://crypto.com/defi-wallet)   |Non-custodial        |     EOA        |    Mobile, Desktop         |   No        |  No           |  Support           |   Yes          |

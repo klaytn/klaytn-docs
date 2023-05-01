@@ -31,7 +31,7 @@ After successfully installing the needed libraries, next is to initialize the We
 
 ```js
 import { Web3Auth } from "@web3auth/modal";
-import {  ethers } from "ethers";
+import { ContractFactory, ethers } from "ethers";
 import { useState, useEffect } from "react";
 
 function App() {
