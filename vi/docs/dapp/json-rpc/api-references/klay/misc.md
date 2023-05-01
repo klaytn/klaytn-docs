@@ -12,18 +12,18 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 
 **Return Value**
 
-| Type         | Description                        |
-| ------------ | ---------------------------------- |
-| 32-byte DATA | The SHA3 result of the given data. |
+| Type            | Mô tả                            |
+| --------------- | -------------------------------- |
+| DỮ LIỆU 32 byte | Kết quả SHA3 của dữ liệu đã cho. |
 
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sha3","params":["0x11223344"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
