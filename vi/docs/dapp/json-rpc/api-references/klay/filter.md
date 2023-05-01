@@ -1,21 +1,21 @@
 ## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+Phương thức truy vấn thay đổi (poll) đối với bộ lọc, trả về một mảng các bản ghi phát sinh kể từ lần truy vấn thay đổi trước đó.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                           |
-| -------- | ------ | ------------------------------------- |
-| QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
+| Tên      | Loại  | Mô tả                              |
+| -------- | ----- | ---------------------------------- |
+| SỐ LƯỢNG | chuỗi | Id bộ lọc (*ví dụ*: "0x16" // 22). |
 
-**Return Value**
+**Giá trị trả về**
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
-- For filters created with [klay_newBlockFilter](#klay_newblockfilter), the return are block hashes (32-byte DATA), *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [klay_newFilter](#klay_newfilter), logs are objects with following parameters:
+`Mảng` - Mảng các đối tượng bản ghi, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn thay đổi trước đó.
+- Đối với các bộ lọc được tạo bằng [klay_newBlockFilter](#klay_newblockfilter), kết quả trả về là các hàm băm khối (DỮ LIỆU 32 byte), *ví dụ:*, `["0x3454645634534..."]`.
+- Đối với các bộ lọc được tạo bằng [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), giá trị trả về là các mã băm của giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
+- Đối với các bộ lọc được tạo bằng [klay_newFilter](#klay_newfilter), các bản ghi là các đối tượng có tham số như sau:
 
-| Name             | Type            | Description                                                                                                                                                                                                                                        |
+| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                              |
 | ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đã xoá           | THẺ             | `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. `false` nếu đó là bản ghi hợp lệ.                                                                                                                                                               |
 | logIndex         | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                              |
@@ -325,17 +325,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Description  |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| Loại    | Mô tả      |
+| -------- | ---------- |
+| SỐ LƯỢNG | Id bộ lọc. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":73,
@@ -345,44 +345,44 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép khách hàng đợi các sự kiện thay vì phải truy vấn thay đổi.
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+Nút sẽ trả về id đăng ký cho mỗi đăng ký được tạo. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
 
-**Parameters**
+**Tham số**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
-
-
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/dapp/json-rpc/api-references/klay/filter#klay_newfilter).
-
-**Return Value**
-
-| Type     | Description                                                                                                                                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+`Object` - Loại thông báo: `"newHeads"` hoặc `"logs"`.
 
 
-**Example**
+`"newHeads"` thông báo cho bạn khi mỗi khối được thêm vào chuỗi khối. `"logs"` thông báo cho bạn khi các bản ghi được đưa vào các khối mới. Loại thông báo này yêu cầu phải có tham số thứ hai chỉ định tùy chọn bộ lọc. Để biết thêm thông tin, vui lòng truy cập [klay_newFilter > tham số](https://docs.klaytn.com/dapp/json-rpc/api-references/klay/filter#klay_newfilter).
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+**Giá trị trả về**
+
+| Loại    | Mô tả                                                                                                                |
+| -------- | -------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG | Id đăng ký khi tạo đăng ký. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan cũng sẽ được gửi. |
+
+
+**Ví dụ**
+
+API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
-// Request
+// Yêu cầu
 wscat -c http://localhost:8552
 > {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["newHeads"]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
 < {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
 
 ```shell
-// Request
+// Yêu cầu
 wscat -c http://localhost:8552
 > {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
 
-// Result
+// Kết quả
 < {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
 < {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0xbdab16c8e4ae1b9e6930c78359de3e0e","result":{"address":"0x2e4bb340e26caffb4073d7f1151f37d17524cdbc","topics":["0xb1a7310b1a46c788fcf30784cad70442d5232acaef480b0c094c76bee8d9c77d"],"data":"0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000d2588fe96a34c56a5d0a484cb603bc16fc5cdbbc","blockNumber":"0x3041201","transactionHash":"0xdacdebc77006fc566f65448524a0bc770056d8c7a05244bc7bfb2123b1bd398c","transactionIndex":"0x0","blockHash":"0x899b2dbfe96a34ce5d965dbcfcf39d072b4ce1097d479923e6b6355f3e2609ec","logIndex":"0x0","removed":false}}}
 ```
@@ -390,27 +390,27 @@ wscat -c http://localhost:8552
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
+Gỡ cài đặt bộ lọc với id đã cho. Nên luôn được gọi khi không còn cần theo dõi. Ngoài ra, bộ lọc hết thời gian chờ nếu không được yêu cầu [klay_getFilterChanges](#klay_getfilterchanges) trong một khoảng thời gian.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
-| filter | QUANTITY | A filter id. |
+| Tên    | Loại     | Mô tả      |
+| ------ | -------- | ---------- |
+| bộ lọc | SỐ LƯỢNG | Id bộ lọc. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| Loại   | Mô tả                                                             |
+| ------- | ----------------------------------------------------------------- |
+| Boolean | `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -421,11 +421,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ có kết nối đã tạo đăng ký mới có thể hủy đăng ký.
 
-**Parameters**
+**Tham số**
 
-| Type     | Mô tả       |
+| Loại    | Mô tả       |
 | -------- | ----------- |
 | SỐ LƯỢNG | Id đăng ký. |
 
