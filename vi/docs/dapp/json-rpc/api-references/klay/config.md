@@ -154,21 +154,21 @@ Trả về `true` nếu nút đang lập chỉ mục hàm băm giao dịch của
 
 **Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
+| Loại    | Mô tả                                                                                                             |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` có nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -179,25 +179,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_protocolVersion <a id="klay_protocolversion"></a>
 
-Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| String | The Klaytn protocol version of the node. |
+| Loại | Mô tả                               |
+| ----- | ----------------------------------- |
+| Chuỗi | Phiên bản giao thức Klaytn của nút. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
    "jsonrpc":"2.0",
    "id":1,
@@ -208,25 +208,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
+Trả về cơ sở phần thưởng của nút hiện tại. Cơ sở phần thưởng là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Nó chỉ được yêu cầu cho CN.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type         | Description |
-| ------------ | ----------- |
-| 20-byte DATA | Address.    |
+| Loại           | Mô tả    |
+| --------------- | -------- |
+| DỮ LIỆU 20 byte | Địa chỉ. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' https://public-en-baobab.klaytn.net
 
-// Result - If requested from non-CN nodes
+// Kết quả - Nếu được yêu cầu từ các nút không phải CN
 {
     "jsonrpc":"2.0",
     "id":1,
