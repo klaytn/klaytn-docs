@@ -235,43 +235,43 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startPProf <a id="debug_startpprof"></a>
 
-Starts the pprof HTTP server.  The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):
-- http://localhost:6060/debug/pprof (for the pprof results)
-- http://localhost:6060/memsize/ (for the memory size reports)
-- http://localhost:6060/debug/vars (for the metrics)
+Khởi động máy chủ HTTP pprof.  Máy chủ pprof đang chạy có thể được truy cập bởi (khi cấu hình mặc định, ví dụ như localhost: 6060 được sử dụng):
+- http://localhost:6060/debug/pprof (đối với kết quả pprof)
+- http://localhost:6060/memsize/ (đối với các báo cáo kích thước bộ nhớ)
+- http://localhost:6060/debug/vars (đối với các số liệu)
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.startPProf(address, port)`                            |
-|   RPC   | `{"method": "debug_startPProf", "params": [string, number]}` |
+|   Khách hàng    | Gọi Phương thức                                              |
+|:---------------:| ------------------------------------------------------------ |
+| Bảng điều khiển | `debug.startPProf(address, port)`                            |
+|       RPC       | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                              |
-| ------- | ------ | ------------------------------------------------------------------------ |
-| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
-| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
+| Tên     | Loại | Mô tả                                                                 |
+| ------- | ----- | --------------------------------------------------------------------- |
+| địa chỉ | chuỗi | (tùy chọn) giao diện nghe máy chủ HTTP pprof (mặc định: "127.0.0.1"). |
+| cổng    | int   | (tùy chọn) cổng nghe máy chủ HTTP pprof (mặc định: 6060).             |
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
-# To start the pprof server at 127.0.0.1:6060
+# Để khởi động máy chủ pprof tại 127.0.0.1:6060
 > debug.startPProf()
 null
 
-# To start the pprof server at localhost:12345
+# Để khởi động máy chủ pprof tại localhost:12345
 > debug.startPProf("localhost", 12345)
 null
 ```
 
 HTTP RPC
 ```shell
-# To start the pprof server at localhost:6060
+# Để khởi động máy chủ pprof tại localhost:6060
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
@@ -279,24 +279,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopPProf <a id="debug_stoppprof"></a>
 
-Stops the pprof HTTP server.
+Dừng máy chủ HTTP pprof.
 
-| Client  | Method Invocation                             |
-|:-------:| --------------------------------------------- |
-| Console | `debug.stopPProf()`                           |
-|   RPC   | `{"method": "debug_stopPProf", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                               |
+|:---------------:| --------------------------------------------- |
+| Bảng điều khiển | `debug.stopPProf()`                           |
+|       RPC       | `{"method": "debug_stopPProf", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.stopPProf()
 null
@@ -311,12 +311,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeBlockProfile <a id="debug_writeblockprofile"></a>
 
-Writes a goroutine blocking profile to the given file.
+Viết một cấu hình khối goroutine vào tệp đã cho.
 
-| Client  | Method Invocation                                           |
-|:-------:| ----------------------------------------------------------- |
-| Console | `debug.writeBlockProfile(file)`                             |
-|   RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
+|   Khách hàng    | Gọi Phương thức                                             |
+|:---------------:| ----------------------------------------------------------- |
+| Bảng điều khiển | `debug.writeBlockProfile(file)`                             |
+|       RPC       | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
 **Tham số**
 
