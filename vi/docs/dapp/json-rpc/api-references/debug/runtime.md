@@ -210,17 +210,17 @@ Thiết lập phần trăm mục tiêu thu gom rác. Nó sẽ trả về cài đ
 
 **Tham số**
 
-| Tên     | Loại   | Description                           |
-| ------- | ------- | ------------------------------------- |
-| Percent | integer | Garbage collection target percentage. |
+| Tên       | Loại     | Mô tả                           |
+| --------- | --------- | ------------------------------- |
+| Phần trăm | số nguyên | Phần trăm mục tiêu thu gom rác. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type    | Description                                    |
-| ------- | ---------------------------------------------- |
-| integer | Previous garbage collection target percentage. |
+| Loại     | Mô tả                                    |
+| --------- | ---------------------------------------- |
+| số nguyên | Phần trăm mục tiêu thu gom rác trước đó. |
 
-**Example** Console
+**Ví dụ** Bảng điều khiển
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -243,26 +243,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks <a id="debug_stacks"></a>
 
-Returns a printed representation of the stacks of all goroutines.
+Trả về một dạng in đại diện cho các phân loại của tất cả các goroutine.
 
-| Client  | Method Invocation                          |
-|:-------:| ------------------------------------------ |
-| Console | `debug.stacks()`                           |
-|   RPC   | `{"method": "debug_stacks", "params": []}` |
+|   Khách hàng    | Gọi Phương thức                            |
+|:---------------:| ------------------------------------------ |
+| Bảng điều khiển | `debug.stacks()`                           |
+|       RPC       | `{"method": "debug_stacks", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| string | The stack information of all goroutines. |
+| Loại | Mô tả                                         |
+| ----- | --------------------------------------------- |
+| chuỗi | Thông tin phân loại của tất cả các goroutine. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
