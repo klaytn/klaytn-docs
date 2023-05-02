@@ -67,17 +67,17 @@ Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nú
 | -------- | ----- | --------- |
 | SỐ LƯỢNG | chuỗi | Id bộ lọc |
 
-**Return Value**
+**Giá trị trả về**
 
-See [klay_getFilterChanges](#klay_getfilterchanges)
+Tham khảo [klay_getFilterChanges](#klay_getfilterchanges)
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -98,39 +98,39 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getLogs <a id="klay_getlogs"></a>
 
-Returns an array of all logs matching a given filter object.
+Trả về một mảng gồm tất cả bản ghi khớp với một đối tượng bộ lọc đã cho.
 
-The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
-- The number of maximum returned results in a single query (Default: 10,000).
-- The execution duration limit of a single query (Default: 10 seconds).
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+- Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
+- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
 
-**Parameters**
+**Tham số**
 
-`Object` - The filter options:
+`Object` - Các tùy chọn bộ lọc:
 
-| Name      | Type                      | Description                                                                                                                                                                                                                                                                                                      |
-| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                                                            |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
-| blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                                                                                                                            |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
+| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                                                                                                         |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                 |
+| blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế các bản ghi được trả về cho một khối với mã băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với mã băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"cũ nhất"` và `"mới nhất"` khả dụng.
 {% endhint %}
 
-**Return Value**
+**Giá trị trả về**
 
-See [klay_getFilterChanges](#klay_getfilterchanges)
+Tham khảo [klay_getFilterChanges](#klay_getfilterchanges)
 
-**Examples**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -184,10 +184,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 ```shell
-// Request
+// Yêu cầu
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
   "jsonrpc":"2.0",
   "id":2,
@@ -243,17 +243,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description |
-| -------- | ----------- |
-| QUANTITY | Id bộ lọc.  |
+| Loại    | Mô tả      |
+| -------- | ---------- |
+| SỐ LƯỢNG | Id bộ lọc. |
 
 **Ví dụ**
 
