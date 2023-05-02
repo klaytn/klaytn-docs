@@ -1,22 +1,22 @@
 ---
-description: '>- APIs related to the namespace "istanbul".'
+description: '>- API liên quan đến namespace "istanbul".'
 ---
 
 # Namespace istanbul <a id="namespace-istanbul"></a>
 
-The namespace `istanbul` provides functions related to consensus.
+Namespace `istanbul` cung cấp các hàm liên quan đến sự đồng thuận.
 
 ## istanbul_getSnapshot <a id="istanbul_getsnapshot"></a>
 
-Returns the state snapshot at a given block number. The state snapshot contains information such as number/hash, validator set, and governance vote of the snapshot block.
+Trả về ảnh chụp nhanh trạng thái tại một số khối nhất định. Ảnh chụp nhanh trạng thái chứa thông tin như số/hàm băm, nút xác thực và phiếu bầu quản trị của ảnh chụp nhanh khối.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                | Description                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| Tên     | Loại                | Mô tả                                                                                                                                      |
+| ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"cũ nhất"` hoặc `"mới nhất"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**Giá trị Trả về**
 
 `Đối tượng` - Đối tượng chụp nhanh hoặc thông báo `lỗi` khi không tìm thấy ảnh chụp nhanh:
 
@@ -107,15 +107,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 Trả về các ứng cử viên hiện tại mà nút tán thành và bỏ phiếu.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| account | 20-byte DATA | Address of candidate. | | auth | boolean | A value indicating the authorization status of the candidate. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên. | | xác thực | boolean | Một giá trị cho biết trạng thái ủy quyền của ứng cử viên. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -126,20 +126,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_propose <a id="istanbul_propose"></a>
 
-Injects a new authorization candidate that the validator will attempt to push through.
+Thêm một ứng cử viên ủy quyền mới mà nút xác thực sẽ cố gắng đẩy qua.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                                   |
-| ------- | ------------ | ------------------------------------------------------------- |
-| account | 20-byte DATA | Address of candidate.                                         |
-| auth    | boolean      | A value indicating the authorization status of the candidate. |
+| Tên       | Loại           | Mô tả                                                     |
+| --------- | --------------- | --------------------------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên.                                  |
+| xác thực  | boolean         | Một giá trị cho biết trạng thái ủy quyền của ứng cử viên. |
 
-**Return Value**
+**Giá trị Trả về**
 
-none
+không có
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -150,19 +150,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Drops a currently running candidate, stopping the validator from casting further votes (either for or against).
+Loại bỏ một ứng cử viên hiện đang tranh cử, ngăn nút xác thực tiếp tục bỏ phiếu (thuận hoặc chống).
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description           |
-| ------- | ------------ | --------------------- |
-| account | 20-byte DATA | Address of candidate. |
+| Tên       | Loại           | Mô tả                    |
+| --------- | --------------- | ------------------------ |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên. |
 
-**Return Value**
+**Giá trị Trả về**
 
-none
+không có
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -173,18 +173,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
 
-Returns istanbul config timeout. Default value is 10000ms, and if over, timeoutEvent is sent. In case of CN, the timeoutEvent contains information such as currentRound, preparesSize and commitsSize to log.
+Trả về thời gian chờ cấu hình istanbul. Giá trị mặc định là 10000ms và nếu vượt quá, timeoutEvent sẽ được gửi. Trong trường hợp của CN, timeoutEvent chứa thông tin như entRound, preparesSize và commitsSize để ghi nhật ký.
 
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type | Description    |
-| ------- | ---- | -------------- |
-| timeout | int  | config timeout |
+| Tên           | Loại | Mô tả                  |
+| ------------- | ----- | ---------------------- |
+| thời gian chờ | int   | thời gian chờ cấu hình |
 
 **Ví dụ**
 
