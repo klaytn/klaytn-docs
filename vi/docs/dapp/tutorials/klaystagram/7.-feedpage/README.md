@@ -2,11 +2,11 @@
 
 ![FeedPage](../../../../bapp/tutorials/klaystagram/images/klaystagram-feedpage.png)
 
-FeedPage is consisted of 3 main components that interact with `Klaystagram` contract.
+FeedPage chứa 3 thành phần chính tương tác với hợp đồng `Klaystagram`.
 
-[7-2. `UploadPhoto` component](7-2.-uploadphoto-component.md)\
-[7-3. `Feed` component](7-3.-feed-component.md)\
-[7-4. `TransferOwnership` component](7-4.-transferownership-component.md)
+[7-2. Thành phần](7-2.-uploadphoto-component.md)`UploadPhoto`\
+[7-3. Thành phần](7-3.-feed-component.md)`Feed`\
+[7-4. Thành phần](7-4.-transferownership-component.md)`TransferOwnership`
 
 ```javascript
 // src/pages/FeedPage.js
@@ -44,15 +44,15 @@ const FeedPage = () => (
         </div>
       )
     })
-    : <span className="Feed__empty">No Photo :D</span>
+    : <span className="Feed__empty">Không có ảnh :D</span>
   }
 </div>
 )
 ```
 
-To make component interact with contract, there are 3 steps.
+Có 3 bước để khiến thành phần tương tác với hợp đồng.
 
-**First**, create `KlaystagramContract` instance to connect contract with front-end. **Second**, using `KlaystagramContract` instance, make API functions that interact with contract in `redux/actions`\
-**Third**, call functions in each component
+**First**, tạo phiên bản `KlaystagramContract` để kết nối hợp đồng với front-end. **Second**, dùng phiên bản `KlaystagramContract`, tạo các hàm API tương tác với hợp đồng trong `redux/actions`\
+**Third**, gọi các hàm trong mỗi thành phần
 
-Let's build it!
+Hãy cùng nhau xây dựng nào!
