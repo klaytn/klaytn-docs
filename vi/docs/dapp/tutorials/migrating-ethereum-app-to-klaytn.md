@@ -1,40 +1,40 @@
-# Migrating Ethereum App to Klaytn
+# Chuyển ứng dụng Ethereum vào Klaytn
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. Introduction](migrating-ethereum-app-to-klaytn.md#1-introduction)
-* [2. Klaytn has Ethereum compatibility](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
-* [3. Change node connection from Ethereum to Klaytn](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
-* [4. Interact with Klaytn node: `BlockNumber` component](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
-* [5. Interact with the contract: `Count` component](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
-  * [5-1. Deploy Count contract on Klaytn](migrating-ethereum-app-to-klaytn.md#5-1-deploy-count-contract-on-klaytn)
-  * [5-2. Create a contract instance](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
-  * [5-3. Interact with contract](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
+* [1. Giới thiệu](migrating-ethereum-app-to-klaytn.md#1-introduction)
+* [2. Klaytn có tính tương thích với Ethereum](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
+* [3. Thay đổi kết nối nút từ Ethereum sang Klaytn](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
+* [4. Tương tác với nút Klaytn: Thành phần `BlockNumber`](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
+* [5. Tương tác với hợp đồng: Thành phần `Count`](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
+  * [5-1. Triển khai hợp đồng Count trên Klaytn](migrating-ethereum-app-to-klaytn.md#5-1-deploy-count-contract-on-klaytn)
+  * [5-2. Tạo một phiên bản hợp đồng](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
+  * [5-3. Tương tác với hợp đồng](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
 
-## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
+## 1. Giới thiệu <a href="#1-introduction" id="1-introduction"></a>
 
-This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.
+Mục đích của hướng dẫn này là cung cấp chỉ dẫn để tích hợp ứng dụng Ethereum vào Klaytn. Bạn không cần có kinh nghiệm từ trước với Klaytn. Một ứng dụng blockchain đơn giản sẽ được dùng làm mẫu để minh họa cách tích hợp ứng dụng Ethereum vào Klaytn.
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn dApp, Please refer to [CountDApp Tutorial](count-dapp/).
+Ta sẽ chỉ tập trung vào việc thay đổi mã cần thiết để tích hợp ứng dụng Ethereum vào Klaytn. Nếu bạn cần thêm thông tin về cách tạo dApp Klaytn, vui lòng tham chiếu [CountDApp Tutorial](count-dapp/).
 
 > **Source Code**\
-  Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+  Mã nguồn hoàn chỉnh có ở GitHub, tại đây [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
-#### Intended Audience <a href="#intended-audience" id="intended-audience"></a>
+#### Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
 
-* We assume that you have basic knowledge on [React](https://reactjs.org/). Sample code is made with React.
-* Basic knowledge and experience in Blockchain app is required, but no previous Klaytn experience is needed.
+* Chúng tôi coi như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/). Mã mẫu được tạo bằng React.
+* Bạn cần có kinh nghiệm và kiến thức cơ bản về ứng dụng blockchain, nhưng không cần có kinh nghiệm có kinh nghiệm từ trước với Klaytn.
 
-#### Testing Environment <a href="#testing-environment" id="testing-environment"></a>
+#### Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
 
-CountDApp is tested in the following environment.
+CountDApp được thử nghiệm trong môi trường sau đây.
 
 * MacOS Mojave 10.14.5
-* Node 10.16.0 (LTS)
+* Nút 10.16.0 (LTS)
 * npm 6.9.0
 * Python 2.7.10
 
-## 2. Klaytn has Ethereum compatibility <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
+## 2. Klaytn có tính tương thích với Ethereum <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
 
 Môi trường thực thi của Klaytn tương thích với Máy ảo Ethereum và thực thi các hợp đồng thông minh được viết trong Solidity. API RPC của Klaytn và các thư viện khách hàng khác duy trì gần như tất cả các thông số API giống với thông số của Ethereum nếu có. Do đó, việc chuyển các ứng dụng Ethereum sang Klaytn khá đơn giản. Điều này giúp các nhà phát triển dễ dàng chuyển sang nền tảng blockchain mới.
 
@@ -133,7 +133,7 @@ const NETWORK_ID = '1001' // Klaytn, Baobab testnet's network id
 // const RPC_URL = 'https://ropsten.infura.io/'
 const RPC_URL = 'https://public-en-baobab.klaytn.net'
 
-// Change it to your own private key that has enough KLAY to deploy contract
+// Đổi thành khóa riêng tư của riêng bạn với đủ KLAY để triển khai hợp đồng
 const PRIVATE_KEY = '0x3de0c90ce7e440f19eff6439390c29389f611725422b79c95f9f48c856b58277'
 
 
@@ -161,11 +161,11 @@ module.exports = {
 }
 ```
 
-For more details about deploying contracts, See [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
+Để biết thêm thông tin về việc triển khai hợp đồng, hãy tham khảo [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
 
-### 5-2. Create a contract instance <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
+### 5-2. Tạo một phiên bản hợp đồng <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
 
-You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can invoke contract methods through this instance.
+Bạn có thể tạo một phiên bản hợp đồng với API `caver-js`. Phiên bản hợp đồng này tại một kết nối với hợp đồng `Count`. Bạn có thể gọi phương thức hợp đồng thông qua phiên bản này.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)\
   Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
@@ -192,19 +192,19 @@ class Count extends Component {
 export default Count
 ```
 
-### 5-3. Interact with contract <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
+### 5-3. Tương tác với hợp đồng <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
 
-The `ABI` (Application Binary Interface) used to create the Count contract instance allows the `caver-js` to invoke contract's methods as below. You can interact with Count contract as if it were a JavaScript object.
+`ABI` (Giao diện nhị phân ứng dụng) được dùng để tạo phiên bản hợp đồng Count cho phép `caver-js` gọi các phương thức hợp đồng như sau. Bạn có thể tương tác với hợp đồng Count giống như với một đối tượng JavaScript.
 
-* Read data (call)\
+* Đọc dữ liệu (call)\
 `CountContract.methods.count().call()`
-* Write data (send)\
+* Viết dữ liệu (send)\
 `CountContract.methods.plus().send({ ... })`\
 `CountContract.methods.minus().send({ ... })`
 
-Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. dApp migration has been completed!
+Sau khi đã tạo một phiên bản hợp đồng trong bước trước, bạn không cần thay đổi bất cứ mã nào khi sử dụng phương thức hợp đồng sau đó. Đã hoàn tất tích hợp dApp!
 
-#### Full code: `Count` component <a href="#full-code-count-component" id="full-code-count-component"></a>
+#### Mã lệnh đầy đủ: Thành phần `Count` <a href="#full-code-count-component" id="full-code-count-component"></a>
 
 `src/components/Count.js`
 
@@ -219,10 +219,10 @@ import './Count.scss'
 class Count extends Component {
   constructor() {
     super()
-    // ** 1. Create contract instance **
+    // ** 1. Tạo phiên bản hợp đồng **
     // ex:) new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
-    // You can call contract method through this instance.
-    // Now you can access the instance by `this.countContract` variable.
+    // Bạn có thể gọi phương thức hợp đồng qua phiên bản này.
+    // Giờ bạn có thể truy cập phiên bản này bằng biến `this.countContract`.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
       && new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
@@ -236,13 +236,13 @@ class Count extends Component {
   intervalId = null
 
   getCount = async () => {
-    // ** 2. Call contract method (CALL) **
+    // ** 2. Gọi phương thức hợp đồng (CALL) **
     // ex:) this.countContract.methods.methodName(arguments).call()
-    // You can call contract method (CALL) like above.
-    // For example, your contract has a method called `count`.
-    // You can call it like below:
+    // Bạn có thể gọi phương thức hợp đồng (CALL) như ở trên.
+    // Ví dụ, hợp đồng của bạn có phương thức tên là `count`.
+    // Bạn có thể gọi như dưới đây:
     // ex:) this.countContract.methods.count().call()
-    // It returns promise, so you can access it by .then() or, use async-await.
+    // Lệnh trả về promise nên bạn có thể truy cập bằng .then() hoặc sử dụng async-await.
     const count = await this.countContract.methods.count().call()
     const lastParticipant = await this.countContract.methods.lastParticipant().call()
     this.setState({
@@ -254,18 +254,18 @@ class Count extends Component {
   setPlus = () => {
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
-    // Need to integrate wallet for calling contract method.
+    // Cần tích hợp ví để gọi phương thức hợp đồng.
     if (!walletInstance) return
 
     this.setState({ settingDirection: 'plus' })
 
-    // 3. ** Call contract method (SEND) **
+    // 3. ** Gọi phương thức hợp đồng (SEND) **
     // ex:) this.countContract.methods.methodName(arguments).send(txObject)
-    // You can call contract method (SEND) like above.
-    // For example, your contract has a method called `plus`.
-    // You can call it like below:
+    // Bạn có thể gọi phương thức hợp đồng (SEND) như trên.
+    // Ví dụ, hợp đồng của bạn có phương thức tên là `plus`.
+    // Bạn có thể gọi phương thức đó như sau:
     // ex:) this.countContract.methods.plus().send({
-    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // PUT YOUR ADDRESS
+    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // ĐIỀN ĐỊA CHỈ CỦA BẠN
     //   gas: '200000',
     // })
     this.countContract.methods.plus().send({
@@ -274,15 +274,15 @@ class Count extends Component {
     })
       .once('transactionHash', (txHash) => {
         console.log(`
-          Sending a transaction... (Call contract's function 'plus')
+          Đang gửi giao dịch... (Gọi hàm 'plus' của hợp đồng)
           txHash: ${txHash}
           `
         )
       })
       .once('receipt', (receipt) => {
         console.log(`
-          Received receipt! It means your transaction(calling plus function)
-          is in klaytn block(#${receipt.blockNumber})
+          Đã nhận biên lai! Điều này nghĩa là giao dịch của bạn(gọi hàm plus)
+          đang ở trong khối Klaytn(#${receipt.blockNumber})
         `, receipt)
         this.setState({
           settingDirection: null,
@@ -298,26 +298,26 @@ class Count extends Component {
   setMinus = () => {
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
-    // Need to integrate wallet for calling contract method.
+    // Cần tích hợp ví để gọi phương thức hợp đồng.
     if (!walletInstance) return
 
     this.setState({ settingDirection: 'minus' })
 
-    // 3. ** Call contract method (SEND) **
+    // 3. ** Gọi phương thức hợp đồng (SEND) **
     // ex:) this.countContract.methods.methodName(arguments).send(txObject)
-    // You can call contract method (SEND) like above.
-    // For example, your contract has a method called `minus`.
-    // You can call it like below:
+    // Bạn có thể gọi phương thức hợp đồng (SEND) như trên.
+    // Ví dụ: Hợp đồng của bạn có phương thức tên là `minus`.
+    // Bạn có thể gọi phương thức đó như sau:
     // ex:) this.countContract.methods.minus().send({
-    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // PUT YOUR ADDRESS
+    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // ĐIỀN ĐỊA CHỈ CỦA BẠN
     //   gas: '200000',
     // })
 
-    // It returns event emitter, so after sending, you can listen on event.
-    // Use .on('transactionHash') event,
-    // : if you want to handle logic after sending transaction.
-    // Use .once('receipt') event,
-    // : if you want to handle logic after your transaction is put into block.
+    // Phương thức sẽ trả về EventEmitter, nên sau khi gửi, bạn có thể nghe được sự kiện.
+    // Sử dụng sự kiện .on('transactionHash'),
+    // : nếu bạn muốn xử lý logic sau khi gửi giao dịch.
+    // Sử dụng sự kiện .once('receipt'),
+    // :  nếu bạn muốn xử lý logic sau khi giao dịch của mình đã được đặt vào khối.
     // ex:) .once('receipt', (data) => {
     //   console.log(data)
     // })
@@ -327,15 +327,15 @@ class Count extends Component {
     })
       .once('transactionHash', (txHash) => {
         console.log(`
-          Sending a transaction... (Call contract's function 'minus')
+          Đang gửi giao dịch... (Gọi hàm 'minus' của hợp đồng)
           txHash: ${txHash}
           `
         )
       })
       .once('receipt', (receipt) => {
         console.log(`
-          Received receipt which means your transaction(calling minus function)
-          is in klaytn block(#${receipt.blockNumber})
+          Đã nhận biên lai nghĩa là giao dịch của bạn(gọi hàm minus)
+          đang ở trong khối Klaytn(#${receipt.blockNumber})
         `, receipt)
         this.setState({
           settingDirection: null,
@@ -362,7 +362,7 @@ class Count extends Component {
       <div className="Count">
         {Number(lastParticipant) !== 0 && (
           <div className="Count__lastParticipant">
-            last participant: {lastParticipant}
+            người tham gia gần đây nhất: {lastParticipant}
           </div>
         )}
         <div className="Count__count">COUNT: {count}</div>
@@ -385,7 +385,7 @@ class Count extends Component {
         {txHash && (
           <div className="Count__lastTransaction">
             <p className="Count__lastTransactionMessage">
-              You can check your last transaction in klaytnscope:
+              Bạn có thể xem giao dịch gần nhất của mình trong klaytnscope:
             </p>
             <a
               target="_blank"
