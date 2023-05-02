@@ -79,18 +79,18 @@ Hãy viết một máy chủ và máy khách đơn giản bằng mã ủy thác 
 
 ### Thiết lập môi trường <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
 
-Chúng ta sử dụng `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started\_1.4.1.md) để thiết lập môi trường cho ví dụ này như dưới đây.
+Chúng tôi sử dụng `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started\_1.4.1.md) để thiết lập môi trường cho ví dụ này như dưới đây.
 
 ```
-$ mkdir example
-$ cd example
+$ mkdir ví dụ
+$ cd ví dụ
 $ npm init
-$ npm install caver-js@latest
+$ npm cài đặt caver-js@latest
 ```
 
 ### 3.1 Máy khách của người gửi <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
 
-Đầu tiên, chúng ta sẽ viết một `sender_client.js` như dưới đây.
+Đầu tiên, chúng tôi sẽ viết một `sender_client.js` như dưới đây.
 
 Hãy thay thế `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` và `"TO_ADDRESS"` trong ví dụ bằng giá trị thật.
 
@@ -136,7 +136,7 @@ Mã trên ký một giao dịch chuyển giá trị ủy thác phí bằng `send
 
 ### 3.2 Máy chủ của người trả phí <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-Bây giờ hãy viết máy chủ của người trả phí `feepayer_server.js`, chính là máy chủ ký `senderRawTransaction` đã nhận bằng `feePayerPrivateKey` và gửi nó đến testnet Baobab.
+Bây giờ hãy viết máy chủ của người trả phí `feepayer_server.js`, là máy chủ ký `senderRawTransaction` đã được nhận với `feePayerPrivateKey` và gửi nó đến testnet Baobab.
 
 Hãy thay thế `"FEEPAYER_ADDRESS"` và `"FEEPAYER_PRIVATEKEY"` trong ví dụ dưới đây bằng giá trị thật.
 
