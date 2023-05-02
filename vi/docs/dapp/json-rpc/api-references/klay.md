@@ -60,7 +60,7 @@ description: >-
 - [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
 
 
-### [Configuration](./klay/config.md) <a id="configuration"></a>
+### [Cấu hình](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
 - [klay_clientVersion](./klay/config.md#klay_clientversion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
@@ -70,11 +70,11 @@ description: >-
 - [klay_protocolVersion](./klay/config.md#klay_protocolversion)
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
 
-### [Gas](./klay/gas.md) <a id="gas"></a>
+### [Ga](./klay/gas.md) <a id="gas"></a>
 - [klay_feeHistory](./klay/gas.md#klay_feehistory)
 - [klay_maxPriorityFeePerGas](./klay/gas.md#klay_maxpriorityfeepergas)
 
-### [Filter](./klay/filter.md) <a id="filter"></a>
+### [Bộ lọc](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./klay/filter.md#klay_getfilterlogs)
 - [klay_getLogs](./klay/filter.md#klay_getlogs)
@@ -86,6 +86,6 @@ description: >-
 - [klay_unsubscribe](./klay/filter.md#klay_unsubscribe)
 
 
-### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
+### [Khác](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
 
