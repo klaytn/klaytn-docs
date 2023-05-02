@@ -1,27 +1,27 @@
 ---
 description: >-
-  APIs related to service chain ENs.
+  API liên quan đến chuỗi dịch vụ EN.
 ---
 
 # Namespace subbridge <a id="namespace-subbridge"></a>
 
-The namespace `subbridge` provides functions related to Service Chain. To use the functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
+Namespace `cầu nối phụ` cung cấp các hàm liên quan đến Chuỗi Dịch vụ. Để sử dụng các hàm trong namespace này, tùy chọn `cầu nối phụ` phải được kích hoạt trong SEN được kết nối với chuỗi dịch vụ.
 
 ## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A subbridge node can connect to a mainbridge node via the KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Định danh mạng Klaytn) ​​của nút. Một nút cầu nối phụ có thể kết nối với một nút cầu nối chính thông qua KNI.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                  |
-| ----------- | ---------------------------- |
-| JSON string | the bridge node information. |
+| Loại      | Mô tả                  |
+| ---------- | ---------------------- |
+| Chuỗi JSON | thông tin nút cầu nối. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.nodeInfo
@@ -54,27 +54,27 @@ None
 ```
 
 ## subbridge_addPeer <a id="subbridge_addPeer"></a>
-Returns `true` if adding a mainbridge peer is done successfully.
+Trả về `đúng` nếu thêm một máy ngang hàng cầu nối chính thành công.
 
-The `addPeer` method adds a new remote node to the peer list. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down.
+Phương thức `addPeer` thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút sẽ cố gắng duy trì kết nối với các nút này mọi lúc, thỉnh thoảng kết nối lại nếu kết nối từ xa bị hỏng.
 
-The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| Tên | Loại | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| Loại | Mô tả                                                      |
+| ----- | ---------------------------------------------------------- |
+| bool  | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
@@ -88,25 +88,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_removePeer <a id="subbridge_removePeer"></a>
-Returns `true` if removing the peer is done successfully.
+Trả về `đúng` khi máy ngang hàng được xóa thành công.
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| Tên | Loại | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the peer was removed, `false` otherwise. |
+| Loại | Mô tả                                                      |
+| ----- | ---------------------------------------------------------- |
+| bool  | `đúng` nếu máy ngang hàng đã bị xóa, `sai` nếu không phải. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -121,19 +121,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_parentOperator <a id="subbridge_parentOperator"></a>
-The `subbridge_parentOperator` returns the parent operator account address.
+`subbridge_parentOperator` trả về địa chỉ tài khoản của toán tử mẹ.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type    | Description                            |
-| ------- | -------------------------------------- |
-| Account | Parent chain operator account address. |
+| Loại     | Mô tả                               |
+| --------- | ----------------------------------- |
+| Tài khoản | Địa chỉ tài khoản toán tử chuỗi mẹ. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.parentOperator
@@ -141,19 +141,19 @@ none
 ```
 
 ## subbridge_childOperator <a id="subbridge_childOperator"></a>
-The `subbridge_childOperator` returns the child operator account address.
+`subbridge_childOperator` trả về địa chỉ tài khoản toán tử con.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type    | Description                           |
-| ------- | ------------------------------------- |
-| Account | Child chain operator account address. |
+| Loại      | Mô tả                                |
+| --------- | ------------------------------------ |
+| Tài khoản | Địa chỉ tài khoản toán tử chuỗi con. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.childOperator
@@ -161,19 +161,19 @@ none
 ```
 
 ## subbridge_parentOperatorNonce <a id="subbridge_parentOperatorNonce"></a>
-The `subbridge_parentOperatorNonce` returns the nonce of the parent operator account address.
+`subbridge_parentOperatorNonce` trả về số dùng một lần của địa chỉ tài khoản toán tử mẹ.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description                                                                  |
-| -------- | ---------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions sent from the parent operator account. |
+| Loại    | Mô tả                                                              |
+| -------- | ------------------------------------------------------------------ |
+| SỐ LƯỢNG | Số nguyên của số lượng giao dịch được gửi từ tài khoản toán tử mẹ. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.parentOperatorNonce
@@ -181,19 +181,19 @@ none
 ```
 
 ## subbridge_childOperatorNonce <a id="subbridge_childOperatorNonce"></a>
-The `subbridge_childOperator` returns the child operator account address.
+`subbridge_childOperator` trả về địa chỉ tài khoản toán tử con.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions sent from the child operator account. |
+| Loại    | Mô tả                                                               |
+| -------- | ------------------------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số lượng giao dịch được gửi từ tài khoản toán tử con. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.childOperatorNonce
@@ -201,19 +201,19 @@ none
 ```
 
 ## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
-The `subbridge_parentOperatorBalance` returns the balance of the parent operator account.
+`subbridge_parentOperatorBalance` trả về số dư của tài khoản toán tử mẹ.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description                                                    |
-| -------- | -------------------------------------------------------------- |
-| QUANTITY | Integer of the current balance of the parent operator account. |
+| Loại    | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên số dư hiện tại của tài khoản toán tử mẹ. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.parentOperatorBalance
@@ -221,19 +221,19 @@ none
 ```
 
 ## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
-The `subbridge_childOperatorBalance` returns the balance of the child operator account.
+`subbridge_childOperatorBalance` trả về số dư của tài khoản toán tử con.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the current balance of the child operator account. |
+| Loại    | Mô tả                                               |
+| -------- | --------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên số dư hiện tại của tài khoản toán tử con. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.childOperatorBalance
@@ -244,19 +244,19 @@ none
 
 ## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
-The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
+`sendChainTxslimit` lấy số lượng giao dịch đang chờ xử lý tối đa để gửi cùng một lúc.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
-| Uint64 | the maximum number of pending transactions to pickup for sending at once. |
+| Loại  | Mô tả                                                         |
+| ------ | ------------------------------------------------------------- |
+| Uint64 | số lượng giao dịch đang chờ xử lý tối đa để gửi cùng một lúc. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.sendChainTxslimit
@@ -264,23 +264,23 @@ None
 ```
 
 ## subbridge_anchoring <a id="subbridge_anchoring"></a>
-The `subbridge_anchoring` can enable/disable the anchoring feature of the service chain.
+`subbridge_anchoring` có thể bật/tắt tính năng neo của chuỗi dịch vụ.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type | Description                                                |
-| ------ | ---- | ---------------------------------------------------------- |
-| enable | Bool | `true` enables the anchoring feature, `false` disables it. |
+| Tên | Loại | Mô tả                                              |
+| --- | ---- | -------------------------------------------------- |
+| bật | Bool | `đúng` bật tính năng neo, `sai` tắt tính năng này. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                             |
-| ---- | ------------------------------------------------------- |
-| bool | `true` if the anchoring was enabled, `false` otherwise. |
+| Loại | Mô tả                                     |
+| ----- | ----------------------------------------- |
+| bool  | `đúng` nếu neo được bật, `sai` nếu không. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > subbridge.anchoring(true)
@@ -299,19 +299,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ```
 
 ## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
-The `subbridge_latestAnchoredBlockNumber` returns the latest anchored block number of the service chain.
+`subbridge_latestAnchoredBlockNumber` trả về số khối được neo mới nhất của chuỗi dịch vụ.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| Uint64 | The latest anchored block number. |
+| Loại  | Mô tả                 |
+| ------ | --------------------- |
+| Uint64 | Số khối neo mới nhất. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -319,29 +319,29 @@ None
 ```
 
 ## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
-The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring transaction.
+`subbridge_getReceiptFromParentChain` trả về biên lai của giao dịch neo.
 
-**Parameters**
+**Tham số**
 
-| Type         | Description                                                         |
-| ------------ | ------------------------------------------------------------------- |
-| 32-byte DATA | The child chain block hash that was included the anchoring tx hash. |
+| Loại           | Mô tả                                               |
+| --------------- | --------------------------------------------------- |
+| DỮ LIỆU 32-byte | Hàm băm khối chuỗi con được bao gồm hàm băm tx neo. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found.
+`Đối tượng` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai.
 
-| Name            | Type          | Description                                                                                                      |
-| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| contractAddress | DATA          | The contract address created, if the transaction was a contract creation, otherwise `null`. (will be deprecated) |
-| gasUsed         | QUANTITY      | The amount of gas used by this specific transaction alone.                                                       |
-| logs            | Array         | Array of log objects, which this transaction generated.                                                          |
-| logsBloom       | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs.                                                 |
-| status          | QUANTITY      | Either `1` (success) or `0` (failure).                                                                           |
-| transactionHash | 32-byte DATA  | Hash of the transaction.                                                                                         |
+| Tên             | Loại             | Mô tả                                                                                                                        |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| contractAddress | DỮ LIỆU          | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là `null`. (sẽ sớm ngừng được sử dụng) |
+| gasUsed         | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                       |
+| bản ghi nhật ký | Mảng             | Mảng đối tượng bản ghi nhật ký mà giao dịch này tạo ra.                                                                      |
+| logsBloom       | DỮ LIỆU 256-byte | Bộ lọc Bloom cho các ứng dụng khách nhẹ để nhanh chóng truy xuất các bản ghi liên quan.                                      |
+| trạng thái      | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                                        |
+| transactionHash | DỮ LIỆU 32-byte  | Hàm băm của giao dịch.                                                                                                       |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.getReceiptFromParentChain("0x4f300d6574e71d7940c88fe08f27d9ac45cbc7b81d45c17e848d3772f64377b5")
@@ -356,20 +356,20 @@ The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring t
 ```
 
 ## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
-The `subbridge_deployBridge` deploys a bridge contract to the parent and child chains and returns the addresses of deployed bridge contracts. This method also registers the bridge contracts with the sub-bridge.
+`subbridge_deployBridge` triển khai hợp đồng cầu nối cho chuỗi mẹ và chuỗi con đồng thời trả về địa chỉ của các hợp đồng cầu nối đã triển khai. Phương thức này cũng đăng ký hợp đồng cầu nối với cầu nối con.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| Tên       | Loại            | Mô tả                                    |
+| --------- | --------------- | ---------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.deployBridge()
@@ -377,99 +377,99 @@ none
 ```
 
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
-The `subbridge_registerBridge` registers already deployed bridge contracts in the parent and child chains.
+`subbridge_registerBridge` đã triển khai các hợp đồng cầu nối trong chuỗi mẹ và chuỗi con.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| Tên       | Loại           | Mô tả                                    |
+| --------- | --------------- | ---------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                  |
-| ----- | ----- | ------------------------------------------------------------ |
-| error | Error | `null` if the registration succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                |
+| --- | ---- | ---------------------------------------------------- |
+| lỗi | Lỗi  | `null` nếu đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 
 > subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: bridge already exists
+Lỗi: cầu nối đã tồn tại
 ```
 
 ## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
-The `subbridge.deregisterBridge` deregisters already registered bridge contracts in the parent/child chain.
+`subbridge.deregisterBridge` hủy đăng ký các hợp đồng cầu nối đã đăng ký trong chuỗi mẹ/chuỗi con.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| Tên       | Loại           | Mô tả                                    |
+| --------- | --------------- | ---------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                    |
-| ----- | ----- | -------------------------------------------------------------- |
-| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                    |
+| --- | ---- | -------------------------------------------------------- |
+| lỗi | Lỗi  | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 
 > subbridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: invalid bridge pair
+Lỗi: cặp cầu nối không hợp lệ
 ```
 
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
-The `subbridge_subscribeBridge` subscribes to the registered bridge contracts in the parent and child chains. If the sub-bridge node is subscribed to the bridge contract pair, cross-chain value-transfer requests are handled automatically by the sub-bridge.
+`subbridge_subscribeBridge` đăng ký hợp đồng cầu nối đã đăng ký trong chuỗi mẹ và chuỗi con. Nếu nút cầu nối con được đăng ký với cặp hợp đồng cầu nối, thì các yêu cầu chuyển giá trị chuỗi chéo sẽ được cầu nối con xử lý tự động.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| Tên       | Loại           | Mô tả                                    |
+| --------- | --------------- | ---------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                 |
-| ----- | ----- | ----------------------------------------------------------- |
-| error | Error | `null` if the subscribing succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                |
+| --- | ---- | ---------------------------------------------------- |
+| lỗi | Lỗi  | `null` nếu đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 > subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Error: already subscribed
+Lỗi: đã đăng ký
 ```
 
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
-The `subbridge_unsubscribeBridge` unsubscribes the sub-bridge from the bridge contracts in the parent and child chains. If the sub-bridge is unsubscribed from the bridge contracts, cross-chain value transfer requests can not be handled by the sub-bridge.
+`subbridge_unsubscribeBridge` hủy đăng ký cầu nối con khỏi hợp đồng cầu nối trong chuỗi mẹ và chuỗi con. Nếu cầu nối con bị hủy đăng ký khỏi các hợp đồng cầu nốithì cầu nối con này không thể xử lý các yêu cầu chuyển giá trị chéo chuỗi.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| Tên       | Loại            | Mô tả                                    |
+| --------- | --------------- | ---------------------------------------- |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                   |
-| ----- | ----- | ------------------------------------------------------------- |
-| error | Error | `null` if the unsubscribing succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                    |
+| --- | ----- | -------------------------------------------------------- |
+| lỗi | Lỗi   | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.unsubscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
@@ -477,77 +477,77 @@ null
 ```
 
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
-The `subbridge_registerToken` registers a pair of ERC-20 or 721 tokens with the bridge contracts.
+`subbridge_registerToken` đăng ký một cặp token ERC-20 hoặc 721 với hợp đồng cầu nối.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
-| account | 20-byte DATA | Address of token contract on child chain.   |
-| account | 20-byte DATA | Address of token contract on parent chain.  |
+| Tên       | Loại            | Mô tả                                      |
+| --------- | --------------- | ------------------------------------------ |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                  |
-| ----- | ----- | ------------------------------------------------------------ |
-| error | Error | `null` if the registration succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                |
+| --- | ----- | ---------------------------------------------------- |
+| lỗi | Lỗi   | `null` nếu đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
 null
 > subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
-Error: token already exists
+Lỗi: token đã tồn tại
 ```
 
 ## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
-The `subbridge_deregisterBridge` deregisters already registered token pair from the bridge contracts.
+`subbridge_deregisterBridge` hủy đăng ký cặp token đã đăng ký khỏi hợp đồng cầu nối.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                                 |
-| ------- | ------------ | ------------------------------------------- |
-| account | 20-byte DATA | Address of bridge contract on child chain.  |
-| account | 20-byte DATA | Address of bridge contract on parent chain. |
-| account | 20-byte DATA | Address of token contract on child chain.   |
-| account | 20-byte DATA | Address of token contract on parent chain.  |
+| Tên       | Loại           | Mô tả                                      |
+| --------- | --------------- | ------------------------------------------ |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description                                                    |
-| ----- | ----- | -------------------------------------------------------------- |
-| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
+| Tên | Loại | Mô tả                                                    |
+| --- | ---- | -------------------------------------------------------- |
+| lỗi | Lỗi  | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
 null
 > subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
-Error: invalid token pair
+Lỗi: cặp token không hợp lệ
 ```
 
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
-The `subbridge_convertRequestTxHashToHandleTxHash` returns the corresponding "handle value transfer transaction" hash in the opposite chain for the given "request value transfer transaction" hash. "Request value transfer transaction" is a transaction initiated by a user, requesting a cross-chain value transfer. "Handle value transfer transaction" is the transaction created by the sub-bridge to handle the value transfer request from the user.
+The `subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử lý giao dịch chuyển giá trị" tương ứng trong chuỗi đối nghịch cho hàm băm "giao dịch chuyển giá trị yêu cầu" cụ thể. "Yêu cầu giao dịch chuyển giá trị" là giao dịch do người dùng bắt đầu, yêu cầu chuyển giá trị chéo chuỗi. "Xử lý giao dịch chuyển giá trị" là giao dịch được tạo bởi cầu nối con để xử lý yêu cầu chuyển giá trị từ người dùng.
 
-**Parameters**
+**Tham số**
 
-| Name | Type         | Description                                     |
-| ---- | ------------ | ----------------------------------------------- |
-| Hash | 32-byte DATA | Hash of a "request value transfer" transaction. |
-
-
-**Return Value**
-
-| Name | Type         | Description                                                                                                                   |
-| ---- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Hash | 32-byte DATA | Hash of a "handle value transfer" transaction. zero hash means there is no corresponding "handle value transfer" transaction. |
+| Tên     | Loại           | Mô tả                                           |
+| ------- | --------------- | ----------------------------------------------- |
+| Hàm băm | DỮ LIỆU 32-byte | Hàm băm của giao dịch "yêu cầu chuyển giá trị". |
 
 
-**Example**
+**Giá trị Trả về**
+
+| Tên     | Loại           | Mô tả                                                                                                                             |
+| ------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Hàm băm | DỮ LIỆU 32-byte | Hàm băm của giao dịch "xử lý chuyển giá trị". hàm băm bằng không có nghĩa là không có giao dịch "xử lý chuyển giá trị" tương ứng. |
+
+
+**Ví dụ**
 
 ```javascript
 > subbridge.convertRequestTxHashToHandleTxHash("0xae5604f8673098436ee4eaf1b453f1a395afccd6e8eb674c60edd63ebb047622")
@@ -557,21 +557,21 @@ The `subbridge_convertRequestTxHashToHandleTxHash` returns the corresponding "ha
 ```
 
 ## subbridge_listBridge <a id="subbridge_listBridge"></a>
-The `subbridge_listBridge` returns the list of all bridge contract pairs that are registered (stored) in the sub-bridge.
+`subbridge_listBridge` trả về danh sách tất cả các cặp hợp đồng cầu được đăng ký (lưu trữ) trong cầu nối con.
 
-**Parameters**
+**Tham số**
 
-nonce
+số dùng một lần
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name         | Type    | Description                                                              |
-| ------------ | ------- | ------------------------------------------------------------------------ |
-| localAddress | account | 20-byte DATA | Address of the bridge contract on child (service) chain.  |
-| localAddress | account | 20-byte DATA | Address of the bridge contract on parent (main) chain.    |
-| subscribed   | bool    | `true` if the pair of bridge contracts is subscribed, `false` otherwise. |
+| Tên          | Loại     | Mô tả                                                                    |
+| ------------ | --------- | ------------------------------------------------------------------------ |
+| localAddress | tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (dịch vụ) con. |
+| localAddress | tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (chính) mẹ.    |
+| đã đăng ký   | bool      | `đúng` nếu cặp hợp đồng cầu nối đã được đăng ký, `sai` nếu không phải.   |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.listBridge
@@ -591,30 +591,30 @@ nonce
 ```
 
 ## subbridge_getBridgeInformation <a id="subbridge_getBridgeInformation"></a>
-The `subbridge_getBridgeInformation` returns the information of the given bridge contract.
+`subbridge_getBridgeInformation` trả về thông tin của hợp đồng cầu nối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                  |
-| ------- | ------------ | ---------------------------- |
-| account | 20-byte DATA | Address of a bridge contract |
-
-
-**Return Value**
-
-| Name             | Type         | Description                                                                                                             |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | 20-byte DATA | Address of the counterpart bridge contract. (Not supported yet)                                                         |
-| isRunning        | bool         | `true` if the bridge contract is running, `false` otherwise.                                                            |
-| isSubscribed     | bool         | `true` if the bridge contract is subscribed, `false` otherwise.                                                         |
-| onServiceChain   | bool         | `true` if the bridge contact is on child (service) chain, `false` otherwise.                                            |
-| pendingEventSize | QUANTITY     | Number of pending "request value transfer" events generated by the bridge contracts, not handled yet by the sub-bridge. |
-| requestNonce     | QUANTITY     | Request nonce of the bridge contract.                                                                                   |
-| handleNonce      | QUANTITY     | Upper handle nonce of the bridge contract.                                                                              |
-| lowerHandleNonce | QUANTITY     | Lower handle nonce of the bridge contract.                                                                              |
+| Tên       | Loại           | Mô tả                    |
+| --------- | --------------- | ------------------------ |
+| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối |
 
 
-**Example**
+**Giá trị Trả về**
+
+| Tên              | Loại           | Mô tả                                                                                                                  |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| counterPart      | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu đối ứng. (Chưa được hỗ trợ)                                                                       |
+| isRunning        | bool            | `đúng` nếu hợp đồng cầu nối đang chạy, `sai` nếu không phải.                                                           |
+| isSubscribed     | bool            | `đúng` nếu hợp đồng cầu nối đã được đăng ký, `sai` nếu không phải.                                                     |
+| onServiceChain   | bool            | `đúng` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, `sai` nếu không phải.                                        |
+| pendingEventSize | SỐ LƯỢNG        | Số sự kiện "yêu cầu chuyển giá trị" đang chờ xử lý được tạo bởi các hợp đồng cầu nối, chưa được xử lý bởi cầu nối phụ. |
+| requestNonce     | SỐ LƯỢNG        | Yêu cầu số dùng một lần của hợp đồng cầu nối.                                                                          |
+| handleNonce      | SỐ LƯỢNG        | Số dùng một lần trên của hợp đồng cầu nối.                                                                             |
+| lowerHandleNonce | SỐ LƯỢNG        | Số dùng một lần dưới của hợp đồng cầu nối.                                                                             |
+
+
+**Ví dụ**
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -631,19 +631,19 @@ The `subbridge_getBridgeInformation` returns the information of the given bridge
 ```
 
 ## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
-The `subbridge_txPendingCount` returns the number of pending transactions in the bridge transaction pool.
+`subbridge_txPendingCount` trả về số lượng giao dịch đang chờ xử lý trong bể giao dịch cầu nối.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                        |
-| ------ | ------------------------------------------------------------------ |
-| Uint64 | The number of pending transactions in the bridge transaction pool. |
+| Loại  | Mô tả                                                         |
+| ------ | ------------------------------------------------------------- |
+| Uint64 | Số lượng giao dịch đang chờ xử lý trong bể giao dịch cầu nối. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.txPendingCount
@@ -651,19 +651,19 @@ None
 ```
 
 ## subbridge_txPending <a id="subbridge_txPending"></a>
-The `subbridge_txPending` returns the list of pending transactions in the bridge transaction pool.
+`subbridge_txPending` trả về danh sách các giao dịch đang chờ xử lý trong bể giao dịch cầu nối.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| JSON string | List of pending transactions in the bridge transaction pool. |
+| Loại       | Mô tả                                                              |
+| ---------- | ------------------------------------------------------------------ |
+| Chuỗi JSON | Danh sách các giao dịch đang chờ xử lý trong bể giao dịch cầu nối. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > subbridge.txPending
