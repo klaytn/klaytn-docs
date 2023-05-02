@@ -1,24 +1,24 @@
 ## klay_chainID <a id="klay_chainid"></a>
 
-Returns the chain ID of the chain.
+Trả về chuỗi ID của chuỗi.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                           |
-| -------- | ------------------------------------- |
-| QUANTITY | Integer of the chain ID of the chain. |
+| Loại    | Mô tả                         |
+| -------- | ----------------------------- |
+| SỐ LƯỢNG | Số nguyên ID chuỗi của chuỗi. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' https://public-en-baobab.klaytn.net
 
-// Result
+// Kết quả
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -29,17 +29,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_clientVersion <a id="klay_clientversion"></a>
 
-Returns the current client version of a Klaytn node.
+Trả về phiên bản máy khách hiện tại của nút Klaytn.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| String | Phiên bản khách hiện tại của nút Klaytn. |
+| Loại  | Mô tả                                    |
+| ----- | ---------------------------------------- |
+| Chuỗi | Phiên bản khách hiện tại của nút Klaytn. |
 
 **Ví dụ**
 
