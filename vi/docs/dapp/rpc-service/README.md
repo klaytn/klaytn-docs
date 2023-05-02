@@ -1,103 +1,103 @@
-# RPC Service
+# Dịch vụ RPC
 
-By using node services, you can focus on developing your application or product on Klaytn instead of spending your resources on node operation. Below is a list of node providers.
+Bằng cách sử dụng dịch vụ nút, bạn có thể tập trung vào phát triển ứng dụng hoặc sản phẩm của mình trên Klaytn thay vì dành nguồn lực cho việc vận hành nút. Dưới đây là một danh sách các nhà cung cấp nút.
 
-## Klaytn API Service (KAS)
+## Dịch vụ API Klaytn (KAS)
 
-KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
+KAS cung cấp nhiều API để hỗ trợ việc phát triểm ứng dụng blockchain nhanh hơn và dễ dàng hơn. Bạn có thể giảm đáng kể thời gian phát triển, vận hành một dịch vụ ổn định và tiết kiệm chi phí.
 
-### Features
+### Tính năng
 
-* 10,000 requests per day (100 requests per second) for the free plan
-* Community support for the free plan, and ticket support for paid plans (Starter, Pro, and Pro Plus)
-* Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
+* 10.000 yêu cầu/ngày (100 yêu cầu/giây) cho gói miễn phí
+* Hỗ trợ cộng đồng cho gói miễn phí và hỗ trợ vé cho gói trả phí (Starter, Pro và Pro Plus)
+* API nút Klaytn, API lịch sử token, API ví, API Anchor, API KIP-7, 17, 37 và API Metadata
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
-* [Subscription](https://www.klaytnapi.com/en/landing/pricings)
-* [Website](https://www.klaytnapi.com/en/landing/main)
+* [Tài liệu](https://www.klaytnapi.com/en/resource/docs/readme)
+* [Gói đăng Ký](https://www.klaytnapi.com/en/landing/pricings)
+* [Trang web](https://www.klaytnapi.com/en/landing/main)
 
 ## All That Node
 
-All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
+All That Node nhắm tới trở thành cổng đáng tin cậy về hạ tầng Web3, giúp các nhà xây dựng không bị phân tâm bởi những vấn đề liên quan đến mạng lưới blockchain. All That Node đảm bảo kết nối nhanh và mạnh mẽ với các nút RPC với độ trễ thấp nhất.
 
-### Features
+### Tính năng
 
-- 50,000 Requests Per Day with Free Tier
-- Public Nodes & Faucets for the Ecosystem
-- Pay-As-You-Go-plan supported if you need more
-- Dedicated Nodes
-- 24+ Blockchains Supported
-- Archival Data Available
-- Websocket API Available
-- Trace/Debug API Available
-- Uptime 99.9%+
-- Load-Balancing implemented
-- Infinite Scalability
-- 24/7 Support with the Discord Community
+- 50.000 yêu cầu/ngày cho Free Tier
+- Nút công khai & Faucet cho hệ sinh thái
+- Có hỗ trợ gói Pay-As-You-Go nếu bạn cần thêm
+- Nút chuyên dụng
+- Hơn 24 blockchain được hỗ trợ
+- Có sẵn dữ liệu lưu trữ
+- Có sẵn API Websocket
+- Có sẵn API theo dõi/gỡ lỗi
+- Uptime từ 99,9% trở lên
+- Load-Balancing được triển khai
+- Khả năng mở rộng vô hạn
+- Hỗ trợ 24/7 với cộng đồng Discord
 
-### **References**
+### **Tài liệu tham khảo**
 
-- [Docs](https://docs.allthatnode.com/)
-- [Subscription](https://www.allthatnode.com/pricing.dsrv)
-- [Website](https://www.allthatnode.com/main.dsrv)
+- [Tài liệu](https://docs.allthatnode.com/)
+- [Gói đăng Ký](https://www.allthatnode.com/pricing.dsrv)
+- [Trang web](https://www.allthatnode.com/main.dsrv)
 
 ## Tatum
 
-Tatum is the fastest way to build, test and run blockchain apps. We offer the most flexible platform for developers to turn their blockchain ideas into reality fast.
+Tatum là cách nhanh nhất để xây dựng, thử nghiệm và chạy các ứng dụng blockchain. Chúng tôi cung cấp nền tảng linh hoạt nhất cho các nhà phát triển, giúp họ biến những ý tưởng blockchain của mình thành hiện thực một cách nhanh chóng.
 
-### Features
+### Tính năng
 
-* 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
-* Community support
+* 5 yêu cầu/giây cho gói miễn phí và 200 yêu cầu/giây cho gói trả phí (Start, Basic)
+* Hỗ trợ cộng đồng
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://apidoc.tatum.io/tag/Klaytn?\_gl=1\*1dhfv8u\*\_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*\_ga\_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
-* [Pricing](https://tatum.io/pricing)
-* [Website](https://tatum.io/)
+* [Tài liệu](https://apidoc.tatum.io/tag/Klaytn?\_gl=1\*1dhfv8u\*\_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*\_ga\_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+* [Giá](https://tatum.io/pricing)
+* [Trang web](https://tatum.io/)
 
 ## BlockPi
 
-BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
+Mạng lưới BlockPI nhắm tới cung cấp dịch vụ RPC chất lượng cao, mạnh mẽ và hiệu quả. Để tránh sự hư hỏng tại cục bộ và hạn chế khả năng mở rộng, mạng lưới được thiết kế để có cấu trúc phân phối với các nút RPC có thể mở rộng.
 
-BlockPI provides free public endpoints to the Klaytn community and advanced features to paid users.  BlockPI designed two paid packages, and support Pay As You Go to fulfill flexible user needs. You can check the pricing details for each package (https://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn  (https://docs.blockpi.io/documentations/request-unit-ru)
+BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ Pay As You Go để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết về giá cho mỗi gói (https://docs.blockpi.io/documentations/pricing) và chi phí của từng phương thức cho Klaytn (https://docs.blockpi.io/documentations/request-unit-ru)
 
-### Features
+### Tính năng
 
-* 20 requests per second on free services, and unlimited for paid packages.
-* Choice of Klaytn archive node and endpoint node
-* Whitelisting possible for endpoint nodes
-* WSS available and subscription coming soon
-* Supports tracing
+* 20 yêu cầu/giây cho các dịch vụ miễn phí và vô không giới hạn cho các gói trả phí.
+* Lựa chọn nút lưu trữ và nút điểm cuối Klaytn
+* Có thể lập danh sách ưu tiên cho các nút điểm cuối
+* Có sẵn WSS và sắp ra mắt gói đăng ký
+* Hỗ trợ theo dõi
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://docs.blockpi.io/)
-* [Subscription](https://dashboard.blockpi.io/wallet/overview)
-* [Website](https://blockpi.io/)
+* [Tài liệu](https://docs.blockpi.io/)
+* [Gói đăng ký](https://dashboard.blockpi.io/wallet/overview)
+* [Trang web](https://blockpi.io/)
 
-## Pocket Network
+## Mạng lưới Pocket
 
-Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+Mạng lưới Pocket là TCP/IP của hạ tầng nút Web3 – một giao thức chuyển tiếp đa chuỗi khuyến khích các nút RPC cung cấp DApp và người dùng nút RPC bằng quyền truy cập không ngừng.
 
-Pocket supports dozens of blockchains, with more being added all the time.
+Pocket hỗ trợ hàng tá blockchain và vẫn đang không ngừng hỗ trợ thêm nhiều blockchain nữa.
 
-### Features
+### Tính năng
 
-* Decentralized RPC Protocol and Marketplace
-* 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
-* Public Endpoints
-* Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
-* 30+ Blockchains Supported
-* 25,000 + Nodes earning POKT for serving applications
-* Archival Node, Archival Node w/ Tracing, & Testnet Node Support
-* No Single Point of Failure
-* Zero Downtime
-* Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
-* No monthly sunk costs, turn your infrastructure into an asset
-* Load-Balancing built into the Protocol
+* Thị trường và giao thức RPC phi tập trung
+* 250.000 yêu cầu/ngày cho Free Tier (tối đa hai ứng dụng với vô số điểm cuối)
+* Điểm cuối công khai
+* Gói Pay-As-You-Go (nếu bạn cần hơn 250.000 yêu cầu/ngày)
+* Hơn 30 blockchain được hỗ trợ
+* Hơn 25.000 nút kiếm POKT để phục vụ các ứng dụng
+* Nút lưu trữ, Nút lưu trữ và theo dõi, & Hỗ trợ nút testnet
+* Không xảy ra hư hỏng tại cục bộ
+* Không có thời gian chết
+* Tokenomics hiệu quả về chi phí, gần như bằng không (nắm giữ POKT một lần cho băng thông mạng)
+* Không phát sinh chi phí chìm hàng tháng, biến hạ tầng của bạn thành một tài sản
+* Load-Balancing được tích hợp vào giao thức
 * Infinitely scale the number of requests per day and nodes per hour as you go
 * The most private, censorship-resistant option
 * Hands-on developer support
