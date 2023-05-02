@@ -12,25 +12,25 @@ Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của m�
 | ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockCount        | SỐ LƯỢNG            | Số khối trong phạm vi được yêu cầu ở dạng thập lục phân. Có thể yêu cầu giữa 1 (0x1) và 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
 | lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                    |
-| rewardPercentiles | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                                                        |
+| rewardPercentiles | Mảng DẤU PHẢY ĐỘNG  | Mảng số thực dấu phảy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                   |
 
 
-**Return Value**
+**Giá trị trả về**
 
-| Name          | Type              | Description                                                                                                                                                        |
-| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| oldestBlock   | QUANTITY          | Lowest numbered block of the returned range in hexadecimal.                                                                                                        |
-| baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
-| gasUsedRatio  | Array of FLOAT    | An array of the ratios of gas used per block. These are calculated as the ratio of gasUsed and gasLimit.                                                           |
-| reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
+| Tên           | Loại              | Mô tả                                                                                                                                                             |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | SỐ LƯỢNG           | Khối được đánh số thấp nhất trong phạm vi được trả về ở dạng thập lục phân.                                                                                       |
+| baseFeePerGas | Mảng SỐ LƯỢNG      | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
+| gasUsedRatio  | Mảng DẤU PHẢY ĐỘNG | Một mảng các tỷ lệ gas được sử dụng trên mỗi khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                   |
+| phần thưởng   | Mảng SỐ LƯỢNG      | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, tất cả các giá trị được trả về sẽ là 0.           |
 
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_feeHistory","params":["0x10", "latest", [0.1, 0.2, 0.3]],"id":1}' http://localhost:8551
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -50,28 +50,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_maxPriorityFeePerGas <a id="klay_maxpriorityfeepergas"></a>
 
-Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
+Trả về gợi ý về giới hạn tối đa phí gas trả thêm cho giao dịch có mức phí thay đổi theo đơn vị peb.
 
 {% hint style="success" %}
-**NOTE**: This API is effective after Klaytn v1.8.0
+**LƯU Ý**: API này có hiệu lực sau Klaytn v1.8.0
 {% endhint %}
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| Loại    | Mô tả                                     |
+| -------- | ----------------------------------------- |
+| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
-// Result
+// Kết quả
 {
   "jsonrpc": "2.0",
   "id":1,
