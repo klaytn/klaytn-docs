@@ -1,37 +1,37 @@
 ---
 description: >-
-  APIs to inspect transaction pools in the node.
+  API để kiểm tra bể giao dịch trong nút.
 ---
 
 # Namespace txpool <a id="namespace-txpool"></a>
 
-The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.
+API namespace `txpool` cung cấp cho bạn quyền truy cập vào một số phương thức RPC không chuẩn để kiểm tra nội dung của bể giao dịch chứa tất cả các giao dịch đang chờ xử lý cũng như các giao dịch được xếp hàng chờ xử lý trong tương lai.
 
 
 ## txpool_content <a id="txpool_content"></a>
 
-The `content` inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+Thuộc tính kiểm tra `content` có thể được truy vấn để liệt kê thông tin chính xác của tất cả các giao dịch hiện đang chờ đưa vào (các) khối tiếp theo, cũng như những khối đang được lên lịch để thực thi trong tương lai.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with actual transactions.
+Kết quả là một đối tượng có hai trường `đang chờ xử lý` và `được xếp hàng chờ`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc tới một lô giao dịch đã được lên lịch. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các giao dịch thực tế.
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `txpool.content`               |
-|   RPC   | `{"method": "txpool_content"}` |
+|    Máy khách    | Gọi phương thức                |
+|:---------------:| ------------------------------ |
+| Bảng điều khiển | `txpool.content`               |
+|       RPC       | `{"method": "txpool_content"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                          |
-| ----------- | ------------------------------------ |
-| JSON string | The content of the transaction pool. |
+| Loại       | Mô tả                      |
+| ---------- | -------------------------- |
+| Chuỗi JSON | Nội dung của bể giao dịch. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > txpool.content
@@ -129,34 +129,34 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
-#There is no pending transaction nor queued transaction.
+#Không có giao dịch đang chờ xử lý cũng như giao dịch được xếp hàng chờ.
 ```
 
 
 ## txpool_inspect <a id="txpool_inspect"></a>
 
-The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
+Thuộc tính kiểm tra `inspect` có thể được truy vấn để liệt kê một bản tóm tắt bằng văn bản của tất cả các giao dịch hiện đang chờ đưa vào (các) khối tiếp theo cũng như các giao dịch đang được lên lịch để thực thi trong tương lai. Đây là một phương pháp được thiết kế riêng cho các nhà phát triển để nhanh chóng xem các giao dịch trong bể và tìm ra bất kỳ vấn đề tiềm ẩn nào.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with transactions summary strings.
+Kết quả là một đối tượng có hai trường `đang chờ xử lý` và `được xếp hàng chờ`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc tới một lô giao dịch đã được lên lịch. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các chuỗi tóm tắt giao dịch.
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `txpool.inspect`               |
-|   RPC   | `{"method": "txpool_inspect"}` |
+|    Máy khách    | Gọi phương thức                |
+|:---------------:| ------------------------------ |
+| Bảng điều khiển | `txpool.inspect`               |
+|       RPC       | `{"method": "txpool_inspect"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                                |
-| ----------- | ------------------------------------------ |
-| JSON string | A list of pending and queued transactions. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Một danh sách các giao dịch đang chờ xử lý và xếp hàng chờ. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > txpool.inspect
 {
@@ -216,29 +216,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 ## txpool_status <a id="txpool_status"></a>
 
-The `status` inspection property can be queried for the number of transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+Có thể truy vấn thuộc tính kiểm tra `trạng thái` để biết số lượng giao dịch hiện đang chờ xử lý để đưa vào (các) khối tiếp theo, cũng như các giao dịch đang được lên lịch để thực thi trong tương lai.
 
-The result is an object with two fields `pending` and `queued`, each of which is a counter representing the number of transactions in that particular state.
+Kết quả là một đối tượng có hai trường `đang chờ xử lý` và `xếp hàng chờ`, mỗi trường là một bộ đếm đại diện cho số lượng giao dịch ở trạng thái cụ thể đó.
 
-| Client  | Method invocation             |
-|:-------:| ----------------------------- |
-| Console | `txpool.status`               |
-|   RPC   | `{"method": "txpool_status"}` |
+|   Khách hàng    | Gọi phương thức               |
+|:---------------:| ----------------------------- |
+| Bảng điều khiển | `txpool.status`               |
+|       RPC       | `{"method": "txpool_status"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type | Description                         |
-| ------- | ---- | ----------------------------------- |
-| pending | int  | The number of pending transactions. |
-| queued  | int  | The number of queued transactions.  |
+| Tên          | Loại | Mô tả                              |
+| ------------ | ----- | ---------------------------------- |
+| đang chờ     | int   | Số lượng giao dịch đang chờ xử lý. |
+| xếp hàng chờ | int   | Số lượng giao dịch xếp hàng chờ.   |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > txpool.status
