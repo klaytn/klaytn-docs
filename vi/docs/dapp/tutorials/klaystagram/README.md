@@ -37,16 +37,16 @@ Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh du
 Có ba tính năng chính.
 
 1. **Photo upload** Người dùng có thể tải ảnh cùng mô tả lên blockchain Klaytn. Ảnh sẽ được token hóa.
-2. **Feed** Users can see all the photos uploaded on the blockchain.
-3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
+2. **Feed** Người dùng có thể xem tất cả ảnh được tải lên trên blockchain.
+3. **Transfer ownership** Chủ sở hữu ảnh có thể chuyển quyền sở hữu ảnh cho một người dùng khác, đồng thời giao dịch sẽ được thể hiện trong lịch sử quyền sở hữu.
 
 > **Source Code**\
-  Complete source code can be found on GitHub at [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
+  Mã nguồn hoàn chỉnh có ở GitHub, tại đây [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
 
-## Intended Audience <a href="#intended-audience" id="intended-audience"></a>
+## Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
 
-We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
+Chúng ta sẽ xây dựng một ứng dụng web tương tác với các hợp đồng thông minh. Để hiểu trọn vẹn hướng dẫn này, người xem phải làm quen với các khái niệm sau.
 
-* We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
-* Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
-* Anyone interested in [ERC-721 Tokens](http://erc721.org/).
+* Chúng tôi coi như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/) và [Redux](https://redux.js.org/). Khóa học này không dành cho những người mới hoàn toàn.
+* Bạn nên có kinh nghiệm và kiến thức cơ bản về việc phát triển [Solidity](https://solidity.readthedocs.io/en/v0.5.10/). Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
+* Bất cứ ai quan tâm tới [ERC-721 Tokens](http://erc721.org/).
