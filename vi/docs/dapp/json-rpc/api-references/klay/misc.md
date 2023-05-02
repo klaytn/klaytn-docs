@@ -1,18 +1,18 @@
-# Miscellaneous <a id="miscellaneous"></a>
+# Các tùy chọn khác <a id="miscellaneous"></a>
 
 ## klay_sha3 <a id="klay_sha3"></a>
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data.
+Trả về Keccak-256 (không phải SHA3-256 đã chuẩn hóa) của dữ liệu đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name | Type | Description                           |
-| ---- | ---- | ------------------------------------- |
-| data | DATA | The data to convert into a SHA3 hash. |
+| Tên     | Loại    | Mô tả                                     |
+| ------- | ------- | ----------------------------------------- |
+| dữ liệu | DỮ LIỆU | Dữ liệu để chuyển đổi thành hàm băm SHA3. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type            | Mô tả                            |
+| Loại            | Mô tả                            |
 | --------------- | -------------------------------- |
 | DỮ LIỆU 32 byte | Kết quả SHA3 của dữ liệu đã cho. |
 
