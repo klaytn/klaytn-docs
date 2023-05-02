@@ -1,42 +1,42 @@
 # Klaystagram
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. Environment Setup](1.-environment-setup.md)
-* [2. Clone Klaystagram DApp](2.-clone-klaystagram-dapp.md)
-* [3. Directory Structure](3.-directory-structure.md)
-* [4. Write Klaystagram Smart Contract](4.-write-klaystagram-smart-contract.md)
-* [5. Deploy Contract](5.-deploy-contract.md)
-* [6. Frontend Code Overview](6.-frontend-code-overview.md)
-* [7. FeedPage](7.-feedpage/)
-  * [7-1. Connect Contract to Frontend](7.-feedpage/7-1.-connect-contract-to-frontend.md)
-  * [7-2. UploadPhoto Component](7.-feedpage/7-2.-uploadphoto-component.md)
-  * [7-3. Feed Component](7.-feedpage/7-3.-feed-component.md)
-  * [7-4. TransferOwnership Component](7.-feedpage/7-4.-transferownership-component.md)
-* [8. Run App](8.-run-app.md)
+* [1. Thiết lập môi trường](1.-environment-setup.md)
+* [2. Sao y Klaystagram DApp](2.-clone-klaystagram-dapp.md)
+* [3. Cấu trúc thư mục](3.-directory-structure.md)
+* [4. Soạn hợp đồng thông minh Klaystagram](4.-write-klaystagram-smart-contract.md)
+* [5. Triển khai hợp đồng](5.-deploy-contract.md)
+* [6. Tổng quan về mã Frontend](6.-frontend-code-overview.md)
+* [7. Trang thông tin](7.-feedpage/)
+  * [7-1. Kết nối hợp đồng với Frontend](7.-feedpage/7-1.-connect-contract-to-frontend.md)
+  * [7-2. Thành phần UploadPhoto](7.-feedpage/7-2.-uploadphoto-component.md)
+  * [7-3. Thành phần Feed](7.-feedpage/7-3.-feed-component.md)
+  * [7-4. Thành phần TransferOwnership](7.-feedpage/7-4.-transferownership-component.md)
+* [8. Chạy ứng dụng](8.-run-app.md)
 
-## Testing Environment <a href="#testing-environment" id="testing-environment"></a>
+## Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
 
-Klaystagram DApp is tested in the following environment.
+DApp Klaystagram được thử nghiệm trong môi trường sau đây.
 
 * MacOS Mojave 10.14.5
-* Node 10.16.0 (LTS)
+* Nút 10.16.0 (LTS)
 * npm 6.9.0
 * Python 2.7.10
 
-## Introduction <a href="#introduction" id="introduction"></a>
+## Giới thiệu <a href="#introduction" id="introduction"></a>
 
-[![Klaystagram Introduction Video](../../../bapp/tutorials/klaystagram/images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
+[![Video giới thiệu về Klaystagram](../../../bapp/tutorials/klaystagram/images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
-In this tutorial, we will learn how to make `Klaystagram`, a Klaytn-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
+Trong hướng dẫn này, ta sẽ tìm hiểu cách tạo `Klaystagram`, ứng dụng cấp phép ảnh NFT dựa trên Klaytn. Ứng dụng web đơn giản này yêu cầu kiến thức cơ bản về Solidity, JavaScript và React.
 
-NFT refers to a non-fungible token, which is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique. And this uniqueness of NFT opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them. For more information, refer to this [article](https://coincentral.com/nfts-non-fungible-tokens/).
+NFT là non-fungible token, một loại token đặc biệt đại diện cho một tài sản duy nhất. Như ý nghĩa của cái tên non-fungible, mỗi token đều là duy nhất. Tính duy nhất này của NFT mở ra những chân trời mới cho việc số hóa tài sản. Ví dụ: NFT có thể được dùng để đại diện cho nghệ thuật số, vật phẩm trò chơi hoặc bất cứ loại tài sản duy nhất nào và cho phép mọi người giao dịch. Để biết thêm thông tin, hãy tham chiếu [article](https://coincentral.com/nfts-non-fungible-tokens/) này.
 
-In `Klaystagram`, every token represents users' unique pictures. When a user uploads a photo, a unique token is created containing the image data and its ownership. All transactions are recorded on the blockchain, so even service providers do not have control over the uploaded photos. Considering the purpose of this tutorial, only core functions will be implemented. After finishing this tutorial, try adding some more cool features and make your own creative service.
+Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh duy nhất của người dùng. Khi người dùng tải ảnh lên, một token duy nhất sẽ được tạo và có chứa dữ liệu cũng như quyền sở hữu ảnh. Tất cả giao dịch được ghi lại trên blockchain. Vì vậy, ngay cả nhà cung cấp dịch vụ cũng không thể kiểm soát những ảnh được tải lên. Cân nhắc tới mục đích của hướng dẫn này, sẽ chỉ có những chức năng chính được thực hiện. Sau khi xem xong hướng dẫn này, hãy thử thêm một số tính năng hay ho hơn và tạo ra dịch vụ sáng tạo của riêng bạn.
 
-There are three main features.
+Có ba tính năng chính.
 
-1. **Photo upload** Users can upload photos along with descriptions on the Klaytn blockchain. The photos will be tokenized.
+1. **Photo upload** Người dùng có thể tải ảnh cùng mô tả lên blockchain Klaytn. Ảnh sẽ được token hóa.
 2. **Feed** Users can see all the photos uploaded on the blockchain.
 3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
 
