@@ -132,77 +132,77 @@ Không có
 
 ## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
-Thuộc tính `totalVotingPower` cung cấp tổng của tất cả quyền biểu quyết mà CN có. Mỗi CN có 1.0 ~ 2.0 quyền biểu quyết. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+Thuộc tính `totalVotingPower` cung cấp tổng của tất cả quyền biểu quyết mà CN có. Mỗi CN có 1.0 ~ 2.0 quyền biểu quyết. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                         |
-| ----- | ----------------------------------- |
-| Float | Total Voting Power or error message |
+| Loại   | Mô tả                                  |
+| ------- | -------------------------------------- |
+| Số thực | Tổng quyền bỏ phiếu hoặc thông báo lỗi |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// In "ballot" governance mode
+// Trong chế độ quản trị "bỏ phiếu"
 > governance.totalVotingPower
 32.452
 
-// In "none", "single" governance mode
+// Trong chế độ quản trị "không có", "duy nhất"
 > governance.totalVotingPower
-"In current governance mode, voting power is not available"
+"Chế độ quản trị hiện tại không có quyền bỏ phiếu"
 ```
 
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+Thuộc tính `myVotingPower` cung cấp quyền bỏ phiếu của nút. Quyền bỏ phiếu có thể là 1.0 ~ 2.0. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description                          |
-| ----- | ------------------------------------ |
-| Float | Node's Voting Power or error message |
+| Loại   | Mô tả                                     |
+| ------- | ----------------------------------------- |
+| Số thực | Quyền bỏ phiếu của nút hoặc thông báo lỗi |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// In "ballot" governance mode
+// Trong chế độ quản trị "bỏ phiếu"
 > governance.myVotingPower
 1.323
 
-// In "none", "single" governance mode
+// Trong chế độ quản trị "không có", "duy nhất"
 > governance.myVotingPower
-"In current governance mode, voting power is not available"
+"Chế độ quản trị hiện tại không có quyền bỏ phiếu"
 ```
 
 
 ## governance_myVotes <a id="governance_myvotes"></a>
 
-The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
+Thuộc tính `myVotes` cung cấp thông tin phiếu bầu của tôi trong một giai đoạn. Mỗi phiếu bầu được lưu trữ trong một khối khi nút của người dùng tạo một khối mới. Sau khi giai đoạn hiện tại kết thúc, thông tin này sẽ bị xóa.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type      | Description                                                                                                                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote List | Node's Voting status in the epoch<br>- `BlockNum`: The block number that this vote is stored<br>- `Casted`: If this vote is stored in a block or not<br>- `Key/Value`: The content of the vote |
+| Loại              | Mô tả                                                                                                                                                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Danh sách Bỏ phiếu | Trạng thái bỏ phiếu của nút trong giai đoạn<br>- `BlockNum`: Số khối mà phiếu bầu này được lưu trữ<br>- `Bỏ phiếu`: Nếu phiếu bầu này được lưu trữ trong một khối hay không <br>- `Khóa/Giá trị`: Nội dung bỏ phiếu |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > governance.vote("governance.governancemode", "ballot")
-"Your vote was successfully placed."
+"Phiếu bầu của bạn đã được đặt thành công."
 
 > governance.myVotes
 [{
@@ -216,7 +216,7 @@ None
 
 ## governance_getChainConfig <a id="governance_getchainconfig"></a>
 
-The `getChainConfig` returns the chain configuration at a specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+`getChainConfig` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, nó sẽ trả về cấu hình chuỗi tại khối mới nhất.
 
 **Tham số**
 
@@ -228,13 +228,13 @@ The `getChainConfig` returns the chain configuration at a specific block. If the
 LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
 {% endhint %}
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| JSON | Chain configuration at the given block number |
+| Loại | Mô tả                             |
+| ----- | --------------------------------- |
+| JSON  | Cấu hình chuỗi tại số khối đã cho |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > governance.getChainConfig()
@@ -279,7 +279,7 @@ LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trư�
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+Thuộc tính `chainConfig` cung cấp cấu hình chuỗi mới nhất. Nó tương đương với `chainConfigAt()` với tham số trống.
 
 {% hint style="warning" %}
 `governance_chainConfig` Không được dùng API kể từ Klaytn v1.11 (Xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getchainconfig">`governance_getChainConfig`</a>.
@@ -630,17 +630,17 @@ Không có
 
 **Tham số**
 
-| Loại  | Description                                                      |
+| Loại  | Mô tả                                                            |
 | ------ | ---------------------------------------------------------------- |
-| uint64 | A block number to query the governance change made in the block. |
+| uint64 | Số khối để truy vấn thay đổi quản trị được thực hiện trong khối. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                    |
-| ---- | ---------------------------------------------- |
-| JSON | Stored governance information at a given block |
+| Loại | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| JSON | Thông tin quản trị được lưu trữ tại một khối nhất định |
 
-**Example**
+**Ví dụ**
 ```javascript
 > governance.itemCacheFromDb(0)
 {
@@ -661,32 +661,32 @@ Không có
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
-- `BlockNum`: The block number at which the staking information is given.
-- `CouncilNodeAddrs`: The addresses of the consensus node.
-- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
-- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
-- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
-- `Gini`: Gini coefficient.
-- `KIRAddr`: The contract address of KIR.
-- `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
-- `UseGini`: The boolean value whether or not the Gini coefficient is used.
+`getStakingInfo` trả về thông tin nắm giữ tại một khối cụ thể. Kết quả bao gồm các thông tin sau.
+- `BlockNum`: Số khối cung cấp thông tin đặt nắm giữ.
+- `CouncilNodeAddrs`: Địa chỉ của nút đồng thuận.
+- `CouncilRewardAddrs`: Các địa chỉ mà phần thưởng mỗi khối của các nút được liên kết được gửi đến.
+- `CouncilStakingAddrs`: Địa chỉ hợp đồng mà các nút được liên kết triển khai để nắm giữ.
+- `CouncilStakingAmounts`: Số lượng KLAY mà các nút được liên kết nắm giữ.
+- `Gini`: Hệ số Gini.
+- `KIRAddr`: Địa chỉ hợp đồng của KIR.
+- `PoCAdr`: Địa chỉ hợp đồng của KGF. PoC là tên trước đây của KGF.
+- `UseGini`: Giá trị boolean cho dù hệ số Gini có được sử dụng hay không.
 
-Note that the order of all addresses and the staking amounts are matched.
+Lưu ý rằng thứ tự của tất cả các địa chỉ và số lượng nắm giữ phải khớp với nhau.
 
-**Parameters**
+**Tham số**
 
-| Type                | Description                                                                                                                                                         |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| Loại                | Mô tả                                                                                                                                                              |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên của số khối hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description         |
-| ---- | ------------------- |
-| JSON | Staking information |
+| Loại | Mô tả             |
+| ----- | ----------------- |
+| JSON  | Thông tin nắm giữ |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > governance.getStakingInfo("latest")
