@@ -1,40 +1,40 @@
 ---
 description: >-
-  APIs to manage accounts and private keys in the node.
+  API để quản lý tài khoản và khóa riêng trong nút.
 ---
 
 # Namespace personal <a id="namespace-personal"></a>
 
-The namespace `personal` manages private keys in the key store.
+Namespace `cá nhân` quản lý khóa riêng trong kho lưu trữ khóa.
 
 
 ## personal_importRawKey <a id="personal_importrawkey"></a>
 
-Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store, encrypting it with the passphrase.
+Nhập khóa cá nhân chưa mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) vào kho lưu trữ khóa, mã hóa nó bằng cụm mật khẩu.
 
-Returns the address of the imported account.
+Trả về địa chỉ của tài khoản đã nhập.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.importRawKey(keydata, passphrase)`                           |
-|   RPC   | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
+|   Khách hàng    | Gọi phương thức                                                        |
+|:---------------:| ---------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.importRawKey(keydata, passphrase)`                           |
+|       RPC       | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                                                                                                                          |
-| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata    | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| passphrase | string | The pass phrase for encryption.                                                                                                                      |
+| Tên          | Loại | Mô tả                                                                                                                                                     |
+| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keydata      | chuỗi | Khóa cá nhân không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để mã hóa.                                                                                                                                   |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type   | Description                          |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the imported account. |
+| Tên     | Loại  | Mô tả                          |
+| ------- | ----- | ------------------------------ |
+| địa chỉ | chuỗi | Địa chỉ của tài khoản đã nhập. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -53,28 +53,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_listAccounts <a id="personal_listaccounts"></a>
 
-Returns all the Klaytn account addresses of all keys in the key store.
+Trả về tất cả các địa chỉ tài khoản Klaytn của tất cả các khóa trong kho lưu trữ khóa.
 
-| Client  | Method invocation                                   |
-|:-------:| --------------------------------------------------- |
-| Console | `personal.listAccounts`                             |
-|   RPC   | `{"method": "personal_listAccounts", "params": []}` |
+|    Máy khách    | Gọi phương thức                                     |
+|:---------------:| --------------------------------------------------- |
+| Bảng điều khiển | `personal.listAccounts`                             |
+|       RPC       | `{"method": "personal_listAccounts", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| string | The list of all the Klaytn account addresses |
+| Loại | Mô tả                                         |
+| ----- | --------------------------------------------- |
+| chuỗi | Danh sách tất cả các địa chỉ tài khoản Klaytn |
 
-None
+Không có
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > personal.listAccounts
 ["0x5e97870f263700f46aa00d967821199b9bc5a120", "0x3d80b31a78c30fc628f20b2c89d7ddbf6e53cedc"]
@@ -87,29 +87,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_listWallets <a id="personal_listwallets"></a>
 
-Returns a list of wallets this node manages.
+Trả về danh sách ví mà nút này quản lý.
 
-| Client  | Method invocation                                  |
-|:-------:| -------------------------------------------------- |
-| Console | `personal.listWallets`                             |
-|   RPC   | `{"method": "personal_listWallets", "params": []}` |
+|    Máy khách    | Gọi phương thức                                    |
+|:---------------:| -------------------------------------------------- |
+| Bảng điều khiển | `personal.listWallets`                             |
+|       RPC       | `{"method": "personal_listWallets", "params": []}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name     | Type   | Description                    |
-| -------- | ------ | ------------------------------ |
-| URL      | string | Wallet url                     |
-| Status   | string | Locking status                 |
-| Failure  | string | Error condition                |
-| Accounts | string | The list of account addresses. |
+| Tên        | Loại | Mô tả                        |
+| ---------- | ----- | ---------------------------- |
+| URL        | chuỗi | Url Ví                       |
+| Trạng thái | chuỗi | Trạng thái khoá              |
+| Thất bại | chuỗi | Tình trạng lỗi               |
+| Tài khoản  | chuỗi | Danh sách địa chỉ tài khoản. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.listWallets
 [
@@ -129,33 +129,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_openWallet <a id="personal_openwallet"></a>
 
-Initiates a hardware wallet opening procedure, establishing a USB connection and attempting to authenticate via the provided passphrase.
+Bắt đầu quy trình mở ví phần cứng, thiết lập kết nối USB và cố gắng xác thực bằng cụm mật khẩu được cung cấp.
 
 {% hint style="success" %}
-NOTE: The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
+LƯU Ý: Phương thức này có thể trả về một thử thách bổ sung yêu cầu lần mở thứ hai (ví dụ: thử thách ma trận mã PIN Trezor).
 {% endhint %}
 
-| Client  | Method invocation                                                |
-|:-------:| ---------------------------------------------------------------- |
-| Console | `personal.openWallet(url, passhrase)`                            |
-|   RPC   | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
+|   Khách hàng    | Gọi phương thức                                                  |
+|:---------------:| ---------------------------------------------------------------- |
+| Bảng điều khiển | `personal.openWallet(url, passhrase)`                            |
+|       RPC       | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description           |
-| ---------- | ------ | --------------------- |
-| URL        | string | Wallet url            |
-| Passphrase | string | passphrase for wallet |
+| Tên          | Loại  | Mô tả               |
+| ------------ | ----- | ------------------- |
+| URL          | chuỗi | url Ví              |
+| Cụm mật khẩu | chuỗi | cụm mật khẩu cho ví |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name  | Type  | Description     |
-| ----- | ----- | --------------- |
-| Error | error | Error condition |
+| Tên | Loại | Mô tả          |
+| --- | ---- | -------------- |
+| Lỗi | lỗi  | Tình trạng lỗi |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.openWallet("keystore://", "passphrase")
 null
@@ -168,31 +168,31 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_deriveAccount <a id="personal_deriveaccount"></a>
 
-Requests a HD wallet to derive a new account, optionally pinning it for later reuse.
+Yêu cầu ví HD để tạo tài khoản mới, tùy chọn ghim tài khoản đó để sử dụng lại sau này.
 
-| Client  | Method invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `personal.deriveAccount(url, path, pin)`                           |
-|   RPC   | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
+|   Khách hàng    | Gọi phương thức                                                    |
+|:---------------:| ------------------------------------------------------------------ |
+| Bảng điều khiển | `personal.deriveAccount(url, path, pin)`                           |
+|       RPC       | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type    | Description        |
-| ---- | ------- | ------------------ |
-| URL  | string  | Wallet url         |
-| path | string  | derivation path    |
-| pin  | boolean | optionally pinning |
+| Tên       | Loại    | Mô tả              |
+| --------- | ------- | ------------------ |
+| URL       | chuỗi   | Url Ví             |
+| đường dẫn | chuỗi   | đường dẫn dẫn xuất |
+| pin       | boolean | pin tùy chọn       |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type   | Description                     |
-| ------- | ------ | ------------------------------- |
-| Account | string | The address of the new account. |
-| Error   | error  | Error condition                 |
+| Tên       | Loại  | Mô tả                      |
+| --------- | ----- | -------------------------- |
+| Tài khoản | chuỗi | Địa chỉ của tài khoản mới. |
+| Lỗi       | lỗi   | Tình trạng lỗi             |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.deriveAccount(url, path, pin)
 "result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"
@@ -205,30 +205,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_newAccount <a id="personal_newaccount"></a>
 
-Generates a new private key and stores it in the key store directory. The key file is encrypted with the given passphrase. Returns the address of the new account.
+Tạo một khóa riêng tư mới và lưu trữ nó trong thư mục lưu trữ khóa. Tệp khóa được mã hóa bằng cụm mật khẩu đã cho. Trả về địa chỉ của tài khoản mới.
 
-At the Klaytn console, `newAccount` will prompt for a passphrase when it is not supplied as the argument.
+Tại bảng điều khiển Klaytn, `newAccount` sẽ nhắc nhập cụm mật khẩu khi nó không được cung cấp làm đối số.
 
-| Client  | Method invocation                                           |
-|:-------:| ----------------------------------------------------------- |
-| Console | `personal.newAccount(passphrase)`                           |
-|   RPC   | `{"method": "personal_newAccount", "params": [passphrase]}` |
+|    Máy khách    | Gọi phương thức                                             |
+|:---------------:| ----------------------------------------------------------- |
+| Bảng điều khiển | `personal.newAccount(passphrase)`                           |
+|       RPC       | `{"method": "personal_newAccount", "params": [passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                     |
-| ---------- | ------ | ----------------------------------------------- |
-| passphrase | string | (optional) the pass phrase used for encryption. |
+| Tên          | Loại | Mô tả                                           |
+| ------------ | ----- | ----------------------------------------------- |
+| cụm mật khẩu | chuỗi | (tùy chọn) cụm mật khẩu được sử dụng để mã hóa. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| string | The address of the new account. |
+| Loại | Mô tả                      |
+| ----- | -------------------------- |
+| chuỗi | Địa chỉ của tài khoản mới. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.newAccount()
 Passphrase:
@@ -236,7 +236,7 @@ Repeat passphrase:
 "0x5e97870f263700f46aa00d967821199b9bc5a120"
 ```
 
-The passphrase can also be supplied as a string.
+Cụm mật khẩu cũng có thể được cung cấp dưới dạng chuỗi.
 
 ``` javascript
 > personal.newAccount("h4ck3r")
@@ -252,28 +252,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_lockAccount <a id="personal_lockaccount"></a>
 
-Removes the private key with a given address from memory. The account can no longer be used to send transactions.
+Xóa khóa riêng tư có địa chỉ đã cho khỏi bộ nhớ. Tài khoản không còn có thể được sử dụng để gửi giao dịch.
 
-| Client  | Method invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `personal.lockAccount(address)`                           |
-|   RPC   | `{"method": "personal_lockAccount", "params": [address]}` |
+|   Khách hàng    | Gọi phương thức                                           |
+|:---------------:| --------------------------------------------------------- |
+| Bảng điều khiển | `personal.lockAccount(address)`                           |
+|       RPC       | `{"method": "personal_lockAccount", "params": [address]}` |
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                  |
-| ------- | ------ | ---------------------------- |
-| address | string | The account address to lock. |
+| Tên     | Loại  | Mô tả                      |
+| ------- | ----- | -------------------------- |
+| địa chỉ | chuỗi | Địa chỉ tài khoản để khóa. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                                                       |
-| ---- | ----------------------------------------------------------------- |
-| bool | `true` if the account was successfully locked, `false` otherwise. |
+| Loại | Mô tả                                                        |
+| ----- | ------------------------------------------------------------ |
+| bool  | `đúng` nếu tài khoản đã bị khóa thành công, `sai` nếu không. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > personal.lockAccount("0xfa415bb3e6231f488ff39eb2897db0ef3636dd32")
 true
@@ -287,36 +287,36 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_unlockAccount <a id="personal_unlockaccount"></a>
 
-Decrypts the key with the given address from the key store.
+Giải mã khóa với địa chỉ đã cho từ kho lưu trữ khóa.
 
-Both passphrase and unlock duration are optional when using the JavaScript console. If the passphrase is not supplied as an argument, the console will prompt for the passphrase interactively.
+Cả cụm mật khẩu và thời gian mở khóa đều là tùy chọn khi sử dụng bảng điều khiển JavaScript. Nếu cụm mật khẩu không được cung cấp làm đối số, bảng điều khiển sẽ chủ động nhắc cụm mật khẩu.
 
-The unencrypted key will be held in memory until the unlock duration expires. If the unlock duration defaults to 300 seconds. An explicit duration of zero seconds unlocks the key until the Klaytn local node exits.
+Khóa không được mã hóa sẽ được giữ trong bộ nhớ cho đến khi hết thời gian mở khóa. Nếu thời gian mở khóa mặc định là 300 giây. Thời gian cụ thể trong 0 giây sẽ mở khóa cho đến khi nút cục bộ Klaytn thoát ra.
 
-The account can be used with `klay_sign` and `klay_sendTransaction` while it is unlocked.
+Tài khoản này có thể được sử dụng `klay_sign` và `klay_sendTransaction` khi nó được mở khóa.
 
-| Client  | Method invocation                                                                 |
-|:-------:| --------------------------------------------------------------------------------- |
-| Console | `personal.unlockAccount(address, passphrase, duration)`                           |
-|   RPC   | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
+|   Khách hàng    | Gọi phương thức                                                                   |
+|:---------------:| --------------------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.unlockAccount(address, passphrase, duration)`                           |
+|       RPC       | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                              |
-| ---------- | ------ | -------------------------------------------------------- |
-| address    | string | The account address to unlock.                           |
-| passphrase | string | the passphrase used for the encryption.                  |
-| duration   | int    | (optional) the unlock duration (default to 300 seconds). |
+| Tên              | Loại | Mô tả                                                |
+| ---------------- | ----- | ---------------------------------------------------- |
+| địa chỉ          | chuỗi | Địa chỉ tài khoản để mở khóa.                        |
+| cụm mật khẩu     | chuỗi | cụm mật khẩu được sử dụng để mã hóa.                 |
+| khoảng thời gian | int   | (tùy chọn) thời gian mở khóa (mặc định là 300 giây). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type | Description                           |
-| ---- | ------------------------------------- |
-| bool | `true` if unlocked, `false` otherwise |
+| Loại | Mô tả                                            |
+| ---- | ------------------------------------------------ |
+| bool | `đúng` nếu đã được mở khóa, `sai` nếu không phải |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120")
 Unlock account 0x5e97870f263700f46aa00d967821199b9bc5a120
@@ -324,14 +324,14 @@ Passphrase:
 true
 ```
 
-Supplying the passphrase and unlock duration as arguments:
+Cung cấp cụm mật khẩu và thời gian mở khóa làm đối số:
 
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", "foo", 30)
 true
 ```
 
-If you want to type in the passphrase and still override the default unlock duration, pass `null` as the passphrase.
+Nếu bạn muốn nhập cụm mật khẩu và vẫn ghi đè thời gian mở khóa mặc định, đặt `null` làm cụm mật khẩu.
 
 ```
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", null, 30)
@@ -347,32 +347,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_replaceRawKey <a id="personal_replacerawkey"></a>
 
-Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format), encrypting it with the new passphrase. It also receives the old passphrase to decrypt the old private key before replacement. If it is failed to decrypt, or can not find the matching account, it throws an error.
+Thay thế tệp khóa được mã hóa trong kho lưu trữ khóa bằng khóa riêng không được mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format), mã hóa nó bằng cụm mật khẩu mới. Nó cũng nhận cụm mật khẩu cũ để giải mã khóa riêng tư cũ trước khi bị thay thế. Nếu không thể giải mã hoặc không thể tìm thấy tài khoản phù hợp, nó sẽ báo lỗi.
 
-Returns the address of the replaced account if successful.
+Trả về địa chỉ của tài khoản được thay thế nếu thành công.
 
-| Client  | Method invocation                                                                         |
-|:-------:| ----------------------------------------------------------------------------------------- |
-| Console | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
-|   RPC   | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
+|    Máy khách    | Gọi phương thức                                                                           |
+|:---------------:| ----------------------------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
+|       RPC       | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name          | Type   | Description                                                                                                                                          |
-| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata       | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| oldPassphrase | string | The passphrase to decrypt the old private key.                                                                                                       |
-| newPassphrase | string | The passphrase to encrypt the new private key.                                                                                                       |
+| Tên           | Loại  | Mô tả                                                                                                                                                     |
+| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keydata       | chuỗi | Khóa cá nhân không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| oldPassphrase | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư cũ.                                                                                                                 |
+| newPassphrase | chuỗi | Cụm mật khẩu để mã hóa khóa riêng tư mới.                                                                                                                 |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Name    | Type   | Description                          |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the replaced account. |
+| Tên     | Loại  | Mô tả                                |
+| ------- | ----- | ------------------------------------ |
+| địa chỉ | chuỗi | Địa chỉ của tài khoản được thay thế. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ```javascript
 > personal.replaceRawKey('{private key}', 'myoldpassword', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -389,29 +389,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
-Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction. The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are se internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). Đối tượng giao dịch phải có các trường `nơi bắt đầu` và `khóa`. Các trường khác như `gas`, `Giá ga`, và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.sendAccountUpdate(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
+|   Khách hàng    | Gọi phương thức                                                        |
+|:---------------:| ---------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.sendAccountUpdate(tx, passphrase)`                           |
+|       RPC       | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                               |
-| ---------- | ------ | --------------------------------------------------------- |
-| tx         | string | A transaction object. `from` and `key` must be specified. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.   |
+| Tên          | Loại  | Mô tả                                                          |
+| ------------ | ----- | -------------------------------------------------------------- |
+| tx           | chuỗi | Đối tượng giao dịch. Yêu cầu chỉ định `nơi bắt đầu` và `khóa`. |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.           |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type           | Description                                                     |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| Loại          | Mô tả                                                                             |
+| ------------- | --------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", key:"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}
 undefined
@@ -420,7 +420,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**LƯU Ý**: Hàm `klay.toPeb()` không thể thực thi trong HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -428,29 +428,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
-Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction. The transaction object must have `from` and `to` except the case of contract deployment. `to` should be omitted if the transaction deploys a smart contract. If `value` is not specified, it will be set to zero internally. Other fields such as `gas`, `gasPrice`, and `nonce` are set to appropriate values internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). Đối tượng giao dịch phải có `nơi bắt đầu` và `nơi đến` ngoại trừ trường hợp triển khai hợp đồng. Nên bỏ qua `nơi đến` nếu giao dịch triển khai là hợp đồng thông minh. Nếu không chỉ định `giá trị`, giá trị sẽ được đặt thành 0 trong nội bộ. Các trường khác như `gas`, `giá ga`, và `số dùng một lần` được đặt thành các giá trị phù hợp trong nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-| Client  | Method invocation                                                    |
-|:-------:| -------------------------------------------------------------------- |
-| Console | `personal.sendTransaction(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
+|    Máy khách    | Gọi phương thức                                                      |
+|:---------------:| -------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.sendTransaction(tx, passphrase)`                           |
+|       RPC       | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                                                                                         |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| tx         | string | A transaction object. `from` is a required field. `to`, `value`, `gas`, `gasPrice` and `nonce` are optional fields. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.                                                             |
+| Tên          | Loại | Mô tả                                                                                                                                    |
+| ------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| tx           | chuỗi | Đối tượng giao dịch. `nơi bắt đầu` là trường bắt buộc. `nơi đến`, `giá trị`, `ga`, `giá ga` và `số dùng một lần` là các trường tùy chọn. |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.                                                                                     |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type           | Description                                                     |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| Loại         | Mô tả                                                                             |
+| ------------- | --------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, "KLAY")}
 undefined
@@ -459,7 +459,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**LƯU Ý**: Hàm `klay.toPeb()` không thể thực thi trong HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -467,29 +467,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
-Validates the given passphrase and submits a [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) transaction. The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). Đối tượng giao dịch phải có các trường `nơi bắt đầu`, `nơi đến`, và `giá trị`. Các trường khác như `gas`, `Giá ga`, và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.sendValueTransfer(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
+|    Máy khách    | Gọi phương thức                                                        |
+|:---------------:| ---------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.sendValueTransfer(tx, passphrase)`                           |
+|       RPC       | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                                                        |
-| ---------- | ------ | ------------------------------------------------------------------ |
-| tx         | string | A transaction object. `from`, `to`, and `value` must be specified. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.            |
+| Tên          | Loại | Mô tả                                                                        |
+| ------------ | ----- | ---------------------------------------------------------------------------- |
+| tx           | chuỗi | Đối tượng giao dịch. Yêu cầu chỉ định `nơi bắt đầu`, `nơi đến` và `giá trị`. |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.                         |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type           | Description                                                     |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| Loại         | Mô tả                                                                             |
+| ------------- | --------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, "KLAY")}
 undefined
@@ -498,7 +498,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**LƯU Ý**: Hàm `klay.toPeb()` không thể thực thi trong HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -506,34 +506,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sign <a id="personal_sign"></a>
 
-The `sign` method calculates a Klaytn-specific signature with: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
+Phương thúc `ký` tính toán chữ ký dành riêng cho Klaytn với: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (*e.g.*, transaction) and use the signature to impersonate the victim.
+Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một DApp độc hại có thể ký dữ liệu tùy ý (*ví dụ:* giao dịch) và sử dụng chữ ký để mạo danh nạn nhân.
 
-See `personal_ecRecover` to verify the signature.
+Xem `personal_ecRecover` để xác minh chữ ký.
 
-| Client  | Method invocation                                                     |
-|:-------:| --------------------------------------------------------------------- |
-| Console | `personal.sign(message, account, password)`                           |
-|   RPC   | `{"method": "personal_sign", "params": [message, account, password]}` |
+|   Khách hàng    | Gọi phương thức                                                       |
+|:---------------:| --------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.sign(message, account, password)`                           |
+|       RPC       | `{"method": "personal_sign", "params": [message, account, password]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                       |
-| -------- | ------ | --------------------------------- |
-| message  | string | A message to sign.                |
-| account  | string | The account address.              |
-| password | string | The pass phrase used for signing. |
+| Tên       | Loại | Mô tả                            |
+| --------- | ----- | -------------------------------- |
+| tin nhắn  | chuỗi | Thông báo có thể ký.             |
+| tài khoản | chuỗi | Địa chỉ tài khoản.               |
+| mật khẩu  | chuỗi | Cụm mật khẩu được sử dụng để ký. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description  |
-| ------ | ------------ |
-| string | A signature. |
+| Loại  | Mô tả   |
+| ----- | ------- |
+| chuỗi | Chữ ký. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
@@ -546,50 +546,50 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_signTransaction <a id="personal_signtransaction"></a>
 
-Sets default configuration and signs the given transaction.
+Thiết lập cấu hình mặc định và ký giao dịch đã cho.
 
 {% hint style="success" %}
-NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
+LƯU Ý: Gửi mật khẩu tài khoản của bạn qua kết nối HTTP RPC không an toàn là rất nguy hiểm. Sử dụng [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
 {% endhint %}
 
-**Parameters**
+**Tham số**
 
-The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md).
+Các tham số bắt buộc phụ thuộc vào loại giao dịch. Kiểm tra các tham số phù hợp trong [Làm việc với các loại giao dịch Klaytn](./klay/transaction/transaction-type-support.md).
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type     | Description            |
-| -------- | ---------------------- |
-| raw      | Signed raw transaction |
-| tx       | Transaction object     |
-| password | Sender's password      |
+| Loại     | Mô tả               |
+| -------- | ------------------- |
+| thô      | Giao dịch thô đã ký |
+| tx       | Đối tượng giao dịch |
+| mật khẩu | Mật khẩu người gửi  |
 
 
 ## personal_ecRecover <a id="personal_ecrecover"></a>
 
-`ecRecover` returns the address associated with the private key that was used to calculate the signature in `personal_sign`.
+`ecRecover` trả về địa chỉ được liên kết với khóa riêng tư được sử dụng để tính toán chữ ký trong `personal_sign`.
 
-| Client  | Method invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `personal.ecRecover(message, signature)`                           |
-|   RPC   | `{"method": "personal_ecRecover", "params": [message, signature]}` |
+|    Máy khách    | Gọi phương thức                                                    |
+|:---------------:| ------------------------------------------------------------------ |
+| Bảng điều khiển | `personal.ecRecover(message, signature)`                           |
+|       RPC       | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description    |
-| --------- | ------ | -------------- |
-| message   | string | A message.     |
-| signature | string | The signature. |
+| Tên      | Loại | Mô tả     |
+| -------- | ----- | --------- |
+| tin nhắn | chuỗi | Tin nhắn. |
+| chữ ký   | chuỗi | Chữ ký.   |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description          |
-| ------ | -------------------- |
-| string | The account address. |
+| Loại | Mô tả              |
+| ----- | ------------------ |
+| chuỗi | Địa chỉ tài khoản. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
