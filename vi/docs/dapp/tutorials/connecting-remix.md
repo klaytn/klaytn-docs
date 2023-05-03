@@ -8,7 +8,7 @@ Remix là IDE chạy trên trình duyệt (Môi trường phát triển tích h�
 
 Klaytn hỗ trợ hợp đồng viết trên Solidity và tương thích với phiên bản **London** của EVM. Tương tự, phiên bản Solidity từ 0.8.x trở về trước cũng được Klaytn hỗ trợ. Vì vậy, để triển khai hợp đồng trên Klaytn, hợp đồng phải được biên dịch với phiên bản EVM **London**.
 
-* Nhấn **trình biên dịch solidity**, rồi chọn phiên bản EVM **London** trong 'Cấu hình nâng cao'.
+* Nhấp vào **trình biên dịch Solidity**, rồi chọn phiên bản EVM **London** trong "Cấu hình nâng cao".
 
 ![Trình biên dịch Solidity](img/remix-solidity-compiler.png)
 
@@ -16,7 +16,7 @@ Klaytn hỗ trợ hợp đồng viết trên Solidity và tương thích với p
 
 Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Remix. Quy trình này được mô tả dưới đây:
 
-* Nhấn **trình quản lý plugin**, rồi nhấn **Kết nối với Plugin Cục bộ**.
+* Nhấp vào **trình quản lý plugin**, rồi nhấp vào **Kết nối với Plugin cục bộ**.
 
 ![Plugin](../../bapp/tutorials/img/remix-environment-plugin.png)
 
@@ -28,11 +28,11 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 
 ## Cài đặt Môi trường Triển khai <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
 
-* Nhấn vào tab \[Klaytn].
+* Nhấp vào tab \[Klaytn].
 * Chọn \[Environment] phù hợp.
 * Bạn có thể chọn **Baobab**, **Cypress**, **Tích hợp Caver**, **Nhà cung cấp Caver** hoặc **Tích hợp Web3**.
-  * **\[Baobab]**: Kết nối với mạng Baobab
-  * **\[Cypress]**: Kết nối với mạng Cypress
+  * **\[Baobab]**: Kết nối với mạng lưới Baobab
+  * **\[Cypress]**: Kết nối với mạng lưới Cypress
   * **\[Tích hợp Caver]**: Kết nối với mạng tích hợp caver(ví dụ: Kaikas)
   * **\[Nhà cung cấp Caver]**: Kết nối trực tiếp với node Klaytn, có hỗ trợ RPC
   * **\[Tích hợp Web3]**: Kết nối với mạng tích hợp web3(ví dụ: Metamask)
@@ -42,7 +42,7 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 ## Nhập tài khoản <a href="#import-account" id="import-account"></a>
 
 * Bạn có thể nhập khóa từ **khóa riêng tư** hoặc **Lưu trữ khóa**.
-* Nhấn nút **thêm** bên cạnh **TÀI KHOẢN**.
+* Nhấp vào nút **dấu cộng** bên cạnh **TÀI KHOẢN**.
 
 ![Nhập Khóa](../../bapp/tutorials/img/remix-klaytn-import-account.png)
 
@@ -60,7 +60,7 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 ![Nhà cung cấp Caver](img/env-caver-provider.png)
 
 * Nhập địa chỉ RPC của EN trong Điểm cuối Nhà cung cấp Caver. EN cục bộ (mặc định): [http://localhost:8551](http://localhost:8551/)
-* Khi bạn đã kết nối được với Mạng lưới, bạn sẽ thấy ID Chuỗi và Tài khoản của mạng đã kết nối.
+* Sau khi bạn kết nối thành công với mạng lưới này, bạn sẽ thấy ID Chuỗi và Tài khoản của mạng lưới đã kết nối.
 
 ## Kết nối với Klaytn - Remix bằng MetaMask <a href="#connecting-klaytn-remix-using-metamask" id="connecting-klaytn-remix-using-metamask"></a>
 
@@ -69,8 +69,8 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 
 ![Tích hợp Web3](img/env-injected-web3.png)
 
-* Khi bạn nhìn thấy cửa sổ MetaMask bật lên, nhấn để chọn tài khoản.
-* Khi bạn đã kết nối được với Mạng lưới, bạn sẽ thấy ID Chuỗi và Tài khoản của mạng đã kết nối.
+* Khi bạn nhìn thấy cửa sổ MetaMask bật lên, nhấp vào đó để chọn tài khoản.
+* Khi bạn đã kết nối được với Mạng lưới, bạn sẽ thấy ID chuỗi và Tài khoản của mạng đã kết nối.
 
 ## Kết nối với Klaytn - Remix bằng Kaikas <a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
 
@@ -78,8 +78,8 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 
 ![Tích hợp Caver](img/env-injected-caver.png)
 
-* Khi bạn thấy cửa sổ Kaikas bật lên, nhấn \[Connect].
-* Khi bạn đã kết nối được với Mạng lưới, bạn sẽ thấy ID Chuỗi và Tài khoản của mạng đã kết nối.
+* Khi bạn thấy cửa sổ Kaikas bật lên, nhấp vào \[Connect].
+* Khi bạn đã kết nối được với Mạng lưới, bạn sẽ thấy ID chuỗi và Tài khoản của mạng đã kết nối.
 
 ## Hướng dẫn: Hợp đồng KlaytnGreeter <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
 
@@ -93,7 +93,7 @@ Chúng tôi sẽ sử dụng hợp đồng mẫu [**KlaytnGreeter**](https://doc
 
 > Bạn nên bật tùy chọn 'Tự động biên dịch'.
 
-* Trong tab Triển khai & Chạy Giao dịch tab, nhấn \[Deploy] để triển khai hợp đồng đã biên dịch.
+* Trong tab Triển khai & Chạy Giao dịch, nhấp vào \[Deploy] để triển khai hợp đồng đã biên dịch.
 
 ![Triển khai Hợp đồng](../../bapp/tutorials/img/remix-deploy-run-tx.png)
 
