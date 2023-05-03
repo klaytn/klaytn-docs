@@ -15,7 +15,7 @@ KAS cung cấp nhiều API để hỗ trợ việc phát triểm ứng dụng bl
 ### Tài liệu tham khảo
 
 * [Tài liệu](https://www.klaytnapi.com/en/resource/docs/readme)
-* [Gói đăng Ký](https://www.klaytnapi.com/en/landing/pricings)
+* [Gói đăng ký](https://www.klaytnapi.com/en/landing/pricings)
 * [Trang web](https://www.klaytnapi.com/en/landing/main)
 
 ## All That Node
@@ -40,7 +40,7 @@ All That Node nhắm tới trở thành cổng đáng tin cậy về hạ tầng
 ### **Tài liệu tham khảo**
 
 - [Tài liệu](https://docs.allthatnode.com/)
-- [Gói đăng Ký](https://www.allthatnode.com/pricing.dsrv)
+- [Gói đăng ký](https://www.allthatnode.com/pricing.dsrv)
 - [Trang web](https://www.allthatnode.com/main.dsrv)
 
 ## Tatum
@@ -98,45 +98,45 @@ Pocket hỗ trợ hàng tá blockchain và vẫn đang không ngừng hỗ trợ
 * Tokenomics hiệu quả về chi phí, gần như bằng không (nắm giữ POKT một lần cho băng thông mạng)
 * Không phát sinh chi phí chìm hàng tháng, biến hạ tầng của bạn thành một tài sản
 * Load-Balancing được tích hợp vào giao thức
-* Infinitely scale the number of requests per day and nodes per hour as you go
-* The most private, censorship-resistant option
-* Hands-on developer support
+* Mở rộng vô hạn số lượng yêu cầu mỗi ngày và số nút mỗi giờ khi bạn sử dụng
+* Tùy chọn riêng tư, chống kiểm duyệt
+* Hỗ trợ thực tế cho nhà phát triển
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-* [Website](https://docs.pokt.network/)
-* [Pocket Portal](https://bit.ly/ETHorg\_POKTportal) dashboard and analytics
+* [Tài liệu](https://docs.pokt.network/api-docs/klaytn-evm/#/)
+* [Trang web](https://docs.pokt.network/)
+* Trang tổng quan và dữ liệu phân tích [Pocket Portal](https://bit.ly/ETHorg\_POKTportal)
 
 ## ANKR
 
-Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
+Mạng lưới nút phân phối của ANKR tạo ra sự kết hợp mạnh mẽ, cho phép các nhà phát triển kết nối với các điểm cuối công khai một cách dễ dàng và an toàn. Với khả năng lưu bộ nhớ đệm tinh chỉnh giúp tối ưu hóa việc sử dụng tài nguyên, ANKR đảm bảo yêu cầu RPC nhanh cùng độ trễ thấp để có hiệu suất vượt trội khi xây dựng các ứng dụng phi tập trung.
 
-### Features
+### Tính năng
 
-* 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-* Discord and Support Portal for the free plan, and dedicated support for the premium.
-* WebSocket is available for the premium plan.
+* 500 yêu cầu/giây cho gói miễn phí và 1.500 yêu cầu/giây cho gói cao cấp. Có thể nâng cấp khi có yêu cầu.
+* Cổng Discord và Hỗ trợ cho gói miễn phí và hỗ trợ chuyên dụng cho gói cao cấp.
+* WebSocket có sẵn cho gói cao cấp.
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://www.ankr.com/docs/build-blockchain/overview)
-* [Subscription](https://www.ankr.com/rpc/pricing/)
-* [Website](https://www.ankr.com/rpc/)
+* [Tài liệu](https://www.ankr.com/docs/build-blockchain/overview)
+* [Gói đăng ký](https://www.ankr.com/rpc/pricing/)
+* [Trang web](https://www.ankr.com/rpc/)
 
 ## NodeReal
 
-NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+NodeReal là hạ tầng blockchain và nhà cung cấp dịch vụ. NodeReal giúp các nhà phát triển và nhà đầu tư khám phá blockchain với những giải pháp đáng tin nhất.
 
-### Features
+### Tính năng
 
-- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
-- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
-- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
-- 50 Queries Per Seconds (QPS)/method
+- Free Tier, 3 khóa API, 350 triệu đơn vị tính toán (CU) hàng tháng, 300 đơn vị tinh toán/giây (CUPS) hàng tháng, dữ liệu lưu trữ
+- Growth Tier, 15 khóa API, 500 triệu đơn vị tính toán (CU) hàng tháng, 700 đơn vị tính toán/giây (CUPS) hàng tháng, dữ liệu lưu trữ, gỡ lỗi & theo dõi API
+- Enterprise Tier, số lượng khóa API tùy chỉnh, lượng sử dụng hàng tháng tùy chỉnh, hỗ trợ chuyên dụng, thỏa thuận mức dịch vụ (SLA) và các yêu cầu khác
+- 50 truy vấn/giây (QPS)/phương thức
 
-### References
+### Tài liệu tham khảo
 
-* [Docs](https://docs.nodereal.io/docs/getting-started)
-* [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
-* [Website](https://nodereal.io)
+* [Tài liệu](https://docs.nodereal.io/docs/getting-started)
+* [Gói đăng ký](https://nodereal.io/api-marketplace/klaytn-rpc)
+* [Trang web](https://nodereal.io)
