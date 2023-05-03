@@ -1,2 +1,2 @@
-# Klaytn Design <a id="klaytn-design"></a>
+# Thiết kế Klaytn <a id="klaytn-design"></a>
 
