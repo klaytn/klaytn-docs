@@ -1,16 +1,16 @@
-# Creating Accounts <a id="creating-accounts"></a>
+# Tạo tài khoản <a id="creating-accounts"></a>
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## Tạo tài khoản mới <a id="creating-a-new-account"></a>
 
-This will create a new account and print the address on the screen. A keystore file is created under the data directory.
+Việc này sẽ tạo một tài khoản mới và in địa chỉ lên màn hình. Một tập tin kho khóa sẽ được bảo ra bên dưới thư mục dữ liệu.
 
-**Klaytn Keystore File**
+**Tập tin kho khóa Klaytn**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+Khi bạn tạo một tài khoản, một tập tin kho khóa sẽ được tạo ra. Tập tin kho khóa là phiên bản được mã hóa của khóa riêng tư Klaytn của bạn mà bạn sẽ dùng để ký các giao dịch của mình. Tên của tập tin kho khóa có định dạng sau:
 
 * `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
+Việc chuyển toàn bộ thư mục hoặc tập tin kho khóa riêng lẻ trong đó giữa các nút Klaytn là an toàn. Hãy lưu ý rằng trong trường hợp bạn đang thêm khóa vào nút của mình từ một nút khác, thứ tự của các tài khoản có thể thay đổi. Vì thế, hãy đảm bảo là bạn không dựa vào chỉ mục trong đoạn mã hoặc tập lệnh của mình.
 
 ### ken <a id="ken"></a>
 
