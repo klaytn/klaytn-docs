@@ -4,7 +4,7 @@
 
 Bật theo dõi thời gian chạy Go trong khoảng thời gian nhất định và ghi dữ liệu theo dõi vào đĩa.
 
-|   Khách hàng    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi Phương thức                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.goTrace(file, seconds)`                            |
 |       RPC       | `{"method": "debug_goTrace", "params": [string, number]}` |
@@ -39,7 +39,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Bắt đầu viết theo dõi thời gian chạy Go vào tệp đã cho.
 
-|   Khách hàng    | Gọi phương thức                                        |
+|    Máy khách    | Gọi phương thức                                        |
 |:---------------:| ------------------------------------------------------ |
 | Bảng điều khiển | `debug.startGoTrace(file)`                             |
 |       RPC       | `{"method": "debug_startGoTrace", "params": [string]}` |
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Dừng ghi dấu vết thời gian chạy Go.
 
-|   Khách hàng    | Gọi phương thức                                 |
+|    Máy khách    | Gọi phương thức                                 |
 |:---------------:| ----------------------------------------------- |
 | Bảng điều khiển | `debug.stopGoTrace()`                           |
 |       RPC       | `{"method": "debug_stopGoTrace", "params": []}` |
