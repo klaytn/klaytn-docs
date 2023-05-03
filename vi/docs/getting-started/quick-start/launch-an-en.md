@@ -27,7 +27,7 @@ $ mkdir -p ~/kend_home
 
 ## Cấu hình EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-Tập tin cấu hình, `kend.conf`, được đặt dưới `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem [Hướng dẫn cấu hình EN](../../operation-guide/configuration.md). Để khởi chạy một EN của mạng kiểm tra Baobab, vui lòng cập nhật tập tin `kend.conf` phù hợp như sau.
+Tập tin cấu hình, `kend.conf`, được đặt dưới `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem [Hướng dẫn cấu hình EN](../../operation-guide/configuration.md). Để khởi chạy một EN của mạng thử nghiệm Baobab, vui lòng cập nhật tập tin `kend.conf` phù hợp như sau.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
