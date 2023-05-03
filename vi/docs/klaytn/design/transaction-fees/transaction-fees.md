@@ -53,7 +53,7 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
 Giao thức `IstanbulEVM` nâng cấp số khối như dưới đây.
-* Mạng thử nghiệm: `#75373312`
+* Mạng thử nghiệm Baobab: `#75373312`
 * Mạng lưới chính thức Cypress: `#86816005`
 {% endhint %}
 
