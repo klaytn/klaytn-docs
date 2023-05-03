@@ -21,7 +21,7 @@ Các chủ đề chính có thể được quyết định thông qua cấu trú
 - **Công nghệ**
   - Những việc liên quan tới cập nhật kỹ thuật của nền tảng. Trong này bao gồm các vấn đề về cấu trúc cơ bản của chuỗi khối (ví dụ như Cấu trúc tài khoản), các tính năng mới (ví dụ như giải pháp L2) hoặc lịch trình cập nhật phần mềm.
 - **Nền kinh tế**
-  - Các vấn đề liên quan tới việc phát hành và cấu trúc phân phối của KLAY, các thay đổi về phí giao dịch, và phê duyệt chi tiêu cho Bảo lưu cải tiến của Klaytn, v. v. nằm trong danh mục này.
+  - Các vấn đề liên quan tới việc phát hành và cấu trúc phân phối của KLAY, các thay đổi về phí giao dịch, và phê duyệt chi tiêu cho Khoản sự trữ cải tiến của Klaytn, v. v. nằm trong danh mục này.
 - **Quy định quản trị**
   - Các chủ thể và quy trình quản trị, cũng như các quy định về trách nhiệm và quyền hạn của các cơ quan quản lý, nằm trong danh mục này.
 
@@ -37,7 +37,7 @@ Những người có quyền giới thiệu đề xuất có thể đảm bảo 
 
 Trong giai đoạn đầu của việc quản trị Klaytn, các thành viên của Hội đồng quản trị Klaytn sẽ có quyền bỏ phiếu bình chọn cho các đề xuất được giới thiệu, và họ sẽ tham khảo phát biểu quan điểm của các nhà cố vấn đề bình chọn cho những đề xuất mà họ tin là lựa chọn tốt nhất. Nếu số phiếu bình chọn vượt qua ngưỡng, đề xuất sẽ được thông qua; nếu không, đề xuất sẽ bị bác bỏ. Trong giai đoạn đầu, quy trình bỏ phiếu có thể được thay thế bằng quy trình thảo luận do quỹ Klaytn hỗ trợ điều phối. Các biện pháp tiếp theo đối với một đề xuất được phê duyệt sẽ được chủ tịch phụ trách, và chủ tịch có trách nhiệm thực thi tất cả các đề xuất được hội đồng thông qua trong nhiệm kỳ của mình.
 
-### Quy trình đánh giá bảo lưu cải tiến của Klaytn <a id="klaytn-improvement-reserve-review-process"></a>
+### Quy trình đánh giá Khoản dự trữ cải tiến của Klaytn <a id="klaytn-improvement-reserve-review-process"></a>
 
 
 Việc đánh giá Đề xuất KIR sẽ được quyết định thông qua phiếu bình chọn của các thành viên Hội đồng quản trị, và đề xuất sẽ bị bác bỏ nếu có từ hơn một nửa thành viên ủy ban bỏ phiếu từ chối (bác bỏ) đề xuất đó. Để biết thêm chi tiết về việc đánh giá Đề xuất KIR, hãy tham khảo các tài liệu sau.
