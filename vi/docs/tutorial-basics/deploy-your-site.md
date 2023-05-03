@@ -16,16 +16,16 @@ Build your site **for production**:
 npm run build
 ```
 
-The static files are generated in the `build` folder.
+Các tập tin tĩnh đã được tạo trong thư mục `build`.
 
-## Deploy your site
+## Triển khai trang của bạn
 
-Test your production build locally:
+Kiểm thử cục bộ phiên bản dành cho production:
 
 ```bash
 npm run serve
 ```
 
-The `build` folder is now served at [http://localhost:3000/](http://localhost:3000/).
+Thư mục `build` giờ đã có tại [http://localhost:3000/](http://localhost:3000/).
 
-You can now deploy the `build` folder **almost anywhere** easily, **for free** or very small cost (read the **[Deployment Guide](https://docusaurus.io/docs/deployment)**).
+Giờ thì bạn có thể triển khai thư mục `build` **gần như từ bất kỳ đâu** một cách dễ dàng, **và miễn phí** hoặc với một khoản phí rất nhỏ (hãy đọc **[Hướng dẫn triển khai](https://docusaurus.io/docs/deployment)**).
