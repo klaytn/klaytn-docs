@@ -15,7 +15,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
+**LƯU Ý**: Bạn phải đợi tới khi tất cả các khối đã được tải về. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 
