@@ -4,7 +4,7 @@
 
 Trả lại bộ nhớ chưa sử dụng cho hệ điều hành.
 
-|   Khách hàng    | Gọi Phương thức                    |
+|    Máy khách    | Gọi Phương thức                    |
 |:---------------:| ---------------------------------- |
 | Bảng điều khiển | `debug.freeOSMemory()`             |
 |       RPC       | `{"method": "debug_freeOSMemory"}` |
@@ -35,7 +35,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Trả về số liệu thống kê GC.
 
-|   Khách hàng    | Gọi Phương thức                             |
+|    Máy khách    | Gọi Phương thức                             |
 |:---------------:| ------------------------------------------- |
 | Bảng điều khiển | `debug.gcStats()`                           |
 |       RPC       | `{"method": "debug_gcStats", "params": []}` |
@@ -73,7 +73,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Trả về số liệu thống kê bộ nhớ thời gian chạy chi tiết.
 
-|   Khách hàng    | Gọi Phương thức                              |
+|    Máy khách    | Gọi Phương thức                              |
 |:---------------:| -------------------------------------------- |
 | Bảng điều khiển | `debug.memStats()`                           |
 |       RPC       | `{"method": "debug_memStats", "params": []}` |
@@ -122,7 +122,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Truy xuất tất cả các số liệu hệ thống đã biết do nút thu thập.
 
-|   Khách hàng    | Gọi Phương thức                                |
+|    Máy khách    | Gọi Phương thức                                |
 |:---------------:| ---------------------------------------------- |
 | Bảng điều khiển | `debug.metrics(raw)`                           |
 |       RPC       | `{"method": "debug_metrics", "params": [raw]}` |
@@ -245,7 +245,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 Trả về một dạng in đại diện cho các phân loại của tất cả các goroutine.
 
-|   Khách hàng    | Gọi Phương thức                            |
+|    Máy khách    | Gọi Phương thức                            |
 |:---------------:| ------------------------------------------ |
 | Bảng điều khiển | `debug.stacks()`                           |
 |       RPC       | `{"method": "debug_stacks", "params": []}` |
@@ -256,9 +256,9 @@ Không có
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                         |
-| ----- | --------------------------------------------- |
-| chuỗi | Thông tin phân loại của tất cả các goroutine. |
+| Loại | Mô tả                                     |
+| ----- | ----------------------------------------- |
+| chuỗi | Thông tin stack của tất cả các goroutine. |
 
 **Ví dụ**
 
