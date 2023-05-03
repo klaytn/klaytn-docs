@@ -1,30 +1,30 @@
-# Install Development Tools <a id="install-development-tools"></a>
+# Cài đặt các công cụ phát triển <a id="install-development-tools"></a>
 
-## Installing caver-js <a id="installing-caver-js"></a>
+## Cài đặt caver-js <a id="installing-caver-js"></a>
 
-We recommend to create a klaytn project directory such that:
+Chúng tôi khuyên bạn nên tạo ra một thư mục dự án klaytn để:
 
 ```bash
 $ mkdir $HOME/klaytn
 ```
 
-> You need `npm` and `node.js` installed to proceed. Please refer to [get-npm](https://www.npmjs.com/get-npm) and [node.js](https://nodejs.org/en/) for installation on your system.
+> Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-​[caver-js](../../dapp/sdk/caver-js/README.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
+[caver-js](../../dapp/sdk/caver-js/README.md) là khung RPC JSON cho mạng Klaytn \(tương đương với to web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
 $ npm install caver-js
 ```
 
-**NOTE**: If you already installed caver-js, please update it to the latest version.
+**LƯU Ý**: Nếu bạn đã cài đặt caver-js, vui lòng cập nhật thành phiên bản mới nhất.
 
 ```bash
 $ npm cache clean --force # initialize npm cache
 $ npm install caver-js@latest # update caver-js to the latest version
 ```
 
-If you receive the following errors while updating the caver-js, remove `.git` folder in the `websocket` directory.
+Nếu bạn nhận được các lỗi sau khi cập nhật caver-js, hãy xóa thư mục `.git` trong thư mục `websocket`.
 
 ```bash
 npm ERR! path /Users/username/klaytn/node_modules/websocket
@@ -40,22 +40,22 @@ npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
-**Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
+**Lưu ý:** Đối với tất cả các chức năng gọi hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
 
 `web3.eth.sendTransaction({ ... })` \(X\)
 
 `caver.klay.sendTransaction({ ... })` \(O\)
 
-## Installing Truffle <a id="installing-truffle"></a>
+## Cài đặt Truffle <a id="installing-truffle"></a>
 
-In this tutorial, Truffle is used to compile and deploy smart contracts written in Solidity. Currently, Klaytn supports Truffle version 4.1.15. For further information about Truffle, refer to the following sites:
+Trong bài hướng dẫn này, Truffle được sử dụng để lập và triển khai hợp đồng thông minh được viết bằng Solidify. Hiện tại, Klaytn hỗ trợ Truffle phiên bản 4.1.15. Để biết thêm thông tin về Truffle, hãy tham khảo các trang sau:
 
-* Truffle repository - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
-* Truffle documents - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
+* Kho lưu trữ Truffle - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
+* Tài liệu Truffle - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
 
-We can install Truffle either
+Chúng ta có thể cài đặt Truffle theo hai cách
 
-1\) globally using npm by executing the following commands:
+1\) theo cách toàn diện bằng npm, thực thi các lệnh sau:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -64,9 +64,9 @@ $ sudo npm install solc@0.5.6
 $ cd -
 ```
 
-or
+hoặc
 
-2\) locally, i.e., in your local directory, by executing the followings:
+2\) theo cách cục bộ, nghĩa là tại thư mục trong máy bạn, thực thi các lệnh sau:
 
 ```bash
 # Assuming you are in $HOME/klaytn/.
