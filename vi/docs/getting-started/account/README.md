@@ -77,7 +77,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 **Lệnh**
 
-Type `personal` or `klay` to get the list of available functions. In this tutorial, we are going to visit the following functions.
+Gõ `personal` hoặc `klay` để xem danh sách các chức năng có sẵn. Trong bài hướng dẫn này, chúng ta sẽ cùng nghiên cứu các chức năng sau.
 
 ```bash
 > personal.newAccount()
@@ -87,7 +87,7 @@ Type `personal` or `klay` to get the list of available functions. In this tutori
 > klay.getBalance()
 ```
 
-### Data Directory <a id="data-directory"></a>
+### Danh mục dữ liệu <a id="data-directory"></a>
 
-When you create an account, the keystore file is stored under `<DATADIR>/keystore`. The `<DATADIR>` is the `DATA_DIR` set in the `kend.conf`. If you follow the quick start guide with the given example, it must be `~/kend_home`.
+Khi bạn tạo một tài khoản, tập tin kho khóa được lưu trữ trong `<DATADIR>keystore`. `<DATADIR>` là `DATA_DIR` đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, hãy dùng `~/kend_home`.
 
