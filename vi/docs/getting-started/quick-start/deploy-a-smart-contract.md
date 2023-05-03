@@ -120,8 +120,8 @@ Triển khai hợp đồng bằng lệnh sau.
 ```bash
 $ truffle deploy --network klaytn --reset
 Using network 'klaytn'.
-Chạy chuyển đổi: 1_initial_migration.js
-  Triển khai chuyển đổi...
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
   Deploying KlaytnGreeter...
@@ -132,7 +132,7 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-**`WARNING`**: It returns an error when your account is locked.
+**`CẢNH BÁO`**: Kết quả trả về sẽ là lỗi khi tài khoản của bạn bị khóa.
 
 ```bash
 Running migration: 1_initial_migration.js
@@ -142,7 +142,7 @@ Error encountered, bailing. Network state unknown. Review successful transaction
 Error: authentication needed: password or unlock
 ```
 
-This is how you unlock your account.
+Đây là cách bạn mở khóa tài khoản.
 
 ```javascript
 > personal.unlockAccount('0x775a59b94889a05c03c66c3c84e9d2f8308ca4abd')
@@ -151,5 +151,5 @@ Passphrase:
 true
 ```
 
-And then you are ready to go. Try deploy again.
+Vậy là bạn đã sẵn sàng. Hãy thử triển khai lại.
 
