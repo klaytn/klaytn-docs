@@ -165,29 +165,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-Partial fee delegating version of TxTypeValueTransfer. For more information, see [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
+Phiên bản ủy quyền một phần phí của TxTypeValueTransfer. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedValueTransferWithRatio: 10                                                                                                                                                                              |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| to         | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                                |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| value      | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                                 |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedValueTransferWithRatio: 10                                                                                                                                                                  |
+| từ              | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
+| tới             | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch hướng đến.                                                                                                                                                                                                  |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.       |
+| gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                             |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
+| giá trị         | SỐ LƯỢNG        | Số nguyên giá trị được gửi cùng với giao dịch.                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người nộp phí của giao dịch.                                                                                                                                                                                             |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                     |
+| chữ ký          | DỮ LIỆU         | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-**Example 1 (`klay_signTransaction`)**
+**Ví dụ 1 (`klay_signTransaction`)**
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 42}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 42,
     "jsonrpc": "2.0",
@@ -295,7 +295,7 @@ Phiên bản ủy quyền phí của TxTypeValueTransferMemo. Để biết thêm
 | --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedValueTransferMemo: 17                                                                                                                                                                       |
 | từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| to              | 20-byte DATA    | The address to which the transaction is directed.                                                                                                                                                                                |
+| tới             | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch hướng đến.                                                                                                                                                                                                  |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.       |
 | gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                             |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
@@ -741,25 +741,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-Phiên bản ủy quyền một phần phí của TxTypeSmartContractDeploy. For more information, see [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
+Phiên bản ủy quyền một phần phí của TxTypeSmartContractDeploy. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
 
-**Parameters**
+**Tham số**
 
-| Name          | Type         | Description                                                                                                                                                                                                                      |
-| ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt       | Integer      | The integer indicating TxTypeFeeDelegatedSmartContractDeployWithRatio: 42                                                                                                                                                        |
-| from          | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                  |
-| to            | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                                                                |
-| gas           | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.     |
-| gasPrice      | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                             |
-| nonce         | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                   |
-| value         | QUANTITY     | Integer of the value sent with this transaction.                                                                                                                                                                                 |
-| input         | DATA         | The data sent along with the transaction.                                                                                                                                                                                        |
-| humanReadable | Boolean      | `true` if the address is humanReadable, `false` if the address is not humanReadable. Currently, the value should be `false`. Human-readable addresses will be supported later.                                                   |
-| codeFormat    | QUANTITY     | The code format of smart contract code. The value `0` indicates EVM.                                                                                                                                                             |
-| feePayer      | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                        |
-| feeRatio      | QUANTITY     | Fee ratio of the fee payer. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                      |
-| chữ ký        | DỮ LIỆU      | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedSmartContractDeployWithRatio: 42                                                                                                                                                            |
+| từ              | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
+| tới             | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch hướng đến.                                                                                                                                                                                                  |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.       |
+| gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                             |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
+| giá trị         | SỐ LƯỢNG        | Số nguyên giá trị được gửi cùng với giao dịch.                                                                                                                                                                                   |
+| nhập            | DỮ LIỆU         | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
+| humanReadable   | Boolean         | `true` nếu địa chỉ là con người có thể đọc được, `false` nếu địa chỉ con người không thể đọc được. Hiện tại, giá trị phải là `false`. Địa chỉ con người có thể đọc được sẽ được hỗ trợ sau này.                                  |
+| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                               |
+| feePayer        | DỮ LIỆU 20-byte | Địa chỉ người nộp phí của giao dịch.                                                                                                                                                                                             |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                     |
+| chữ ký          | DỮ LIỆU         | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 
 **Ví dụ 1 (`klay_signTransaction`)**
@@ -835,10 +835,10 @@ TxTypeSmartContractExecution thực thi hợp đồng thông minh với dữ li�
 
 **Ví dụ**
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 48, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 69}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 69,
     "jsonrpc": "2.0",
@@ -870,7 +870,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedSmartContractExecution <a id="txtypefeedelegatedsmartcontractexecution"></a>
 
-Fee delegating version of TxTypeSmartContractExecution. For more information, see [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
+Phiên bản ủy quyền phí của TxTypeSmartContractExecution. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractExecution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
 
 **Tham số**
 
@@ -1063,23 +1063,23 @@ Phiên bản ủy quyền phí của TxTypeCancel. Để biết thêm thông tin
 
 **Tham số**
 
-| Tên             | Loại            | Mô tả                                                                                                                                                                                                                                            |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedCancel: 57                                                                                                                                                                                                  |
-| từ              | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                       |
-| gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                             |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                   |
-| feePayer        | DỮ LIỆU 20-byte | Địa chỉ người nộp phí của giao dịch.                                                                                                                                                                                                             |
-| chữ ký          | DỮ LIỆU         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| Tên             | Loại            | Mô tả                                                                                                                                                                                                                            |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedCancel: 57                                                                                                                                                                                  |
+| từ              | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.       |
+| gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                             |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20-byte | Địa chỉ người nộp phí của giao dịch.                                                                                                                                                                                             |
+| chữ ký          | DỮ LIỆU         | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 
-**Example 1 (`klay_signTransaction`)**
+**Ví dụ 1 (`klay_signTransaction`)**
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 15}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 15,
     "jsonrpc": "2.0",
@@ -1107,12 +1107,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0xf276dcf90e7ba5aef0c77a940d7f360bb60d761ba0ddced96584ededf56e87d3", "S": "0x2e5feb5b09985da167cce835a93ad60d56b4c125e62da4d3379fc6bcb37ef479"}], "nonce": "0x26"}], "id": 87}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 87,
     "jsonrpc": "2.0",
@@ -1123,28 +1123,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedCancelWithRatio <a id="txtypefeedelegatedcancelwithratio"></a>
 
-Partial fee delegating version of TxTypeCancel. For more information, see [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
+Phiên bản ủy quyền một phần phí của TxTypeCancel. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedCancelWithRatio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type         | Description                                                                                                                                                                                                                                      |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typeInt    | Integer      | The integer indicating TxTypeFeeDelegatedCancelWithRatio: 58                                                                                                                                                                                     |
-| from       | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                                                                                  |
-| gas        | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.                     |
-| gasPrice   | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                                                                                                                                                             |
-| nonce      | QUANTITY     | (optional) Integer of a nonce.                                                                                                                                                                                                                   |
-| feePayer   | 20-byte DATA | The fee payer address of the transaction.                                                                                                                                                                                                        |
-| feeRatio   | QUANTITY     | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.                            |
-| signatures | DATA         | (optional - only for `klay_sendTransactionAsFeePayer` API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Số nguyên       | Số nguyên biểu thị TxTypeFeeDelegatedCancelWithRatio: 58                                                                                                                                                                         |
+| từ              | DỮ LIỆU 20-byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Số nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.       |
+| gasPrice        | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Số nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                             |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20-byte | Địa chỉ người nộp phí của giao dịch.                                                                                                                                                                                             |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                     |
+| chữ ký          | DỮ LIỆU         | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 
-**Example 1 (`klay_signTransaction`)**
+**Ví dụ 1 (`klay_signTransaction`)**
 ```shell
-// Request
+// Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 100}' http://127.0.0.1:8551
 
-// Result
+// Kết quả
 {
     "id": 100,
     "jsonrpc": "2.0",
@@ -1173,7 +1173,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-**Example 2 (`klay_sendTransactionAsFeePayer`)**
+**Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
 ```shell
 // Yêu cầu
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x8f966ed84221298383ad1d7599a18aa461f42206284a9121a58351b1e4a51bd8", "S": "0x2272e9eb953ed69a65a392c3a67b58a981acd503abeceaf60679ddb38e4fb4b0"}], "nonce": "0x27"}], "id": 96}' http://127.0.0.1:8551
