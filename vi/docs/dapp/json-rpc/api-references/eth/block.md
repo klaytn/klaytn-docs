@@ -1,11 +1,11 @@
 ## Tham số khối mặc định <a id="the-default-block-parameter"></a>
 
-  Khi gửi một yêu cầu API chứa vùng tên `eth`, chiều cao khối được xác định bởi tham số `defaultBlock`.
+  Khi gửi một yêu cầu API chứa không gian tên `eth`, chiều cao khối được xác định bởi tham số `defaultBlock`.
 
 Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
 - `HEX String` - số khối là số nguyên
-- `String "earliest"` cho khối sớm nhất/đầu tiên
+- `String "earliest"` cho khối sớm nhất/khởi nguyên
 - `String "latest"` - cho khối đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
 
@@ -16,13 +16,13 @@ Trả về số của khối gần đây nhất.
 
 **Tham số**
 
-Trống
+Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                    |
-| -------- | -------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số khối hiện tại mà máy khách đang ở trên. |
+| Loại     | Mô tả                                                          |
+| -------- | -------------------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số khối hiện tại mà khách hàng đang kết nối đến. |
 
 **Ví dụ**
 
@@ -90,41 +90,41 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
 
-Trả về thông tin tiêu đề theo mã băm.
+Trả về thông tin tiêu đề theo hàm băm.
 
 Vui lòng xem phần [Lưu ý-Tiêu đề](./caution.md#block_header) trước khi sử dụng API này.
 
 **Tham số**
 
-| Loại            | Mô tả            |
-| --------------- | ---------------- |
-| DỮ LIỆU 32 byte | Mã băm của khối. |
+| Loại            | Mô tả                 |
+| --------------- | --------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối. |
 
 **Giá trị trả về**
 
 `Object` - Đối tượng tiêu đề, hoặc `null` khi không tìm thấy tiêu đề. Nếu không sẽ trả về lỗi.
 
-| Tên              | Loại             | Mô tả                                                                                                            |
-| ---------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas.                                                                                         |
-| difficulty       | SỐ LƯỢNG         | Số nguyên độ khó đối với khối này.                                                                               |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                           |
-| gasLimit         | SỐ LƯỢNG         | Số gas tối đa cho phép trong khối này.                                                                           |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                             |
-| hash             | DỮ LIỆU 32 byte  | Mã băm của khối. `null` khi đó là khối đang chờ xử lý.                                                           |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối.                                                                           |
-| miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                       |
-| mixHash          | DỮ LIỆU 32 byte  | Mã băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
-| nonce            | DỮ LIỆU 8 byte   | Mã băm của bằng chứng công việc được tạo.                                                                        |
-| number           | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                   |
-| parentHash       | DỮ LIỆU 32 byte  | Mã băm của khối lớn.                                                                                             |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                        |
-| sha3Uncles       | DỮ LIỆU 32 byte  | SHA3 của dữ liệu chú trong khối.                                                                                 |
-| size             | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                    |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                           |
-| timestamp        | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                      |
-| totalDifficulty  | SỐ LƯỢNG         | Tổng điểm khối của chuỗi cho đến khối này.                                                                       |
-| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                               |
+| Tên              | Loại             | Mô tả                                                                                                             |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas.                                                                                          |
+| difficulty       | SỐ LƯỢNG         | Số nguyên chỉ độ khó của khối này.                                                                                |
+| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                            |
+| gasLimit         | SỐ LƯỢNG         | Số gas tối đa cho phép trong khối này.                                                                            |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                              |
+| hash             | DỮ LIỆU 32 byte  | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                |
+| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối.                                                                            |
+| miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                        |
+| mixHash          | DỮ LIỆU 32 byte  | Hàm băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
+| nonce            | DỮ LIỆU 8 byte   | Hàm băm của bằng chứng công việc (PoW) được tạo.                                                                  |
+| number           | SỐ LƯỢNG         | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                         |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                             |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                         |
+| sha3Uncles       | DỮ LIỆU 32 byte  | SHA3 của dữ liệu chú trong khối.                                                                                  |
+| size             | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                     |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                            |
+| timestamp        | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                       |
+| totalDifficulty  | SỐ LƯỢNG         | Tổng khối lượng tính toán trung bình của chuỗi cho đến khối này.                                                  |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                                |
 
 **Ví dụ**
 
@@ -171,7 +171,7 @@ Vui lòng xem phần [Lưu ý-Khối](./caution.md#block) trước khi sử dụ
 | Loại                | Mô tả                                                                                                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
-| Logic               | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về mã băm của các giao dịch.                                                     |
+| Logic               | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về hàm băm của các giao dịch.                                                    |
 
 
 **Giá trị trả về**
@@ -221,44 +221,44 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
 
-Trả về thông tin về một khối theo mã băm.
+Trả về thông tin về một khối theo hàm băm.
 
 Vui lòng xem phần [Lưu ý-Khối](./caution.md#block) trước khi sử dụng API này.
 
 **Tham số**
 
-| Loại            | Mô tả                                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------ |
-| DỮ LIỆU 32 byte | Mã băm của một khối.                                                                                   |
-| Logic           | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về mã băm của các giao dịch. |
+| Loại            | Mô tả                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối.                                                                                   |
+| Logic           | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về hàm băm của các giao dịch. |
 
 **Giá trị trả về**
 
 `Object` - Đối tượng khối, hoặc `null` khi không tìm thấy khối. Nếu không sẽ trả về lỗi.
 
-| Tên              | Loại            | Mô tả                                                                                                            |
-| ---------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas.                                                                                         |
-| difficulty       | SỐ LƯỢNG         | Số nguyên độ khó đối với khối này                                                                                |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                           |
-| gasLimit         | SỐ LƯỢNG         | Số gas tối đa cho phép trong khối này.                                                                           |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                             |
-| hash             | DỮ LIỆU 32 byte  | Mã băm của khối. `null` khi đó là khối đang chờ xử lý.                                                           |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                     |
-| miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                       |
-| mixHash          | DỮ LIỆU 32 byte  | Mã băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
-| nonce            | DỮ LIỆU 8 byte   | Mã băm của bằng chứng công việc được tạo.                                                                        |
-| number           | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                   |
-| parentHash       | DỮ LIỆU 32 byte  | Mã băm của khối lớn.                                                                                             |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                        |
-| sha3Uncles       | DỮ LIỆU 32 byte  | SHA3 của dữ liệu chú trong khối.                                                                                 |
-| size             | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                    |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                           |
-| timestamp        | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                      |
-| totalDifficulty  | SỐ LƯỢNG         | Tổng điểm khối của chuỗi cho đến khối này                                                                        |
-| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                               |
-| transactions     | Mảng             | Mảng đối tượng giao dịch hoặc mã băm giao dịch 32 byte tùy thuộc vào tham số đã cho cuối cùng.                   |
-| uncles           | Mảng             | Mảng các mã băm chú.                                                                                             |
+| Tên              | Loại            | Mô tả                                                                                                             |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas.                                                                                          |
+| difficulty       | SỐ LƯỢNG         | Số nguyên chỉ độ khó của khối này                                                                                 |
+| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                            |
+| gasLimit         | SỐ LƯỢNG         | Số gas tối đa cho phép trong khối này.                                                                            |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                              |
+| hash             | DỮ LIỆU 32 byte  | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                |
+| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                           |
+| miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                        |
+| mixHash          | DỮ LIỆU 32 byte  | Hàm băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
+| nonce            | DỮ LIỆU 8 byte   | Hàm băm của bằng chứng công việc (PoW) được tạo.                                                                  |
+| number           | SỐ LƯỢNG         | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                         |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                             |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                         |
+| sha3Uncles       | DỮ LIỆU 32 byte  | SHA3 của dữ liệu chú trong khối.                                                                                  |
+| size             | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                     |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                            |
+| timestamp        | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                       |
+| totalDifficulty  | SỐ LƯỢNG         | Tổng khối lượng tính toán trung bình của chuỗi cho đến khối này                                                   |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                                |
+| transactions     | Mảng             | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số đã cho cuối cùng.                   |
+| uncles           | Mảng             | Mảng các hàm băm chú.                                                                                             |
 
 **Ví dụ**
 
@@ -300,13 +300,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
 
-Trả về thông tin về chú của một khối theo mã băm và vị trí chỉ mục của chú. Do Klaytn không có chú, nên giá trị trả về luôn là `null`.
+Trả về thông tin về một khối chú theo hàm băm và vị trí chỉ mục của khối chú. Do Klaytn không có chú, nên giá trị trả về luôn là `null`.
 
 **Tham số**
 
 | Loại           | Mô tả                   |
 | --------------- | ----------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một khối.    |
+| DỮ LIỆU 32 byte | Hàm băm của một khối.   |
 | SỐ LƯỢNG        | Vị trí chỉ mục của chú. |
 
 **Giá trị trả về** `null`
@@ -327,7 +327,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
 
-Trả về thông tin về chú của một khối theo số và vị trí chỉ mục của chú. Vì Klaytn không có chú, nên giá trị trả về luôn là `null`.
+Trả về thông tin về một khối chú theo số và vị trí chỉ mục của khối chú. Vì Klaytn không có chú, nên giá trị trả về luôn là `null`.
 
 **Tham số**
 
@@ -366,7 +366,7 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 | Loại    | Mô tả                                            |
 | -------- | ------------------------------------------------ |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch trong khối này. |
+| SỐ LƯỢNG | Số nguyên chỉ số lượng giao dịch trong khối này. |
 
 **Ví dụ**
 
@@ -385,19 +385,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
-Trả về số lượng giao dịch trong một khối từ một khối khớp với mã băm đã cho.
+Trả về số lượng giao dịch trong một khối từ một khối khớp với hàm băm đã cho.
 
 **Tham số**
 
-| Loại            | Mô tả               |
-| --------------- | ------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một khối |
+| Loại            | Mô tả                |
+| --------------- | -------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối |
 
 **Giá trị trả về**
 
 | Loại    | Mô tả                                            |
 | -------- | ------------------------------------------------ |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch trong khối này. |
+| SỐ LƯỢNG | Số nguyên chỉ số lượng giao dịch trong khối này. |
 
 **Ví dụ**
 
@@ -428,7 +428,7 @@ Trả về số lượng chú trong một khối từ một khối khớp với 
 
 | Loại    | Mô tả                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch trong khối này. Giá trị trả về là `null` nếu không có khối khớp. |
+| SỐ LƯỢNG | Số nguyên chỉ số lượng giao dịch trong khối này. Giá trị trả về là `null` nếu không có khối khớp. |
 
 **Ví dụ**
 
@@ -447,19 +447,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
-Trả về số lượng chú trong một khối từ một khối khớp với mã băm của khối đã cho. Do Klaytn không có chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
+Trả về số lượng chú trong một khối từ một khối khớp với hàm băm của khối đã cho. Do Klaytn không có chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
 
 **Tham số**
 
-| Loại           | Mô tả               |
-| --------------- | ------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một khối |
+| Loại           | Mô tả                |
+| --------------- | -------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối |
 
 **Giá trị trả về**
 
 | Loại    | Mô tả                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch trong khối này. Giá trị trả về là `null` nếu không có khối khớp. |
+| SỐ LƯỢNG | Số nguyên chỉ số lượng giao dịch trong khối này. Giá trị trả về là `null` nếu không có khối khớp. |
 
 **Ví dụ**
 
@@ -484,11 +484,11 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 
 **Tham số**
 
-| Loại                             | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ lưu trữ.                                                                                                                                                                    |
-| SỐ LƯỢNG                          | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                       |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter) hoặc mã băm khối. |
+| Loại                             | Mô tả                                                                                                                                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ lưu trữ.                                                                                                                                                                         |
+| SỐ LƯỢNG                          | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                            |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
 **Giá trị trả về**
 
@@ -552,7 +552,7 @@ Giá trị trả về là `true` nếu máy khách đang tích cực khai thác 
 
 **Tham số**
 
-Trống
+Không có
 
 **Giá trị trả về**
 
@@ -581,19 +581,19 @@ Trả về đối tượng với dữ liệu về trạng thái đồng bộ hó
 
 **Tham số**
 
-Trống
+Không có
 
 **Giá trị trả về**
 
 `Object|Boolean`, đối tượng với dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
 
-| Tên           | Loại    | Mô tả                                                                                                               |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| startingBlock | SỐ LƯỢNG | Khối mà quá trình nhập bắt đầu (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa bị khủng hoảng).                  |
-| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `eth_blockNumber`.                                                                         |
-| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                              |
-| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không "nhanh" thì sẽ trả về số 0. |
-| knownStates   | SỐ LƯỢNG | Số mục nhập trạng thái đã biết vẫn cần được kéo.  Nếu chế độ đồng bộ hóa không "nhanh" thì sẽ trả về số 0.          |
+| Tên           | Loại    | Mô tả                                                                                                                                    |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| startingBlock | SỐ LƯỢNG | Khối mà quá trình nhập bắt đầu (sẽ chỉ được thiết lập lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                       |
+| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `eth_blockNumber`.                                                                                              |
+| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                   |
+| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0.   |
+| knownStates   | SỐ LƯỢNG | Số lượng các mục trạng thái đã biết vẫn cần được truy xuất.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0. |
 
 **Ví dụ**
 
