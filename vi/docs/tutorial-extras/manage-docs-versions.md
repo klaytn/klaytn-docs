@@ -2,23 +2,23 @@
 sidebar_position: 1
 ---
 
-# Manage Docs Versions
+# Quản lý phiên bản tài liệu
 
-Docusaurus can manage multiple versions of your docs.
+Docusaurus có thể quản lý nhiều phiên bản tài liệu khác nhau của bạn.
 
-## Create a docs version
+## Tạo một phiên bản tài liệu
 
-Release a version 1.0 of your project:
+Phát hành phiên bản 1.0 của dự án:
 
 ```bash
 npm run docusaurus docs:version 1.0
 ```
 
-The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
+Thư mục `docs` được sao chép vào `versioned_docs/version-1.0` và `versions.json` được tạo.
 
-Your docs now have 2 versions:
+Tài liệu của bạn giờ đây có 2 phiên bản:
 
-- `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
+- `1.0` tại `http://localhost:3000/docs/` cho phiên bản tài liệu 1.0
 - `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
 
 ## Add a Version Dropdown
