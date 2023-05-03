@@ -100,6 +100,7 @@ To get the price feed for the selected currency pair, you have to execute the `g
 ![](../images/sPriceFeed.png)
 
 Tada 🎉! You just requested for a currency price feed (ETH/USDT)  in your smart contract. 
+
 As of the time of writing, getEthUsdtPrice() returned "185795966200", an 8-point precision figure. To get the actual ETH/USD value, you need to divide the figure by 10^8 which equals $1857.95966200. 
 
 # More Ways To Use SupraOracles Crypto Price Feeds

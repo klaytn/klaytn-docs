@@ -6,7 +6,7 @@ The need for blockchains to access and connect to external data sources, legacy 
 
 The following providers have integrated with Klaytn to deliver decentralized oracle services:
 
+* [Orakl Network](https://docs.orakl.network/docs/developers-guide/readme)
 * [Witnet](https://docs.witnet.io/)
 * [SupraOracles](https://supraoracles.com/docs/overview)
-* [Orakl Network](https://docs.orakl.network/docs/developers-guide/readme)
 * [KlayOracle](https://klayoracle.gitbook.io/v1.0.0/)
