@@ -4,7 +4,7 @@
 
 Bật cấu hình khối trong khoảng thời gian nhất định và ghi dữ liệu cấu hình vào đĩa. Nó sử dụng tốc độ cấu hình là 1 để có thông tin chính xác nhất. Nếu yêu cầu một tốc độ khác, hãy thiết lập tỷ lệ và cấu hình theo cách thủ công bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
 
-|   Khách hàng    | Gọi Phương thức                                                |
+|    Máy khách    | Gọi Phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.blockProfile(file, seconds)`                            |
 |       RPC       | `{"method": "debug_blockProfile", "params": [string, number]}` |
@@ -38,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Bật cấu hình CPU trong khoảng thời gian nhất định và ghi dữ liệu cấu hình vào đĩa.
 
-|   Khách hàng    | Gọi Phương thức                                              |
+|    Máy khách    | Gọi Phương thức                                              |
 |:---------------:| ------------------------------------------------------------ |
 | Bảng điều khiển | `debug.cpuProfile(file, seconds)`                            |
 |       RPC       | `{"method": "debug_cpuProfile", "params": [string, number]}` |
@@ -71,7 +71,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Bật cấu hình mutex cho nsec (nano giây) và ghi dữ liệu cấu hình vào tệp. Nó sử dụng tốc độ cấu hình là 1 để có thông tin chính xác nhất. Nếu muốn một tốc độ khác, hãy thiết lập tốc độ và cấu hình theo cách thủ công.
 
-|   Khách hàng    | Gọi Phương thức                                                |
+|    Máy khách    | Gọi Phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.mutexProfile(file, seconds)`                            |
 |       RPC       | `{"method": "debug_mutexProfile", "params": [string, number]}` |
@@ -103,9 +103,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
-Trả về `true` nếu máy chủ HTTP pprof đang chạy và trả về `false` nếu không phải.
+Trả về `đúng` nếu máy chủ HTTP pprof đang chạy và trả về `sai` nếu không phải.
 
-|   Khách hàng    | Gọi Phương thức                                    |
+|    Máy khách    | Gọi Phương thức                                    |
 |:---------------:| -------------------------------------------------- |
 | Bảng điều khiển | `debug.isPProfRunning()`                           |
 |       RPC       | `{"method": "debug_isPProfRunning", "params": []}` |
@@ -116,9 +116,9 @@ Không có
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                                              |
-| ---- | ------------------------------------------------------------------ |
-| bool | `true` nếu máy chủ HTTP pprof đang chạy và `false` nếu không phải. |
+| Loại | Mô tả                                                            |
+| ---- | ---------------------------------------------------------------- |
+| bool | `đúng` nếu máy chủ HTTP pprof đang chạy và `sai` nếu không phải. |
 
 **Ví dụ**
 
@@ -139,7 +139,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định hình khối, đặt nó thành 0 sẽ dừng cấu hình. Dữ liệu cấu hình được thu thập có thể được viết bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
 
-|   Khách hàng    | Gọi Phương thức                                               |
+|    Máy khách    | Gọi Phương thức                                               |
 |:---------------:| ------------------------------------------------------------- |
 | Bảng điều khiển | `debug.setBlockProfileRate(rate)`                             |
 |       RPC       | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
@@ -172,7 +172,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Bật cấu hình CPU vô thời hạn, ghi vào tệp đã cho.
 
-|   Khách hàng    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi Phương thức                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.startCPUProfile(file)`                             |
 |       RPC       | `{"method": "debug_startCPUProfile", "params": [string]}` |
@@ -206,7 +206,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Tắt cấu hình CPU.
 
-|   Khách hàng    | Gọi Phương thức                                    |
+|    Máy khách    | Gọi Phương thức                                    |
 |:---------------:| -------------------------------------------------- |
 | Bảng điều khiển | `debug.stopCPUProfile()`                           |
 |       RPC       | `{"method": "debug_stopCPUProfile", "params": []}` |
@@ -240,7 +240,7 @@ Khởi động máy chủ HTTP pprof.  Máy chủ pprof đang chạy có thể �
 - http://localhost:6060/memsize/ (đối với các báo cáo kích thước bộ nhớ)
 - http://localhost:6060/debug/vars (đối với các số liệu)
 
-|   Khách hàng    | Gọi Phương thức                                              |
+|    Máy khách    | Gọi Phương thức                                              |
 |:---------------:| ------------------------------------------------------------ |
 | Bảng điều khiển | `debug.startPProf(address, port)`                            |
 |       RPC       | `{"method": "debug_startPProf", "params": [string, number]}` |
@@ -281,7 +281,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Dừng máy chủ HTTP pprof.
 
-|   Khách hàng    | Gọi Phương thức                               |
+|    Máy khách    | Gọi Phương thức                               |
 |:---------------:| --------------------------------------------- |
 | Bảng điều khiển | `debug.stopPProf()`                           |
 |       RPC       | `{"method": "debug_stopPProf", "params": []}` |
@@ -313,7 +313,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Viết một cấu hình khối goroutine vào tệp đã cho.
 
-|   Khách hàng    | Gọi Phương thức                                             |
+|    Máy khách    | Gọi Phương thức                                             |
 |:---------------:| ----------------------------------------------------------- |
 | Bảng điều khiển | `debug.writeBlockProfile(file)`                             |
 |       RPC       | `{"method": "debug_writeBlockProfile", "params": [string]}` |
@@ -346,7 +346,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Viết một cấu hình phân bổ vào tệp đã cho.  Lưu ý rằng tốc độ cấu hình không thể được đặt thông qua API, nó phải được đặt trên dòng lệnh bằng cách sử dụng cờ `--memprofilerate`.
 
-|   Khách hàng    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi Phương thức                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.writeMemProfile(file)`                             |
 |       RPC       | `{"method": "debug_writeMemProfile", "params": [string]}` |
@@ -378,7 +378,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Viết một cấu hình khối goroutine vào tệp đã cho.
 
-|   Khách hàng    | Gọi Phương thức                                             |
+|    Máy khách    | Gọi Phương thức                                             |
 |:---------------:| ----------------------------------------------------------- |
 | Bảng điều khiển | `debug.writeMutexProfile(file)`                             |
 |       RPC       | `{"method": "debug_writeMutexProfile", "params": [string]}` |
