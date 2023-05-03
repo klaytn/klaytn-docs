@@ -58,7 +58,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_chainId <a id="eth_chainid"></a>
 
-Trả về chainId hiện tại được đặt trên nút yêu cầu.
+Trả về mã chuỗi hiện tại được đặt trên nút yêu cầu.
 
 **Tham số**
 
@@ -68,7 +68,7 @@ Không có
 
 | Loại     | Mô tả                               |
 | -------- | ----------------------------------- |
-| SỐ LƯỢNG | Chain id được đặt trên nút yêu cầu. |
+| SỐ LƯỢNG | Mã chuỗi được đặt trên nút yêu cầu. |
 
 **Ví dụ**
 
@@ -97,9 +97,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                     |
-| -------- | ----------------------------------------- |
-| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
+| Loại     | Mô tả                                         |
+| -------- | --------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên chỉ giá gas hiện tại tính bằng peb. |
 
 **Ví dụ**
 
