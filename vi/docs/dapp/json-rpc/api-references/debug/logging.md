@@ -4,7 +4,7 @@
 
 Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyên được thiết lập và một thông báo nhật ký được phát ra tại vị trí đó, ngăn xếp của goroutine đang thực thi câu lệnh nhật ký sẽ được in ra `stderr`.
 
-|   Khách hàng    | Gọi Phương thức                                       |
+|    Máy khách    | Gọi Phương thức                                       |
 |:---------------:| ----------------------------------------------------- |
 | Bảng điều khiển | `debug.backtraceAt(location)`                         |
 |       RPC       | `{"method": "debug_backtraceAt", "params": [string]}` |
@@ -38,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Thiết lập mục tiêu đầu ra của hợp đồng biên dịch trước vmlog.  Khi mục tiêu đầu ra là một tệp, nhật ký từ lệnh gọi `vmlog` trong hợp đồng thông minh sẽ được ghi vào `DATADIR/log/vm.log`.  `DATADIR` ở đây là thư mục được chỉ định bởi `--datadir` khi khởi chạy `klay`.  Mặt khác, mục tiêu đầu ra là `stdout`, nhật ký sẽ được hiển thị như một thông báo gỡ lỗi trên đầu ra tiêu chuẩn.
 
-|   Khách hàng    | Gọi Phương thức                                          |
+|    Máy khách    | Gọi Phương thức                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `debug.setVMLogTarget(target)`                           |
 |       RPC       | `{"method": "debug_setVMLogTarget", "params": [number]}` |
@@ -93,7 +93,7 @@ Thiết lập trần độ chi tiết ghi nhật ký. Tin nhắn nhật ký vớ
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|   Khách hàng    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương thức                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosity(level)`                          |
 |       RPC       | `{"method": "debug_vmodule", "params": [number]}` |
@@ -129,7 +129,7 @@ Thiết lập mức độ chi tiết của mô-đun nhật ký với tên đã c
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|   Khách hàng    | Gọi phương thức                                                   |
+|    Máy khách    | Gọi phương thức                                                   |
 |:---------------:| ----------------------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosityByName(name, level)`                              |
 |       RPC       | `{"method": "debug_verbosityByName", "params": [string, number]}` |
@@ -169,7 +169,7 @@ Thiết lập mức độ chi tiết của mô-đun nhật ký với ModuleID đ
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|   Khách hàng    | Gọi Phương thức                                                 |
+|    Máy khách    | Gọi Phương thức                                                 |
 |:---------------:| --------------------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosityByID(id, level)`                                |
 |       RPC       | `{"method": "debug_verbosityByID", "params": [number, number]}` |
@@ -203,7 +203,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Thiết lập mẫu mức độ chi tiết ghi nhật ký.
 
-|   Khách hàng    | Gọi Phương thức                                   |
+|    Máy khách    | Gọi Phương thức                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `debug.vmodule(module)`                           |
 |       RPC       | `{"method": "debug_vmodule", "params": [string]}` |
