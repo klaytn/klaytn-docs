@@ -5,7 +5,7 @@
 Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` chấp nhận mã băm khối hỏng và sẽ phát lại khối hỏng. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
 
 
-|   Khách hàng    | Gọi Phương thức                                                         |
+|    Máy khách    | Gọi Phương thức                                                         |
 |:---------------:| ----------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
 |       RPC       | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
@@ -14,7 +14,7 @@ Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `stan
 
 | Tên      | Loại           | Mô tả                                                              |
 | -------- | --------------- | ------------------------------------------------------------------ |
-| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                                               |
+| mã băm   | DỮ LIỆU 32-byte | Hàm băm của một khối.                                              |
 | tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Giá trị Trả về**
@@ -40,9 +40,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
-Tương tự như [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` chấp nhận một mã băm khối và sẽ phát lại khối đã có trong cơ sở dữ liệu. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
+Tương tự như [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` chấp nhận một hàm băm khối và sẽ phát lại khối đã có trong cơ sở dữ liệu. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
 
-|   Khách hàng    | Gọi Phương thức                                                      |
+|    Máy khách    | Gọi Phương thức                                                      |
 |:---------------:| -------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.standardTraceBlockToFile(hash, [options])`                    |
 |       RPC       | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
@@ -51,7 +51,7 @@ Tương tự như [debug_traceBlock](./tracing.md#debug_traceblock), `standardTr
 
 | Tên      | Loại            | Mô tả                                                              |
 | -------- | --------------- | ------------------------------------------------------------------ |
-| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                                               |
+| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                                              |
 | tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Giá trị Trả về**
