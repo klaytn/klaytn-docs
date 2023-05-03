@@ -69,7 +69,7 @@ description: >-
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [Tùy chọn theo dõi tiêu chuẩn](./debug/standard_tracing.md#standard-tracing-options)
+- [Tùy chọn Theo dõi Tiêu chuẩn](./debug/standard_tracing.md#standard-tracing-options)
 
 
 ## [Kiểm soát Chuỗi khối](./debug/blockchain.md) <a id="blockchain-inspection"></a>
