@@ -1,18 +1,18 @@
 ## eth_coinbase <a id="eth_coinbase"></a>
 
-Returns the client coinbase address.
+클라이언트 코인베이스 주소를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| Type         | Description                   |
-| ------------ | ----------------------------- |
-| 20-byte DATA | The current coinbase address. |
+| 타입             | 설명                  |
+| -------------- | ------------------- |
+| 20 바이트 크기 DATA | 현재 코인베이스 주소를 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -29,19 +29,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
-Returns the client etherbase address.
+클라이언트 이더베이스 주소를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| Type         | Description                    |
-| ------------ | ------------------------------ |
-| 20-byte DATA | The current etherbase address. |
+| 타입             | 설명                  |
+| -------------- | ------------------- |
+| 20 바이트 크기 DATA | 현재 이더베이스 주소를 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -58,19 +58,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_chainId <a id="eth_chainid"></a>
 
-Return current chainId set on the requested node.
+요청을 받은 노드의 현재 체인 id를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| Type     | Description                         |
-| -------- | ----------------------------------- |
-| QUANTITY | Chain id set on the requested node. |
+| 타입       | 설명                       |
+| -------- | ------------------------ |
+| QUANTITY | 요청을 받은 노드의 체인 id를 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -89,13 +89,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 peb의 현재 가스 가격을 반환합니다.
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | Type     | Description                  |
 | -------- | ---------------------------- |
