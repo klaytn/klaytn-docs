@@ -2,20 +2,20 @@
 sidebar_position: 6
 ---
 
-# Congratulations!
+# Chúc mừng bạn!
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+Bạn đã học xong <strong x-d="1">những điều cơ bản về Docusaurus</strong> và thực hiện một số thay đổi cho **mẫu ban đầu**.
 
-Docusaurus has **much more to offer**!
+Docusaurus còn **rất nhiều điều khác để bạn khám phá**!
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+Bạn có **nhiều hơn 5 phút**? Hãy xem **[phiên bản](../tutorial-extras/manage-docs-versions.md)** và **[i18n](../tutorial-extras/translate-your-site.md)**.
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+Bài hướng dẫn này có gì **chưa rõ ràng** hoăc **chưa ổn** không? [Hãy báo cáo cho chúng tôi!](https://github.com/facebook/docusaurus/discussions/4610)
 
-## What's next?
+## Tiếp theo là gì?
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
+- Hãy đọc [tài liệu chính thức](https://docusaurus.io/)
+- Thay đổi cấu hình trang của bạn bằng [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
 - Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
 - Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
 - Add a [search bar](https://docusaurus.io/docs/search)
