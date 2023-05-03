@@ -76,7 +76,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Có thể truy vấn thuộc tính quản trị `datadir` cho đường dẫn tuyệt đối của nút Klaytn đang chạy hiện đang sử dụng để lưu trữ tất cả các cơ sở dữ liệu của nó. Đường dẫn mặc định khác nhau tùy thuộc vào loại nút (kcn, kpn và ken) và loại hệ điều hành.
 
-|   Khách hàng    | Gọi phương thức               |
+|    Máy khách    | Gọi phương thức               |
 |:---------------:| ----------------------------- |
 | Bảng điều khiển | `admin.datadir`               |
 |       RPC       | `{"method": "admin_datadir"}` |
@@ -111,7 +111,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Có thể truy vấn thuộc tính quản trị `peers` đối với tất cả thông tin đã biết về các nút từ xa được kết nối ở mức độ chi tiết của mạng. Chúng bao gồm thông tin chung về nút như một thành phần tham gia của [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) giao thức phủ P2P cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy.
 
-|   Khách hàng    | Gọi phương thức             |
+|    Máy khách    | Gọi phương thức             |
 |:---------------:| --------------------------- |
 | Bảng điều khiển | `admin.peers`               |
 |       RPC       | `{"method": "admin_peers"}` |
@@ -226,7 +226,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Phương thức chấp nhận một đối số duy nhất kni, nghĩa là "Định danh mạng Klaytn". Nó tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa sẽ bị xóa khỏi danh sách và trả về `BOOL` cho biết liệu máy ngang hàng đã bị xóa hay xảy ra lỗi nào đó.
 
-|   Khách hàng    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương thức                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `admin.removePeer(url)`                           |
 |       RPC       | `{"method": "admin_removePeer", "params": [url]}` |
@@ -265,7 +265,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Phương thức này trả về một cờ boolean chỉ định xem trình nghe HTTP RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối HTTP được phép hoạt động bất cứ lúc nào.
 
-|   Khách hàng    | Gọi phương thức                                                     |
+|    Máy khách    | Gọi phương thức                                                     |
 |:---------------:| ------------------------------------------------------------------- |
 | Bảng điều khiển | `admin.startHTTP(host, port, cors, apis)`                           |
 |       RPC       | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
@@ -306,7 +306,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopHTTP` là một phương thức quản trị đóng điểm cuối HTTP RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối HTTP duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|   Khách hàng    | Gọi phương thức                |
+|    Máy khách    | Gọi phương thức                |
 |:---------------:| ------------------------------ |
 | Bảng điều khiển | `admin.stopHTTP()`             |
 |       RPC       | `{"method": "admin_stopHTTP"}` |
@@ -342,7 +342,7 @@ The `startWS` là phương pháp quản trị khởi động [JSON RPC](http://w
 
 Phương thức này trả về một cờ boolean chỉ định xem trình nghe WebSocket RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối WebSocket được phép hoạt động bất cứ lúc nào.
 
-|   Khách hàng    | Gọi phương thức                                                   |
+|    Máy khách    | Gọi phương thức                                                   |
 |:---------------:| ----------------------------------------------------------------- |
 | Bảng điều khiển | `admin.startWS(host, port, cors, apis)`                           |
 |       RPC       | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
@@ -381,7 +381,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopWS` là một phương thức quản trị đóng điểm cuối WebSocket RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối WebSocket duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|   Khách hàng    | Gọi phương thức              |
+|    Máy khách    | Gọi phương thức              |
 |:---------------:| ---------------------------- |
 | Bảng điều khiển | `admin.stopWS()`             |
 |       RPC       | `{"method": "admin_stopWS"}` |
@@ -392,9 +392,9 @@ Không có
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                                 |
-| ---- | ----------------------------------------------------- |
-| bool | `true` nếu điểm cuối đã đóng, `false` nếu không phải. |
+| Loại | Mô tả                                               |
+| ---- | --------------------------------------------------- |
+| bool | `đúng` nếu điểm cuối đã đóng, `sai` nếu không phải. |
 
 **Ví dụ**
 
@@ -415,7 +415,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `exportChain` là một phương thức quản trị xuất chuỗi khối thành một tệp.
 
-|   Khách hàng    | Gọi phương thức                                          |
+|    Máy khách    | Gọi phương thức                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `admin.exportChain(fileName)`                            |
 |       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
@@ -428,9 +428,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                               |
-| ----- | --------------------------------------------------- |
-| bool  | `true` nếu chuỗi được xuất, `false` nếu không phải. |
+| Loại | Mô tả                                             |
+| ----- | ------------------------------------------------- |
+| bool  | `đúng` nếu chuỗi được xuất, `sai` nếu không phải. |
 
 **Ví dụ**
 
@@ -451,7 +451,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `importChain` là một phương thức quản trị để nhập một chuỗi đã xuất từ ​​một tệp vào một nút. Phương thức này chỉ nhập các khối chưa có trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|   Khách hàng    | Gọi phương thức                                          |
+|    Máy khách    | Gọi phương thức                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `admin.importChain(fileName)`                            |
 |       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
@@ -486,7 +486,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 The `importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn. Nó chỉ hoạt động nếu chưa có chuỗi hiện có nào trong nút Klaytn. Phương pháp này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|   Khách hàng    | Gọi phương thức                                                            |
+|    Máy khách    | Gọi phương thức                                                            |
 |:---------------:| -------------------------------------------------------------------------- |
 | Bảng điều khiển | `admin.importChainFromString(blockRlp)`                                    |
 |       RPC       | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
@@ -521,7 +521,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `startStateMigration` là một phương thức quản trị để bắt đầu di chuyển trạng thái và loại bỏ các nút trie lưu trữ/trạng thái cũ. Nó có thể giúp tiết kiệm không gian lưu trữ của nút Klaytn. Phương thức trả về lỗi nếu không thể bắt đầu di chuyển trạng thái hoặc `null` khi bắt đầu thành công. LƯU Ý: Sau khi di chuyển trạng thái, nút không thể cung cấp API với các trạng thái trước đó.
 
-|   Khách hàng    | Gọi phương thức                           |
+|    Máy khách    | Gọi phương thức                           |
 |:---------------:| ----------------------------------------- |
 | Bảng điều khiển | `admin.startStateMigration()`             |
 |       RPC       | `{"method": "admin_startStateMigration"}` |
@@ -556,7 +556,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopStateMigration` là một phương thức quản trị để dừng quá trình di chuyển trạng thái hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc một lỗi cho dù quá trình di chuyển trạng thái có bị dừng hay không.
 
-|   Khách hàng    | Gọi phương thức                          |
+|    Máy khách    | Gọi phương thức                          |
 |:---------------:| ---------------------------------------- |
 | Bảng điều khiển | `admin.stopStateMigration()`             |
 |       RPC       | `{"method": "admin_stopStateMigration"}` |
@@ -590,7 +590,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stateMigrationStatus` là một phương thức quản trị trả về thông tin trạng thái của quá trình di chuyển trạng thái. Phương thức này không nhận tham số và trả về trạng thái của quá trình di chuyển trạng thái hiện đang chạy.
 
-|   Khách hàng    | Gọi phương thức                            |
+|    Máy khách    | Gọi phương thức                            |
 |:---------------:| ------------------------------------------ |
 | Bảng điều khiển | `admin.stateMigrationStatus`               |
 |       RPC       | `{"method": "admin_stateMigrationStatus"}` |
@@ -608,8 +608,8 @@ Không có
 | isMigration          | bool    | `đúng` nếu quá trình di chuyển trạng thái đang chạy hoặc `sai` nếu không phải.                              |
 | migrationBlockNumber | uint64  | blockNumber mà quá trình di chuyển trạng thái bắt đầu. (`0` nếu quá trình di chuyển trạng thái không chạy.) |
 | đang chờ             | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                |
-| tiến trình           | float64 | `progress` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                     |
-| đọc                  | int     | `read` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                 |
+| tiến trình           | float64 | `tiến trình ` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                  |
+| đọc                  | int     | `đọc` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                  |
 
 **Ví dụ**
 
@@ -637,7 +637,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `saveTrieNodeCacheToDisk` là một phương pháp quản trị bắt đầu lưu nút trie đã lưu trong bộ nhớ cache vào đĩa để sử dụng lại chúng khi nút khởi động lại. Dữ liệu nút trie đã lưu trong bộ nhớ cache sẽ được lưu trữ và tải từ `$DATA_DIR/fastcache` . Phương thức này trả về lỗi nếu quá trình lưu đã được kích hoạt hoặc bộ nhớ đệm nút trie bị tắt. Tính năng này được hỗ trợ kể từ Klaytn 1.5.3.
 
-|   Khách hàng    | Gọi phương thức                               |
+|    Máy khách    | Gọi phương thức                               |
 |:---------------:| --------------------------------------------- |
 | Bảng điều khiển | `admin.saveTrieNodeCacheToDisk()`             |
 |       RPC       | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
@@ -671,7 +671,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `setMaxSubscriptionPerWSConn` là phương thức quản trị đặt số lượng đăng ký tối đa được phép cho mỗi kết nối WebSocket. Ví dụ: nếu số lượng tối đa được đặt là năm và người dùng yêu cầu nhiều hơn năm đăng ký thông qua API `klay_subscribe`, một thông báo lỗi "Cho phép tối đa 5 đăng ký cho một kết nối WebSocket" sẽ được hiển thị. Tính năng này được hỗ trợ kể từ Klaytn 1.6.0.
 
-|   Khách hàng    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương thức                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `admin.setMaxSubscriptionPerWSConn(limit)`        |
 |       RPC       | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
