@@ -10,7 +10,7 @@ Cấu trúc tài trợ của Klaytn chạy liên tục với việc tạo khối
 
 * Phần thưởng cho Hội đồng quản trị Klaytn: 50%
 * Quỹ tăng trưởng Klaytn \(KGF\): 40%
-* Bảo lưu cải tiến của Klaytn \(KIR\): 10%
+* Khoản dự trữ cải tiến của Klaytn \(KIR\): 10%
 
 6,4 KLAY sẽ được đúc cho mỗi khối mới. Điều này ngụ ý rằng khoảng 200 triệu KLAY sẽ được đúc mỗi năm, tương đương với 2% lạm phát hàng năm so với 10 tỷ KLAY được phát hành vào thời điểm khởi nguyên \(tỷ lệ lạm phát hàng năm có thể thay đổi thông qua Quy trình quản trị Klaytn\). Phí giao dịch được tính theo mỗi OPCODE và được tính theo bảng phí giao dịch. Để biết thông tin chi tiết về bảng phí giao dịch, vui lòng tham khảo [Phí giao dịch](transaction-fees/transaction-fees.md).
 
@@ -54,7 +54,7 @@ Nền kinh tế token của Klaytn vận hành và phát triển thông qua ho�
 Quỹ tăng trưởng của Klaytn (KGF) nhắm tới việc giúp nền kinh tế Klaytn tăng trưởng bằng cách cung cấp các khoản tài trợ và đầu tư vào các tổ chức và cá nhân có đóng góp cho nền kinh tế Klaytin. Công nghệ của Klaytin mang đến những cơ hội to lớn để mọi người có thể lưu trữ, chuyển giao và trao đổi dữ liệu và giá trị trên toàn cầu một cách dễ dàng với chi phí tối thiểu. Và vì đây là một mạng lưới mở, ai cũng có thể tham gia để xây dựng một ứng dụng mà không cần xin phép. Tuy nhiên, việc áp dụng chuỗi khối rộng rãi hơn đã bị cản trở do công nghệ này vẫn còn đang ở giai đoạn đầu, và hầu hết các giá trị và dữ liệu vẫn đang được quản lý theo cách truyền thống dưới dạng hợp đồng pháp lý, lưu trữ cục bộ, v.v. Và KGF được dùng với mục đích giải quyết các vấn đề này. KGF sẽ hỗ trợ các chương trình khác nhau nhằm thúc đẩy việc áp dụng Klaytn trên khắp các ngành, ví dụ như tặng thưởng cho những người đưa ra bằng chứng đóng góp trên chuỗi và đầu tư vào các dApp giai đoạn đầu. Quỹ này sẽ liên tục được tài trợ thông qua một tỷ lệ phần thưởng khối nhất định (tham khảo [Cơ cấu tài trợ](token-economy.md#funding-structure)).
 
 
-## Bảo lưu cải tiến của Klaytn <a id="klaytn-improvement-reserve"></a>
+## Khoản dự trữ cải tiến của Klaytn <a id="klaytn-improvement-reserve"></a>
 
 Khi công nghệ tiếp tục được cải tiến và nhu cầu của người dùng thay đổi theo thời gian, nền tảng của chúng tôi phải có khả năng thích ứng nhanh chóng với mọi tình huống mới phát sinh. Để đáp ứng những thay đổi như vậy, chúng tôi không chỉ phải cải thiện dịch vụ mà còn phải thực hiện nhiều hoạt động khác nhau để duy trì hệ sinh thái của Klaytn. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such as:
 
