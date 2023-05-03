@@ -6,7 +6,7 @@ Phương thức `traceBadBlock` sẽ trả về theo dõi stack hoàn chỉnh c�
 
 **LƯU Ý**: khối cha của khối này phải hiện diện nếu không nó sẽ không thành công.
 
-|   Khách hàng    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi Phương thức                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBadBlock(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
@@ -15,7 +15,7 @@ Phương thức `traceBadBlock` sẽ trả về theo dõi stack hoàn chỉnh c�
 
 | Tên      | Loại           | Mô tả                                      |
 | -------- | --------------- | ------------------------------------------ |
-| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                       |
+| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                      |
 | tùy chọn | đối tượng       | Xem [tùy chọn theo dõi](#tracing-options). |
 
 **Giá trị Trả về**
@@ -61,7 +61,7 @@ Phương thúc `traceBlock` sẽ trả về theo dõi stack hoàn chỉnh của 
 
 **LƯU Ý**: khối cha của khối này phải hiện diện nếu không nó sẽ không thành công.
 
-|   Khách hàng    | Gọi Phương thức                                            |
+|    Máy khách    | Gọi Phương thức                                            |
 |:---------------:| ---------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlock(blockRlp, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
@@ -107,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
 Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` chấp nhận một mã băm khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
 
-|   Khách hàng    | Gọi Phương thức                                              |
+|    Máy khách    | Gọi Phương thức                                              |
 |:---------------:| ------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockByHash(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
@@ -116,7 +116,7 @@ Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` ch�
 
 | Tên      | Loại           | Mô tả                                      |
 | -------- | --------------- | ------------------------------------------ |
-| mã băm   | DỮ LIỆU 32-byte | Mã băm của một khối.                       |
+| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                      |
 | tùy chọn | đối tượng       | Xem [tùy chọn theo dõi](#tracing-options). |
 
 **Giá trị Trả về**
@@ -150,7 +150,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
 Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` chấp nhận một số khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
 
-|   Khách hàng    | Gọi Phương thức                                                  |
+|    Máy khách    | Gọi Phương thức                                                  |
 |:---------------:| ---------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumber(number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
@@ -194,7 +194,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Trả về nhật ký có cấu trúc được tạo trong quá trình triển khai EVM giữa hai khối (bao gồm khởi đầu) dưới dạng đối tượng JSON. Nghĩa là, kết quả của việc theo dõi tổng số khối end-start+1 được trả về.
 
-|   Khách hàng    | Gọi Phương thức                                                               |
+|    Máy khách    | Gọi Phương thức                                                               |
 |:---------------:| ----------------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumberRange(number, number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
@@ -252,7 +252,7 @@ Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` ch
 
 **LƯU Ý**: tệp phải bao gồm chuỗi thập lục phân được liên kết mà không có `0x`.
 
-|   Khách hàng    | Gọi Phương thức                                                    |
+|    Máy khách    | Gọi Phương thức                                                    |
 |:---------------:| ------------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockFromFile(fileName, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
@@ -305,7 +305,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo cách tương tự như khi nó được triển khai trên mạng. Nó sẽ phát lại bất kỳ giao dịch nào có thể đã được thực hiện trước giao dịch này trước khi cuối cùng nó sẽ cố gắng thực hiện giao dịch tương ứng với mã băm đã cho.
 
-|   Khách hàng    | Gọi Phương thức                                                |
+|    Máy khách    | Gọi Phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceTransaction(txHash, [options])`                    |
 |       RPC       | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
@@ -314,7 +314,7 @@ Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo 
 
 | Tên      | Loại      | Mô tả                                      |
 | -------- | --------- | ------------------------------------------ |
-| txHash   | chuỗi     | Mã băm của giao dịch.                      |
+| txHash   | chuỗi     | Hàm băm của giao dịch.                     |
 | tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
 
 **Giá trị Trả về**
@@ -497,9 +497,9 @@ Chỉ định tùy chọn `trình theo dõi` trong đối số thứ hai để k
 | `pc`        | Số             | Bộ đếm chương trình hiện tại.                                |
 | `op`        | Đối tượng      | Một đối tượng Mã vận hành đại diện cho mã vận hành hiện tại. |
 | `gas`       | Số             | Lượng gas còn lại.                                           |
-| `gasPrice`  | Số             | Chi phí tính bằng peb của mỗi đơn vị gas.                    |
+| `giá ga`    | Số             | Chi phí tính bằng peb của mỗi đơn vị gas.                    |
 | `bộ nhớ`    | Đối tượng      | Một cấu trúc đại diện cho không gian bộ nhớ của hợp đồng.    |
-| `phân loại` | array[big.Int] | Phân loại thực thi KLVM.                                     |
+| `phân loại` | array[big.Int] | Stack thực thi KLVM.                                         |
 | `độ sâu`    | Số             | Độ sâu thực thi.                                             |
 | `tài khoản` | Chuỗi          | Địa chỉ của tài khoản thực hiện thao tác hiện tại.           |
 | `lỗi`       | Chuỗi          | Nếu xảy ra lỗi, thông tin về lỗi.                            |
