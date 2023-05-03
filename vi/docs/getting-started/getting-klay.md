@@ -9,8 +9,8 @@ The **testnet KLAY** faucet runs on the Baobab network. The faucet can be access
 
 ### KLAY Exchange List <a id="klay-exchange-list"></a>
 
-KLAY is listed on various exchanges.  Please find the list of KLAY exchanges through the following links.
+KLAY is listed on various exchanges.  Vui lòng xem danh sách các sàn giao dịch KLAY thông qua các liên kết sau.
 
-- [KLAY exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
-- [KLAY exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
+- [Sàn giao dịch KLAY được niêm yết tại CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
+- [Sàn giao dịch KLAY được niêm yết tại CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
 
