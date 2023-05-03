@@ -1,7 +1,7 @@
 ---
 description: >-
-  Try and get familiar with Klaytn. This chapter is the starting point of your journey to Klaytn dApps.
+  Hãy thử và làm quen với Klaytn. Chương này là điểm bắt đầu của hành trình tới các dApp Klaytn của bạn.
 ---
 
-# Overview <a id="overview"></a>
+# Tổng quan <a id="overview"></a>
 
