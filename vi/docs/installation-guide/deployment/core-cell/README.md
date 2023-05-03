@@ -1,12 +1,12 @@
-# Core Cell Overview <a id="core-cell-overview"></a>
+# Tổng quan về Core Cell <a id="core-cell-overview"></a>
 
-## Intended Audience  <a id="intended-audience"></a>
+## Đối tượng mục tiêu  <a id="intended-audience"></a>
 
-- Core Cell Operators
-- If your interest is in making and running Blockchain Applications on Klaytn, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/README.md) instead to make your application interact with Klaytn network.
+- Nhà vận hành Core Cell
+- Nếu bạn muốn tạo và chạy Ứng dụng Blockchain trên Klaytn, bạn không cần phải duy trì Core Cell. Thay vào đó, bạn chỉ cần chạy [Endpoint Node](../endpoint-node/README.md) để ứng dụng của bạn có thể tương tác với mạng Klaytn.
 
 
-## Core Cell Overview <a id="core-cell-overview"></a>
+## Tổng quan về Core Cell <a id="core-cell-overview"></a>
 
 Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks. A Klaytn Core Cell (CC) consists of the following components.
 
