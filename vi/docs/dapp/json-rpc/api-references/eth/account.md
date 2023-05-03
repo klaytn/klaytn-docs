@@ -8,9 +8,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại                  | Mô tả                                    |
-| --------------------- | ---------------------------------------- |
-| Chuỗi DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của khách hàng. |
+| Loại                 | Mô tả                                    |
+| -------------------- | ---------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của khách hàng. |
 
 **Ví dụ**
 
@@ -33,12 +33,12 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                   | Loại                               | Mô tả                                                                                                                                                                               |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ               | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                          |
-| số chuỗi hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                       |
+| -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                  |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
-**Giá trị Trả lại**
+**Giá trị trả về**
 
 | Kiểu     | Mô tả                                   |
 | -------- | --------------------------------------- |
@@ -64,14 +64,14 @@ Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Loại                              | Mô tả                                                                                                                                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                                     |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
-**Giá trị Trả lại**
+**Giá trị trả về**
 
-| Kiểu    | Mô tả                 |
+| Loại   | Mô tả                 |
 | ------- | --------------------- |
 | DỮ LIỆU | Mã từ địa chỉ đã cho. |
 
@@ -96,16 +96,16 @@ Trả về số lượng giao dịch *gửi* từ một địa chỉ.
 
 **Tham số**
 
-| Kiểu                              | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Loại                              | Mô tả                                                                                                                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                     |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                |
-| -------- | ---------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch gửi từ địa chỉ này. |
+| Loại     | Mô tả                                                     |
+| -------- | --------------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên của số lượng giao dịch gửi từ địa chỉ này. |
 
 **Ví dụ**
 
@@ -124,21 +124,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sign <a id="eth_sign"></a>
 
-Phương thức ký tính toán chữ ký dành riêng cho Klaytn với:
+Phương thức ký tính toán chữ ký dành riêng cho Klaytn với hàm:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn hành vi lạm dụng khi một ứng dụng phi tập trung chứa mã độc ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
+Thêm tiền tố vào thông điệp giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn hành vi lạm dụng khi một ứng dụng phi tập trung chứa mã độc ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
 
 **LƯU Ý**: Địa chỉ để ký phải được mở khóa.
 
 **Tham số**
 
-| Tiêu đề   | Loại           | Mô tả     |
-| --------- | --------------- | --------- |
-| tài khoản | DỮ LIỆU 20 byte | Địa chỉ   |
-| tin nhắn  | DỮ LIỆU N byte  | Thư để ký |
+| Tên        | Loại           | Mô tả             |
+| ---------- | --------------- | ----------------- |
+| tài khoản  | DỮ LIỆU 20 byte | Địa chỉ           |
+| thông điệp | DỮ LIỆU N byte  | Thông điệp cần ký |
 
 **Giá trị trả về**
 
