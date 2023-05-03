@@ -2,13 +2,13 @@
 sidebar_position: 4
 ---
 
-# Markdown Features
+# Tính năng Markdown
 
-Docusaurus supports **[Markdown](https://daringfireball.net/projects/markdown/syntax)** and a few **additional features**.
+Docusaurus hỗ trợ tính năng **[Markdown](https://daringfireball.net/projects/markdown/syntax)** và một số **tính năng bổ trợ khác**.
 
-## Front Matter
+## Phần mở đầu
 
-Markdown documents have metadata at the top called [Front Matter](https://jekyllrb.com/docs/front-matter/):
+Các tài liệu Markdown có chứa siêu dữ liệu ở đầu được gọi là [Phần mở đầu](https://jekyllrb.com/docs/front-matter/):
 
 ```text title="my-doc.md"
 // highlight-start
@@ -25,9 +25,9 @@ slug: /my-custom-url
 Markdown text with [links](./hello.md)
 ```
 
-## Links
+## Liên kết
 
-Regular Markdown links are supported, using url paths or relative file paths.
+Các liên kết Markdown thông thường được hỗ trợ, sử dụng đường dẫn url hoặc đường dẫn tệp tương đối.
 
 ```md
 Let's see how to [Create a page](/create-a-page).
@@ -37,25 +37,25 @@ Let's see how to [Create a page](/create-a-page).
 Let's see how to [Create a page](./create-a-page.md).
 ```
 
-**Result:** Let's see how to [Create a page](./create-a-page.md).
+**Kết quả:** Hãy cùng xem cách để [Tạo một trang](./create-a-page.md).
 
-## Images
+## Hình ảnh
 
-Regular Markdown images are supported.
+Hình ảnh Markdown thông thường được hỗ trợ.
 
-You can use absolute paths to reference images in the static directory (`static/img/docusaurus.png`):
+Bạn có thể tạo đường dẫn tuyệt đối tới hình ảnh tham chiếu trong thư mục tĩnh (`static/img/docusaurus.png`):
 
 ```md
 ![Docusaurus logo](/img/docusaurus.png)
 ```
 
-![Docusaurus logo](/img/docusaurus.png)
+![Logo Docusaurus](/img/docusaurus.png)
 
-You can reference images relative to the current file as well, as shown in [the extra guides](../tutorial-extras/manage-docs-versions.md).
+Bạn cũng có thể tham chiếu hình ảnh liên quan đến tệp hiện tại như được hiển thị trong [hướng dẫn bổ sung](../tutorial-extras/manage-docs-versions.md).
 
-## Code Blocks
+## Khối mã
 
-Markdown code blocks are supported with Syntax highlighting.
+Các khối mã Markdown được hỗ trợ với tính năng tô sáng cú pháp.
 
     ```jsx title="src/components/HelloDocusaurus.js"
     function HelloDocusaurus() {
@@ -71,9 +71,9 @@ function HelloDocusaurus() {
 }
 ```
 
-## Admonitions
+## Cảnh cáo
 
-Docusaurus has a special syntax to create admonitions and callouts:
+Docusaurus có một cú pháp đặc biệt để tạo cảnh cáo và cảnh báo:
 
     :::tip My tip
     
@@ -89,21 +89,21 @@ Docusaurus has a special syntax to create admonitions and callouts:
 
 :::
 
-:::tip My tip
+:::tip Mẹo vặt
 
-Use this awesome feature option
-
-:::
-
-:::danger Take care
-
-This action is dangerous
+Hãy dùng tùy chọn tính năng tuyệt vời này
 
 :::
 
-## MDX and React Components
+:::danger Coi chừng
 
-[MDX](https://mdxjs.com/) can make your documentation more **interactive** and allows using any **React components inside Markdown**:
+Hành động này nguy hiểm
+
+:::
+
+## MDX và các thành phần React
+
+[MDX](https://mdxjs.com/) có thể khiến tài liệu của bạn **mang tính tương tác** hơn và cho phép sử dụng bất kỳ **thành phần React nào trong Markdown**:
 
 ```jsx
 export const Highlight = ({children, color}) => (
@@ -131,6 +131,6 @@ export const Highlight = ({children, color}) => ( <span style={{ backgroundColor
     {children}
   </span> );
 
-This is <Highlight color="#25c2a0">Docusaurus green</Highlight> !
+Đây là <Highlight color="#25c2a0">Màu xanh lá Docusaurus</Highlight> !
 
-This is <Highlight color="#1877F2">Facebook blue</Highlight> !
+Đây là <Highlight color="#1877F2">Màu xanh dương Facebook</Highlight> !
