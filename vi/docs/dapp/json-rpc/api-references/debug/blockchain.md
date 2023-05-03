@@ -6,16 +6,16 @@ Truy xuất trạng thái tương ứng với số khối và trả về danh s�
 
 **LƯU Ý**: Hàm này trả về trạng thái chính xác cho một vài khối mới nhất, hiện tại là 4, số khối.  Truy xuất trạng thái khối cũ hơn bị hạn chế tùy thuộc vào giá trị được đặt cho dòng lệnh tùy chọn `--state.block-interval` (mặc định: 128).  Điều này có nghĩa là chức năng thực hiện truy xuất trạng thái chỉ đối với các số khối là bội số của state.block-interval.  Ví dụ, khi state.block-interval là 128, hàm này trả về trạng thái cho số khối "0x0", "0x80", "0x100", "0x180", v.v.  Nếu số khối không phải là bội số của của state.block-interval, nó sẽ trả về lỗi 'thiếu nút trie'.
 
-|   Khách hàng    | Gọi phương thức                                     |
+|    Máy khách    | Gọi phương thức                                     |
 |:---------------:| --------------------------------------------------- |
 | Bảng điều khiển | `debug.dumpBlock(number)`                           |
 |       RPC       | `{"method": "debug_dumpBlock", "params": [number]}` |
 
 **Tham số**
 
-| Tên                 | Loại                              | Mô tả                                                                                                                                                                                        |
-| ------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc mã băm khối. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                                 |
+| -------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
 LƯU Ý: Chỉ có loại chuỗi hex trong các phiên bản cũ hơn Klaytn v1.7.0.
@@ -70,7 +70,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Truy xuất tất cả các trie trạng thái/lưu trữ của gốc trạng thái đã cho.
 
-|   Khách hàng    | Gọi Phương thức                                         |
+|    Máy khách    | Gọi Phương thức                                         |
 |:---------------:| ------------------------------------------------------- |
 | Bảng điều khiển | `debug.dumpStateTrie(number)`                           |
 |       RPC       | `{"method": "debug_dumpStateTrie", "params": [number]}` |
@@ -107,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Truy xuất và trả về khối được mã hóa RLP theo số khối.
 
-|   Khách hàng    | Gọi Phương thức                                       |
+|    Máy khách    | Gọi Phương thức                                       |
 |:---------------:| ----------------------------------------------------- |
 | Bảng điều khiển | `debug.getBlockRlp(number)`                           |
 |       RPC       | `{"method": "debug_getBlockRlp", "params": [number]}` |
@@ -116,9 +116,9 @@ Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Tham số**
 
-| Tên                 | Loại                             | Mô tả                                                                                                                                                                                        |
-| ------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc mã băm khối. |
+| Tên                  | Loại                              | Mô tả                                                                                                                                                                                                 |
+| -------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
 LƯU Ý: Chỉ có loại số nguyên trong các phiên bản cũ hơn Klaytn v1.7.0,.
@@ -146,20 +146,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi mã băm khối của chúng. Các thay đổi được thực hiện trong `endBlockHash` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockHash` thì không. Nếu không cung cấp `endBlockHash`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockHash`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, mã băm hoặc mã băm lưu trữ.
+Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi hàm băm khối của chúng. Các thay đổi được thực hiện trong `endBlockHash` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockHash` thì không. Nếu không cung cấp `endBlockHash`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockHash`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, hàm băm hoặc hàm băm lưu trữ.
 
 
-|   Khách hàng    | Gọi phương thức                                                                             |
+|    Máy khách    | Gọi phương thức                                                                             |
 |:---------------:| ------------------------------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
 |       RPC       | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
 **Tham số**
 
-| Tên            | Loại            | Mô tả                                          |
-| -------------- | --------------- | ---------------------------------------------- |
-| startBlockHash | DỮ LIỆU 32-byte | Mã băm khối đầu tiên của phạm vi cần kiểm tra. |
-| endBlockHash   | DỮ LIỆU 32-byte | (tùy chọn) Mã băm khối cuối cùng của phạm vi.  |
+| Tên            | Loại            | Mô tả                                           |
+| -------------- | --------------- | ----------------------------------------------- |
+| startBlockHash | DỮ LIỆU 32-byte | Hàm băm khối đầu tiên của phạm vi cần kiểm tra. |
+| endBlockHash   | DỮ LIỆU 32-byte | (tùy chọn) Hàm băm khối cuối cùng của phạm vi.  |
 
 **Giá trị Trả về**
 
@@ -186,10 +186,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi số khối của chúng. Các thay đổi được thực hiện trong `endBlockNum` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockNum` thì không. Nếu không cung cấp `endBlockNum`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockNum`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, mã băm hoặc mã băm lưu trữ.
+Trả về tất cả các tài khoản đã thay đổi giữa hai khối được chỉ định bởi số khối của chúng. Các thay đổi được thực hiện trong `endBlockNum` được bao gồm nhưng các thay đổi được thực hiện trong `startBlockNum` thì không. Nếu không cung cấp `endBlockNum`, nó sẽ trả về các tài khoản được sửa đổi trong `startBlockNum`. Thay đổi được định nghĩa là sự khác biệt về số dùng một lần, số dư, hàm băm hoặc hàm băm lưu trữ.
 
 
-|   Khách hàng    | Gọi phương thức                                                                           |
+|    Máy khách    | Gọi phương thức                                                                           |
 |:---------------:| ----------------------------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
 |       RPC       | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
@@ -225,9 +225,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_preimage <a id="debug_preimage"></a>
 
-Trả về nghịch ảnh cho mã băm sha3, nếu biết.
+Trả về nghịch ảnh cho hàm băm sha3, nếu biết.
 
-|   Khách hàng    | Gọi phương thức                                  |
+|    Máy khách    | Gọi phương thức                                  |
 |:---------------:| ------------------------------------------------ |
 | Bảng điều khiển | `debug.preimage(hash)`                           |
 |       RPC       | `{"method": "debug_preimage", "params": [hash]}` |
@@ -235,15 +235,15 @@ Trả về nghịch ảnh cho mã băm sha3, nếu biết.
 
 **Tham số**
 
-| Tên    | Loại  | Mô tả        |
-| ------ | ----- | ------------ |
-| mã băm | chuỗi | mã băm sha3. |
+| Tên     | Loại  | Mô tả         |
+| ------- | ----- | ------------- |
+| hàm băm | chuỗi | hàm băm sha3. |
 
 **Giá trị Trả về**
 
-| Tên        | Loại  | Mô tả                       |
-| ---------- | ----- | --------------------------- |
-| nghịch ảnh | chuỗi | Nghịch ảnh cho mã băm sha3. |
+| Tên        | Loại  | Mô tả                        |
+| ---------- | ----- | ---------------------------- |
+| nghịch ảnh | chuỗi | Nghịch ảnh cho hàm băm sha3. |
 
 **Ví dụ**
 
@@ -263,7 +263,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Trả về danh sách 'các khối hỏng' cuối cùng mà khách hàng đã thấy trên mạng.
 
-|   Khách hàng    | Gọi phương thức                                  |
+|    Máy khách    | Gọi phương thức                                  |
 |:---------------:| ------------------------------------------------ |
 | Bảng điều khiển | `debug.getBadBlocks()`                           |
 |       RPC       | `{"method": "debug_getBadBlocks", "params": []}` |
@@ -274,9 +274,9 @@ Không có
 
 **Giá trị Trả về**
 
-| Tên      | Loại | Mô tả                              |
-| -------- | ---- | ---------------------------------- |
-| badBlock | JSON | Danh sách JSON của các mã băm khối |
+| Tên      | Loại | Mô tả                               |
+| -------- | ---- | ----------------------------------- |
+| badBlock | JSON | Danh sách JSON của các hàm băm khối |
 
 **Ví dụ**
 
@@ -295,16 +295,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Truy xuất một khối và trả về dạng in đẹp của nó.
 
-|   Khách hàng    | Gọi phương thức                                      |
+|    Máy khách    | Gọi phương thức                                      |
 |:---------------:| ---------------------------------------------------- |
 | Bảng điều khiển | `debug.printBlock(number)`                           |
 |       RPC       | `{"method": "debug_printBlock", "params": [number]}` |
 
 **Tham số**
 
-| Tên                 | Loại                              | Mô tả                                                                                                                                                                                        |
-| ------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc mã băm khối. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                                 |
+| -------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định ](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
 LƯU Ý: Chỉ có loại số nguyên trong các phiên bản cũ hơn Klaytn v1.7.0,.
@@ -339,7 +339,7 @@ Thiết lập phần đầu hiện tại của chuỗi cục bộ theo số kh�
 
 **LƯU Ý**: Đây là một hành động phá hoại và có thể gây hư hỏng nghiêm trọng đến chuỗi của bạn. Hãy sử dụng *thật* thận trọng.
 
-|   Khách hàng    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương thức                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `debug.setHead(number)`                           |
 |       RPC       | `{"method": "debug_setHead", "params": [number]}` |
@@ -387,9 +387,9 @@ Truy xuất mã băm hạt giống của một khối.
 
 **Giá trị Trả về**
 
-| Tên      | Loại | Mô tả                  |
-| -------- | ----- | ---------------------- |
-| seedHash | chuỗi | Mã băm hạt giống khối. |
+| Tên      | Loại | Mô tả                   |
+| -------- | ----- | ----------------------- |
+| seedHash | chuỗi | Hàm băm hạt giống khối. |
 
 **Ví dụ**
 
@@ -409,7 +409,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startWarmUp` lặp lại trạng thái mới nhất của trie để khởi động bộ nhớ đệm của trie. Quá trình lặp lại sẽ tự động dừng nếu 90% bộ nhớ đệm trie đã bị đầy. Phương thức trả về lỗi nếu khởi động không thành công hoặc `null` nếu khởi động thành công.
 
-|   Khách hàng    | Gọi phương thức                   |
+|    Máy khách    | Gọi phương thức                   |
 |:---------------:| --------------------------------- |
 | Bảng điều khiển | `debug.startWarmUp()`             |
 |       RPC       | `{"method": "debug_startWarmUp"}` |
@@ -443,7 +443,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startContractWarmUp` lặp lại trie lưu trữ mới nhất của địa chỉ hợp đồng nhất định để khởi động bộ đệm trie. Quá trình lặp lại sẽ tự động dừng nếu 90% bộ đệm trie đã bị đầy. Phương thức trả về lỗi nếu không khởi động được hoặc địa chỉ đã cho không phải là địa chỉ hợp đồng, hoặc `null` nếu đã khởi động thành công.
 
-|   Khách hàng    | Gọi phương thức                                                |
+|    Máy khách    | Gọi phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.startContractWarmUp(address)`                           |
 |       RPC       | `{"method": "debug_startContractWarmUp", "params": [address]}` |
@@ -479,7 +479,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `stopWarmUp` dừng khởi động hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc một lỗi tùy thuộc vào việc khởi động có bị dừng hay không.
 
-|   Khách hàng    | Gọi phương thức            |
+|    Máy khách    | Gọi phương thức            |
 |:---------------:| -------------------------- |
 | Bảng điều khiển | `debug.stopWarmUp()`       |
 |       RPC       | `{"method": "stopWarmUp"}` |
@@ -512,7 +512,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `startCollectingTrieStats` lặp lại trie lưu trữ hoặc trạng thái mới nhất để thu thập số liệu thống kê về trie. Nó thu thập số liệu thống kê trie lưu trữ của hợp đồng tại địa chỉ đã cho. Nếu một địa chỉ trống(="0x00...00") được cung cấp, nó sẽ thu thập số liệu thống kê của cả trie trạng thái. Số liệu thống kê sẽ được ghi lại mỗi phút trước khi kết thúc, chứa thông tin tổng thể và chuyên sâu. Phương thức này trả về lỗi nếu bắt đầu tác vụ không thành công hoặc `null` nếu bắt đầu tác vụ thành công.
 
-|   Khách hàng    | Gọi phương thức                                                     |
+|    Máy khách    | Gọi phương thức                                                     |
 |:---------------:| ------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.startCollectingTrieStats(address)`                           |
 |       RPC       | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
