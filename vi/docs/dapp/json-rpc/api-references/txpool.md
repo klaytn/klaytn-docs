@@ -220,7 +220,7 @@ Có thể truy vấn thuộc tính kiểm tra `trạng thái` để biết số 
 
 Kết quả là một đối tượng có hai trường `đang chờ xử lý` và `xếp hàng chờ`, mỗi trường là một bộ đếm đại diện cho số lượng giao dịch ở trạng thái cụ thể đó.
 
-|   Khách hàng    | Gọi phương thức               |
+|    Máy khách    | Gọi phương thức               |
 |:---------------:| ----------------------------- |
 | Bảng điều khiển | `txpool.status`               |
 |       RPC       | `{"method": "txpool_status"}` |
@@ -231,10 +231,10 @@ Không có
 
 **Giá trị Trả về**
 
-| Tên          | Loại | Mô tả                              |
-| ------------ | ----- | ---------------------------------- |
-| đang chờ     | int   | Số lượng giao dịch đang chờ xử lý. |
-| xếp hàng chờ | int   | Số lượng giao dịch xếp hàng chờ.   |
+| Tên            | Loại | Mô tả                              |
+| -------------- | ----- | ---------------------------------- |
+| đang chờ xử lý | int   | Số lượng giao dịch đang chờ xử lý. |
+| xếp hàng chờ   | int   | Số lượng giao dịch xếp hàng chờ.   |
 
 **Ví dụ**
 
