@@ -14,7 +14,7 @@ Nhập khóa cá nhân chưa mã hóa đã cho (chuỗi hex không có '0x' đ�
 
 Trả về địa chỉ của tài khoản đã nhập.
 
-|   Khách hàng    | Gọi phương thức                                                        |
+|    Máy khách    | Gọi phương thức                                                        |
 |:---------------:| ---------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.importRawKey(keydata, passphrase)`                           |
 |       RPC       | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
@@ -135,7 +135,7 @@ Bắt đầu quy trình mở ví phần cứng, thiết lập kết nối USB v�
 LƯU Ý: Phương thức này có thể trả về một thử thách bổ sung yêu cầu lần mở thứ hai (ví dụ: thử thách ma trận mã PIN Trezor).
 {% endhint %}
 
-|   Khách hàng    | Gọi phương thức                                                  |
+|    Máy khách    | Gọi phương thức                                                  |
 |:---------------:| ---------------------------------------------------------------- |
 | Bảng điều khiển | `personal.openWallet(url, passhrase)`                            |
 |       RPC       | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
@@ -170,7 +170,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Yêu cầu ví HD để tạo tài khoản mới, tùy chọn ghim tài khoản đó để sử dụng lại sau này.
 
-|   Khách hàng    | Gọi phương thức                                                    |
+|    Máy khách    | Gọi phương thức                                                    |
 |:---------------:| ------------------------------------------------------------------ |
 | Bảng điều khiển | `personal.deriveAccount(url, path, pin)`                           |
 |       RPC       | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
@@ -254,7 +254,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Xóa khóa riêng tư có địa chỉ đã cho khỏi bộ nhớ. Tài khoản không còn có thể được sử dụng để gửi giao dịch.
 
-|   Khách hàng    | Gọi phương thức                                           |
+|    Máy khách    | Gọi phương thức                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `personal.lockAccount(address)`                           |
 |       RPC       | `{"method": "personal_lockAccount", "params": [address]}` |
@@ -295,7 +295,7 @@ Khóa không được mã hóa sẽ được giữ trong bộ nhớ cho đến k
 
 Tài khoản này có thể được sử dụng `klay_sign` và `klay_sendTransaction` khi nó được mở khóa.
 
-|   Khách hàng    | Gọi phương thức                                                                   |
+|    Máy khách    | Gọi phương thức                                                                   |
 |:---------------:| --------------------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.unlockAccount(address, passphrase, duration)`                           |
 |       RPC       | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
@@ -391,7 +391,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). Đối tượng giao dịch phải có các trường `nơi bắt đầu` và `khóa`. Các trường khác như `gas`, `Giá ga`, và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-|   Khách hàng    | Gọi phương thức                                                        |
+|    Máy khách    | Gọi phương thức                                                        |
 |:---------------:| ---------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.sendAccountUpdate(tx, passphrase)`                           |
 |       RPC       | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
@@ -512,7 +512,7 @@ Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được 
 
 Xem `personal_ecRecover` để xác minh chữ ký.
 
-|   Khách hàng    | Gọi phương thức                                                       |
+|    Máy khách    | Gọi phương thức                                                       |
 |:---------------:| --------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.sign(message, account, password)`                           |
 |       RPC       | `{"method": "personal_sign", "params": [message, account, password]}` |
