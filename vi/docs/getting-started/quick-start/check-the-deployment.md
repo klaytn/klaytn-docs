@@ -1,10 +1,10 @@
-# Check the Deployment <a id="check-the-deployment"></a>
+# Kiểm tra việc triển khai <a id="check-the-deployment"></a>
 
-## Checking the Deployed Byte Code using caver-js <a id="checking-the-deployed-byte-code-using-caver-js"></a>
+## Kiểm tra chỉ thị biên dịch đã triển khai bằng caver-js <a id="checking-the-deployed-byte-code-using-caver-js"></a>
 
-Use `getCode` for checking the byte code of the deployed smart contract.
+Dùng `getCode` để kiểm tra chỉ thị biên dịch của hợp đồng thông minh đã triển khai.
 
-First, create a test file and open it.
+Trước tiên, hãy tạo và mở một tệp thử nghiệm.
 
 ```bash
 $ touch test-klaytn.js
