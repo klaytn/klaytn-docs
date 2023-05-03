@@ -20,7 +20,7 @@ $ ken --rpcapi klay,net --rpc --{other options}
 
 Giao diện HTTP RPC phải được bật dứt khoát bằng cách sử dụng cờ `--rpc`.
 
-**LƯU Ý**: Việc cung cấp API qua giao diện HTTP \(`rpc`\) hoặc WebSocket \(`ws`\) sẽ cấp cho mọi người quyền truy cập vào các API có thể truy cập giao diện này \(DApps, trình duyệt tab, v. v\). Hãy cẩn thận với những API bạn bật. Theo mặc định, Klay bật tất cả các API trên giao diện IPC \(`ipc`\) nhưng đối với `rpc` và `ws` các mô-đun bắt buộc phải được bật.
+**LƯU Ý**: Việc cung cấp API qua giao diện HTTP \(`rpc`\) hoặc WebSocket \(`ws`\) sẽ cấp cho mọi người quyền truy cập vào các API có thể truy cập giao diện này \(DApps, trình duyệt tab, v. v\). Hãy thận trọng với những API bạn bật. Theo mặc định, Klay bật tất cả các API trên giao diện IPC \(`ipc`\) nhưng đối với `rpc` và `ws` các mô-đun bắt buộc phải được bật.
 
 Để xác định API mà giao diện cung cấp, có thể gọi phương thức `mô-đun` JSON-RPC. Ví dụ: trên giao diện `rpc`:
 
