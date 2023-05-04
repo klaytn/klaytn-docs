@@ -1,45 +1,45 @@
 ---
-description: A caver-js object used to interact with a smart contract.
+description: Một đối tượng caver-js được sử dụng để tương tác với một hợp đồng thông minh.
 ---
 
 # caver.klay.Contract
 
-The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
+Đối tượng `caver.klay.Contract` giúp dễ dàng tương tác với các hợp đồng thông minh trên chuỗi khối Klaytn. Khi bạn tạo một đối tượng hợp đồng mới, bạn cung cấp cho hợp đồng này giao diện JSON của hợp đồng thông minh tương ứng và caver sẽ tự động chuyển đổi tất cả lệnh gọi thành lệnh gọi ABI cấp thấp qua RPC cho bạn.
 
-This allows you to interact with smart contracts as if they were JavaScript objects.
+Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
 
-## new contract <a id="new-contract"></a>
+## hợp đồng mới <a id="new-contract"></a>
 
 ```javascript
-new caver.klay.Contract(jsonInterface [, address] [, options])
+caver.klay.Contract mới(jsonInterface [, địa chỉ] [, tùy chọn])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object.
+Tạo một phiên bản hợp đồng mới với tất cả các phương thức và sự kiện được xác định trong đối tượng giao diện JSON của hợp đồng đó.
 
-**Parameters**
+**Tham số**
 
-| Name          | Type   | Description                                                                                                                  |
-|:------------- |:------ |:---------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Object | The JSON interface for the contract to instantiate                                                                           |
-| address       | String | \(optional\) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | Object | \(optional\) The options of the contract.  See the table below for the details.                                            |
+| Tên           | Loại      | Mô tả                                                                                                                              |
+|:------------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | Đối tượng | Giao diện JSON để khởi tạo hợp đồng                                                                                                |
+| địa chỉ       | Chuỗi     | \(tùy chọn\) Địa chỉ của hợp đồng thông minh để gọi. Có thể thêm sau bằng cách sử dụng `myContract.options.address = '0x1234..'` |
+| tùy chọn      | Đối tượng | \(tùy chọn\) Các tùy chọn của hợp đồng.  Xem bảng dưới đây để biết chi tiết.                                                     |
 
-The options object contains the following:
+Đối tượng tùy chọn chứa các mục sau:
 
-| Name     | Type   | Description                                                                         |
-|:-------- |:------ |:----------------------------------------------------------------------------------- |
-| from     | String | \(optional\) The address from which transactions should be made.                  |
-| gasPrice | String | \(optional\) The gas price in peb to use for transactions.                        |
-| gas      | Number | \(optional\) The maximum gas provided for a transaction \(gas limit\).          |
-| data     | String | \(optional\) The byte code of the contract. Used when the contract gets deployed. |
+| Tên      | Loại | Mô tả                                                                               |
+|:-------- |:----- |:----------------------------------------------------------------------------------- |
+| từ       | Chuỗi | \(tùy chọn\) Địa chỉ mà các giao dịch sẽ được thực hiện.                          |
+| gasPrice | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho các giao dịch.                  |
+| gas      | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho một giao dịch \(giới hạn gas\). |
+| dữ liệu  | Chuỗi | \(tùy chọn\) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.     |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                            |
-|:------ |:------------------------------------------------------ |
-| Object | The contract instance with all its methods and events. |
+| Loại     | Mô tả                                                            |
+|:--------- |:---------------------------------------------------------------- |
+| Đối tượng | Phiên bản hợp đồng với tất cả các phương thức và sự kiện của nó. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 var myContract = new caver.klay.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
@@ -53,7 +53,7 @@ var myContract = new caver.klay.Contract([...], 'myContract', {
 });
 ```
 
-## options <a id="options"></a>
+## tùy chọn <a id="options"></a>
 
 ```javascript
 myContract.options
@@ -123,11 +123,11 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 
 **Property**
 
-| Name          | Type  | Description                                                                                                            |
-|:------------- |:----- |:---------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
+| Name          | Type | Description                                                                                                     |
+|:------------- |:---- |:--------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | Mảng | Giao diện JSON cho hợp đồng này. Đặt lại điều này sẽ tạo lại các phương thức và sự kiện của phiên bản hợp đồng. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > myContract.options.jsonInterface;
@@ -142,17 +142,17 @@ The JSON interface object derived from the ABI of this contract `myContract`.
       "inputs": [{"name":"a","type":"uint256","indexed":true},{"name":"b","type":"bytes32","indexed":false}],
  }]
 
-// set a new interface
+// đặt giao diện mới
 > myContract.options.jsonInterface = [...];
 ```
 
-## clone <a id="clone"></a>
+## nhân bản <a id="clone"></a>
 
 ```javascript
 myContract.clone()
 ```
 
-Clones the current contract instance.
+Sao chép phiên bản hợp đồng hiện tại.
 
 **Parameters**
 
