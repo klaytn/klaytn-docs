@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
+**`CẢNH BẢO`**: Lưu ý rằng việc dùng một tập tin mật khẩu chỉ dành cho quá trình thử nghiệm; bạn không nên lưu mật khẩu của mình trong một tập tin hoặc để lộ nó theo bất kỳ hình thức nào khác. Nếu bạn sử dụng tính năng gắn cờ mật khẩu trong một tập tin mật khẩu, hãy đảm bảo rằng không ai có thể thấy hoặc đọc được tập tin này ngoài bạn. Để thực hiện việc này:
 
 ```bash
 $ touch /path/to/password
@@ -30,23 +30,23 @@ I type my pass here
 ^D
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-On the console, you can call the following function to create an account:
+Trên bảng điều khiển, bạn có thể gọi hàm sau để tạo một tài khoản:
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
+Tài khoản được lưu bằng định dạng mã hóa. Bạn **phải** nhớ cụm mật khẩu này để mở khóa tài khoản của mình trong tương lai.
 
-## Importing an Account <a id="importing-an-account"></a>
+## Nhập tài khoản <a id="importing-an-account"></a>
 
-You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
+Bạn có thể nhập một tài khoản bằng tập tin khóa. Tập tin khóa này được giả định là có chứa một khóa riêng tư chưa mã hóa dưới dạng byte thô EC chuẩn được mã hóa thành hex. Nói đơn giản thì nó là một khóa riêng tư được viết dưới dạng văn bản thuần túy, không có `0x` đứng ở đầu.
 
-This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
+Tập tin này nhập một khóa riêng tư chưa được mã hóa từ tập tin khóa đã cho, tạo tài khoản mới, tạo một tập tin kho khóa trong thư mục dữ liệu, và in địa chỉ vào bảng điều khiển. Bạn phải nhớ cụm mật khẩu này để mở khóa tài khoản của mình trong tương lai.
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**LƯU Ý**: Nếu bạn có thể sao chép trực tiếp các tập tin kho khóa của mình vào một phiên bản Klaytn khác, bạn không cần tới cơ chế nhập/xuất này.
 
 ### ken <a id="ken-1"></a>
 
@@ -55,7 +55,7 @@ $ ken account import <keyfile> --datadir <DATADIR>
 $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### JavaScript Console <a id="javascript-console-1"></a>
+### Bảng điều khiển JavaScript <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
