@@ -14,7 +14,7 @@ Chạy nút điểm cuối (EN) Klaytn của bạn không đơn giản. Việc n
 
 ### Nhà cung cấp điểm cuối JSON-RPC công khai
 
-Dưới đây là danh sách các nhà cung cấp nút công khai của Klaytn và các tên miền mạng lưới.
+Dưới đây là danh sách các nhà cung cấp nút công khai của Klaytn và các tên miền mạng.
 
 #### Mainnet (Cybress) điểm cuối JSON-RPC công khai
 
