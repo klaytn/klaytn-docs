@@ -50,7 +50,7 @@ $ tài khoản ken mới --datadir <DATADIR>
 $ tài khoản ken mới --datadir "~/kend_home"
 ```
 
-Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định là nhu sau.
+Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định là như sau.
 
 * Mac: `~/Library/KEN`
 * Linux: `~/.ken`
@@ -89,5 +89,5 @@ Gõ `personal` hoặc `klay` để xem danh sách các chức năng có sẵn. T
 
 ### Danh mục dữ liệu <a id="data-directory"></a>
 
-Khi bạn tạo một tài khoản, tập tin kho khóa được lưu trữ trong `<DATADIR>keystore`. `<DATADIR>` là `DATA_DIR` đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, hãy dùng `~/kend_home`.
+Khi bạn tạo một tài khoản, tập tin kho khóa được lưu trữ trong `<DATADIR>keystore`. `<DATADIR>` là `DATA_DIR` đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, thư mục đó sẽ là `~/kend_home`.
 
