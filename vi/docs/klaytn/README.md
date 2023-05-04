@@ -1,21 +1,21 @@
-# Overview <a id="overview"></a>
+# Tổng quan <a id="overview"></a>
 
-Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability. Key design goals are;
+Klaytin là một chuỗi khối công khai, dựa trên BFT, được tối ưu hóa cao nhằm đáp ứng độ tin cậy ở cấp doanh nghiệp. Các mục tiêu thiết kế là;
 
-- Immediate finality.
-- High TPS that meets real-world use cases.
-- Lower the cost of running Blockchain Applications.
-- Lower the barriers to entry for end-users.
-- Ease the technology adoption process for industry.
+- Tính hoàn thiện tức thời.
+- TPS cao đáp ứng các trường hợp sử dụng trong thế giới thực.
+- Cắt giảm chi phí chạy các ứng dụng chuỗi khối.
+- Hạ thấp các rào cản về gia nhập cho người dùng cuối.
+- Đơn giản hóa quá trình áp dụng công nghệ cho ngành.
 
-Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/2019 with the following specifications.
+Klaytn khởi chạy mạng lưới chính thức [Cypress](https://scope.klaytn.com/) của mình vào ngày 27 tháng 6 năm 2019 với các thông số kỹ thuật sau.
 
-- 1-second block generation and confirmation time.
-- 4,000 transactions per second.
-- Low gas price that is almost 1/10 of Ethereum.
-- Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.
-- 19 reputable corporations worldwide initially formed Klaytn Governance Council to operate consensus nodes. The current number of consensus nodes is shown in the [Klaytnscope](https://scope.klaytn.com/).
-- More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
+- Thời gian tạo và xác nhận khối 1 giây.
+- 4.000 giao dịch mỗi giây.
+- Giá gas thấp, gần bằng 1/10 Ethereum.
+- Chạy EVM (Máy ảo Ethereum) và hỗ trợ thực thi các hợp đồng Solidity.
+- 19 tập đoàn uy tín trên toàn thế giới đã thành lập Hội đồng quản trị Klaytn từ ban đầu nhằm vận hành các nút đồng thuận. Số lượng hiện tại của các nút đồng thuận được nêu trong [Klaytnscope](https://scope.klaytn.com/).
+- Hơn 50 đối tác dịch vụ ban đầu đã cam kết khởi chạy các ứng dụng chuỗi khối trên Klaytn.
 
 ## Klaytn: Bức tranh toàn cảnh <a id="klaytn-the-big-picture"></a>
 
@@ -110,9 +110,9 @@ Các nhà cung cấp dịch vụ và người dùng cuối trên mạng Klaytn c
 
 ## Các kênh lan truyền riêng biệt cho các khối và giao dịch (truyền đa kênh) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
 
-Độ trễ của một mạng chịu ảnh hưởng nặng nề từ mức độ tắc nghẽn. Giả sử thông lượng của một mạng duy trì không đổi, số lượng giao dịch tăng lên sẽ khiến độ trễ của mạng bị trễ tương ứng. Latency delay is a critical issue in dApps; typical users of legacy mobile apps or web services will not tolerate response time that takes more than a few seconds, and blockchain services have no reason to assume a higher user tolerance.
+Độ trễ của một mạng chịu ảnh hưởng nặng nề từ mức độ tắc nghẽn. Giả sử thông lượng của một mạng duy trì không đổi, số lượng giao dịch tăng lên sẽ khiến độ trễ của mạng bị trễ tương ứng. Độ trễ là một vấn đề nghiêm trọng trong các dApp; người dùng thông thường của các ứng dụng di động hoặc dịch vụ web cũ sẽ không chấp nhận thời gian phản hồi mất nhiều hơn vài giây, và các dịch vụ chuỗi khối không có lý do gì để cho rằng người dùng có khả năng chấp nhận cao hơn.
 
-Klaytn adopts a multichannel approach in order to handle network congestion issues. By assigning separate propagation channels for transactions and blocks, Klaytn network is able to propagate newly created blocks in a timely manner even when the network faces heavy congestion with high number of transactions. Bằng cách này, Klaytn đảm bảo rằng các dApp trên mạng của nó có thể luôn phản hồi các yêu cầu từ người dùng cuối, bất kể lưu lượng truy cập mạng có lúc tăng đột biến.
+Klaytn áp dụng hướng tiếp cận đa kênh để xử lý các vấn đề tắc nghẽn mạng. Bằng cách chỉ định các kênh truyền riêng cho giao dịch và khối, mạng Klaytn có thể kịp thời truyền các khối mới tạo, ngay cả khi mạng đang bị tắc nghẽn nghiêm trọng với số lượng giao dịch lớn. Bằng cách này, Klaytn đảm bảo rằng các dApp trên mạng của nó có thể luôn phản hồi các yêu cầu từ người dùng cuối, bất kể lưu lượng truy cập mạng có lúc tăng đột biến.
 
 ## Phần thưởng khối <a id="block-rewards"></a>
 
