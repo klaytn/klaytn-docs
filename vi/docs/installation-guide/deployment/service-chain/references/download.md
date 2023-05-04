@@ -1,3 +1,3 @@
-# Download <a id="download"></a>
+# Tải xuống <a id="download"></a>
 
-You can get packages for SCN, SPN, and SEN in the [download page](../../../download/README.md).
+Bạn có thể nhận cacs gói cho SCN, SPN và SEN tại [download page](../../../download/README.md).
