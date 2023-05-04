@@ -96,7 +96,7 @@ Khóa tài khoản thể hiện cấu trúc khóa liên kết với một tài k
 
 ### AccountKeyNil <a id="accountkeynil"></a>
 
-AccountKeyNil represents an empty key. If an account tries to have an AccountKeyNil object, the transaction will be failed. AccountKeyNil is used only for TxTypeAccountUpdate transactions with role-based keys. For example, if an account tries to update RoleAccountUpdate key only, the key field of the TxTypeAccountUpdate transaction would be:
+AccountKeyNil thể hiện một khóa trống. Nếu một tài khoản cố sử dụng đối tượng AccountKeyNil, giao dịch sẽ thất bại. AccountKeyNil chỉ được dùng cho các giao dịch TxTypeAccountUpdate với các khóa theo vai trò. Ví dụ, nếu một tài khoản chỉ muốn cập nhật khóa RoleAccountUpdate, trường khóa của giao dịch TxTypeAccountUpdate sẽ là:
 
 `[AccountKeyNil, NewKey, AccountKeyNil]`
 
@@ -167,44 +167,44 @@ Nếu một tài khoản có khóa AccountKeyFail, quá trình xác thực giao 
 
 #### Các thuộc tính <a id="attributes"></a>
 
-| Attribute | Type           | Description                                       |
-|:--------- |:-------------- |:------------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
+| Thuộc tính | Loại           | Mô tả                                              |
+|:---------- |:-------------- |:-------------------------------------------------- |
+| Type       | uint8 \(Go\) | Loại AccountKeyFail. Giá trị này phải là **0x03**. |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### Mã hóa RLP <a id="rlp-encoding"></a>
 
 `0x03c0`
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight. In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
-* The weighted sum of the signed public keys should be larger than the threshold.
-* The invalid signature should not be included in the transaction.
-* The number of signed public keys should be less than the number of weightedPublicKeys.
+AccountKeyWeightedMultiSig là loại khóa tài khoản có chứa ngưỡng, và WeightedPublicKeys có chứa một danh sách gồm một khóa công khai và độ lớn của nó. Để một giao dịch được coi là hợp lệ cho một tài khoản liên kết với AccountKeyWeightedMultiSig, cần phải thỏa mã các điều kiện sau:
+* Tổng trọng số của các khóa công khai đã ký phải lớn hơn ngưỡng.
+* Không được bao gồm chữ ký không hợp lệ trong giao dịch.
+* Số lượng khóa công khai đã ký phải ít hơn số lượng weightedPublicKey.
 
 {% hint style="success" %}
-NOTE: The following multiSig validation logic has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
-* The invalid signature should not be included in the transaction.
-* The number of signed public keys should be less than the number of weightedPublicKeys. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
+LƯU Ý: Logic xác thực multiGig sau đây đã thay đổi với quá trình nâng cấp giao thức `IstanbulEVM`, hay còn gọi là "nâng cấp căn bản".
+* Không được bao gồm chữ ký không hợp lệ trong giao dịch.
+* Số lượng khóa công khai đã ký phải ít hơn số lượng weightedPublicKey. Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo [tài liệu trước đây ](transaction-fees/transaction-fees-previous.md).
 
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
+Số khối nâng cấp giao thức `IstanbulEVM` được hiển thị như dưới đây.
+* Mạng thử nghiệm Baobab: `#75373312`
+* Mạng lưới chính thức Cypress: `#86816005`
 {% endhint %}
 
-#### Attributes <a id="attributes"></a>
+#### Các thuộc tính <a id="attributes"></a>
 
-| Attribute          | Type                                | Description                                                                                                                    |
-|:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------------------------------ |
-| Type               | uint8 \(Go\)                      | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
-| Threshold          | uint \(Go\)                       | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
+| Thuộc tính         | Loại                               | Mô tả                                                                                                                         |
+|:------------------ |:----------------------------------- |:----------------------------------------------------------------------------------------------------------------------------- |
+| Type               | uint8 \(Go\)                      | Loại AccountKeyWeightedMultiSig. Giá trị này phải là **0x04**.                                                                |
+| Threshold          | uint \(Go\)                       | Ngưỡng xác thực. Để được coi là giao dịch hợp lệ, tổng độ lớn của các chữ ký phải lớn hơn hoặc bằng ngưỡng này.               |
+| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và độ lớn của nó. |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### Mã hóa RLP <a id="rlp-encoding"></a>
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 Threshold 3
@@ -226,14 +226,14 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](accounts.md#roles).
+AccountKeyRoleBased thể hiện một khóa theo vai trò. Các vai trò được nêu rõ tại [Roles](accounts.md#roles).
 
-#### Attributes <a id="attributes"></a>
+#### Các thuộc tính <a id="attributes"></a>
 
-| Attribute | Type                        | Mô tả                                                                                                                                                            |
-|:--------- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)              | Loại AccountKeyRoleBased. Giá trị này phải là **0x05**.                                                                                                          |
-| Keys      | \[\]{AccountKey} \(Go\) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
+| Thuộc tính | Loại                       | Mô tả                                                                                                                                                            |
+|:---------- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type       | uint8 \(Go\)              | Loại AccountKeyRoleBased. Giá trị này phải là **0x05**.                                                                                                          |
+| Keys       | \[\]{AccountKey} \(Go\) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
 
 #### Các vai trò <a id="roles"></a>
 
