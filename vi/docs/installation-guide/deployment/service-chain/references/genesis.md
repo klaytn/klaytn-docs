@@ -1,23 +1,23 @@
-This page describes the details of `genesis.json` file.
+Trang này mô tả chi tiết của tệp `genesis.json`.
 
-# Genesis JSON File Structure <a id="genesis-json-file-structure"></a>
+# Cấu trúc tệp Genesis JSON <a id="genesis-json-file-structure"></a>
 
-The `genesis.json` file structure is described in the following table.
+Cấu trúc tệp `genesis.json` được mô tả trong bảng dưới đây.
 
-| Field Name | Description                                                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| config     | The blokchain configuration. See the section [Config](#config).                                                                              |
-| nonce      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
-| timestamp  | The unix time when a block is created.                                                                                                       |
-| extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
-| gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
-| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
-| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
-| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                                          |
-| alloc      | The predefined accounts.                                                                                                                     |
-| number     | The block number field.                                                                                                                      |
-| gasUsed    | The amount of the gas which used for a block.                                                                                                |
-| parentHash | The hash value of the previous block.                                                                                                        |
+| Tên trường      | Mô tả                                                                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| cấu hình        | Cấu hình blokchain. Xem phần [Config](#config).                                                                                              |
+| số dùng một lần | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                          |
+| mốc thời gian   | Thời gian Unix khi tạo ra khối.                                                                                                              |
+| extraData       | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
+| gasLimit        | The maximum gas amount that used in a block.                                                                                                 |
+| difficulty      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
+| mixhash         | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                                                |
+| coinbase        | An address to which miner receives the reward. This field is only used for Clique consensus engine.                                          |
+| alloc           | The predefined accounts.                                                                                                                     |
+| number          | The block number field.                                                                                                                      |
+| gasUsed         | The amount of the gas which used for a block.                                                                                                |
+| parentHash      | The hash value of the previous block.                                                                                                        |
 
 ## Config <a id="config"></a>
 
