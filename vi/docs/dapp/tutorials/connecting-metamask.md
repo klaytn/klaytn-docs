@@ -14,7 +14,7 @@
 
 ![Tạo Ví](../../bapp/tutorials/img/new-to-metamask.png)
 
-* Nhấp vào \[Tạo Ví].
+* Nhấp vào \[Create a Wallet].
 * Đặt mật khẩu.
 *   Bạn sẽ nhận được một cụm từ khôi phục gồm 12 từ; lưu dự phòng nó ở nơi an toàn.
 
@@ -22,21 +22,21 @@
 
 ![Cụm từ ghi nhớ và Ví](../../bapp/tutorials/img/metamask-secret-backup.png)
 
-## Bước 3. Kết nối với Mạng lưới Cypress Klaytn (Mainet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
+## Bước 3. Kết nối với Mạng lưới Klaytn Cypress (Mainet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
 
-> Có một cách dễ làm. [Kết nối ví của bạn với Mạng lưới Cypress Klaytn (Mainnet)](https://chainlist.org/chain/8217).
+> Có một cách dễ làm. [Kết nối ví của bạn với Mạng lưới Klaytn Cypress (Mainnet)](https://chainlist.org/chain/8217).
 
-* Nhấp vào tab Mạng lưới phía trên, tab này mặc định có trên Mainnet Ethereum, rồi chọn \[Thêm mạng lưới].
+* Nhấp vào tab Mạng lưới phía trên, tab này mặc định có trên Mainnet Ethereum, rồi chọn \[Add network].
 * Nhập dữ liệu Nút điểm cuối (EN) của chuỗi Klaytn.
   * Cypress
     * Tên Mạng lưới: Klaytn Cypress
     * URL RPC mới: (Mặc định: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
-    * URL Trình khám phá Block: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * ID Chuỗi: 8217
-    * Ký hiệu Tiền tệ: KLAY
+    * URL Trình khám phá block: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * ID chuỗi: 8217
+    * Ký hiệu tiền tệ: KLAY
 * Nhấp vào \[Save] để thêm Mạng lưới Klaytn Cypress.
 
-![RPC tùy chỉnh và thiết lập mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![RPC thiết lập và điều chỉnh mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-2.png)
+![RPC tùy chỉnh và thiết lập mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-1.png) ![RPC tùy chỉnh và thiết lập mạng lưới](../../bapp/tutorials/img/metamask-add-cypress-2.png)
 
 ## Bước 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
 
@@ -46,7 +46,7 @@
 
 ![Send KLAY 1](img/metamask-send-klay-1.png)
 
-**LƯU Ý:** Gửi KLAY yêu cầu có một giao dịch, nên bạn cần KLAY cho giao dịch đó.
+**LƯU Ý:** Gửi KLAY yêu cầu có một giao dịch nên bạn cần KLAY cho giao dịch đó.
 
 * Vì Klaytn v1.9.0, một [cơ chế phí gas động](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) đã thay thế chính sách giá cố định hiện có.
 * Vậy nên bạn không phải đặt phí gas cố định thủ công.
@@ -66,22 +66,22 @@
 * Baobab
   * Tên Mạng lưới: Klaytn Baobab
   * URL RPC mới: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
-  * URL Trình khám phá Block: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-  * ID Chuỗi: 1001
-  * Ký hiệu Tiền tệ: KLAY
+  * URL Trình khám phá block: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+  * ID chuỗi: 1001
+  * Ký hiệu tiền tệ: KLAY
 * Nhấp vào \[Save] để thêm Mạng lưới Klaytn Baobab.
 
 ![Thiết lập mạng lưới](img/connect-testnet-1.png)
 
 * Để thử kết nối của Ví Klaytn, bạn sẽ cần thực hiện giao dịch có yêu cầu KLAY.
-* Nhấp vào menu kebab (dấu ba chấm) ở góc trên bên phải và chọn \[Thông tin Tài khoản].
-* Nhấp vào \[Xuất Khóa riêng tư] để lấy khóa riêng tư của bạn.
+* Nhấp vào menu kebab (dấu ba chấm) ở góc trên bên phải và chọn \[Account details].
+* Nhấp vào \[Export Private Key] để lấy khóa riêng tư của bạn.
 
-![Xuất ra khóa riêng tư](img/connect-testnet-2.png)
+![Xuất khóa riêng tư](img/connect-testnet-2.png)
 
-* Khi sử dụng Testnet Baobab, bạn có thể nhận được Klay Thử trong [**Faucet Klaytn**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+* Khi sử dụng Testnet Baobab, bạn có thể nhận được Klay Thử nghiệm trong [**Faucet Klaytn**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 * Nhập khóa riêng tư của bạn vào Ví Klaytn và nhấp vào \[Access] để đăng nhập. (Gắn 0x vào trước khóa riêng tư.)
-* Nhấp vào \[Run Faucet]. 150 KLAY Testnet sẽ được gửi tới tài khoản của bạn và số dư sẽ được cập nhật tương ứng. Bạn có thể nhận KLAY Testnet từ Faucet một lần trong 24 giờ cho mỗi tài khoản.
+* Nhấp vào \[Run Faucet]. 150 KLAY Testnet sẽ được gửi vào tài khoản của bạn và số dư sẽ được cập nhật tương ứng. Với mỗi tài khoản, bạn có thể nhận KLAY Testnet từ Faucet một lần trong vòng 24 giờ.
 
 ![Nhận KLAY từ Faucet](img/connect-testnet-3.png)
 
