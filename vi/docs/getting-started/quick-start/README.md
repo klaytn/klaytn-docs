@@ -4,7 +4,7 @@ Trước khi bắt đầu, hãy làm quen với một số thuật ngữ riêng 
 
 * **Nút điểm cuối \(EN\)**: Nút xử lý các yêu cầu API JSON-RPC gửi tới mạng Klaytn. Nút điểm cuối không tham gia vào sự đồng thuận.
 * **KLAY**: đồng tiền mặc định của Klaytn.
-* **caver-js**: Triển khai JavaScript của API Klaytn JSON-RPC.
+* **caver-js**: Triển khai JavaScript của API JSON-RPC của Klaytn.
 * **Baobab**: mạng thử nghiệm của Klaytn
 * **Cypress**: mạng lưới chính của Klaytn
 
