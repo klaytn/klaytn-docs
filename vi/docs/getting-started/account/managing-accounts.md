@@ -1,12 +1,12 @@
-# Managing Accounts <a id="managing-accounts"></a>
+# Quản lý tài khoản <a id="managing-accounts"></a>
 
-## List Your Accounts <a id="list-your-accounts"></a>
+## Liệt kê các tài khoản của bạn <a id="list-your-accounts"></a>
 
-This will return the list of all accounts created under the data directory.
+Lệnh này sẽ trả lại danh sách tất cả các tài khoản được tạo ra trong thư mục dữ liệu.
 
 ### ken <a id="ken"></a>
 
-From the command line, call the CLI with:
+Từ dòng lệnh, gọi CLI bằng:
 
 ```bash
 $ ken account list --datadir <DATADIR>
@@ -15,9 +15,9 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
+**LƯU Ý**: Thứ tự của danh sách tài khoản được trả về có thể thay đổi nếu bạn sao chép tập tin kho khóa từ các nút khác hoặc xóa các tập tin. Vì thế, hãy đảm bảo bạn không dựa vào chỉ mục này, hoặc đảm bảo rằng nếu đã sao chép hoặc xóa các tập tin kho khóa, bạn sẽ kiểm tra và cập nhật các chỉ mục tài khoản của mình trong mã lập trình.
 
-### JavaScript Console <a id="javascript-console"></a>
+### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
 Khi sử dụng bảng điều khiển:
 
