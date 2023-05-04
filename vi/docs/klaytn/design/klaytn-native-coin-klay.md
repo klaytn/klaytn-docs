@@ -1,33 +1,33 @@
-# Klaytn native coin - KLAY <a id="klaytn-native-coin-klay"></a>
+# Đồng tiền mặc định của Klaytn - KLAY <a id="klaytn-native-coin-klay"></a>
 
 ## KLAY <a id="klay"></a>
 
-KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
+KLAY là loại tiền kỹ thuật số chính và có thể chuyển nhượng nội bộ của Klaytn, và được dùng để thanh toán phí giao dịch khi tạo hoặc thực thi hợp đồng thông minh, hoặc khi chuyển khoản KLAY.
 
-KLAY is a necessary element--a fuel--for operating the Klaytn distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs and RNs are compensated for the resources they contribute\).
+KLAY là một phần tử cần thiết--một dạng nhiên liệu--để vận hành nền tảng ứng dụng phân tán Klaytn. Đây là một hình thức thanh toán được khách hàng của nền tảng sử dụng để thanh toán cho các nút đồng thuận \(CN\) thực thi các hoạt động được yêu cầu. Nói cách khác, KLAY là một dạng khuyến khích; nó đảm bảo rằng các nhà phát triển viết ra các ứng dụng chất lượng cao \(mã lãng phí tốn nhiều chi phí hơn\), và mạng luôn hoạt động hiệu quả \(CN và RN nhận được đền bù cho các tài nguyên mà họ đóng góp\).
 
-## Units of KLAY <a id="units-of-klay"></a>
+## Các đơn vị của KLAY <a id="units-of-klay"></a>
 
-Klaytn uses the following unit system for KLAY.
+Klaytn sử dụng hệ thống đơn vị sau cho KLAY.
 
-* `peb` is the smallest currency unit.
-* `ston` is an alias for `Gpeb` and introduced for convenience.
-* A `KLAY` is 10^18 peb.
+* `peb` là đơn vị tiền tệ nhỏ nhất.
+* `ston` là một bí danh cho `Gpeb` và được giới thiệu vì tính thuận tiện.
+* Một `KLAY` bằng 10^18 peb.
 
-| Unit  | peb value | peb                                       |
-|:----- |:--------- |:----------------------------------------- |
-| peb   | 1 peb     | 1                                         |
-| kpeb  | 10^3 peb  | 1,000                                     |
-| Mpeb  | 10^6 peb  | 1,000,000                                 |
-| Gpeb  | 10^9 peb  | 1,000,000,000                             |
-| ston  | 10^9 peb  | 1,000,000,000                             |
-| uKLAY | 10^12 peb | 1,000,000,000,000                         |
-| mKLAY | 10^15 peb | 1,000,000,000,000,000                     |
-| KLAY  | 10^18 peb | 1,000,000,000,000,000,000                 |
-| kKLAY | 10^21 peb | 1,000,000,000,000,000,000,000             |
-| MKLAY | 10^24 peb | 1,000,000,000,000,000,000,000,000         |
-| GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000     |
-| TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
+| Đơn vị | giá trị peb | peb                                       |
+|:------ |:----------- |:----------------------------------------- |
+| peb    | 1 peb       | 1                                         |
+| kpeb   | 10^3 peb    | 1.000                                     |
+| Mpeb   | 10^6 peb    | 1,000,000                                 |
+| Gpeb   | 10^9 peb    | 1,000,000,000                             |
+| ston   | 10^9 peb    | 1,000,000,000                             |
+| uKLAY  | 10^12 peb   | 1,000,000,000,000                         |
+| mKLAY  | 10^15 peb   | 1,000,000,000,000,000                     |
+| KLAY   | 10^18 peb   | 1,000,000,000,000,000,000                 |
+| kKLAY  | 10^21 peb   | 1,000,000,000,000,000,000,000             |
+| MKLAY  | 10^24 peb   | 1,000,000,000,000,000,000,000,000         |
+| GKLAY  | 10^27 peb   | 1,000,000,000,000,000,000,000,000,000     |
+| TKLAY  | 10^30 peb   | 1,000,000,000,000,000,000,000,000,000,000 |
 
 #### Các API liên quan tới các Đơn vị KLAY <a id="apis-related-to-klay-units"></a>
 
