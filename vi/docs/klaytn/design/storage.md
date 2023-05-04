@@ -1,4 +1,4 @@
-# Storage Layer <a id="storage-layer"></a>
+# Lớp lưu trữ <a id="storage-layer"></a>
 
 ## State Migration <a id="block-archiving"></a>
 
