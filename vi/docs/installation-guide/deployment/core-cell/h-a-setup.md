@@ -1,23 +1,23 @@
-# H/A Setup <a id="h-a-setup"></a>
+# Thiết lập H/A <a id="h-a-setup"></a>
 
-Configuring the CN for high availability is critical for effectively operating a Core Cell. The recommended high availability scheme depends on whether the Core Cell is deployed on physical or cloud infrastructure.
+Đặt cấu hình NĐT để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Tính sẵn có cao được khuyến nghị tùy thuộc vào Core Cell được triển khai trên cơ sở hạ tầng thực tế hay trên đám mây.
 
-## Active-Standby \(recommended for bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
+## Hoạt động-chờ \(khuyến nghị cho bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
 
-In this configuration, two CN nodes are installed in active-standby configuration. During normal operation the active node participates in block generation, while the standby only synchronizes chaindata from the network. This configuration ensures that the standby CN node has a fresh copy of the chaindata in the event of a failure in the active node.
+Trong cấu hình này, hai NĐT được cài đặt trong cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng NĐT chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
 
-### Setup <a id="setup"></a>
+### Thiết lập <a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Install a standby CN. The configuration is the same as the active CN except:
-   * The standby should use a different `nodekey`
-   * Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
+1. Tạo bản sao lưu của `nodekey` của NĐT hoạt động.
+2. Cái đặt NĐT chờ. Cấu hình này giống với NĐT hoạt động ngoại trừ:
+   * Nút chờ sử dụng `nodekey` khác
+   * Thêm địa chỉ của NP vào `$DATA_DIR/static-nodes.json`
 
-### Failover <a id="failover"></a>
+### Dự phòng <a id="failover"></a>
 
-1. Stop the standby CN: `sudo systemctl stop kcnd`
-2. Replace the `nodekey` of the standby with the `nodekey` of the failed active CN.
-3. Reassign the IP address of the active CN to the standby CN.
+1. Dừng NĐT chờ: `sudo systemctl stop kcnd`
+2. Thay thế `nodekey` của nút chờ bằng `nodekey` của NĐT hoạt động không thành công.
+3. Gán lại địa chỉ IP của NĐT hoạt động cho NĐT chờ.
 4. Start the standby CN and verify that it is in sync with the network: `sudo systemctl start kcnd`
 
 ## Machine Image & Snapshot \(recommended for cloud\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
