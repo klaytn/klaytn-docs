@@ -1,8 +1,8 @@
-# Đang kết nối với Remix
+# Kết nối Remix
 
 ## Remix là gì <a href="#what-is-remix" id="what-is-remix"></a>
 
-Remix là IDE chạy trên trình duyệt (Môi trường phát triển tích hợp) để phát triển hợp đồng Solidity. Tài liệu này sẽ trình bày việc kết nối Remix với Klaytn. Nếu bạn muốn biết thêm cách sử dụng Remix, vui lòng tham khảo[ **tài liệu Remix**](https://remix-ide.readthedocs.io/en/latest/) hoặc [**IDE Remix**](https://remix.ethereum.org/).
+Remix là IDE chạy trên trình duyệt (Môi trường phát triển tích hợp) để phát triển hợp đồng Solidity. Tài liệu này sẽ trình bày việc kết nối Remix với Klaytn. Nếu bạn muốn biết thêm cách sử dụng Remix, vui lòng tham khảo[ **Tài liệu Remix**](https://remix-ide.readthedocs.io/en/latest/) hoặc [**IDE Remix**](https://remix.ethereum.org/).
 
 ## Cài đặt phiên bản EVM <a href="#setup-evm-version" id="setup-evm-version"></a>
 
@@ -26,16 +26,16 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 
 * Nếu tab \[Klaytn] xuất hiện, bạn đã có thể tương tác với Klaytn.
 
-## Cài đặt Môi trường Triển khai <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
+## Cài đặt Môi trường triển khai<a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
 
 * Nhấp vào tab \[Klaytn].
 * Chọn \[Environment] phù hợp.
-* Bạn có thể chọn **Baobab**, **Cypress**, **Tích hợp Caver**, **Nhà cung cấp Caver** hoặc **Tích hợp Web3**.
+* Bạn có thể chọn **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
   * **\[Baobab]**: Kết nối với mạng lưới Baobab
   * **\[Cypress]**: Kết nối với mạng lưới Cypress
-  * **\[Tích hợp Caver]**: Kết nối với mạng tích hợp caver(ví dụ: Kaikas)
-  * **\[Nhà cung cấp Caver]**: Kết nối trực tiếp với node Klaytn, có hỗ trợ RPC
-  * **\[Tích hợp Web3]**: Kết nối với mạng tích hợp web3(ví dụ: Metamask)
+  * **\[Injected Caver]**: Kết nối với mạng lưới tích hợp caver (ví dụ: Kaikas)
+  * **\[Caver Provider]**: Kết nối trực tiếp với node Klaytn, có hỗ trợ RPC
+  * **\[Injected Web3]**: Kết nối với mạng lưới tích hợp web3 (ví dụ: Metamask)
 
 ![Tab Klaytn](../../bapp/tutorials/img/remix-klaytn-tab.png)
 
@@ -47,24 +47,24 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
 ![Nhập Khóa](../../bapp/tutorials/img/remix-klaytn-import-account.png)
 
 * Rồi nhập vào khóa riêng tư hoặc Lưu trữ khóa.
-* Bạn cũng có thể nhập khóa cho **người trả phí**. Hệ thống chỉ hỗ trợ **khóa riêng tư**.
+* Bạn cũng có thể nhập khóa vào **feePayer**. Hệ thống chỉ hỗ trợ **khóa riêng tư**.
 
 ## Kết nối với Klaytn - Remix bằng EN (Nút điểm cuối) <a href="#connecting-klaytn-remix-using-en" id="connecting-klaytn-remix-using-en"></a>
 
-* Cài đặt Nút điểm cuối trong môi trường cục bộ theo hướng dẫn trong [**tài liệu EN**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en).
-*   Tạo tài khoản theo hướng dẫn trong [**Quản lý Tài khoản**](https://docs.klaytn.foundation/getting-started/account).
+* Cài đặt Nút điểm cuối trong môi trường cục bộ theo hướng dẫn trong [**Tài liệu EN**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en).
+*   Tạo tài khoản theo hướng dẫn trong [**Quản lý tài khoản**](https://docs.klaytn.foundation/getting-started/account).
 
     > **Lưu ý:** Nếu bạn sử dụng EN Công khai từ Baobab thay vì môi trường cục bộ, bạn sẽ không kết nối được với tài khoản của mình vì API cá nhân sẽ bị vô hiệu hóa.
-* Chọn \[Nhà cung cấp Caver] trong menu Môi trường.
+* Chọn \[Caver Provider] trong menu Môi trường.
 
 ![Nhà cung cấp Caver](img/env-caver-provider.png)
 
 * Nhập địa chỉ RPC của EN trong Điểm cuối Nhà cung cấp Caver. EN cục bộ (mặc định): [http://localhost:8551](http://localhost:8551/)
-* Sau khi bạn kết nối thành công với mạng lưới này, bạn sẽ thấy ID Chuỗi và Tài khoản của mạng lưới đã kết nối.
+* Sau khi bạn kết nối thành công với mạng lưới này, bạn sẽ thấy ID chuỗi và Tài khoản của mạng lưới đã kết nối.
 
 ## Kết nối với Klaytn - Remix bằng MetaMask <a href="#connecting-klaytn-remix-using-metamask" id="connecting-klaytn-remix-using-metamask"></a>
 
-* Kết nối với Klaytn bằng MetaMask theo tham khảo từ [**Kết nối với MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
+* Kết nối với Klaytn bằng MetaMask bằng cách tham khảo các bước trong [**Kết nối MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
 * Chọn \[Tích hợp Web3] trên menu Môi trường Remix.
 
 ![Tích hợp Web3](img/env-injected-web3.png)
@@ -89,14 +89,14 @@ Chúng tôi sẽ sử dụng hợp đồng mẫu [**KlaytnGreeter**](https://doc
 
 ![Thêm KlaytnGreeter](../../bapp/tutorials/img/remix-add-klaytngreeter.png)
 
-* Trên tab Biên dịch Solidity, chọn \[Biên dịch KlaytnGreeter.sol] để biên dịch mã lệnh hợp đồng.
+* Trên tab Biên dịch Solidity, chọn \[Compile KlaytnGreeter.sol] để biên dịch mã lệnh hợp đồng.
 
-> Bạn nên bật tùy chọn 'Tự động biên dịch'.
+> Bạn nên bật tùy chọn "Tự động biên dịch".
 
 * Trong tab Triển khai & Chạy Giao dịch, nhấp vào \[Deploy] để triển khai hợp đồng đã biên dịch.
 
-![Triển khai Hợp đồng](../../bapp/tutorials/img/remix-deploy-run-tx.png)
+![Triển khai hợp đồng](../../bapp/tutorials/img/remix-deploy-run-tx.png)
 
-* Bạn có thể xem hợp đồng đã triển khai. Bạn có thể kiểm thử hoặc gỡ lỗi hợp đồng.
+* Bạn có thể xem hợp đồng đã triển khai. Bạn có thể chạy thử hoặc gỡ lỗi hợp đồng.
 
-![Kiểm tra Hợp đồng](../../bapp/tutorials/img/remix-test-or-debug.png)
+![Kiểm tra hợp đồng](../../bapp/tutorials/img/remix-test-or-debug.png)
