@@ -89,7 +89,7 @@ function requestRandomWordsDirect(
   );
 }
 ```
-The code above explains a function calls to the requestRandomWordsPayment() function defined in COORDINATOR contract, and passes keyHash, callbackGasLimit, and numWords as arguments. The payment for service is sent through msg.value to the requestRandomWordsPayment() in COORDINATOR contract. If the payment is larger than expected payment, exceeding payment is returned to the caller of requestRandomWordsPayment function, therefore it requires the user contract to define the [receive()](https://docs.soliditylang.org/en/v0.8.16/contracts.html#receive-ether-function) function as shown in the top of the code.  
+The code above explains a function that calls the `requestRandomWordsPayment()` function defined in COORDINATOR contract, and passes keyHash, callbackGasLimit, and numWords as arguments. The payment for service is sent through msg.value to the requestRandomWordsPayment() in COORDINATOR contract. If the payment is larger than expected payment, exceeding payment is returned to the caller of requestRandomWordsPayment function, therefore it requires the user contract to define the [receive()](https://docs.soliditylang.org/en/v0.8.16/contracts.html#receive-ether-function) function as shown in the top of the code.  
 
 
 ## Step 4: Fulfill random words
