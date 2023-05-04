@@ -1,2 +1,2 @@
-# Consensus Node Setup <a id="consensus-node-setup"></a>
+# Thiết lập nút đồng thuận <a id="consensus-node-setup"></a>
 
