@@ -20,7 +20,7 @@ KAS cung cấp nhiều API để hỗ trợ việc phát triểm ứng dụng bl
 
 ## All That Node
 
-All That Node nhắm tới trở thành cổng đáng tin cậy về hạ tầng Web3, giúp các nhà xây dựng không bị phân tâm bởi những vấn đề liên quan đến mạng lưới blockchain. All That Node đảm bảo kết nối nhanh và mạnh mẽ với các nút RPC với độ trễ thấp nhất.
+Mục tiêu của All That Node là trở thành cổng đáng tin cậy về hạ tầng Web3, giúp các nhà xây dựng không bị phân tâm bởi những vấn đề liên quan đến mạng lưới blockchain. All That Node đảm bảo kết nối nhanh và mạnh mẽ với các nút RPC với độ trễ thấp nhất.
 
 ### Tính năng
 
@@ -60,7 +60,7 @@ Tatum là cách nhanh nhất để xây dựng, thử nghiệm và chạy các �
 
 ## BlockPi
 
-Mạng lưới BlockPI nhắm tới cung cấp dịch vụ RPC chất lượng cao, mạnh mẽ và hiệu quả. Để tránh sự hư hỏng tại cục bộ và hạn chế khả năng mở rộng, mạng lưới được thiết kế để có cấu trúc phân phối với các nút RPC có thể mở rộng.
+Mục tiêu của mạng lưới BlockPI là cung cấp dịch vụ RPC chất lượng cao, mạnh mẽ và hiệu quả. Để tránh sự hư hỏng tại cục bộ và hạn chế khả năng mở rộng, mạng lưới được thiết kế để có cấu trúc phân phối với các nút RPC có thể mở rộng.
 
 BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ Pay As You Go để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết về giá cho mỗi gói (https://docs.blockpi.io/documentations/pricing) và chi phí của từng phương thức cho Klaytn (https://docs.blockpi.io/documentations/request-unit-ru)
 
@@ -95,7 +95,7 @@ Pocket hỗ trợ hàng tá blockchain và vẫn đang không ngừng hỗ trợ
 * Nút lưu trữ, Nút lưu trữ và theo dõi, & Hỗ trợ nút testnet
 * Không xảy ra hư hỏng tại cục bộ
 * Không có thời gian chết
-* Tokenomics hiệu quả về chi phí, gần như bằng không (nắm giữ POKT một lần cho băng thông mạng)
+* Tokenomics hiệu quả về chi phí, gần như không mất phí (nắm giữ POKT một lần cho băng thông mạng)
 * Không phát sinh chi phí chìm hàng tháng, biến hạ tầng của bạn thành một tài sản
 * Load-Balancing được tích hợp vào giao thức
 * Mở rộng vô hạn số lượng yêu cầu mỗi ngày và số nút mỗi giờ khi bạn sử dụng
