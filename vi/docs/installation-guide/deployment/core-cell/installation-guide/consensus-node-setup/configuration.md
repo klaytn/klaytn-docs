@@ -1,37 +1,37 @@
-# Configuration <a id="configuration"></a>
+# Cấu hình <a id="configuration"></a>
 
-The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
+Cấu hình NĐT dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong `kcnd.conf`tập tin cấu hình.
 
-1. Create the CN data directory.
-2. Install node key
-3. Configure the CN with `kcnd.conf`.
+1. Tạo thư mục dữ liệu NĐT.
+2. Cài đặt khóa nút
+3. Định cấu hình NĐT với `kcnd.conf`.
 
-## CN Data Directory Creation <a id="cn-data-directory-creation"></a>
+## Việc tạo thư mục dữ liệu NĐT <a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```bash
 $ mkdir -p /var/kcnd/data
 ```
 
-## Install Node Key <a id="install-node-key"></a>
+## Cài đặt Khóa nút <a id="install-node-key"></a>
 
-In order to operate a CN, a `nodekey` is required. The KCN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the CN data directory. The way to create a `nodekey` is described in the '[Before You Install](../before-you-install.md)' section. The following command line copies the `nodekey` into the CN data directory.
+Để vận hành NĐT cần có`nodekey`. Nhị phân NĐT sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `nodekey` vào thư mục dữ liệu NĐT. Cách để tạo `nodekey` là mô tả trong phần '[Before You Install](../before-you-install.md)'. Dòng lệnh sau sao chép`nodekey` vào thư mục dữ liệu NĐT.
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-## Update the Configuration File <a id="update-the-configuration-file"></a>
+## Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kcn-linux-amd64/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `/etc/kcnd/conf/`.
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kcnd.conf`.
 
 ```text
 ...
@@ -39,7 +39,7 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-### Setup Rewardbase <a id="setup-rewardbase"></a>
+### Thiếp lập Rewardbase <a id="setup-rewardbase"></a>
 
 As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
 
