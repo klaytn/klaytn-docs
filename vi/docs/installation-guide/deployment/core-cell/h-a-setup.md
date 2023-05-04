@@ -1,10 +1,10 @@
 # Thiết lập H/A <a id="h-a-setup"></a>
 
-Đặt cấu hình NĐT để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Tính sẵn có cao được khuyến nghị tùy thuộc vào Core Cell được triển khai trên cơ sở hạ tầng thực tế hay trên đám mây.
+Định cấu hình NĐT để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Tính sẵn có cao được khuyến nghị tùy thuộc vào Core Cell được triển khai trên cơ sở hạ tầng thực tế hay trên đám mây.
 
 ## Hoạt động-chờ \(khuyến nghị cho bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
 
-Trong cấu hình này, hai NĐT được cài đặt trong cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng NĐT chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
+Trong cấu hình này, hai NĐT được cài đặt cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng NĐT chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
 
 ### Thiết lập <a id="setup"></a>
 
@@ -18,38 +18,38 @@ Trong cấu hình này, hai NĐT được cài đặt trong cấu hình hoạt �
 1. Dừng NĐT chờ: `sudo systemctl stop kcnd`
 2. Thay thế `nodekey` của nút chờ bằng `nodekey` của NĐT hoạt động không thành công.
 3. Gán lại địa chỉ IP của NĐT hoạt động cho NĐT chờ.
-4. Start the standby CN and verify that it is in sync with the network: `sudo systemctl start kcnd`
+4. Bắt đầu NĐT chờ và xác minh nó đã đồng bộ với mạng lưới: `sudo systemctl start kcnd`
 
-## Machine Image & Snapshot \(recommended for cloud\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
+## Bản sao lưu máy ảo & Thu thập dữ liệu \(khuyến nghị cho đám mây\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
-Cloud infrastructure allows operators to replace failed nodes much more quickly, so it is not necessary to operate a second standby CN. Instead, it is sufficient to ensure that a new CN can be quickly provisioned and provided with a updated copy of the chaindata.
+Cơ sở hạ tầng đám mây cho phép nhà vận hành thay thế các nút không thành công nhanh chóng hơn mà không cần phải chạy NĐT chờ thứ 2. Thay vào đó, nó đảm bảo một NĐT mới có thể được cung cấp nhanh chóng và đi kèm bản sao cập nhật của dữ liệu chuỗi.
 
-The exact terminology and procedure may vary across different cloud environments. The procedure below is based on AWS \(specifically EC2 and EBS\), but can be adapted for other cloud platforms.
+Thuật ngữ và quy trình chính xác có thể khác nhau giữa các môi trường đám mây khác nhau. Quy trình bên dưới dựa trên AWS \(cụ thể là EC2 và EBS\) nhưng có thể được điều chỉnh theo các nền tảng đám mây khác.
 
-### Setup <a id="setup"></a>
+### Thiết lập <a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Each time the CN configuration or software is updated, create a machine image \(e.g. AMI\). Do not include the volume containing `DATA_DIR` in this image -- this will be obtained separately.
+1. Tạo bản sao lưu của `nodekey` của NĐT hoạt động.
+2. Mỗi lần cấu hình và phần mềm NĐT được cập nhật, một bản sao lưu máy ảo sẽ được tạo ra \(ví dụ: AMI\). Không bao gồm khối lượng chứa `DATA_DIR` trong ảnh này mà sẽ tách riêng ra.
 
-### Failover <a id="failover"></a>
+### Dự phòng <a id="failover"></a>
 
-Use any of the CC's PN nodes to obtain a chaindata snapshot:
+Sử dụng bất kỳ nút NP của CC nào để thu thập dữ liệu chuỗi:
 
-1. Connect to any PN node and stop kpnd: `sudo systemctl stop kpnd`. It is important to stop kpnd first, to ensure data consistency.
-2. Using the AWS console, create a snapshot of the volume containing the PN's `DATA_DIR`.
-3. Start kpnd: `sudo systemctl start kpnd`
+1. Kết nối với bất kỳ NP nào và dừng kpnd: `sudo systemctl stop kpnd`. Cần phải dừng kpnd trước để đảm bảo tính nhất quán của dữ liệu.
+2. Sử dụng bảng điều khiển AWS, tạo bản thu thập dữ liệu của khối lượng chứa `DATA_DIR` của NP.
+3. Bắt đầu kpnd: `sudo systemctl start kpnd`
 
-Create a new CN using the base CN image and the chaindata image:
+Tạo một NĐT mới sử dụng bản sao NĐT hoặc dữ liệu chuỗi:
 
-1. Create an instance using the CN image \(created in "Setup" above\).
-2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
-3. Remove all files from the volume except `$DATA_DIR/klay/chaindata`. Confirm that the `DATA_DIR` set in `kcnd.conf` matches the directory containing the chaindata. It may be necessary to rename the directory if the name is different.
-4. Copy the `nodekey` of the failed CN to `$DATA_DIR/klay/nodekey`.
-5. Reassign the IP address of the failed CN to the replacement.
-6. Start kcnd: `sudo systemctl start kcnd`
-7. Verify the CN is in sync with the network.
+1. Tạo một phiên bản bằng bản sao NĐT \(tạo trong phần "Thiết lập" phía trên\).
+2. Đính kèm khối lượng được tạo từ bản thu thập dữ liệu `$DATA_DIR` của NP.
+3. Xóa tất cả các tập tin trong khối lượng ngoại trừ `$DATA_DIR/klay/chaindata`. Xác nhận rằng `DATA_DIR` trong `kcnd.conf` khớp với thư mục chứa dữ liệu chuỗi. Có thể sẽ cần đổi tên thư mục nếu tên khác nhau.
+4. Sao chép `nodekey` của NĐT không thành công vào `$DATA_DIR/klay/nodekey`.
+5. Gán lại địa chỉ IP của NĐT không thành công vào nút thay thế.
+6. Bắt đầu kpnd: `sudo systemctl start kpnd`
+7. Xác minh NĐT đã đồng bộ với mạng lưới.
 
-## Additional Considerations <a id="additional-considerations"></a>
+## Cân nhắc bổ sung <a id="additional-considerations"></a>
 
-Reassigning the public IP of the failed CN to the replacement CN will allow the replacement to connect immediately to other CNs. If the IP changes, the new CN will not be able to connect to the network until all other CCOs have updated their firewall configurations.
+Gán lại IP công khai của NĐT không thành công cho NĐT thay thế sẽ giúp nút thay thế có thể kết nối ngay lập tức với các NĐT khác. Nếu IP thay đổi, NĐT mới sẽ không thể kết nối với mạng lưới cho đến khi tất cả các CCO khác cập nhật cấu hình tường lửa của mình.
 
