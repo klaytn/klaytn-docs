@@ -2,27 +2,27 @@
 
 Một nút Klaytn có thể chạy bằng **Đa kênh**.
 
-Nếu một nút được thực thi với cấu hình đa kênh, 2 cổng sẽ được thiết lập để liên lạc. Mặt khác, nếu một nút được thực thi bằng cấu hình đơn kênh, 1 cổng sẽ được thiết lập. If 2 multi-channel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
+Nếu một nút được thực thi với cấu hình đa kênh, 2 cổng sẽ được thiết lập để liên lạc. Mặt khác, nếu một nút được thực thi bằng cấu hình đơn kênh, 1 cổng sẽ được thiết lập. Nếu 2 nút đa kênh đều cố kết nối, một kết nối sẽ được thiết lập bằng 2 cổng. Nếu không, chúng sẽ dùng 1 cổng để liên lạc.
 
-A multi-channel node can be enabled through the flag `--multichannel`. If you use [`kend`](./../../installation-guide/deployment/endpoint-node/installation-guide/startup-the-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](./../../installation-guide/deployment/endpoint-node/installation-guide/configuration.md). To disable multi-channel, please replace the statement with `MULTICHANNEL=0`. If you want to run a node with specific ports, flags `port` and `subport` can be used. If you want to specify ports values of a connecting peer, check out [KNI](./kni.md).
+Có thể kích hoạt nút đa kênh bằng cờ `--multichannel`. Nếu bạn dùng [`kend`](./../../installation-guide/deployment/endpoint-node/installation-guide/startup-the-en.md), đa kênh sẽ được kích hoạt theo mặc định do chỉ lệnh `MULTICHANNEL=1` trong [`kend.conf`](./../../installation-guide/deployment/endpoint-node/installation-guide/configuration.md). Để tắt đa kênh, vui lòng thay thế chỉ lệnh bằng `MULTICHANNEL=0`. Nếu bạn muốn chạy một nút bằng các cổng cụ thể, bạn có thể gắn cờ `port` và `subport`. Nếu bạn muốn chỉ định các giá trị cổng của một nút ngang hàng đang kết nối, hãy xem [KNI](./kni.md).
 
-## Architecture <a id="architecture"></a>
+## Kiến trúc <a id="architecture"></a>
 
-![Multi-Channel Server](../images/multichannel.png)
+![Máy chủ đa kênh](../images/multichannel.png)
 
-The picture above shows a connection between two multi-channel nodes. Two ports, mainport (A) and subport (B), transfer different messages.
-* **Mainport**(A) is used to transfer messages related to blocks and consensus protocols.
-  * Block messages include requests and responses of the hash, header, body and receipt of a block.
-  * Consensus messages include Request, Preprepare, Prepare, Commit and RoundChange. The meaning of the messages can be found in [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
-* **Subport**(B) is for transferring transaction messages.
+Hình trên cho thấy kết nối giữa hai nút đa kênh. Hai cổng, cổng chính (A) và cổng phụ (B), truyền tải các thông điệp khác nhau.
+* **Cổng chính**(A) được dùng để truyền tải thông điệp liên quan tới khối và giao thức đồng thuận.
+  * Các thông điệp về khối bao gồm các yêu cầu và phản hồi của hàm băm, tiêu đề, thân và biên nhận của một khối.
+  * Các thông điệp đồng thuận bao gồm Request, Preprepare, Prepare, Commit và RoundChange. Bạn có thể tìm thấy ý nghĩa của các thông điệp này tại [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
+* **Cổng phụ**(B) được dùng để truyền tải các thông điệp về giao dịch.
 
-![Single Channel Server](../images/singlechannel.png)
+![Máy chủ đơn kênh](../images/singlechannel.png)
 
-The picture shows a connection between two single channel nodes or between a single channel node and a multi-channel node. In this case, all messages related to blocks, transactions, and consensus protocols are transported via the same port.
+Hình ảnh thể hiện kết nối giữa hai nút đơn kênh hoặc giữa một nút đơn kênh và một nút đa kênh. Trong trường hợp này, tất cả các thông điệp liên quan tới khối, giao dịch và giao thức đồng thuận sẽ được chuyển qua cùng một cổng.
 
-## Ports  <a id="multichannel-port"></a>
+## Cổng  <a id="multichannel-port"></a>
 
-To set port numbers in KNI, please refer to [the KNI scheme](./kni.md).
-* Single Channel : A single channel node uses one port (default is 32323).
-* Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
-    * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
+Để đặt số lượng cổng trong KNI, vui lòng tham khảo [các phương án KNI](./kni.md).
+* Đơn kênh: Một nút đơn kênh sử dụng một cổng (mặc định là 32323).
+* Đa kênh: Một nút đa kênh sử dụng hai cổng. Bạn có thể chỉ định các cổng này tại `port` và `subport`. Trong Klaytin, các giá trị mặc định của `port` và `subport` lần lượt là 32323 và 32324.
+    * Bạn có thể không đặt `subport` khi kết nối với nút đa kênh. Trong trường hợp này, ban đầu, một nút Klaytn cố kết nối bằng kênh đơn. Trong quá trình tạo kết nối, số lượng cổng thực tế của nút ngang hàng sẽ được tiết lộ. Nếu nút ngang hàng là một nút đa kênh, kết nối hiện hành sẽ bị hủy, và một kệt nối khác sẽ được tạo ra với các cổng đã cập nhật.
