@@ -13,15 +13,15 @@
 
 **Phát triển hợp đồng thông minh**
 
-* [Klaytn Plugin for Remix](https://ide.klaytn.foundation) - Klaytn Plugin for Remix, a browser-based compiler and IDE.
-* [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
+* [Klaytn Plugin for Remix](https://ide.klaytn.foundation) - Klaytn Plugin for Remix, một trình biên dịch dựa trên trình duyệt và IDE.
+* [Truffle](https://github.com/trufflesuite/truffle) - Một công cụ mã nguồn mở dùng để phát triển các hợp đồng thông minh bằng Solidity.
 
-**Klaytn SDKs**
+**Klaytn SDK**
 
-* [caver-js](../dapp/sdk/caver-js/) : A JavaScript library that implements the Klaytn JSON-RPC APIs.
-* [caver-java](../dapp/sdk/caver-java/) : A Java library that implements the Klaytn JSON-RPC APIs.
+* [caver-js](../dapp/sdk/caver-js/) : Thư viện JavaScript triển khai các API JSON-RPC của Klaytn.
+* [caver-java](../dapp/sdk/caver-java/) : Thư viện Java triển khai các API JSON-RPC của Klaytn.
 
-**Klaytn Toolkits**
+**Các bộ công cụ của Klaytn**
 
-* [Klaytnscope](https://scope.klaytn.com/) - A block and transaction explorer.
-* [Klaytn Wallet](https://wallet.klaytn.com/) - A browser-based account management tool.
+* [Klaytnscope](https://scope.klaytn.com/) - Trình khám phá khối và giao dịch.
+* [Ví Klaytn](https://wallet.klaytn.com/) - Một công cụ quản lý tài khoản dựa trên trình duyệt.
