@@ -159,7 +159,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
 
-Trả về gợi ý về giới hạn tối đa phí gas trả thêm cho giao dịch có mức phí thay đổi theo đơn vị peb.
+Trả về đề xuất giới hạn tối đa phí gas trả thêm cho giao dịch phí biến đổi theo đơn vị peb.
 
 **LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
 
