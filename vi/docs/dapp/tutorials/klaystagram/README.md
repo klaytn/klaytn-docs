@@ -36,7 +36,7 @@ Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh du
 
 Có ba tính năng chính.
 
-1. **Photo upload** Người dùng có thể tải ảnh cùng mô tả lên blockchain Klaytn. Ảnh sẽ được token hóa.
+1. **Photo upload** Người dùng có thể tải ảnh kèm mô tả lên blockchain Klaytn. Ảnh sẽ được token hóa.
 2. **Feed** Người dùng có thể xem tất cả ảnh được tải lên trên blockchain.
 3. **Transfer ownership** Chủ sở hữu ảnh có thể chuyển quyền sở hữu ảnh cho một người dùng khác, đồng thời giao dịch sẽ được thể hiện trong lịch sử quyền sở hữu.
 
