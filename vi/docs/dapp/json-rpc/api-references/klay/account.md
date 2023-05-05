@@ -531,21 +531,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign <a id="klay_sign"></a>
 
-Phương thức ký tính toán chữ ký dành riêng cho Klaytn với:
+Phương thức ký nhận tính toán chữ ký dành riêng cho Klaytn với:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một dApp độc hại có thể ký dữ liệu tùy ý, *ví dụ:*, giao dịch và sử dụng chữ ký để mạo danh nạn nhân.
+Việc thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn hành vi lạm dụng khi một dApp độc hại có thể ký nhận dữ liệu tùy ý, *ví dụ như*, giao dịch và sử dụng chữ ký để mạo danh nạn nhân.
 
-**LƯU Ý**: Địa chỉ để ký phải được mở khóa.
+**LƯU Ý**: Địa chỉ cần ký phải được mở khóa.
 
 **Tham số**
 
-| Tên       | Loại            | Mô tả               |
-| --------- | --------------- | ------------------- |
-| tài khoản | DỮ LIỆU 20 byte | Địa chỉ             |
-| tin nhắn  | DỮ LIỆU N byte  | Thông báo có thể ký |
+| Tên       | Loại            | Mô tả            |
+| --------- | --------------- | ---------------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ          |
+| tin nhắn  | DỮ LIỆU N byte  | Thông báo cần ký |
 
 **Giá trị trả về**
 
