@@ -1,35 +1,35 @@
-As explained in the design section, you can anchor your service chain data to Klaytn main chain. This page introduces how to enable data anchoring via [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+Như đã giải thích trong phần thiết kế, bạn có thể neo dữ liệu chuỗi dịch vụ của mình vào chuỗi chính Klaytn. Trang này giới thiệu cách kích hoạt neo dữ liệu qua [KAS (Klaytn API Service)](https://www.klaytnapi.com).
 
-Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain. This ensures the security and credibility of the service chain.
+Khi neo dữ liệu được kích hoạt, một nút trong chuỗi dịch vụ của bạn có thể neo dữ liệu chuỗi (dữ liệu khối) của nó theo định kỳ vào Cypress hoặc Baobab làm bằng chứng cho sự tồn tại và tính bất biến của chuỗi dịch vụ. Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
 
-# Preparation for Using KAS <a id="preparation-with-kas"></a>
-This section introduces the pre-requisites to use KAS for data anchoring.
+# Chuẩn bị sử dụng KAS <a id="preparation-with-kas"></a>
+Phần này giới thiệu các điều kiện tiên quyết khi sử dụng KAS để neo dữ liệu.
 
-## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
-First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account. Please visit the website above and sign up in KAS.
+## Đăng ký KAS (Dịch vụ API Klaytn) <a id="sign-up-kas"></a>
+Đầu tiên bạn cần đăng nhập KAS trên [KAS console website](https://www.klaytnapi.com) để có tài khoản KAS. Vui lòng truy cập trang web ở trên và đăng ký KAS.
 
-[![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
+[![trang chính](../images/kas-main-en.png)](https://www.klaytnapi.com)
 
-[![sign up](../images/kas-signup-en.png)](https://www.klaytnapi.com)
+[![đăng ký](../images/kas-signup-en.png)](https://www.klaytnapi.com)
 
-## Create Credential <a id="check-credential"></a>
-After login, you can create your credential like below. The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
+## Tạo thông tin xác thực <a id="check-credential"></a>
+Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mình như bên dưới. `AccessKey ID` và `Secret AccessKey` hoặc `Authorization` sẽ được dùng để gọi API KAS.
 
-![credential](../images/kas-credential-en.png)
+![thông tin đăng nhập](../images/kas-credential-en.png)
 
 ## Anchor API <a id="anchor-api"></a>
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
+KAS cung cấp Anchor API được thiết kế để neo dữ liệu; đây chắc chắn là ứng dụng bạn sẽ sử dụng cho tác vụ neo.
 
-![anchor api](../images/kas-anchor-api-en.png)
+![neo api](../images/kas-anchor-api-en.png)
 
-## Create Operator Address <a id="create-kas-credential"></a>
-To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. Please, use KAS console to create this account.
+## Tạo địa chỉ toán tử <a id="create-kas-credential"></a>
+Để neo dữ liệu chuỗi dịch vụ qua KAS, cần có một địa chỉ Klaytn đăng ký tham gia KAS và thực sự gửi giao dịch neo cho Klaytn. Vì vậy, trước khi thiết lập nút dịch vụ của mình, bạn cần tạo một tài khoản Klaytn mang tên là "Toán tử" qua Kas. Vui lòng sử dụng bảng điều khiển KAS để tạo tài khoản này.
 
-It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab).
+Điều quan trọng cần nhớ là bạn phải **first select the chain** trong Klaytn mà bạn muốn neo dữ liệu vào đó trên **the top right corner of the KAS console page**. Bạn nên tạo một toán tử cho mỗi chuỗi (Cypress/Baobab).
 
 
 
-![select chain](../images/kas-select-chain-en.png)
+![chọn chuỗi](../images/kas-select-chain-en.png)
 
 Create an operator as below.
 
