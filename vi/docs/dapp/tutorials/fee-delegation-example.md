@@ -214,7 +214,7 @@ $ node sender_client.js
 Đã nhận dữ liệu từ máy chủ: Đây là dịch vụ ủy thác phí
 Đã nhận dữ liệu từ máy chủ: Người trả phí là 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410
 Đã nhận dữ liệu từ máy chủ: Mã băm Tx là 0xd99086aa8188255d4ee885d9f1933b6cc062085c1196731ba599b2fb8f2dbbd7
-Đã nhận dữ liệu từ máy chủ: Mã băm Người gửi Tx là 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
+Đã nhận dữ liệu từ máy chủ: Hàm băm Người gửi Tx là 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
 Giao dịch sẽ được ký với khóa riêng tư `sender`; giao dịch đã ký được gửi đến dịch vụ ủy thác phí (nghĩa là máy chủ của người trả phí). Sau đó máy chủ sẽ nhận phản hồi từ dịch vụ ủy thác phí bao gồm địa chỉ của `Fee payer`, `Tx hash`, và `Sender Tx hash`. `Tx hash` là hàm băm của giao dịch được gửi tới mạng lưới Klaytn, trong khi đó `Sender Tx hash` là hàm băm của giao dịch không có địa chỉ, chữ ký của người trả phí. Để biết thêm chi tiết, vui lòng xem [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
