@@ -1,5 +1,7 @@
 # Connecting Remix
 
+![](./img//klaytnXremix.png)
+
 ## What is Remix <a href="#what-is-remix" id="what-is-remix"></a>
 
 Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
