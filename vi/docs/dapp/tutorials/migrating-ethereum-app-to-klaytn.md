@@ -281,8 +281,8 @@ class Count extends Component {
       })
       .once('receipt', (receipt) => {
         console.log(`
-          Đã nhận biên lai! Điều này nghĩa là giao dịch của bạn(gọi hàm plus)
-          đang ở trong khối Klaytn(#${receipt.blockNumber})
+          Đã nhận biên lai! Điều này nghĩa là giao dịch của bạn (gọi hàm plus)
+           ở trong khối klaytn(#${receipt.blockNumber})
         `, receipt)
         this.setState({
           settingDirection: null,
