@@ -72,7 +72,7 @@ Không có
 
 | Loại                  | Mô tả                                                                                                                   |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Mảng DỮ LIỆU 32 byte | Danh sách mã băm pow, mã băm bổ sung của tiêu đề khối hiện tại được sử dụng cho DAG, điều kiện biên ("mục tiêu"), 2^256 / độ khó. |
+| Mảng DỮ LIỆU 32 byte | Danh sách hàm băm pow, hàm băm bổ sung của tiêu đề khối hiện tại được sử dụng cho DAG, điều kiện biên ("mục tiêu"), 2^256 / độ khó. |
 
 **Ví dụ**
 
@@ -103,8 +103,8 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công vi�
 | Loại            | Mô tả                                     |
 | --------------- | ----------------------------------------- |
 | DỮ LIỆU 8 byte  | Tìm thấy giá trị số dùng một lần (64 bit) |
-| DỮ LIỆU 32 byte | Mã băm pow của tiêu đề (256 bit)          |
-| DỮ LIỆU 32 byte | Băm pha trộn (256 bit)                    |
+| DỮ LIỆU 32 byte | Hàm băm pow của tiêu đề (256 bit)         |
+| DỮ LIỆU 32 byte | Hàm băm hỗn hợp (256 bit)                 |
 
 **Giá trị trả về**
 
