@@ -1,6 +1,6 @@
 ## Tham số khối mặc định <a id="the-default-block-parameter"></a>
 
-Khi các yêu cầu được thực hiện hành động theo trạng thái của Klaytn, tham số khối mặc định cuối cùng sẽ xác định chiều cao của khối.
+Khi các yêu cầu được thực hiện hành động theo trạng thái của Klaytn, thì tham số khối mặc định cuối cùng sẽ xác định chiều cao của khối.
 
 Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
@@ -20,9 +20,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                    |
-| -------- | -------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số khối hiện tại mà máy khách đang ở trên. |
+| Loại     | Mô tả                                                         |
+| -------- | ------------------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của số khối hiện tại mà máy khách đang kết nối đến. |
 
 **Ví dụ**
 
@@ -47,13 +47,13 @@ Trả về thông tin tiêu đề theo số. API này chỉ hoạt động trên
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**
 
-Tham khảo [klay_getHeaderByHash](#klay_getheaderbyhash)
+Xem phần [klay_getHeaderByHash](#klay_getheaderbyhash)
 
 **Ví dụ**
 
@@ -89,35 +89,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **LƯU Ý**: API này được hỗ trợ từ Klaytn v1.7.0.
 
-Trả về thông tin tiêu đề theo mã băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin tiêu đề theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại           | Mô tả            |
-| --------------- | ---------------- |
-| DỮ LIỆU 32 byte | Mã băm của khối. |
+| Loại           | Mô tả             |
+| --------------- | ----------------- |
+| DỮ LIỆU 32 byte | Hàm băm của khối. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Một đối tượng tiêu đề, hoặc `lỗi` khi không tìm thấy tiêu đề:
 
-| Tên              | Loại            | Mô tả                                                                                                               |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------- |
-| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                      |
-| parentHash       | DỮ LIỆU 32-byte  | Mã băm của khối cha.                                                                                                |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                        |
-| transactionsRoot | DỮ LIỆU 32-byte  | Gốc của trie giao dịch trong khối.                                                                                  |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                              |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                           |
-| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khối.                                                               |
-| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                       |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                              |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                                |
-| mốc thời gian    | SỐ LƯỢNG         | Mốc thời gian Unix khi khối được đối chiếu.                                                                         |
-| timestampFoS     | SỐ LƯỢNG         | Phần giây của mốc thời gian khi khối được đối chiếu.                                                                |
-| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                   |
-| voteData         | DỮ LIỆU          | Phiếu quản trị được mã hóa RLP của người đề xuất                                                                    |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
+| Tên              | Loại            | Mô tả                                                                                                            |
+| ---------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
+| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                   |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                            |
+| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các nhật ký của khối. `null` khi đó là khối đang chờ xử lý.                                     |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của cây tiền tố giao dịch trong khối.                                                                        |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của cây tiền tố trạng thái cuối của khối.                                                                    |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                 |
+| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                       |
+| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                    |
+| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                           |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                             |
+| mốc thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                      |
+| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                             |
+| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                |
+| voteData         | DỮ LIỆU          | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                             |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ sở trên mỗi gas. Nó có một giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
 
 **Ví dụ**
 
@@ -152,22 +152,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-Trả về thông tin về một khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin về khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Kiểu                | Mô tả                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
-| Boolean             | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về mã băm của các giao dịch.                                                     |
+| Kiểu                | Mô tả                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.                                         |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị Trả về**
 
-Tham khảo [klay_getBlockByHash](#klay_getblockbyhash)
+Xem phần [klay_getBlockByHash](#klay_getblockbyhash)
 
 **Ví dụ**
 
@@ -206,40 +206,40 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
-Trả về thông tin về một khối theo mã băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin về khối theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại           | Mô tả                                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------ |
-| DỮ LIỆU 32 byte | Mã băm của một khối.                                                                                   |
-| Boolean         | Nếu `true` sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` chỉ trả về mã băm của các giao dịch. |
+| Loại           | Mô tả                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của khối.                                                                                               |
+| Boolean         | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Một đối tượng khối, hoặc `lỗi` khi không tìm thấy khối:
 
-| Tên              | Loại            | Mô tả                                                                                                               |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------- |
-| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                      |
-| mã băm           | DỮ LIỆU 32-byte  | Mã băm của khối. `null` khi đó là khối đang chờ xử lý.                                                              |
-| parentHash       | DỮ LIỆU 32-byte  | Mã băm của khối lớn.                                                                                                |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                        |
-| transactionsRoot | DỮ LIỆU 32-byte  | Gốc của trie giao dịch trong khối.                                                                                  |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                              |
-| receiptsRoot     | DỮ LIỆU 32-byte  | Gốc của trie biên lai giao dịch của khối.                                                                           |
-| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khối.                                                               |
-| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                       |
-| totalBlockScore  | SỐ LƯỢNG         | Số nguyên của tổng số blockScore của chuỗi cho đến khối này.                                                        |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                              |
-| kích thước       | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                       |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                                |
-| mốc thời gian    | SỐ LƯỢNG         | Mốc thời gian Unix khi khối được đối chiếu.                                                                         |
-| timestampFoS     | SỐ LƯỢNG         | Phần giây của mốc thời gian khi khối được đối chiếu.                                                                |
-| giao dịch        | Mảng             | Mảng đối tượng giao dịch hoặc mã băm giao dịch 32 byte tùy thuộc vào tham số đã cho cuối cùng.                      |
-| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                   |
-| voteData         | DỮ LIỆU          | Phiếu quản trị được mã hóa RLP của người đề xuất                                                                    |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
+| Tên              | Loại            | Mô tả                                                                                                            |
+| ---------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
+| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                   |
+| hàm băm          | DỮ LIỆU 32 byte  | Hàm băm của khối. `null` khi đó là khối đang chờ xử lý.                                                          |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                            |
+| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các nhật ký của khối. `null` khi đó là khối đang chờ xử lý.                                     |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của cây tiền tố giao dịch trong khối.                                                                        |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của cây tiền tố trạng thái cuối của khối.                                                                    |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                 |
+| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                       |
+| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                    |
+| totalBlockScore  | SỐ LƯỢNG         | Số nguyên của tổng số blockScore của chuỗi cho đến khối này.                                                     |
+| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                           |
+| kích thước       | SỐ LƯỢNG         | Số nguyên chỉ kích thước của khối này theo byte.                                                                 |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                             |
+| mốc thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                      |
+| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                             |
+| giao dịch        | Mảng             | Mảng đối tượng giao dịch hoặc mã băm giao dịch 32 byte tùy thuộc vào tham số đã cho cuối cùng.                   |
+| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                |
+| voteData         | DỮ LIỆU          | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                             |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ sở trên mỗi gas. Nó có một giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
 
 **Ví dụ**
 
@@ -331,12 +331,12 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -366,9 +366,9 @@ Trả về số lượng giao dịch trong một khối từ một khối khớp
 
 **Tham số**
 
-| Loại           | Mô tả               |
-| --------------- | ------------------- |
-| DỮ LIỆU 32-byte | Mã băm của một khối |
+| Loại           | Mô tả            |
+| --------------- | ---------------- |
+| DỮ LIỆU 32 byte | Hàm băm của khối |
 
 **Giá trị trả về**
 
@@ -396,12 +396,12 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                 |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -488,9 +488,9 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
 
 **Tham số**
 
-| Loại            | Mô tả                |
-| --------------- | -------------------- |
-| DỮ LIỆU 32-byte | Mã băm của một khối. |
+| Loại            | Mô tả             |
+| --------------- | ----------------- |
+| DỮ LIỆU 32 byte | Hàm băm của khối. |
 
 **Giá trị trả về**
 
@@ -501,19 +501,19 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
 | blockScore       | SỐ LƯỢNG        | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                                                              |
 | totalBlockScore  | SỐ LƯỢNG        | Số nguyên của tổng số blockScore của chuỗi cho đến khối này.                                                                                               |
 | uỷ ban           | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
-| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                                                                       |
-| mã băm           | DỮ LIỆU 32-byte | Mã băm của khối. `null` khi đó là khối đang chờ xử lý.                                                                                                     |
+| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                       |
+| mã băm           | DỮ LIỆU 32 byte | Hàm băm của khối. `null` khi đó là khối đang chờ xử lý.                                                                                                    |
 | số               | SỐ LƯỢNG        | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                             |
-| parentHash       | DỮ LIỆU 32-byte | Mã băm của khối lớn.                                                                                                                                       |
+| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha.                                                                                                                                      |
 | người đề xuất    | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                            |
-| receiptsRoot     | DỮ LIỆU 32-byte | Gốc của trie biên lai giao dịch của khối.                                                                                                                  |
-| kích thước       | SỐ LƯỢNG        | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                                                              |
-| stateRoot        | DỮ LIỆU 32-byte | Gốc của trie trạng thái cuối của khối.                                                                                                                     |
-| mốc thời gian    | SỐ LƯỢNG        | Mốc thời gian Unix khi khối được đối chiếu.                                                                                                                |
-| timestampFoS     | SỐ LƯỢNG        | Phần giây của mốc thời gian khi khối được đối chiếu.                                                                                                       |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                                                           |
+| kích thước       | SỐ LƯỢNG        | Số nguyên chỉ kích thước của khối này theo byte.                                                                                                           |
+| stateRoot        | DỮ LIỆU 32 byte | Gốc của cây tiền tố trạng thái cuối của khối.                                                                                                              |
+| mốc thời gian    | SỐ LƯỢNG        | Dấu thời gian Unix khi khối được đối chiếu.                                                                                                                |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                       |
 | giao dịch        | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                  |
-| transactionsRoot | DỮ LIỆU 32-byte | Gốc của trie giao dịch trong khối.                                                                                                                         |
-| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ bản trên mỗi gas. Nó có một giá trị có ý nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                        |
+| transactionsRoot | DỮ LIỆU 32 byte | Gốc của cây tiền tố giao dịch trong khối.                                                                                                                  |
+| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ sở trên mỗi gas. Nó có một giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                           |
 
 **Ví dụ**
 
@@ -594,12 +594,12 @@ Trả về danh sách tất cả các trình xác thực trong ủy ban tại kh
 
 **Tham số**
 
-| Tên                 | Loại   | Mô tả                                                                                                                                                                  |
-| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Tên                 | Loại   | Mô tả                                                                                                                                                               |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -633,12 +633,12 @@ Trả về kích thước của ủy ban tại khối được chỉ định. N�
 
 **Tham số**
 
-| Tên                 | Loại    | Mô tả                                                                                                                                                                  |
-| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Tên                 | Loại    | Mô tả                                                                                                                                                               |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -670,12 +670,12 @@ Trả về danh sách tất cả những người xác thực của hội đồn
 
 **Tham số**
 
-| Tên                 | Loại    | Mô tả                                                                                                                                                                  |
-| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Tên                 | Loại    | Mô tả                                                                                                                                                               |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -709,12 +709,12 @@ Trả về kích thước của hội đồng tại khối được chỉ địn
 
 **Tham số**
 
-| Tên                 | Loại   | Mô tả                                                                                                                                                                  |
-| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Tên                 | Loại   | Mô tả                                                                                                                                                               |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (không bắt buộc) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -745,14 +745,14 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DỮ LIỆU 20 byte                   | Địa chỉ lưu trữ.                                                                                                                                                                     |
-| SỐ LƯỢNG                          | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                        |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](block.md#the-default-block-parameter) hoặc mã băm khối. |
+| Loại                               | Mô tả                                                                                                                                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                    | Địa chỉ lưu trữ.                                                                                                                                                                  |
+| SỐ LƯỢNG                           | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                     |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](block.md#the-default-block-parameter) hoặc mã băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
  **Giá trị trả về**
@@ -861,9 +861,9 @@ Trả về kết quả phân phối phần thưởng về một khối theo số
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                      |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 **Giá trị trả về**
 
