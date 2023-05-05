@@ -52,7 +52,7 @@ const FeedPage = () => (
 
 Có 3 bước để khiến thành phần tương tác với hợp đồng.
 
-**First**, tạo phiên bản `KlaystagramContract` để kết nối hợp đồng với front-end. **Second**, dùng phiên bản `KlaystagramContract`, tạo các hàm API tương tác với hợp đồng trong `redux/actions`\
+**First**, tạo phiên bản `KlaystagramContract` để kết nối hợp đồng với giao diện. **Second**, dùng phiên bản `KlaystagramContract`, tạo các hàm API tương tác với hợp đồng trong `redux/actions`\
 **Third**, gọi các hàm trong mỗi thành phần
 
 Hãy cùng nhau xây dựng nào!
