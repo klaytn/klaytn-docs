@@ -69,16 +69,16 @@ Mã hóa khóa tài khoản bằng sơ đồ mã hóa Tiền tố độ dài đ�
 
 **Tham số**
 
-| Tên     | Type         | Mô tả                                                                                                                                                                           |
-| ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại khóa tài khoản. Để biết giá trị của từng loại khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../../klaytn/design/accounts.md#account-key). |
-| khóa    | DỮ LIỆU JSON | Đối tượng khóa tài khoản                                                                                                                                                        |
+| Tên     | Type         | Mô tả                                                                                                                                                                                    |
+| ------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại mã khóa tài khoản. Để biết giá trị của từng loại mã khóa tài khoản, hãy xem phần [Mã khóa tài khoản](../../../../klaytn/design/accounts.md#account-key). |
+| mã khóa | DỮ LIỆU JSON | Đối tượng mã khóa tài khoản                                                                                                                                                              |
 
 **Giá trị trả về**
 
-| Kiểu    | Mô tả                          |
-| ------- | ------------------------------ |
-| DỮ LIỆU | Khóa tài khoản được mã hóa RLP |
+| Kiểu    | Mô tả                             |
+| ------- | --------------------------------- |
+| DỮ LIỆU | Mã khóa tài khoản được mã hóa RLP |
 
 
 **Ví dụ**
@@ -153,20 +153,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_decodeAccountKey <a id="klay_decodeaccountkey"></a>
 
-Giải mã khóa tài khoản được mã hóa RLP.
+Giải mã mã khóa tài khoản được mã hóa RLP.
 
 **Tham số**
 
-| Loại   | Mô tả                          |
-| ------- | ------------------------------ |
-| DỮ LIỆU | Khóa tài khoản được mã hóa RLP |
+| Loại   | Mô tả                             |
+| ------- | --------------------------------- |
+| DỮ LIỆU | Mã khóa tài khoản được mã hóa RLP |
 
 **Giá trị trả về**
 
-| Tên     | Loại        | Mô tả                                           |
-| ------- | ------------ | ----------------------------------------------- |
-| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại khóa tài khoản. |
-| khóa    | DỮ LIỆU JSON | Đối tượng khóa tài khoản                        |
+| Tên     | Loại        | Mô tả                                              |
+| ------- | ------------ | -------------------------------------------------- |
+| keytype | SỐ LƯỢNG     | Giá trị số nguyên cho biết loại mã khóa tài khoản. |
+| mã khóa | DỮ LIỆU JSON | Đối tượng mã khóa tài khoản                        |
 
 **Ví dụ**
 
@@ -234,7 +234,7 @@ Trả về thông tin tài khoản của một địa chỉ nhất định. Có 
 | số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -299,24 +299,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-Trả về khóa tài khoản của Tài khoản thuộc sở hữu bên ngoài (EOA) của một địa chỉ nhất định. Nếu tài khoản có AccountKeyLegacy hoặc tài khoản của địa chỉ đã cho là Tài khoản hợp đồng thông minh, nó sẽ trả về một giá trị khóa trống. Tham khảo [Khóa tài khoản](../../../../klaytn/design/accounts.md#account-key).
+Trả về mã khóa tài khoản của Tài khoản sở hữu bên ngoài (EOA) của một địa chỉ nhất định. Nếu tài khoản có AccountKeyLegacy hoặc tài khoản của địa chỉ đã cho là Tài khoản hợp đồng thông minh, nó sẽ trả về một giá trị mã khóa trống. Xem phần [Mã khóa tài khoản](../../../../klaytn/design/accounts.md#account-key).
 
 **Tham số**
 
-| Loại                             | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Loại                              | Mô tả                                                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| AccountKey | Khóa tài khoản bao gồm (các) khóa công khai và một loại khóa. |
+| Loại      | Mô tả                                                                  |
+| ---------- | ---------------------------------------------------------------------- |
+| AccountKey | Mã khóa tài khoản bao gồm (các) mã khóa công khai và một loại mã khóa. |
 
 **Ví dụ**
 
@@ -391,13 +391,13 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                 | Loại                              | Mô tả                                                                                                                                                                               |
-| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ             | DỮ LIỆU 20 byte                   | Địa chỉ để kiểm tra số dư.                                                                                                                                                          |
-| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                |
+| -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| địa chỉ              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                           |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -426,13 +426,13 @@ Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| Loại                             | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Loại                              | Mô tả                                                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -458,24 +458,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Trả về số lượng giao dịch *gửi* từ một địa chỉ.
+Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
 
 **Tham số**
 
-| Loại                             | Mô tả                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Loại                              | Mô tả                                                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                                |
-| -------- | ---------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch gửi từ địa chỉ này. |
+| Loại    | Mô tả                                                      |
+| -------- | ---------------------------------------------------------- |
+| SỐ LƯỢNG | Số lượng giao dịch bằng số nguyên được gửi từ địa chỉ này. |
 
 **Ví dụ**
 
@@ -500,13 +500,13 @@ Trả về `true` nếu tài khoản đầu vào có codeHash không trống t�
 
 **Tham số**
 
-| Tên                 | Loại                              | Mô tả                                                                                                                                                                               |
-| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tài khoản           | DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                             |
-| số khối hoặc mã băm | SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                |
+| -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tài khoản            | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
