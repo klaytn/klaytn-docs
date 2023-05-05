@@ -34,7 +34,7 @@ Bạn cần có plugin cục bộ để kết nối mạng Klaytn sử dụng Re
   * **\[Baobab]**: Kết nối với mạng lưới Baobab
   * **\[Cypress]**: Kết nối với mạng lưới Cypress
   * **\[Injected Caver]**: Kết nối với mạng lưới tích hợp caver (ví dụ: Kaikas)
-  * **\[Caver Provider]**: Kết nối trực tiếp với node Klaytn, có hỗ trợ RPC
+  * **\[Caver Provider]**: Kết nối trực tiếp với nút Klaytn, có hỗ trợ RPC
   * **\[Injected Web3]**: Kết nối với mạng lưới tích hợp web3 (ví dụ: Metamask)
 
 ![Tab Klaytn](../../bapp/tutorials/img/remix-klaytn-tab.png)
