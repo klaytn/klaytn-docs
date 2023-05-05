@@ -31,7 +31,7 @@
   * Cypress
     * Tên Mạng lưới: Klaytn Cypress
     * URL RPC mới: (Mặc định: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
-    * URL Trình khám phá block: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * URL Trình khám phá khối: [https://scope.klaytn.com/](https://scope.klaytn.com/)
     * ID chuỗi: 8217
     * Ký hiệu tiền tệ: KLAY
 * Nhấp vào \[Save] để thêm Mạng lưới Klaytn Cypress.
@@ -66,7 +66,7 @@
 * Baobab
   * Tên Mạng lưới: Klaytn Baobab
   * URL RPC mới: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
-  * URL Trình khám phá block: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+  * URL Trình khám phá khối: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
   * ID chuỗi: 1001
   * Ký hiệu tiền tệ: KLAY
 * Nhấp vào \[Save] để thêm Mạng lưới Klaytn Baobab.
