@@ -1,4 +1,4 @@
-# Chuyển ứng dụng Ethereum vào Klaytn
+# Chuyển ứng dụng Ethereum sang Klaytn
 
 ## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
@@ -13,12 +13,12 @@
 
 ## 1. Giới thiệu <a href="#1-introduction" id="1-introduction"></a>
 
-Mục đích của hướng dẫn này là cung cấp chỉ dẫn để tích hợp ứng dụng Ethereum vào Klaytn. Bạn không cần có kinh nghiệm từ trước với Klaytn. Một ứng dụng blockchain đơn giản sẽ được dùng làm mẫu để minh họa cách tích hợp ứng dụng Ethereum vào Klaytn.
+Mục đích của hướng dẫn này là nhằm cung cấp chỉ dẫn để di chuyển ứng dụng Ethereum sang Klaytn. Với Klaytn, bạn không cần có kinh nghiệm từ trước. Một ứng dụng blockchain đơn giản sẽ được dùng làm mẫu để minh họa cách di chuyển ứng dụng Ethereum sang Klaytn.
 
-Ta sẽ chỉ tập trung vào việc thay đổi mã cần thiết để tích hợp ứng dụng Ethereum vào Klaytn. Nếu bạn cần thêm thông tin về cách tạo dApp Klaytn, vui lòng tham chiếu [CountDApp Tutorial](count-dapp/).
+Chúng ta sẽ chỉ tập trung vào việc thay đổi mã cần thiết để di chuyển ứng dụng Ethereum sang Klaytn. Nếu bạn cần thêm thông tin về cách tạo dApp Klaytn, vui lòng tham khảo [Hướng dẫn CountDApp](count-dapp/).
 
 > **Source Code**\
-  Mã nguồn hoàn chỉnh có ở GitHub, tại đây [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+  Mã nguồn hoàn chỉnh có trên GitHub tại [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
 
@@ -36,17 +36,17 @@ CountDApp được thử nghiệm trong môi trường sau đây.
 
 ## 2. Klaytn có tính tương thích với Ethereum <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
 
-Môi trường thực thi của Klaytn tương thích với Máy ảo Ethereum và thực thi các hợp đồng thông minh được viết trong Solidity. API RPC của Klaytn và các thư viện khách hàng khác duy trì gần như tất cả các thông số API giống với thông số của Ethereum nếu có. Do đó, việc chuyển các ứng dụng Ethereum sang Klaytn khá đơn giản. Điều này giúp các nhà phát triển dễ dàng chuyển sang nền tảng blockchain mới.
+Môi trường hoạt động của Klaytn tương thích với Máy ảo Ethereum và thực thi các hợp đồng thông minh được viết trong Solidity. API RPC của Klaytn và các thư viện khách hàng khác duy trì hầu hết các thông số API giống với thông số của Ethereum nếu có. Do đó, việc chuyển các ứng dụng Ethereum sang Klaytn khá đơn giản. Điều này giúp các nhà phát triển dễ dàng chuyển sang nền tảng blockchain mới.
 
 ## 3. Thay đổi kết nối nút từ Ethereum sang Klaytn <a href="#3-change-node-connection-from-ethereum-to-klaytn" id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-Đầu tiên, bạn cần thay đổi thư viện tạo kết nối với nút. Sau đó, bạn sẽ xác định URL của nút trong "rpcURL". (thông tin để bạn biết) [Testnet Ropsten trong Ethereum sẽ bị tắt vào quý 4 năm 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
+Đầu tiên, bạn cần thay đổi thư viện tạo kết nối với nút. Sau đó, bạn sẽ xác định URL của nút trong "rpcURL". (thông tin cho bạn biết) [Testnet Ropsten trong Ethereum sẽ dừng hoạt động vào quý 4 năm 2022.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
 * Ethereum
-  * `web3` thư viện kết nối và giao tiếp với nút Ethereum.
-  * URL của `Testnet Ropsten` được gán cho "rpcURL" .
+  * Thư viện `web3` kết nối và giao tiếp với nút Ethereum.
+  * URL của `testnet Ropsten` được gán cho "rpcURL" .
 * Klaytn
-  * Thư viện `caver-js` được dùng để kết nối và giao tiếp với nút Klaytn.
+  * Thư viện `caver-js` dùng để kết nối và giao tiếp với nút Klaytn.
   * URL của `testnet Baobab` được gán cho "rpcURL".
 
 `src/klaytn/caver.js`
@@ -72,7 +72,7 @@ export default caver
 
 ![thành phần blocknumber](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
 
-Thành phần BlockNumber lấy số khối hiện tại từng giây (1000ms).
+Thành phần BlockNumber lấy số khối hiện tại trên từng giây (1000ms).
 
 Chỉ cần thay thế thư viện `web3` bằng `caver-js`, bạn có thể đồng bộ hóa BlockNumber của Klaytn theo thời gian thực thay vì BlockNumber của Ethereum.
 
@@ -102,9 +102,9 @@ export default BlockNumber
 
 ## 5. Tương tác với hợp đồng: Thành phần `Count` <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
-![thành phần Count](../../bapp/tutorials/count-bapp/images/count-component.gif)
+![thành phần count](../../bapp/tutorials/count-bapp/images/count-component.gif)
 
-Để tương tác với hợp đồng, ta cần tạo một phiên bản của hợp đồng đã được triển khai. Với phiên bản đó, ta có thể đọc và viết dữ liệu của hợp đồng.
+Để tương tác với hợp đồng, chúng ta cần tạo một phiên bản của hợp đồng đã được triển khai. Với phiên bản đó, chúng ta có thể đọc và viết dữ liệu của hợp đồng.
 
 Hãy tìm hiểu từng bước về cách chuyển `CountDApp` từ Ethereum sang Klaytn!
 
@@ -117,8 +117,8 @@ Hãy tìm hiểu từng bước về cách chuyển `CountDApp` từ Ethereum sa
 Bước đầu tiên là triển khai hợp đồng Count trên Klaytn và lấy địa chỉ hợp đồng. Trong hầu hết trường hợp, bạn có thể dùng hợp đồng Ethereum trên Klaytn mà không cần sửa đổi. Tham khảo [Di chuyển hợp đồng Ethereum](../../smart-contract/porting-ethereum-contract.md). Trong hướng dẫn này, chúng tôi sẽ sử dụng Truffle để triển khai hợp đồng.
 
 1. Thay đổi thuộc tính mạng lưới trong `truffle-config.js` để triển khai hợp đồng trên Klaytn.
-2. Nạp tiền vào tài khoản của bạn bằng [KLAY Faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-3. Gõ `$ truffle deploy --network baobab --reset`
+2. Nạp tiền vào tài khoản của bạn bằng [KLAY faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+3. Nhập `$ truffle deploy --network baobab --reset`
 4. Hợp đồng `Count` sẽ được triển khai trên testnet Baobab, Klaytn.
 
 `truffle-config.js`
@@ -161,11 +161,11 @@ module.exports = {
 }
 ```
 
-Để biết thêm thông tin về việc triển khai hợp đồng, hãy tham khảo [CountDapp tutorial - Deploy Contract](count-dapp/6.-deploy-contract.md).
+Để biết thêm thông tin về việc triển khai hợp đồng, hãy tham khảo [Hướng dẫn về CountDapp - Triển khai hợp đồng](count-dapp/6.-deploy-contract.md).
 
 ### 5-2. Tạo một phiên bản hợp đồng <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
 
-Bạn có thể tạo một phiên bản hợp đồng với API `caver-js`. Phiên bản hợp đồng này tại một kết nối với hợp đồng `Count`. Bạn có thể gọi phương thức hợp đồng thông qua phiên bản này.
+Bạn có thể tạo một phiên bản hợp đồng bằng API `caver-js`. Phiên bản hợp đồng này tạo một kết nối với hợp đồng `Count`. Bạn có thể gọi phương thức hợp đồng thông qua phiên bản này.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)\
   Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
@@ -194,7 +194,7 @@ export default Count
 
 ### 5-3. Tương tác với hợp đồng <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
 
-`ABI` (Giao diện nhị phân ứng dụng) được dùng để tạo phiên bản hợp đồng Count cho phép `caver-js` gọi các phương thức hợp đồng như sau. Bạn có thể tương tác với hợp đồng Count giống như với một đối tượng JavaScript.
+`ABI` (Giao diện nhị phân ứng dụng) dùng để tạo phiên bản hợp đồng Count cho phép `caver-js` gọi các phương thức hợp đồng như sau. Bạn có thể tương tác với hợp đồng Count giống như với một đối tượng JavaScript.
 
 * Đọc dữ liệu (call)\
 `CountContract.methods.count().call()`
@@ -202,9 +202,9 @@ export default Count
 `CountContract.methods.plus().send({ ... })`\
 `CountContract.methods.minus().send({ ... })`
 
-Sau khi đã tạo một phiên bản hợp đồng trong bước trước, bạn không cần thay đổi bất cứ mã nào khi sử dụng phương thức hợp đồng sau đó. Đã hoàn tất tích hợp dApp!
+Sau khi tạo một phiên bản hợp đồng trong bước trước, bạn không cần thay đổi bất cứ mã nào khi dùng phương thức hợp đồng sau đó. Đã hoàn tất di chuyển dApp!
 
-#### Mã lệnh đầy đủ: Thành phần `Count` <a href="#full-code-count-component" id="full-code-count-component"></a>
+#### Mã đầy đủ: Thành phần `Count` <a href="#full-code-count-component" id="full-code-count-component"></a>
 
 `src/components/Count.js`
 
@@ -239,7 +239,7 @@ class Count extends Component {
     // ** 2. Gọi phương thức hợp đồng (CALL) **
     // ex:) this.countContract.methods.methodName(arguments).call()
     // Bạn có thể gọi phương thức hợp đồng (CALL) như ở trên.
-    // Ví dụ, hợp đồng của bạn có phương thức tên là `count`.
+    // Ví dụ: Hợp đồng của bạn có phương thức tên là `count`.
     // Bạn có thể gọi như dưới đây:
     // ex:) this.countContract.methods.count().call()
     // Lệnh trả về promise nên bạn có thể truy cập bằng .then() hoặc sử dụng async-await.
@@ -262,7 +262,7 @@ class Count extends Component {
     // 3. ** Gọi phương thức hợp đồng (SEND) **
     // ex:) this.countContract.methods.methodName(arguments).send(txObject)
     // Bạn có thể gọi phương thức hợp đồng (SEND) như trên.
-    // Ví dụ, hợp đồng của bạn có phương thức tên là `plus`.
+    // Ví dụ: Hợp đồng của bạn có phương thức tên là `plus`.
     // Bạn có thể gọi phương thức đó như sau:
     // ex:) this.countContract.methods.plus().send({
     //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // ĐIỀN ĐỊA CHỈ CỦA BẠN
@@ -313,7 +313,7 @@ class Count extends Component {
     //   gas: '200000',
     // })
 
-    // Phương thức sẽ trả về EventEmitter, nên sau khi gửi, bạn có thể nghe được sự kiện.
+    // Phương thức sẽ trả về EventEmitter, nên bạn có thể nghe được sự kiện sau khi gửi.
     // Sử dụng sự kiện .on('transactionHash'),
     // : nếu bạn muốn xử lý logic sau khi gửi giao dịch.
     // Sử dụng sự kiện .once('receipt'),
