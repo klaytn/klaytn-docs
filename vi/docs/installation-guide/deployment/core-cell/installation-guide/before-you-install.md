@@ -34,13 +34,13 @@ $ mv nodekey ~/kcnd_home
 
 `node_info.json` tập tin được tạo bao gồm các nội dung sau.
 
-| Tên khoá      | Mô tả                           | Ví dụ                                                                                                                                                                 |
-|:------------- |:------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Địa_chỉ_nút | địa chỉ của một nút liên kết    | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
-| NodeKey       | khóa nút\(hay khóa riêng tư\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
-| NodeURI       | URI nút                         | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0 |
+| Tên khoá      | Mô tả                            | Ví dụ                                                                                                                                                                 |
+|:------------- |:-------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Địa_chỉ_nút | địa chỉ của một nút liên kết     | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
+| NodeKey       | khóa nút \(hay khóa riêng tư\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
+| NodeURI       | URI nút                          | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0 |
 
-`node_info.json` chứa thông tin nút trong định dạng JSON như bên dưới.
+`node_info.json` chứa thông tin nút trong định dạng JSON như sau.
 
 ```text
 $ cat node_info.json
@@ -53,12 +53,12 @@ $ cat node_info.json
 
 ## Đăng ký URI nút <a id="node-uri-enrollment"></a>
 
-URI nút được tạo nên được đăng ký để tham gia Mạng lưới Core Cell \(CCN\). Quá trình đăng ký sẽ diễn ra như bên dưới.
+URI nút được tạo nên được đăng ký để tham gia Mạng lưới Core Cell \(CCN\). Quá trình đăng ký sẽ diễn ra như sau.
 
 1. Tạo một URI nút bằng`kgen` \(`node_info.json`\) có chứa IP và số Cổng liên kết.
 2. Gửi thông tin tới địa chỉ email chính thức của Klaytn \(`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab\).
 
-Thông tin đăng ký cần được gửi đến địa chỉ email chính thức của Klaytn. Định dạng sẽ như bên dưới.
+Thông tin đăng ký cần được gửi đến địa chỉ email chính thức của Klaytn. Định dạng sẽ như sau.
 
 Trong trường hợp NĐT,
 
