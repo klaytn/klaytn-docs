@@ -6,14 +6,14 @@
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` biểu thị một [giao dịch cũ](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi `LegacyTransaction` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. The `transactionObject` có thể có các thuộc tính dưới đây để tạo `LegacyTransaction`.
+`LegacyTransaction` biểu thị một [giao dịch cũ](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi `LegacyTransaction` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. `transactionObject` có thể có các thuộc tính dưới đây để tạo `LegacyTransaction`.
 
 `LegacyTransaction` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo `LegacyTransaction`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một phiên bản `LegacyTransaction` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.legacyTransaction.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.legacyTransaction({...})`, vui lòng đổi thành `caver.transaction.legacyTransaction.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.legacyTransaction({...})`, vui lòng đổi thành `caver.transaction.legacyTransaction.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -33,27 +33,27 @@ LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/
 **Ví dụ**
 
 ```javascript
-// Tạo một giao dịch cũ để gửi KLAY
+// Tạo một giao dịch Legacy để gửi KLAY
 > caver.transaction.legacyTransaction.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
 })
 
-// Tạo một giao dịch cũ để triển khai hợp đồng thông minh
+// Tạo một giao dịch Legacy để triển khai hợp đồng thông minh
 > caver.transaction.legacyTransaction.create({
     input: '0x60806...',
     gas: 200000,
 })
 
-// Tạo một giao dịch cũ để thực thi hợp đồng thông minh
+// Tạo một giao dịch Legacy để thực thi hợp đồng thông minh
 > caver.transaction.legacyTransaction.create({
     to: '0xfe6c9118e56a42cbc77aa3b7ee586455e3dc5b6d', // Smart contact address
     input: '0xa9059...',
     gas: 200000,
 })
 
-// Tạo một giao dịch cũ từ chuỗi mã hóa RLP
+// Tạo một giao dịch Legacy từ chuỗi mã hóa RLP
 > caver.transaction.legacyTransaction.create('0xf8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567')
 LegacyTransaction {
     _type: 'TxTypeLegacyTransaction',
@@ -74,14 +74,14 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer` biểu thị một [giao dịch chuyển giá trị](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransfer`.
+`ValueTransfer` biểu thị một [giao dịch chuyển giá trị](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransfer`.
 
 `ValueTransfer` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `ValueTransfer`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `ValueTransfer` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.valueTransfer.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransfer({...})`, vui lòng đổi thành `caver.transaction.valueTransfer.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransfer({...})`, vui lòng đổi thành `caver.transaction.valueTransfer.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -128,14 +128,14 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-`ValueTransferMemo` biểu thị một [giao dịch chuyển giá trị kèm ghi chú](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransferMemo`.
+`ValueTransferMemo` biểu thị một [giao dịch chuyển giá trị kèm ghi chú](../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ValueTransferMemo`.
 
 `ValueTransferMemo` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `ValueTransferMemo`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `ValueTransferMemo` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.valueTransferMemo.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransferMemo({...})`, vui lòng đổi thành `caver.transaction.valueTransferMemo.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.valueTransferMemo({...})`, vui lòng đổi thành `caver.transaction.valueTransferMemo.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -145,7 +145,7 @@ LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/
 | value      | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                               |
 | from       | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
 | to         | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                        |
-| input      | chuỗi | Dữ liệu gắn kèm theo giao dịch. Tin nhắn cần được truyền vào thuộc tính này.                                                                                                                                          |
+| input      | chuỗi | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                        |
 | gas        | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
 | signatures | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
 | nonce      | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
@@ -185,7 +185,7 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate` biểu thị một [giao dịch cập nhật tài khoản](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `AccountUpdate`.
+`AccountUpdate` biểu thị một [giao dịch cập nhật tài khoản](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `AccountUpdate`.
 
 `AccountUpdate` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `AccountUpdate`.
 
@@ -193,7 +193,7 @@ caver.transaction.accountUpdate.create(transactionObject)
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `AccountUpdate` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.accountUpdate.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.accountUpdate({...})`, vui lòng đổi thành `caver.transaction.accountUpdate.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.accountUpdate({...})`, vui lòng đổi thành `caver.transaction.accountUpdate.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -242,14 +242,14 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-`SmartContractDeploy` biểu thị một [giao dịch triển khai hợp đồng thông minh](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `SmartContractDeploy`.
+`SmartContractDeploy` biểu thị một [giao dịch triển khai hợp đồng thông minh](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractdeploy). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `SmartContractDeploy`.
 
 `SmartContractDeploy` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `SmartContractDeploy`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `SmartContractDeploy` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.smartContractDeploy.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.smartContractDeploy({...})`, vui lòng đổi thành `caver.transaction.smartContractDeploy.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.smartContractDeploy({...})`, vui lòng đổi thành `caver.transaction.smartContractDeploy.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -301,14 +301,14 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-`SmartContractExecution` biểu thị một [giao dịch thực thi hợp đồng thông minh](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `SmartContractExecution`.
+`SmartContractExecution` biểu thị một [giao dịch thực thi hợp đồng thông minh](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `SmartContractExecution`.
 
 `SmartContractExecution` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `SmartContractExecution`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `SmartContractExecution` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.smartContractExecution.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.smartContractExecution({...})`, vui lòng đổi thành `caver.transaction.smartContractExecution.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.smartContractExecution({...})`, vui lòng đổi thành `caver.transaction.smartContractExecution.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -357,7 +357,7 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel` biểu thị một [giao dịch hủy](../../../../../klaytn/design/transactions/basic.md#txtypecancel). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `Cancel`.
+`Cancel` biểu thị một [giao dịch hủy](../../../../../klaytn/design/transactions/basic.md#txtypecancel). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `Cancel`.
 
 Giao dịch `Cancel` hủy bỏ việc thực thi giao dịch có cùng số dùng một lần trong nhóm giao dịch chờ.
 
@@ -366,7 +366,7 @@ Giao dịch `Cancel` hủy bỏ việc thực thi giao dịch có cùng số dù
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `Cancel` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.cancel.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.xcancelxx({...})`, vui lòng đổi thành `caver.transaction.cancel.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.xcancelxx({...})`, vui lòng đổi thành `caver.transaction.cancel.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -408,14 +408,14 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring` biểu thị một [giao dịch neo dữ liệu chuỗi](../../../../../klaytn/design/transactions/basic.md#txtypechaindataanchoring). The `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ChainDataAnchoring`.
+`ChainDataAnchoring` biểu thị một [giao dịch neo dữ liệu chuỗi](../../../../../klaytn/design/transactions/basic.md#txtypechaindataanchoring). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `ChainDataAnchoring`.
 
 `ChainDataAnchoring` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `ChainDataAnchoring`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `ChainDataAnchoring` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.chainDataAnchoring.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.chainDataAnchoring({...})`, vui lòng đổi thành `caver.transaction.chainDataAnchoring.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.chainDataAnchoring({...})`, vui lòng đổi thành `caver.transaction.chainDataAnchoring.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -458,14 +458,14 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-`EthereumAccessList` biểu thị một [giao dịch danh sách tiếp cận Ethereum](../../../../../klaytn/design/transactions/basic.md#txtypeethereumaccesslist). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi giao dịch `EthereumAccessList` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. The `transactionObject` có thể có các thuộc tính dưới đây để tạo `EthereumAccessList`.
+`EthereumAccessList` biểu thị một [giao dịch danh sách tiếp cận Ethereum](../../../../../klaytn/design/transactions/basic.md#txtypeethereumaccesslist). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi giao dịch `EthereumAccessList` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. `transactionObject` có thể có các thuộc tính dưới đây để tạo `EthereumAccessList`.
 
 `EthereumAccessList` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo `EthereumAccessList`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `EthereumAccessList` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.ethereumAccessList` được hỗ trợ kể từ phiên bản caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.ethereumAccessList({...})`, vui lòng đổi thành `caver.transaction.ethereumAccessList.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.ethereumAccessList({...})`, vui lòng đổi thành `caver.transaction.ethereumAccessList.create({...})`.
 {% endhint %}
 
 **thuộc tính**
@@ -527,14 +527,14 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-`EthereumDynamicFee` biểu thị một [giao dịch phí biến đổi Ethereum](../../../../../klaytn/design/transactions/basic.md#txtypeethereumdynamicfee). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi giao dịch `EthereumDynamicFee` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. The `transactionObject` có thể có các thuộc tính dưới đây để tạo `EthereumDynamicFee`.
+`EthereumDynamicFee` biểu thị một [giao dịch phí biến đổi Ethereum](../../../../../klaytn/design/transactions/basic.md#txtypeethereumdynamicfee). [Tài khoản Klaytn](../../../../../klaytn/design/accounts.md#klaytn-accounts) có thể thực thi giao dịch `EthereumDynamicFee` chỉ bằng [AccountKeyLegacy (Khóa tài khoản cũ)][]. `transactionObject` có thể có các thuộc tính dưới đây để tạo `EthereumDynamicFee`.
 
 `EthereumDynamicFee` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo `EthereumDynamicFee`. Và lưu ý rằng giao dịch `EthereumDynamicFee` không sử dụng `gasPrice`, giao dịch này sử dụng `maxPriorityFeePerGas` và `maxFeePerGas`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `EthereumDynamicFee` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.ethereumDynamicFee` được hỗ trợ kể từ phiên bản caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-LƯU Ý: Tính đến phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.ethereumDynamicFee({...})`, vui lòng đổi thành `caver.transaction.ethereumDynamicFee.create({...})`.
+LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.ethereumDynamicFee({...})`, vui lòng đổi thành `caver.transaction.ethereumDynamicFee.create({...})`.
 {% endhint %}
 
 **thuộc tính**
