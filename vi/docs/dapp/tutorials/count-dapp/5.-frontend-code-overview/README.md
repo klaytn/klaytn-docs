@@ -4,7 +4,7 @@
 2. `static/index.html` - index.html
 3. `src/routes.js`: Chứa định nghĩa định tuyến
 4. `src/App.js` - Thành phần gốc trong ứng dụng của chúng tôi
-5. `src/klaytn/caver.js` - Tạo kết nối với node Klaytn
+5. `src/klaytn/caver.js` - Tạo kết nối với nút Klaytn
 
 ## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -49,7 +49,7 @@ Nó sử dụng thư viện 'react-dom' để render một thành phần React v
   </head>
   <body>
     <noscript>
-      Bận cần bật JavaScript để chạy ứng dụng này.
+      Bạn cần bật JavaScript để chạy ứng dụng này.
     </noscript>
     <div id="root"></div> <!-- DOM sẽ được gán vào đây. -->
     <!--
@@ -114,7 +114,7 @@ class App extends Component {
      */
     const walletFromSession = sessionStorage.getItem('walletInstance')
 
-    // If 'walletInstance' value exists, add it to caver's wallet
+    // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
     if (walletFromSession) {
       try {
         cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
@@ -166,7 +166,7 @@ componentWillMount() {
    */
   const walletFromSession = sessionStorage.getItem('walletInstance')
 
-  // If 'walletInstance' value exists, add it to caver's wallet
+  // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
   if (walletFromSession) {
     try {
       cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
@@ -191,9 +191,9 @@ cf\) Cần có `JSON.parse` vì phiên `walletInstance` được lưu trữ là 
 
 ```javascript
 /**
- * thư viện caver-js tạo kết nối với node klaytn.
+ * thư viện caver-js tạo kết nối với nút klaytn.
  * Bạn có thể kết nối với node klaytn cụ thể bằng cách thay đổi giá trị của 'rpcURL'.
- * Nếu bạn đang chạy node đầy đủ klaytn, đặt rpcURL thành URL node của mình.
+ * Nếu bạn đang chạy node đầy đủ klaytn, đặt rpcURL thành URL nút của mình.
  * ex) rpcURL: 'http://localhost:8551'
  */
 import Caver from 'caver-js'
@@ -207,12 +207,12 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-Thư viện `caver-js` tạo kết nối với node Klaytn.  
-Sau khi tạo kết nối, bạn có thể lấy được số block hiện tại từ node và gọi các phương thức hợp đồng.
+Thư viện `caver-js` tạo kết nối với nút Klaytn.  
+Sau khi tạo kết nối, bạn có thể lấy được số khối hiện tại nhờ nút và gọi các phương thức hợp đồng.
 
-Bạn có thể kết nối với node dành riêng cho Klaytn bằng cách chỉ định nó trong 'rpcURL'.
+Bạn có thể kết nối với nút dành riêng cho Klaytn bằng cách chỉ định nó trong 'rpcURL'.
 
-* Nếu bạn đang chạy node đầy đủ Klaytn, bạn có thể đặt rpcURL thành URL node của mình.
+* Nếu bạn đang chạy node đầy đủ Klaytn, bạn có thể đặt rpcURL thành URL nút của mình.
 
   ví dụ, `rpcURL: 'http://localhost:8551'`  
 
