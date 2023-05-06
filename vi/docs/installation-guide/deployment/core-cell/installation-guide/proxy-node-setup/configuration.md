@@ -1,31 +1,31 @@
-# Configuration <a id="configuration"></a>
+# Cấu hình <a id="configuration"></a>
 
-The PN configuration is to create a data directory and set up several values in the configuration file `kpnd.conf`.
+Cấu hình NP dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong tập tin cấu hình `kpnd.conf`.
 
-1. Create a PN Data Directory
-2. Install node key
-3. Install `static-node.json`
-4. Configure the PN with `kpnd.conf`.
+1. Tạo thư mục dữ liệu NP
+2. Cài đặt khóa nút
+3. Cài đặt `static-node.json`
+4. Định cấu hình NP với `kpnd.conf`.
 
-## PN Data Directory Creation <a id="pn-data-directory-creation"></a>
+## Việc tạo thư mục dữ liệu NP <a id="pn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```bash
 $ mkdir -p /var/kpnd/data
 ```
 
-## Install Node Key <a id="install-node-key"></a>
+## Cài đặt Khóa nút <a id="install-node-key"></a>
 
-In order to operate a PN, a `nodekey` is required. The KPN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the PN data directory. The way to create a `nodekey` is in the "[Before You Install](../before-you-install.md)" section. The following command line copies the `nodekey` into the PN data directory.
+Để vận hành NP cần có `nodekey`. Nhị phân NP Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu NP. Cách để tạo `khóa nút` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu NP.
 
 ```bash
 $ cp nodekey /var/kpnd/data
 ```
 
-## Install `static-nodes.json` <a id="install-static-nodes-json"></a>
+## Cài đặt `static-nodes.json` <a id="install-static-nodes-json"></a>
 
-The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Klaytn official email for more details \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
+`static-nodes.json` nên được tạo bởi nhà vận hành NP. Nó chứa các địa chỉ kết nối với NP của bạn. Bạn nên thêm địa chỉ bao gồm NĐT và NP từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết \(`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab\).
 
 **static-nodes.json**
 
@@ -36,22 +36,22 @@ The `static-nodes.json` should be created from the PN operator. It contains the 
 ]
 ```
 
-The node URI of the PN is in the "[Before You Install](../before-you-install.md)" section. \(Note: This IP address is different from CN public IP.\) The following command line copies the `static-nodes.json` file into the PN data directory.
+URI nút của NP có trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của NĐT.\) Dòng lệnh sau sao chép tệp `static-nodes.json` vào thư mục dữ liệu NP.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-## Update the Configuration File <a id="update-the-configuration-file"></a>
+## Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kpnd.conf`.
 
 ```text
 ...
@@ -59,26 +59,26 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
+## Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
 
-Each PN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new PN is first started, it must download the entire chain data from the network.
+Mỗi NP duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một NP mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu NP. Điều này giúp giảm đáng kể thời gian NP cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA\_DIR you configured in `kpnd.conf`.
+Tải về bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kpnd.conf`.
 
-For example:
+Ví dụ:
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the PN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu NP như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../../../../operation-guide/chaindata-change)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../../../operation-guide/chaindata-change)
