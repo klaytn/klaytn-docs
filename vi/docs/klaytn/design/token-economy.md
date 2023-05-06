@@ -1,10 +1,10 @@
-# Token Economy <a id="token-economy"></a>
+# Nền kinh tế token <a id="token-economy"></a>
 
-## Overview <a id="overview"></a>
+## Tổng quan <a id="overview"></a>
 
-Klaytn’s token economy is designed to create sustainable funding structures for empowering its ecosystem, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
+Nền kinh tế token của Klaytn được thiết kế để tạo ra các cấu trúc tài trợ bền vững để trao quyền cho hệ sinh thái của mình, các sáng kiến tăng trường và các khoản đầu tư chiến lược. Nhiều dự án chuỗi khối công khai có hệ thống tiền tệ chỉ khuyến khích riêng những người vận hành nút của họ \(thợ đào hoặc người sản xuất khối\), chỉ tập trung vào khía cạnh kỹ thuật hoặc bảo trì mạng lưới. Tuy nhiên, những thiết kế như vậy lại bỏ qua tầm quan trọng của việc khuyến khích những nhóm người tham gia khác cũng đóng góp cho sự tăng trưởng của nền kinh tế token của mạng lưới, hoặc đầu tư vào các triển vọng tăng trưởng dài hạn. Ngược lại, nền kinh tế token của Klaytn lại được thiết kế để bù đắp cho các hình thức đóng góp đa dạng đến từ nhiều người tham gia, và ngoài việc duy trì các nút chuỗi khối của mình, chúng tôi còn có một cấu trúc tài trợ được tích hợp sẵn để tận dụng các nguồn lực bền vững, nhằm thúc đẩy các sáng kiến về tăng trưởng trong tương lai và các dự án đầu tư được lấy nguồn một cách chiến lược.
 
-## Funding Structure <a id="funding-structure"></a>
+## Cấu trúc tài trợ <a id="funding-structure"></a>
 
 Cấu trúc tài trợ của Klaytn chạy liên tục với việc tạo khối của mạng Klaytn. Với mỗi khối mới, KLAY mới được phát hành và tổng phí giao dịch được dùng trong khối \(được gọi chung là "phần thưởng khối"\) được tổng hợp và phân phối cho ba toài khoản đích sau theo tỷ lệ được xác định trước:
 
@@ -56,20 +56,20 @@ Quỹ tăng trưởng của Klaytn (KGF) nhắm tới việc giúp nền kinh t�
 
 ## Khoản dự trữ cải tiến của Klaytn <a id="klaytn-improvement-reserve"></a>
 
-Khi công nghệ tiếp tục được cải tiến và nhu cầu của người dùng thay đổi theo thời gian, nền tảng của chúng tôi phải có khả năng thích ứng nhanh chóng với mọi tình huống mới phát sinh. Để đáp ứng những thay đổi như vậy, chúng tôi không chỉ phải cải thiện dịch vụ mà còn phải thực hiện nhiều hoạt động khác nhau để duy trì hệ sinh thái của Klaytn. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such as:
+Khi công nghệ tiếp tục được cải tiến và nhu cầu của người dùng thay đổi theo thời gian, nền tảng của chúng tôi phải có khả năng thích ứng nhanh chóng với mọi tình huống mới phát sinh. Để đáp ứng những thay đổi như vậy, chúng tôi không chỉ phải cải thiện dịch vụ mà còn phải thực hiện nhiều hoạt động khác nhau để duy trì hệ sinh thái của Klaytn. Ví dụ: việc nghiên cứu và phát triển để có được công nghệ tốt hơn, hoặc các dự án đóng góp vào sự phát triển chung của hệ sinh thái có thể là một phần của các hoạt động này. Các hoạt động này là rất cần thiết để Klaytn có thể phát triển không ngừng nghỉ. Khoản dự trữ cải tiến của Klaytn (KIR) sẽ được triển khai cho các hoạt động cải thiện hệ sinh thái của Klaytn, ví dụ như:
 
 
 
-| Category                        | Details                                                                                                                            |
-|:------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
-| **Development**                 | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li>                             |
-| **Infrastructure**              | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li>                           |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li>                                                     |
-| **Monitoring & Analytics**      | <ul><li>Monitoring</li><li>Analytics</li>                                                     |
-| **Education & Activity**        | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
-| **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
+| Phân loại                          | Chi tiết                                                                                                                           |
+|:---------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| **Phát triển**                     | <ul><li>IDE & Các trình biên tập</li><li>Oracle</li><li>Thư viện hợp đồng</li>                             |
+| **Cơ sở hạ tầng**                  | <ul><li>Mạng thử nghiệm cục bộ</li><li>Hệ thống tập tin phi tập trung</li><li>Đa VM</li>                           |
+| **Thử nghiệm, Gỡ lỗi, Triển khai** | <ul><li>Các công cụ thử nghiệm & triển khai</li><li>Các công cụ kiểm toán & bảo mật</li>                                                     |
+| **Giám sát & Phân tích**           | <ul><li>Giám sát</li><li>Phân tích</li>                                                     |
+| **Giáo dục & Hoạt động**           | <ul><li>Tài liệu</li><li>Tài liệu giáo dục</li><li>Xây dựng cộng đồng</li><li>Hoạt động nguồn mở (bao gồm hoạt động săn lỗi nhận thưởng)</li> |
+| **Nghiên cứu**                     | <ul><li>Bảo mật, khả năng mở rộng, mật mã, v.v.</li></ul>                                                                                                         |
 
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+Các đề xuất KIR có thể được tạo ra bởi bất kỳ người tham gia nào trong hệ sinh thái Klaytn. Các đề xuất chi tiêu KIR sẽ được xử lý theo Quy trình quản trị KIR. Hãy tham khảo phần [Quy trình đánh giá Khoản dự trữ cải tiến Klaytn](governance.md#klaytn-improvement-reserve-review-process) để biết thêm thông tin về thử tục này. Khi một đề xuất chi tiêu đã được thông qua, đồng KLAY sẽ được phân phối định kỳ, từ tổng số tiền được xác định trước, dựa trên mức tiến độ của dự án. Quy trình này có thể thay đổi dựa theo kích cỡ của dự án, tuy nhiên theo kế hoạch, quy trình này sẽ diễn ra hàng tháng.
 
-For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/).
+Để biết thêm thông tin, hãy truy cập [Diễn đàn Khoản dự trữ cải tiến Klaytn](https://kir.klaytn.foundation/).
