@@ -1,12 +1,12 @@
-# Installation Guide <a id="installation-guide"></a>
+# Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-You can download the latest version of the `kcn`  on [Download](../download.md) page.
+Bạn có thể tải về phiên bản mới nhất của `kcn` trên trang [Tải về](../download.md).
 
-## Linux Archive Distribution <a id="linux-archive-distribution"></a>
+## Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+Tập tin lưu trữ bao gồm nhị phân thực thi và tập tin cấu hình có cấu trúc như sau.
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**Lưu ý**: KHÔNG thay đổi cấu trúc hoặc tên tập tin. Nếu bạn thay đổi điều đó, nút có thể sẽ không hoạt động đúng.
 
 ```text
 - bin
@@ -16,66 +16,66 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name      | File Description                 |
-|:-------------- |:-------------------------------- |
-| bin/kcn        | CN executable file               |
-| bin/kcnd       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| Tên tập tin    | Mô tả tập tin                     |
+|:-------------- |:--------------------------------- |
+| bin/kcn        | Tập tin thực thi NĐT              |
+| bin/kcnd       | Tệp tin lệnh bắt đầu/kết thúc NĐT |
+| conf/kcnd.conf | Tập tin cấu hình NĐT              |
 
-### Installation <a id="installation"></a>
+### Cài đặt <a id="installation"></a>
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+Quá trình cài đặt chính là giải nén gói đã tải về tại nơi bạn muốn cài đặt gói.
 
 ```bash
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. As an example,
+**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `kcn-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `kcn` và `kcnd` trên toàn cầu. Ví dụ,
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+## Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### Install downloaded RPM <a id="install-downloaded-rpm"></a>
+### Cài đặt RPM đã tải về <a id="install-downloaded-rpm"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
 ```bash
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Cài đặt từ Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+Ngoài ra, bạn có thể cài đặt `kcnd` từ Klaytn Yum repo, chạy:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### Vị trí đã cài đặt <a id="installed-location"></a>
 
-The installed files are located as follows.
+Tập tin đã cài đặt nằm ở vị trí như sau.
 
-| File Name | Location                 |
-|:--------- |:------------------------ |
-| kcn       | /usr/bin/kcn             |
-| kcnd.conf | /etc/kcnd/conf/kcnd.conf |
+| Tên tập tin | Vị trí                   |
+|:----------- |:------------------------ |
+| kcn         | /usr/bin/kcn             |
+| kcnd.conf   | /etc/kcnd/conf/kcnd.conf |
 
 
 
