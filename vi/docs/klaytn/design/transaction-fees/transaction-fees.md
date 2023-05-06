@@ -1,34 +1,34 @@
-# Transaction Fees <a id="transaction-fees"></a>
-The transaction fee for the current Klaytn virtual machine \(KLVM\) is calculated as follows:
+# Phí giao dịch <a id="transaction-fees"></a>
+Phí giao dịch đối với máy ảo Klaytn hiện tại \(KLVM\) được tính toán như sau:
 
 ```text
-(Transaction Fee) := (Gas Used) * (Base Fee)
+(Phí giao dịch ) := (Lượng gas sử dụng) * (Phí cơ sở)
 ```
 
-* The `Gas Used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
-* `Base Fee` is the actual gas price used for the transaction. It has the same meaning as the `Effective Gas Price`.
+* `Lượng gas sử dụng` được tính toán bởi KLVM, dựa trên chi phí gas của opcode và chi phí gas nội tại.
+* `Phí cơ sở` là giá gas thực tế được dùng cho giao dịch. Nó có cùng ý nghĩa như `Giá gas hiệu quả`.
 
-This calculated transaction fee is subtracted from the sender's or fee payer's account balance, depending on the transaction.
+Phí giao dịch được tính toán này được trừ từ số dư tài khoản của người gửi hoặc người trả phí, tùy vào giao dịch.
 
-## Gas and Base Fee Overview <a id="gas-and-base-fee-overview"></a>
+## Tổng quan về gas và phí cơ sở <a id="gas-and-base-fee-overview"></a>
 ### Gas <a id="gas"></a>
-Every action that changes the state of the blockchain requires gas. When a node processes a user's transaction, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
+Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần tới gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token KIP-7, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bởi số `gas` cần dùng.
 
-`Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
+`Gas` là đơn vị đo thể hiện số lượng phép tính cần thiết để xử lý giao dịch của người dùng.
 
-### Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
-Since the Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
+### Cơ chế phí ga động <a id="dynamic-gas-fee-mechanism"></a>
+Sau sự nâng cấp căn bản của Klaytn v1.9.0, một cơ chế phí gas động đã thay thế chính sách phí cố định hiện có. Chính sách phí gas động cung cấp một dịch vụ ổn định cho người dùng bằng cách ngăn chặn các hành vi lạm dụng mạng lưới và chiếm dụng dung lượng lưu trữ. Phí gas thay đổi tùy theo tình hình của mạng. Có bảy tham số ảnh hưởng tới `phí cơ sở (phí gas)`:
 
-1. PREVIOUS_BASE_FEE: Base fee of the previous block
-2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
-3. GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
-4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment)
-5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
-6. UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
-7. LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
+1. PREVIOUS_BASE_FEE: Phí cơ sở của khối trước đó
+2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Lượng gas dùng để xử lý tất cả các giao dịch của khối trước đó
+3. GAS_TARGET: Lượng gas quyết định việc tăng hoặc giảm phí cơ sở (hiện tại là 30 triệu)
+4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Hạn mức gas cho khối tiềm ẩn để thực thi tỷ lệ thay đổi phí cơ sở (hiện tại là 60 triệu)
+5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: Giá trị để đặt thay đổi phí cơ sở tối đa thành 5% mỗi khối (hiện tại là 20, có thể được nhóm quản trị thay đổi sau)
+6. UPPER_BOUND_BASE_FEE: Giá trị tối đa cho phí cơ sở (hiện tại là 750 ston, có thể được nhóm quản trị thay đổi sau)
+7. LOWER_BOUND_BASE_FEE: Giá trị tối thiểu cho phí cơ sở (hiện tại là 25 ston, có thể được nhóm quản trị thay đổi sau)
 
-### Base Fee <a id="base-fee"></a>
-The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
+### Phí cơ sở <a id="base-fee"></a>
+Ý tưởng cơ bản của thuật toán này là `phí cơ sở` sẽ tăng lên nếu lượng gas sử dụng vượt quá mức gas cơ sở và ngược lại. Nó liên quan chặt chẽ đến số lượng giao dịch trong mạng và gas được sử dụng trong quy trình. Có hạn mức trên và hạn mức dưới đối với `phí cơ sở` để ngăn chặn phí tăng hoặc giảm vô thời hạn. Ngoài ra còn có giới hạn cho gas và giá trị điều chỉnh đối với sự biến động nhằm ngăn chặn những thay đổi đột ngột về `phí cơ sở`. Các giá trị này có thể được nhóm quản trị thay đổi.
 
 ```text
 (BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
@@ -37,20 +37,20 @@ The basic idea of this algorithm is that the `base fee` would go up if the gas u
 (BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
 ```
 
-The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
+`Phí cơ sở` được tính cho mọi khối; có thể có thay đổi theo từng giây. Các giao dịch từ một khối đơn lẻ sử dụng cùng một `phí cơ sở` để tính toán phí giao dịch. Chỉ có các giao dịch với giá gas cao hơn `phí cơ sở` của khối mới có thể được thêm vào khối. Một nửa phí giao dịch đối với mỗi khối sẽ bị đốt (BURN_RATIO = 0.5, nhóm quản trị không thể thay đổi giá trị này).
 
-> NOTE: An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
+> LƯU Ý: Một tính năng quan trọng khiến Klaytn khác biệt với EIP-1559 của Ethereum là nó không có tiền boa. Klaytn tuân theo nguyên tắc Ai đến trước thì được phục vụ trước (FCFS) đối với các giao dịch của mình.
 
-### Transaction Replacement <a id="transaction-replacement"></a>
+### Thay thế giao dịch <a id="transaction-replacement"></a>
 
-Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
+Klaytn hiện không cung cấp phương pháp để thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp khác để thay thế giao dịch trong tương lai. Hãy lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
 
-## Klaytn's Gas table  <a id="klaytns-gas-table"></a>
+## Bảng giá gas của Klaytn  <a id="klaytns-gas-table"></a>
 
-Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But there are some features unique to Klaytn that require several new constants.
+Về cơ bản, Klaytn luôn duy trì tương thích với Ethereum. Vì thế, bảng giá gas của Klaytn cũng khá tương đồng với bảng của Ethereum. Tuy nhiên, có một số tính năng chỉ Klaytn mới có cần một vài hằng số mới.
 
 {% hint style="success" %}
-NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
+LƯU Ý: Bảng gas đã thay đổi cùng với việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "nâng cấp căn bản". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo [tài liệu trước đây ](transaction-fees-previous.md).
 
 Số khối nâng cấp giao thức `IstanbulEVM` được hiển thị như dưới đây.
 * Mạng thử nghiệm Baobab: `#75373312`
@@ -70,95 +70,95 @@ Số khối nâng cấp giao thức `IstanbulEVM` được hiển thị như dư
 | G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                                                      |
 | G\_extcode      | 700   | Lượng gas phải trả cho các hoạt động của bộ Wextcode                                                                          |
 | G\_balance      | 700   | Lượng gas phải trả cho một hoạt động BALANCE                                                                                  |
-| G\_sload        | 800   | Đã trả cho một hoạt động SLOAD                                                                                                |
-| G\_jumpdest     | 1     | Đã trả cho một hoạt động JUMPDEST                                                                                             |
-| G\_sset         | 20000 | Đã trả cho một hoạt động SSTORE khi giá trị lưu trữ được đặt từ số không sang số khác không                                   |
-| G\_sreset       | 5000  | Đã trả cho một hoạt động SSTORE khi giá trị bằng không của giá trị không đổi, hoặc được đặt thành số không                    |
+| G\_sload        | 800   | Được trả cho một hoạt động SLOAD                                                                                              |
+| G\_jumpdest     | 1     | Được trả cho một hoạt động JUMPDEST                                                                                           |
+| G\_sset         | 20000 | Được trả cho một hoạt động SSTORE khi giá trị lưu trữ được đặt từ số không sang số khác không                                 |
+| G\_sreset       | 5000  | Được trả cho một hoạt động SSTORE khi giá trị bằng không của giá trị không đổi, hoặc được đặt thành số không                  |
 | G\_sclear       | 15000 | Khoản hoàn tiền đã thực hiện \(được thêm vào quầy hoàn thiền\) khi giá trị lưu trữ được đặt từ số khác không thành số không |
 | R\_selfdestruct | 24000 | Khoản hoàn tiền đã thực hiện \(được thêm vào quầy hoàn tiền\) cho hành động tự hủy một tài khoản                            |
 | G\_selfdestruct | 5000  | Lượng gas phải trả cho một hoạt động SELFDESTRUCT                                                                             |
-| G\_create       | 32000 | Đã trả cho một hoạt động CREATE                                                                                               |
-| G\_codedeposit  | 200   | Đã trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                          |
-| G\_call         | 700   | Paid for a CALL operation                                                                                                     |
-| G\_callvalue    | 9000  | Paid for a non-zero value transfer as part of the CALL operation                                                              |
-| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer                                    |
-| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                                                            |
-| G\_exp          | 10    | Partial payment for an EXP operation                                                                                          |
-| G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation                                               |
-| G\_memory       | 3     | Paid for every additional word when expanding memory                                                                          |
-| G\_txcreate     | 32000 | Paid by all contract-creating transactions                                                                                    |
-| G\_transaction  | 21000 | Paid for every transaction                                                                                                    |
-| G\_log          | 375   | Partial payment for a LOG operation                                                                                           |
-| G\_logdata      | 8     | Paid for each byte in a LOG operation’s data                                                                                  |
-| G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                                                        |
-| G\_sha3         | 30    | Paid for each SHA3 operation                                                                                                  |
-| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                                                        |
-| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                                               |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                                               |
-| G\_extcodehash  | 700   | Paid for getting keccak256 hash of a contract's code                                                                          |
+| G\_create       | 32000 | Được trả cho một hoạt động CREATE                                                                                             |
+| G\_codedeposit  | 200   | Được trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                        |
+| G\_call         | 700   | Được trả cho một hoạt động CALL                                                                                               |
+| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển tiền khác không như một phần của hoạt động CALL                                             |
+| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi, được trừ khỏi Gcallvalue đối với giao dịch chuyển tiền khác không                        |
+| G\_newaccount   | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo một tài khoản                                                            |
+| G\_exp          | 10    | Khoản thanh toán một phần cho hoạt động EXP                                                                                   |
+| G\_expbyte      | 50    | Khoản thanh toán một phần khi nhân với dlog256\(exponent\)e cho hoạt động EXP                                               |
+| G\_memory       | 3     | Được trả cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                                            |
+| G\_txcreate     | 32000 | Được trả bởi tất cả cá giao dịch tạo giao dịch                                                                                |
+| G\_transaction  | 21000 | Được trả cho mọi giao dịch                                                                                                    |
+| G\_log          | 375   | Khoản thanh toán một phần cho hoạt động LOG                                                                                   |
+| G\_logdata      | 8     | Được trả cho mỗi byte trong dữ liệu của hoạt động LOG                                                                         |
+| G\_logtopic     | 375   | Được trả cho từng chủ đề của hoạt động LOG                                                                                    |
+| G\_sha3         | 30    | Được trả cho mỗi hoạt động SHA3                                                                                               |
+| G\_sha3word     | 6     | Được trả cho từng từ \(được làm tròn\) cho dữ liệu nhập vào hoạt động SHA3                                                  |
+| G\_copy         | 3     | Thanh toán một phần cho các hoạt động \*COPY, nhân lên theo số từ được sao chép, được làm tròn                              |
+| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                                                      |
+| G\_extcodehash  | 700   | Được trả cho việc nhận hàm băm keccak256 của mã hợp đồng                                                                      |
 | G\_create2      | 32000 | Được trả cho mã vận hành CREATE2, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                                 |
 
 ### Hợp đồng biên dịch trước <a id="precompiled-contracts"></a>
 
 Hợp đồng được biên dịch trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mật mã phức tạp, và được khởi tạo bởi những hợp đồng khác.
 
-| Mục                     | Gas                | Mô tả                                                         |
-|:----------------------- |:------------------ |:------------------------------------------------------------- |
-| EcrecoverGas            | 3000               | Thực hiện hoạt động ECRecover                                 |
-| Sha256BaseGas           | 60                 | Thực hiện hoạt động hàm băm sha256                            |
-| Sha256PerWordGas        | 12                 |                                                               |
-| Ripemd160BaseGas        | 600                | Thực hiện hoạt động Ripemd160                                 |
-| Ripemd160PerWordGas     | 120                |                                                               |
-| IdentityBaseGas         | 15                 |                                                               |
-| IdentityPerWordGas      | 3                  |                                                               |
-| ModExpQuadCoeffDiv      | 20                 |                                                               |
-| Bn256AddGas             | 150                | Thực hiện hoạt động đường cong elliptic Bn256                 |
-| Bn256ScalarMulGas       | 6000               |                                                               |
-| Bn256PairingBaseGas     | 45000              |                                                               |
-| Bn256PairingPerPointGas | 34000              |                                                               |
-| VMLogBaseGas            | 100                | Ghi nhật ký vào tập tin nhật ký của nút - chỉ dành cho Klaytn |
-| VMLogPerByteGas         | 20                 | Chỉ dành cho Klaytn                                           |
-| FeePayerGas             | 300                | Get feePayer's address - Klaytn only                          |
-| ValidateSenderGas       | 5000 per signature | Validate the sender's address and signature - Klaytn only     |
+| Mục                     | Gas                 | Mô tả                                                          |
+|:----------------------- |:------------------- |:-------------------------------------------------------------- |
+| EcrecoverGas            | 3000                | Thực hiện hoạt động ECRecover                                  |
+| Sha256BaseGas           | 60                  | Thực hiện hoạt động hàm băm sha256                             |
+| Sha256PerWordGas        | 12                  |                                                                |
+| Ripemd160BaseGas        | 600                 | Thực hiện hoạt động Ripemd160                                  |
+| Ripemd160PerWordGas     | 120                 |                                                                |
+| IdentityBaseGas         | 15                  |                                                                |
+| IdentityPerWordGas      | 3                   |                                                                |
+| ModExpQuadCoeffDiv      | 20                  |                                                                |
+| Bn256AddGas             | 150                 | Thực hiện hoạt động đường cong elliptic Bn256                  |
+| Bn256ScalarMulGas       | 6000                |                                                                |
+| Bn256PairingBaseGas     | 45000               |                                                                |
+| Bn256PairingPerPointGas | 34000               |                                                                |
+| VMLogBaseGas            | 100                 | Ghi nhật ký vào tập tin nhật ký của nút - chỉ dành cho Klaytn  |
+| VMLogPerByteGas         | 20                  | Chỉ dành cho Klaytn                                            |
+| FeePayerGas             | 300                 | Nhận địa chỉ của feePayer - chỉ dành cho Klaytn                |
+| ValidateSenderGas       | 5000 cho mỗi chữ ký | Xác minh địa chỉ và chữ ký của người gửi - chỉ dành cho Klaytn |
 
-Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calculated as
-
-```text
-TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)
-```
-
-ValidateSenderGas have to be paid per signature basis.
+Tổng lượng gas của các mục có XXXBaseGas and XXXPerWordGas \(ví dụ: Sha256BaseGas, Sha256PerWordGas\) được tính như sau
 
 ```text
-TotalGas = number of signatures * ValidateSenderGas
+TotalGas = XXXBaseGas + (số từ * XXXPerWordGas)
 ```
 
-Blake2f gas cost is calculated based on the below formula. `input` is the input of the blake2f call.
+ValidateSenderGas phải được trả trên cơ sở từng chữ ký.
+
+```text
+TotalGas = số lượng chữ ký * ValidateSenderGas
+```
+
+Chi phí gas Blake2f được tính dựa trên công thức dưới đây. `input` là đầu vào của lệnh gọi blake2f.
 ```text
 Gas = uint64(binary.BigEndian.Uint32(input[0:4]))
 ```
 
-### Account-related Gas Table <a id="account-related-gas-table"></a>
+### Bảng gas liên quan tới tài khoản <a id="account-related-gas-table"></a>
 
-| Item                       | Gas   | Description                                                 |
-|:-------------------------- |:----- |:----------------------------------------------------------- |
-| TxAccountCreationGasPerKey | 20000 | Gas required for a key-pair creation                        |
-| TxValidationGasPerKey      | 15000 | Gas required for a key validation                           |
-| TxGasAccountUpdate         | 21000 | Gas required for an account update                          |
-| TxGasFeeDelegated          | 10000 | Gas required for a fee delegation                           |
-| TxGasFeeDelegatedWithRatio | 15000 | Gas required for a fee delegation with ratio                |
-| TxGasCancel                | 21000 | Gas required to cancel a transaction which has a same nonce |
-| TxGasValueTransfer         | 21000 | Gas required to transfer KLAY                               |
-| TxGasContractExecution     | 21000 | Base gas for contract execution                             |
-| TxDataGas                  | 100   | Gas required per transaction's single byte                  |
+| Mục                        | Gas   | Mô tả                                                            |
+|:-------------------------- |:----- |:---------------------------------------------------------------- |
+| TxAccountCreationGasPerKey | 20000 | Lượng gas cần thiết để tạo một cặp khóa                          |
+| TxValidationGasPerKey      | 15000 | Lượng gas cần thiết để xác thực khóa                             |
+| TxGasAccountUpdate         | 21000 | Lượng gas cần thiết để cập nhật một tài khoản                    |
+| TxGasFeeDelegated          | 10000 | Lượng gas cần thiết cho một lượt ủy thác phí                     |
+| TxGasFeeDelegatedWithRatio | 15000 | Lượng gas cần thiết để ủy thác phí kèm tỷ lệ                     |
+| TxGasCancel                | 21000 | Lượng gas cần thiết để hủy một giao dịch có cùng số dùng một lần |
+| TxGasValueTransfer         | 21000 | Lượng gas cần thiết để chuyển KLAY                               |
+| TxGasContractExecution     | 21000 | Lượng gas cơ sở để thực thi hợp đồng                             |
+| TxDataGas                  | 100   | Mức gas cần cho mỗi byte đơn lẻ của giao dịch                    |
 
-Gas for payload data is calculated as below
+Mức gas cho dữ liệu vận chuyển được tính toán như dưới đây
 
 ```text
 GasPayload = number_of_bytes * TxDataGas
 ```
 
-### Gas Formula for Transaction Types <a id="gas-formula-for-transaction-types"></a>
+### Công thức gas cho các loại giao dịch <a id="gas-formula-for-transaction-types"></a>
 
 | TxType                 | Gas                                                    |
 |:---------------------- |:------------------------------------------------------ |
