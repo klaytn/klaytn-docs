@@ -31,7 +31,7 @@ Danh sách dưới đây liệt kê các hàm API. Tất cả các API namespacc
 - [eth_getBlockByNumber](./eth/block.md#eth_getblockbynumber)
 - [eth_getBlockByHash](./eth/block.md#eth_getblockbyhash)
 - [eth_getUncleByBlockHashAndIndex](./eth/block.md#eth_getunclebyblockhashandindex)
-- [eth_getUncleByBlockHashAndIndex](./eth/block.md#eth_getunclebyblocknumberandindex)
+- [eth_getUncleByBlockNumberAndIndex](./eth/block.md#eth_getunclebyblocknumberandindex)
 - [eth_getBlockTransactionCountByNumber](./eth/block.md#eth_getblocktransactioncountbynumber)
 - [eth_getBlockTransactionCountByHash](./eth/block.md#eth_getblocktransactioncountbyhash)
 - [eth_getUncleCountByBlockNumber](./eth/block.md#eth_getunclecountbyblocknumber)
