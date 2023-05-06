@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-# Create a Page
+# Tạo một trang
 
-Add **Markdown or React** files to `src/pages` to create a **standalone page**:
+Thêm các tập tin **Markdown hoặc React** vào `src/pages` để tạo ra một **trang độc lập**:
 
 - `src/pages/index.js` → `localhost:3000/`
 - `src/pages/foo.md` → `localhost:3000/foo`
 - `src/pages/foo/bar.js` → `localhost:3000/foo/bar`
 
-## Create your first React Page
+## Tạo trang React đầu tiên của bạn
 
-Create a file at `src/pages/my-react-page.js`:
+Tạo một tập tin tại `src/pages/my-react-page.js`:
 
 ```jsx title="src/pages/my-react-page.js"
 import React from 'react';
@@ -28,11 +28,11 @@ export default function MyReactPage() {
 }
 ```
 
-A new page is now available at [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
+Bây giờ, một trang mới đã có tại [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
 
-## Create your first Markdown Page
+## Tạo trang Markdown đầu tiên của bạn
 
-Create a file at `src/pages/my-markdown-page.md`:
+Tạo một tập tin tại `src/pages/my-markdown-page.md`:
 
 ```mdx title="src/pages/my-markdown-page.md"
 # My Markdown page
@@ -40,4 +40,4 @@ Create a file at `src/pages/my-markdown-page.md`:
 This is a Markdown page
 ```
 
-A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+Bây giờ, một trang mới đã có tại [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
