@@ -1,14 +1,14 @@
-# Testing the Core Cell <a id="testing-the-core-cell"></a>
+# Thử Core Cell <a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-## Process Status <a id="process-status"></a>
+## Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of CN/PN's process using the status commands `systemctl` and `kcnd/kpnd`.
+Có thể kiểm tra trạng thái quy trình của NĐT/NP bằng các lệnh trạng thái `systemctl` và `kcnd/kpnd`.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of CN/PN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của NĐT/NP như sau.
 
 ```bash
 $ systemctl status kcnd.service
@@ -26,22 +26,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kcnd[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ trên.
 
 ### kcnd (kpnd) <a id="kcnd-kpnd"></a>
 
-`kcnd` (or `kpnd`) is installed along with the package and the status of CN/PN can be checked as follows.
+`kcnd` (hoặc `kpnd`) được cài đặt cùng với gói và trạng thái của NĐT/NP có thể được kiểm tra như sau.
 
 ```bash
 $ kcnd status
 kcnd is running
 ```
 
-## Logs <a id="logs"></a>
+## Nhật ký <a id="logs"></a>
 
-The log is stored in `kcnd.out` (or `kpnd.out`) file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` (or `kpnd.conf`) file. When the node works properly, you can see that each block is created per second as follows.
+Nhật ký được lưu ở `kcnd.out` (hoặc `kpnd.out`) tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kcnd.conf` (hoặc `kpnd.conf`). Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi giây sẽ có một khối được tạo như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail kcnd.out
@@ -59,13 +59,13 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ## kcn console (kpn console) <a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console` (or `kpn console`). However, a CN/PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Klaytn cung cấp một CLI khách: `kcn console` (hoặc `kpn console`). Tuy nhiên, NĐT/NP có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
-The IPC file `klay.ipc` is located in the `data` directory on a CN/PN.
+Tập tin IPC `klay.ipc` nằm ở thư mục `data` trên NĐT/NP.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
-In case of a CN,
+Trong trường hợp NP,
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
@@ -77,7 +77,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-In case of a PN,
+Trong trường hợp NP,
 
 ```bash
  $ kpn attach /var/kpnd/data/klay.ipc
@@ -91,16 +91,16 @@ In case of a PN,
   >
 ```
 
-You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../dapp/json-rpc/README.md)
 
-The useful APIs to check the status of a CN/PN:
+API hữu dụng để kiểm tra trạng thái cảu NĐT/NP:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (để lấy số khối mới nhất)
+* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 ### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với NĐT) hay được truyền (đối với NĐT và NP) đúng cách không dựa trên loại nút của bạn.
 
 ```javascript
 > klay.blockNumber
@@ -114,10 +114,10 @@ You can get the latest block number to see if blocks are created (for CNs) or pr
 14
 ```
 
-The above command line returns a different value based on the node type.
+Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-* CN: the number of connected CNs + the number of connected PNs.
-* PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+* NĐT: số NĐT được kết nối + số NP được kết nối.
+* Np: số NĐT được kết nối + số NP được kết nối + số NĐC được kết nối.
 
 
 
