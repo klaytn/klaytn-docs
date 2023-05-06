@@ -77,9 +77,9 @@ Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Giá trị Trả về**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Ví dụ**
 
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
-Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` chấp nhận một mã băm khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
+Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` chấp nhận một hàm băm khối và sẽ chạy lại khối đã có trong cơ sở dữ liệu.
 
 |    Máy khách    | Gọi Phương thức                                              |
 |:---------------:| ------------------------------------------------------------ |
@@ -121,9 +121,9 @@ Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` ch�
 
 **Giá trị Trả về**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Ví dụ**
 
@@ -211,9 +211,9 @@ Trả về nhật ký có cấu trúc được tạo trong quá trình triển k
 
 **Giá trị Trả về**
 
-| Loại                                  | Mô tả                                                                      |
-| -------------------------------------- | -------------------------------------------------------------------------- |
-| map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại                                  | Mô tả                                                                    |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Ví dụ**
 
@@ -268,9 +268,9 @@ Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Giá trị Trả về**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Ví dụ**
 
@@ -303,7 +303,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo cách tương tự như khi nó được triển khai trên mạng. Nó sẽ phát lại bất kỳ giao dịch nào có thể đã được thực hiện trước giao dịch này trước khi cuối cùng nó sẽ cố gắng thực hiện giao dịch tương ứng với mã băm đã cho.
+Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo cách tương tự như khi nó được triển khai trên mạng. Nó sẽ chạy lại bất kỳ giao dịch nào có thể đã được thực hiện trước giao dịch này trước khi cuối cùng nó sẽ cố gắng thực hiện giao dịch tương ứng với hàm băm đã cho.
 
 |    Máy khách    | Gọi Phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
@@ -319,9 +319,9 @@ Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo 
 
 **Giá trị Trả về**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Ví dụ**
 
@@ -546,13 +546,13 @@ function(log) {
 
 `db` có các phương thức sau:
 
-| Tên Phương thức           | Mô tả                                                                          |
-| ------------------------- | ------------------------------------------------------------------------------ |
-| `getBalance(address)`     | Trả về `big.Int` với số dư của tài khoản được chỉ định.                        |
-| `getNonce(address)`       | Trả về một số với số dùng một lần của tài khoản được chỉ định.                 |
-| `getCode(address)`        | Trả về một lát byte có mã cho tài khoản đã chỉ định.                           |
-| `getState(address, hash)` | Trả về giá trị trạng thái cho tài khoản được chỉ định và mã băm được chỉ định. |
-| `exists(address)`         | Trả về true nếu địa chỉ được chỉ định tồn tại.                                 |
+| Tên Phương thức           | Mô tả                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| `getBalance(address)`     | Trả về `big.Int` với số dư của tài khoản được chỉ định.                         |
+| `getNonce(address)`       | Trả về một số với số dùng một lần của tài khoản được chỉ định.                  |
+| `getCode(address)`        | Trả về một lát byte có mã cho tài khoản đã chỉ định.                            |
+| `getState(address, hash)` | Trả về giá trị trạng thái cho tài khoản được chỉ định và hàm băm được chỉ định. |
+| `exists(address)`         | Trả về true nếu địa chỉ được chỉ định tồn tại.                                  |
 
 Hàm thứ hai, `kết quả`, không nhận đối số và sẽ trả về một giá trị tuần tự hóa JSON để trả về người gọi RPC.
 
