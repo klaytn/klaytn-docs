@@ -1,41 +1,41 @@
-# Startup the CN <a id="startup-the-cn"></a>
+# Khởi động NĐT <a id="startup-the-cn"></a>
 
-## CN Start/Stop  <a id="cn-start-stop"></a>
+## Bắt đầu/Dừng NĐT  <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+Bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` sau đây.
 
-**Note**: This requires root privileges.
+**Lưu ý**: Việc này yêu cầu quyền root.
 
-**start**
+**bắt đầu**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-**stop**
+**dừng**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**trạng thái**
 
 ```bash
 $ systemctl status kcnd.service
 
 ```
 
-## Troubleshooting <a id="troubleshooting"></a>
+## Khắc phục sự cố <a id="troubleshooting"></a>
 
-If you meet the following error,
+Nếu bạn gặp lỗi sau,
 
 ```bash
-Failed to start kcnd.service: Unit not found.
+Không thể bắt đầu kcnd.service: Không tìm thấy đơn vị.
 ```
 
-reload the systemd manager configuration with the following command.
+tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
 
 ```bash
 $ systemctl daemon-reload
