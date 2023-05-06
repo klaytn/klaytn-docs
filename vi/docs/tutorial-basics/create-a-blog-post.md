@@ -2,13 +2,13 @@
 sidebar_position: 3
 ---
 
-# Create a Blog Post
+# Tạo một bài đăng blog
 
-Docusaurus creates a **page for each blog post**, but also a **blog index page**, a **tag system**, an **RSS** feed...
+Docusaurus tạo ra một **trang cho mỗi bài đăng trên blog**, và cũng tạo ra một **trang chỉ mục blog**, một **hệ thống thẻ**, một nguồn cấp dữ liệu **RSS**...
 
-## Create your first Post
+## Tạo bài đăng đầu tiên của bạn
 
-Create a file at `blog/2021-02-28-greetings.md`:
+Tạo một file tại `blog/2021-02-28-greetings.md`:
 
 ```md title="blog/2021-02-28-greetings.md"
 ---
@@ -31,4 +31,4 @@ Congratulations, you have made your first post!
 Feel free to play around and edit this post as much you like.
 ```
 
-A new blog post is now available at [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
+Bây giờ, một bài đăng mới đã có tại [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
