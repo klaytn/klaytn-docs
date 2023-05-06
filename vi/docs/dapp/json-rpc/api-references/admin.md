@@ -12,7 +12,7 @@ description: >-
 
 Có thể truy vấn thuộc tính quản trị `nodeInfo` đối với tất cả thông tin đã biết về nút Klaytn đang chạy ở mức độ chi tiết của mạng. Chúng bao gồm thông tin chung về nút như một thành phần tham gia của [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P giao thức phủ, cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy, e.g., `klay`.
 
-|   Khách hàng    | Gọi phương thức                |
+|    Máy khách    | Gọi phương thức                |
 |:---------------:| ------------------------------ |
 | Bảng điều khiển | `admin.nodeInfo`               |
 |       RPC       | `{"method": "admin_nodeInfo"}` |
@@ -188,22 +188,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 Phương thức chấp nhận một đối số duy nhất kni, nghĩa là "Định danh mạng Klaytn". Nó tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận để theo dõi hoặc đã lỗi xảy ra hay không.
 
-|   Khách hàng    | Gọi phương thức                                |
+|    Máy khách    | Gọi phương thức                                |
 |:---------------:| ---------------------------------------------- |
 | Bảng điều khiển | `admin.addPeer(url)`                           |
 |       RPC       | `{"method": "admin_addPeer", "params": [url]}` |
 
 **Tham số**
 
-| Tên | Loại  | Mô tả                     |
-| --- | ----- | ------------------------- |
-| url | chuỗi | URL `kni` của ngang hàng. |
+| Tên | Loại  | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                                 |
-| ---- | ----------------------------------------------------- |
-| bool | `đúng` nếu đồng đẳng được chấp nhận, `sai` nếu không. |
+| Loại | Mô tả                                                      |
+| ---- | ---------------------------------------------------------- |
+| bool | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
 
 **Ví dụ**
 
@@ -233,15 +233,15 @@ Phương thức chấp nhận một đối số duy nhất kni, nghĩa là "Đ�
 
 **Tham số**
 
-| Tên | Loại  | Mô tả                     |
-| --- | ----- | ------------------------- |
-| url | chuỗi | URL `kni` của ngang hàng. |
+| Tên | Loại  | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                                 |
-| ---- | ----------------------------------------------------- |
-| bool | `đúng` nếu đồng đẳng được chấp nhận, `sai` nếu không. |
+| Loại | Mô tả                                                      |
+| ---- | ---------------------------------------------------------- |
+| bool | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
 
 **Ví dụ**
 
@@ -261,7 +261,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **LƯU Ý**: API này thay thế cho `admin_startRPC`. `admin_startRPC` sẽ sớm ngừng hoạt động.
 
-`startHTTP` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên HTTP Máy chủ web API để xử lý các yêu cầu của khách hàng.
+`startHTTP` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên HTTP Máy chủ web API để xử lý các yêu cầu của máy khách.
 
 Phương thức này trả về một cờ boolean chỉ định xem trình nghe HTTP RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối HTTP được phép hoạt động bất cứ lúc nào.
 
@@ -338,7 +338,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket Máy chủ web API để xử lý các yêu cầu của khách hàng.
+The `startWS` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket Máy chủ web API để xử lý các yêu cầu của máy khách.
 
 Phương thức này trả về một cờ boolean chỉ định xem trình nghe WebSocket RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối WebSocket được phép hoạt động bất cứ lúc nào.
 
@@ -484,7 +484,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn. Nó chỉ hoạt động nếu chưa có chuỗi hiện có nào trong nút Klaytn. Phương pháp này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
+The `importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn. Nó chỉ hoạt động nếu chưa có chuỗi hiện có nào trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
 |    Máy khách    | Gọi phương thức                                                            |
 |:---------------:| -------------------------------------------------------------------------- |
@@ -604,10 +604,10 @@ Không có
 | Tên                  | Loại    | Mô tả                                                                                                       |
 | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
 | đã lưu trữ           | int     | `committed` là số nút trie đã được sao chép bởi quá trình di chuyển trạng thái.                             |
-| err                  | Lỗi     | `null` nếu quá trình di chuyển trạng thái kết thúc tốt đẹp hoặc lỗi nếu không phải.                         |
+| lỗi                  | Lỗi     | `null` nếu quá trình di chuyển trạng thái kết thúc tốt đẹp hoặc lỗi nếu không phải.                         |
 | isMigration          | bool    | `đúng` nếu quá trình di chuyển trạng thái đang chạy hoặc `sai` nếu không phải.                              |
 | migrationBlockNumber | uint64  | blockNumber mà quá trình di chuyển trạng thái bắt đầu. (`0` nếu quá trình di chuyển trạng thái không chạy.) |
-| đang chờ             | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                |
+| đang chờ xử lý       | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                |
 | tiến trình           | float64 | `tiến trình ` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                  |
 | đọc                  | int     | `đọc` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                  |
 
