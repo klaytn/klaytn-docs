@@ -1,3 +1,3 @@
-# Download <a id="download"></a>
+# Tải về <a id="download"></a>
 
-You can get packages for CN, and PN in the [download page](../../../download/README.md).
+Bạn có thể tải về các gói cho NĐT và NP tại [trang tải về](../../../download/README.md).
