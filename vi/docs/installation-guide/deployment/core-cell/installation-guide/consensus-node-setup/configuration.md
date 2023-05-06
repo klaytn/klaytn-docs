@@ -16,7 +16,7 @@ $ mkdir -p /var/kcnd/data
 
 ## Cài đặt Khóa nút <a id="install-node-key"></a>
 
-Để vận hành NĐT cần có `nodekey`. Nhị phân NĐT sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `nodekey` vào thư mục dữ liệu NĐT. Cách để tạo `nodekey` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép`nodekey` vào thư mục dữ liệu NĐT.
+Để vận hành NĐT cần có `nodekey`. Nhị phân NĐT sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu NĐT. Cách để tạo `khóa nút` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu NĐT.
 
 ```bash
 $ cp nodekey /var/kcnd/data
@@ -74,25 +74,25 @@ Hãy nhớ rằng lưu trữ khóa và mật khẩu mà bạn đã tạo là vô
 
 ## Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
 
-Mỗi NĐT duy trì một bản sao dữ liệu chuỗi của mạng lưới. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new CN is first started, it must download the entire chain data from the network.
+Mỗi NĐT duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một NĐT mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu NĐT. Điều này giúp giảm đáng kể thời gian NĐT cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA\_DIR you configured in `kcnd.conf`.
+Tải về bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kcnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kcnd.conf`.
 
-For example:
+Ví dụ:
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the CN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu NĐT như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../../../../operation-guide/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../../../operation-guide/chaindata-change.md)
 
