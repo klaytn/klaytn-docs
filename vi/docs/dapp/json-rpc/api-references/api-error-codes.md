@@ -48,7 +48,7 @@ Lỗi JSON-RPC tiêu chuẩn
 |        | InvalidNodeIdError       | "kni không hợp lệ: ID nút không hợp lệ (sai độ dài, cần có 128 ký tự hex)"              |
 |        | BlockNotFoundError       | "không tìm thấy khối số 1"                                                              |
 |        | BlockNotExistError       | "khối không tồn tại (số khối: 1)"                                                       |
-|        | BlockDoesNotExistError   | "khối không tồn tại (mã băm khối: 0xf...f)"                                             |
+|        | BlockDoesNotExistError   | "khối không tồn tại (hàm băm khối: 0xf...f)"                                            |
 |        | UnknownAccountError      | "tài khoản không xác định"                                                              |
 |        | TransactionNotFoundError | "không tìm thấy giao dịch 0xf...f"                                                      |
 |        | ShutDownError            | "máy chủ đã bị tắt"                                                                     |
