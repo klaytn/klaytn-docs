@@ -405,9 +405,9 @@ Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeAccou
 
 **Giá trị Trả về**
 
-| Loại          | Mô tả                                                                             |
-| ------------- | --------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| Loại          | Mô tả                                                                              |
+| ------------- | ---------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
 **Ví dụ**
 
@@ -444,9 +444,9 @@ Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeLegac
 
 **Giá trị Trả về**
 
-| Loại         | Mô tả                                                                             |
-| ------------- | --------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| Loại         | Mô tả                                                                              |
+| ------------- | ---------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
 **Ví dụ**
 
@@ -483,9 +483,9 @@ Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeValue
 
 **Giá trị Trả về**
 
-| Loại         | Mô tả                                                                             |
-| ------------- | --------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một mã băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| Loại         | Mô tả                                                                              |
+| ------------- | ---------------------------------------------------------------------------------- |
+| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
 
 **Ví dụ**
 
@@ -508,7 +508,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Phương thúc `ký` tính toán chữ ký dành riêng cho Klaytn với: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
-Thêm tiền tố vào thư giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một DApp độc hại có thể ký dữ liệu tùy ý (*ví dụ:* giao dịch) và sử dụng chữ ký để mạo danh nạn nhân.
+Thêm tiền tố vào thông điệp giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một DApp độc hại có thể ký dữ liệu tùy ý (*ví dụ:* giao dịch) và sử dụng chữ ký để mạo danh nạn nhân.
 
 Xem `personal_ecRecover` để xác minh chữ ký.
 
