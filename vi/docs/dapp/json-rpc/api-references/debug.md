@@ -62,7 +62,7 @@ description: >-
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
 - [Tùy chọn theo dõi](./debug/tracing.md#tracing-options)
-- [Truy tìm dựa trên JavaScript](./debug/tracing.md#javascript-based-tracing)
+- [Theo dõi dựa trên JavaScript](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [Theo dõi tiêu chuẩn VM](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
