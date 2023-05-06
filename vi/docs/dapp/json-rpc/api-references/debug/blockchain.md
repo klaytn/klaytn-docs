@@ -4,7 +4,7 @@
 
 Truy xuất trạng thái tương ứng với số khối và trả về danh sách tài khoản (bao gồm lưu trữ và mã).
 
-**LƯU Ý**: Hàm này trả về trạng thái chính xác cho một vài khối mới nhất, hiện tại là 4, số khối.  Truy xuất trạng thái khối cũ hơn bị hạn chế tùy thuộc vào giá trị được đặt cho dòng lệnh tùy chọn `--state.block-interval` (mặc định: 128).  Điều này có nghĩa là chức năng thực hiện truy xuất trạng thái chỉ đối với các số khối là bội số của state.block-interval.  Ví dụ, khi state.block-interval là 128, hàm này trả về trạng thái cho số khối "0x0", "0x80", "0x100", "0x180", v.v.  Nếu số khối không phải là bội số của của state.block-interval, nó sẽ trả về lỗi 'thiếu nút trie'.
+**LƯU Ý**: Hàm này trả về trạng thái chính xác cho một vài khối mới nhất, hiện tại là 4, số khối.  Truy xuất trạng thái khối cũ hơn bị hạn chế tùy thuộc vào giá trị được đặt cho dòng lệnh tùy chọn `--state.block-interval` (mặc định: 128).  Điều này có nghĩa là chức năng thực hiện truy xuất trạng thái chỉ đối với các số khối là bội số của state.block-interval.  Ví dụ, khi state.block-interval là 128, hàm này trả về trạng thái cho số khối "0x0", "0x80", "0x100", "0x180", v.v.  Nếu số khối không phải là bội số của state.block-interval, nó sẽ trả về lỗi 'thiếu nút trie'.
 
 |    Máy khách    | Gọi phương thức                                     |
 |:---------------:| --------------------------------------------------- |
@@ -261,7 +261,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBadBlocks <a id="debug_getbadblocks"></a>
 
-Trả về danh sách 'các khối hỏng' cuối cùng mà khách hàng đã thấy trên mạng.
+Trả về danh sách 'các khối hỏng' cuối cùng mà máy khách đã thấy trên mạng.
 
 |    Máy khách    | Gọi phương thức                                  |
 |:---------------:| ------------------------------------------------ |
@@ -370,10 +370,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_seedHash <a id="debug_seedhash"></a>
 
-Truy xuất mã băm hạt giống của một khối.
+Truy xuất hàm băm hạt giống của một khối.
 
 
-|   Khách hàng    | Gọi Phương thức                                    |
+|    Máy khách    | Gọi Phương thức                                    |
 |:---------------:| -------------------------------------------------- |
 | Bảng điều khiển | `debug.seedHash(number)`                           |
 |       RPC       | `{"method": "debug_seedHash", "params": [number]}` |
@@ -441,7 +441,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` lặp lại trie lưu trữ mới nhất của địa chỉ hợp đồng nhất định để khởi động bộ đệm trie. Quá trình lặp lại sẽ tự động dừng nếu 90% bộ đệm trie đã bị đầy. Phương thức trả về lỗi nếu không khởi động được hoặc địa chỉ đã cho không phải là địa chỉ hợp đồng, hoặc `null` nếu đã khởi động thành công.
+`startContractWarmUp` lặp lại trie lưu trữ mới nhất của địa chỉ hợp đồng nhất định để khởi động bộ đệm trie. Quá trình lặp lại sẽ tự động dừng nếu 90% bộ nhớ đệm trie đã bị đầy. Phương thức trả về lỗi nếu không khởi động được hoặc địa chỉ đã cho không phải là địa chỉ hợp đồng, hoặc `null` nếu đã khởi động thành công.
 
 |    Máy khách    | Gọi phương thức                                                |
 |:---------------:| -------------------------------------------------------------- |
