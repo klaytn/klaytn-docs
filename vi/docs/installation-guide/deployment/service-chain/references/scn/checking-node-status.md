@@ -1,12 +1,12 @@
-# Checking Node Status <a id="checking-node-status"></a>
+# Kiểm tra trạng thái nút <a id="checking-node-status"></a>
 
-## Process Status <a id="process-status"></a>
+## Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
+Có thể kiểm tra trạng thái quy trình của SCN bằng các lệnh trạng thái `systemctl` và `kscnd`.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của SCN như sau.
 
 ```bash
 $ systemctl status kscnd.service
