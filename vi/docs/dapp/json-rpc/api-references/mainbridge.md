@@ -98,9 +98,9 @@ Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh
 
 **Giá trị Trả về**
 
-| Loại | Mô tả                                                 |
-| ----- | ----------------------------------------------------- |
-| bool  | `đúng` nếu máy ngang hàng đã bị xóa, `sai` nếu không. |
+| Loại | Mô tả                                                      |
+| ----- | ---------------------------------------------------------- |
+| bool  | `đúng` nếu máy ngang hàng đã bị xóa, `sai` nếu không phải. |
 
 **Ví dụ**
 
@@ -141,7 +141,7 @@ true
 
 ## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
-Trả về mã băm giao dịch neo của mã băm khối chuỗi con đã cho.
+Trả về hàm băm giao dịch neo của hàm băm khối chuỗi con đã cho.
 
 **Tham số**
 
