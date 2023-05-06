@@ -18,36 +18,38 @@ $ ken account <command> [options...] [arguments...]
 
 ```bash
 $ ken account -help...
-CÁC LỆNH:
-     list    In tóm tắt về các tài khoản hiện có
-     new     Tạo một tài khoản mới
-     update  Cập nhật một tài khoản hiện có
-     import  Nhập một khóa riêng tư vào một tài khoản mới...
+COMMANDS:
+     list    Print summary of existing accounts
+     new     Create a new account
+     update  Update an existing account
+     import  Import a private key into a new account
+...
 ```
 
-Bạn có thể nhận thông tin về các lệnh con từ trợ giúp</code> của `tài khoản ken&lt;command&gt;.</p>
+Bạn có thể nhận thông tin về các lệnh con bằng `ken account <command> --help`.
 
-<pre><code class="text">$ danh sách tài khoản ken --danh sách
-trợ giúp [các tùy chọn lệnh] [arguments...]
+```text
+$ ken account list --help
+list [command options] [arguments...]
 
-In một danh sách ngắn liệt kê toàn bộ các tài khoản
+Print a short summary of all accounts
 
-TÙY CHỌN KLAY:
-  --dbtype value                        Loại cơ sở dữ liệu lưu trữ chuỗi khối ("leveldb", "badger") (default: "leveldb")
-  --datadir "/Users/ethan/Library/KEN"  Thư mục dữ liệu dành cho cơ sở dữ liệu và kho khóa
-  --keystore                            Thư mục dành cho kho khóa (mặc định = bên trong datadir)
+KLAY OPTIONS:
+  --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
+  --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
+  --keystore                            Directory for the keystore (default = inside the datadir)
 
-TÙY CHỌN CƠ SỞ DỮ LIỆU:
-  --db.no-partitioning  Vô hiệu hóa cơ sở dữ liệu được phân vùng để lưu trữ liên tục
-`</pre>
+DATABASE OPTIONS:
+  --db.no-partitioning  Disable partitioned databases for persistent storage
+```
 
 ### Danh mục dữ liệu <a id="data-directory"></a>
 
-Các tập tin kho khóa được lưu trữ dưới `<DATADIR>/kho khóa`. Bạn có thể chỉ định thư mục dữ liệu như dưới đây. Chúng tôi khuyên bạn nên thực thi lệnh `tài khoản ken` với tùy chọn `--datadir`. Chỉ dẫn thư mục dữ liệu tới `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
+Các tập tin kho khóa được lưu trữ dưới `<DATADIR>/keystore`. Bạn có thể chỉ định thư mục dữ liệu như dưới đây. Chúng tôi khuyên bạn nên thực thi lệnh `ken account` với tùy chọn `--datadir`. Chỉ dẫn thư mục dữ liệu tới `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
 
 ```bash
-$ tài khoản ken mới --datadir <DATADIR>
-$ tài khoản ken mới --datadir "~/kend_home"
+$ ken account new --datadir <DATADIR>
+$ ken account new --datadir "~/kend_home"
 ```
 
 Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định là như sau.
@@ -63,10 +65,10 @@ Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định
 
 ```bash
 $ kend start
-Đang bắt đầu kend: OK
+Starting kend: OK
 
 $ ken attach ~/kend_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển JavaScript của Klaytn!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
