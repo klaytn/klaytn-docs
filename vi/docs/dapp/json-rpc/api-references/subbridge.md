@@ -465,9 +465,9 @@ Lỗi: đã đăng ký
 
 **Giá trị Trả về**
 
-| Tên | Loại | Mô tả                                                    |
-| --- | ----- | -------------------------------------------------------- |
-| lỗi | Lỗi   | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
+| Tên | Loại | Mô tả                                                     |
+| --- | ----- | --------------------------------------------------------- |
+| lỗi | Lỗi   | `null` nếu hủy theo dõi thành công, ngược lại sẽ báo Lỗi. |
 
 **Ví dụ**
 
@@ -604,7 +604,7 @@ số dùng một lần
 
 | Tên              | Loại           | Mô tả                                                                                                                  |
 | ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu đối ứng. (Chưa được hỗ trợ)                                                                       |
+| counterPart      | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối đối ứng. (Chưa được hỗ trợ)                                                                   |
 | isRunning        | bool            | `đúng` nếu hợp đồng cầu nối đang chạy, `sai` nếu không phải.                                                           |
 | isSubscribed     | bool            | `đúng` nếu hợp đồng cầu nối đã được đăng ký, `sai` nếu không phải.                                                     |
 | onServiceChain   | bool            | `đúng` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, `sai` nếu không phải.                                        |
