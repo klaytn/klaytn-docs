@@ -1,4 +1,4 @@
-# Thử cài đặt <a id="testing-the-installation"></a>
+# Thử việc cài đặt <a id="testing-the-installation"></a>
 
-It is time to check that Consensus Node is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Nút đồng thuận đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
