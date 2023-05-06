@@ -33,7 +33,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getSnapshotAtHash <a id="istanbul_getsnapshotAtHash"></a>
 
-Trả về ảnh chụp nhanh trạng thái tại một mã băm khối nhất định.
+Trả về ảnh chụp nhanh trạng thái tại một hàm băm khối nhất định.
 
 **Tham số**
 
@@ -82,7 +82,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidatorsAtHash <a id="istanbul_getvalidatorsathash"></a>
 
-Trả về danh sách các nút xác thực được ủy quyền tại một mã băm khối nhất định.
+Trả về danh sách các nút xác thực được ủy quyền tại một hàm băm khối nhất định.
 
 **Tham số**
 
