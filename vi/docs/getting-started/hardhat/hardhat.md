@@ -1,110 +1,110 @@
 ![](./Klaytn-hardhat.png)
 
-# Introduction
+# Giới thiệu
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/).
+Mục này sẽ hướng dẫn bạn triển khai token Soulbound cho mạng Baobab của Klaytn bằng cách dùng [Hardhat](https://hardhat.org/).
 
-Hardhat is a smart-contract development environment that will help you:
-* Develop and compile smart contracts.
-* Debug, test, and deploy smart contracts and dApps.
+Hardhat là một môi trường phát triển hợp đồng thông minh, có thể giúp bạn:
+* Phát triển và lập hợp đồng thông minh.
+* Gỡ lỗi, thử nghiệm và triển khai hợp đồng thông minh và dApp.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Token Soul-bound (SBT) là các NFT không thể chuyển nhượng. Nghĩa là khi đã bạn đã có được chúng, bạn sẽ không thể bán hoặc chuyển nhượng cho người dùng khác. Để tìm hiểu thêm về SBT, cách hoạt động và trường hợp sử dụng của chúng, bạn có thể xem [bài viết tham khảo](https://vitalik.ca/general/2022/01/26/soulbound.html) được Vitalik Buterin xuất bản.
 
-By the end of this guide you will be able to:
-* Set up a Hardhat project on Klaytn.
-* Create a simple soul-bound token.
-* Compile your smart contract using Hardhat.
-* Test, deploy, and interact with your smart contract using Hardhat.
-* Explore Hardhat forking feature.
+Đến cuối hướng dẫn này, bạn sẽ có thể:
+* Lập một dự án Hardhat trên Klaytn.
+* Tạo một token soul-bound đơn giản.
+* Lập hợp đồng thông minh bằng Hardhat.
+* Kiểm tra, triển khai và tương tác với hợp đồng thông minh bằng Hardhat.
+* Khám phá tính năng mô phỏng Hardhat.
 
 
-# 1. Pre-requisites
+# 1. Điều kiện tiên quyết
 
-To follow this tutorial, the following are the prerequisites:
+Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
-* Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* [NodeJS and NPM](https://nodejs.org/en/)
+* Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
+* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) được hỗ trợ.
+* KLAY để thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp quỹ cho tài khoản của bạn với một lượng KLAY vừa đủ.
+* [NodeJS và NPM](https://nodejs.org/en/)
 
-# 2. Setting Up Your Development Environment
+# 2. Thiết lập môi trường phát triển
 
-To make use of hardhat, we need to set up our development environment and get hardhat installed. Let's do this in the following steps:
+Để tận dụng hardhat, chúng ta cần thiết lập môi trường phát triển và cài đặt hardhat. Ta có thể thực hiện bằng những bước sau:
 
-**Step 1**: Create a project directory
+**Bước 1**: Tạo một thư mục dự án
 
 ```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
 
-**Step 2**: Initialize an npm project
+**Bước 2**: Khởi tạo một dự án npm
 
-Paste this command in your terminal to create a package.json file
+Dán lệnh này vào giao diện dòng lệnh để tạo tập tin package.json
 
 ```bash
 npm init -y
 ```
 
-**Step 3**: Install hardhat and other dependencies:
+**Bước 3**: Cài đặt hardhat và các phần phụ thuộc khác:
 
-* Paste the code below in your terminal to install hardhat
+* Dán mã dưới đây và giao diện dòng lệnh để cài đặt hardhat
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-* Paste the code below to install other dependencies
+* Dán mã dưới đây để cài đặt các phần phụ thuộc khác
 
 ```bash
 npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` et al.
+> Lưu ý: Mã này sẽ cài đặt các phần phụ thuộc cần thiết khác cho dự án này, gồm `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` và những phần khác.
 
 
-**Step 4**: Initialise a hardhat project:
+**Bước 4**: Khởi tạo một dự án hardhat:
 
-Run the command below to initiate an hardhat project
+Chạy lệnh dưới đây để khởi tạo một dự án hardhat
 
 ```bash
 npx hardhat
 ```
-For this guide, you'll be selecting a typescript project as seen below:
+Với hướng dẫn này, bạn sẽ chọn một dự án typescript như bên dưới:
 
 ![](./../images/hardhat/hardhat-init.png)
 
-After initializing a hardhat project, your current directory should include:
+Sau khi khởi tạo một dự án hardhat, thư mục hiện tại của bạn sẽ bao gồm:
 
-**contracts/** – this folder contains smart contract code.
+**contracts/** – thư mục này chứa mã hợp đồng thông minh.
 
-**scripts/** – this folder contains code that deploys your contracts on the blockchain network.
+**scripts/** – thư mục này chứa các mã để triển khai hợp đồng trên mạng chuỗi khối.
 
-**test/** – this folder contains all unit tests that test your smart contract.
+**test/** – thư mục này chứa các bài kiểm tra đơn vị để kiểm tra hợp đồng thông minh của bạn.
 
-**hardhat.config.ts** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.ts** – tập tin này chứa các cấu hình quan trọng cho công việc của Hardhat và việc triển khai token soul-bound.
 
-**Step 5**: Create a .env file
+**Bước 5**: Tạo tập tin .env
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
+Giờ hãy tạo tập tin .env trong thư mục dự án. Tập tin này sẽ giúp chung ta tải các biến môi trường từ tập tin .env vào process.env.
 
-* Paste this command in your terminal to create a .env file
+* Dán lệnh này vào giao diện dòng lệnh để tạo tập tin .env
 
 ```bash
 touch .env
 ```
 
-* After creating our file, let's configure our .env file to look like this:
+* Sau khi tạo tập tin, hãy cấu hình sao cho tập tin .env trông như thế này:
 
 ```js
  KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
-**Step 6**: Setup Hardhat Configs
+**Bước 6**: Thiết lập cấu hình Hardhat
 
-Modify your `hardhat.config.ts` with the following configurations:
+Sửa đổi `hardhat.config.ts` bằng cấu hình sau:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -125,17 +125,17 @@ module.exports = {
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+Bây giờ chúng ta đã thiết lập xong môi trường phát triển, hãy bắt đầu soạn hợp đồng thông minh cho token soul-bound.
 
-# Creating SBT Smart Contract
+# Tạo hợp đồng thông minh SBT
 
-In this section, you will use the [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
+Trong phần này, bạn sẽ dùng [Hợp đồng Klaytn](https://github.com/klaytn/klaytn-contracts): một thư viện bảo mật dành cho việc phát triển hợp đồng thông minh, được xây dựng trên nền tảng vững chãi của mã do cộng đồng kiểm duyệt. Đây là một mô hình mô phỏng các hợp đồng zeppelin mở.
 
-> Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
+> Lưu ý: Bạn đã cài thư viện này tại **bước 3** của phần `Thiết lập môi trường phát triển`.
 
-**Step 1**: Select the contracts folder in the Explorer pane, click the New File button and create a new file named `SBT.sol`
+**Bước 1**: Chọn thư mục hợp đồng trong thanh Trình khám phá, nhấp vào nút Tập tin mới và tạo một tập tin tên là `SBT.sol`
 
-**Step 2**: Open the file and paste the following code:
+**Bước 2**: Mở tập tin và dán mã sau vào:
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -169,21 +169,21 @@ contract SoulBoundToken is KIP17, Ownable {
 }
 ```
 
-**Code Walkthrough**
+**Hướng dẫn về mã**
 
-This is your smart contract. **line 1** shows that Hardhat uses the Solidity version 0.8.7 or greater. Other than that, it imports KIP17.sol and other supporting contracts. From **lines 6-12**, a smart contract that inherits KIP17 is been created. Also, the token name and symbol was passed in the constructor.
+Đây là hợp đồng thông minh của bạn. **dòng 1** cho thấy Hardhat sử dụng phiên bản Solidity 0.8.7 hoặc cao hơn. Ngoài ra, nó nhập KIP17.SOL và các hợp đồng hỗ trợ khác. Từ **dòng 6-12**, một hợp đồng thông minh kế thừa KIP17 đã được tạo. Ngoài ra, tên và ký hiệu của token đã được thông quan trong trình xây dựng.
 
-As you can see in the code above, the token name and symbol have been set to **SoulBoundToken** and **SBT** respectively. You can change the token name and symbol to anything you desire.
+Như bạn có thể thấy trong đoạn mã trên, tên và ký hiệu của token đã được đặt lần lượt là **SoulBoundToken** và **SBT**. Bạn có thể thay đổi tên và ký hiệu của token tùy ý mình.
 
-One major thing in this contract is that it prohibits token transfer, which makes the issued tokens soulbond.
+Điều quan trọng trong hợp đồng này là nó không cho phép chuyển nhượng token, khiến các đồng token được phát hành mang tính chất định danh cá nhân.
 
-# Testing SBT Smart Contract
+# Kiểm tra hợp đồng thông minh SBT
 
-In this section, we would be testing some of our contract functionalities.
+Trong phần này, chúng ta sẽ kiểm tra một số chức năng của hợp đồng.
 
-**Step 1**: In the Explorer pane, select the test folder and click the New File button to create a new file named `sbtTest.ts`
+**Bước 1**: Trong thanh Trình khám phá, chọn thư mục kiểm tra và nhấp vào nút Tập tin mới và tạo một tập tin mới tên là `sbtTest.ts`
 
-**Step 2**: Copy the code below in the `sbtTest.ts` file.
+**Bước 2**: Sao chép mã dưới đây vào tập tin `sbtTest.ts`.
 
 ```js
 // This is an example test file. Hardhat will run every *.ts file in `test/`,
@@ -274,14 +274,14 @@ describe("Token contract", function () {
 })
 ```
 
-In the code you just copied, line 7 & 12 shows you imported expect from [Chai](https://www.chaijs.com/api/bdd/) and [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) from hardhat-network-helpers.
+Trong đoạn mã bạn vừa sao chép, dòng 7 & 12 cho thấy bạn đã nhập expect từ [Chai](https://www.chaijs.com/api/bdd/) và [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) từ hardhat-network-helpers.
 
-The tests above check the following:
+Các bài kiểm tra ở trên kiểm tra các điểm sau:
 
-* Is the owner of a particular token id the same as who it was minted to?
-* Did it prohibit transfer of tokens between accounts?
+* Chủ ở hữu của mã token cụ thể và người nhận các đồng token đó có phải là cùng một người không?
+* Nó có ngăn chặn việc chuyển nhượng token giữa các tài khoản không?
 
-**Step 3**: To run your test, run the command below:
+**Step 3**: Để chạy bài kiểm tra, hãy chạy dòng lệnh dưới đây:
 
 ```bash
 npx hardhat test test/sbtTest.ts 
@@ -289,17 +289,17 @@ npx hardhat test test/sbtTest.ts
 
 ![](./../images/hardhat/sbtTest.png)
 
-For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
+Để được hướng dẫn sâu hơn về kiểm tra, vui lòng xem [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
 
-# Deploying the smart contract
+# Triển khai hợp đồng thông minh
 
-Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
+Mã lập trình là các tập tin JavaScript/Typescript giúp bạn triển khai các hợp đồng vào mạng chuỗi khối. Trong phần này, bạn sẽ tạo mã lập trình cho hợp đồng thông minh.
 
-**Step 1**: In the Explorer pane, select the “scripts” folder and click the New File button to create a new file named `sbtDeploy.ts`.
+**Bước 1**: Trong thanh Trình khám phá, chọn thư mục "script" và nhấp vào nút Tập tin mới và tạo một tập tin mới tên là `sbtDeploy.ts`.
 
-**Step 2**: Copy and paste the following code inside the file.
+**Bước 2**: Sao chép và dán mã sau vào tập tin.
 
-> Note: input your MetaMask wallet address in the `deployerAddr` variable.
+> Lưu ý: nhập địa chỉ ví MetaMask của bạn vào biến `deployerAdd`.
 
 ```js
 import { ethers } from "hardhat";
@@ -330,7 +330,7 @@ main().catch((error) => {
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab)
+**Bước 3**: Trong giao diện dòng lệnh, chạy lệnh sau để yêu cầu Hardhat triển khai token SBT của bạn trên Mạng thử nghiệm Klaytn (Baobab)
 
 ```bash
 npx hardhat run scripts/sbtDeploy.ts --network baobab
@@ -338,27 +338,27 @@ npx hardhat run scripts/sbtDeploy.ts --network baobab
 
 ![](../images/hardhat/sbtDeploy.png)
 
-**Step 4**: Open [Klaytnscope](https://baobab.scope.klaytn.com/) to check if the SBT token has been deployed successfully.
+**Step 4**: Mở [Klaytnscope](https://baobab.scope.klaytn.com/) để kiểm tra xem token SBT đã được triển khai thành công chưa.
 
-**Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
+**Bước 5**: Sao chép và dán địa chỉ hợp đồng đã được triển khai vào trường tìm kiếm và nhấn Enter. Bạn sẽ thấy hợp đồng vừa được triển khai.
 
 ![](../images/hardhat/sbtKS.png)
 
-# Hardhat Forking
+# Mô phỏng Hardhat
 
-Hardhat provides developers the functionality of simulating the mainnet (at any given block) to a local development network. One of the major benefit of this feature is that it enables developers to interact with deployed contract and also write test for complex cases.
+Hardhat cung cấp cho các nhà phát triển chức năng mô phỏng mạng lưới chính thức (tại bất kỳ khối cụ thể nào) thành mạng phát triển cục bộ. Một trong những lợi ích chính của tính năng này là nó cho phép các nhà phát triển tương tác với hợp đồng đã triển khai và cũng có thể thử nghiệm các trường hợp phức tạp.
 
-For this feature to work effectively, you need to connect to an archive node. You can read more about this feature [here](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
+Để tính năng này hoạt động hiệu quả, bạn cần kết nối với một nút lưu trữ. Bạn có thể đọc thêm về tính năng này [ở đây](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
 
-## Forking Mainnet
-Now that we have our Hardhat project set up let’s fork the Klaytn Mainnet using Hardhat.  Open your terminal and run this command
+## Mô phỏng mạng lưới chính thức
+Dự án Hardhat của chúng ta đã được thiết lập, hãy cùng mô phỏng mạng lưới chính thức của Klaytn bằng Harhat.  Hãy mở giao diện dòng lệnh và chạy lệnh sau
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
 npx hardhat node --fork https://archive-en.cypress.klaytn.net
 ```
-You can also configure `hardhat.config.ts` - Hardhat Network to always do this:
+Bạn cũng có thể cấu hình `hardhat.config.ts` - Mạng Hardhat để luôn thực hiện việc này:
 
 ```
 networks: {
@@ -370,27 +370,27 @@ networks: {
 }
 ```
 
-**Output**
+**Kết quả đầu ra**
 
 ![](../images/hardhat/hardhat-fork.png)
 
-After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
+Sau khi chạy thành công lệnh này, giao diện dòng lệnh của bạn sẽ trông giống như hình trên.  Bạn sẽ có 20 tài khoản phát triển, đã được nạp sẵn 10.000 token thử nghiệm.
 
 
-The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command:
+Máy chủ RPC của chuỗi được mô phỏng sẽ nhận và xử lý khối tại `http://127.0.0.1:8545/`.  Bạn có thể xác minh mạng lưới được mô phỏng bằng cách truy vấn số khối mới nhất. Hãy cùng tạo một cURL tới RPC để nhận số khối.  Mở cửa sổ giao diện dòng lệnh mới và dùng lệnh sau:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-**Output**
+**Kết quả đầu ra**
 
 ![](../images/hardhat/hardhat-fork-bn.png)
 
-The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [klaytnscope](https://scope.klaytn.com/).
+Kết quả đầu ra là một hệ thập lục phân như đã thấy ở trên. Để nhận số khối từ hex, hãy đổi hex thành số thập phân bằng [công cụ](https://www.rapidtables.com/convert/number/hex-to-decimal.html) này. Bạn sẽ nhận được số khối mới nhất từ lần bạn mô phỏng mạng lưới. Bạn có thể xác nhận số khối trên [klaytnscope](https://scope.klaytn.com/).
 
-## Forking at a Block
-With hardhat, you can fork the mainnet at a particular block.  In that case, let’s fork the chain at block number `105701850`.
+## Mô phỏng tại một khối
+Với hardhat, bạn có thể mô phỏng mạng lưới chính thức tại một khối cụ thể.  Trong trường hợp đó, hãy cùng mô phỏng chuỗi tại số khối `105701850`.
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
@@ -398,7 +398,7 @@ npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 npx hardhat node --fork https://archive-en.cypress.klaytn.net --fork-block-number 105701850
 ```
 
-To confirm the forked chain at the stated block, open a new terminal window and use the following command:
+Để xác nhận chuỗi khối được mô phỏng tại một khối cho trước, hãy mở cửa sổ giao diện dòng lệnh mới và dùng lệnh sau:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -406,7 +406,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](../images/hardhat/hardhat-fork-bnII.png)
 
-The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
+Kết quả đầu ra trả về hệ thập lục phân, khi được chuyển đổi bằng [công cụ](https://www.rapidtables.com/convert/number/hex-to-decimal.html) này, nó sẽ có giá trị bằng `105701850`.
 
 
-For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)
+Để được hướng dẫn sâu hơn về Hardhat, vui lòng tham khảo [Tài liệu về Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)
