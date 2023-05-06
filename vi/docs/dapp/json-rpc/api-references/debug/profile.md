@@ -13,7 +13,7 @@ Bật cấu hình khối trong khoảng thời gian nhất định và ghi dữ 
 
 | Tên     | Loại  | Mô tả                               |
 | ------- | ----- | ----------------------------------- |
-| tệp tin | chuỗi | Tên tệp cho kết quả hồ sơ.          |
+| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.       |
 | giây    | int   | Thời lượng cấu hình tính bằng giây. |
 
 **Giá trị Trả về**
@@ -137,7 +137,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định hình khối, đặt nó thành 0 sẽ dừng cấu hình. Dữ liệu cấu hình được thu thập có thể được viết bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
+Đặt tốc độ (tính bằng mẫu/giây) của việc thu thập dữ liệu cấu hình khối goroutine. Một tốc độ khác 0 cho phép định cấu hình khối, đặt nó thành 0 sẽ dừng cấu hình. Dữ liệu cấu hình được thu thập có thể được viết bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
 
 |    Máy khách    | Gọi Phương thức                                               |
 |:---------------:| ------------------------------------------------------------- |
