@@ -1,3 +1,3 @@
-# Testing the Installation <a id="testing-the-installation"></a>
+# Thử việc cài đặt <a id="testing-the-installation"></a>
 
-It is time to check that Proxy Node is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Nút Proxy đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
