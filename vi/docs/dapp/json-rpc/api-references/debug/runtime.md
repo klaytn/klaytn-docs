@@ -243,7 +243,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks <a id="debug_stacks"></a>
 
-Trả về một dạng in đại diện cho các phân loại của tất cả các goroutine.
+Trả về một dạng in đại diện cho stack của tất cả các goroutine.
 
 |    Máy khách    | Gọi Phương thức                            |
 |:---------------:| ------------------------------------------ |
