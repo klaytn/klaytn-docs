@@ -8,15 +8,15 @@ Trong cấu hình này, hai NĐT được cài đặt cấu hình hoạt động
 
 ### Thiết lập <a id="setup"></a>
 
-1. Tạo bản sao lưu của `nodekey` của NĐT hoạt động.
+1. Tạo bản sao lưu của `khóa nút` của NĐT hoạt động.
 2. Cái đặt NĐT chờ. Cấu hình này giống với NĐT hoạt động ngoại trừ:
-   * Nút chờ sử dụng `nodekey` khác
+   * Nút chờ sử dụng `khóa nút` khác
    * Thêm địa chỉ của NP vào `$DATA_DIR/static-nodes.json`
 
 ### Dự phòng <a id="failover"></a>
 
 1. Dừng NĐT chờ: `sudo systemctl stop kcnd`
-2. Thay thế `nodekey` của nút chờ bằng `nodekey` của NĐT hoạt động không thành công.
+2. Thay thế `khóa nút` của nút chờ bằng `khóa nút` của NĐT hoạt động không thành công.
 3. Gán lại địa chỉ IP của NĐT hoạt động cho NĐT chờ.
 4. Bắt đầu NĐT chờ và xác minh nó đã đồng bộ với mạng lưới: `sudo systemctl start kcnd`
 
@@ -28,7 +28,7 @@ Thuật ngữ và quy trình chính xác có thể khác nhau giữa các môi t
 
 ### Thiết lập <a id="setup"></a>
 
-1. Tạo bản sao lưu của `nodekey` của NĐT hoạt động.
+1. Tạo bản sao lưu của `khóa nút` của NĐT hoạt động.
 2. Mỗi lần cấu hình và phần mềm NĐT được cập nhật, một bản sao lưu máy ảo sẽ được tạo ra \(ví dụ: AMI\). Không bao gồm khối lượng chứa `DATA_DIR` trong ảnh này mà sẽ tách riêng ra.
 
 ### Dự phòng <a id="failover"></a>
