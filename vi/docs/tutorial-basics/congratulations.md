@@ -8,7 +8,7 @@ Bạn đã học xong <strong x-d="1">những điều cơ bản về Docusaurus<
 
 Docusaurus còn **rất nhiều điều khác để bạn khám phá**!
 
-Bạn có **nhiều hơn 5 phút**? Hãy xem **[phiên bản](../tutorial-extras/manage-docs-versions.md)** và **[i18n](../tutorial-extras/translate-your-site.md)**.
+Bạn có **nhiều hơn 5 phút**? Hãy xem **[lập phiên bản](../tutorial-extras/manage-docs-versions.md)** và **[i18n](../tutorial-extras/translate-your-site.md)**.
 
 Bài hướng dẫn này có gì **chưa rõ ràng** hoăc **chưa ổn** không? [Hãy báo cáo cho chúng tôi!](https://github.com/facebook/docusaurus/discussions/4610)
 
@@ -16,8 +16,8 @@ Bài hướng dẫn này có gì **chưa rõ ràng** hoăc **chưa ổn** không
 
 - Hãy đọc [tài liệu chính thức](https://docusaurus.io/)
 - Thay đổi cấu hình trang của bạn bằng [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+- Thêm các mục ở thanh điều hướng và chân trang bằng [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
+- Thêm [Thiết kế và bố cục](https://docusaurus.io/docs/styling-layout) tùy chỉnh
+- Thêm một [thanh tìm kiếm](https://docusaurus.io/docs/search)
+- Tìm cảm hứng trong [Giới thiệu về Docusaurus](https://docusaurus.io/showcase)
+- Tham gia vào [Cộng đồng Docusaurus](https://docusaurus.io/community/support)
