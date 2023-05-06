@@ -42,23 +42,23 @@ The tokenInfo object must contain the following:
 
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
 
-| Name            | Type   | Description                                                                                                                                                                                                                                                                                               |
-|:--------------- |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                            |
-| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                  |
+| Name            | Type      | Description                                                                                                                                                                                                                                                                                                          |
+|:--------------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String    | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                                       |
+| biên lai        | Đối tượng | Được kích hoạt khi có biên lai giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP17 có thuộc tính 'sự kiện' được phân tích cú pháp qua abi thay vì thuộc tính 'nhật ký'. |
+| lỗi             | Lỗi       | Được kích hoạt nếu xảy ra lỗi trong quá trình gửi.                                                                                                                                                                                                                                                                   |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// using the promise
+// sử dụng lệnh hứa
 > caver.klay.KIP17.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
 }, '0x{address in hex}').then(console.log)
 KIP17 {
     ...
-    _address: '0xfA7D967f414468083aDAd85257a2cBD6019693C2',
+    _địa chỉ: '0xfA7D967f414468083aDAd85257a2cBD6019693C2',
     _jsonInterface: [
         ...
         {
@@ -75,7 +75,7 @@ KIP17 {
     ] 
 }
 
-// using event emitter and promise
+// sử dụng trình phát sự kiện và lệnh hứa
 > caver.klay.KIP17.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
@@ -90,33 +90,33 @@ KIP17 {
 })
 ```
 
-## new KIP17 <a id="new-kip17"></a>
+## KIP17 mới <a id="new-kip17"></a>
 
 ```javascript
 new caver.klay.KIP17([tokenAddress])
 ```
 
-Creates a new KIP17 instance with its bound methods and events.
+Tạo một phiên bản KIP17 mới với các phương thức và sự kiện liên kết của nó.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type   | Description                                                                                                                               |
-|:------------ |:------ |:----------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the KIP-17 token contract, which can be assigned later through `kip17Instance.options.address = '0x1234..'` |
+| Tên          | Loại | Mô tả                                                                                                                                    |
+|:------------ |:----- |:---------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | Chuỗi | \(tùy chọn\) Địa chỉ của hợp đồng mã thông báo KIP-17, có thể được chỉ định sau thông qua `kip17Instance.options.address = '0x1234..'` |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                           |
-|:------ |:----------------------------------------------------- |
-| Object | The KIP17 instance with its bound methods and events. |
+| Loại     | Mô tả                                                           |
+|:--------- |:--------------------------------------------------------------- |
+| Đối tượng | Phiên bản KIP17 với các phương thức và sự kiện liên kết của nó. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a KIP17 instance without a parameter
+// Tạo một thể hiện KIP17 không có tham số
 > const kip17Instance = new caver.klay.KIP17()
 
-// Create a KIP17 instance with a token address
+// Tạo một phiên bản KIP17 có địa chỉ mã thông báo
 > const kip17Instance = new caver.klay.KIP17('0x{address in hex}')
 ```
 
@@ -126,29 +126,29 @@ Creates a new KIP17 instance with its bound methods and events.
 kip17Instance.clone([tokenAddress])
 ```
 
-Clones the current KIP17 instance.
+Sao chép phiên bản KIP17 hiện tại.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type   | Description                                                                                                                                                       |
-|:------------ |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the smart contract that deployed another KIP-17 token. If omitted, it will be set to the contract address in the original instance. |
+| Tên          | Loại  | Mô tả                                                                                                                                                                 |
+|:------------ |:----- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | Chuỗi | \(tùy chọn\) Địa chỉ của hợp đồng thông minh đã triển khai mã thông báo KIP-17 khác. Nếu bị bỏ qua, nó sẽ được đặt thành địa chỉ hợp đồng trong trường hợp ban đầu. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                               |
-|:------ |:----------------------------------------- |
-| Object | The clone of the original KIP17 instance. |
+| Loại      | Mô tả                                |
+|:--------- |:------------------------------------ |
+| Đối tượng | Bản sao của phiên bản KIP17 ban đầu. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > const kip17Instance = new caver.klay.KIP17(address)
 
-// Clone without a parameter
+// Sao chép không có tham số
 > const cloned = kip17Instance.clone()
 
-// Clone with the address of the new token contract
+// Sao chép có địa chỉ của hợp đồng mã thông báo mới
 > const cloned = kip17Instance.clone('0x{address in hex}')
 ```
 
@@ -263,13 +263,13 @@ Returns the URI for a given token id.
 |:------- |:------------ |:---------------------------------------- |
 | tokenId | BigNumber \ | String \| Number | The id of the token. |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The URI of the given token.
+`Lệnh hứa` trả về `Chuỗi`: URI của mã thông báo đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.tokenURI(0).then(console.log)
@@ -282,22 +282,22 @@ https://kip17.example/uri-ex-caver.json
 kip17Instance.tokenOfOwnerByIndex(owner, index)
 ```
 
-Searches the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
+Tìm kiếm danh sách mã thông báo của `chủ sở hữu` cho chỉ mục đã cho và trả về id mã thông báo của mã thông báo được định vị tại chỉ mục phù hợp trong danh sách nếu có kết quả khớp.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type         | Description                                                     |
-|:----- |:------------ |:--------------------------------------------------------------- |
-| owner | String       | The address of the account who owns tokens.                     |
-| index | BigNumber \ | String \| Number | The index of a token in owner's token list. |
+| Tên        | Loại         | Mô tả                                                                                |
+|:---------- |:------------ |:------------------------------------------------------------------------------------ |
+| chủ sở hữu | Chuỗi        | Địa chỉ của tài khoản sở hữu mã thông báo.                                           |
+| chỉ số     | BigNumber \ | Chuỗi \| Số | Chỉ mục của mã thông báo trong danh sách mã thông báo của chủ sở hữu. |
 
-**NOTE** The `index` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `index` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The id of the token.
+`Promise` trả về `BigNumber`: Id của mã thông báo.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
@@ -310,21 +310,21 @@ Searches the `owner`'s token list for the given index, and returns the token id 
 kip17Instance.tokenByIndex(index)
 ```
 
-Searches the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
+Tìm kiếm danh sách tất cả các mã thông báo trong hợp đồng này cho chỉ mục đã cho và trả về id mã thông báo của mã thông báo được định vị tại chỉ mục phù hợp trong danh sách nếu có kết quả khớp. Hoàn nguyên nếu chỉ số lớn hơn hoặc bằng tổng số mã thông báo.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type         | Description                                             |
-|:----- |:------------ |:------------------------------------------------------- |
-| index | BigNumber \ | String \| Number | The index of a token to be queried. |
+| Tên    | Loại        | Mô tả                                                     |
+|:------ |:------------ |:--------------------------------------------------------- |
+| chỉ số | BigNumber \ | Chuỗi \| Số | Chỉ mục của mã thông báo sẽ được truy vấn. |
 
-**NOTE** The `index` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `index` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The id of the token.
+`Promise` trả về `BigNumber`: Id của mã thông báo.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.tokenByIndex(1).then(console.log)
@@ -337,13 +337,13 @@ Searches the list of all tokens in this contract for the given index, and return
 kip17Instance.balanceOf(address)
 ```
 
-Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs \(Non-Fungible Tokens\) owned by the account.
+Trả về số dư của địa chỉ tài khoản đã cho. Số dư của tài khoản trong KIP-17 là tổng số NFT \(Mã thông báo không thể thay thế\) thuộc sở hữu của tài khoản.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                               |
+| Tên     | Loại   | Mô tả                                                     |
 |:------- |:------ |:--------------------------------------------------------- |
-| address | String | The address of the account to be checked for its balance. |
+| địa chỉ | String | The address of the account to be checked for its balance. |
 
 **Return Value**
 
@@ -425,16 +425,16 @@ Returns `true` if an `operator` is approved to transfer all tokens that belong t
 
 **Parameters**
 
-| Name     | Type   | Description                                                                                     |
-|:-------- |:------ |:----------------------------------------------------------------------------------------------- |
-| owner    | String | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
-| operator | String | The address of the account approved to send owner's all tokens in place of the owner.           |
+| Name     | Type   | Description                                                                                         |
+|:-------- |:------ |:--------------------------------------------------------------------------------------------------- |
+| owner    | String | The address of an account that owns tokens and has allowed the operator to send all its tokens.     |
+| operator | Chuỗi  | Địa chỉ của tài khoản được phê duyệt để gửi tất cả mã thông báo của chủ sở hữu thay cho chủ sở hữu. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if an `operator` is approved to send all tokens that belong to the `owner`.
+`Promise` trả lại`Boolean`: `true` nếu một `toán tử` được chấp thuận để gửi tất cả các mã thông báo thuộc về `chủ sở hữu`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -450,19 +450,19 @@ true
 kip17Instance.isMinter(address)
 ```
 
-Returns `true` if the given account is a minter who can issue new tokens in the current contract conforming to KIP-17.
+Trả về `true` nếu tài khoản đã cho là người khai thác có thể phát hành mã thông báo mới trong hợp đồng hiện tại tuân theo KIP-17.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                            |
-|:------- |:------ |:---------------------------------------------------------------------- |
-| address | String | The address of the account to be checked for having the minting right. |
+| Tên     | Loại | Mô tả                                                |
+|:------- |:----- |:---------------------------------------------------- |
+| địa chỉ | Chuỗi | Địa chỉ của tài khoản được kiểm tra để có quyền đúc. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if the account is a minter.
+`Promise` trả về `Boolean`: `true` nếu tài khoản là một thợ đào.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.isMinter('0x{address in hex}').then(console.log)
@@ -478,17 +478,17 @@ false
 kip17Instance.paused()
 ```
 
-Returns `true` if the contract is paused, and `false` otherwise.
+Trả về `true` nếu hợp đồng bị tạm dừng hoặc trả về `false`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if the contract is paused.
+`Promise` trả về `Boolean`: `true` nếu hợp đồng bị tạm dừng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.paused().then(console.log)
@@ -504,7 +504,7 @@ false
 kip17Instance.isPauser(address)
 ```
 
-Returns `true` if the given account is a pauser who can suspend transferring tokens.
+Trả về `true` nếu tài khoản đã cho là người tạm dừng có thể tạm dừng chuyển mã thông báo.
 
 **Parameters**
 
