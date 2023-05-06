@@ -24,7 +24,7 @@ $ ls
 nodekey node_info.json
 ```
 
-`nodekey` là chuỗi thập lục phân 64 byte, cũng là khóa riêng tư được sử dụng nội bộ trong nút. Khóa riêng tư phải có trong thư mục dữ liệu Klaytn và bạn nên cẩn thận, đừng để làm mất nó.
+`Khóa nút` là chuỗi thập lục phân 64 byte, cũng là khóa riêng tư được sử dụng nội bộ trong nút. Khóa riêng tư phải có trong thư mục dữ liệu Klaytn và bạn nên cẩn thận, đừng để làm mất nó.
 
 ```text
 $ cat nodekey
