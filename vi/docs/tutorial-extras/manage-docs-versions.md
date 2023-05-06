@@ -19,13 +19,13 @@ Thư mục `docs` được sao chép vào `versioned_docs/version-1.0` và `vers
 Tài liệu của bạn giờ đây có 2 phiên bản:
 
 - `1.0` tại `http://localhost:3000/docs/` cho phiên bản tài liệu 1.0
-- `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
+- `current` tại `http://localhost:3000/docs/next/` dành cho **các tài liệu sắp tới, chưa được phát hành**
 
-## Add a Version Dropdown
+## Thêm danh sách phiên bản thả xuống
 
-To navigate seamlessly across versions, add a version dropdown.
+Để điều hướng giữa các phiên bản một cách trơn tru, hãy thêm một danh sách phiên bản thả xuống.
 
-Modify the `docusaurus.config.js` file:
+Chỉnh sửa tập tin `docusaurus.config.js`:
 
 ```js title="docusaurus.config.js"
 module.exports = {
@@ -43,13 +43,13 @@ module.exports = {
 };
 ```
 
-The docs version dropdown appears in your navbar:
+Danh sách phiên bản thả xuống sẽ xuất hiện trong thanh điều hướng:
 
-![Docs Version Dropdown](./img/docsVersionDropdown.png)
+![Danh sách phiên bản tài liệu thả xuống](./img/docsVersionDropdown.png)
 
-## Update an existing version
+## Cập nhật một phiên bản có sẵn
 
-It is possible to edit versioned docs in their respective folder:
+Bạn có thể chỉnh sửa các tài liệu đã được lập phiên bản tại thư mục tương ứng của chúng:
 
-- `versioned_docs/version-1.0/hello.md` updates `http://localhost:3000/docs/hello`
-- `docs/hello.md` updates `http://localhost:3000/docs/next/hello`
+- `versioned_docs/version-1.0/hello.md` cập nhật `http://localhost:3000/docs/hello`
+- `docs/hello.md` cập nhật `http://localhost:3000/docs/next/hello`
