@@ -2,15 +2,15 @@
 sidebar_position: 5
 ---
 
-# Deploy your site
+# Triển khai trang của bạn
 
-Docusaurus is a **static-site-generator** (also called **[Jamstack](https://jamstack.org/)**).
+Docusaurus là một **trình tạo trang web tĩnh** (còn được gọi là **[ Jamstack](https://jamstack.org/)**).
 
-It builds your site as simple **static HTML, JavaScript and CSS files**.
+Docusaurus xây dựng trang web của bạn dưới dạng **tệp HTML, JavaScript và CSS tĩnh** đơn giản.
 
-## Build your site
+## Xây dựng trang của bạn
 
-Build your site **for production**:
+Xây dựng trang web của bạn **dành cho production**:
 
 ```bash
 npm run build
