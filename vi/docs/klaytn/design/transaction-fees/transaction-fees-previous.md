@@ -39,7 +39,7 @@ Thông báo lỗi `invalid unit price` được trả về khi giá gas của m�
 
 Klaytn hiện không cung cấp phương pháp để thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp khác để thay thế giao dịch trong tương lai. Hãy lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
 
-## Bảng giá ga của Klaytn  <a id="klaytns-gas-table"></a>
+## Bảng giá gas của Klaytn  <a id="klaytns-gas-table"></a>
 
 Về cơ bản, Klaytn luôn duy trì tương thích với Ethereum. Vì thế, bảng giá gas của Klaytn cũng khá tương đồng với bảng của Ethereum. Tuy nhiên, do sự tồn tại của những tính năng độc đáo của Klaytn, có một số hằng số mới cho những tính năng đó.
 
@@ -88,9 +88,9 @@ LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước k
 | G\_extcodehash  | 400   | Được trả cho việc nhận hàm băm keccak256 của mã hợp đồng                                                                      |
 | G\_create2      | 32000 | Được trả cho mã vận hành CREATE2, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                                 |
 
-### Hợp đồng biên dịch trước <a id="precompiled-contracts"></a>
+### Hợp đồng đã lập trước <a id="precompiled-contracts"></a>
 
-Hợp đồng được biên dịch trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mật mã phức tạp, và được khởi tạo bởi những hợp đồng khác.
+Hợp đồng được lập trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mật mã phức tạp, và được khởi tạo bởi những hợp đồng khác.
 
 | Mục                     | Gas                 | Mô tả                                                          |
 |:----------------------- |:------------------- |:-------------------------------------------------------------- |
