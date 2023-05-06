@@ -2,7 +2,7 @@
 
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` chấp nhận mã băm khối hỏng và sẽ phát lại khối hỏng. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
+Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` chấp nhận hàm băm khối hỏng và sẽ chạy lại khối hỏng. Nó trả về một danh sách các tên tệp có chứa kết quả theo dõi. Lưu ý rằng các tệp sẽ được lưu trữ trong máy phục vụ API này.
 
 
 |    Máy khách    | Gọi Phương thức                                                         |
@@ -14,7 +14,7 @@ Tương tự như [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `stan
 
 | Tên      | Loại           | Mô tả                                                              |
 | -------- | --------------- | ------------------------------------------------------------------ |
-| mã băm   | DỮ LIỆU 32-byte | Hàm băm của một khối.                                              |
+| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                                              |
 | tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Giá trị Trả về**
