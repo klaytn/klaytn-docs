@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# Translate your site
+# Dịch trang của bạn
 
-Let's translate `docs/intro.md` to French.
+Hãy dịch `docs/intro.md` sang tiếng Pháp.
 
-## Configure i18n
+## Cấu hình i18n
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+Sửa đổi `docusaurus.config.js` để thêm sự hỗ trợ cho vùng `fr`:
 
 ```js title="docusaurus.config.js"
 module.exports = {
@@ -19,9 +19,9 @@ module.exports = {
 };
 ```
 
-## Translate a doc
+## Dịch một tài liệu
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+Sao chép tập tin `docs/intro.md` vào thư mục `i18n/fr`:
 
 ```bash
 mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
