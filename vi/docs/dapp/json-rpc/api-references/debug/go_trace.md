@@ -13,7 +13,7 @@ Bật theo dõi thời gian chạy Go trong khoảng thời gian nhất định 
 
 | Tên     | Loại  | Mô tả                               |
 | ------- | ----- | ----------------------------------- |
-| tập tin | chuỗi | Tên tệp cho đầu ra theo dõi.        |
+| tệp tin | chuỗi | Tên tệp cho đầu ra theo dõi.        |
 | giây    | int   | Thời lượng theo dõi tính bằng giây. |
 
 **Giá trị Trả về**
