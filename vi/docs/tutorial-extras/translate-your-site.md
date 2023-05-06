@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Dịch trang của bạn
+# Dịch trang web của bạn
 
 Hãy dịch `docs/intro.md` sang tiếng Pháp.
 
@@ -29,29 +29,29 @@ mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
 cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+Dịch `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` bằng tiếng Pháp.
 
-## Start your localized site
+## Khởi động trang web đã được bản địa hóa của bạn
 
-Start your site on the French locale:
+Khởi động trang web của bạn với tiếng Pháp:
 
 ```bash
 npm run start -- --locale fr
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+Bạn có thể truy cập trang web đã bản địa hóa của mình tại [http://localhost:3000/fr/](http://localhost:3000/fr/) và trang `Bắt đầu` đã được dịch.
 
-:::caution
+:::cảnh báo
 
-In development, you can only use one locale at a same time.
+Trong giai đoạn phát triển, mỗi lần bạn chỉ có thể dùng một vùng.
 
 :::
 
-## Add a Locale Dropdown
+## Thêm danh sách vùng thả xuống
 
-To navigate seamlessly across languages, add a locale dropdown.
+Để điều hướng giữa các ngôn ngữ một cách trơn tru, hãy thêm một danh sách vùng thả xuống.
 
-Modify the `docusaurus.config.js` file:
+Chỉnh sửa tập tin `docusaurus.config.js`:
 
 ```js title="docusaurus.config.js"
 module.exports = {
@@ -69,19 +69,19 @@ module.exports = {
 };
 ```
 
-The locale dropdown now appears in your navbar:
+Danh sách vùng thả xuống giờ đã xuất hiện trong thanh điều hướng:
 
-![Locale Dropdown](./img/localeDropdown.png)
+![Danh sách vùng thả xuống](./img/localeDropdown.png)
 
-## Build your localized site
+## Xây dựng trang web đã được bản địa hóa của bạn
 
-Build your site for a specific locale:
+Xây dựng trang web cho một vùng cụ thể:
 
 ```bash
 npm run build -- --locale fr
 ```
 
-Or build your site to include all the locales at once:
+Hoặc xây dựng một trang web để bao gồm tất cả các vùng cùng một lúc:
 
 ```bash
 npm run build
