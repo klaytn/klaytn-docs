@@ -2,7 +2,7 @@
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
-Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyên được thiết lập và một thông báo nhật ký được phát ra tại vị trí đó, ngăn xếp của goroutine đang thực thi câu lệnh nhật ký sẽ được in ra `stderr`.
+Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyên được thiết lập và một thông báo nhật ký được phát ra tại vị trí đó, stack của goroutine đang thực thi câu lệnh nhật ký sẽ được in ra `stderr`.
 
 |    Máy khách    | Gọi Phương thức                                       |
 |:---------------:| ----------------------------------------------------- |
