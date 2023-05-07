@@ -4,15 +4,15 @@ description: A caver-js object used to interact with a smart contract for KIP7.
 
 # caver.klay.KIP7
 
-The `caver.klay.KIP7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain.
+`caver.klay.KIP7` giúp bạn dễ dàng xử lý hợp đồng thông minh triển khai KIP-7 dưới dạng đối tượng JavaScript trên chuỗi khối Klaytn.
 
-The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of `caver.klay.Contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
+`caver.klay.KIP7` kế thừa [caver.klay.Contract](caver.klay.Contract.md) để triển khai hợp đồng token KIP-7. `caver.klay.KIP7` giữ các thuộc tính giống như của `caver.klay.Contract` trong khi các phương thức bổ sung để triển khai các tính năng bổ sung. Phần này chỉ giới thiệu các phương thức liên kết mới được thêm vào của `caver.klay.KIP7`.
 
-The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
+Abi và mã byte được sử dụng trong caver.klay.KIP7 đã được triển khai bằng cách sử dụng ví dụ về [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
+Để biết thêm thông tin về KIP-7, hãy xem [Đề xuất cải tiến Klaytn](https://kips.klaytn.foundation/KIPs/kip-7).
 
-**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
+**LƯU Ý** `caver.klay.KIP7` được hỗ trợ kể từ phiên bản caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
 ## caver.klay.KIP7.deploy <a id="caver-klay-kip7-deploy"></a>
 
@@ -20,42 +20,42 @@ For more information about KIP-7, see [Klaytn Improvement Proposals](https://kip
 caver.klay.KIP7.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
+Triển khai hợp đồng token KIP-7 cho blockchain Klaytn. Hợp đồng được triển khai bằng cách sử dụng caver.klay.KIP7.deploy là token có thể thay thế tuân theo tiêu chuẩn KIP-7.
 
-After successful deployment, the promise will be resolved with a new KIP7 instance.
+Sau khi triển khai thành công, promise sẽ được giải quyết bằng phiên bản KIP7 mới.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                          |
-|:--------- |:------ |:-------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer  | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy.         |
+| Tên              | Loại      | Mô tả                                                                                                              |
+|:---------------- |:--------- |:------------------------------------------------------------------------------------------------------------------ |
+| tokenInfo        | Đối tượng | Thông tin cần thiết để triển khai hợp đồng token KIP-7 trên blockchain Klaytn. Xem bảng dưới đây để biết chi tiết. |
+| trình triển khai | Chuỗi     | Địa chỉ của tài khoản để triển khai hợp đồng token KIP-7. Tài khoản này phải có đủ KLAY để triển khai.             |
 
-The tokenInfo object must contain the following:
+Đối tượng tokenInfo phải chứa các thông tin sau:
 
-| Name          | Type         | Description                                                             |
-|:------------- |:------------ |:----------------------------------------------------------------------- |
-| name          | String       | The name of the token.                                                  |
-| symbol        | String       | The symbol of the token.                                                |
-| decimals      | Number       | The number of decimal places the token uses.                            |
-| initialSupply | BigNumber \ | String \| Number | The total amount of token to be supplied initially. |
+| Tên           | Loại        | Mô tả                                                        |
+|:------------- |:------------ |:------------------------------------------------------------ |
+| tiêu đề       | Chuỗi        | Tên của token.                                               |
+| biểu tượng    | Chuỗi        | Biểu tượng của token.                                        |
+| thập phân     | Số           | Số vị trí thập phân mà token sử dụng.                        |
+| initialSupply | BigNumber \ | Chuỗi \| Số | Tổng số lượng token sẽ được cung cấp ban đầu. |
 
-**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `initialSupply` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events can occur:
+`PromiEvent`: Bộ phát hiệu ứng kết hợp promise, được giải quyết bằng một phiên bản KIP7 mới. Ngoài ra, các sự kiện sau đây có thể xảy ra:
 
-| Name            | Type   | Description                                                                                                                                                                                                                                                                                              |
-|:--------------- |:------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                           |
-| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                 |
+| Tên             | Loại      | Mô tả                                                                                                                                                                                                                                                                                                               |
+|:--------------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | Chuỗi     | Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.                                                                                                                                                                                                                                         |
+| biên lai        | Đối tượng | Được kích hoạt khi có biên lai giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP7 có thuộc tính 'sự kiện' được phân tích cú pháp qua abi thay vì thuộc tính 'nhật ký'. |
+| lỗi             | Lỗi       | Được kích hoạt nếu xảy ra lỗi trong quá trình gửi.                                                                                                                                                                                                                                                                  |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// using the promise
+// sử dụng promise
 > caver.klay.KIP7.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
@@ -81,7 +81,7 @@ KIP7 {
     ] 
 }
 
-// using event emitter and promise
+// sử dụng bộ phát hiệu ứng and promise
 > caver.klay.KIP7.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
@@ -91,26 +91,26 @@ KIP7 {
 .on('error', function(error) { ... })
 .on('transactionHash', function(transactionHash) { ... })
 .on('receipt', function(receipt) {
-    console.log(receipt.contractAddress) // contains the new token contract address
+    console.log(receipt.contractAddress) // chứa địa chỉ hợp đồng token mới
 })
 .then(function(newKIP7Instance) {
-    console.log(newKIP7Instance.options.address) // instance with the new token contract address
+    console.log(newKIP7Instance.options.address) // ví dụ với địa chỉ hợp đồng token mới
 })
 ```
 
 ## new KIP7 <a id="new-kip7"></a>
 
 ```javascript
-new caver.klay.KIP7([tokenAddress])
+caver.klay.KIP7([tokenAddress]) mới
 ```
 
-Creates a new KIP7 instance with its bound methods and events.
+Tạo một phiên bản KIP7 mới với các phương thức và sự kiện liên kết của nó.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type   | Description                                                                                                                             |
-|:------------ |:------ |:--------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the KIP-7 token contract, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| Tên          | Loại | Mô tả                                                                                                                                   |
+|:------------ |:----- |:--------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | Chuỗi | \(optional\) The address of the KIP-7 token contract, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 
 **Return Value**
 
@@ -216,17 +216,17 @@ Jasmine
 kip7Instance.symbol()
 ```
 
-Returns the symbol of the token.
+Trả về biểu tượng của token.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The symbol of the token.
+`Promise` trả về `Chuỗi`: Biểu tượng của token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.symbol().then(console.log)
@@ -239,17 +239,17 @@ JAS
 kip7Instance.decimals()
 ```
 
-Returns the number of decimal places the token uses.
+Trả về số vị trí thập phân mà token sử dụng.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number`: The number of decimal places the token uses.
+`Promise` trả về `Số`: Số vị trí thập phân mà token sử dụng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.decimals().then(console.log)
@@ -262,17 +262,17 @@ None
 kip7Instance.totalSupply()
 ```
 
-Returns the total token supply.
+Trả về tổng nguồn cung token.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise` trả về `BigNumber`: Tổng số token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.totalSupply().then(console.log)
@@ -285,19 +285,19 @@ None
 kip7Instance.balanceOf(address)
 ```
 
-Returns the balance of the given account address.
+Trả về số dư của địa chỉ tài khoản đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                               |
-|:------- |:------ |:--------------------------------------------------------- |
-| address | String | The address of the account to be checked for its balance. |
+| Tên     | Loại | Mô tả                                                |
+|:------- |:----- |:---------------------------------------------------- |
+| địa chỉ | Chuỗi | Địa chỉ của tài khoản sẽ được kiểm tra số dư của nó. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The account balance.
+`Promise` trả về `BigNumber`: Số dư tài khoản.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.balanceOf('0x{address in hex}').then(console.log)
