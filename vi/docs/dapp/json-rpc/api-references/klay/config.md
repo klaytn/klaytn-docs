@@ -1,6 +1,6 @@
 ## klay_chainID <a id="klay_chainid"></a>
 
-Trả về chuỗi ID của chuỗi.
+Trả về ID chuỗi của chuỗi.
 
 **Tham số**
 
@@ -37,9 +37,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại  | Mô tả                                    |
-| ----- | ---------------------------------------- |
-| Chuỗi | Phiên bản khách hiện tại của nút Klaytn. |
+| Loại  | Mô tả                                        |
+| ----- | -------------------------------------------- |
+| Chuỗi | Phiên bản máy khách hiện tại của nút Klaytn. |
 
 **Ví dụ**
 
@@ -58,7 +58,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-Trả về một gợi ý cho giá gas tính bằng peb.
+Trả về gợi ý cho giá gas tính bằng peb.
 
 **Tham số**
 
@@ -90,14 +90,14 @@ Trả về các giá trị khác nhau dựa trên điều kiện được mô t�
 
 - Nếu `baseFee` không được xác định trong tiêu đề, nó sẽ trả về đơn giá từ tham số quản trị
 - Nếu khối là một khối đang chờ xử lý, nó sẽ trả về giá gas của txpool.
-- Mặt khác, nó trả về phí cơ bản của khối đã cho.
+- Nếu không, nó trả về phí cơ bản của khối đã cho.
 
 
 **Tham số**
 
-| Loại | Mô tả                                                  |
-| ---- | ------------------------------------------------------ |
-| SỐ   | Số khối. Nếu bỏ qua, đơn giá mới nhất sẽ được trả lại. |
+| Loại | Mô tả                                                        |
+| ---- | ------------------------------------------------------------ |
+| SỐ   | Số khối. Nếu bị bỏ qua, hệ thống sẽ trả về đơn giá mới nhất. |
 
 **Giá trị trả về**
 
@@ -121,7 +121,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-Trả về `true` nếu nút đang ghi dữ liệu chuỗi khối theo cách song song. Nó được kích hoạt theo mặc định.
+Trả về `true` nếu nút đang ghi dữ liệu chuỗi khối theo cách song song. Nút được kích hoạt theo mặc định.
 
 **Tham số**
 
@@ -129,9 +129,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại   | Mô tả                                                                                                                                |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Boolean | `true` có nghĩa là nút đang ghi dữ liệu chuỗi khối theo cách song song. Giá trị `false` nếu nút đang ghi dữ liệu theo cách nối tiếp. |
+| Loại   | Mô tả                                                                                                                                      |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Boolean | `true` có nghĩa là nút đang ghi dữ liệu chuỗi khối theo cách song song. Giá trị sẽ là `false` nếu nút đang ghi dữ liệu theo cách nối tiếp. |
 
 **Ví dụ**
 
@@ -208,7 +208,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-Trả về cơ sở phần thưởng của nút hiện tại. Cơ sở phần thưởng là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Nó chỉ được yêu cầu cho CN.
+Trả về rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Chỉ yêu cầu đối với CN.
 
 **Tham số**
 
