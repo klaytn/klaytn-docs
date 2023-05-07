@@ -604,7 +604,7 @@ LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ 
 
 **Giá trị trả về**
 
-`Mảng` - Mảng địa chỉ của tất cả người xác thực trong ủy ban hoặc `null` khi không tìm thấy ủy ban nào:
+`Mảng` - Mảng địa chỉ của tất cả các nút xác thực trong ủy ban hoặc `null` khi không tìm thấy ủy ban nào:
 
 | Loại                | Mô tả                                                 |
 | -------------------- | ----------------------------------------------------- |
@@ -763,7 +763,7 @@ LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ 
 
 **Ví dụ**
 
-Việc tính toán vị trí chính xác tùy thuộc vào kho lưu trữ cần truy xuất. Xem xét hợp đồng sau được triển khai tại `0x295a70b2de5e3953354a6a8344e616ed314d7251` theo địa chỉ `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+Việc tính toán vị trí chính xác sẽ tùy thuộc vào kho lưu trữ cần truy xuất. Xem xét hợp đồng sau được triển khai tại `0x295a70b2de5e3953354a6a8344e616ed314d7251` theo địa chỉ `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
 hợp đồng lưu trữ {
@@ -785,7 +785,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
-Truy xuất chi tiết của bản đồ thì khó hơn. Vị trí của một chi tiết trên bản đồ được tính bằng:
+Truy xuất chi tiết của bản đồ thì khó hơn. Vị trí của chi tiết trên bản đồ được tính bằng:
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
@@ -801,7 +801,7 @@ undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Bây giờ để lấy kho lưu trữ:
+Đến đây, để tìm nạp kho lưu trữ:
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
@@ -821,13 +821,13 @@ Không có
 
 `Object|Boolean`, đối tượng với dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
 
-| Tên           | Loại     | Mô tả                                                                                                               |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| startingBlock | SỐ LƯỢNG | Khối mà quá trình nhập bắt đầu (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa bị khủng hoảng).                  |
-| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `klay_blockNumber`.                                                                        |
-| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                              |
-| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không "nhanh" thì sẽ trả về số 0. |
-| knownStates   | SỐ LƯỢNG | Số mục nhập trạng thái đã biết vẫn cần được kéo.  Nếu chế độ đồng bộ hóa không "nhanh" thì sẽ trả về số 0.          |
+| Tên           | Loại     | Mô tả                                                                                                                                  |
+| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                          |
+| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `klay_blockNumber`.                                                                                           |
+| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                 |
+| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0. |
+| knownStates   | SỐ LƯỢNG | Số mục nhập trạng thái đã biết vẫn cần được truy xuất.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0.    |
 
 **Ví dụ**
 
@@ -857,7 +857,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getRewards <a id="klay_getrewards"></a>
 
-Trả về kết quả phân phối phần thưởng về một khối theo số khối, bao gồm cả những người được thưởng và phần của họ. Nếu tham số không được đặt, nó sẽ trả về phân phối phần thưởng ở khối mới nhất.
+Trả về kết quả phân phối phần thưởng về một khối theo số khối, bao gồm cả những người được thưởng và phần của họ. Nếu không được đặt, tham số sẽ trả về phân phối phần thưởng ở khối mới nhất.
 
 **Tham số**
 
