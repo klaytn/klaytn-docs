@@ -1,6 +1,6 @@
 ## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
-Phương thức truy vấn thay đổi (poll) đối với bộ lọc, trả về một mảng các bản ghi phát sinh kể từ lần truy vấn thay đổi trước đó.
+Phương thức truy vấn lần lượt đối với bộ lọc trả về một mảng các nhật ký phát sinh kể từ lần truy vấn lần lượt trước đó.
 
 **Tham số**
 
@@ -10,22 +10,22 @@ Phương thức truy vấn thay đổi (poll) đối với bộ lọc, trả v�
 
 **Giá trị trả về**
 
-`Mảng` - Mảng các đối tượng bản ghi, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn thay đổi trước đó.
+`Mảng` - Mảng các đối tượng nhật ký, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn lần lượt trước đó.
 - Đối với các bộ lọc được tạo bằng [klay_newBlockFilter](#klay_newblockfilter), kết quả trả về là các hàm băm khối (DỮ LIỆU 32 byte), *ví dụ:*, `["0x3454645634534..."]`.
-- Đối với các bộ lọc được tạo bằng [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), giá trị trả về là các mã băm của giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
-- Đối với các bộ lọc được tạo bằng [klay_newFilter](#klay_newfilter), các bản ghi là các đối tượng có tham số như sau:
+- Đối với các bộ lọc được tạo bằng [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), giá trị trả về là các hàm băm giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
+- Đối với các bộ lọc được tạo bằng [klay_newFilter](#klay_newfilter), nhật ký là các đối tượng có tham số như sau:
 
-| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                              |
-| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đã xoá           | THẺ             | `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. `false` nếu đó là bản ghi hợp lệ.                                                                                                                                                               |
-| logIndex         | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                              |
-| transactionIndex | SỐ LƯỢNG        | Số nguyên bản ghi vị trí chỉ mục giao dịch đã được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                           |
-| transactionHash  | DỮ LIỆU 32 byte | Mã băm của giao dịch mà bản ghi này được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                                     |
-| blockHash        | DỮ LIỆU 32 byte | Mã băm của khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                       |
-| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                               |
-| địa chỉ          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                      |
-| dữ liệu          | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                |
-| chủ đề           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục của bản ghi. (Trong Solidity: Chủ đề đầu tiên là mã băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với từ khóa `anonymous`.). |
+| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                                        |
+| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| đã xoá           | THẺ             | `true` nếu nhật ký đã bị xóa do việc tổ chức lại chuỗi. `false` nếu đó là nhật ký hợp lệ.                                                                                                                                                                    |
+| logIndex         | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                                        |
+| transactionIndex | SỐ LƯỢNG        | Số nguyên chỉ vị trí chỉ mục giao dịch nơi bản ghi đã được tạo. `null` nếu đang chờ xử lý.                                                                                                                                                                   |
+| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch nơi bản ghi này được tạo. `null` nếu đang chờ xử lý.                                                                                                                                                                                   |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                                |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                                         |
+| địa chỉ          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                                |
+| dữ liệu          | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                          |
+| chủ đề           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục của bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.). |
 
 **Ví dụ**
 
@@ -59,7 +59,7 @@ Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc 
 
 Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
 - Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
-- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
+- Thời gian thực thi giới hạn của một truy vấn (Mặc định: 10 giây).
 
 **Tham số**
 
@@ -69,7 +69,7 @@ Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nú
 
 **Giá trị trả về**
 
-Tham khảo [klay_getFilterChanges](#klay_getfilterchanges)
+Xem phần [klay_getFilterChanges](#klay_getfilterchanges)
 
 **Ví dụ**
 
@@ -98,26 +98,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getLogs <a id="klay_getlogs"></a>
 
-Trả về một mảng gồm tất cả bản ghi khớp với một đối tượng bộ lọc đã cho.
+Trả về một mảng gồm tất cả các bản ghi khớp với một đối tượng bộ lọc đã cho.
 
 Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
 - Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
-- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
+- Thời gian thực thi giới hạn của một truy vấn (Mặc định: 10 giây).
 
 **Tham số**
 
 `Object` - Các tùy chọn bộ lọc:
 
-| Tên       | Loại                       | Mô tả                                                                                                                                                                                                                                                                                            |
-| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
-| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                              |
-| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                                                                                                         |
-| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                 |
-| blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế các bản ghi được trả về cho một khối với mã băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với mã băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                                                                                                                                  |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                                       |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                                       |
+| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                                                                                                               |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                       |
+| blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế số lượng bản ghi được trả về cho một khối với mã băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với hàm băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"cũ nhất"` và `"mới nhất"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"cũ nhất"` và `"mới nhất"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -287,15 +287,15 @@ Tạo một đối tượng bộ lọc dựa trên các tùy chọn bộ lọc �
 
 `Object` - Các tùy chọn bộ lọc:
 
-| Tên       | Loại                       | Mô tả                                                                                                                                                                                               |
-| --------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
-| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
-| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                            |
-| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                    |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                            |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| địa chỉ   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                         |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                 |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
