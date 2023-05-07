@@ -24,67 +24,67 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ bên dưới.
 
 ### kscnd <a id="kscnd"></a>
 
-`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
+`kscnd` được cài đặt cùng với gói; trạng thái của SCN có thể được kiểm tra như sau.
 
 ```bash
 $ kscnd status
-kscnd is running
+kscnd đang chạy
 ```
 
-## Logs <a id="logs"></a>
+## Nhật ký <a id="logs"></a>
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+Nhật ký được lưu trữ trong tập tin `kscnd.out` được đặt tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kscnd.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi khối được nhập theo từng giây như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail -F ~/kscnd_home/logs/kscnd.out
-  INFO[11/12,10:19:09 +09] [49] Successfully wrote mined block            num=11 hash=03da06…f194b0 txs=0
-  INFO[11/12,10:19:09 +09] [49] Commit new mining work                    number=12 txs=0 elapsed=236.972µs
-  INFO[11/12,10:19:10 +09] [24] Committed                                 number=12 hash=470aca…be4fdf address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
-  INFO[11/12,10:19:10 +09] [49] Successfully sealed new block             number=12 hash=470aca…be4fdf
-  INFO[11/12,10:19:10 +09] [49] Successfully wrote mined block            num=12 hash=470aca…be4fdf txs=0
-  INFO[11/12,10:19:10 +09] [49] Commit new mining work                    number=13 txs=0 elapsed=198.221µs
-  INFO[11/12,10:19:11 +09] [24] Committed                                 number=13 hash=95e4a3…14e50f address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
-  INFO[11/12,10:19:11 +09] [49] Successfully sealed new block             number=13 hash=95e4a3…14e50f
-  INFO[11/12,10:19:11 +09] [49] Successfully wrote mined block            num=13 hash=95e4a3…14e50f txs=0
-  INFO[11/12,10:19:11 +09] [49] Commit new mining work                    number=14 txs=0 elapsed=220.004µs
-  INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+  INFO[11/12,10:19:09 +09] [49] Khối đào đã được ghi thành công            num=11 hash=03da06…f194b0 txs=0
+  INFO[11/12,10:19:09 +09] [49] Cam kết công việc đào mới                    number=12 txs=0 elapsed=236.972µs
+  INFO[11/12,10:19:10 +09] [24] Đã cam kết                                 number=12 hash=470aca…be4fdf address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+  INFO[11/12,10:19:10 +09] [49] Khối mới đã niêm phong thành công             number=12 hash=470aca…be4fdf
+  INFO[11/12,10:19:10 +09] [49] Khối đào đã được ghi thành công            num=12 hash=470aca…be4fdf txs=0
+  INFO[11/12,10:19:10 +09] [49] Cam kết công việc đào mới                    number=13 txs=0 elapsed=198.221µs
+  INFO[11/12,10:19:11 +09] [24] Đã cam kết                                 number=13 hash=95e4a3…14e50f address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+  INFO[11/12,10:19:11 +09] [49] Khối mới đã niêm phong thành công             number=13 hash=95e4a3…14e50f
+  INFO[11/12,10:19:11 +09] [49] Khối đào đã được ghi thành công            num=13 hash=95e4a3…14e50f txs=0
+  INFO[11/12,10:19:11 +09] [49] Cam kết công việc đào mới                    number=14 txs=0 elapsed=220.004µs
+  INFO[11/12,10:19:12 +09] [24] Đã cam kết                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-## Queries <a id="queries"></a>
+## Truy vấn <a id="queries"></a>
 
 ### kscn console <a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn cung cấp một máy khách CLI: `kscn console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một SCN.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```text
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
-at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
+phiên bản: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+tại khối: 11573551 (thứ Tư ngày 13/02/2019 lúc 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
 ```
 
-You can check the usable commands on [API Document](../../../../../dapp/json-rpc/README.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [API Document](../../../../../dapp/json-rpc/README.md)
 
-The useful APIs to check the status of SCN:
+Các API hữu ích để kiểm tra trạng thái của SCN:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (để lấy số khối mới nhất)
+* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+Bạn có thể lấy số khối mới nhất để xem các khối có được truyền đúng cách không.
 
 ```text
 > klay.blockNumber
@@ -98,6 +98,6 @@ You can get the latest block number to see if blocks are propagated properly.
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
+Dòng lệnh trên trả lại số nút mà SCN kết nối, ngoại trừ EN trong chuỗi chính.
 
 
