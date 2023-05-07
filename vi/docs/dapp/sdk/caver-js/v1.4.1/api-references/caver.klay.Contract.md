@@ -653,34 +653,34 @@ myContract.events.MyEvent([options][, callback])
 | Tên       | Loại     | Mô tả                                                                                                                                                                                   |
 |:--------- |:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | bộ lọc    | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ:_, `{filter: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| fromBlock | Số        | \(optional\) The block number from which to get events on.                                                                                                                            |
-| topics    | Array     | \(optional\) This allows to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically.                 |
+| fromBlock | Số        | \(tùy chọn\) Số khối bắt đầu sự kiện.                                                                                                                                                 |
+| chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.         |
 
-**Return Value**
+**Giá trị trả về**
 
-`EventEmitter`: The event emitter has the following events:
+`EventEmitter`: Trình phát sự kiện có các sự kiện sau:
 
-| Name  | Type   | Description                                                     |
-|:----- |:------ |:--------------------------------------------------------------- |
-| data  | Object | Fires on each incoming event with the event object as argument. |
-| error | Object | Fires when an error in the subscription occurs.                 |
+| Tên     | Loại     | Mô tả                                                        |
+|:------- |:--------- |:------------------------------------------------------------ |
+| dữ liệu | Đối tượng | Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số. |
+| lỗi     | Đối tượng | Kích hoạt khi xảy ra lỗi trong đăng ký.                      |
 
-The structure of the returned event `Object` looks as follows:
+Cấu trúc của sự kiện trả về `Object` như sau:
 
-| Name             | Type           | Description                                                                                                                                      |
-|:---------------- |:-------------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event            | String         | The event name.                                                                                                                                  |
-| signature        | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                                                |
-| address          | String         | Address which from this event originated.                                                                                                        |
-| returnValues     | Object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                               |
-| logIndex         | Number         | Integer of the event index position in the block.                                                                                                |
-| transactionIndex | Number         | Integer of the transaction's index position where the event was created.                                                                         |
-| transactionHash  | 32-byte String | Hash of the block this event was created in. `null` when it is still pending.                                                                    |
-| blockHash        | 32-byte String | Hash of the block this event was created in. `null` when it is still pending.                                                                    |
-| blockNumber      | Number         | The block number this log was created in. `null` when still pending.                                                                             |
-| raw.data         | Chuỗi          | Dữ liệu chứa tham số nhật ký không được lập chỉ mục.                                                                                             |
-| raw.topics       | Mảng           | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                   |
-| id               | Chuỗi          | Một định danh nhật ký. Nó được thực hiện thông qua việc nối chuỗi "log\_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Tên              | Loại          | Mô tả                                                                                                                                            |
+|:---------------- |:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
+| sự kiện          | Chuỗi         | Tên sự kiện.                                                                                                                                     |
+| chữ ký           | Chuỗi \      | `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                       |
+| địa chỉ          | Chuỗi         | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                                |
+| returnValues     | Đối tượng     | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                                   |
+| logIndex         | Số            | Số nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                                 |
+| transactionIndex | Số            | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                                  |
+| transactionHash  | Chuỗi 32-byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                   |
+| blockHash        | Chuỗi 32-byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                   |
+| blockNumber      | Số            | Số khối mà nhật ký này đã được tạo. `null` khi vẫn đang chờ xử lý.                                                                               |
+| raw.data         | Chuỗi         | Dữ liệu chứa tham số nhật ký không được lập chỉ mục.                                                                                             |
+| raw.topics       | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                   |
+| id               | Chuỗi         | Một định danh nhật ký. Nó được thực hiện thông qua việc nối chuỗi "log\_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Ví dụ**
 
