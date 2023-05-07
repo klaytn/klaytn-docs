@@ -1,4 +1,4 @@
-# Các tùy chọn khác <a id="miscellaneous"></a>
+# Khác <a id="miscellaneous"></a>
 
 ## klay_sha3 <a id="klay_sha3"></a>
 
