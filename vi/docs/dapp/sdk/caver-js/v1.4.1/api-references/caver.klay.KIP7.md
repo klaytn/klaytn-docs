@@ -1,5 +1,5 @@
 ---
-description: A caver-js object used to interact with a smart contract for KIP7.
+description: Một đối tượng caver-js được sử dụng để tương tác với một hợp đồng thông minh cho KIP7.
 ---
 
 # caver.klay.KIP7
@@ -108,23 +108,23 @@ Tạo một phiên bản KIP7 mới với các phương thức và sự kiện l
 
 **Tham số**
 
-| Tên          | Loại | Mô tả                                                                                                                                   |
-|:------------ |:----- |:--------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | Chuỗi | \(optional\) The address of the KIP-7 token contract, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| Tên          | Loại | Mô tả                                                                                                                           |
+|:------------ |:----- |:------------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | Chuỗi | \(tùy chọn\) Địa chỉ của hợp đồng token KIP-7, có thể được chỉ định sau thông qua `kip7Instance.options.address = '0x1234..'` |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                          |
-|:------ |:---------------------------------------------------- |
-| Object | The KIP7 instance with its bound methods and events. |
+| Loại     | Mô tả                                                          |
+|:--------- |:-------------------------------------------------------------- |
+| Đối tượng | Phiên bản KIP7 với các phương thức và sự kiện liên kết của nó. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create a KIP7 instance without a parameter
+// Tạo một thể hiện KIP7 không có tham số
 > const kip7Instance = new caver.klay.KIP7()
 
-// Create a KIP7 instance with a token address
+// Tạo một phiên bản KIP7 với địa chỉ token
 > const kip7Instance = new caver.klay.KIP7('0x{address in hex}')
 ```
 
@@ -134,29 +134,29 @@ Tạo một phiên bản KIP7 mới với các phương thức và sự kiện l
 kip7Instance.clone([tokenAddress])
 ```
 
-Clones the current KIP7 instance.
+Sao chép phiên bản KIP7 hiện tại.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type   | Description                                                                                                                                                     |
-|:------------ |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
+| Tên          | Loại  | Mô tả                                                                                                                                                         |
+|:------------ |:----- |:------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | Chuỗi | \(tùy chọn\) Địa chỉ của hợp đồng thông minh đã triển khai token KIP7- khác. Nếu bị bỏ qua, nó sẽ được đặt thành địa chỉ hợp đồng trong trường hợp ban đầu. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                              |
-|:------ |:---------------------------------------- |
-| Object | The clone of the original KIP7 instance. |
+| Loại      | Mô tả                               |
+|:--------- |:----------------------------------- |
+| Đối tượng | Bản sao của phiên bản KIP7 ban đầu. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > const kip7Instance = new caver.klay.KIP7(address)
 
-// Clone without a parameter
+// Sao chép không có tham số
 > const cloned = kip7Instance.clone()
 
-// Clone with the address of the new token contract
+// Sao chép với địa chỉ của hợp đồng token mới
 > const cloned = kip7Instance.clone('0x{address in hex}')
 ```
 
@@ -166,19 +166,19 @@ Clones the current KIP7 instance.
 kip7Instance.supportsInterface(interfaceId)
 ```
 
-Returns `true` if this contract implements the interface defined by `interfaceId`.
+Trả về `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type   | Description                    |
-|:----------- |:------ |:------------------------------ |
-| interfaceId | String | The interfaceId to be checked. |
+| Tiêu đề     | Loại | Mô tả                          |
+|:----------- |:----- |:------------------------------ |
+| interfaceId | Chuỗi | InterfaceId cần được kiểm tra. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+`Promise` trả về `Boolean`: `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.supportsInterface('0x65787371').then(console.log)
@@ -193,17 +193,17 @@ false
 kip7Instance.name()
 ```
 
-Returns the name of the token.
+Trả về tên của token.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The name of the token.
+`Promise` trả về `Chuỗi`: Tên của token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.name().then(console.log)
@@ -310,20 +310,20 @@ Trả về số dư của địa chỉ tài khoản đã cho.
 kip7Instance.allowance(owner, spender)
 ```
 
-Returns the amount of token that `spender` is allowed to withdraw from `owner`.
+Trả về số lượng token mà `người chi tiêu` được phép rút từ `chủ sở hữu`.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                          |
-|:------- |:------ |:-------------------------------------------------------------------- |
-| owner   | String | The address of the token owner's account.                            |
-| spender | String | The address of the account that spends tokens in place of the owner. |
+| Tên           | Loại  | Mô tả                                                    |
+|:------------- |:----- |:-------------------------------------------------------- |
+| chủ sở hữu    | Chuỗi | Địa chỉ tài khoản của chủ sở hữu token.                  |
+| trình sử dụng | Chuỗi | Địa chỉ của tài khoản sử dụng token thay cho chủ sở hữu. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The remaining number of tokens that spender is allowed to spend in place of the owner.
+`Promise` trả về `BigNumber`: Số lượng token còn lại mà người chi tiêu được phép chi tiêu thay cho chủ sở hữu.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.allowance('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -339,19 +339,19 @@ Returns the amount of token that `spender` is allowed to withdraw from `owner`.
 kip7Instance.isMinter(address)
 ```
 
-Returns `true` if the given account is a minter who can issue new KIP7 tokens.
+Trả về `true` nếu tài khoản đã cho là người khai thác có thể phát hành token KIP7 mới.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                            |
-|:------- |:------ |:---------------------------------------------------------------------- |
-| address | String | The address of the account to be checked for having the minting right. |
+| Tên     | Loại | Mô tả                                                |
+|:------- |:----- |:---------------------------------------------------- |
+| địa chỉ | Chuỗi | Địa chỉ của tài khoản được kiểm tra để có quyền đúc. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if the account is a minter.
+`Promise` trả về `Boolean`: `true` nếu tài khoản là một thợ đào.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.isMinter('0x{address in hex}').then(console.log)
@@ -367,19 +367,19 @@ false
 kip7Instance.isPauser(address)
 ```
 
-Returns `true` if the given account is a pauser who can suspend transferring tokens.
+Trả về `true` nếu tài khoản đã cho là người tạm dừng có thể tạm dừng chuyển token.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                                                   |
-|:------- |:------ |:--------------------------------------------------------------------------------------------- |
-| address | String | The address of the account to be checked for having the right to suspend transferring tokens. |
+| Tên     | Loại  | Mô tả                                                                     |
+|:------- |:----- |:------------------------------------------------------------------------- |
+| địa chỉ | Chuỗi | Địa chỉ của tài khoản đã được kiểm tra để có quyền tạm dừng chuyển token. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if the account is a pauser.
+`Promise` trả về `Boolean`: `true` nếu tài khoản là tạm dừng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.isPauser('0x{address in hex}').then(console.log)
@@ -395,17 +395,17 @@ false
 kip7Instance.paused()
 ```
 
-Returns `true` if the contract is paused, and `false` otherwise.
+Trả về `true` nếu hợp đồng bị tạm dừng hoặc trả về `false`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if the contract is paused.
+`Promise` trả về `Boolean`: `true` nếu hợp đồng bị tạm dừng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip7Instance.paused().then(console.log)
@@ -421,13 +421,13 @@ false
 kip7Instance.approve(spender, amount [, sendParam])
 ```
 
-Set the `amount` of the tokens of the token owner to be spent by the `spender`.
+Đặt `số tiền` của token của chủ sở hữu token sẽ được chi tiêu bởi `trình chi tiêu`.
 
-Note that this method will submit a transaction from the owner to the Klaytn network, which will charge the transaction fee to the owner.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch từ chủ sở hữu đến mạng Klaytn, mạng này sẽ tính phí giao dịch cho chủ sở hữu.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                              |
+| Tên       | Type         | Description                                                                              |
 |:--------- |:------------ |:---------------------------------------------------------------------------------------- |
 | spender   | String       | The address of the account who spends tokens in place of the owner.                      |
 | amount    | BigNumber \ | String \| Number | The amount of token the spender is allowed to use.                   |
@@ -508,22 +508,22 @@ Note that sending this transaction will charge the transaction fee to the transa
 
 **Parameters**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
-|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | String       | The address of the account to receive token.                                                                                                                                                                |
-| amount    | BigNumber \ | String \| Number | The amount of token to be transferred.                                                                                                                                                  |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
+| Tên        | Loại        | Mô tả                                                                                                                                                                                         |
+|:---------- |:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| trình nhận | Chuỗi        | Địa chỉ tài khoản nhận token.                                                                                                                                                                 |
+| số lượng   | BigNumber \ | Chuỗi \| Số | Số lượng token sẽ được chuyển.                                                                                                                                                 |
+| sendParam  | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** `Số lượng` chấp nhận tham số `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP7- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip7Instance.transfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
@@ -561,9 +561,9 @@ Note that sending this transaction will charge the transaction fee to the transa
     },
 }
 
-// Using kip7Instance.options.from
-// If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+// Sử dụng kip7Instance.options.from
+// Nếu giá trị của kip7Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi một giao dịch với phiên bản kip7Instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.transfer('0x{address in hex}', 10).then(console.log)
 ```
@@ -574,31 +574,31 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
+Chuyển một cách an toàn `số tiền` của token từ số dư của chủ sở hữu token sang `người nhận`. Chủ sở hữu token phải thực hiện chuyển token này bằng chính tay của mình. Do đó, chủ sở hữu token phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip7Instance.options.from`. Nếu không cung cấp `sendParam.from` hoặc `kip7Instance.options.from` thì sẽ xảy ra lỗi.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+Nếu người nhận là một địa chỉ hợp đồng, thì địa chỉ đó phải triển khai [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Nếu không, việc chuyển giao được hoàn nguyên.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
-|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | String       | The address of the account to receive the token.                                                                                                                                                            |
-| amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
-| data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
+| Tên        | Loại        | Mô tả                                                                                                                                                                                         |
+|:---------- |:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| người nhận | Chuỗi        | Địa chỉ tài khoản nhận token.                                                                                                                                                                 |
+| số lượng   | BigNumber \ | Chuỗi \| Số | Số lượng token bạn muốn chuyển.                                                                                                                                                |
+| dữ liệu    | Bộ đệm \    | Chuỗi \| Số | \(tùy chọn\) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                                      |
+| sendParam  | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** `Số lượng` chấp nhận tham số `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given (without data)
+// Gửi qua một đối tượng sendParam với trường từ đã cho (không có dữ liệu)
 > kip7Instance.safeTransfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x208cd64b95bbd91420fc6b1a7b514a8d3051d09333d79244b6b74ff2f7f3eee4',
@@ -636,12 +636,12 @@ Note that sending this transaction will charge the transaction fee to the transa
     },
 }
 
-// Send via a sendParam object with the from field given (with data)
+// Gửi qua một đối tượng sendParam với trường từ đã cho (có dữ liệu)
 > kip7Instance.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Using kip7Instance.options.from
-// If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+// Sử dụng kip7Instance.options.from
+// Nếu giá trị của kip7Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi một giao dịch với phiên bản kip7Instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.safeTransfer('0x{address in hex}', 11).then(console.log)
 ```
@@ -652,29 +652,29 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
 
-Transfers the given `amount` of token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
+Chuyển `số tiền` đã cho của token từ số dư của chủ sở hữu token sang `người nhận`. Địa chỉ đã được phê duyệt để gửi token của chủ sở hữu token dự kiến ​​sẽ thực hiện giao dịch chuyển token này. Do đó, người được phê duyệt phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip7Instance.options.from`. Nếu không cung cấp `sendParam.from` hoặc `kip7Instance.options.from` thì sẽ xảy ra lỗi.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
-|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | String       | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                         |
-| recipient | String       | The address of the account to receive the token.                                                                                                                                                            |
-| amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
+| Tên        | Loại         | Mô tả                                                                                                                                                                                         |
+|:---------- |:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| người gửi  | Chuỗi        | Địa chỉ của tài khoản sở hữu token sẽ được gửi với cơ chế trợ cấp.                                                                                                                            |
+| người nhận | Chuỗi        | Địa chỉ tài khoản nhận token.                                                                                                                                                                 |
+| số lượng   | BigNumber \ | Chuỗi \| Số | Số lượng token bạn muốn chuyển.                                                                                                                                                |
+| sendParam  | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** `Số lượng` chấp nhận tham số `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP7- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip7Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x3adec238e06a9e8d5fa09fc1e1d7c8748b64d07e89678d27e8a379a12a34974f',
@@ -735,9 +735,9 @@ Note that sending this transaction will charge the transaction fee to the transa
     },
 }
 
-// Using kip7Instance.options.from
-// If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+// Sử dụng kip7Instance.options.from
+// Nếu giá trị của kip7Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi một giao dịch với phiên bản kip7Instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
@@ -748,17 +748,17 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
+Chuyển một cách an toàn `số tiền` của token từ số dư của chủ sở hữu token sang `người nhận`. Địa chỉ đã được phê duyệt để gửi token của chủ sở hữu token dự kiến ​​sẽ thực hiện giao dịch chuyển token này. Do đó, người được phê duyệt phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip7Instance.options.from`. Nếu không cung cấp `sendParam.from` hoặc `kip7Instance.options.from` thì sẽ xảy ra lỗi.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+Nếu người nhận là một địa chỉ hợp đồng, thì địa chỉ đó phải triển khai [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Nếu không, việc chuyển giao được hoàn nguyên.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
+| Tên       | Loại         | Mô tả                                                                                                                                                                                                       |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | String       | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                         |
+| người gửi | Chuỗi        | Địa chỉ của tài khoản sở hữu token sẽ được gửi với cơ chế trợ cấp.                                                                                                                                          |
 | recipient | String       | The address of the account to receive the token.                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
 | data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
@@ -873,7 +873,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Example**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip7Instance.mint('0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x71e1c7c9de471ed9eb9ec2aca09beb63a654e21514b2b8d25ec93f34b810a709',
@@ -911,9 +911,9 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     },
 }
 
-// Using kip7Instance.options.from
-// If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+// Sử dụng kip7Instance.options.from
+// Nếu giá trị của kip7Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi một giao dịch với phiên bản kip7Instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.mint('0x{address in hex}', 10000).then(console.log)
 ```
