@@ -32,7 +32,7 @@ Trong hướng dẫn này, ta sẽ tìm hiểu cách tạo `Klaystagram`, ứng 
 
 NFT là non-fungible token (token không thể thay thế), một loại token đặc biệt đại diện cho một tài sản duy nhất. Như ý nghĩa của cái tên non-fungible (không thể thay thế), mỗi token đều là duy nhất. Tính duy nhất này của NFT mở ra những chân trời mới cho quá trình số hóa tài sản. Ví dụ: NFT có thể dùng để đại diện cho tác phẩm nghệ thuật số, vật phẩm trò chơi hoặc bất cứ loại tài sản duy nhất nào và cho phép mọi người giao dịch. Để biết thêm thông tin, hãy tham khảo [bài viết](https://coincentral.com/nfts-non-fungible-tokens/) này.
 
-Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh duy nhất của người dùng. Khi người dùng tải ảnh lên, một token duy nhất sẽ được tạo ra, token này chứa dữ liệu ảnh cùng quyền sở hữu kèm theo. Tất cả giao dịch được ghi lại trên blockchain. Vì vậy, ngay cả nhà cung cấp dịch vụ cũng không thể kiểm soát những ảnh được tải lên. Khi xem xét mục đích của hướng dẫn này, sẽ chỉ có những chức năng chính được triển khai. Sau khi xem xong hướng dẫn này, hãy thử bổ sung một số tính năng thú vị hơn và tạo ra dịch vụ sáng tạo của riêng bạn.
+Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh duy nhất của người dùng. Khi người dùng tải ảnh lên, một token duy nhất sẽ được tạo ra, token này chứa dữ liệu ảnh cùng quyền sở hữu kèm theo. Tất cả giao dịch được ghi vào blockchain. Vì vậy, ngay cả nhà cung cấp dịch vụ cũng không thể kiểm soát những ảnh được tải lên. Khi xem xét mục đích của hướng dẫn này, sẽ chỉ có những chức năng chính được triển khai. Sau khi xem xong hướng dẫn này, hãy thử bổ sung một số tính năng thú vị hơn và tạo ra dịch vụ sáng tạo của riêng bạn.
 
 Có ba tính năng chính.
 
