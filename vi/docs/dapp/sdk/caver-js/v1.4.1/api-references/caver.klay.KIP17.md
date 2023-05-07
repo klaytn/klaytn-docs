@@ -1,5 +1,5 @@
 ---
-description: Một đối tượng caver-js được sử dụng để tương tác với một hợp đồng thông minh cho KIP17.
+description: Đối tượng caver-js được sử dụng để tương tác với hợp đồng thông minh cho KIP17.
 ---
 
 # caver.klay.KIP17
@@ -158,19 +158,19 @@ Sao chép phiên bản KIP17 hiện tại.
 kip17Instance.supportsInterface(interfaceId)
 ```
 
-Returns `true` if this contract implements the interface defined by `interfaceId`.
+Trả về `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type   | Description                    |
-|:----------- |:------ |:------------------------------ |
-| interfaceId | String | The interfaceId to be checked. |
+| Tiêu đề     | Loại | Mô tả                          |
+|:----------- |:----- |:------------------------------ |
+| interfaceId | Chuỗi | InterfaceId cần được kiểm tra. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+`Promise` trả về `Boolean`: `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.supportsInterface('0x80ac58cd').then(console.log)
@@ -186,17 +186,17 @@ false
 kip17Instance.name()
 ```
 
-Returns the name of the token.
+Trả về tên của token.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The name of the token.
+`Promise` trả về `Chuỗi`: Tên của token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.name().then(console.log)
@@ -209,17 +209,17 @@ Jasmine
 kip17Instance.symbol()
 ```
 
-Returns the symbol of the token.
+Trả về biểu tượng của token.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The symbol of the token.
+`Promise` trả về `Chuỗi`: Biểu tượng của token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.symbol().then(console.log)
@@ -232,17 +232,17 @@ JAS
 kip17Instance.totalSupply()
 ```
 
-Returns the total number of tokens minted by the contract.
+Trả về tổng số token được tạo bởi hợp đồng.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise` trả về `BigNumber`: Tổng số token.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.totalSupply().then(console.log)
@@ -255,15 +255,15 @@ None
 kip17Instance.tokenURI(tokenId)
 ```
 
-Returns the URI for a given token id.
+Trả về URI cho id token đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                              |
-|:------- |:------------ |:---------------------------------------- |
-| tokenId | BigNumber \ | String \| Number | The id of the token. |
+| Tên     | Loại        | Mô tả                        |
+|:------- |:------------ |:---------------------------- |
+| tokenId | BigNumber \ | Chuỗi \| Số | Id của token. |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
 **Giá trị trả về**
 
@@ -362,21 +362,21 @@ Trả về số dư của địa chỉ tài khoản đã cho. Số dư của tà
 kip17Instance.ownerOf(tokenId)
 ```
 
-Returns the address of the owner of the specified token id.
+Trả về địa chỉ của chủ sở hữu id token đã chỉ định.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                              |
-|:------- |:------------ |:---------------------------------------- |
-| tokenId | BigNumber \ | String \| Number | The id of the token. |
+| Tên     | Loại        | Mô tả                        |
+|:------- |:------------ |:---------------------------- |
+| tokenId | BigNumber \ | Chuỗi \| Số | Id của token. |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The address of the account that owns the given token.
+`Promise` trả về `String`: Địa chỉ của tài khoản sở hữu token đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > kip17Instance.ownerOf(8).then(console.log)
@@ -389,28 +389,28 @@ Returns the address of the owner of the specified token id.
 kip17Instance.getApproved(tokenId)
 ```
 
-Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
+Trả về địa chỉ được phép chuyển token này hoặc địa chỉ 'không' nếu không có địa chỉ nào được phê duyệt. Nó hoàn nguyên nếu id token đã cho không tồn tại.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description                              |
-|:------- |:------------ |:---------------------------------------- |
-| tokenId | BigNumber \ | String \| Number | The id of the token. |
+| Tên     | Loại        | Mô tả                        |
+|:------- |:------------ |:---------------------------- |
+| tokenId | BigNumber \ | Chuỗi \| Số | Id của token. |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The address of the account that has the right to transfer the given token.
+`Promise` trả về `Chuỗi`: Địa chỉ của tài khoản có quyền chuyển token đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// If an approved address exists
+// Nếu một địa chỉ đã được phê duyệt tồn tại
 > kip17Instance.getApproved(10).then(console.log)
 0x23D8E9cae17b22d3DAC65b4F7D2C737C6A7b865d
 
-// If no approved address exists
+// Nếu không có địa chỉ được phê duyệt nào tồn tại
 > kip17Instance.getApproved(3).then(console.log)
 0x0000000000000000000000000000000000000000
 ```
@@ -421,14 +421,14 @@ Returns the address who was permitted to transfer this token, or 'zero' address,
 kip17Instance.isApprovedForAll(owner, operator)
 ```
 
-Returns `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
+Trả về `true` nếu một `toán tử` được chấp thuận chuyển tất cả các token thuộc về `chủ sở hữu`.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                                                                     |
-|:-------- |:------ |:----------------------------------------------------------------------------------------------- |
-| owner    | String | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
-| operator | Chuỗi  | Địa chỉ của tài khoản được phê duyệt để gửi tất cả token của chủ sở hữu thay cho chủ sở hữu.    |
+| Tên        | Loại | Mô tả                                                                                        |
+|:---------- |:----- |:-------------------------------------------------------------------------------------------- |
+| chủ sở hữu | Chuỗi | Địa chỉ của tài khoản sở hữu token và đã cho phép nhà điều hành gửi tất cả token của nó.     |
+| toán tử    | Chuỗi | Địa chỉ của tài khoản được phê duyệt để gửi tất cả token của chủ sở hữu thay cho chủ sở hữu. |
 
 **Giá trị trả về**
 
@@ -536,33 +536,33 @@ Phê duyệt một địa chỉ khác để chuyển token của id token đã c
 
 Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                 |
-|:--------- |:------------ |:--------------------------------------------------------------------------- |
-| to        | String       | The address of the account who spends tokens in place of the owner.         |
-| tokenId   | BigNumber \ | String \| Number | The id of the token the spender is allowed to use.      |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. |
+| Tên       | Loại         | Mô tả                                                              |
+|:--------- |:------------ |:------------------------------------------------------------------ |
+| tới       | Chuỗi        | Địa chỉ của tài khoản sử dụng token thay cho chủ sở hữu.           |
+| tokenId   | BigNumber \ | Chuỗi \| Số | Id của token mà người chi tiêu được phép sử dụng.   |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-The sendParam object can contain the following:
+Đối tượng sendParam có thể chứa các nội dung sau:
 
-| Name     | Type      | Description                                                                                                                                                                                                                          |
-|:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from     | String    | \(optional\) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in `sendParam` object nor `this.options.from` were not provided, an error would occur. |
-| gas      | Number \ | String | \(optional\) The maximum gas provided for this transaction \(gas limit\). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, tokenId).estimateGas({from})`.                              |
-| gasPrice | Number \ | String | \(optional\) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                               |
-| value    | Number \ | String \| BN \| BigNumber | \(optional\) The value to be transferred in peb.                                                                                                                                                     |
+| Tên      | Loại | Mô tả                                                                                                                                                                                                                              |
+|:-------- |:----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ       | Chuỗi | \(tùy chọn\) Địa chỉ mà giao dịch sẽ được gửi từ đó. Nếu bỏ qua tham số này thì sẽ được thiết lập bởi `this.options.from`. Nếu không cung cấp `from` trong đối tượng `sendParam` cũng như `this.options.from` thì sẽ xảy ra lỗi. |
+| gas      | Số \ | Chuỗi | \(tùy chọn\) Lượng gas tối đa được cung cấp cho giao dịch này \(giới hạn gas\). Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `this.methods.approve(spender, tokenId).estimateGas({from})`.           |
+| gasPrice | Số \ | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch này. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getGasPrice`.                                                                |
+| giá trị  | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển trong peb.                                                                                                                                                         |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip17Instance.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x3875c3f3120c1773c3adeb97260808c8a385bf8427bc203d10cbc5d262f67dbc',
@@ -600,9 +600,9 @@ The sendParam object can contain the following:
     },
 }
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.approve('0x{address in hex}', 10).then(console.log)
 ```
@@ -613,13 +613,13 @@ The sendParam object can contain the following:
 kip17Instance.setApprovalForAll(to, approved [, sendParam])
 ```
 
-Approves the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
+Phê duyệt toán tử đã cho `đến` hoặc không cho phép toán tử đã cho chuyển tất cả token của chủ sở hữu.
 
-Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương thức setApprovalForAll sẽ gửi giao dịch tới mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name       | Loại     | Mô tả                                                                                                                                                                                           |
+| Tên        | Loại     | Mô tả                                                                                                                                                                                           |
 |:---------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tới        | Chuỗi     | Địa chỉ của tài khoản được phê duyệt/cấm chuyển tất cả các token của chủ sở hữu.                                                                                                                |
 | chấp thuận | Boolean   | Toán tử này sẽ được phê duyệt nếu `true`. Toán tử sẽ không được phép nếu `false`.                                                                                                               |
@@ -700,12 +700,12 @@ Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho ng�
 
 **Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip17Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x9cae3aa93d327804f333674a77d5d01d8c7908c49749b0d747b6391faa232b58',
@@ -743,9 +743,9 @@ Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho ng�
     },
 }
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
 ```
@@ -756,32 +756,32 @@ Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho ng�
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 
-Safely transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
+Chuyển an toàn token của id token đã cho `tokenId` từ số dư của chủ sở hữu token sang địa chỉ khác. Địa chỉ đã được phê duyệt để gửi token của chủ sở hữu token \(nhà điều hành\) hoặc chính chủ sở hữu token sẽ thực hiện giao dịch chuyển token này. Do đó, người được phê duyệt hoặc chủ sở hữu token phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip7Instance.options.from`. Nếu không cung cấp `sendParam.from` hoặc `kip7Instance.options.from` thì sẽ xảy ra lỗi.
 
-If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
+Nếu `đến` là một địa chỉ hợp đồng, thì nó phải triển khai [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). nếu không, việc chuyển giao được hoàn nguyên.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+Lưu ý rằng việc gửi giao dịch này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                   |
-|:--------- |:------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | String       | The address of the owner or the approved operator of the given token.                                                                                                                                         |
-| to        | String       | The address of the account to receive the token.                                                                                                                                                              |
-| tokenId   | BigNumber \ | String \| Number | The id of the token you want to transfer.                                                                                                                                                 |
-| data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                             |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
+| Tên       | Loại        | Mô tả                                                                                                                                                                                           |
+|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ        | Chuỗi        | Địa chỉ của chủ sở hữu hoặc nhà điều hành được phê duyệt của token đã cho.                                                                                                                      |
+| tới       | Chuỗi        | Địa chỉ tài khoản nhận token.                                                                                                                                                                   |
+| tokenId   | BigNumber \ | Chuỗi \| Số | Id của token bạn muốn chuyển.                                                                                                                                                    |
+| dữ liệu   | Bộ đệm \    | Chuỗi \| Số | \(tùy chọn\) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                                        |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP17.md#kip17instance-approve). |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given (without data)
+// Gửi qua một đối tượng sendParam với trường từ đã cho (không có dữ liệu)
 > kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 9, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x14c5bebc2be86081d8375ba11edba0e541be1df24c1beced1a9e82e3083a8035',
@@ -819,12 +819,12 @@ Note that sending this transaction will charge the transaction fee to the transa
     },
 }
 
-// Send via a sendParam object with the from field given (with data)
+// Gửi qua đối tượng sendParam với trường from đã cho (có dữ liệu)
 > kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
@@ -970,29 +970,29 @@ kip17Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 
 Tạo token với uri đã cho và gán chúng cho tài khoản đã cho. Phương pháp này làm tăng tổng nguồn cung của token này.
 
-Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương thức mintWithTokenURI sẽ gửi một giao dịch tới mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                   |
-|:--------- |:------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | String       | The address of the account to which the minted token will be issued.                                                                                                                                          |
-| tokenId   | BigNumber \ | String \| Number | The id of the token to be minted.                                                                                                                                                         |
-| tokenURI  | String       | The uri string of the token to be minted.                                                                                                                                                                     |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
+| Tên       | Loại         | Mô tả                                                                                                                                                                                           |
+|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tới       | Chuỗi        | Địa chỉ của tài khoản mà token đúc sẽ được phát hành.                                                                                                                                           |
+| tokenId   | BigNumber \ | Chuỗi \| Số | Id token sẽ được đúc.                                                                                                                                                            |
+| tokenURI  | Chuỗi        | Chuỗi uri của token sẽ được đúc.                                                                                                                                                                |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP17.md#kip17instance-approve). |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a minter with MinterRole.
+**LƯU Ý** Nếu `sendParam.from` hoặc `KIP17Instance.options.from` đã được cung cấp, thì đó phải là minter với MinterRole.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip17Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xd2473b9853ad33c5fa0a75187e65733614ed4f8c937d06e239768a5ca32d7c7f',
@@ -1030,9 +1030,9 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
     },
 }
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI).then(console.log)
 ```
@@ -1043,22 +1043,22 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 kip17Instance.burn(tokenId [, sendParam])
 ```
 
-Destroys the token of the given token id. Without `sendParam.from` nor `KIP17Instance.options.from` being provided, an error would occur.
+Hủy token của id token đã cho. Nếu không cung cấp `sendParam.from` hoặc `KIP17Instance.options.from` thì sẽ xảy ra lỗi.
 
-Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương thức ghi sẽ gửi một giao dịch đến mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                   |
-|:--------- |:------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenId   | BigNumber \ | String \| Number | The id of the token to be destroyed.                                                                                                                                                      |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
+| Tên       | Loại        | Mô tả                                                                                                                                                                                           |
+|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenId   | BigNumber \ | Chuỗi \| Số | Id token sẽ được phá hủy.                                                                                                                                                        |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP17.md#kip17instance-approve). |
 
-**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** Tham số `tokenId` chấp nhận loại `Number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
 **Ví dụ**
 
@@ -1246,27 +1246,27 @@ Lưu ý rằng phương thức bỏ tạm dừng sẽ gửi một giao dịch đ
 kip17Instance.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+Thêm một tài khoản như một trình tạm dừng có quyền tạm dừng hợp đồng.
 
-Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương thức addPauser sẽ gửi giao dịch tới mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                                                                                                                   |
-|:--------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | String | The address of the account to be a new pauser.                                                                                                                                                                |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                           |
+|:--------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tài khoản | Chuỗi     | Địa chỉ của tài khoản tạm dừng mới.                                                                                                                                                             |
+| sendParam | Đối tượng | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP17.md#kip17instance-approve). |
 
-**NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
+**LƯU Ý** Nếu `sendParam.from` hoặc `KIP17Instance.options.from` được cung cấp, thì đó phải là một trình tạm dừng có PauserRole.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip17Instance.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xd9f18912c9666a67a2e7445af0abe5140212955b3d35c491e5475d512fdee7d5',
@@ -1300,9 +1300,9 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
     },
 }
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1313,26 +1313,26 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 kip17Instance.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce its own pausing right.
+Từ bỏ quyền tạm dừng hợp đồng. Chỉ một địa chỉ tạm dừng mới có thể từ bỏ quyền tạm dừng của chính nó.
 
-Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương thức renouncePauser sẽ gửi giao dịch tới mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                                                                                                                   |
-|:--------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                           |
+|:--------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | Đối tượng | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP17.md#kip17instance-approve). |
 
-**NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
+**LƯU Ý** Nếu `sendParam.from` hoặc `KIP17Instance.options.from` được cung cấp, thì đó phải là một trình tạm dừng có PauserRole.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP-17 có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip17Instance.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x32bb338ca23846478934416d1b1f4152b69a49411d61b316cff8b3a7d62ca91e',
@@ -1366,9 +1366,9 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
     },
 }
 
-// Using kip17Instance.options.from
-// If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+// Sử dụng kip17Instance.options.from
+// Nếu giá trị của kip17Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi giao dịch với phiên bản kip17Instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.renouncePauser().then(console.log)
 ```
