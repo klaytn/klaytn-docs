@@ -1,6 +1,6 @@
 ## klay_feeHistory<a id="klay_feehistory"></a>
 
-Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với khoảng khối được yêu cầu nếu có.
+Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với phạm vi khối được yêu cầu, nếu có.
 
 {% hint style="success" %}
 **LƯU Ý**: API này có hiệu lực sau Klaytn v1.8.0
@@ -8,21 +8,21 @@ Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của m�
 
 **Tham số**
 
-| Tên               | Loại                | Mô tả                                                                                                                                                                                                                                       |
-| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | SỐ LƯỢNG            | Số khối trong phạm vi được yêu cầu ở dạng thập lục phân. Có thể yêu cầu giữa 1 (0x1) và 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
-| lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                    |
-| rewardPercentiles | Mảng DẤU PHẢY ĐỘNG  | Mảng số thực dấu phảy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                   |
+| Tên               | Loại                | Mô tả                                                                                                                                                                                                                                                   |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | SỐ LƯỢNG            | Số khối trong phạm vi được yêu cầu ở dạng thập lục phân. Có thể yêu cầu trong khoảng từ 1 (0x1) đến 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
+| lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối được đánh số cao nhất trong phạm vi được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                  |
+| rewardPercentiles | Mảng SỐ THỰC        | Mảng số thực dấu phẩy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                               |
 
 
 **Giá trị trả về**
 
-| Tên           | Loại              | Mô tả                                                                                                                                                             |
-| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | SỐ LƯỢNG           | Khối được đánh số thấp nhất trong phạm vi được trả về ở dạng thập lục phân.                                                                                       |
-| baseFeePerGas | Mảng SỐ LƯỢNG      | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
-| gasUsedRatio  | Mảng DẤU PHẢY ĐỘNG | Một mảng các tỷ lệ gas được sử dụng trên mỗi khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                   |
-| phần thưởng   | Mảng SỐ LƯỢNG      | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, tất cả các giá trị được trả về sẽ là 0.           |
+| Tên           | Loại         | Mô tả                                                                                                                                                             |
+| ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | SỐ LƯỢNG      | Khối được đánh số thấp nhất trong phạm vi được trả về ở dạng thập lục phân.                                                                                       |
+| baseFeePerGas | Mảng SỐ LƯỢNG | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
+| gasUsedRatio  | Mảng SỐ THỰC  | Một mảng các tỷ lệ gas được sử dụng trên mỗi khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                   |
+| phần thưởng   | Mảng SỐ LƯỢNG | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, thì tất cả các giá trị được trả về sẽ là 0.       |
 
 
 **Ví dụ**
