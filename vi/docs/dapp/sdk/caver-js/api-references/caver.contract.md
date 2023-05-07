@@ -1,8 +1,8 @@
 # caver.contract
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
+Đối tượng `caver.contract` giúp tương tác dễ dàng hơn với các hợp đồng thông minh trên nền tảng chuỗi khối Klaytn. Khi bạn tạo một đối tượng hợp đồng mới, bạn phải cung cấp giao diện JSON cho hợp đồng thông minh đó và caver-js sẽ tự động chuyển đổi tất cả lệnh gọi với đối tượng hợp đồng trong javascript thành lệnh gọi ABI cấp độ thấp qua RPC cho bạn.
 
-This allows you to interact with smart contracts as if they were JavaScript objects.
+Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
 
 ## caver.contract.create <a href="#caver-contract-create" id="caver-contract-create"></a>
 
@@ -10,19 +10,19 @@ This allows you to interact with smart contracts as if they were JavaScript obje
 caver.contract.create(jsonInterface [, address] [, options])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object. This function works the same as [new caver.contract](caver.contract.md#new-contract).
+Tạo một phiên bản hợp đồng mới với tất cả các phương thức và sự kiện được xác định trong đối tượng giao diện JSON của hợp đồng đó. Hàm này hoạt động tương tự như [caver.contract mới](caver.contract.md#new-contract).
 
-**NOTE** `caver.contract.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `caver.contract.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**Tham số**
 
-See the [new caver.contract](caver.contract.md#new-contract).
+Xem [new caver.contract](caver.contract.md#new-contract).
 
-**Return Value**
+**Giá trị Trả về**
 
-See the [new caver.contract](caver.contract.md#new-contract).
+Xem [new caver.contract](caver.contract.md#new-contract).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 const contract = caver.contract.create([
@@ -45,19 +45,19 @@ const contract = caver.contract.create([
 new caver.contract(jsonInterface [, address] [, options])
 ```
 
-Creates a new contract instance with all its methods and events defined in its JSON interface object.
+Tạo một phiên bản hợp đồng mới với tất cả các phương thức và sự kiện được xác định trong đối tượng giao diện JSON của hợp đồng đó.
 
-**Parameters**
+**Tham số**
 
-| Name          | Type   | Description                                                                                                              |
-| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| jsonInterface | object | The JSON interface for the contract to instantiate                                                                       |
-| address       | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | object | (optional) The options of the contract. See the table below for the details.                                             |
+| Tên           | Loại      | Mô tả                                                                                                                          |
+| ------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| jsonInterface | đối tượng | Giao diện JSON để khởi tạo hợp đồng                                                                                            |
+| địa chỉ       | chuỗi     | (tùy chọn) Địa chỉ của hợp đồng thông minh để gọi. Có thể thêm sau bằng cách sử dụng `myContract.options.address = '0x1234..'` |
+| tùy chọn      | đối tượng | (tùy chọn) Các tùy chọn của hợp đồng. Xem bảng dưới đây để biết chi tiết.                                                      |
 
-The options object contains the following:
+Đối tượng tùy chọn chứa các mục sau:
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                        |
+| Tên           | Type    | Description                                                                                                                                                                                                                                                                                        |
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from          | string  | (optional) The address from which transactions should be made.                                                                                                                                                                                                                                     |
 | gasPrice      | string  | (optional) The gas price in peb to use for transactions.                                                                                                                                                                                                                                           |
@@ -93,7 +93,7 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                        |
 | jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                |
-| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
+| from          | chuỗi   | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
 | gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                      |
 | gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                            |
 | data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                               |
