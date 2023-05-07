@@ -4,7 +4,7 @@ description: Một đối tượng caver-js được sử dụng để tương t
 
 # caver.klay.Contract
 
-Đối tượng `caver.klay.Contract` giúp dễ dàng tương tác với các hợp đồng thông minh trên chuỗi khối Klaytn. Khi bạn tạo một đối tượng hợp đồng mới, bạn cung cấp cho hợp đồng này giao diện JSON của hợp đồng thông minh tương ứng và caver sẽ tự động chuyển đổi tất cả lệnh gọi thành lệnh gọi ABI cấp thấp qua RPC cho bạn.
+Đối tượng `caver.klay.Contract` giúp dễ dàng tương tác với các hợp đồng thông minh trên blockchain Klaytn. Khi bạn tạo một đối tượng hợp đồng mới, bạn cung cấp cho hợp đồng này giao diện JSON của hợp đồng thông minh tương ứng và caver sẽ tự động chuyển đổi tất cả lệnh gọi thành lệnh gọi ABI cấp thấp qua RPC cho bạn.
 
 Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
 
@@ -180,7 +180,7 @@ true
 myContract.deploy(options)
 ```
 
-Triển khai hợp đồng cho chuỗi khối Klaytn. Sau khi triển khai thành công, lệnh hứa sẽ được giải quyết bằng một phiên bản hợp đồng mới.
+Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành công, promise sẽ được giải quyết bằng một phiên bản hợp đồng mới.
 
 **Tham số**
 
@@ -198,7 +198,7 @@ Triển khai hợp đồng cho chuỗi khối Klaytn. Sau khi triển khai thàn
 | Loại | Mô tả                                                                                                                             |
 |:----- |:--------------------------------------------------------------------------------------------------------------------------------- |
 | Mảng  | đối số: Các đối số được truyền cho phương thức trước đó. Chúng có thể được thay đổi.                                              |
-| Hàm   | [send](#methods-mymethod-send): Sẽ triển khai hợp đồng. Lời hứa sẽ được giải quyết với phiên bản hợp đồng mới, thay vì biên nhận. |
+| Hàm   | [send](#methods-mymethod-send): Sẽ triển khai hợp đồng. Promise sẽ được giải quyết với phiên bản hợp đồng mới, thay vì biên nhận. |
 | Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas sử dụng cho việc triển khai.                                  |
 | Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI của quá trình triển khai, là dữ liệu hợp đồng + tham số hàm tạo.             |
 
@@ -304,7 +304,7 @@ Các tham số của bất kỳ phương thức nào phụ thuộc vào các ph�
 | Mảng  | đối số: Các đối số được truyền cho phương thức trước đó. Chúng có thể được thay đổi.                                                                                                                                      |
 | Hàm   | [gọi](#methods-mymethod-call): Sẽ gọi phương thức "hằng số" và thực thi phương thức hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi giao dịch \(không thể thay đổi trạng thái hợp đồng thông minh\).        |
 | Hàm   | [send](#methods-mymethod-send): Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương thức \(có thể thay đổi trạng thái hợp đồng thông minh\).                                                               |
-| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas được sử dụng khi phương thức sẽ được thực thi trên chuỗi khối.                                                                                        |
+| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas được sử dụng khi phương thức sẽ được thực thi trên blockchain.                                                                                        |
 | Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI cho phương thức này. Điều này có thể được gửi bằng cách sử dụng một giao dịch, gọi phương thức hoặc chuyển sang một phương thức hợp đồng thông minh khác làm đối số. |
 
 **Ví dụ**
@@ -315,7 +315,7 @@ Các tham số của bất kỳ phương thức nào phụ thuộc vào các ph�
       ...
   });
 
-// hoặc gửi và sử dụng một lời hứa
+// hoặc gửi và sử dụng promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
     // biên lai cũng có thể là một trường hợp hợp đồng mới, khi đến từ một "contract.deploy({...}).send()"
@@ -349,25 +349,25 @@ Sẽ gọi một phương thức "hằng số" và thực thi phương thức h�
 
 Đối tượng tùy chọn có thể chứa các mục sau:
 
-| Tên      | Loại   | Mô tả                                                                                |
-|:-------- |:------ |:------------------------------------------------------------------------------------ |
-| từ       | Chuỗi  | \(tùy chọn\) Địa chỉ mà cuộc gọi “giao dịch” phải được thực hiện từ đó.            |
-| gasPrice | String | \(optional\) The gas price in peb to use for this call "transaction".              |
-| gas      | Number | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). |
+| Tên      | Loại  | Mô tả                                                                                          |
+|:-------- |:----- |:---------------------------------------------------------------------------------------------- |
+| từ       | Chuỗi | \(tùy chọn\) Địa chỉ mà cuộc gọi “giao dịch” phải được thực hiện từ đó.                      |
+| gasPrice | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho lệnh gọi "giao dịch" này.                  |
+| gas      | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho cuộc gọi "giao dịch" này \(giới hạn gas\). |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Mixed`: The return value\(s\) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, they are returned as an object with properties and indices.
+`Promise` trả về `Mixed`: Giá trị trả về\(s\) của phương thức hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu có nhiều giá trị trả về, chúng sẽ được trả về dưới dạng một đối tượng có thuộc tính và chỉ số.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// using the callback
+// sử dụng gọi lại
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
       ...
   });
 
-// using the promise
+// sử dụng promise
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -375,7 +375,7 @@ Sẽ gọi một phương thức "hằng số" và thực thi phương thức h�
 ```
 
 ```text
-// Solidity: MULTI-ARGUMENT RETURN
+// Tính vững chắc: TRẢ LẠI MULTI-ARGUMENT
 contract MyContract {
     function myFunction() returns(uint256 myNumber, string myString) {
         return (23456, "Hello!%");
@@ -395,7 +395,7 @@ Result {
 ```
 
 ```text
-// Solidity: SINGLE-ARGUMENT RETURN
+// Tính vững chắc: TRẢ LẠI MỘT ĐỐI SỐ
 contract MyContract {
     function myFunction() returns(string myString) {
         return "Hello!%";
@@ -415,29 +415,29 @@ contract MyContract {
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Will send a transaction to the smart contract and execute its method. Note that this can alter the smart contract state.
+Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương thức của nó. Lưu ý rằng điều này có thể thay đổi trạng thái hợp đồng thông minh.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                 |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | The options used for sending.  See the table below for the details.                                                         |
-| callback | Function | \(optional\) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
+| Tên      | Loại     | Mô tả                                                                                                                         |
+|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | Đối tượng | Các tùy chọn được sử dụng để gửi.  Xem bảng dưới đây để biết chi tiết.                                                        |
+| gọi lại  | Hàm       | \(tùy chọn\) Lệnh gọi lại này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số đầu tiên. |
 
-The options object can contain the following:
+Đối tượng tùy chọn có thể chứa các mục sau:
 
-| Name     | Type      | Description                                                                                    |
-|:-------- |:--------- |:---------------------------------------------------------------------------------------------- |
-| from     | String    | The address from which the transaction should be sent.                                         |
-| gasPrice | String    | \(optional\) The gas price in peb to use for this transaction.                               |
-| gas      | Number    | The maximum gas provided for this transaction \(gas limit\).                                 |
-| value    | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the transaction in peb. |
+| Tên      | Loại | Mô tả                                                                                   |
+|:-------- |:----- |:--------------------------------------------------------------------------------------- |
+| từ       | Chuỗi | Địa chỉ mà từ đó giao dịch sẽ được gửi.                                                 |
+| gasPrice | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch này.                      |
+| gas      | Số    | Lượng gas tối đa được cung cấp cho giao dịch này \(giới hạn gas\).                    |
+| giá trị  | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển cho giao dịch bằng peb. |
 
-**Return Value**
+**Giá trị trả về**
 
 `gọi lại` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: Trình phát sự kiện kết hợp lời hứa. Sẽ được giải quyết khi có biên lai giao dịch hoặc nếu `send()` này được gọi từ `someContract.deploy()`, thì lời hứa sẽ được giải quyết với phiên bản hợp đồng mới mới. Ngoài ra, các sự kiện sau đây có sẵn:
+`PromiEvent`: Bộ phát hiệu ứng kết hợp promise. Sẽ được giải quyết khi có biên lai giao dịch hoặc nếu `send()` này được gọi từ `someContract.deploy()`, thì promise sẽ được giải quyết với phiên bản hợp đồng mới mới. Ngoài ra, các sự kiện sau đây có sẵn:
 
 | Tên             | Loại     | Mô tả                                                                                                                                                                                                                                                                                                |
 |:--------------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -453,7 +453,7 @@ The options object can contain the following:
     ...
   });
 
-// sử dụng lời hứa
+// sử dụng promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
@@ -536,13 +536,13 @@ Sẽ ước tính mức gas mà việc thực thi phương thức sẽ sử dụ
 **Ví dụ**
 
 ```javascript
-// sử dụng lệnh gọi lại
+// sử dụng promise
 > myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gasAmount) {
     if(gasAmount == 5000000)
       console.log('Method ran out of gas');
   });
 
-// sử dụng lệnh hứa
+// sử dụng promise
 > myContract.methods.myMethod(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(gasAmount) {
     ...
@@ -750,11 +750,11 @@ Nhận các sự kiện trong quá khứ cho hợp đồng này.
 | toBlock   | Số        | \(tùy chọn\) Số khối để nhận các sự kiện lên tới \(mặc định là `"latest"`\).                                                                                                        |
 | chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.         |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array`: An array with the past event objects, matching the given event name and filter.
+`Promise` trả về `Mảng`: Một mảng chứa các đối tượng sự kiện trong quá khứ, khớp với tên sự kiện và bộ lọc đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > myContract.getPastEvents('MyEvent', {
