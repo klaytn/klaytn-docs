@@ -117,12 +117,12 @@ Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nú
 | blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế số lượng bản ghi được trả về cho một khối với mã băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với hàm băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"cũ nhất"` và `"mới nhất"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
 
-Tham khảo [klay_getFilterChanges](#klay_getfilterchanges)
+Xem phần [klay_getFilterChanges](#klay_getfilterchanges)
 
 **Ví dụ**
 
@@ -243,7 +243,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
-Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
+Tạo bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [klay_getFilterChanges](#klay_getfilterchanges).
 
 **Tham số**
 
@@ -272,16 +272,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-Tạo một đối tượng bộ lọc dựa trên các tùy chọn bộ lọc để thông báo khi trạng thái thay đổi (bản ghi).
-- Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
-- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `klay_newFilter`, hãy gọi [klay_getFilterLogs](#klay_getfilterlogs).
+Tạo đối tượng bộ lọc dựa trên các tùy chọn bộ lọc để thông báo khi trạng thái thay đổi (bản ghi).
+- Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [klay_getFilterChanges](#klay_getfilterchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `klay_newFilter`, hãy gọi ra [klay_getFilterLogs](#klay_getfilterlogs).
 
 **Lưu ý về việc xác định bộ lọc chủ đề:** Các chủ đề phụ thuộc vào thứ tự. Một giao dịch với bản ghi có các chủ đề `[A, B]` sẽ được khớp bởi các bộ lọc chủ đề như sau:
-* `[]` "bất cứ thứ gì"
-* `[A]` "A ở vị trí đầu tiên (và bất cứ thứ gì sau đó)"
-* `[null, B]` "bất cứ thứ gì ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
-* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
-* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[]` "chủ đề bất kỳ"
+* `[A]` "A ở vị trí đầu tiên (và chủ đề bất kỳ sau đó)"
+* `[null, B]` "chủ đề bất kỳ ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
+* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
+* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
 
 **Tham số**
 
@@ -317,7 +317,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-Tạo một bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra thay đổi trạng thái, hãy gọi [klay_getFilterChanges](#klay_getfilterchanges).
+Tạo bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [klay_getFilterChanges](#klay_getfilterchanges).
 
 **Tham số**
 
@@ -345,9 +345,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép khách hàng đợi các sự kiện thay vì phải truy vấn thay đổi.
+Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép máy khách chờ các sự kiện thay vì phải truy vấn lần lượt.
 
-Nút sẽ trả về id đăng ký cho mỗi đăng ký được tạo. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
+Nút sẽ trả về id đăng ký cho mỗi lượt đăng ký được tạo. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
 
 **Tham số**
 
@@ -365,7 +365,7 @@ Nút sẽ trả về id đăng ký cho mỗi đăng ký được tạo. Đối v
 
 **Ví dụ**
 
-API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp cho việc sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Yêu cầu
@@ -390,7 +390,7 @@ wscat -c http://localhost:8552
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Gỡ cài đặt bộ lọc với id đã cho. Nên luôn được gọi khi không còn cần theo dõi. Ngoài ra, bộ lọc hết thời gian chờ nếu không được yêu cầu [klay_getFilterChanges](#klay_getfilterchanges) trong một khoảng thời gian.
+Gỡ cài đặt bộ lọc với id đã cho. Luôn phải được gọi ra khi không còn cần theo dõi. Ngoài ra, bộ lọc sẽ hết thời gian chờ nếu không được yêu cầu [klay_getFilterChanges](#klay_getfilterchanges) trong một khoảng thời gian.
 
 **Tham số**
 
@@ -400,9 +400,9 @@ Gỡ cài đặt bộ lọc với id đã cho. Nên luôn được gọi khi kh�
 
 **Giá trị trả về**
 
-| Loại   | Mô tả                                                             |
-| ------- | ----------------------------------------------------------------- |
-| Boolean | `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`. |
+| Loại   | Mô tả                                                              |
+| ------- | ------------------------------------------------------------------ |
+| Boolean | `true` nếu bộ lọc được gỡ cài thành công, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -421,7 +421,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ có kết nối đã tạo đăng ký mới có thể hủy đăng ký.
+Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ kết nối đã tạo đăng ký mới có thể hủy đăng ký.
 
 **Tham số**
 
@@ -433,12 +433,12 @@ Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub
 
 | Loại    | Mô tả                                                       |
 | ------- | ----------------------------------------------------------- |
-| Boolean | `true` nếu hủy đăng ký thành công, nếu không sẽ là `false`. |
+| Boolean | `true` nếu hủy đăng ký thành công, ngược lại sẽ là `false`. |
 
 
 **Ví dụ**
 
-API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp cho việc sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Yêu cầu
