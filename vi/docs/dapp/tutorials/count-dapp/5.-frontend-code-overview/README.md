@@ -32,7 +32,7 @@ if (module.hot) {
 }
 ```
 
-`'index.js'` là file javascript chính cho ứng dụng hướng dẫn của chúng tôi. Đây là điểm khởi đầu cho ứng dụng của chúng tôi.
+`'index.js'` là tập tin javascript chính cho ứng dụng hướng dẫn của chúng tôi. Đây là điểm khởi đầu cho ứng dụng của chúng tôi.
 
 Nó sử dụng thư viện 'react-dom' để render một thành phần React vào DOM trong container\('\#root'\) được cấp và trả về tham chiếu đến thành phần đó. Tóm lại, qua 'react-dom' DOM ứng dụng hướng dẫn của chúng tôi sẽ được gán thành `<div id="root"></div>` trong file `public/index.html`.
 
@@ -53,10 +53,10 @@ Nó sử dụng thư viện 'react-dom' để render một thành phần React v
     </noscript>
     <div id="root"></div> <!-- DOM sẽ được gán vào đây. -->
     <!--
-      Đây là file HTML mẫu.
+      Đây là tập tin HTML mẫu.
       Nếu mở trực tiếp từ trình duyệt, bạn sẽ thấy một trang trống.
 
-      Bạn có thể thêm webfonts, tag meta hoặc dữ liệu phân tích vào file này.
+      Bạn có thể thêm webfonts, tag meta hoặc dữ liệu phân tích vào tập tin này.
       Bước built sẽ đặt các script bundle vào tag <body>.
 
       Để bắt đầu phát triển, chạy `npm start` hoặc `yarn start`.
@@ -66,7 +66,7 @@ Nó sử dụng thư viện 'react-dom' để render một thành phần React v
 </html>
 ```
 
-`index.html` là file HTML để render ra ứng dụng hướng dẫn của chúng tôi.
+`index.html` là tập tin HTML để render ra ứng dụng hướng dẫn của chúng tôi.
 
 Để biết thêm thông tin, hãy truy cập trang web React chính thức [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
@@ -90,7 +90,7 @@ export default renderRoutes
 ```
 
 `'routes.js'` chứa định nghĩa định tuyến cho ứng dụng hướng dẫn của chúng tôi.  
-Vì là thành phần gốc, thành phần `'App.js'` render ra các thành phần con được định nghĩa trong file `'route.js'`.  
+Vì là thành phần gốc, thành phần `'App.js'` render ra các thành phần con được định nghĩa trong tập tin `'route.js'`.  
 Bằng mã lệnh trên, thành phần `'Count'` sẽ được render thành con của rootComponent khi đường dẫn URL của trình duyệt là `"/"`.
 
 Để biết thêm thông tin, truy cập thư viện github React router [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
@@ -155,7 +155,7 @@ render() {
 ```
 
 Nó render `BlockNumber`, `Auth` và thành phần `{this.props.children}`.  
-`{this.props.children}` sẽ được gán theo file `routes.js`.  
+`{this.props.children}` sẽ được gán theo tập tin `routes.js`.  
 Nếu đường dẫn url của trình duyệt là `/`, nó sẽ render thành phần `<Count />`.
 
 ```javascript
