@@ -1,19 +1,19 @@
-# Configuration <a id="configuration"></a>
+# Cấu hình <a id="configuration"></a>
 
-This page explains the configuration of SCNs to form a consensus network.
+Trang này giải thích cấu hình của SCN để tạo mạng lưới đồng thuận.
 
-If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
+Nếu đã cài đặt phân bổ lưu trữ, bạn có thể thấy nhị phân và tập tin cấu hình trong các thư mục mà bạn trích xuất từ kho lưu trữ. Dưới đây là một ví dụ về thực thi lệnh.
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-In this tutorial, we will not always specify the full path to the command.
+Trong hướng dẫn này, không phải lúc nào chúng ta cũng chỉ định đường dẫn đầy đủ đến lệnh.
 
-## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
+## Tạo một tập tin Genesis <a id="creation-of-a-genesis-file"></a>
 
-First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
+Trước tiên, bạn nên tạo tập tin khởi nguyên và khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
 ```bash
 $ homi setup local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -25,7 +25,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Below are examples of genesis file and nodekey file.
+Dưới đây là các ví dụ về tập tin khởi nguyên và khóa nút.
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -60,19 +60,19 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Please change the chainID in the genesis file. Use your own number to prevent a replay attack. (Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
+Hãy thay đổi chainID trong tập tin khởi nguyên. Dùng số của chính bạn để đề phòng tấn công lặp lại. (Đừng sử dụng chainID giống nhau với Klaytn Cypress (8217) và Baobab (1001))
 
-If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file. (You can find more details in [Genesis JSON](../genesis.md).)
+Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [Genesis JSON](../genesis.md).)
 
-## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
+## Tạo thư mục dữ liệu SCN <a id="scn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You can create the data directory on your desired path. In this document, we create `~/kscnd_home` as a data directory.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể tạo thư mục dữ liệu trên đường dẫn bạn muốn. Trong văn bảo này, chúng tôi tạo `~/kscnd_home` như một thư mục dữ liệu.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
+### Khởi chạy khối khởi nguyên <a id="initialization-of-a-genesis-block"></a>
 After that, you can initialize the data directory with the genesis file. Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
