@@ -29,7 +29,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBalance <a id="eth_getbalance"></a>
 
-Trả về số dư tài khoản của địa chỉ đã cho.
+Trả về số dư tài khoản của địa chỉ đã cung cấp.
 
 **Tham số**
 
