@@ -1,22 +1,22 @@
-# Startup the EN <a id="startup-the-en"></a>
+# Khởi động NĐC <a id="startup-the-en"></a>
 
-You can start or stop the Endpoint Node using the following commands.
+Bạn có thể bắt đầu hoặc dừng Nút điểm cuối bằng các lệnh sau.
 
-**start**
+**bắt đầu**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**dừng**
 
 ```bash
 $ kend stop
 Shutting down kend: Killed
 ```
 
-**status**
+**trạng thái**
 
 ```bash
 $ kend status
