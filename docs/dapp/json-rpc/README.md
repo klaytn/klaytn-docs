@@ -66,7 +66,7 @@ However, if you want to maintain a public EN and provide debug namespace APIs to
 we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
 that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
 
-The enabled APIs are as follows:
+The only following APIs are enabled with `rpc.unsafe-debug.disable` flag among debug APIs:
 
 - [VM Tracing](./api-references/debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./api-references/debug/tracing.md#tracing-options) are allowed)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
