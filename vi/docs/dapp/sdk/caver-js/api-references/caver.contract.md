@@ -89,21 +89,21 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 
 **Properties**
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                        |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                        |
-| jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                |
-| from          | chuỗi   | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
-| gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                      |
-| gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                            |
-| data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                               |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
-| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| Name          | Type    | Description                                                                                                                                                                                                                                                                      |
+| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                      |
+| jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                              |
+| từ            | chuỗi   | Địa chỉ mặc định mà giao dịch triển khai/thực thi hợp đồng được gửi đi. Nếu không xác định địa chỉ `gửi đi` khi tạo giao dịch thì `myContract.options.from` sẽ luôn được sử dụng để tạo giao dịch.                                                                               |
+| giá gas       | chuỗi   | Giá gas tính bằng peb để sử dụng cho các giao dịch.                                                                                                                                                                                                                              |
+| gas           | số      | Lượng gas tối đa được cung cấp cho một giao dịch (giới hạn gas).                                                                                                                                                                                                                 |
+| dữ liệu       | chuỗi   | Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                                                                                                                                                                                                                 |
+| feeDelegation | boolean | (tùy chọn) Có sử dụng giao dịch ủy thác phí hay không.                                                                                                                                                                                                                           |
+| feePayer      | chuỗi   | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                                                                                                                       |
+| feeRatio      | chuỗi   | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > myContract.options
@@ -133,21 +133,21 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 myContract.options.address
 ```
 
-The address used for this contract instance `myContract`. All transactions generated by caver-js from this contract will contain this address as the `to` of the transaction.
+Địa chỉ được sử dụng cho phiên bản hợp đồng này `myContract`. Tất cả các giao dịch do caver-js tạo ra từ hợp đồng này sẽ chứa địa chỉ này dưới dạng `nơi đến` của giao dịch.
 
-**Property**
+**Thuộc tính**
 
-| Name    | Type      | Description                                                            |
-| ------- | --------- | ---------------------------------------------------------------------- |
-| address | string \ | `null` | The address for this contract or `null` if it is not yet set. |
+| Tên     | Loại    | Mô tả                                                               |
+| ------- | -------- | ------------------------------------------------------------------- |
+| địa chỉ | chuỗi \ | `null` | Địa chỉ cho hợp đồng này hoặc `null` nếu nó chưa được đặt. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 >  myContract.options.address
 '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
 
-// set a contract address
+// đặt địa chỉ hợp đồng
 >  myContract.options.address = '0x1234FFDD...'
 ```
 
@@ -157,11 +157,11 @@ The address used for this contract instance `myContract`. All transactions gener
 myContract.options.jsonInterface
 ```
 
-The JSON interface object derived from the ABI of this contract `myContract`.
+Đối tượng giao diện JSON bắt nguồn từ ABI của hợp đồng này `myContract`.
 
-**Property**
+**Thuộc tính**
 
-| Name          | Type  | Description                                                                                                            |
+| Tên           | Loại  | Mô tả                                                                                                                  |
 | ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
 | jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
 
