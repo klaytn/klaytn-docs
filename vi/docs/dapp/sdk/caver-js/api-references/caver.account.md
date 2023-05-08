@@ -10,7 +10,7 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Tài khoản` là lớp chứa thông tin cần thiết để cập nhật [AccountKey][] của tài khoản trong nền tảng chuỗi khối Klaytn (Klaytn). Đây là lớp mặc định cho gói `caver.account`. Để tạo một phiên bản Tài khoản với (các) chuỗi khóa công khai, vui lòng tham khảo [caver.account.create](#caver-account-create).
+`Tài khoản` là lớp chứa thông tin cần thiết để cập nhật [AccountKey][] của tài khoản trong nền tảng chuỗi khối Klaytn (Klaytn). Đây là lớp mặc định cho gói `caver.account`. Để tạo một đối tượng Tài khoản với (các) chuỗi khóa công khai, vui lòng tham khảo [caver.account.create](#caver-account-create).
 
 **thuộc tính**
 
@@ -26,7 +26,7 @@ const account = new caver.account(address, accountKey)
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy][]. To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
+`AccountKeyLegacy` được sử dụng để cập nhật AccountKey của tài khoản trong Klaytn bằng [AccountKeyLegacy][]. Để tạo đối tượng Tài khoản với `AccountKeyLegacy`, vui lòng tham khảo [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
 
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
@@ -35,15 +35,15 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic][]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey][] for details.
+`AccountKeyPublic` được sử dụng để cập nhật AccountKey của tài khoản trong Klaytn bằng [AccountKeyPublic][]. Bằng cách cập nhật AccountKey thành `AccountKeyPublic`, bạn có thể thay đổi AccountKey hiện tại của mình thành khóa công khai mới, khóa này sẽ được sử dụng để xác thực giao dịch trong Klaytn. Thay đổi này là cần thiết khi bạn tách khóa riêng tư khỏi địa chỉ tài khoản của mình. Xem [AccountUpdate](../getting-started.md#account-update) và [AccountKey][] để biết chi tiết.
 
-To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
+Để tạo đối tượng Tài khoản với `AccountKeyPublic`, vui lòng tham khảo [caver.account.create](#caver-account-create) hoặc [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
 
-**properties**
+**thuộc tính**
 
-| Name      | Type   | Description            |
-| --------- | ------ | ---------------------- |
-| publicKey | string | The public key string. |
+| Tên       | Loại | Mô tả                 |
+| --------- | ----- | --------------------- |
+| publicKey | chuỗi | Chuỗi khóa công khai. |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
@@ -51,7 +51,7 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail][]. To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
+`AccountKeyFail` được sử dụng để cập nhật AccountKey của tài khoản trong Klaytn bằng [AccountKeyFail][]. Để tạo đối tượng Tài khoản với `AccountKeyFail`, vui lòng tham khảo [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
@@ -59,16 +59,16 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig][]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey][] for details.
+`AccountKeyWeightedMultiSig` được sử dụng để cập nhật AccountKey của một tài khoản trong Klaytn với [AccountKeyWeightedMultiSig][]. Bằng cách cập nhật AccountKey của bạn thành `AccountKeyWeightedMultiSig`, bạn có thể thay đổi AccountKey hiện tại của mình thành khóa công khai mới, khóa này sẽ được sử dụng để xác thực giao dịch trong Klaytn. Thay đổi này là cần thiết khi bạn tách khóa riêng tư khỏi địa chỉ tài khoản của mình. Xem [AccountUpdate](../getting-started.md#account-update) và [AccountKey][] để biết chi tiết.
 
-To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
+Để tạo đối tượng Tài khoản với `AccountKeyWeightedMultiSig`, vui lòng tham khảo [caver.account.create](#caver-account-create) hoặc [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
 
-**properties**
+**thuộc tính**
 
-| Name               | Type   | Description                         |
-| ------------------ | ------ | ----------------------------------- |
-| threshold          | number | The validation threshold.           |
-| weightedPublicKeys | Array  | The array of [WeightedPublicKey][]. |
+| Tên                | Loại | Mô tả                       |
+| ------------------ | ---- | --------------------------- |
+| ngưỡng             | số   | Ngưỡng xác thực.            |
+| weightedPublicKeys | Mảng | Mảng [WeightedPublicKey][]. |
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
@@ -76,15 +76,15 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased][]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey][] for more details.
+`AccountKeyRoleBased` được sử dụng để cập nhật AccountKey của một tài khoản trong Klaytn với [AccountKeyRoleBased][]. Bằng cách cập nhật AccountKey của bạn thành `AccountKeyRoleBased`, bạn có thể thay đổi (các) AccountKey được chỉ định cho từng vai trò, tất cả đều được sử dụng để xác thực giao dịch trong Klaytn. Xem [AccountUpdate](../getting-started.md#account-update) và [AccountKey][] để biết thêm chi tiết.
 
-To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
+Để tạo đối tượng Tài khoản với `AccountKeyRoleBased`, vui lòng tham khảo [caver.account.create](#caver-account-create) hoặc [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
 
-**properties**
+**thuộc tính**
 
-| Name            | Type | Description                                                                                                                                                                                                                                                                          |
-| --------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| accountKeyArray | Mảng | Mảng xác định accountKey sẽ được sử dụng cho mỗi [vai trò][]. Mỗi vai trò có thể được xác định bằng [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), hoặc [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
+| Tên             | Loại | Mô tả                                                                                                                                                                                                                                                                                |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| accountKeyArray | Mảng  | Mảng xác định accountKey sẽ được sử dụng cho mỗi [vai trò][]. Mỗi vai trò có thể được xác định bằng [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), hoặc [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
 
 ### WeightedPublicKey <a id="weightedpublickey"></a>
 
@@ -152,7 +152,7 @@ Account {
     _accountKey: AccountKeyPublic { _publicKey: '0x034f1...' } 
 }
 
-// Create an Account instance with an array of public keys -> Account with AccountKeyWeightedMultiSig
+// Tạo một đối tượng Tài khoản với một mảng các khóa công khai -> Account with AccountKeyWeightedMultiSig
 > caver.account.create('0x{address in hex}', ['0x034f1...', '0xfe4b8...'])
 Account {
     _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
@@ -166,7 +166,7 @@ Account {
     } 
 }
 
-// Create an Account instance with an array of public keys with WeightedMultiSigOptions -> Account with AccountKeyWeightedMultiSig
+// Tạo một đối tượng Tài khoản với một mảng các khóa công khai với WeightedMultiSigOptions -> Account with AccountKeyWeightedMultiSig
 > const options = new caver.account.weightedMultiSigOptions(2, [1, 1])
 > caver.account.create('0x{address in hex}', ['0x034f1...', '0xfe4b8...'], options)
 Account {
@@ -181,7 +181,7 @@ Account {
     } 
 }
 
-// Create an Account instance with an array in which keys to be used for each role are defined as an array -> Account with AccountKeyRoleBased
+// Tạo một đối tượng Tài khoản với một mảng trong đó các khóa được sử dụng cho mỗi vai trò được xác định dưới dạng một mảng -> Account with AccountKeyRoleBased
 > const publicKeys = [
     ['0xd8510...', '0xaa105...'],
     ['0xd8510...'],
@@ -212,7 +212,7 @@ Account {
     }
 }
 
-// Create an Account instance with an array in which keys to be used for each role are defined as an array with an array of WeightedMultiSigOptions -> Account with AccountKeyRoleBased
+// Tạo một đối tượng Tài khoản với một mảng trong đó các khóa được sử dụng cho từng vai trò được xác định là một mảng với một mảng WeightedMultiSigOptions -> Account with AccountKeyRoleBased
 > const publicKeys = [
     ['0xd8510...', '0xaa105...'],
     ['0xd8510...'],
@@ -259,19 +259,19 @@ Tạo một đối tượng Tài khoản từ AccountKey được mã hóa RLP.
 
 **Tham số**
 
-| Tên           | Type   | Description                              |
-| ------------- | ------ | ---------------------------------------- |
-| address       | string | The address of an account to be updated. |
-| rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
+| Tên           | Loại | Mô tả                                    |
+| ------------- | ----- | ---------------------------------------- |
+| địa chỉ       | chuỗi | Địa chỉ của một tài khoản được cập nhật. |
+| rlpEncodedKey | chuỗi | Chuỗi được mã hóa RLP của AccountKey.    |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                       |
-| ----------- | --------------------------------- |
-| [Account][] | The account instance is returned. |
+| Loại         | Mô tả                            |
+| ------------- | -------------------------------- |
+| [Tài khoản][] | Đối tượng tài khoản được trả về. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
@@ -294,22 +294,22 @@ Account {
 caver.account.createWithAccountKeyLegacy(address)
 ```
 
-Creates an Account instance which has AccountKeyLegacy as an accountKey.
+Tạo một đối tượng Tài khoản có AccountKeyLegacy là accountKey.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| address | string | The address of an account to be updated. |
+| Tên     | Loại | Mô tả                                    |
+| ------- | ----- | ---------------------------------------- |
+| địa chỉ | chuỗi | Địa chỉ của một tài khoản được cập nhật. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                       |
-| ----------- | --------------------------------- |
-| [Account][] | The account instance is returned. |
+| Loại         | Mô tả                            |
+| ------------- | -------------------------------- |
+| [Tài khoản][] | Đối tượng tài khoản được trả về. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.account.createWithAccountKeyLegacy('0x{address in hex}')
@@ -325,19 +325,19 @@ Account {
 caver.account.createWithAccountKeyPublic(address, publicKey)
 ```
 
-Creates an Account instance which has AccountKeyPublic as an accountKey.
+Tạo một đối tượng Tài khoản có AccountKeyPublic là accountKey.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                              |
-| --------- | ------ | ---------------------------------------- |
-| address   | string | The address of an account to be updated. |
-| publicKey | string | The public key string.                   |
+| Tên       | Loại | Mô tả                                    |
+| --------- | ----- | ---------------------------------------- |
+| địa chỉ   | chuỗi | Địa chỉ của một tài khoản được cập nhật. |
+| publicKey | chuỗi | Chuỗi khóa công khai.                    |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type          | Description                      |
+| Loại         | Mô tả                            |
 | ------------- | -------------------------------- |
 | [Tài khoản][] | Đối tượng tài khoản được trả về. |
 
@@ -422,7 +422,7 @@ Account {
     } 
 }
 
-// create an Account instance with options
+// tạo một đối tượng Tài khoản với các tùy chọn
 > const options = new caver.account.weightedMultiSigOptions(2, [1, 1])
 > caver.account.createWithAccountKeyWeightedMultiSig('0x{address in hex}', ['0xb5a9a...', '0xfe4b8...'], options)
 Account {
@@ -444,27 +444,27 @@ Account {
 caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [, options])
 ```
 
-Creates an Account instance which has AccountKeyRoleBased as an accountKey.
+Tạo một đối tượng Tài khoản có AccountKeyRoleBased là accountKey.
 
-**Parameters**
+**Tham số**
 
-| Name                     | Type   | Description                                                                            |
-| ------------------------ | ------ | -------------------------------------------------------------------------------------- |
-| address                  | string | The address of an account to be updated.                                               |
-| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role.         |
-| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions][] instances for each role. |
+| Tên                      | Loại | Mô tả                                                                                |
+| ------------------------ | ----- | ------------------------------------------------------------------------------------ |
+| địa chỉ                  | chuỗi | Địa chỉ của một tài khoản được cập nhật.                                             |
+| roledBasedPublicKeyArray | Mảng  | Một mảng hai chiều chứa các mảng chuỗi khóa công khai cho từng vai trò.              |
+| tùy chọn                 | Mảng  | (tùy chọn) Một mảng chứa các phiên bản [WeightedMultiSigOptions][] cho từng vai trò. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type        | Description                       |
-| ----------- | --------------------------------- |
-| [Account][] | The account instance is returned. |
+| Loại         | Mô tả                            |
+| ------------- | -------------------------------- |
+| [Tài khoản][] | Đối tượng tài khoản được trả về. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// create an Account instance without options
+// tạo một đối tượng Tài khoản không có tùy chọn
 > const publicKeys = [
     ['0x034f1...', '0xfe4b8...'],
     ['0xb5a9a...'],
@@ -495,7 +495,7 @@ Account {
     }
 }
 
-// create an Account instance with options
+// tạo một đối tượng Tài khoản có các tùy chọn
 > const publicKeys = [
     ['0x034f1...', '0xfe4b8...'],
     ['0xb5a9a...'],
@@ -538,18 +538,18 @@ Account {
 caver.account.accountKey.decode(rlpEncodedAccountKey)
 ```
 
-Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased) instance.
+Giải mã chuỗi được mã hóa RLP của AccountKey và trả về [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) hoặc phiên bản [AccountKeyRoleBased](#accountkeyrolebased).
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type   | Description                          |
-| -------------------- | ------ | ------------------------------------ |
-| rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
+| Tên                  | Loại | Mô tả                                     |
+| -------------------- | ----- | ----------------------------------------- |
+| rlpEncodedAccountKey | chuỗi | Một chuỗi được mã hóa RLP của AccountKey. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type                                                                                                                                                                                                                                            | Description                        |
+| Loại                                                                                                                                                                                                                                            | Mô tả                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | Đối tượng AccountKey được trả lại. |
 
@@ -566,7 +566,7 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 account.getRLPEncodingAccountKey()
 ```
 
-Trả về chuỗi AccountKey được mã hóa RLP.
+Trả về chuỗi được mã hóa RLP của AccountKey.
 
 
 **Giá trị Trả về**
@@ -592,5 +592,4 @@ Trả về chuỗi AccountKey được mã hóa RLP.
 [WeightedPublicKey]: #weightedpublickey
 [WeightedMultiSigOptions]: #weightedmultisigoptions
 [Tài khoản]: #account
-[Account]: #account
 [vai trò]: ../../../../klaytn/design/accounts.md#roles
