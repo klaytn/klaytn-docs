@@ -5,36 +5,36 @@ description: >-
 
 # caver.klay.accounts <a id="caver-klay-accounts"></a>
 
-`caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
+`caver.klay.accounts` chứa các hàm để tạo tài khoản Klaytn và ký các giao dịch cũng như dữ liệu.
 
 
-## create <a id="create"></a>
+## tạo <a id="create"></a>
 
 ```javascript
 caver.klay.accounts.create([entropy])
 ```
-Generates an account object with private key and public key.
+Tạo một đối tượng tài khoản với khóa riêng và khóa chung.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                                                                                                              |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
+| Tên           | Loại  | Mô tả                                                                                                                                                                                   |
+| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| độ nhiễu loạn | Chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. Nếu không có gì được cung cấp, một chuỗi ngẫu nhiên sẽ được tạo bằng cách sử dụng [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - The account object with the following structure:
+`Object` - Đối tượng tài khoản có cấu trúc như sau:
 
-| Name                             | Type     | Description                                                                                                                                  |
-| -------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| address                          | String   | The account address.                                                                                                                         |
-| privateKey                       | String   | The accounts private key. This should never be shared or stored unencrypted in local storage! Also make sure to null the memory after usage. |
-| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction).                                              |
-| sign(data)                       | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign).                                                                    |
-| encrypt                          | Function | The function to encrypt private key with given password.                                                                                     |
+| Tên                              | Loại | Mô tả                                                                                                                                                                          |
+| -------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| địa chỉ                          | Chuỗi | Địa chỉ tài khoản.                                                                                                                                                             |
+| privateKey                       | Chuỗi | Khóa riêng tư của tài khoản. Điều này không bao giờ được chia sẻ hoặc lưu trữ không được mã hóa trong bộ nhớ cục bộ! Ngoài ra, hãy đảm bảo vô hiệu hóa bộ nhớ sau khi sử dụng. |
+| signTransaction(tx [, callback]) | Hàm   | Chức năng ký giao dịch. Xem [caver.klay.accounts.signTransaction](#signtransaction).                                                                                           |
+| sign(data)                       | Hàm   | Chức năng ký giao dịch. Xem [caver.klay.accounts.sign](#sign).                                                                                                                 |
+| mã hóa                           | Hàm   | Chức năng mã hóa khóa riêng với mật khẩu đã cho.                                                                                                                               |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.create();
@@ -73,25 +73,25 @@ Generates an account object with private key and public key.
 ```javascript
 caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
-Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey.
+Tạo một phiên bản Tài khoản với AccountKey đã cho. Tài khoản dùng để quản lý địa chỉ và AccountKey của tài khoản.
 
-**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network. **NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** Đây chỉ là một cấu trúc dữ liệu được sử dụng trong caver-js. Phương pháp này không tạo hoặc cập nhật tài khoản trong mạng Klaytn. **LƯU Ý** `caver.klay.accounts.createWithAccountKey` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                              | Description                                                                                                                                                                                                                                        |
-| ---------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | String                            | Address of an Account.                                                                                                                                                                                                                             |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+| Tên        | Loại                               | Mô tả                                                                                                                                                                                                                                        |
+| ---------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ    | Chuỗi                              | Địa chỉ của một tài khoản.                                                                                                                                                                                                                   |
+| accountKey | Chuỗi &#124; Mảng &#124; Đối tượng | Phiên bản AccountKey (`AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased`) hoặc cấu trúc dữ liệu chứa thông tin khóa (chuỗi khóa riêng tư, mảng khóa riêng tư chuỗi khóa hoặc một đối tượng xác định khóa cho từng vai trò). |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An Account instance is returned, with the following properties:
+`Object` - Một phiên bản Tài khoản được trả về với các thuộc tính sau:
 
-| Name                             | Type                              | Description                                                                                                                                                                                                                                                                                                             |
+| Tên                              | Loại                             | Mô tả                                                                                                                                                                                                                                                                                                                   |
 | -------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address                          | String                            | The address of the account.                                                                                                                                                                                                                                                                                             |
+| địa chỉ                          | Chuỗi                             | The address of the account.                                                                                                                                                                                                                                                                                             |
 | privateKey                       | String                            | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
 | accountKeyType                   | String                            | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
 | accountKey                       | Object                            | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
@@ -153,23 +153,23 @@ Account {
 ```javascript
 caver.klay.accounts.createWithAccountKeyPublic(address, accountKey)
 ```
-Creates an instance of Account with AccountKeyPublic.
+Tạo một phiên bản Tài khoản với AccountKeyPublic.
 
-**NOTE** `caver.klay.accounts.createWithAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createWithAccountKeyPublic` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                 | Description                                           |
-| ---------- | -------------------- | ----------------------------------------------------- |
-| address    | String               | Address of an Account.                                |
-| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string. |
+| Tên        | Loại                  | Mô tả                                             |
+| ---------- | ---------------------- | ------------------------------------------------- |
+| địa chỉ    | Chuỗi                  | Địa chỉ của một tài khoản.                        |
+| accountKey | Chuỗi &#124; Đối tượng | Phiên bản AccountKeyPublic hoặc chuỗi khóa riêng. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - Phiên bản tài khoản, xem [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createWithAccountKeyPublic('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', '0x{private key}')
@@ -189,23 +189,23 @@ Account {
 ```javascript
 caver.klay.accounts.createWithAccountKeyMultiSig(address, accountKey)
 ```
-Creates an instance of Account with AccountKeyMultiSig.
+Tạo một phiên bản tài khoản với AccountKeyMultiSig.
 
-**NOTE** `caver.klay.accounts.createWithAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createWithAccountKeyMultiSig` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                 | Description                                                        |
-| ---------- | -------------------- | ------------------------------------------------------------------ |
-| address    | String               | Address of an Account.                                             |
-| accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings. |
+| Tên        | Loại                   | Mô tả                                                                   |
+| ---------- | ---------------------- | ----------------------------------------------------------------------- |
+| địa chỉ    | Chuỗi                  | Địa chỉ của một tài khoản.                                              |
+| accountKey | Chuỗi &#124; Đối tượng | Một phiên bản AccountKeyMultiSig hoặc một mảng các chuỗi khóa riêng tư. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - Phiên bản tài khoản, xem [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createWithAccountKeyMultiSig('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', ['0x{private key}', '0x{private key}'])
@@ -225,23 +225,23 @@ Account {
 ```javascript
 caver.klay.accounts.createWithAccountKeyRoleBased(address, accountKey)
 ```
-Creates an instance of Account with AccountKeyRoleBased.
+Tạo một phiên bản tài khoản với AccountKeyRoleBased.
 
-**NOTE** `caver.klay.accounts.createWithAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createWithAccountKeyRoleBased` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                 | Description                                                                      |
-| ---------- | -------------------- | -------------------------------------------------------------------------------- |
-| address    | String               | Address of an Account.                                                           |
-| accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
+| Tên        | Loại                  | Mô tả                                                                                |
+| ---------- | ---------------------- | ------------------------------------------------------------------------------------ |
+| địa chỉ    | Chuỗi                  | Địa chỉ của một tài khoản.                                                           |
+| accountKey | Chuỗi &#124; Đối tượng | Một phiên bản AccountKeyRoleBased hoặc một đối tượng xác định khóa cho từng vai trò. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+`Object` - Phiên bản tài khoản, xem [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createWithAccountKeyRoleBased('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', {
@@ -265,42 +265,42 @@ Account {
 ```javascript
 caver.klay.accounts.createAccountKey(key)
 ```
-Creates an instance of `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` depending on the type of parameter.
+Tạo phiên bản của `AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased` tùy thuộc vào loại tham số.
 
-AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPublic if you want to use a single private key, AccountKeyMultiSig if you want to use multiple private keys, or AccountKeyRoleBased if you want to use a different key for each role.
+AccountKey là cấu trúc dữ liệu để quản lý khóa trong caver-js. Sử dụng AccountKeyPublic nếu bạn muốn sử dụng một khóa riêng, AccountKeyMultiSig nếu bạn muốn sử dụng nhiều khóa riêng hoặc AccountKeyRoleBased nếu bạn muốn sử dụng một khóa khác cho từng vai trò.
 
-**NOTE** `caver.klay.accounts.createAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createAccountKey` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/ package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name | Type                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ---- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key  | String &#124; Array &#124; Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
+| Tên  | Loại                              | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| khóa | Chuỗi &#124; Mảng &#124; Đối tượng | Khóa để tạo AccountKey. Nếu `key` là một chuỗi khóa riêng, thì một phiên bản AccountKeyPublic sẽ được tạo. Nếu `key` là một mảng chứa nhiều chuỗi khóa riêng tư, thì một phiên bản AccountKeyMultiSig sẽ được tạo. Nếu `key` là một đối tượng xác định khóa (chuỗi khóa riêng hoặc một mảng chuỗi khóa riêng) cho mỗi vai trò, thì một phiên bản AccountKeyRoleBased sẽ được tạo. Phiên bản AccountKeyRoleBased có thể có AccountKeyPublic hoặc AccountKeyMultiSig cho mỗi vai trò. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased instance is returned with the following properties:
+`Object` - Một phiên bản AccountKeyPublic, AccountKeyMultiSig hoặc AccountKeyRoleBased được trả về với các thuộc tính sau:
 
-| Name           | Type                              | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type           | String                            | The type of AccountKey instance.                                                                                                                                                                                                                                                                                                                                                                       |
-| defaultKey     | String                            | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey. |
-| keys           | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned.                                                                                               |
-| transactionKey | String &#124; Array               | Key used for the [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                                                                                 |
-| updateKey      | String &#124; Array               | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                                                                                    |
-| feePayerKey    | String &#124; Array               | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                                                                                           |
+| Tên            | Loại                              | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| loại          | Chuỗi                              | Loại phiên bản AccountKey.                                                                                                                                                                                                                                                                                                                                                                                              |
+| defaultKey     | Chuỗi                              | Khóa riêng tư mặc định của AccountKey. Khóa riêng tư mặc định đại diện cho một chuỗi khóa riêng tư được xác định cho AccountKeyPublic và một chuỗi khóa riêng tư trong chỉ mục thứ 0 của mảng nếu AccountKeyMultiSig. Đối với AccountKeyRoleBased, nó đại diện cho khóa mặc định của AccountKey được tìm thấy đầu tiên, trong đó AccountKey được tìm kiếm theo thứ tự sau: khóa giao dịch, khóa cập nhật, khóaPayerKey. |
+| khóa           | Chuỗi &#124; Mảng &#124; Đối tượng | Tất cả các khóa riêng tư được xác định bên trong phiên bản AccountKey. Đối với AccountKeyPublic, đây là một chuỗi khóa riêng tư; đối với AccountKeyMultiSig, điều này trả về một mảng chứa tất cả các chuỗi khóa riêng tư. Trong trường hợp AccountKeyRoleBased, một đối tượng có các khóa được liên kết với từng vai trò được trả về.                                                                                  |
+| transactionKey | Chuỗi &#124; Mảng                  | Khóa được sử dụng cho [RoleTransaction](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, transactionKey giữ giá trị giống như các khóa.                                                                                                                                                                                      |
+| updateKey      | Chuỗi &#124; Mảng                  | Khóa được sử dụng cho [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, vì vậy updateKey giữ giá trị giống như các khóa.                                                                                                                                                                                         |
+| feePayerKey    | Chuỗi &#124; Mảng                  | Khóa được sử dụng cho [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, feePayerKey giữ cùng một giá trị như các khóa.                                                                                                                                                                                         |
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create an AccountKeyPublic
+// Tạo một AccountKeyPublic
 > caver.klay.accounts.createAccountKey('0x{private key}')
 AccountKeyPublic {
     _key: '0x{private key}'
 }
 
-// Create an AccountKeyMultiSig
+// Tạo một AccountKeyMultiSig
 > caver.klay.accounts.createAccountKey(['0x{private key}', '0x{private key}'])
 AccountKeyMultiSig {
     _keys: [ 
@@ -309,7 +309,7 @@ AccountKeyMultiSig {
     ]
 }
 
-// Create an AccountKeyRoleBased
+// Tạo một AccountKeyRoleBased
 > caver.klay.accounts.createAccountKey({
     transactionKey: '0x{private key}',
     updateKey: ['0x{private key}', '0x{private key}'],
@@ -339,23 +339,23 @@ AccountKeyRoleBased {
 ```javascript
 caver.klay.accounts.createAccountKeyPublic(key)
 ```
-Creates an instance of `AccountKeyPublic` with the given private key string.
+Tạo một phiên bản của `AccountKeyPublic` với chuỗi khóa riêng đã cho.
 
-**NOTE** `caver.klay.accounts.createAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createAccountKeyPublic` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                              |
-| ---- | ------ | -------------------------------------------------------- |
-| key  | String | A string of private key for generating AccountKeyPublic. |
-
-
-**Return Value**
-
-`Object` - An AccountKeyPublic instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+| Tên     | Loại  | Mô tả                                         |
+| ------- | ----- | --------------------------------------------- |
+| mã khóa | Chuỗi | Một chuỗi khóa riêng để tạo AccountKeyPublic. |
 
 
-**Example**
+**Giá trị trả về**
+
+`Object` - Phiên bản AccountKeyPublic, xem [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createAccountKeyPublic('0x{private key}')
@@ -369,23 +369,23 @@ AccountKeyPublic {
 ```javascript
 caver.klay.accounts.createAccountKeyMultiSig(keys)
 ```
-Creates an instance of `AccountKeyMultiSig` with the given multiple private keys.
+Tạo phiên bản của `AccountKeyMultiSig` với nhiều khóa riêng tư đã cho.
 
-**NOTE** `caver.klay.accounts.createAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createAccountKeyMultiSig` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name | Type  | Description                                                        |
-| ---- | ----- | ------------------------------------------------------------------ |
-| keys | Array | An array of private key strings for generating AccountKeyMultiSig. |
-
-
-**Return Value**
-
-`Object` - An AccountKeyMultiSig instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+| Tên  | Loại | Mô tả                                                   |
+| ---- | ----- | ------------------------------------------------------- |
+| khóa | Mảng  | Một dãy các chuỗi khóa riêng để tạo AccountKeyMultiSig. |
 
 
-**Example**
+**Giá trị trả về**
+
+`Object` - Phiên bản AccountKeyMultiSig, xem [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createAccountKeyMultiSig(['0x{private key}', '0x{private key}'])
@@ -402,23 +402,23 @@ AccountKeyMultiSig {
 ```javascript
 caver.klay.accounts.createAccountKeyRoleBased(keyObject)
 ```
-Creates an instance of `AccountKeyRoleBased` with the given keys associated with each role.
+Tạo một phiên bản của `AccountKeyRoleBased` với các khóa đã cho được liên kết với từng vai trò.
 
-**NOTE** `caver.klay.accounts.createAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createAccountKeyRoleBased` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                        |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| keyObject | Object | An object with role-key pairs. A key for each role can be a private key string or an array of private key strings. |
-
-
-**Return Value**
-
-`Object` - An AccountKeyRoleBased instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+| Tên       | Loại      | Mô tả                                                                                                                  |
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| keyObject | Đối tượng | Một đối tượng có các cặp khóa vai trò. Khóa cho mỗi vai trò có thể là chuỗi khóa riêng hoặc một mảng chuỗi khóa riêng. |
 
 
-**Example**
+**Giá trị trả về**
+
+`Object` - Phiên bản AccountKeyRoleBased, xem [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.createAccountKeyRoleBased({
@@ -450,7 +450,7 @@ AccountKeyRoleBased {
 ```javascript
 caver.klay.accounts.accountKeyToPublicKey(accountKey)
 ```
-This function converts the private key of AccountKey to public key.
+Chức năng này chuyển đổi khóa riêng của AccountKey thành khóa chung.
 
 **NOTE** `caver.klay.accounts.accountKeyToPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -560,38 +560,38 @@ caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
 Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. Nếu bạn muốn biết cách sử dụng `AccountForUpdate` trong giao dịch, hãy xem [Cập nhật tài khoản với AccountForUpdate ](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
-The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a private key.
+Tham số accountKey của caver.klay.accounts.createAccountForUpdate phải là khóa riêng tư.
 
-You can create an AccountForUpdate instance using the public key with [caver.klay.accounts.createAccountForUpdateWithPublicKey](#createaccountforupdatewithpublickey).
+Bạn có thể tạo phiên bản AccountForUpdate bằng khóa công khai với [caver.klay.accounts.createAccountForUpdateWithPublicKey](#createaccountforupdatewithpublickey).
 
-You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail).
+Bạn cũng có thể dùng [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail).
 
-**NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.klay.accounts.createAccountForUpdate` được hỗ trợ kể từ caver-js phiên bản [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                              | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | String                            | Address of an Account.                                                                                                                                                                                                                                                                                                                                                                                              |
-| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
-| options    | Object                            | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below.                                                                                                                                                                                                                                                                    |
+| Tên        | Loại                               | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ    | Chuỗi                              | Địa chỉ của một tài khoản.                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| accountKey | Chuỗi &#124; Mảng &#124; Đối tượng | Phiên bản AccountKey (`AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased`) hoặc thông tin khóa tương đương (chuỗi khóa riêng tư, dãy chuỗi khóa riêng tư hoặc đối tượng xác định (các) khóa với (các) vai trò). Nếu accountKey không phải là một phiên bản AccountKey, thì phương thức này sẽ gọi nội bộ [caver.klay.accounts.createAccountKey](#createaccountkey) để tạo một phiên bản AccountKey từ thông tin khóa đã cho. |
+| tùy chọn   | Đối tượng                          | Một đối tượng tùy chọn chứa ngưỡng và trọng số. Điều này là bắt buộc khi sử dụng AccountKeyMultiSig. Việc sử dụng được hiển thị trong ví dụ dưới đây.                                                                                                                                                                                                                                                                                        |
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - An AccountForUpdate instance is returned, with the following properties:
+`Object` - Một phiên bản AccountForUpdate được trả về với các thuộc tính sau:
 
-| Name         | Type   | Description                                                                |
-| ------------ | ------ | -------------------------------------------------------------------------- |
-| address      | String | Address of the account to be updated.                                      |
-| keyForUpdate | Object | An object containing the new public key derived from the given accountKey. |
+| Tên          | Loại      | Mô tả                                                                |
+| ------------ | --------- | -------------------------------------------------------------------- |
+| địa chỉ      | Chuỗi     | Địa chỉ của tài khoản sẽ được cập nhật.                              |
+| keyForUpdate | Đối tượng | Một đối tượng chứa khóa công khai mới được lấy từ accountKey đã cho. |
 
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Create AccountForUpdate for AccountKeyPublic
+// Tạo AccountForUpdate cho AccountKeyPublic
 > caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', '0x{private key}')
 AccountForUpdate {
     address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
@@ -600,7 +600,7 @@ AccountForUpdate {
     }
 }
 
-// Create AccountForUpdate for AccountKeyMultiSig with an options object
+// Tạo AccountForUpdate cho AccountKeyMultiSig với đối tượng tùy chọn
 > caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', ['0x{private key}', '0x{private key}'], { threshold: 2, weight: [1,1] })
 AccountForUpdate {
     address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
@@ -621,7 +621,7 @@ AccountForUpdate {
     }
 }
 
-// Create AccountForUpdate for AccountKeyRoleBased with an options object
+// Tạo AccountForUpdate cho AccountKeyRoleBased với đối tượng tùy chọn
 > caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: '0x{private key}', updateKey: ['0x{private key}', '0x{private key}'], feePayerKey: '0x{private key}' }, { updateKey: { threshold: 2, weight: [1,1] } })
 AccountForUpdate {
     address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
@@ -650,8 +650,8 @@ AccountForUpdate {
     }
 }
 
-// Create AccountForUpdate for AccountKeyRoleBased with legacy key or fail key
-// When updating the key used for a specific role in AccountKeyRoleBased to AccountKeyLegacy or AccountKeyFailKey, define the role to update as follows.
+// Tạo AccountForUpdate cho AccountKeyRoleBased với khóa kế thừa hoặc khóa lỗi
+// Khi cập nhật khóa được sử dụng cho một vai trò cụ thể trong AccountKeyRoleBased thành AccountKeyLegacy hoặc AccountKeyFailKey, hãy xác định vai trò cần cập nhật như sau.
 > caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: 'legacyKey', updateKey: 'failKey' })
 AccountForUpdate {
     address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
@@ -667,9 +667,9 @@ AccountForUpdate {
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, options)
 ```
-Creates an instance of `AccountForUpdate` with the public key of the new key to update.
+Tạo một phiên bản `AccountForUpdate` bằng khóa công khai của khóa mới cần cập nhật.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate` có thể được sử dụng trong đối tượng giao dịch cập nhật tài khoản (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` hoặc `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) dưới dạng `khóa`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
