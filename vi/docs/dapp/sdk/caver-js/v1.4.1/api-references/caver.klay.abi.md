@@ -1,11 +1,11 @@
 ---
 description: >-
-  caver-js APIs related to ABI encoding and decoding.
+  caver-js API liên quan đến mã hóa và giải mã ABI.
 ---
 
 # caver.klay.abi <a id="caver-klay-abi"></a>
 
-The `caver-klay-abi` package allows you to de- and encode parameters from an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart-contract.
+Gói `caver-klay-abi` cho phép bạn khử và mã hóa các tham số từ ABI (Giao diện nhị phân ứng dụng). Nó được sử dụng để gọi các hàm của hợp đồng thông minh đã triển khai.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -13,24 +13,24 @@ The `caver-klay-abi` package allows you to de- and encode parameters from an ABI
 caver.klay.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
+Mã hóa chữ ký hàm thành chữ ký ABI của nó, là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type                 | Description                                                                                                                                                                                    |
-| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | String &#124; Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form `function(type,type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| Tên               | Loại                   | Mô tả                                                                                                                                                                             |
+| ----------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | Chuỗi &#124; Đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì nó phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
-| String | The ABI signature of the function. |
+| Loại  | Mô tả               |
+| ----- | ------------------- |
+| Chuỗi | Chữ ký ABI của hàm. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// From a JSON interface object
+// Từ một đối tượng giao diện JSON
 caver.klay.abi.encodeFunctionSignature({
     name: 'myMethod',
     type: 'function',
@@ -44,7 +44,7 @@ caver.klay.abi.encodeFunctionSignature({
 })
 > 0x24ee0097
 
-// From a function signature
+// Từ một chữ ký chức năng
 caver.klay.abi.encodeFunctionSignature('myMethod(uint256,string)')
 > '0x24ee0097'
 ```
@@ -55,24 +55,24 @@ caver.klay.abi.encodeFunctionSignature('myMethod(uint256,string)')
 caver.klay.abi.encodeEventSignature(eventSignature)
 ```
 
-Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input types.
+Mã hóa chữ ký sự kiện thành chữ ký ABI của nó, là hàm băm sha3 của tên sự kiện bao gồm các loại đầu vào.
 
-**Parameters**
+**Tham số**
 
-| Name           | Type                 | Description                                                                                                                                                                        |
-| -------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | String &#124; Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| Tên            | Loại                   | Mô tả                                                                                                                                                                           |
+| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | Chuỗi &#124; Đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi, nó phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| String | The ABI signature of the event. |
+| Loại | Mô tả                   |
+| ----- | ----------------------- |
+| Chuỗi | Chữ ký ABI của sự kiện. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// From a JSON interface object
+// Từ một đối tượng giao diện JSON
 caver.klay.abi.encodeEventSignature({
     name: 'myEvent',
     type: 'event',
@@ -86,7 +86,7 @@ caver.klay.abi.encodeEventSignature({
 })
 > 0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97
 
-// From an event signature
+// Từ một chữ ký sự kiện
 caver.klay.abi.encodeEventSignature('myEvent(uint256,bytes32)')
 > 0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97
 ```
@@ -97,14 +97,14 @@ caver.klay.abi.encodeEventSignature('myEvent(uint256,bytes32)')
 caver.klay.abi.encodeParameter(type, parameter)
 ```
 
-Encodes a parameter based on its type to its ABI representation.
+Mã hóa một tham số dựa trên loại của nó thành sự biểu diễn ABI của nó.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type                 | Description                                                                                                                             |
-| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
-| parameter | Mixed                | The actual parameter to encode.                                                                                                         |
+| Tên     | Loại                  | Mô tả                                                                                                             |
+| ------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| loại   | Chuỗi &#124; Đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| tham số | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
 
 **Return Value**
 
@@ -203,22 +203,22 @@ caver.klay.abi.encodeFunctionCall({
 caver.klay.abi.decodeParameter(type, hexString)
 ```
 
-Decodes an ABI encoded parameter to its JavaScript type.
+Giải mã tham số được mã hóa ABI thành loại JavaScript của nó.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type               | Description                                                                                                                            |
-| --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexString | Array              | The ABI byte code to decode.                                                                                                           |
+| Tên       | Loại              | Mô tả                                                                                                            |
+| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| loại     | String&#124;Object | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexString | Mảng               | Mã byte ABI để giải mã.                                                                                          |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type  | Description            |
-| ----- | ---------------------- |
-| Mixed | The decoded parameter. |
+| Loại   | Mô tả                 |
+| ------- | --------------------- |
+| Hỗn hợp | Tham số được giải mã. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.decodeParameter('uint256', '0x0000000000000000000000000000000000000000000000000000000000000010')
@@ -234,21 +234,21 @@ caver.klay.abi.decodeParameter('string', '0x000000000000000000000000000000000000
 caver.klay.abi.decodeParameters(typesArray, hexString)
 ```
 
-Decodes ABI encoded parameters to its JavaScript types.
+Giải mã các tham số được mã hóa ABI thành các loại JavaScript của nó.
 
-**Parameters**
-| Name       | Type                                  | Description                                                                                                                                                        |
-| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexString  | String                                | The ABI byte code to decode.                                                                                                                                       |
+**Tham số**
+| Tiêu đề    | Loại                                 | Mô tả                                                                                                                                                                |
+| ---------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có các loại hoặc một mảng đầu ra giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexString  | Chuỗi                                 | Mã byte ABI để giải mã.                                                                                                                                              |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| Object | The result object containing the decoded parameters. |
+| Loại      | Mô tả                                            |
+| --------- | ------------------------------------------------ |
+| Đối tượng | Đối tượng kết quả chứa các tham số được giải mã. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.decodeParameters(['string', 'uint256'], '0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000ea000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
@@ -275,22 +275,22 @@ caver.klay.abi.decodeParameters([{
 caver.klay.abi.decodeLog(inputs, hexString, topics)
 ```
 
-Decodes ABI encoded log data and indexed topic data.
+Giải mã dữ liệu nhật ký được mã hóa ABI và dữ liệu chủ đề được lập chỉ mục.
 
-**Parameters**
-| Name      | Type   | Description                                                                                                                                |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| inputs    | Array  | A JSON interface inputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexString | String | The ABI byte code in the `data` field of a log.                                                                                            |
-| topics    | Array  | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0].           |
+**Tham số**
+| Tiêu đề   | Loại | Mô tả                                                                                                                                       |
+| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| đầu vào   | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexString | Chuỗi | Mã byte ABI trong trường `dữ liệu` của nhật ký.                                                                                             |
+| chủ đề    | Mảng  | Một mảng có tham số chỉ mục chủ đề của nhật ký, không có chủ đề[0] nếu đó là sự kiện không ẩn danh, ngược lại có chủ đề[0].                 |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| Object | The result object containing the decoded parameters. |
+| Loại     | Mô tả                                            |
+| --------- | ------------------------------------------------ |
+| Đối tượng | Đối tượng kết quả chứa các tham số được giải mã. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.decodeLog([{
@@ -323,25 +323,25 @@ caver.klay.abi.decodeLog([{
 caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 ```
 
-Encode smart contract bytecode with the arguments of the constructor.
+Mã hóa mã byte hợp đồng thông minh với các đối số của hàm tạo.
 
-**Parameters**
-| Name          | Type   | Description                                  |
-| ------------- | ------ | -------------------------------------------- |
-| jsonInterface | Array  | The JSON interface of the contract.          |
-| hexString     | String | A bytecode of smart contract to be deployed. |
-| params        | Mixed  | Arguments to pass to the constructor.        |
+**Tham số**
+| Tên           | Loại   | Mô tả                                                   |
+| ------------- | ------- | ------------------------------------------------------- |
+| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                            |
+| hexString     | Chuỗi   | Một mã byte của hợp đồng thông minh sẽ được triển khai. |
+| tham số       | Hỗn hợp | Các đối số để chuyển đến hàm tạo.                       |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                                                                              |
-| ------ | -------------------------------------------------------------------------------------------------------- |
-| String | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
+| Loại | Mô tả                                                                                             |
+| ----- | ------------------------------------------------------------------------------------------------- |
+| Chuỗi | Việc triển khai hợp đồng thông minh được mã hóa ABI với các đối số hàm tạo là byteCode + tham số. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// There is no argument for constructor
+// Không có đối số cho hàm tạo
 caver.klay.abi.encodeContractDeploy([
         {"constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -349,7 +349,7 @@ caver.klay.abi.encodeContractDeploy([
     ],'0x60806040526000805534801561001457600080fd5b50610116806100246000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582064856de85a2706463526593b08dd790054536042ef66d3204018e6790a2208d10029')
 > "0x60806040526000805534801561001457600080fd5b50610116806100246000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582064856de85a2706463526593b08dd790054536042ef66d3204018e6790a2208d10029"
 
-// There is one argument for constructor(uint256)
+// Có một đối số cho hàm tạo (uint256)
 caver.klay.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -358,7 +358,7 @@ caver.klay.abi.encodeContractDeploy([
     ],'0x60806040526000805534801561001457600080fd5b5060405160208061015d8339810180604052810190808051906020019092919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820ec774499bcdb89d9e570156a76249b33e99c766dfc6944e55aeeca316b41debf0029', 1)
 > "0x60806040526000805534801561001457600080fd5b5060405160208061015d8339810180604052810190808051906020019092919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820ec774499bcdb89d9e570156a76249b33e99c766dfc6944e55aeeca316b41debf00290000000000000000000000000000000000000000000000000000000000000001"
 
-// There are two arguments for constructor(uint256, uint256)
+// Có hai đối số cho hàm tạo (uint256, uint256)
 caver.klay.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -367,7 +367,7 @@ caver.klay.abi.encodeContractDeploy([
     ],'0x60806040526000805534801561001457600080fd5b5060405160408061016883398101806040528101908080519060200190929190805190602001909291905050505050610116806100526000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820f85b40d5ad70d0b3599200515915dca3074bcf609f27660845ecbfe882d3eeee0029', 1, 2)
 > "0x60806040526000805534801561001457600080fd5b5060405160408061016883398101806040528101908080519060200190929190805190602001909291905050505050610116806100526000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820f85b40d5ad70d0b3599200515915dca3074bcf609f27660845ecbfe882d3eeee002900000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002"
 
-// There is one argument for constructor(string)
+// Có một đối số cho hàm tạo (chuỗi)
 caver.klay.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
