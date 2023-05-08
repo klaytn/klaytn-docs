@@ -1,14 +1,14 @@
 # Thử việc cài đặt <a id="testing-the-installation"></a>
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Nút điểm cuối đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-## Process Status <a id="process-status"></a>
+## Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+Có thể kiểm tra trạng thái quy trình của NĐC bằng các lệnh trạng thái `systemctl` và `kend`.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của NĐC như sau.
 
 ```bash
 $ systemctl status kend.service
@@ -26,22 +26,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ bên dưới.
 
 ### kend <a id="kend"></a>
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+`kend` được cài đặt cùng với gói; trạng thái của NĐC có thể được kiểm tra như sau.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Logs <a id="logs"></a>
+## Nhật ký <a id="logs"></a>
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+Nhật ký được lưu trữ trong tập tin `kend.out` được đặt tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kend.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi khối được nhập theo từng giây như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail kend.out
@@ -57,13 +57,13 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries <a id="queries"></a>
+## Truy vấn <a id="queries"></a>
 
 ### ken console <a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Klaytn cung cấp một máy khách CLI: `ken console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một NĐC.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
@@ -75,16 +75,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../../dapp/json-rpc/README.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../../dapp/json-rpc/README.md)
 
-The useful APIs to check the status of EN:
+Các API hữu ích để kiểm tra trạng thái của NĐC:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (để lấy số khối mới nhất)
+* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+Bạn có thể lấy số khối mới nhất để xem các khối có được truyền đúng cách không.
 
 ```text
 > klay.blockNumber
@@ -98,7 +98,7 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+Dòng lệnh trên trả về số nút mà NĐC kết nối tới.
 
 
 
