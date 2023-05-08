@@ -54,7 +54,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 **Định cấu hình dịch vụ Telegraf**
 
-Copy the following file to the `telegraf` configuration directory \(`/etc/telegraf/telegraf.d/`\), and edit `nodetype`, `instance`, and `hostname` appropriately for each node:
+Sao chép tập tin sau vào thư mục cấu hình `telegraf` \(`/etc/telegraf/telegraf.d/`\) và chỉnh sửa `nodetype`, `instance` và `hostname` cho phù hợp với từng nút:
 
 ```text
 [global_tags]
@@ -76,11 +76,11 @@ Copy the following file to the `telegraf` configuration directory \(`/etc/telegr
   urls = [ "http://localhost:61001/metrics" ]
 ```
 
-Change the following in `/etc/telegraf/telegraf.conf`:
+Thay đổi như sau trong `/etc/telegraf/telegraf.conf`:
 
-* Comment out the `[[outputs.influxdb]]` section
+* Ghi chú phần `[[outputs.influxdb]]`
 
-**Start Telegraf**
+**Bắt đầu Telegraf**
 
 ```text
 $ systemctl restart telegraf
@@ -88,9 +88,9 @@ $ systemctl restart telegraf
 
 ## Grafana <a id="grafana"></a>
 
-If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
+Nếu mỗi NĐT/NP có cấu hình và tác nhân ở trên, bạn có thể kiểm tra các thông số tại URL sau:
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
-As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
+Nhà vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các nhà vận hành CC mới được phép yêu cầu tài khoản Grafana.
 
