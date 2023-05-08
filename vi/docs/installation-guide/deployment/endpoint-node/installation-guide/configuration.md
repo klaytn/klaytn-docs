@@ -1,56 +1,56 @@
-# Configuration <a id="configuration"></a>
+# Cấu hình <a id="configuration"></a>
 
-The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
+Cấu hình NĐC dùng để tạo thư mục dữ liệu và thiết lập các biến môi trường trong tập tin cấu hình `kend.conf`.
 
-1. Create the EN data directory.
-2. Configure the EN with `kend.conf`.
+1. Tạo thư mục dữ liệu NĐC.
+2. Định cấu hình NĐC với `kend.conf`.
 
-## EN Data Directory Creation <a id="en-data-directory-creation"></a>
+## Tạo thư mục dữ liệu NĐC <a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```text
 $ sudo mkdir -p /var/kend/data
 ```
 
-## Update the Configuration File <a id="update-the-configuration-file"></a>
+## Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/ken-linux-amd64/conf/`.
+* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `/etc/kend/conf/`.
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kend.conf`.
 
 ```text
 DATA_DIR=/var/kend/data
 ```
 
-## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
+## Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
 
-Each EN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new EN is first started, it must download the entire chain data from the network.
+Mỗi NĐC duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một NĐC mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu NĐC. Điều này giúp giảm đáng kể thời gian NĐC cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kend`, extract the snapshot inside the DATA\_DIR you configured in `kend.conf`.
+Tải về bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kend.conf`.
 
-For example:
+Ví dụ:
 
 ```bash
 $ tar -C ~/kend_home -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the EN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu NĐC như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../../../operation-guide/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../../operation-guide/chaindata-change.md)
 
 ## <a id="en-start-stop-status"></a>
 
