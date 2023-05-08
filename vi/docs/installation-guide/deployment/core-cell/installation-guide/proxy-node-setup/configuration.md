@@ -7,7 +7,7 @@ Cấu hình NP dùng để tạo thư mục dữ liệu và thiết lập các g
 3. Cài đặt `static-node.json`
 4. Định cấu hình NP với `kpnd.conf`.
 
-## Việc tạo thư mục dữ liệu NP <a id="pn-data-directory-creation"></a>
+## Tạo thư mục dữ liệu NP <a id="pn-data-directory-creation"></a>
 
 Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
