@@ -6,9 +6,9 @@ Trả về Keccak-256 (không phải SHA3-256 đã chuẩn hóa) của dữ li�
 
 **Tham số**
 
-| Tên     | Loại    | Mô tả                                     |
-| ------- | ------- | ----------------------------------------- |
-| dữ liệu | DỮ LIỆU | Dữ liệu để chuyển đổi thành hàm băm SHA3. |
+| Tên     | Loại    | Mô tả                                      |
+| ------- | ------- | ------------------------------------------ |
+| dữ liệu | DỮ LIỆU | Dữ liệu cần chuyển đổi thành hàm băm SHA3. |
 
 **Giá trị trả về**
 
@@ -20,10 +20,10 @@ Trả về Keccak-256 (không phải SHA3-256 đã chuẩn hóa) của dữ li�
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sha3","params":["0x11223344"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
