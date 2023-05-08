@@ -1,7 +1,7 @@
 ---
 description: >-
-  This chapter contains the resources for dApp development - back-end/front-end APIs, tools, and useful tutorials. Go to "Smart Contract" for the details of contract development.
+  Chương này chứa các tài nguyên dành cho việc phát triển dApp - API back-end/front-end, công cụ và nhiều bài hướng dẫn hữu ích. Hãy truy cập "Hợp đồng thông minh" để xem chi tiết về việc phát triển hợp đồng.
 ---
 
-# Overview <a id="overview"></a>
+# Tổng quan <a id="overview"></a>
 
