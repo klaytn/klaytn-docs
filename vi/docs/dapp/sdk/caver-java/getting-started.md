@@ -1,51 +1,51 @@
-# Getting Started <a id="getting-started"></a>
+# Bắt đầu <a id="getting-started"></a>
 
-## What's new?
+## Có gì mới?
 
-In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+Trong caver-java 1.5.0, chúng tôi áp dụng Common Architecture. Common Architecture là một cấu trúc phần mềm mới dành cho môi trường phát triển Klaytn, được chia sẻ bởi tất cả các SDK Klaytn (caver-js/caver-java). Cấu trúc này đươc thiết kế vì trải nghiệm phát triển thuận lợi và khả năng mở rộng dễ dàng sang các ngôn ngữ lập trình khác.
 
-As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
+Khi caver-java được cập nhật lên phiên bản 1.5.0, các API được dùng trong phiên bản 1.4.0 không còn hoạt động được nữa, ngoại trừ một số API.
 
-The APIs newly provided in caver-java 1.5.0 are as follows.
+Các API mới được cung cấp trong caver-java 1.5.0 như sau.
 
 ### caver.account
 
-caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
+caver.account là một gói dùng để cập nhật AccountKey, đó có thể là một hoặc nhiều khóa công khai (AccountKeyPublic, AccountKeyWeightedMultiSig và AccountKeyRoleBased) hoặc một loại khóa đặc biệt (AccountKeyLegacy và AccountKeyFail) cho một tài khoản Klaytn.
 
 
-- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
+- `caver.account` thay thế `caver.tx.account` trong caver-java 1.4.0
 
 ### caver.wallet
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+caver.wallet là một gói dùng để quản lý các phiên bản Keyring trong ví trong bộ nhớ. Keyring là một phiên bản chứa địa chỉ của một tài khoản Klaytn và (các) khóa riêng tư của ví, và nó được dùng khi địa chỉ của tài khoản này ký một giao dịch. caver.wallet chấp nhận tất cả các loại Keyring (SingleKeyring, MultipleKeyring và RoleBasedKeyring) và quản lý bằng địa chỉ tài khoản Klaytn của chúng.
 
-- `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
-- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
+- `caver.wallet` thay thế `caver.crypto` trong caver-java 1.4.0
+- `caver.wallet.KeyStore` thay thế `caver.wallet.WalletFile` trong caver-java 1.4.0
 
 ### caver.transaction
 
-caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.foundation/klaytn/design/transactions#transactions-overview).
+canver.transaction là một gói cung cấp chức năng liên quan tới [Giao dịch](https://docs.klaytn.foundation/klaytn/design/transactions#transactions-overview).
 
-- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
+- `caver.transaction` thay thế `caver.tx` trong caver-java 1.4.0
 
 ### caver.rpc
 
-caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
+caver.rpc là một gói cung cấp chức năng liên quan tới việc thực hiện gọi rpc tới nút Klaytn.
 
-- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
+- `caver.rpc.klay` và `caver.rpc.net` lần lượt thay thế các giao diện `Klay`, `Net` trong caver-java 1.4.0
 
 ### caver.util
 
-caver.utils provides utility functions.
+caver.util cung cấp các chức năng tiện ích.
 
 ### caver.contract
 
-`caver.contract` is a package that makes it easy to handle smart contracts in Klaytn. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI\(Application Binary Interface\), calls those functions, and obtains the event information.
+`caver.contract` là một gói giúp cho việc xử lý hợp đồng thông minh trong Klaytn trở nên dễ dàng hơn. Với caver.contract, bạn có thể triển khai và thực thi hợp đồng thông minh bằng cách gọi các hàm của chúng. `caver.contract` trước tiên sẽ chuyển đổi các hàm của hợp đồng thông minh và sự kiện từ ABI\(Giao diện nhị phân ứng dụng\), gọi các hàm đó và lấy thông tin sự kiện.
 
-## Prerequisites <a id="prerequisites"></a>
+## Điều kiện tiên quyết <a id="prerequisites"></a>
 
-### Adding a Repository<a id="adding-a-repository"></a>
-A library repository should be added before using IPFS. Please add the following repository first.
+### Thêm kho dữ liệu<a id="adding-a-repository"></a>
+Một kho chứa dữ liệu thư viện cần phải được thêm vào trước khi sử dụng IPFS. Trước hết, vui lòng thêm kho dữ liệu sau.
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### Adding a Dependency <a id="adding-a-dependency"></a>
+### Thêm phần phụ thuộc <a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -87,62 +87,62 @@ allprojects {
 implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
-If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
+Nếu bạn muốn dùng phần phụ thuộc Android, bạn chỉ cần thêm -android vào cuối chuỗi phiên bản. \(ví dụ 1.0.1-android\)
 
-If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
+Nếu bạn muốn xem chi tiết của các yêu cầu và phản hồi JSON-RPC, vui lòng đưa phần phụ thuộc [LOGBack](https://logback.qos.ch/) vào dự án của mình. Dưới đây là một ví dụ về tập tin xây dựng Gradle. Bạn có thể thêm phần phụ thuộc vào Maven nữa. Vì caver-java sử dụng giao diện đăng nhập [SLF4J](http://www.slf4j.org/), bạn có thể chuyển sang khung giao diện mà bạn thích thay cho LOGBack.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
+**Lưu ý**: Trong kho dữ liệu trung tâm, các phiên bản RC, Andriod và Java được liệt kê cùng nhau. Nếu bạn sử dụng ký tự đại diện để lấy một phiên bản, bạn có thể dùng phải một phiên bản không phù hợp với nền tảng của mình.
 
-#### Command-line Tool <a id="command-line-tool"></a>
+#### Công cụ dòng lệnh <a id="command-line-tool"></a>
 
-The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
+Công cụ dòng lệnh cho phép bạn tạo các lớp vỏ bọc chức năng bằng Solidity cho hợp đồng thông minh từ dòng lệnh.
 
-**Installation \(Homebrew\)**
+**Cài đặt \(Homebrew\)**
 
-Java 1.8+ is required to install this.
+Cần có Java 1.8 trở lên để cài đặt công cụ này.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-After installation you can run command 'caver-java' like below:
+Sau khi cài đặt, bạn có thể chạy lệnh "caver-java" như dưới đây:
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**Installation \(Other\)**
+**Cài đặt \(Khác\)**
 
-Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
+Hiện tại, chúng tôi không hỗ trợ các trình quản lý gói khác. Một giải pháp khác mà chúng tôi cung cấp là một phương pháp để xây dựng CLI như bên dưới.
 
-* Download or fork caver-java.
-* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
+* Tải về hoặc mô phỏng caver-java.
+* Dùng Gradle thực hiện tác vụ "shadowDistZip" trong mô-đun bảng điều khiển. Kết quả là console/build/distributions/console-shadow-{version}.zip được tạo ra.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-* Unzip the zip file in the build directory
+* Giải nén tập tin zip trong thư mục xây dựng
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
+* Thực thi tập tin nhị phân để chạy công cụ dòng lệnh như dưới đây. Bạn có thể tìm thấy tập tin mã lập trình shell dành cho người dùng macOS và tập tin batch dành cho người dùng Window.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
 
-## Sending KLAY at a glance
+## Sơ lược về việc gửi KLAY
 
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+Phần này mô tả một ví dụ đơn giản về việc sử dụng `tập tin kho khóa` để gửi KLAY với một giao dịch chuyển nhượng giá trị. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
