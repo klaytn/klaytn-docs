@@ -1,71 +1,71 @@
 ## klay_call <a id="klay_call"></a>
 
-Thực thi lệnh gọi tin nhắn mới ngay lập tức mà không tạo giao dịch trên chuỗi khối. Trả về dữ liệu hoặc đối tượng lỗi của JSON RPC nếu xảy ra lỗi.
+Thực thi lệnh gọi thông báo ngay mà không tạo giao dịch trên chuỗi khối. Trả về dữ liệu hoặc đối tượng lỗi của JSON RPC nếu xảy ra lỗi.
 
 **Tham số**
 
-| Tên               | Loại                               | Mô tả                                                                                                                                                                               |
-| ----------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject        | Đối tượng                          | Đối tượng lệnh gọi giao dịch.  Xem bảng tiếp theo để biết đặc tính của đối tượng.                                                                                                   |
-| blockNumberOrHash | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc khối băm. |
+| Tên               | Loại                               | Mô tả                                                                                                                                                                                |
+| ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject        | Đối tượng                          | Đối tượng lệnh gọi giao dịch.  Xem bảng tiếp theo để biết thuộc tính của đối tượng.                                                                                                  |
+| blockNumberOrHash | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước Klaytn v1.7.0, chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
-`callObject` có các đặc tính như sau:
+`callObject` có các thuộc tính sau:
 
-| Tên      | Loại           | Mô tả                                                                                                                                                         |
-| -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ       | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ giao dịch được gửi đến.                                                                                                                    |
-| đến      | DỮ LIỆU 20 byte | (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến.                                                                       |
-| gas      | SỐ LƯỢNG        | (tùy chọn) Số nguyên của gas được cung cấp để thực hiện giao dịch. `klay_call` không tiêu thụ gas, nhưng một số lần thực thi có thể cần tham số này.          |
-| gasPrice | SỐ LƯỢNG        | (tùy chọn) Số nguyên của gasPrice được sử dụng cho mỗi loại gas đã thanh toán.                                                                                |
-| value    | SỐ LƯỢNG        | (tùy chọn) Số nguyên giá trị được gửi cùng với giao dịch.                                                                                                     |
-| nhập     | DỮ LIỆU         | (tùy chọn) Mã băm của chữ ký phương thức và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
+| Tên      | Loại           | Mô tả                                                                                                                                                          |
+| -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ       | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ mà giao dịch được gửi đi.                                                                                                                   |
+| đến      | DỮ LIỆU 20 byte | (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến.                                                                        |
+| gas      | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. `klay_call` không sử dụng gas, nhưng một số lần thực thi có thể cần tham số này.       |
+| gasPrice | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của gasPrice được sử dụng cho mỗi loại gas đã thanh toán.                                                                            |
+| value    | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên được gửi cùng với giao dịch.                                                                                                         |
+| nhập     | DỮ LIỆU         | (tùy chọn) Hàm băm của chữ ký phương thức và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
 
 **Giá trị trả về**
 
-| Loại   | Mô tả                                       |
-| ------- | ------------------------------------------- |
-| DỮ LIỆU | Giá trị hoàn lại của hợp đồng đã thực hiện. |
+| Loại   | Mô tả                                     |
+| ------- | ----------------------------------------- |
+| DỮ LIỆU | Giá trị trả về của hợp đồng đã thực hiện. |
 
 Nếu bạn đã triển khai hợp đồng, hãy sử dụng [klay_getTransactionReceipt](#klay_gettransactionreceipt) để lấy địa chỉ hợp đồng.
 
 **Lỗi**
 
-Trả về một đối tượng lỗi của JSON RPC nếu xảy ra sự cố. Ví dụ: một đối tượng lỗi có thông báo "evm: thực thi hoàn nguyên" sẽ được tạo nếu cuộc gọi thông báo bị chấm dứt bằng mã op `REVERT`.
+Thao tác này sẽ trả về một đối tượng lỗi JSON RPC nếu xảy ra sự cố. Ví dụ: một đối tượng lỗi có thông báo "evm: đã hoàn nguyên việc thực hiện" sẽ được tạo nếu lệnh gọi thông báo bị chấm dứt bằng mã tác vụ `REVERT`.
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_call", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}, "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
 ```
 
 ## klay_estimateGas <a id="klay_estimategas"></a>
 
-Tạo và trả về giá trị ước tính về lượng gas cần thiết để cho phép hoàn tất giao dịch. Giao dịch sẽ không được thêm vào chuỗi khối. Lưu ý rằng giá trị ước tính có thể lớn hơn nhiều so với lượng gas mà giao dịch sử dụng trong thực tế vì một số lý do bao gồm cơ chế Klaytn Virtual Machine và hiệu suất của nút.
+Tạo và trả về giá trị lượng gas ước tính cần thiết để cho phép hoàn tất giao dịch. Giao dịch sẽ không được thêm vào chuỗi khối. Lưu ý rằng giá trị ước tính có thể lớn hơn nhiều so với lượng gas mà giao dịch sử dụng thực tế vì một số lý do bao gồm cơ chế Klaytn Virtual Machine và hiệu suất của nút.
 
 **Tham số**
 
-| Tên        | Loại     | Mô tả                                                                             |
-| ---------- | --------- | --------------------------------------------------------------------------------- |
-| callObject | Đối tượng | Đối tượng lệnh gọi giao dịch.  Xem bảng tiếp theo để biết đặc tính của đối tượng. |
+| Tên        | Loại     | Mô tả                                                                               |
+| ---------- | --------- | ----------------------------------------------------------------------------------- |
+| callObject | Đối tượng | Đối tượng lệnh gọi giao dịch.  Xem bảng tiếp theo để biết thuộc tính của đối tượng. |
 
-`callObject` có các đặc tính như sau:
+`callObject` có các thuộc tính sau:
 
-| Tên      | Loại           | Mô tả                                                                                                                                                                                      |
-| -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| từ       | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ giao dịch được gửi đến.                                                                                                                                                 |
-| tới      | DỮ LIỆU 20 byte | (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến.                                                                                                    |
-| gas      | SỐ LƯỢNG        | (tùy chọn) Số nguyên của giới hạn gas trên được cung cấp để ước tính gas. Nếu không có giới hạn gas nào được chỉ định, nút Klaytn sẽ sử dụng giới hạn gas được chỉ định làm giới hạn trên. |
-| gasPrice | SỐ LƯỢNG        | (tùy chọn) Số nguyên của gasPrice được sử dụng cho mỗi loại gas đã thanh toán.                                                                                                             |
-| giá trị  | SỐ LƯỢNG        | (tùy chọn) Số nguyên giá trị được gửi cùng với giao dịch.                                                                                                                                  |
-| nhập     | DỮ LIỆU         | (tùy chọn) Mã băm của chữ ký phương thức và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.                              |
+| Tên      | Loại           | Mô tả                                                                                                                                                                                               |
+| -------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ       | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                        |
+| tới      | DỮ LIỆU 20 byte | (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến.                                                                                                             |
+| gas      | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giới hạn trên của gas được cung cấp để ước tính gas. Nếu không có giới hạn gas nào được chỉ định, nút Klaytn sẽ sử dụng giới hạn gas được chỉ định làm giới hạn trên. |
+| gasPrice | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của gasPrice được sử dụng cho mỗi loại gas đã thanh toán.                                                                                                                 |
+| giá trị  | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                              |
+| nhập     | DỮ LIỆU         | (tùy chọn) Hàm băm của chữ ký phương thức và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.                                      |
 
 **Giá trị trả về**
 
@@ -76,10 +76,10 @@ Tạo và trả về giá trị ước tính về lượng gas cần thiết đ�
 
 **Ví dụ**
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}], "id": 1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0","id":1,
   "result": "0x5208" // 21000
@@ -102,10 +102,10 @@ Xem các thông số [klay_call](#klay_call), ngoại trừ việc tất cả c�
 
 **Ví dụ**
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "input":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0","id":1,
   "result": "0x1e8b0ad"
@@ -114,26 +114,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
-Trả về thông tin về giao dịch của một khối theo mã băm và vị trí chỉ mục của giao dịch. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin về giao dịch của khối theo hàm băm và vị trí chỉ mục của giao dịch. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại           | Mô tả                                   |
-| --------------- | --------------------------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một khối.                    |
-| SỐ LƯỢNG        | Số nguyên vị trí chỉ mục của giao dịch. |
+| Loại           | Mô tả                                                 |
+| --------------- | ----------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của khối.                                     |
+| SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch. |
 
 **Giá trị trả về**
 
-Tham khảo [klay_getTransactionByHash](#klay_gettransactionbyhash)
+Xem [klay_getTransactionByHash](#klay_gettransactionbyhash)
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockHashAndIndex","params":["0x451cafae98d61b7458b5cef54402830941432278184453e3ca490eb687317e68", "0x0"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -170,13 +170,13 @@ Trả về thông tin về giao dịch theo số khối và vị trí chỉ mụ
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
-| SỐ LƯỢNG            | Vị trí chỉ mục của giao dịch.                                                                                                                                        |
+| Loại               | Mô tả                                                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
+| SỐ LƯỢNG            | Vị trí chỉ mục của giao dịch.                                                                                                                                     |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
 {% endhint %}
 
 **Giá trị trả về**
@@ -222,50 +222,50 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
-Trả về thông tin về một giao dịch được yêu cầu theo mã băm giao dịch. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin về một giao dịch được yêu cầu theo hàm băm giao dịch. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại           | Mô tả                     |
-| --------------- | ------------------------- |
-| DỮ LIỆU 32-byte | Mã băm của một giao dịch. |
+| Loại           | Mô tả                      |
+| --------------- | -------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một giao dịch. |
 
 **Giá trị trả về**
 
 `Object` - Đối tượng giao dịch, hoặc `null` khi không tìm thấy giao dịch:
 
-| Tên                | Loại           | Mô tả                                                                                                                                                                                                                   |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | DỮ LIỆU 32 byte | Mã băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                          |
-| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                  |
-| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                     |
-| feePayer           | DỮ LIỆU 20-byte | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng            | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                              |
-| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả.                                                                                                            |
-| từ                 | DỮ LIỆU 20-byte | Địa chỉ của người gửi.                                                                                                                                                                                                  |
-| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                            |
-| gasPrice           | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                        |
-| mã băm             | DỮ LIỆU 32 byte | Mã băm của giao dịch.                                                                                                                                                                                                   |
-| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ là con người có thể đọc được, `false` nếu địa chỉ con người không thể đọc được.                                                                                                           |
-| khóa               | Chuỗi           | (tùy chọn) Khóa của tài khoản mới tạo.                                                                                                                                                                                  |
-| nhập               | DỮ LIỆU         | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                         |
-| số dùng một lần    | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                        |
-| senderTxHash       | DỮ LIỆU 32 byte | Mã băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). Giá trị này luôn giống với `hàm băm` đối với các giao dịch không phải trả phí. |
-| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                       |
-| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                        |
-| transactionIndex   | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                           |
-| loại              | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                          |
-| typeInt            | SỐ LƯỢNG        | Số nguyên biểu thị loại giao dịch.                                                                                                                                                                                      |
-| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển bằng peb.                                                                                                                                                                                           |
+| Tên                | Loại           | Mô tả                                                                                                                                                                                                                    |
+| ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                          |
+| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                   |
+| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                      |
+| feePayer           | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                    |
+| feePayerSignatures | Mảng            | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                               |
+| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người trả phí phải trả 30%. 70% còn lại sẽ được trả bởi người gửi.                                                                                                 |
+| từ                 | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                                                                                                                                   |
+| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                             |
+| gasPrice           | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                         |
+| hàm băm            | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                   |
+| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`..                                                                                                                                       |
+| khóa               | Chuỗi           | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                                |
+| nhập               | DỮ LIỆU         | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                          |
+| số dùng một lần    | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                         |
+| senderTxHash       | DỮ LIỆU 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). Giá trị này luôn giống với `hàm băm` đối với các giao dịch không phải trả phí. |
+| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                        |
+| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                         |
+| transactionIndex   | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                              |
+| loại              | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                           |
+| typeInt            | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                  |
+| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển bằng peb.                                                                                                                                                                                            |
 
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByHash","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -305,49 +305,49 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
-Trả về thông tin về một giao dịch được yêu cầu theo mã băm giao dịch của người gửi. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript. Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được `--sendertxhashindexing` bật. Điều này có thể được kiểm tra bằng lệnh gọi [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+Trả về thông tin về một giao dịch được yêu cầu theo hàm băm giao dịch của người gửi. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript. Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật bởi bật bởi `--sendertxhashindexing`. Điều này có thể được kiểm tra bằng lệnh gọi [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **Tham số**
 
-| Loại           | Mô tả                                                                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). |
+| Loại           | Mô tả                                                                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). |
 
 **Giá trị trả về**
 
 `Object` - Đối tượng giao dịch, hoặc `null` khi không tìm thấy giao dịch:
 
-| Tên                | Loại           | Mô tả                                                                                                                                                                                                                   |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | DỮ LIỆU 32 byte | Mã băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                          |
-| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                  |
-| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                     |
-| feePayer           | DỮ LIỆU 20-byte | Địa chỉ của người trả phí.                                                                                                                                                                                              |
-| feePayerSignatures | Mảng            | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                              |
-| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả.                                                                                                            |
-| từ                 | DỮ LIỆU 20-byte | Địa chỉ của người gửi.                                                                                                                                                                                                  |
-| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                            |
-| gasPrice           | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                        |
-| mã băm             | DỮ LIỆU 32 byte | Mã băm của giao dịch.                                                                                                                                                                                                   |
-| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ là con người có thể đọc được, `false` nếu địa chỉ con người không thể đọc được.                                                                                                           |
-| key                | Chuỗi           | (tùy chọn) Khóa của tài khoản mới tạo.                                                                                                                                                                                  |
-| nhập               | DỮ LIỆU         | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                         |
-| số dùng một lần    | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                        |
-| senderTxHash       | DỮ LIỆU 32 byte | Mã băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). Giá trị này luôn giống với `hàm băm` đối với các giao dịch không phải trả phí. |
-| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                       |
-| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                        |
-| transactionIndex   | SỐ LƯỢNG        | Số nguyên vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                           |
-| loại              | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                          |
-| typeInt            | SỐ LƯỢNG        | Số nguyên biểu thị loại giao dịch.                                                                                                                                                                                      |
-| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển bằng peb.                                                                                                                                                                                           |
+| Tên                | Loại           | Mô tả                                                                                                                                                                                                                    |
+| ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                          |
+| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                   |
+| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                      |
+| feePayer           | DỮ LIỆU 20 byte | Địa chỉ của người trả phí.                                                                                                                                                                                               |
+| feePayerSignatures | Mảng            | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                               |
+| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người trả phí phải trả 30%. 70% còn lại sẽ được trả bởi người gửi.                                                                                                 |
+| từ                 | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                                                                                                                                   |
+| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                             |
+| gasPrice           | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                         |
+| hàm băm            | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                   |
+| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`..                                                                                                                                       |
+| mã khóa            | Chuỗi           | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                                |
+| nhập               | DỮ LIỆU         | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                          |
+| số dùng một lần    | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                         |
+| senderTxHash       | DỮ LIỆU 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). Giá trị này luôn giống với `hàm băm` đối với các giao dịch không phải trả phí. |
+| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                        |
+| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                         |
+| transactionIndex   | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                              |
+| loại              | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                           |
+| typeInt            | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                  |
+| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển bằng peb.                                                                                                                                                                                            |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionBySenderTxHash","params":["0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -387,58 +387,58 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
 
-Tra về biên lai của một giao dịch theo mã băm giao dịch.
+Trả về biên lai của một giao dịch theo hàm băm giao dịch.
 
 **LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý.
 
 **Tham số**
 
-| Tên     | Loại            | Mô tả                     |
-| ------- | --------------- | ------------------------- |
-| Hàm băm | DỮ LIỆU 32 byte | Mã băm của một giao dịch. |
+| Tên     | Loại            | Mô tả                      |
+| ------- | --------------- | -------------------------- |
+| Hàm băm | DỮ LIỆU 32 byte | Hàm băm của một giao dịch. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai
 
-| Tên                | Loại                   | Mô tả                                                                                                                                                                                      |
-| ------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash          | DỮ LIỆU 32 byte         | Mã băm của khối chứa giao dịch này.                                                                                                                                                        |
-| blockNumber        | SỐ LƯỢNG                | Số khối chứa giao dịch này.                                                                                                                                                                |
-| codeFormat         | Chuỗi                   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                        |
-| contractAddress    | DỮ LIỆU                 | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là `null`.                                                                                           |
-| feePayer           | DỮ LIỆU 20-byte         | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                      |
-| feePayerSignatures | Mảng                    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
-| feeRatio           | SỐ LƯỢNG                | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả.                                                                               |
-| từ                 | DỮ LIỆU 20-byte         | Địa chỉ của người gửi.                                                                                                                                                                     |
-| gas                | SỐ LƯỢNG                | Gas được người gửi cung cấp.                                                                                                                                                               |
-| effectiveGasPrice  | SỐ LƯỢNG                | Giá trị thực tế trên mỗi gas được khấu trừ từ tài khoản của người gửi.                                                                                                                     |
-| gasPrice           | SỐ LƯỢNG                | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                           |
-| gasUsed            | SỐ LƯỢNG                | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                     |
-| humanReadable      | Boolean                 | (tùy chọn) `true` nếu địa chỉ là con người có thể đọc được, `false` nếu địa chỉ con người không thể đọc được.                                                                              |
-| key                | Chuỗi                   | (tùy chọn) Khóa của tài khoản mới tạo.                                                                                                                                                     |
-| nhập               | DỮ LIỆU                 | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                            |
-| log                | Mảng                    | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                            |
-| logsBloom          | DỮ LIỆU 256 byte        | Bộ lọc Bloom cho các ứng dụng khách nhẹ để nhanh chóng truy xuất các bản ghi liên quan.                                                                                                    |
-| số dùng một lần    | SỐ LƯỢNG                | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                           |
-| senderTxHash       | (tùy chọn) 32-byte DATA | Mã băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị của giao dịchHash đối với các giao dịch không được ủy quyền phí.                         |
-| chữ ký             | Mảng                    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                          |
-| trạng thái         | SỐ LƯỢNG                | `1` (thành công) hoặc `0` (thất bại).                                                                                                                                                      |
-| txError            | SỐ LƯỢNG                | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                        |
-| đến                | DỮ LIỆU 20 byte         | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                           |
-| transactionHash    | DỮ LIỆU 32 byte         | Mã băm của giao dịch.                                                                                                                                                                      |
-| transactionIndex   | SỐ LƯỢNG                | Số nguyên vị trí chỉ mục của giao dịch trong khối.                                                                                                                                         |
-| loại              | Chuỗi                   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                             |
-| typeInt            | SỐ LƯỢNG                | Số nguyên biểu thị loại giao dịch.                                                                                                                                                         |
-| giá trị            | SỐ LƯỢNG                | Giá trị được chuyển bằng peb.                                                                                                                                                              |
+| Tên                | Loại                      | Mô tả                                                                                                                                                                                      |
+| ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | DỮ LIỆU 32 byte            | Hàm băm của khối chứa giao dịch này.                                                                                                                                                       |
+| blockNumber        | SỐ LƯỢNG                   | Số khối chứa giao dịch này.                                                                                                                                                                |
+| codeFormat         | Chuỗi                      | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                        |
+| contractAddress    | DỮ LIỆU                    | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                        |
+| feePayer           | DỮ LIỆU 20 byte            | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                      |
+| feePayerSignatures | Mảng                       | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
+| feeRatio           | SỐ LƯỢNG                   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người trả phí phải trả 30%. 70% còn lại sẽ được trả bởi người gửi.                                                                   |
+| từ                 | DỮ LIỆU 20 byte            | Địa chỉ của người gửi.                                                                                                                                                                     |
+| gas                | SỐ LƯỢNG                   | Gas được người gửi cung cấp.                                                                                                                                                               |
+| effectiveGasPrice  | SỐ LƯỢNG                   | Giá trị thực tế trên mỗi gas được khấu trừ từ tài khoản của người gửi.                                                                                                                     |
+| gasPrice           | SỐ LƯỢNG                   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                           |
+| gasUsed            | SỐ LƯỢNG                   | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                     |
+| humanReadable      | Boolean                    | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                          |
+| mã khóa            | Chuỗi                      | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                  |
+| nhập               | DỮ LIỆU                    | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                            |
+| bản ghi            | Mảng                       | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                            |
+| logsBloom          | DỮ LIỆU 256 byte           | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                   |
+| số dùng một lần    | SỐ LƯỢNG                   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                           |
+| senderTxHash       | (tùy chọn) DỮ LIỆU 32 byte | Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị transactionHash đối với các giao dịch không có phí ủy thác.                             |
+| chữ ký             | Mảng                       | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                          |
+| trạng thái         | SỐ LƯỢNG                   | `1` (thành công) hoặc `0` (thất bại).                                                                                                                                                      |
+| txError            | SỐ LƯỢNG                   | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                        |
+| đến                | DỮ LIỆU 20 byte            | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                           |
+| transactionHash    | DỮ LIỆU 32 byte            | Hàm băm của giao dịch.                                                                                                                                                                     |
+| transactionIndex   | SỐ LƯỢNG                   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                           |
+| loại              | Chuỗi                      | Chuỗi biểu thị loại giao dịch.                                                                                                                                                             |
+| typeInt            | SỐ LƯỢNG                   | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                    |
+| giá trị            | SỐ LƯỢNG                   | Giá trị được chuyển bằng peb.                                                                                                                                                              |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionReceipt","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -484,49 +484,49 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
 
-Tra về biên lai của một giao dịch theo mã băm giao dịch của người gửi.
+Trả về biên lai của một giao dịch theo hàm băm giao dịch của người gửi.
 
-**LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý. Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được `--sendertxhashindexing` bật. Điều này có thể được kiểm tra bằng lệnh gọi [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+**LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý. Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật bởi `--sendertxhashindexing`. Điều này có thể được kiểm tra bằng lệnh gọi [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **Tham số**
 
-| Tên    | Loại           | Mô tả                                                                  |
-| ------ | --------------- | ---------------------------------------------------------------------- |
-| Mã băm | DỮ LIỆU 32 byte | Mã băm của một giao dịch trước khi ký feePayer(senderTransactionHash). |
+| Tên     | Loại           | Mô tả                                                                   |
+| ------- | --------------- | ----------------------------------------------------------------------- |
+| Hàm băm | DỮ LIỆU 32 byte | Hàm băm của một giao dịch trước khi ký feePayer(senderTransactionHash). |
 
 **Giá trị trả về**
 
 `Object` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai
 
-| Tên                | Loại                    | Mô tả                                                                                                                                                                                      |
-| ------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash          | DỮ LIỆU 32 byte         | Mã băm của khối chứa giao dịch này.                                                                                                                                                        |
-| blockNumber        | SỐ LƯỢNG                | Số khối chứa giao dịch này.                                                                                                                                                                |
-| codeFormat         | Chuỗi                   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                        |
-| contractAddress    | DỮ LIỆU                 | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là `null`.                                                                                           |
-| feePayer           | DỮ LIỆU 20-byte         | Địa chỉ của người trả phí.                                                                                                                                                                 |
-| feePayerSignatures | Mảng                    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
-| feeRatio           | SỐ LƯỢNG                | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người nộp phí phải nộp 30%. 70% sẽ được người gửi trả.                                                                               |
-| từ                 | DỮ LIỆU 20-byte         | Địa chỉ của người gửi.                                                                                                                                                                     |
-| gas                | SỐ LƯỢNG                | Gas được người gửi cung cấp.                                                                                                                                                               |
-| gasPrice           | SỐ LƯỢNG                | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                           |
-| gasUsed            | SỐ LƯỢNG                | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                     |
-| humanReadable      | Logic                   | (tùy chọn) `true` nếu địa chỉ là con người có thể đọc được, `false` nếu địa chỉ con người không thể đọc được.                                                                              |
-| khóa               | Chuỗi                   | (tùy chọn) Khóa của tài khoản mới tạo.                                                                                                                                                     |
-| nhập               | DỮ LIỆU                 | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                            |
-| log                | Mảng                    | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                            |
-| logsBloom          | DỮ LIỆU 256 byte        | Bộ lọc Bloom cho các ứng dụng khách nhẹ để nhanh chóng truy xuất các bản ghi liên quan.                                                                                                    |
-| số dùng một lần    | SỐ LƯỢNG                | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                           |
-| senderTxHash       | (tùy chọn) 32-byte DATA | Mã băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị của giao dịchHash đối với các giao dịch không được ủy quyền phí.                         |
-| chữ ký             | Mảng                    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                          |
-| trạng thái         | SỐ LƯỢNG                | `1` (thành công) hoặc `0` (thất bại).                                                                                                                                                      |
-| txError            | SỐ LƯỢNG                | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                        |
-| đến                | DỮ LIỆU 20 byte         | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                           |
-| transactionHash    | DỮ LIỆU 32 byte         | Mã băm của giao dịch.                                                                                                                                                                      |
-| transactionIndex   | SỐ LƯỢNG                | Số nguyên vị trí chỉ mục của giao dịch trong khối.                                                                                                                                         |
-| loại              | Chuỗi                   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                             |
-| typeInt            | SỐ LƯỢNG                | Số nguyên biểu thị loại giao dịch.                                                                                                                                                         |
-| giá trị            | SỐ LƯỢNG                | Giá trị được chuyển bằng peb.                                                                                                                                                              |
+| Tên                | Loại                       | Mô tả                                                                                                                                                                                      |
+| ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | DỮ LIỆU 32 byte            | Hàm băm của khối chứa giao dịch này.                                                                                                                                                       |
+| blockNumber        | SỐ LƯỢNG                   | Số khối chứa giao dịch này.                                                                                                                                                                |
+| codeFormat         | Chuỗi                      | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                        |
+| contractAddress    | DỮ LIỆU                    | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                        |
+| feePayer           | DỮ LIỆU 20 byte            | Địa chỉ của người trả phí.                                                                                                                                                                 |
+| feePayerSignatures | Mảng                       | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
+| feeRatio           | SỐ LƯỢNG                   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu là 30 thì người trả phí phải trả 30%. 70% còn lại sẽ được trả bởi người gửi.                                                                   |
+| từ                 | DỮ LIỆU 20 byte            | Địa chỉ của người gửi.                                                                                                                                                                     |
+| gas                | SỐ LƯỢNG                   | Gas được người gửi cung cấp.                                                                                                                                                               |
+| gasPrice           | SỐ LƯỢNG                   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                           |
+| gasUsed            | SỐ LƯỢNG                   | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                     |
+| humanReadable      | Logic                      | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`..                                                                                                         |
+| khóa               | Chuỗi                      | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                  |
+| nhập               | DỮ LIỆU                    | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                            |
+| log                | Mảng                       | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                            |
+| logsBloom          | DỮ LIỆU 256 byte           | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                   |
+| số dùng một lần    | SỐ LƯỢNG                   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                           |
+| senderTxHash       | (tùy chọn) DỮ LIỆU 32 byte | Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị transactionHash đối với các giao dịch không có phí ủy thác.                             |
+| chữ ký             | Mảng                       | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa id khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                          |
+| trạng thái         | SỐ LƯỢNG                   | `1` (thành công) hoặc `0` (thất bại).                                                                                                                                                      |
+| txError            | SỐ LƯỢNG                   | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                        |
+| đến                | DỮ LIỆU 20 byte            | Địa chỉ của người thụ hưởng. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                      |
+| transactionHash    | DỮ LIỆU 32 byte            | Hàm băm của giao dịch.                                                                                                                                                                     |
+| transactionIndex   | SỐ LƯỢNG                   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                           |
+| loại              | Chuỗi                      | Chuỗi biểu thị loại giao dịch.                                                                                                                                                             |
+| typeInt            | SỐ LƯỢNG                   | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                    |
+| giá trị            | SỐ LƯỢNG                   | Giá trị được chuyển bằng peb.                                                                                                                                                              |
 
 **Ví dụ**
 
@@ -589,9 +589,9 @@ Tạo giao dịch gọi tin nhắn mới hoặc tạo hợp đồng cho giao d�
 
 **Giá trị trả về**
 
-| Loại           | Mô tả                                                                     |
-| --------------- | ------------------------------------------------------------------------- |
-| DỮ LIỆU 32 byte | Mã băm của giao dịch hoặc giá trị băm bằng 0 nếu giao dịch chưa khả dụng. |
+| Loại           | Mô tả                                                             |
+| --------------- | ----------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của giao dịch hoặc giá trị băm bằng 0 nếu giao dịch chưa. |
 
 Nếu bạn đã triển khai hợp đồng, hãy sử dụng [klay_getTransactionReceipt](#klay_gettransactionreceipt) để lấy địa chỉ hợp đồng.
 
@@ -622,9 +622,9 @@ Các tham số bắt buộc phụ thuộc vào loại giao dịch. Kiểm tra c�
 
 **Giá trị trả về**
 
-| Loại           | Mô tả                |
-| --------------- | -------------------- |
-| DỮ LIỆU 32 byte | Mã băm của giao dịch |
+| Loại           | Mô tả                 |
+| --------------- | --------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của giao dịch |
 
 Nếu bạn đã triển khai hợp đồng, hãy sử dụng [klay_getTransactionReceipt](#klay_gettransactionreceipt) để lấy địa chỉ hợp đồng.
 
@@ -665,9 +665,9 @@ Các tham số bắt buộc phụ thuộc vào loại giao dịch. Kiểm tra c�
 
 **Giá trị trả về**
 
-| Loại           | Mô tả                |
-| --------------- | -------------------- |
-| DỮ LIỆU 32 byte | Mã băm của giao dịch |
+| Loại           | Mô tả                 |
+| --------------- | --------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của giao dịch |
 
 Nếu bạn đã triển khai hợp đồng, hãy sử dụng [klay_getTransactionReceipt](#klay_gettransactionreceipt) để lấy địa chỉ hợp đồng.
 
@@ -751,7 +751,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
-Xây dựng giao dịch với các tham số đã cho và ký giao dịch bằng khóa riêng của người trả phí. Phương pháp này có thể được sử dụng để tạo chữ ký của người trả phí hoặc để thực hiện giao dịch thô cuối cùng sẵn sàng gửi tới mạng Klaytn. Trong trường hợp bạn chỉ muốn trích xuất chữ ký của người nộp phí, chỉ cần lấy `feePayerSignatures` từ kết quả. Lưu ý rằng giao dịch `thô` không phải là giao dịch cuối cùng nếu chữ ký của người gửi không được đính kèm (nghĩa là `chữ ký` trong `tx` trống).
+Xây dựng giao dịch với các tham số đã cho và ký giao dịch bằng khóa riêng của người trả phí. Phương pháp này có thể được sử dụng để tạo chữ ký của người trả phí hoặc để thực hiện giao dịch thô cuối cùng sẵn sàng gửi tới mạng Klaytn. Trong trường hợp bạn chỉ muốn trích xuất chữ ký của người trả phí, chỉ cần lấy `feePayerSignatures` từ kết quả. Lưu ý rằng giao dịch `thô` không phải là giao dịch cuối cùng nếu chữ ký của người gửi không được đính kèm (nghĩa là `chữ ký` trong `tx` trống).
 
 **LƯU Ý**: Địa chỉ để ký của người trả phí phải được mở khóa.
 
@@ -845,9 +845,9 @@ Trả về dữ liệu neo được giải mã trong giao dịch cho hàm băm g
 
 **Tham số**
 
-| Loại           | Mô tả                     |
-| --------------- | ------------------------- |
-| DỮ LIỆU 32 byte | Mã băm của một giao dịch. |
+| Loại           | Mô tả                      |
+| --------------- | -------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một giao dịch. |
 
 **Giá trị trả về**
 
@@ -855,10 +855,10 @@ Trả về dữ liệu neo được giải mã trong giao dịch cho hàm băm g
 | ------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | BlockHash     | DỮ LIỆU 32 byte | Số băm của khối chuỗi con mà giao dịch neo này đã được thực hiện.                                                                                                                                       |
 | BlockNumber   | SỐ LƯỢNG        | Số khối chuỗi con mà giao dịch neo này đã được thực hiện.                                                                                                                                               |
-| ParentHash    | DỮ LIỆU 32 byte | Mã băm của khối lớn.                                                                                                                                                                                    |
-| TxHash        | DỮ LIỆU 32 byte | Gốc của trie giao dịch trong khối.                                                                                                                                                                      |
-| StateRootHash | DỮ LIỆU 32 byte | Gốc của trie trạng thái cuối của khối.                                                                                                                                                                  |
-| ReceiptHash   | DỮ LIỆU 32 byte | Gốc của trie biên lai giao dịch của khối.                                                                                                                                                               |
+| ParentHash    | DỮ LIỆU 32 byte | Hàm băm của khối cha.                                                                                                                                                                                   |
+| TxHash        | DỮ LIỆU 32 byte | Gốc của cây tiền tố giao dịch trong khối.                                                                                                                                                               |
+| StateRootHash | DỮ LIỆU 32 byte | Gốc của cây tiền tố trạng thái cuối của khối.                                                                                                                                                           |
+| ReceiptHash   | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                                                                                                        |
 | BlockCount    | SỐ LƯỢNG        | Số khối được tạo trong khoảng thời gian neo này. Trong hầu hết các trường hợp, con số này bằng với `SC_TX_PERIOD` của chuỗi con, ngoại trừ trường hợp giao dịch này là tx neo đầu tiên sau khi bật neo. |
 | TxCount       | SỐ LƯỢNG        | Số lượng giao dịch được tạo trong chuỗi con trong khoảng thời gian neo này.                                                                                                                             |
 
