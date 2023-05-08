@@ -73,7 +73,7 @@ $ mkdir -p ~/kscnd_home
 ```
 
 ### Khởi chạy khối khởi nguyên <a id="initialization-of-a-genesis-block"></a>
-After that, you can initialize the data directory with the genesis file. Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
+Sau đó, bạn có thể khởi tạo thư mục dữ liệu với tập tin khởi nguyên. Trước khi bắt đầu một nút chuỗi dịch vụ, cần sử dụng `kscn` và `genesis.json` để khởi chạy khối khởi nguyên của mạng lưới chuỗi dịch vụ.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -97,20 +97,20 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-### Install nodekey <a id="install_nodekey"></a>
-Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below.
+### Cài đặt khóa nút <a id="install_nodekey"></a>
+Sao chép `homi-output/keys/nodekey1` vào thư mục `klay` trong thư mục dữ liệu SCN như bên dưới.
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 ```
 
-## Configuration of the SCN <a id="configuration-of-the-scn"></a>
+## Cấu hình của SCN <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf` is the configuration file for the SCN.
+`kscnd.conf` là tập tin cấu hình cho SCN.
 
-Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`. In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
+Giả định rằng SCN sử dụng cổng mặc định và liên kết một vùng có quy mô lớn vào `~/kscnd_home`. Trong tập tin `kscnd.conf` mặc định, tùy chọn `SC_SUB_BRIDGE` bị vô hiệu hóa và `DATA_DIR` đang trống.
 ```
-# Configuration file for the kscnd
+# Tập tin cấu hình cho kscnd
 ...
 SC_SUB_BRIDGE=0
 ...
@@ -118,7 +118,7 @@ DATA_DIR=
 ...
 ```
 
-You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature. Also you should set the DATA_DIR like below.
+Bạn có thể bật `SC_SUB_BRIDGE` để sử dụng tính năng Neo/ Chuyển giá trị. Bạn cũng nên đặt DATA_DIR như dưới đây.
 
 ```
 # Configuration file for the kscnd
