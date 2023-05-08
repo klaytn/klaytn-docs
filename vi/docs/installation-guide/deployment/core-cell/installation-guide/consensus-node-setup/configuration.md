@@ -6,7 +6,7 @@ Cấu hình NĐT dùng để tạo thư mục dữ liệu và thiết lập các
 2. Cài đặt khóa nút
 3. Định cấu hình NĐT với `kcnd.conf`.
 
-## Việc tạo thư mục dữ liệu NĐT <a id="cn-data-directory-creation"></a>
+## Tạo thư mục dữ liệu NĐT <a id="cn-data-directory-creation"></a>
 
 Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
