@@ -1,31 +1,31 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../dapp/json-rpc/README.md).
+Nút điểm cuối thể hiện API JSON-RPC. Bạn có thể kích hoạt/vô hiệu hóa API như sau. Để biết thông số API chi tiết, vui lòng tham khảo [API JSON-RPC](../../../dapp/json-rpc/README.md).
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs you enable. By defaulti, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**LƯU Ý**: Việc cung cấp API qua giao diện HTTP (`rpc`) hoặc WebSocket(`ws`) sẽ cấp cho mọi người quyền truy cập vào các API có thể truy cập giao diện này (DApps, trình duyệt tab, v. v). Hãy thận trọng với những API bạn kích hoạt. Theo mặc định, Klaytn kích hoạt tất cả các API trên giao diện IPC (`ipc`) nhưng đối với `rpc` và `ws` các mô-đun bắt buộc phải được bật.
 
-## Enabling APIs  <a id="enabling-apis"></a>
+## Kích hoạt API  <a id="enabling-apis"></a>
 
-### From Commandline <a id="from-commandline"></a>
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api` command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+### Từ dòng lệnh <a id="from-commandline"></a>
+Để cung cấp API qua các điểm cuối Klaytn RPC, vui lòng chỉ định chúng bằng đối số dòng lệnh `--${interface}api` trong đó `${interface}` có thể là `rpc` cho điểm cuối HTTP hoặc `ws` cho điểm cuối WebSocket.
 
-`ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
+`ipc` cung cấp tất cả các API trên ổ cắm unix (Unix) hoặc điểm cuối ống dẫn có tên (Windows) mà không có bất kỳ cờ nào.
 
-You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+Bạn có thể khởi chạy nút Klaytn với các API cụ thể mà bạn muốn thêm như ví dụ bên dưới. Nhưng hãy nhớ rằng bạn không thể thay đổi API sau khi khởi chạy nút.
 
-Example) launching a Klaytn node with `klay` and `net` modules enabled:
+Ví dụ) khởi chạy một nút Klaytn có bật các mô-đun `klay` và `net`:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+Giao diện HTTP RPC phải được bật dứt khoát bằng cách sử dụng cờ `--rpc`.
 
-### Using Configuration <a id="using-configuration"></a>
+### Sử dụng cấu hình <a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../../operation-guide/configuration.md).
+Vui lòng cập nhật thuộc tính `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` trong  [Tập tin cấu hình](../../../operation-guide/configuration.md).
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## Truy vấn API đã kích hoạt <a id="querying-enabled-apis"></a>
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For example over an `rpc` interface:
+Để xác định API mà giao diện cung cấp, có thể gọi phương thức `mô-đun` JSON-RPC. Ví dụ: trên giao diện `rpc`:
 
 **IPC**
 
@@ -39,7 +39,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-baobab.klaytn.net
 ```
 
-will give all enabled modules including the version number:
+sẽ cung cấp cho bạn tất cả các mô-đun đã bật bao gồm cả số phiên bản:
 
 ```
 {
