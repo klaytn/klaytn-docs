@@ -33,10 +33,10 @@ Trả về số dư tài khoản của địa chỉ đã cung cấp.
 
 **Tham số**
 
-| Tên                  | Loại                               | Mô tả                                                                                                                                                                                       |
-| -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                  |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| Tên                  | Loại                               | Mô tả                                                                                                                                                                                         |
+| -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| địa chỉ              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                    |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
 **Giá trị trả về**
 
@@ -60,14 +60,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getCode <a id="eth_getcode"></a>
 
-Trả về mã ở địa chỉ đã cho.
+Trả về mã ở địa chỉ đã cấp.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                       |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                                     |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| Loại                              | Mô tả                                                                                                                                                                                         |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                                       |
+| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
 **Giá trị trả về**
 
@@ -92,14 +92,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Trả về số lượng giao dịch *gửi* từ một địa chỉ.
+Trả về số lượng giao dịch *đã gửi* từ một địa chỉ.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                       |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                     |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| Loại                              | Mô tả                                                                                                                                                                                         |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                       |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
 
 **Giá trị trả về**
 
