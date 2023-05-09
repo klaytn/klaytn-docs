@@ -1,5 +1,7 @@
 # caver-js
 
+![](../images/klaytnXcaver-js.png)
+
 `caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
 ## Features <a href="#features" id="features"></a>

@@ -2,7 +2,7 @@
 
 # introduction
 
-[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for[Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Klaytn without any significant modifications.
+[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Klaytn without any significant modifications.
 
 Thus, developers can leverage this compatibility and use the web3.js library to interact with a Klaytn node.
 
