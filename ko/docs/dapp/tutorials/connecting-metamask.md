@@ -1,5 +1,7 @@
 # 메타마스크 연동하기
 
+![](./img/klaytnXmetamask.png)
+
 > **참고**: 메타마스크는 이더리움 지갑으로 사용되지만, 동일한 주소 구조를 지닌 Klaytn과도 호환 가능합니다. Klaytn은 브라우저 익스텐션 지갑 [Kaikas](../developer-tools/#kaikas)도 지원합니다. 따라서 Remix를 제외하면 MetaMask와 거의 동일한 기능을 제공합니다.
 
 ## 1단계: 메타마스크 설치하기 <a href="#install-metamask" id="install-metamask"></a>
@@ -40,13 +42,13 @@
 
 ## 4단계: KLAY 보내기 <a href="#send-klay" id="send-klay"></a>
 
-**주의:** 다음 단계들은 KLAY를 필요로 합니다.
+**Note:** The following steps require KLAY.
 
 * 메인 페이지에서 [Send]를 누르고 수신자 주소 및 전송할 KLAY 수량을 입력합니다.
 
 ![Send KLAY 1](img/metamask-send-klay-1.png)
 
-**NOTE:** KLAY를 보내기 위해서는 트랜잭션을 발생시켜야 하며, 이 과정에서 KLAY가 소진됩니다.
+**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
 
 * Klaytn v1.9.0 이후로는 a [동적 가스비](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689)가 기존의 고정 가격 정책을 대체합니다.
 * 따라서 고정 가스비를 직접 설정할 필요가 없습니다.
