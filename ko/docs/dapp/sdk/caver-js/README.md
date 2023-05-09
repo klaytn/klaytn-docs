@@ -1,6 +1,8 @@
 # caver-js
 
-`caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
+![](../images/klaytnXcaver-js.png)
+
+`caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
 ## Features <a href="#features" id="features"></a>
 
@@ -16,7 +18,7 @@
 
 ## caver-js의 패키지 <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
-아래는 `caver-js`로 제공되는 패키지들입니다.
+Below are packages provided in `caver-js`.
 
 * [caver.account](api-references/caver.account.md)
 * [caver.wallet.keyring](api-references/caver.wallet/keyring.md)
@@ -32,9 +34,9 @@
 
 ## 오류 코드 개선 <a href="#error-code-improvement" id="error-code-improvement"></a>
 
-web3.js를 통한 Ethereum의 오류 메시지로는 오류가 발생한 위치를 거의 파악하지 못합니다. `caver-js`는 Klaytn에서 오류 메시지를 포착하도록 인터페이스를 개선합니다.
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
-자세한 내용은 아래와 같이 트랜잭션 영수증의 `txError` 값에서 찾을 수 있습니다:
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```
 Error: runtime error occurred in interpreter
