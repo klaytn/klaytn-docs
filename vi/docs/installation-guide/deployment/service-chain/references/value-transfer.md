@@ -103,11 +103,11 @@ Welcome to the Klaytn JavaScript console!
 For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains. Users can request a KLAY transfer to the bridge contract to send their KLAY to the other chain. Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains.
 
 ## Deployment <a id="deployment"></a>
-Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below. Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
+Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below. Trước khi làm vậy, bạn cần kết nối cầu nối chính và cầu nối con. Vui lòng tham chiếu [Cấu hình cầu nối](bridge-configuration.md) để biết hướng dẫn chi tiết.
 
 ```javascript
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
@@ -124,12 +124,12 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
     subscribed: false
 }]
 ```
-You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
+Bạn có thể tham chiếu [API cầu nối con](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) để biết thêm chi tiết.
 
-`subbridge_listBridge` shows the bridge contract addresses and their subscription status. Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file.
+`subbridge_listBridge` thể hiện địa chỉ hợp đồng cầu nối và trạng thái đăng ký của chúng. Cầu nối con lưu danh sách các địa chỉ hợp đồng cầu nối trong một tập tin. Khi khởi động lại hệ thống, cầu nối con tải lại danh sách hợp đồng cầu nối từ tập tin đó.
 
-## Subscribing <a id="subscribing"></a>
-After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `subbridge_subscribeBridge`.
+## Đăng ký <a id="subscribing"></a>
+Sau khi triển khai hợp đồng cầu nối, bạn nên đăng ký cầu nối con với các hợp đồng cầu nối đã triển khai để kích hoạt tính năng chuyển giá trị. Bạn có thể làm việc này bằng cách sử dụng một lệnh gọi RPC API khác, `subbridge_subscribeBridge`.
 
 ```javascript
 > subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
@@ -143,35 +143,35 @@ null
 }]
 ```
 
-## Checking Status <a id="checking-status"></a>
-Once subscribed, SCN processes users' "request value transfer" transactions automatically. This section explains how to check the bridge contract status.
+## Kiểm tra trạng thái <a id="checking-status"></a>
+Sau khi đăng ký, SCN sẽ tự động xử lý các giao dịch "yêu cầu chuyển giá trị" của người dùng. Phần này giải thích cách để kiểm tra trạng thái hợp đồng cầu nối.
 
-In a bridge contact, there are two nonces, `requestNonce` and `handleNonce`. Unlike in-chain transactions, the sub-bridge can handle a higher nonce request before the lower ones.
-- requestNonce : the number of user's "cross-chain value transfer" requests made to this bridge contract.
-- handleNonce : the highest nonce that the sub-bridge handled.
-- lowerHandleNonce : the lowest nonce that the sub-bridge should handle.
+Trong một hợp đồng cầu nối có hai số dùng một lần, `requestNonce` và `handleNonce`. Không giống như các giao dịch theo chuỗi, cầu nối con có thể xử lý yêu cầu số dùng một lần cao hơn trước những yêu cầu số dùng một lần thấp hơn.
+- requestNonce : số lượng yêu cầu "chuyển giá trị chuỗi chéo" của người dùng với hợp đồng cầu nối này.
+- handleNonce : số dùng một lần cao nhất mà cầu nối con đã xử lý.
+- lowerHandleNonce : số dùng một lần thấp nhất mà cầu nối con sẽ xử lý.
 
-Therefore, if nonces are updated as follows, we can say the cross-chain value-transfers are processed correctly.
-- "handleNonce" and "lowerHandleNonce" of the parent chain bridge contract keep approaching to the "requestNonce" of the child chain bridge contract.
-- "handleNonce" and "lowerHandleNonce" keep approaching to the "requestNonce" of the parent chain bridge contract.
+Do đó, nếu số dùng một lần được cập nhật như dưới đây, chúng ta có thể nói việc chuyển giá trị chuỗi chéo đang được xử lý chính xác.
+- "handleNonce" và "lowerHandleNonce" của hợp đồng cầu nối chuỗi mẹ liên tục tiến dần đến "requestNonce" của hợp đồng cầu nối chuỗi con.
+- "handleNonce" và "lowerHandleNonce" liên tục tiến dần đến "requestNonce" của hợp đồng cầu nối chuỗi mẹ.
 
-If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
+Nếu "handleNonce" bằng với "requestNonce" của hợp đồng cầu nối đối ứng và "lowerHandleNonce" lớn hơn "handleNonce" 1 đơn vị, khi đó tất cả các yêu cầu của người dùng đều đã được xử lý.
 
-### Log <a id="log"></a>
-Below is a typical log output from a SCN during normal operation. Every 1 second, the status of bridge contracts are printed.
+### Nhật ký <a id="log"></a>
+Dưới đây là đầu ra nhật ký điển hình từ SCN trong quá trình hoạt động thông thường. Trạng thái của các hợp đồng cầu nối được in ra mỗi giây.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
 INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
-This log shows the request, handle, lowerHandle, and pending nonces. Each value means like below
+Nhật ký này hiển thị request, handle, lowerHandle, and pending nonces. Mỗi giá trị có ý nghĩa như sau
 
-- request : the sum of value-transfer request nonce(s) of all subscribed bridge contract(s).
-- handle : the sum of upper handle nonce(s) of all subscribed bridge contract(s).
-- lowerHandle : the sum of lower handle nonce(s) of all subscribed bridge contract(s).
-- pending : the difference between `request` and `lowerHandle`.
+- request : tổng số dùng một lần yêu cầu chuyển giá trị của tất cả (các) hợp đồng cầu nối đã đăng ký.
+- handle : tổng số dùng một lần xử lý tối đa của tất cả (các) hợp đồng cầu nối đã đăng ký.
+- lowerHandle : tổng số dùng một lần xử lý tối thiểu của tất cả (các) hợp đồng cầu nối đã đăng ký.
+- pending : chênh lệch số lượng giữa `request` và `lowerHandle`.
 
 ### RPC API <a id="rpc-api"></a>
-You can check the status of a bridge contract like below. You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
+Bạn có thể kiểm tra trạng thái của hợp đồng cầu nối như sau. Bạn có thể tham chiếu [API cầu nối con](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) để biết thêm chi tiết.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -187,14 +187,14 @@ You can check the status of a bridge contract like below. You can refer to the [
 }
 ```
 
-# Token Contract (ERC-20/721) <a id="token-contract-erc-20-721"></a>
-Service Chain supports ERC-20/721 value transfer as well. To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains. For the ERC-20/721 token contract code, you can refer to the [Token standard](../../../../smart-contract/token-standard.md).
+# Hợp đồng token (ERC-20/721) <a id="token-contract-erc-20-721"></a>
+Chuỗi dịch vụ cũng hỗ trợ chuyển giá trị ERC-20/721. Để hỗ trợ, chuỗi dịch vụ tương thích với các hợp đồng token ERC-20/721 nên được triển khai trên cả chuỗi mẹ và chuỗi con. Đối với mã hợp đồng token ERC-20/721, bạn có thể tham chiếu [Tiêu chuẩn token](../../../../smart-contract/token-standard.md).
 
-## Deployment  <a id="deployment"></a>
-SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js. When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy. If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account.
+## Triển khai  <a id="deployment"></a>
+SCN hiện chưa hỗ trợ API triển khai các token ERC-20/721. Bạn cần triển khai các token này qua caver-js. Khi bạn triển khai hợp đồng ERC-20/721, bạn nên sử dụng đúng tài khoản toán tử cầu nối. Sử dụng tài khoản toán tử mẹ để triển khai chuỗi chính và tài khoản toán tử con để triển khai chuỗi dịch vụ. Nếu bạn dùng sai tài khoản để triển khai hợp đồng token, việc chuyển giá trị sẽ không hoạt động và bạn cần dùng đúng tài khoản để triển khai lại hợp đồng token.
 
-## Register  <a id="register"></a>
-After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
+## Đăng ký  <a id="register"></a>
+Sau khi triển khai hợp đồng token, bạn nên đăng ký hợp đồng đó với hợp đồng cầu nối trên các chuỗi mẹ/con như dưới đây.
 ```javascript
 > subbridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
 null
