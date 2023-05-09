@@ -3,11 +3,11 @@
 
 ## Tổng quan <a id="overview"></a>
 
-Đội ngũ Klaytn cung cấp một trang web để theo dõi Mạng lưới Core Cell Klaytn tại [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). Tác nhân giám sát `telegraf` được cài đặt trong mỗi NĐT/NP của CC để thu thập số liệu và gửi chúng đến máy chủ giám sát. Sau khi cài đặt, bạn có thể truy cập trang web giám sát để xem số liệu của CC Klaytn.
+Đội ngũ Klaytn cung cấp một trang web để theo dõi CCN Klaytn tại [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). Tác nhân giám sát `telegraf` được cài đặt trong mỗi CN/PN của CC để thu thập số liệu và gửi chúng đến máy chủ giám sát. Sau khi cài đặt, bạn có thể truy cập trang web giám sát để xem số liệu của CC Klaytn.
 
 Quá trình cài đặt như sau:
 
-1. Cài đặt `telegraf` trong NĐT/NP
+1. Cài đặt `telegraf` trong CN/PN
 2. Định cấu hình `telegraf`
 3. Bắt đầu `telegraf`
 
@@ -88,7 +88,7 @@ $ systemctl restart telegraf
 
 ## Grafana <a id="grafana"></a>
 
-Nếu mỗi NĐT/NP có cấu hình và tác nhân ở trên, bạn có thể kiểm tra các thông số tại URL sau:
+Nếu mỗi CN/PN có cấu hình và tác nhân ở trên, bạn có thể kiểm tra các thông số tại URL sau:
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
