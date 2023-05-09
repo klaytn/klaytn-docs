@@ -200,19 +200,19 @@ Sau khi triển khai hợp đồng token, bạn nên đăng ký hợp đồng đ
 null
 ```
 
-This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
+Lệnh này đăng ký token chuỗi con ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") với hợp đồng cầu nối chuỗi con ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). Và token chuỗi mẹ ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") với hợp đồng cầu nối chuỗi mẹ ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
-You can refer to the [Service Chain API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) for more details.
+Bạn có thể tham chiếu [API dịch vụ chuỗi](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) để biết thêm chi tiết.
 
-# Request Value Transfer <a id="request-value-transfer"></a>
-This section explains the contract methods that will be invoked by a user to request a value transfer. Request transaction does not allow zero value (KLAY/ERC-20).
+# Yêu cầu chuyển giá trị <a id="request-value-transfer"></a>
+Phần này giải thích về các phương pháp hợp đồng sẽ được người dùng gọi để yêu cầu chuyển giá trị. Yêu cầu giao dịch không cho phép giá trị bằng 0 (KLAY/ERC-20).
 
-## KLAY transfer <a id="klay-transfer"></a>
-Users can make a "request value transfer" transaction to the **bridge contract** using the below methods.
+## Chuyển KLAY <a id="klay-transfer"></a>
+Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá trị" sang **hợp đồng cầu nối** bằng cách sử dụng các phương pháp sau.
 
-### fallback <a id="fallback"></a>
+### dự phòng <a id="fallback"></a>
 
-If a user calls the fallback function of the bridge, this requests a KLAY transfer to the same account address as the requesting user in the counterpart chain.
+Nếu người dùng gọi hàm dự phòng của cầu nối, lệnh này yêu cầu chuyển KLAY tới cùng địa chỉ tài khoản của người dùng đưa ra yêu cầu ở chuỗi đối ứng.
 
 ```solidity
 function () external payable;
