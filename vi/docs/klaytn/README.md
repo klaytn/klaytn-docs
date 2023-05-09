@@ -1,31 +1,31 @@
 # Tổng quan <a id="overview"></a>
 
-Klaytin là một chuỗi khối công khai, dựa trên BFT, được tối ưu hóa cao nhằm đáp ứng độ tin cậy ở cấp doanh nghiệp. Các mục tiêu thiết kế là;
+Klaytin là một chuỗi khối công khai, dựa trên BFT, được tối ưu hóa cao nhằm đáp ứng độ tin cậy ở cấp doanh nghiệp. Các mục tiêu thiết kế chính là;
 
 - Tính hoàn thiện tức thời.
-- TPS cao đáp ứng các trường hợp sử dụng trong thế giới thực.
-- Cắt giảm chi phí chạy các ứng dụng chuỗi khối.
-- Hạ thấp các rào cản về gia nhập cho người dùng cuối.
-- Đơn giản hóa quá trình áp dụng công nghệ cho ngành.
+- TPS cao đáp ứng các trường hợp sử dụng trong thực tế.
+- Giảm chi phí chạy các ứng dụng chuỗi khối.
+- Giảm thiểu các rào cản tham gia cho người dùng cuối.
+- Đơn giản hóa quá trình áp dụng công nghệ trong ngành.
 
-Klaytn khởi chạy mạng lưới chính thức [Cypress](https://scope.klaytn.com/) của mình vào ngày 27 tháng 6 năm 2019 với các thông số kỹ thuật sau.
+Klaytn khởi chạy mạng chính thức [Cypress](https://scope.klaytn.com/) của mình vào ngày 27 tháng 6 năm 2019 với các thông số kỹ thuật sau.
 
 - Thời gian tạo và xác nhận khối 1 giây.
 - 4.000 giao dịch mỗi giây.
 - Giá gas thấp, gần bằng 1/10 Ethereum.
 - Chạy EVM (Máy ảo Ethereum) và hỗ trợ thực thi các hợp đồng Solidity.
-- 19 tập đoàn uy tín trên toàn thế giới đã thành lập Hội đồng quản trị Klaytn từ ban đầu nhằm vận hành các nút đồng thuận. Số lượng hiện tại của các nút đồng thuận được nêu trong [Klaytnscope](https://scope.klaytn.com/).
+- 19 tập đoàn uy tín trên toàn thế giới đã thành lập Hội đồng quản trị Klaytn từ ban đầu để vận hành các nút đồng thuận. Số lượng nút đồng thuận hiện tại được nêu trong [Klaytnscope](https://scope.klaytn.com/).
 - Hơn 50 đối tác dịch vụ ban đầu đã cam kết khởi chạy các ứng dụng chuỗi khối trên Klaytn.
 
 ## Klaytn: Bức tranh toàn cảnh <a id="klaytn-the-big-picture"></a>
 
-Klaytn có thể được phân vùng thành ba mạng con hợp logic dựa trên vai trò và mục đích của chúng. Hình dưới đây hiển thị chế động xem cấp cao của hệ sinh thái Klaytn.
+Klaytn có thể được phân vùng thành ba mạng con logic dựa trên vai trò và mục đích của chúng. Hình dưới đây hiển thị chế động xem cấp cao của hệ sinh thái Klaytn.
 
 ![Hệ sinh thái Klaytn và các mạng con logic (CNN, ENN, SCN)](images/klaytn_network_overview.png)
 
-### Mạng lưới Core Cell (CCN) <a id="core-cell-network-ccn"></a>
+### Mạng Core Cell (CCN) <a id="core-cell-network-ccn"></a>
 
-CCn có chứa các Core Cell (CC) xác thực và thực thi các giao dịch được gửi qua các Nút điểm cuối (EN). CCN chịu trách nhiệm tạo và truyền các khối xuyên suốt mạng lưới.
+CCN có chứa các Core Cell (CC) xác thực và thực thi các giao dịch được gửi qua các Nút điểm cuối (EN). CCN chịu trách nhiệm tạo và truyền các khối trong mạng.
 
 ### Mạng lưới nút điểm cuối (ENN) <a id="endpoint-node-network-enn"></a>
 
@@ -35,9 +35,9 @@ ENN bao gồm các Nút điểm cuối (EN) chủ yếu tạo giao dịch, xử 
 
 SCN là các mạng con của Klaytn có chứa các chuỗi khối phụ trợ được vận hành độc lập bởi dApp (Ứng dụng phi tập trung). Các chuỗi dịch vụ được kết nối với chuỗi chính thông qua các EN.
 
-**Mạng lưới Core Cell** và **Mạng lưới nút điểm cuối** tạo nên chuỗi chính của Klaytn, hay mạng lưới chính thức. Các ứng dụng chuỗi khối có thể chạy trên chuỗi chính của Klaytn, Cypress hoặc có thể vận hành trên các chuỗi khối của riêng chúng, được gọi là **Chuỗi dịch vụ**. Nếu bạn muốn có một môi trường thực thi riêng cho ứng dụng của mình, đảm bảo có TPS cao và các chính sách mạng lưới cấu hình được, chúng tôi khuyến khích bạn dùng Chuỗi dịch vụ.
+**Mạng Core Cell** và **Mạng lưới nút điểm cuối** tạo nên chuỗi chính của Klaytn, hay mạng chính thức. Các ứng dụng chuỗi khối có thể chạy trên chuỗi chính của Klaytn, Cypress hoặc có thể vận hành trên các chuỗi khối của riêng chúng, được gọi là **Chuỗi dịch vụ**. Nếu bạn muốn có một môi trường thực thi riêng cho ứng dụng của mình, đảm bảo có TPS cao và các chính sách mạng lưới cấu hình được, chúng tôi khuyến khích bạn nên dùng Chuỗi dịch vụ.
 
-> Để thiết lập một Chuỗi dịch vụ cho ứng dụng của mình, hãy đọc [hướng dẫn cài đặt và vận hành Chuỗi dịch vụ](./../installation-guide/deployment/service-chain/getting-started/README.md).
+> Để thiết lập một Chuỗi dịch vụ cho ứng dụng của mình, hãy đọc phần [hướng dẫn cài đặt và vận hành Chuỗi dịch vụ](./../installation-guide/deployment/service-chain/getting-started/README.md).
 
 ## Mô hình cấu trúc mạng Klaytn <a id="klaytn-network-topology"></a>
 
@@ -66,7 +66,7 @@ Nút ban đầu là một loại nút đặc biệt được Klaytn vận hành 
 
 CN, PN và EN lần lượt tạo thành các mạng logic, Mạng nút đồng thuận (CNN), Mạng nút proxy (PNN) và Mạng nút điểm cuối (ENN).
 
-Hình bên dưới hiển thị mô hình cấu trúc tổng thể của mạng lưới chính thức của Klaytn, trong đó mạng Core Cell (CCN) được chia nhỏ thành Mạng nút đồng thuận (CNN) và Mạng nút proxy (PNN).
+Hình bên dưới hiển thị mô hình cấu trúc tổng thể của mạng chính thức của Klaytn, trong đó mạng Core Cell (CCN) được chia nhỏ thành Mạng nút đồng thuận (CNN) và Mạng nút proxy (PNN).
 
 ![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
 
