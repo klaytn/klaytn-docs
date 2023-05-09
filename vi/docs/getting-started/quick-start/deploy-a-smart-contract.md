@@ -1,8 +1,8 @@
 # Triển khai hợp đồng thông minh <a id="deploy-a-smart-contract"></a>
 
-Giờ chúng ta đã sẵn sàng phát triển và triển khai các hợp đồng thông minh Klaytn!
+Đến đây, chúng ta đã sẵn sàng phát triển và triển khai các hợp đồng thông minh Klaytn!
 
-## Tạo một Thư mục dự án <a id="creating-a-project-directory"></a>
+## Tạo thư mục dự án <a id="creating-a-project-directory"></a>
 
 Trước tiên, hãy tạo một thư mục có chứa mã nguồn.
 
@@ -11,7 +11,7 @@ $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-## Đang khởi chạy Truffle <a id="initializing-truffle"></a>
+## Khởi chạy Truffle <a id="initializing-truffle"></a>
 
 Khởi chạy Truffle để triển khai hợp đồng.
 
@@ -19,7 +19,7 @@ Khởi chạy Truffle để triển khai hợp đồng.
 $ truffle init
 ```
 
-## Soạn một Hợp đồng thông minh đơn giản bằng Solidify <a id="writing-a-simple-smart-contract-in-solidity"></a>
+## Soạn một hợp đồng thông minh đơn giản bằng Solidify <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
 Tạo `KlaytnGreeter.sol` trong thư mục `klaytn-testboard/contracts`.
 
@@ -56,7 +56,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Sửa đổi Mã chuyển đổi <a id="modifying-the-migration-script"></a>
+## Sửa đổi tập lệnh di chuyển <a id="modifying-the-migration-script"></a>
 
 ```bash
 $ cd ..
@@ -75,11 +75,11 @@ module.exports = function(deployer) {
 };
 ```
 
-## Triển khai Hợp đồng thông minh bằng Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
+## Triển khai hợp đồng thông minh bằng Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
 
-Nhập thông tin mạng của Lkaytn vào truffle.js.
+Nhập thông tin mạng của Klaytn vào truffle.js.
 
-**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb \(**Kết quả trả về là lỗi nếu bạn thử dùng số khác**\).
+**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb \(**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**\).
 
 ```bash
 $ cd ..
@@ -111,7 +111,7 @@ module.exports = {
 
 Triển khai hợp đồng bằng lệnh sau.
 
-**LƯU Ý**: Sử dụng `--network` để chọn mạng lưới cần triển khai và `--reset` để ghi đè.
+**LƯU Ý**: Sử dụng `--network` để chọn mạng cần triển khai và `--reset` để ghi đè.
 
 **LƯU Ý**: Đảm bảo rằng nút Klaytn của bạn đang chạy.
 
