@@ -1,6 +1,8 @@
 # caver-js
 
-`caver-js` は、開発者が HTTP または WebSocket 接続を使用して Klaytn ノードと対話できるようにする JavaScript API ライブラリです。 [npm](https://www.npmjs.com/package/caver-js) で利用できます。
+![](../images/klaytnXcaver-js.png)
+
+`caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
 ## Features <a href="#features" id="features"></a>
 
@@ -16,7 +18,7 @@
 
 ## caver-js内のパッケージ <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
-以下は `caver-js` で提供されているパッケージです。
+Below are packages provided in `caver-js`.
 
 * [caver.account](api-references/caver.account.md)
 * [caver.wallet.keyring](api-references/caver.wallet/keyring.md)
@@ -32,9 +34,9 @@
 
 ## エラーコードの改善 <a href="#error-code-improvement" id="error-code-improvement"></a>
 
-Web3.js経由のEthereumからのエラーメッセージは、エラーが発生する場所をほとんど把握していません。 `caver-js` は Klaytn からのエラーメッセージをキャッチするためのインターフェイスを改善します。
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
-詳細については、以下のように、トランザクション受領の `txError` の値を参照してください。
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```
 Error: runtime error occurred in interpreter
@@ -56,17 +58,17 @@ Error: runtime error occurred in interpreter
 
 ## トランザクションをKlaytnに送信する際の注意 <a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytnは、 [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)を有効にしたマグマハードフォーク以来、新しいガス価格ポリシーを持っています。
+Klaytn has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
-したがって、ハードフォークが適用されるかどうかに応じて、トランザクションを送信する際に、 `gasPrice` ロジックを異なる方法で設定する必要があります。
+Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
 
-マグマハードフォークまで、Klaytnでの取引には「固定ガス価格」が適用されていました。 したがって、ネットワークに送信された他の価格の取引は拒否されます。 If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice](api-references/caver.rpc/klay.md#caver-rpc-klay-getgasprice) RPC call to set the gas price.
+Until the Magma hard fork, transactions on Klaytn have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice](api-references/caver.rpc/klay.md#caver-rpc-klay-getgasprice) RPC call to set the gas price.
 
-マグマハードフォークの後、Klaytnは「動的ガス料金の価格設定メカニズム」を使用します。 取引のガス価格は、Klaytnネットワークの基本料金よりも高くする必要があります。 If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
+After the Magma hard fork, Klaytn uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Klaytn network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
 
 ### gasPriceフィールドを設定する方法
 
-caver-jsは `gasPrice`を設定するためのさまざまな方法を提供します。 caver-jsを使用する場合の `gasPrice` フィールドの設定方法は以下のとおりです。 ここで説明する方法は、ハードフォークに関係なく使用できます。
+caver-js provides various ways to set the `gasPrice`. Ways to set the `gasPrice` field when using caver-js are suggested below. The methods described here can be used regardless of the hard fork.
 
 #### `gasPrice` フィールドを定義しない
 
@@ -79,7 +81,7 @@ await tx.sign(from, tx) // 署名する前に、 gasPrice is set inside `tx.sign
 
 #### `tx.fillTransaction` メソッドを使用する
 
-`tx.fillTransaction`を使用することができます。これは、トランザクションのオプションフィールドを省略したときに適切な値で埋める関数です。
+You can use `tx.fillTransaction`, a function that fills the optional fields of a transaction with appropriate values when they are omitted.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
@@ -88,7 +90,7 @@ await tx.fillTransaction() // Fill the optional tx fields.
 
 #### `tx.suggestGasPrice` メソッドを使用する
 
-`gasPrice` は、推奨されるガス価格を返す `tx.suggestGasPrice` の結果で設定できます。
+You can set the `gasPrice` with the result of `tx.suggestGasPrice` which returns the recommended gas price.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
