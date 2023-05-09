@@ -1,12 +1,12 @@
 ## Tham số khối mặc định <a id="the-default-block-parameter"></a>
 
-  Khi gửi một yêu cầu API chứa không gian tên `eth`, chiều cao khối được xác định bởi tham số `defaultBlock`.
+  Khi gửi một yêu cầu API chứa không gian tên `eth`, chiều cao khối do tham số `defaultBlock` xác định.
 
 Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
 - `HEX String` - số khối là số nguyên
 - `String "earliest"` cho khối sớm nhất/khởi nguyên
-- `String "latest"` - cho khối đào mới nhất
+- `String "latest"` - cho khối đã đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
 
 
@@ -47,9 +47,9 @@ Vui lòng xem phần [Lưu ý-Tiêu đề](./caution.md#block_header) trước k
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| SỐ LƯỢNG &#124; THẺ | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**
 
@@ -102,15 +102,15 @@ Vui lòng xem phần [Lưu ý-Tiêu đề](./caution.md#block_header) trước k
 
 **Giá trị trả về**
 
-`Object` - Đối tượng tiêu đề, hoặc `null` khi không tìm thấy tiêu đề. Nếu không sẽ trả về lỗi.
+`Object` - Đối tượng tiêu đề hoặc `null` khi không tìm thấy tiêu đề. Nếu không, hàm sẽ trả về lỗi.
 
 | Tên              | Loại             | Mô tả                                                                                                             |
 | ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi gas.                                                                                          |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi đơn vị gas.                                                                                   |
 | difficulty       | SỐ LƯỢNG         | Số nguyên chỉ độ khó của khối này.                                                                                |
 | extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                            |
-| gasLimit         | SỐ LƯỢNG         | Số gas tối đa cho phép trong khối này.                                                                            |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng của tất cả các giao dịch trong khối này.                                              |
+| gasLimit         | SỐ LƯỢNG         | Số đơn vị gas tối đa được phép trong khối này.                                                                    |
+| gasUsed          | SỐ LƯỢNG         | Tổng số đơn vị gas đã dùng của tất cả các giao dịch trong khối này.                                               |
 | hash             | DỮ LIỆU 32 byte  | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                |
 | logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối.                                                                            |
 | miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                        |
