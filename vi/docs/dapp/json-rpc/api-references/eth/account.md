@@ -124,14 +124,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sign <a id="eth_sign"></a>
 
-Phương thức ký tính toán chữ ký dành riêng cho Klaytn với hàm:
+Phương thức ký tính chữ ký dành riêng cho Klaytn bằng hàm:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Thêm tiền tố vào thông điệp giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn hành vi lạm dụng khi một ứng dụng phi tập trung chứa mã độc ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
+Thêm tiền tố vào thông điệp giúp chữ ký đã tính có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Việc này giúp ngăn chặn việc dùng một dApp (ứng dụng phi tập trung) độc hại để ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
 
-**LƯU Ý**: Địa chỉ để ký phải được mở khóa.
+**LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa.
 
 **Tham số**
 
