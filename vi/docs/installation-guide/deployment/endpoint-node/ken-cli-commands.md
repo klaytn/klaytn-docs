@@ -1,65 +1,65 @@
-# ken CLI commands <a id="ken-cli-commands"></a>
+# những câu lệnh CLI ken <a id="ken-cli-commands"></a>
 
-`ken` is a command-line interface for Klaytn Endpoint Node.
-
-```bash
-USAGE:
-   ken [options] command [command options] [arguments...]
-```
-
-## Commands <a id="commands"></a>
-
-`ken` has the following commands.
+`ken` là giao dịch dòng lệnh cho Nút điểm cuối Klaytn.
 
 ```bash
-COMMANDS:
-   account     Manage accounts
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
-   dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
-   init        Bootstrap and initialize a new genesis block
-   snapshot    A set of commands based on the snapshot
-   version     Show version number
-   help, h     Shows a list of commands or help for one command
+CÁCH SỬ DỤNG:
+   lệnh ken [options] [tùy chọn lệnh] [arguments...]
 ```
 
-To get a detailed usage guideline for each command, give `-h` option.
+## Lệnh <a id="commands"></a>
+
+`ken` có các lệnh sau.
+
+```bash
+LỆNH:
+   account     Quản lý tài khoản
+   attach      Bắt đầu một môi trường JavaScript tương tác (kết nối với nút)
+   console     Bắt đầu một môi trường JavaScript tương tác
+   dumpconfig  Hiển thị giá trị cấu hình
+   dumpgenesis Kết xuất cấu hình JSON của khối khởi nguyên sang stdout (Lệnh này được hỗ trợ từ Klaytn v1.7.0.)
+   init        Bootstrap và khởi tạo một khối khởi nguyên mới
+   snapshot    Một tập hợp các lệnh dựa trên thu thập dữ liệu
+   version     Hiển thị số phiên bản
+   help, h     Hiển thị danh sách các lệnh hoặc trợ giúp cho một lệnh
+```
+
+Để xem hướng dẫn sử dụng chi tiết cho từng lệnh, hãy chọn tùy chọn `-h`.
 
 ```bash
 $ ken account -h
-Manage accounts, list all existing accounts, import a private key into a new
-account, create a new account or update an existing account.
+Quản lý tài khoản, liệt kê tất cả các tài khoản hiện có, nhập khóa riêng tư vào tài khoản mới,
+tạo tài khoản mới hoặc cập nhật tài khoản hiện có.
  ...
-Keys are stored under <DATADIR>/keystore.
-It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+Khóa được lưu trữ dưới <DATADIR>/Lưu trữ khóa.
+Việc chuyển toàn bộ thư mục hoặc khóa riêng lẻ trong đó
+giữa các nút Klaytn chỉ là sao chép đơn thuần.
 
-Make sure you backup your keys regularly.
+Đảm bảo bạn sao lưu khóa thường xuyên.
 
-USAGE:
-   ken account command [command options] [arguments...]
+CÁCH SỬ DỤNG:
+   lệnh tài khoản ken [tùy chọn lệnh] [arguments...]
 
-COMMANDS:
-     list    Print summary of existing accounts
-     new     Create a new account
-     update  Update an existing account
-     import  Import a private key into a new account
+LỆNH:
+     list    In tóm tắt các tài khoản hiện có
+     new     Tạo tài khoản mới
+     update  Cập nhật tài khoản hiện có
+     import  Nhập khóa riêng tư vào tài khoản mới
 ```
 
 ```bash
 $ ken init -h
-init [command options] [arguments...]
+init [tùy chọn lệnh] [arguments...]
 
-The init command initializes a new genesis block and definition for the network.
-This is a destructive action and changes the network in which you will be
-participating.
+Lệnh init khởi tạo một khối khởi nguyên mới và định nghĩa cho mạng lưới.
+Đây là một hành động phá hoại và làm thay đổi mạng lưới mà bạn sẽ
+tham gia vào.
  ...
 ```
 
-## JavaScript Console <a id="javascript-console"></a>
+## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh bảng điều khiển, bạn có thể khởi tạo một phần của các cuộc gọi API Klaytn tới EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -72,16 +72,16 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.
+Lệnh `attach` kết nối với nút đang chạy, trong khi lệnh `console` khởi chạy một nút và kết nối với nút đó.
 
 ```bash
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
+   attach      Bắt đầu một môi trường JavaScript tương tác (kết nối với nút)
+   console     Bắt đầu một môi trường JavaScript tương tác
 ```
 
-### Module APIs <a id="module-apis"></a>
+### API mô-đun <a id="module-apis"></a>
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../../dapp/json-rpc/README.md).
+Nếu bạn nhập tên mô-đun trên dấu nhắc bảng điều khiển, bạn sẽ thấy các thuộc tính và chức năng có sẵn của mô-đun. Để biết chi tiết các chức năng, vui lòng tham khảo [API Klaytn](../../../dapp/json-rpc/README.md).
 
 ```javascript
 > personal
