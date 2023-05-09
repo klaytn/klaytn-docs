@@ -18,7 +18,7 @@ Token Soul-bound (SBT) là các NFT không thể chuyển nhượng. Nghĩa là 
 * Khám phá tính năng mô phỏng Hardhat.
 
 
-# 1. Điều kiện tiên quyết
+# Điều kiện tiên quyết
 
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
@@ -28,7 +28,7 @@ Token Soul-bound (SBT) là các NFT không thể chuyển nhượng. Nghĩa là 
 * KLAY để thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp quỹ cho tài khoản của bạn với một lượng KLAY vừa đủ.
 * [NodeJS và NPM](https://nodejs.org/en/)
 
-# 2. Thiết lập môi trường phát triển
+# Thiết lập môi trường phát triển
 
 Để tận dụng hardhat, chúng ta cần thiết lập môi trường phát triển và cài đặt hardhat. Ta có thể thực hiện bằng những bước sau:
 
@@ -346,12 +346,12 @@ npx hardhat run scripts/sbtDeploy.ts --network baobab
 
 # Mô phỏng Hardhat
 
-Hardhat cung cấp cho các nhà phát triển chức năng mô phỏng mạng lưới chính thức (tại bất kỳ khối cụ thể nào) thành mạng phát triển cục bộ. Một trong những lợi ích chính của tính năng này là nó cho phép các nhà phát triển tương tác với hợp đồng đã triển khai và cũng có thể thử nghiệm các trường hợp phức tạp.
+Hardhat cung cấp cho các nhà phát triển chức năng mô phỏng mạng chính thức (tại bất kỳ khối cụ thể nào) thành mạng phát triển cục bộ. Một trong những lợi ích chính của tính năng này là nó cho phép các nhà phát triển tương tác với hợp đồng đã triển khai và cũng có thể thử nghiệm các trường hợp phức tạp.
 
 Để tính năng này hoạt động hiệu quả, bạn cần kết nối với một nút lưu trữ. Bạn có thể đọc thêm về tính năng này [ở đây](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
 
-## Mô phỏng mạng lưới chính thức
-Dự án Hardhat của chúng ta đã được thiết lập, hãy cùng mô phỏng mạng lưới chính thức của Klaytn bằng Harhat.  Hãy mở giao diện dòng lệnh và chạy lệnh sau
+## Mô phỏng mạng chính thức
+Dự án Hardhat của chúng ta đã được thiết lập, hãy cùng mô phỏng mạng chính thức của Klaytn bằng Harhat.  Hãy mở giao diện dòng lệnh và chạy lệnh sau
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
@@ -390,7 +390,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 Kết quả đầu ra là một hệ thập lục phân như đã thấy ở trên. Để nhận số khối từ hex, hãy đổi hex thành số thập phân bằng [công cụ](https://www.rapidtables.com/convert/number/hex-to-decimal.html) này. Bạn sẽ nhận được số khối mới nhất từ lần bạn mô phỏng mạng lưới. Bạn có thể xác nhận số khối trên [klaytnscope](https://scope.klaytn.com/).
 
 ## Mô phỏng tại một khối
-Với hardhat, bạn có thể mô phỏng mạng lưới chính thức tại một khối cụ thể.  Trong trường hợp đó, hãy cùng mô phỏng chuỗi tại số khối `105701850`.
+Với hardhat, bạn có thể mô phỏng mạng chính thức tại một khối cụ thể.  Trong trường hợp đó, hãy cùng mô phỏng chuỗi tại số khối `105701850`.
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
