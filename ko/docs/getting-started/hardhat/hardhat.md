@@ -18,7 +18,7 @@ By the end of this guide you will be able to:
 * Explore Hardhat forking feature.
 
 
-# 1. Pre-requisites
+# Pre-requisites
 
 To follow this tutorial, the following are the prerequisites:
 
@@ -28,7 +28,7 @@ To follow this tutorial, the following are the prerequisites:
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 * [NodeJS and NPM](https://nodejs.org/en/)
 
-# 2. Setting Up Your Development Environment
+# Setting Up Your Development Environment
 
 To make use of hardhat, we need to set up our development environment and get hardhat installed. Let's do this in the following steps:
 
