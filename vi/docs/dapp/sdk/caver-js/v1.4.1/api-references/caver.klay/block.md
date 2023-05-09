@@ -4,7 +4,7 @@
 caver.klay.defaultBlock
 ```
 
-The default block is used for certain methods.  You can override it by passing in the defaultBlock as the last parameter.  The default value is `"latest"`.
+Khối mặc định được sử dụng cho các phương thức nhất định.  Bạn có thể ghi đè khối này bằng cách truyền vào defaultBlock như là tham số cuối cùng.  Giá trị mặc định là `"latest"`.
 
 - [caver.klay.getBalance()](./account.md#getbalance)
 - [caver.klay.getCode()](./account.md#getcode)
@@ -13,17 +13,17 @@ The default block is used for certain methods.  You can override it by passing i
 - [caver.klay.call()](./transaction.md#call)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 
-**Property**
+**Thuộc tính**
 
-Default block parameters can be one of the following:
+Tham số khối mặc định có thể là một trong các tham số sau:
 
-- Number: A block number
-- `"genesis"` - String: The genesis block
-- `"latest"` - String: The latest block (current head of the blockchain)
+- Số: Số khối
+- `"genesis"` - Chuỗi: Khối khởi nguyên
+- `"latest"` - Chuỗi: Khối mới nhất (tiêu đề hiện tại của chuỗi khối)
 
-Default is `"latest"`.
+Mặc định là `"latest"`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.defaultBlock;
@@ -39,19 +39,19 @@ Default is `"latest"`.
 caver.klay.getBlockNumber([callback])
 ```
 
-Returns the current block number.
+Trả về số khối hiện tại.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                           |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The number of the most recent block.
+`Promise` trả về `Number`: Số khối gần đây nhất.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getBlockNumber().then(console.log);
@@ -63,42 +63,42 @@ Returns the current block number.
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
 ```
-Returns a block matching the block hash or block number.
+Trả về khối khớp với hàm băm của khối hoặc số khối.
 
-**Parameters**
+**Tham số**
 
-| Name                     | Type                 | Description                                                                                                                                                  |
-| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, or `"latest"`.                                                                                    |
-| returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
-| callback                 | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| Tên                      | Loại           | Mô tả                                                                                                                                                                |
+| ------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber   | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                                                                              |
+| returnTransactionObjects | Logic           | (tùy chọn, mặc định `false`) Nếu giá trị là `true`, khối trả về sẽ chứa tất cả các giao dịch dưới dạng đối tượng, nếu là `false` thì chỉ chứa các hàm băm giao dịch. |
+| callback                 | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                      |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The block object:
+`Promise` trả về `Object` - Đối tượng của khối:
 
-| Name             | Type            | Description                                                                                                        |
-| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                            |
-| extraData        | String          | The "extra data" field of this block.                                                                              |
-| gasUsed          | Number          | The total used gas by all transactions in this block.                                                              |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                               |
-| hash             | 32-byte String  | Hash of the block. `null` when it is a pending block.                                                              |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                     |
-| number           | Number          | The block number. `null` when it is a pending block.                                                               |
-| parentHash       | 32-byte String  | Hash of the parent block.                                                                                          |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                        |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                               |
-| size             | Number          | Integer the size of this block in bytes.                                                                           |
-| stateRoot        | 32-byte String  | The root of the final state trie of the block.                                                                     |
-| timestamp        | Number          | The unix timestamp for when the block was collated.                                                                |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                         |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                     |
-| transactions     | Array           | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
-| transactionsRoot | 32-byte String  | The root of the transaction trie of the block.                                                                     |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                        |
+| Tên              | Loại            | Mô tả                                                                                                     |
+| ---------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
+| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Luôn luôn là 1 trong công cụ đồng thuận BFT                                             |
+| extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                    |
+| gasUsed          | Số              | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                      |
+| governanceData   | DỮ LIỆU         | Cấu hình quản trị được mã hóa RLP                                                                         |
+| hash             | Chuỗi 32 byte   | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                        |
+| logsBloom        | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                   |
+| number           | Số              | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                 |
+| parentHash       | Chuỗi 32 byte   | Hàm băm của khối cha.                                                                                     |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch của khối.                                                          |
+| reward           | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                |
+| size             | Số              | Số nguyên chỉ kích thước của khối này theo byte.                                                          |
+| stateRoot        | Chuỗi 32 byte   | Gốc của cây tiền tố trạng thái cuối của khối.                                                             |
+| timestamp        | Số              | Dấu thời gian unix khi khối được đối chiếu.                                                               |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                      |
+| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                             |
+| transactions     | Mảng            | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số `returnTransactionObjects`. |
+| transactionsRoot | Chuỗi 32 byte   | Gốc của cây tiền tố giao dịch trong khối.                                                                 |
+| voteData         | DỮ LIỆU         | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                      |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getBlock(19097).then(console.log);
@@ -129,21 +129,21 @@ Returns a block matching the block hash or block number.
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
 ```
-Returns a list of transaction receipts included in a block identified by the given block hash.
+Trả về danh sách các biên lai giao dịch được bao gồm trong khối được xác định bởi hàm băm của khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type     | Description                                                                                                |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHash | String   | Hash of a block.                                                                                           |
-| callback  | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | Loại | Mô tả                                                                                                           |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| blockHash | Chuỗi | Hàm băm của khối.                                                                                               |
+| callback  | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
+`Promise` trả về `Array` - Các biên lai được bao gồm trong một khối.  Nếu khối mục tiêu không chứa giao dịch, thì hệ thống sẽ trả về một mảng trống `[]`.
 
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getBlockReceipts('0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283').then(console.log);
@@ -186,20 +186,20 @@ Returns a list of transaction receipts included in a block identified by the giv
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
-Returns the number of transaction in a given block.
+Trả về số lượng giao dịch trong một khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name                   | Type                 | Description                                                                                                |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, or `"latest"`.                                        |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên                    | Loại           | Mô tả                                                                                                           |
+| ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | Chuỗi &#124; Số | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                                  |
+| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The number of transactions in the given block.
+`Promise` trả về `Number`: Số lượng giao dịch trong khối đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -213,41 +213,41 @@ Returns the number of transaction in a given block.
 caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 ```
 
-Returns a block with consensus information matched by the given block hash or block number.
+Trả về một khối có thông tin đồng thuận khớp với số khối hoặc hàm băm của khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name                   | Type                 | Description                                                                                                |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`.                                   |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên                    | Loại            | Mô tả                                                                                                           |
+| ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                         |
+| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
+`Promise` trả về `Object` - Một đối tượng khối với thông tin đồng thuận (bao gồm một người đề xuất và một danh sách các thành viên ủy ban) Đối tượng khối bao gồm:
 
-| Name             | Type            | Description                                                                                                                                           |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
-| committee        | Array           | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
-| extraData        | String          | The "extra data" field of this block.                                                                                                                 |
-| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                 |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                                                                  |
-| hash             | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                 |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                        |
-| number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                  |
-| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
-| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                    |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                           |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                  |
-| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                              |
-| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                        |
-| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                   |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                        |
-| transactions     | Array           | Array of transaction objects.                                                                                                                         |
-| transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                        |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                           |
+| Tên              | Loại           | Mô tả                                                                                                                                                      |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Luôn luôn là 1 trong công cụ đồng thuận BFT                                                                                              |
+| committee        | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
+| extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                                                                     |
+| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                      |
+| governanceData   | DATA            | RLP encoded governance configuration                                                                                                                       |
+| hash             | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                      |
+| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                             |
+| number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                       |
+| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                                  |
+| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                         |
+| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                                |
+| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                       |
+| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                                   |
+| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                             |
+| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                        |
+| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                                 |
+| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                             |
+| transactions     | Array           | Array of transaction objects.                                                                                                                              |
+| transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                             |
+| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                                |
 
 **Examples**
 ```javascript
