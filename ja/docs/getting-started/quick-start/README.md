@@ -1,5 +1,7 @@
 # Quick Start <a id="quick-start"></a>
 
+![](../images/klaytnXken.png)
+
 Before you start, let's get familiar with several Klaytn-specific terms.
 
 * **Endpoint Node \(EN\)**: A node that handles the JSON-RPC API requests to the Klaytn network. Endpoint Node does not participate in the consensus.
