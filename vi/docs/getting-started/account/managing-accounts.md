@@ -6,7 +6,7 @@ Lệnh này sẽ trả lại danh sách tất cả các tài khoản được t�
 
 ### ken <a id="ken"></a>
 
-Từ dòng lệnh, gọi CLI bằng:
+Từ dòng lệnh này, gọi ra CLI bằng:
 
 ```bash
 $ ken account list --datadir <DATADIR>
@@ -15,7 +15,7 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**LƯU Ý**: Thứ tự của danh sách tài khoản được trả về có thể thay đổi nếu bạn sao chép tập tin kho khóa từ các nút khác hoặc xóa các tập tin. Vì thế, hãy đảm bảo bạn không dựa vào chỉ mục này, hoặc đảm bảo rằng nếu đã sao chép hoặc xóa các tập tin kho khóa, bạn sẽ kiểm tra và cập nhật các chỉ mục tài khoản của mình trong mã lập trình.
+**LƯU Ý**: Thứ tự của danh sách tài khoản được trả về có thể thay đổi nếu bạn sao chép tập tin lưu trữ khóa từ các nút khác hoặc xóa các tập tin. Do đó, hãy đảm bảo bạn không dựa vào chỉ mục này, hoặc đảm bảo rằng nếu đã sao chép hoặc xóa các tập tin lưu trữ khóa, bạn sẽ kiểm tra và cập nhật các chỉ mục tài khoản vào các tập lệnh.
 
 ### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
@@ -28,11 +28,11 @@ Khi sử dụng bảng điều khiển:
 
 ## Mở khóa tài khoản <a id="unlock-accounts"></a>
 
-Nếu bạn muốn sử dụng một tài khoản theo cách không có tương tác, bạn cần phải mở khóa tài khoản.
+Nếu muốn sử dụng một tài khoản theo cách không tương tác, bạn cần phải mở khóa tài khoản.
 
 ### ken <a id="ken"></a>
 
-Bạn có thể mở khóa các tài khoản và bắt đầu EN trên dòng lệnh bằng tùy chọn `--unlock "{address},{address}"`, dòng lệnh này sẽ nhận danh sách tài khoản được phân tách bằng dấu phẩy \(ở dạng hex hoặc chỉ mục\) làm đối số để có thể mở khóa tài khoản theo chương trình cho một phiên. Việc này rất hữu ích nếu bạn muốn dùng tài khoản của mình từ dApp thông qua RPC. `--unlock` sẽ mở khóa tài khoản đầu tiên trong danh sách. Việc này rất hữu ích khi bạn đã tạo tài khoản của mình theo chương trình, bạn không cần biết tài khoản thực để có thể mở khóa.
+Bạn có thể mở khóa các tài khoản và bắt đầu EN trên dòng lệnh bằng tùy chọn `--unlock "{address},{address}"`, dòng lệnh này sẽ nhận danh sách tài khoản được phân tách bằng dấu phẩy \(ở dạng hex hoặc chỉ mục\) làm đối số để có thể mở khóa tài khoản theo chương trình cho một phiên. Việc này rất hữu ích nếu bạn muốn dùng tài khoản của mình từ dApp thông qua RPC. `--unlock` sẽ mở khóa tài khoản đầu tiên trong danh sách. Việc này rất hữu ích khi bạn đã tạo tài khoản theo chương trình, bạn không cần biết tài khoản thực để có thể mở khóa.
 
 Tạo một tài khoản và bắt đầu một nút với tài khoản đã mở khóa:
 
@@ -41,7 +41,7 @@ $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-Nếu bạn muốn bắt đầu một nút với một tài khoản đã mở khóa cụ thể, bạn có thể dùng một địa chỉ hoặc chỉ mục đề cập tới vị trí địa chỉ trong danh sách tài khoản \(và tương ứng với thứ tự được tạo ra\).
+Nếu bạn muốn bắt đầu một nút với một tài khoản cụ thể đã mở khóa, bạn có thể dùng một địa chỉ hoặc chỉ mục đề cập tới vị trí địa chỉ trong danh sách tài khoản \(và tương ứng với thứ tự được tạo\).
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -49,13 +49,13 @@ $ ken --unlock "2" --datadir <DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
-Dòng lệnh này cho phép bạn mở khóa nhiều tài khoản khác nhau. Trong trường hợp này, đối số để mở khóa là danh sách địa chỉ hoặc chỉ mục tài khoản được phân tách bằng dấu phẩy.
+Dòng lệnh này cho phép bạn mở khóa nhiều tài khoản. Trong trường hợp này, đối số để mở khóa là danh sách địa chỉ hoặc chỉ mục tài khoản được phân tách bằng dấu phẩy.
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
 ```
 
-Nếu cấu trúc này được sử dụng theo cách không có tương tác, tập tin mật khẩu của bạn sẽ phải chứa mật khẩu tương ứng cho các tài khoản cần dùng, mỗi mật khẩu một dòng.
+Nếu cấu trúc này được sử dụng theo cách không có tương tác, thì tập tin mật khẩu của bạn sẽ phải chứa mật khẩu tương ứng cho các tài khoản cần dùng, mỗi mật khẩu một dòng.
 
 ### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
@@ -65,7 +65,7 @@ Trên bảng điều khiển, bạn cũng có thể mở khóa các tài khoản
 > personal.unlockAccount(address, "password", 300)
 ```
 
-Hãy lưu ý là chúng tôi KHÔNG khuyến khích việc sử dụng đối số mật khẩu ở đây, vì lịch sử của bảng điều khiển được ghi lại, tài khoản của bạn có thể gặp rủi ro. Bạn đã được cảnh báo.
+Xin lưu ý là chúng tôi KHÔNG khuyến khích sử dụng đối số mật khẩu ở đây, vì lịch sử của bảng điều khiển được ghi lại, nên tài khoản của bạn có thể gặp rủi ro. Bạn đã được cảnh báo.
 
 ## Kiểm tra số dư tài khoản <a id="check-account-balance"></a>
 
@@ -101,7 +101,7 @@ function checkAllBalances() {
 };
 ```
 
-Sau đó lệnh này có thể được thực thi kèm:
+Sau đó lệnh này có thể được thực thi bằng:
 
 ```javascript
 > checkAllBalances();
@@ -111,14 +111,14 @@ klay.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
 klay.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
 ```
 
-Vì hàm này sẽ biến mất sau khi khởi động lại `ken`, có thể sẽ hữu ích nếu bạn lưu trữ các hàm thường dùng để sử dụng sau này.
+Vì hàm này sẽ biến mất sau khi khởi động lại `ken`, nên có thể sẽ hữu ích nếu bạn lưu trữ các hàm thường dùng để sử dụng sau này.
 
-Đầu tiên, hãy lưu định nghĩa hàm `checkAllBalances()` vào một tập tin trên máy tính. Ví dụ: `/Users/username/klayload.js`. Sau đó tải tập tin này từ bảng điều khiển tương tác:
+Đầu tiên, hãy lưu định nghĩa hàm `checkAllBalances()` vào một tập tin trên máy tính. Ví dụ, `/Users/username/klayload.js`. Sau đó tải tập tin này từ bảng điều khiển tương tác:
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-Tập tin sẽ thay đổi môi trường JavaScript của bạn như thể bạn đã nhập lệnh theo cách thủ công. Bạn cứ thoải mái thử nghiệm!
+Tập tin sẽ thay đổi môi trường JavaScript của bạn như thể bạn đã nhập lệnh theo cách thủ công. Bạn hãy cứ thoải mái thử nghiệm!
 
