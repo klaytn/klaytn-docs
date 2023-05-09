@@ -1,12 +1,14 @@
 # Connecting Remix
 
+![](./img//klaytnXremix.png)
+
 ## 리믹스(Remix)란? <a href="#what-is-remix" id="what-is-remix"></a>
 
-Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 리믹스와 클레이튼의 연동에 대해서만 다루고 있습니다. 리믹스에 대한 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 [**Remix IDE**](https://remix.ethereum.org/) 사용법을 참고하시기 바랍니다.
+Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
 
 ## EVM 버전 설정하기 <a href="#setup-evm-version" id="setup-evm-version"></a>
 
-클레이튼은 솔리디티로 작성된 컨트랙트를 지원하며, EVM의 **London** 버전과 호환됩니다. 클레이튼은 솔리디티 버전 0.8.x 이하를 지원합니다. 클레이튼에 컨트랙트를 배포하기 위해서는 컨트랙트가  **London** EVM 버전으로 컴파일되어야 합니다.
+Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
 
 * **solidity compiler**를 클릭한 후 **London** EVM 버전을 선택해주세요'.
 
@@ -14,7 +16,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 ## 로컬 플러그인 연동하기 <a href="#connect-to-a-local-plugin" id="connect-to-a-local-plugin"></a>
 
-리믹스를 사용해 클레이튼 네트워크에 연결하기 위해서는 로컬 플러그인이 필요합니다. 그 프로세스는 아래와 같이 설명됩니다.
+You need a local plugin to connect to the Klaytn network using Remix. The process is described in the following:
 
 * **plugin manager**를 클릭한 뒤 **Connect to a Local Plugin**를 클릭하세요.
 
@@ -83,7 +85,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 ## 튜토리얼: KlaytnGreeter 컨트랙트 <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
 
-[**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) 샘플 컨트랙트를 이용합니다.
+We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
 * KlaytnGreeter.sol 파일을 추가하고 테스트할 코드를 작성합니다.
 
