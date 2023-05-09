@@ -142,7 +142,7 @@ Hiện tại, chúng tôi không hỗ trợ các trình quản lý gói khác. M
 
 ## Sơ lược về việc gửi KLAY
 
-Phần này mô tả một ví dụ đơn giản về việc sử dụng `tập tin kho khóa` để gửi KLAY với một giao dịch chuyển nhượng giá trị. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+Phần này mô tả một ví dụ đơn giản về việc sử dụng `tập tin kho khóa` để gửi KLAY với một giao dịch chuyển nhượng giá trị. Tập tin kho khóa có thể được tạo ra trong [Ví Klaytn](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Nếu bạn cần KLAY để thử nghiệm, bạn có thể nhận KLAY dùng trong mạng thử nghiệm Baobab từ [Ví Klaytn](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
@@ -186,20 +186,20 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 ```
 
 
-## Starting with caver-java <a id="starting-with-caver-java"></a>
+## Bắt đầu với caver-java <a id="starting-with-caver-java"></a>
 
-### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+### Kết nối với một Nút Klaytn <a id="connecting-to-a-klaytn-node"></a>
 
-If you are running an EN, you can connect it to your own node by changing the host and port like below:
+Nếu bạn đang chạy một EN, bạn có thể kết nối nó với nút của riêng mình bằng cách thay đổi máy chủ và cổng như dưới đây:
 
 ```java
 Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## Quản lý Keyring <a id="managing-keyrings"></a>
 
-`Keyring` is a structure that contains the address of the Klaytn account and the private key(s).
+`Keyring` là một cấu trúc chứa địa chỉ của một tài khoản Klaytn và (các) khóa riêng tư.
 
 `Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
 
