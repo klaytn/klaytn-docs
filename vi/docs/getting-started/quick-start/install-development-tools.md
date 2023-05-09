@@ -2,7 +2,7 @@
 
 ## Cài đặt caver-js <a id="installing-caver-js"></a>
 
-Chúng tôi khuyên bạn nên tạo ra một thư mục dự án klaytn để:
+Chúng tôi đề nghị bạn nên tạo một thư mục dự án klaytn để:
 
 ```bash
 $ mkdir $HOME/klaytn
@@ -10,14 +10,14 @@ $ mkdir $HOME/klaytn
 
 > Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-[caver-js](../../dapp/sdk/caver-js/README.md) là khung RPC JSON cho mạng Klaytn \(tương đương với to web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
+[caver-js](../../dapp/sdk/caver-js/README.md) là khung RPC JSON dành cho mạng Klaytn \(tương đương với web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
 $ npm install caver-js
 ```
 
-**LƯU Ý**: Nếu bạn đã cài đặt caver-js, vui lòng cập nhật thành phiên bản mới nhất.
+**LƯU Ý**: Nếu bạn đã cài đặt caver-js, vui lòng cập nhật lên phiên bản mới nhất.
 
 ```bash
 $ npm cache clean --force # initialize npm cache
@@ -55,7 +55,7 @@ Trong bài hướng dẫn này, Truffle được sử dụng để lập và tri
 
 Chúng ta có thể cài đặt Truffle theo hai cách
 
-1\) theo cách toàn diện bằng npm, thực thi các lệnh sau:
+1\) theo cách toàn cục bằng npm, thực thi các lệnh sau:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -78,16 +78,16 @@ $ ln -s node_modules/truffle/build/cli.bundled.js truffle
 $ export PATH=`pwd`:$PATH
 ```
 
-## Đang cài đặt vvisp <a id="installing-vvisp"></a>
+## Cài đặt vvisp <a id="installing-vvisp"></a>
 
-vvisp là một công cụ/khung làm việc cli dễ sử dụng để phát triển các hợp đồng thông minh, được cung cấp bởi [HEACHI LABS](https://henesis.io/). Bạn có thể dễ dàng đặt môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ khung làm việc Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể sử dụng vvisp mà không gặp khó khăn gì.
+vvisp là một công cụ/khung làm việc cli dễ sử dụng để phát triển các hợp đồng thông minh, do [HEACHI LABS](https://henesis.io/) cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ khung làm việc Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể dễ dàng sử dụng vvisp.
 
-Ở đây, chúng tôi giới thiệu cách để cài đặt vvisp và dùng nó để thiết lập môi trường phát triển Klaytn dApp.
+Ở đây, chúng tôi giới thiệu cách cài đặt vvisp và sử dụng công cụ này để thiết lập môi trường phát triển Klaytn dApp.
 
-* kho vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+* kho lưu trữ vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
 * tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
-vvisp có thể dễ dàng được cài đặt nếu bạn có npm hoặc yarn bằng cách thực thi lệnh sau:
+bạn có thể dễ dàng cài đặt vvisp nếu có npm hoặc yarn bằng cách thực thi lệnh sau:
 
 ```bash
 $ npm install -g @haechi-labs/vvisp
@@ -95,7 +95,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-Khi cài đặt xong, bạn có thể sử dụng lệnh vvisp để đảm bảo nó đã được cài đặt đúng cách. **LƯU Ý**: Bạn nên sử dụng phiên bản cao hơn **v2.1.0**.
+Sau khi cài đặt xong, bạn có thể sử dụng lệnh vvisp để đảm bảo công cụ này đã được cài đặt đúng cách. **LƯU Ý**: Bạn nên sử dụng phiên bản cao hơn **v2.1.0**.
 
 ```bash
 $ vvisp
