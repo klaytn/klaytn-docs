@@ -110,7 +110,9 @@ To check if your test works fine, run the following command:
 ```bash
 forge test
 ```
-**Output** ![](./../images/foundry/forge-test.png)
+**Output**
+
+![](./../images/foundry/forge-test.png)
 
 To learn more about writing tests, advanced testing, and other features, refer to [Foundry's documentation](https://book.getfoundry.sh/forge/tests).
 
