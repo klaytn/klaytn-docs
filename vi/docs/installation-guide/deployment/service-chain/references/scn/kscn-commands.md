@@ -1,1 +1,1 @@
-# kscn commands
+# các lệnh kscn
