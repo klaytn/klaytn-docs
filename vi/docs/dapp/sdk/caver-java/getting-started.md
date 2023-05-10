@@ -201,36 +201,36 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `Keyring` là một cấu trúc chứa địa chỉ của một tài khoản Klaytn và (các) khóa riêng tư.
 
-`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+`Keyring` có thể được phân thành ba loại tùy theo loại khóa được lưu trữ: `SingleKeyring` lưu trữ một địa chỉ và một khóa riêng tư, `MultipleKeyring` lưu trữ một địa chỉ và nhiều khóa riêng tư, và `RoleBasedKeyring` lưu trữ một địa chỉ và một hoặc nhiều khóa riêng tư cho từng vai trò.
 
-`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+`SingleKeyring` xác định thuộc tính `key` bên trong, và `key` này chứa một khóa riêng tư.
 
-`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+`MultipleKeyring` xác định thuộc tính `keys` bên trong, và `keys` này được triển khai dưới dạng một mảng để chứa nhiều khóa riêng tư.
 
-The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+Thuộc tính `keys` được xác định trong `RoleBasedKeyring` được triển khai dưới dạng một đối tượng Danh sách gồm 3 mảng chứa (các) khóa riêng tư như các phần tử trong đó (thuộc tính `keys` trống sẽ trông như thế này `[ [], [], [] ]`), như vật, nó có thể chứa nhiều khóa cho từng `role`. Phần tử đầu tiên của mảng này chứa (các) khóa riêng tư để sử dụng cho `roleTransactionKey`, phần tử thứ hai là (các) khóa riêng tư để sử dụng cho `roleAccountUpdateKey`, và phần tử thứ ba là (các) khóa riêng tư để dùng cho `roleFeePayerKey`.
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### Tạo một Keyring <a id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### Tạo một SingleKeyring <a id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+Bạn có thể tạo ngẫu nhiên một keyring đơn lẻ như dưới đây.
 
 ```java
 SingleKeyring keyring = caver.wallet.keyring.generate();
 ```
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### Tạo một SingleKeyring từ khóa riêng tư <a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+Ngoài ra, nếu bạn sở hữu một khóa riêng tư cụ thể, bạn có thể sử dụng khóa này để tạo một keyring như bên dưới.
 
 ```java
 String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
 ```
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### Tạo một SingleKeyring bằng một khóa riêng tư và một địa chỉ <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+Nếu khóa riêng tư cho tài khoản Klaytn của bạn được tách rời khỏi địa chỉ, bạn có thể tạo một keyring bằng địa chỉ đã cho và khóa riêng tư đã cho như dưới đây.
 
 ```java
 String address = "0x{address in hex}";
@@ -238,16 +238,16 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address, privateKey);
 ```
 
-Also, you can derive SingleKeyring instance from Klaytn wallet key.
+Ngoài ra, bạn có thể lấy phiên bản SingleKeyring từ khóa của ví Klaytn.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### Tạo một MultipleKeyring bằng nhiều khóa riêng tư <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
+Nếu bạn muốn dùng nhiều khóa riêng tư, bạn có thể tạo một `MultipleKeyring` bằng một địa chỉ và nhiều khóa riêng tư. Các ví dụ dưới đây cho thấy cách để tạo ra một `MultipleKeyring` bằng nhiều khóa riêng tư.
 
 ```java
 String address = "0x{address in hex}";
@@ -255,9 +255,9 @@ String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}
 MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray);
 ```
 
-#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### Tạo một RoleBasedKeyring bằng các khóa riêng tư <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each `role`, `caver.wallet.keyring.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+Để sử dụng (các) khóa riêng tư cho từng `role`, `caver.wallet.keyring.createWithRoleBasedKey` sẽ được dùng. Mỗi phần tử trong mảng thể hiện một vai trò được mô tả trong `RoleBasedKeyring`. Ví dụ dưới đây cho thấy cách để tạo ra một phiên bản `RoleBasedKeyring` từ các khóa khác nhau cho từng vài trò.
 
 
 ```java
@@ -286,9 +286,9 @@ String[][] privateKeyArr = new String[][] {
 RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
-### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
+### Thêm các Keyring vào caver-java từ một chuỗi json lưu trữ khóa.<a id="adding-keyrings-to-caver-java"></a>
 
-You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
+Bạn có thể sử dụng một keyring dễ dàng hơn bằng cách thêm nó vào ví trong bộ nhớ được caver-java cung cấp. Các ví dụ dưới đây mình họa các để thêm một keyring vào `caver.wallet` bằng một chuỗi tập tin JASON lưu trữ khóa được tạo ra bởi [Ví Klaytn](https://wallet.klaytn.com/).
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -335,9 +335,9 @@ address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
 key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 ```
 
-Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+Nhìn vào kết quả đầu ra ở trên, bạn có thể truy vấn keyring của mình từ `caver.wallet` sau khi thêm nó vào `caver.wallet`.
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
+Nếu bạn có một địa chỉ và (các) khóa riêng tư để dùng, bạn có thể dễ dàng tạo ra một keyring và trực tiếp thêm nó vào caver.wallet thông qua caver.wallet.newKeyring.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -381,35 +381,35 @@ String[][] privateKeyArr = new String[][] {
 AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
 ```
 
-When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
+Khi `caver.wallet.newKeyring` được thực thi với một khóa riêng tư, một phiên bản Keyring với một khóa riêng tư sẽ được tạo ra và thêm vào `caver.wallet`. Đối với nhiều khóa riêng tư, một phiên bản Keyring với nhiều khóa riêng tư sẽ được tạo ra và thêm vào `caver.wallet`. Khi dùng một mảng chuỗi 2D làm dữ liệu đầu vào, bao gồm một hoặc nhiều khóa riêng tư cho mỗi vai trò với tư cách là một phần tử, một phiên bản Keyring có chứa (các) khóa riêng tư khác nhau cho từng vai trò sẽ được tạo ra, và cũng được thêm vào `caver.wallet`.
 
 
-`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+`caver.wallet.add` hoặc `caver.wallet.newKeyring` trả về một phiên bản Keyring sau khi đã thêm nó vào `caver.wallet`.
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## Gửi giao dịch <a id="sending-a-transaction"></a>
 
-This section will show you how to send KLAY using caver-java on the Baobab network.
+Phần này sẽ hướng dẫn bạn các để gửi KLAY bằng caver-java trên mạng Baobab.
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Nhận KLAY qua Vòi Baobab <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+Nếu bạn cần KLAY để thử nghiệm, bạn có thể nhận KLAY dùng trong mạng thử nghiệm Baobab từ [Ví Klaytn](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Hãy đăng nhập vào Ví Wallet bằng khóa riêng tư hoặc tập tin lưu trữ khóa, và nhận KLAY dùng cho mạng thử nghiệm Baobab qua vòi để thử nghiệm.
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### Gửi một giao dịch chuyển giá trị <a id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
+Bạn có thể sử dụng ví caver-wallet để tạo chữ ký của giao dịch. Bạn sẽ phải thực hiện hai bước dưới đây để gửi giao dịch tới mạng lưới.
 
-1. Sign a transaction
-    - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
-    - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
+1. Ký giao dịch
+    - Nếu keyring mà bạn muốn dùng đã được thêm vào `caver.wallet`, bạn có thể dùng hàm `caver.wallet.sign` để ký.
+    - Nếu bạn quản ký keyring riêng biệt và không thêm nó vào `caver.wallet`, bạn có thể ký giao dịch thông qua hàm `transaction.sign`.
+2. Gửi chuỗi mã hóa RLP của giao dịch đã ký tới Klaytn qua `caver.rpc.klay.sendRawTransaction`.
 
-**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
+**Lưu ý:** Người gửi phải có đủ lượng KLAY để chuyển và trả phí giao dịch.
 
-#### Sign a transaction
+#### Ký giao dịch
 
-Before sending a transaction to Klaytn, you should sign a transaction first.
+Trước khi gửi một giao dịch tới Klaytn, bạn phải ký giao dịch trước.
 
-Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
+Dưới đây là ví dụ về cách ký một giao dịch trong trường hợp một keyring đã được thêm vào `caver.wallet`.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -433,17 +433,17 @@ String rlpEncoded = valueTransfer.getRLPEncoding();
 System.out.println("RLP-encoded string: " + rlpEncoded)
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+Mã trên thêm một keyring vào `caver.wallet`, tạo ra một giao dịch và ký giao dịch đó qua `caver.wallet.sign`.
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên đã được thực thi, chuỗi mã hóa RLP của giao dịch sẽ hiển thị dưới đây. (Kết quả chuỗi mã hóa RLP mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the Klaytn
+#### Gửi chuỗi mã hóa RLP của giao dịch đã ký tới Klaytn
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
+Giờ bạn có thể gửi một giao dịch đã ký tới mạng lưới như dưới đây. Nếu bạn muốn chạy thử ví dụ dưới đây, hãy thay thế "rlpEncoding" bằng giá trị của `rlpEncoded` trong mã bên trên.
 
 ```java
 public String sendRawTransaction() {
@@ -468,7 +468,7 @@ public String sendRawTransaction() {
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+Nếu bạn muốn ký một giao dịch và gửi nó tới mạng lưới mà không cần `caver.wallet`, hãy xem ví dụ bên dưới.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -504,17 +504,17 @@ try {
 }
 ```
 
-When the above code is executed, the transaction hash (txHash) is printed like the example below.
+Khi mã trên được thực thi, hàm băm của giao dịch (txHash) được hiển thị ra màn hình như ví dụ dưới đây.
 
 ```bash
 Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
 ```
 
-### Checking Receipts <a id="checking-receipts"></a>
+### Kiểm tra biên lai <a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
+Bạn có thể dùng `TransactionReceiptProcessor` để nhận biên lai của giao dịch khi chuyển giao dịch đó tới Klaytn bằng `caver.rpc.klay.sendRawTransaction`.
 
-The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
+Ví dụ dưới đây cho thấy cách để nhận biên lai bằng PollingTransactionReceiptProcessor.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -532,9 +532,9 @@ try {
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object.
+Như mô tả trong ví dụ trên, bạn có thể nhận được kết quả của việc gửi giao dịch thông qua TransactionReceiptProcessor. Trường `transactionHash` được xác định bên trong đối tượng biên lai.
 
-You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
+Bạn có thể dùng phương pháp gọi RPC `caver.rpc.klay.getTransactionReceipt` kèm theo chuỗi `txHash` để truy vấn biên lai của một giao dịch vào bất kỳ lúc nào từ mạng lưới sau khi giao dịch đã được đưa vào một khối. Ví dụ dưới đây cho thấy cách để lấy biên lai bằng cách gọi RPC `caver.rpc.klay.getTransactionReceipt`.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -554,16 +554,16 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
+Bạn có thể tìm thấy kết quả của giao dịch qua `status` của biên lai. Để biết thêm chi tiết về các giá trị trả về, hãy xem `caver.rpc.klay.getTransactionReceipt`. Nếu một giao dịch thất bại, bạn có thể kiểm tra thêm thông tin về lỗi tại `txError` của biên lai. Để biết thêm thông tin về `txError`, hãy xem [txError: Thông tin chi tiết về các lỗi giao dịch](../../json-rpc/transaction-error-codes.md).
 
 
-## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
+## Thực thi các loại giao dịch khác <a id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-java.
+Klaytn cung cấp nhiều loại giao dịch đa dạng để đẩy mạnh khả năng mở rộng và hiệu suất. Để biết thêm thông tin, hãy xem [Giao dịch](../../../klaytn/design/transactions/README.md). Mục này mô tả một số ví dụ mà bạn có thể sử dụng với caver-java.
 
-### Fee Delegation <a id="fee-delegation"></a>
+### Ủy thác phí <a id="fee-delegation"></a>
 
-Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn cung cấp tính năng Ủy thác phí. Đây là một ví dụ về việc thực hiện một giao dịch mã hóa RLP khi bạn là người gửi loại giao dịch này:
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -583,13 +583,13 @@ String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
 System.out.println(rlpEncoded);
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+Khi mã trên được thực thi, chuỗi mã hóa RLP sẽ được hiển thị ra màn hình. (Kết quả chuỗi mã hóa RLP mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
 
 ```bash
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+Người trả phí có thể gửi giao dịch tới Klaytn sau khi đính kèm `feePayerSignatures` vào chuỗi mã hóa RLP (`rawTransaction`) được ký bởi người gửi giao dịch. Nếu `caver.wallet` cũng có keyring của người trả phí, chữ ký của người trả phí có thể được đưa vào `feeDelegatedTx` bằng cách gọi `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Nếu không, người trả phí sẽ phải tạo `feeDelegatedTx` từ chuỗi mã hóa RLP được người gửi ký, sau đó thêm chữ ký của người trả phí vào đó như được minh họa dưới đây. Nếu bạn muốn chạy thử ví dụ bên dưới, hãy thay thế `0x{RLP-encoded string}` bằng giá trị của `rlpEncoded` ở trên.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -606,7 +606,7 @@ caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTrans
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
-When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+Khi mã trên được thực thi, chuỗi mã hóa RLP bao gồm cả chữ ký của người gửi và người trả phí sẽ hiển thị ra màn hình như dưới đây. (Kết quả mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
 
 ```bash
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
