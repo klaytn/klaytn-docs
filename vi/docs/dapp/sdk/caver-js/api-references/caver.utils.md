@@ -4,7 +4,7 @@ description: caver-js utility APIs.
 
 # caver.utils
 
-`caver.utils` provides utility functions.
+`caver.utils` cung cấp các hàm tiện ích.
 
 ## randomHex <a href="#randomhex" id="randomhex"></a>
 
@@ -12,11 +12,11 @@ description: caver-js utility APIs.
 caver.utils.randomHex(size)
 ```
 
-The [randomHex](https://github.com/frozeman/randomHex) library to generate cryptographically strong pseudo-random HEX strings from a given byte size.
+Thư viện [randomHex](https://github.com/frozeman/randomHex) để tạo các chuỗi HEX giả ngẫu nhiên được mật mã mạnh mẽ từ một kích thước byte nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                                                                               |
+| Tên  | Type   | Description                                                                                                               |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | size | number | The byte size for the HEX string, _e.g._, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
 
@@ -120,7 +120,7 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 | ------- | --------------------------------------------------------------------------------- |
 | boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var number = new caver.utils.BN(10)
@@ -134,21 +134,21 @@ true
 caver.utils.isBigNumber(bignumber)
 ```
 
-Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance.
+Kiểm tra xem một giá trị đã cho có phải là phiên bản [BigNumber.js](http://mikemcl.github.io/bignumber.js/) hay không.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                        |
-| --------- | ------ | ------------------------------------------------------------------ |
-| bignumber | object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
+| Tên       | Loại     | Mô tả                                                                 |
+| --------- | --------- | --------------------------------------------------------------------- |
+| bignumber | đối tượng | Một phiên bản [BigNumber.js](http://mikemcl.github.io/bignumber.js/). |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type    | Description                                           |
-| ------- | ----------------------------------------------------- |
-| boolean | `true` if a given value is a `BigNumber.js` instance. |
+| Loại   | Mô tả                                                  |
+| ------- | ------------------------------------------------------ |
+| boolean | `đúng` nếu giá trị đã cho là phiên bản `BigNumber.js`. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var number = new caver.utils.BigNumber(10)
@@ -163,23 +163,23 @@ caver.utils.sha3(str)
 caver.utils.keccak256(str) // ALIAS
 ```
 
-Calculates the sha3 of the input.
+Tính toán sha3 của đầu vào.
 
-**NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](caver.utils.md#soliditysha3).
+**LƯU Ý**: Để bắt chước hành vi sha3 của việc sử dụng Solidity [caver.utils.soliditySha3](caver.utils.md#soliditysha3).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
-| str  | string | A string to hash. |
+| Tên | Loại | Mô tả                    |
+| --- | ----- | ------------------------ |
+| str | chuỗi | Một chuỗi thành hàm băm. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description      |
-| ------ | ---------------- |
-| string | The result hash. |
+| Loại | Mô tả            |
+| ----- | ---------------- |
+| chuỗi | Kết quả hàm băm. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.sha3('234') // taken as string
@@ -204,13 +204,13 @@ null
 caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
-Calculates the sha3 of given input parameters in the same way solidity would. This means arguments will be ABI converted and tightly packed before being hashed.
+Tính toán sha3 của các tham số đầu vào đã cho theo cách tương tự như solidity. Điều này có nghĩa các đối số sẽ được chuyển đổi ABI và đóng gói chặt chẽ trước khi đưa vào hàm băm.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type  | Description               |
-| ------ | ----- | ------------------------- |
-| paramX | Mixed | <p>Any type, or an object with <code>{type: 'uint', value: '123456'}</code> or <code>{t: 'bytes', v: '0xfff456'}</code>. Basic types are autodetected as follows:<br>- <code>string</code> non numerical UTF-8 string is interpreted as <code>string</code>.<br>- `string</p> |
+| Tên    | Loại   | Mô tả                     |
+| ------ | ------- | ------------------------- |
+| paramX | Hỗn hợp | <p>Bất kỳ loại hoặc đối tượng nào có <code>{type: 'uint', value: '123456'}</code> hoặc <code>{t: 'bytes', v: '0xfff456'}</code>. Các loại cơ bản được tự động phát hiện như sau:<br>- <code>string</code> chuỗi UTF-8 không phải là số được hiểu là <code>string</code>.<br>- `string</p> |
 
 **Return Value**
 
