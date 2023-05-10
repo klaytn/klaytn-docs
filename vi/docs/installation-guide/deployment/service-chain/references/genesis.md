@@ -105,7 +105,7 @@ Trường `reward` lưu trữ thông tin về nền kinh tế token của mạng
 | deferredTxFee          | Cách phân phối phí TX cho một khối.                                                                  |
 | stakingUpdateInterval  | Khoảng thời gian tính bằng chiều cao khối để cập nhật thông tin nắm giữ.                             |
 | proposerUpdateInterval | Khoảng thời gian tính bằng chiều cao khối để cập nhật thông tin người đề xuất.                       |
-| minimumStake           | Lượng peb tối thiểu để tham gia Nhà vận hành Core Cell.                                              |
+| minimumStake           | Lượng peb tối thiểu để tham gia Người vận hành Core Cell.                                            |
 
 # Ví dụ <a id="example"></a>
 
