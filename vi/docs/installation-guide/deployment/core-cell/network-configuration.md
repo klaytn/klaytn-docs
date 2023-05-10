@@ -19,7 +19,7 @@ Mạng con ba lớp bao gồm những phần sau:
 
 ### Mạng con CN <a id="cn-subnet"></a>
 
-Mạng con CN gồm máy chủ CN trong Core Cell. CN hoạt động trong một Core Cell là duy nhất nhưng nên chuẩn bị nút dự phòng để đảm bảo tính sẵn sàng cao. Ip/Cổng của tất cả CN trong Mạng lưới Core Cell (CCN) phải được mở cùng nhau vì chúng kết nối với nhau từ bên ngoài Core Cell. (Có thể nhận thông tin kết nối này từ các nhà vận hành Baobab.) Việc giao tiếp nội bộ với các mạng con khác trong Core Cell yêu cầu mở cổng mặc định (32323: số cổng Klaytn P2P mặc định) để kết nối với các PN của Mạng con PN. Ngoài ra, cần mở các cổng khác như cổng giám sát CN (61001) cho máy chủ giám sát và cổng SSH (22) cho mục đích quản lý. Nếu sử dụng tính năng đa kênh, cần mở thêm cổng khác (32324: cổng đa kênh mặc định).
+Mạng con CN gồm máy chủ CN trong Core Cell. CN hoạt động trong một Core Cell là duy nhất nhưng nên chuẩn bị nút dự phòng để đảm bảo tính sẵn sàng cao. Ip/Cổng của tất cả CN trong Mạng lưới Core Cell (CCN) phải được mở cùng nhau vì chúng kết nối với nhau từ bên ngoài Core Cell. (Có thể nhận thông tin kết nối này từ các người vận hành Baobab.) Việc giao tiếp nội bộ với các mạng con khác trong Core Cell yêu cầu mở cổng mặc định (32323: số cổng Klaytn P2P mặc định) để kết nối với các PN của Mạng con PN. Ngoài ra, cần mở các cổng khác như cổng giám sát CN (61001) cho máy chủ giám sát và cổng SSH (22) cho mục đích quản lý. Nếu sử dụng tính năng đa kênh, cần mở thêm cổng khác (32324: cổng đa kênh mặc định).
 
 ![Mạng con CN](images/cn_subnet.png)
 
@@ -50,7 +50,7 @@ Mạng con PN kết nối với các nút sau:
 
 ### Mạng con QL <a id="mgmt-subnet"></a>
 
-Mạng con QL là mạng con cổng cho nhà vận hành tham gia vào nút Core Cell thông qua ssh. Có thể cần máy chủ VPN để tạo kết nối cùng với máy chủ giám sát và máy chủ quản lý được cài đặt công cụ để quản lý các nút Core Cell.
+Mạng con Ql là mạng con cổng cho người vận hành tham gia vào nút Core Cell thông qua ssh. Có thể cần máy chủ VPN để tạo kết nối cùng với máy chủ giám sát và máy chủ quản lý được cài đặt công cụ để quản lý các nút Core Cell.
 
 ![Mạng con quản lý](images/admin_subnet.png)
 
