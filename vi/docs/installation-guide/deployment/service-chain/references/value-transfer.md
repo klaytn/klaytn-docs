@@ -212,7 +212,7 @@ Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá tr�
 
 ### dự phòng <a id="fallback"></a>
 
-Nếu người dùng gọi hàm dự phòng của cầu nối, lệnh này yêu cầu chuyển KLAY tới cùng địa chỉ tài khoản của người dùng đưa ra yêu cầu ở chuỗi đối ứng.
+Nếu người dùng gọi hàm dự phòng của cầu nối, lệnh này yêu cầu chuyển KLAY tới cùng địa chỉ tài khoản của người dùng đưa ra yêu cầu trong chuỗi đối ứng.
 
 ```solidity
 function () external payable;
@@ -220,59 +220,59 @@ function () external payable;
 
 ### requestKLAYTransfer <a id="requestklaytransfer"></a>
 
-If a user calls this function with `_to`, this requests a KLAY transfer to `_to` address in the counterpart chain.
+Nếu người dùng gọi hàm này với `_to`, lệnh này yêu cầu chuyển KLAY tới `_to` địa chỉ trong chuỗi đối ứng.
 
 ```solidity
 function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
-## ERC-20 transfer <a id="erc-20-transfer"></a>
+## Chuyển ERC-20 <a id="erc-20-transfer"></a>
 
-### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
-Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+### Yêu cầu 2 bước qua hợp đồng cầu nối <a id="2-step-request-via-bridge-contract"></a>
+Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá trị" tới hợp đồng cầu nối bằng cách sử dụng phương pháp dưới đây sau khi [phê duyệt](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) token sang hợp đồng cầu nối.
 
 ```solidity
 function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC-20 contract <a id="1-step-request-via-erc-20-contract"></a>
-Users can make a "request value transfer" transaction directly to the **ERC-20 contract** using the below method without approving. The ERC-20 contract should implement the function, then.
+### Yêu cầu 1 bước qua hợp đồng ERC-20 <a id="1-step-request-via-erc-20-contract"></a>
+Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá trị" trực tiếp sang **hợp đồng ERC-20** bằng cách sử dụng phương pháp sau mà không cần phê duyệt. Sau đó, hợp đồng ERC-20 sẽ triển khai lệnh.
 
 ```solidity
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-## ERC-721 transfer <a id="erc-721-transfer"></a>
+## Chuyển ERC-721 <a id="erc-721-transfer"></a>
 
-### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
-Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+### Yêu cầu 2 bước qua hợp đồng cầu nối <a id="2-step-request-via-bridge-contract"></a>
+Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá trị" tới hợp đồng cầu nối bằng cách sử dụng phương pháp dưới đây sau khi [phê duyệt](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) token sang hợp đồng cầu nối.
 
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC-721 contract <a id="1-step-request-via-erc-721-contract"></a>
-Users can make a "request value transfer" transaction directly to the **ERC-721 contract** using the below method without approving. The ERC-721 contract should implement the function, then.
+### Yêu cầu 1 bước qua hợp đồng ERC-721 <a id="1-step-request-via-erc-721-contract"></a>
+Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá trị" trực tiếp sang **hợp đồng ERC-721** bằng cách sử dụng phương pháp sau mà không cần phê duyệt. Sau đó, hợp đồng ERC-721 sẽ triển khai lệnh.
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Value Transfer Recovery
-Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge. In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value. A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event. In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY. In order to set the value transfer recovery as default, you need to set two properties:
+# Khôi phục chuyển giá trị
+Yêu cầu chuyển giá trị có thể không thành công vì nhiều lý do. Ví dụ, bạn đã yêu cầu chuyển KLAY từ cầu nối phụ tới cầu nối chính hoặc từ cầu nối chính tới cầu nối phụ. Trong trường hợp đó, hợp đồng cầu nối ở bên nhận phải có đủ KLAY hơn số lượng KLAY được yêu cầu. Nếu không, lệnh chuyển sẽ thất bại mà không có thông báo lỗi về giá trị trả về. Một tính năng của lệnh khôi phục chuyển giá trị là lệnh này tìm ra những sự kiện chưa được xử lý, đồng thời thêm chúng vào bể sự kiện trong một khoảng thời gian nhất định, nghĩa là giao dịch không thành công có thể được thực hiện lại thành công khi cầu nối đối ứng có thể thành công xử lý sự kiện đó. Trong trường hợp như ở ví dụ trên, giao dịch không thành công cuối cùng sẽ được xử lý bởi lệnh khôi phục chuyển giá trị khi cầu nối đối ứng có đủ KLAY. Để thiết lập lệnh khôi phục chuyển giá trị làm mặc định, bạn cần thiết lập hai thuộc tính:
 ```
 SC_VTRECOVERY=1
 SC_VTRECOVERY_INTERVAL=5
 ```
-The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
+Lệnh khôi phục chuyển giá trị sẽ tự động chạy bằng cách thiết lập `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` là khoảng thời gian mỗi lần lệnh khôi phục chuyển giá trị được thực hiện.
 
-# Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
+# Thu phí cho lệnh chuyển KLAY/ERC-20 <a id="collecting-fee-for-klay-erc-20-transfer"></a>
+Trong Service Chain có tính năng thu phí cho các lệnh chuyển KLAY/ERC-20.
 
-**To be updated soon.**
+**Sẽ sớm được cập nhật.**
 
-# Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
-In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service. This section explains how to customize the Bridge contract and presents the example code.
+# Tuỳ chỉnh hợp đồng cầu nối của bạn  <a id="customizing-your-bridge-contract"></a>
+Trong ServiceChain, bạn có thể sử dụng hợp đồng cầu nối tuỳ chỉnh mà bạn kế thừa từ hợp đồng cầu nối gốc cho dịch vụ của riêng bạn. Phần này giải thích cách để tuỳ chỉnh hợp đồng cầu nối và đưa ra mã ví dụ.
 
-**It will be updated soon.**
+**Sẽ sớm được cập nhật.**
 
