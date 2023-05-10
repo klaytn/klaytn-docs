@@ -6,53 +6,53 @@ description: >-
 # Vì sao nên chọn Klaytn <a id="why-klaytn"></a>
 
 ## Klaytn với vai trò là lớp tin cậy của vũ trụ ảo <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
-Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho vũ trụ ảo, tôn trọng sự tham gia và đóng góp đến từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới. Nguyên tắc thiết kế đứng đầu là
+Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho vũ trụ ảo, hoạt động tham gia và đóng góp đến từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới. Nguyên tắc thiết kế ưu tiên hàng đầu là
 {% hint style="success" %}
-Giúp những người tiên phong dễ dàng xây dựng các ứng dụng và tổ chức cộng đồng theo cách có thể mở rộng.
+Giúp những người tiên phong dễ dàng xây dựng ứng dụng và tổ chức cộng đồng theo cách có thể mở rộng.
 {% endhint %}
 Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng những yêu cầu sau:
 ### Hiệu suất cao <a id="high-performance"></a>
 #### Thông lượng (TPS) và Tính hoàn thiện <a id="throughput-and-finality"></a>
-- Chuỗi chính nên xử lý tối thiểu 4.000 TPS.
-- Chuỗi chính nên đảm bảo tính hoàn thiện giao dịch tức thời với thời gian tạo khối là một giây.
-- Hãy xem [Cơ chế đồng thuận][].
+- Chuỗi chính cần xử lý tối thiểu 4.000 TPS.
+- Chuỗi chính cần đảm bảo tính hoàn thiện giao dịch tức thời với thời gian tạo khối là một giây.
+- Xem phần [Cơ chế đồng thuận][].
 #### Khả năng mở rộng <a id="scalability"></a>
 - Chuỗi dịch vụ là giải pháp L2 mặc định dành cho Klaytn 2.0, có thể tùy chỉnh và dễ dàng triển khai. Chuỗi dịch vụ có thể được quản trị riêng và kết nối với chuỗi chính của Klaytn để neo dữ liệu hoặc chuyển giao tài sản.
-- Hãy xem [Chuỗi dịch vụ][]. Các doanh nghiệp hoặc mạng lưới lớn thường muốn có môi trường thực thi của riêng họ. Với chuỗi dịch vụ, họ có thể duy trì một môi trường thực thi hiệu suất cao và biệt lập, không bị ảnh hưởng bởi các ứng dụng chuỗi khối khác.
-- Các giải pháp khác về khả năng mở rộng sẽ đến trong tương lai gần, chẳng hạn như sharding (phân đoạn) hoặc rollup (cuộn).
+- Xem phần [Chuỗi dịch vụ][]. Các doanh nghiệp hoặc mạng lưới quy mô lớn thường muốn có môi trường thực thi của riêng họ. Với chuỗi dịch vụ, họ có thể duy trì một môi trường thực thi hiệu suất cao và biệt lập, không bị ảnh hưởng bởi các ứng dụng chuỗi khối khác.
+- Các giải pháp khác về khả năng mở rộng sẽ được ra mắt trong tương lai gần, chẳng hạn như sharding (phân đoạn) hoặc rollup (cuộn).
 ### Chi phí thấp  <a id="low-cost"></a>
 - Người dùng cuối không cần phải gánh bất kỳ khoản phí giao dịch nào cao hơn những gì hệ thống truyền thống yêu cầu.
 - Phí giao dịch phải ổn định và được xác định bởi chính độ phức tạp của giao dịch, không phải bởi các yếu tố xung quanh.
-- Hãy xem [Chi phí hợp lý để thực thi hợp đồng thông minh][] và [Phí giao dịch][]. Đối với giá gas ở mức 250 ston, một giao dịch chuyển KLAY sẽ phát sinh chi phí cố định là 0,00525 KLAY. (21,000 gas cho giao dịch chuyển KLAY x (250 x 10^-9) == 0.00525 KLAY)
+- Xem phần [Chi phí thực thi hợp đồng thông minh hợp lý][] và [Phí giao dịch][]. Đối với giá gas ở mức 250 ston, một giao dịch chuyển KLAY sẽ phát sinh chi phí cố định là 0,00525 KLAY. (21.000 gas cho giao dịch chuyển KLAY x (250 x 10^-9) == 0.00525 KLAY)
 ### Phát triển nhanh chóng <a id="rapid-development"></a>
-#### Tính tương thích với Ethereum <a id="ethereum-compatibility"></a>
+#### Tương thích với Ethereum <a id="ethereum-compatibility"></a>
 - Các công cụ phát triển: Bất kỳ công cụ nào có thể chạy trên Ethereum cũng sẽ chạy trơn thu trong hệ sinh thái Klaytn bằng cách làm cho tập hợp kỹ thuật của Klaytn trở nên tương đương với tập hợp kỹ thuật hiện có của Ethereum, từ góc độ giao dịch cho tới thực thi. Công cụ mới được tạo ra trong hệ sinh thái Klaytn có thể được áp dụng đối ứng trong hệ sinh thái Ethereum.
-- EVM và API: Bằng cách xây dựng trên các tập hợp kỹ thuật có sẵn của Etherum, chúng tôi được thừa hưởng các cải tiến được thực hiện đối với cơ sở mã nguồn mở của EVM và các thư viện hỗ trợ. Bằng việc hỗ trợ các Opcode và logic tập hợp kỹ thuật tương đương như vậy trong môi trường EVM Klaytn, ta sẽ thấy hành vi thực thi cũng được đảm bảo tương đương; và bằng việc hỗ trợ một tập hợp API JSON-RPC với cú pháp vận chuyển điểm cuối tương đương cũng sẽ đảm bảo tính tương đương của giao diện Ethereum đầy đủ. Hãy xem [Solidity-Ngôn ngữ hợp đồng thông minh][], và [Chuyển ứng dụng Ethereum sang Klaytn][].
+- EVM và API: Bằng cách xây dựng trên các tập hợp kỹ thuật có sẵn của Etherum, chúng tôi được thừa hưởng các cải tiến được thực hiện đối với cơ sở mã nguồn mở của EVM và các thư viện hỗ trợ. Bằng việc hỗ trợ các Mã vận hành và logic tập hợp kỹ thuật tương đương như vậy trong môi trường EVM Klaytn, ta sẽ thấy hoạt động thực thi cũng được đảm bảo tương đương; và bằng việc hỗ trợ một tập hợp API JSON-RPC với cú pháp vận chuyển điểm cuối tương đương cũng sẽ đảm bảo tính tương đương của giao diện Ethereum đầy đủ. Xem phần [Solidity-Ngôn ngữ hợp đồng thông minh][] và [Chuyển ứng dụng Ethereum sang Klaytn][].
 - Đóng góp phát triển cốt lõi: Việc hỗ trợ tính tương đương với Ethereum sẽ chuyển đồi hầu hết các giao dịch chung tới cả hai hệ sinh thái Klaytn và Ethereum. Hầu hết các Đề xuất cải tiến Ethereum (EIP) đều có thể được chuyển và áp dụng vào chương trình phát triển cốt lõi của Klaytn, ngược lại, các Đề xuất cải tiến Klaytn (KIP) cũng có thể đóng góp vào sự tiến bộ của Ethereum và EVM. Khi cộng đồng phát triển đóng góp cho một hệ sinh thái, họ thực sự đang đóng góp cho cả hai.
-#### Cơ sở hạ tầng nguồn mở và Gói <a id="open-source-infrastructure-and-package"></a>
-- Cơ sở hạ tầng chính: bộ công cụ để tích hợp và xây dựng chuỗi khối từ đầu đến cuối. Trong này bao gồm SDK và tư viện hợp đồng thông minh, Ví và trình khám phá chuỗi, các giải pháp lưu trữ phân tán, hỗ trợ Oracle và Cầu nối.
-- Cơ sở hạ tầng phụ: hệ sinh thái hỗ trợ các sản phẩm và dịch vụ. Trong này bao gồm các dịch vụ Tích hợp/trừu tượng, tích hợp Stablecoin, DAO, Thị trường NFT, DEX và DeFi, cũng như các giao dịch tài chính truyền thống.
+#### Cơ sở hạ tầng nguồn mở và gói <a id="open-source-infrastructure-and-package"></a>
+- Cơ sở hạ tầng chính: bộ công cụ để tích hợp và xây dựng chuỗi khối toàn diện. Cơ sở hạ tầng này bao gồm SDK và thư viện hợp đồng thông minh, Ví và trình khám phá chuỗi, các giải pháp lưu trữ phân tán, hỗ trợ Oracle và Cầu nối.
+- Cơ sở hạ tầng phụ: hệ sinh thái hỗ trợ các sản phẩm và dịch vụ. Cơ sở hạ tầng này bao gồm các dịch vụ Tích hợp/trừu tượng, tích hợp Stablecoin, DAO, Thị trường NFT, DEX và DeFi, cũng như các giao dịch tài chính truyền thống.
 ### Trải nghiềm người dùng nâng cao <a id="enhanced-user-experience"></a>
 #### Khả năng sử dụng trong giao dịch <a id="usability-in-transaction"></a>
 - Khả năng chuyển phí giao dịch của người dùng vào ứng dụng
-- Hãy xem [Ủy thác phí][]. Người vận hành ứng dụng có thể điều chỉnh số tiền tài trợ cho mỗi giao dịch và triển khai các mô hình kinh doanh linh hoạt hơn, ví dụ như freemium (chỉ miễn phí các tính năng cơ bản) hoặc đăng ký trả phí định kỳ. Việc ủy thác phí sẽ gỡ bỏ bớt các rào cản thu hút người dùng một cách hiệu quả.
+- Xem phần [Ủy thác phí][]. Người vận hành ứng dụng có thể điều chỉnh số tiền tài trợ cho mỗi giao dịch và triển khai các mô hình kinh doanh linh hoạt hơn, ví dụ như freemium (chỉ miễn phí các tính năng cơ bản) hoặc đăng ký trả phí định kỳ. Việc ủy thác phí sẽ gỡ bỏ bớt các rào cản thu hút người dùng một cách hiệu quả.
 ### Quỹ sinh thái cấp giao thức trọn bộ <a id="contribution-reward"></a>
 - Klaytn là ví dụ tiên phong lớn nhất về các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một nền kinh tế token theo giao thức chuỗi. 66% số token mới được tái đầu tư vào hệ sinh thái.
-- Hãy xem [Khoản dự trữ cải tiến của Klaytn][] và [Quỹ tăng trưởng của Klaytn][].
+- Xem phần [Khoản dự trữ cải tiến của Klaytn][] và [Quỹ tăng trưởng của Klaytn][].
 ### Chung tay xây dựng cộng đồng <a id="community-co-building"></a>
 - Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lãnh thổ của mình thông việc chung tay xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, vân vân. Cuối cùng là các quy tắc cơ bản:
 {% hint style="success" %}
-Klaytn không hy sinh các đặc tính cốt lõi của chuỗi khối để đạt được những điểm cải tiến nêu trên, và giao thức vẫn sẽ ổn định với các bên liên quan có cam kết bền chặt.
+Klaytn không hy sinh các đặc tính cốt lõi của chuỗi khối để đạt được những điểm cải tiến nêu trên và giao thức vẫn sẽ ổn định với các bên liên quan có cam kết bền chặt.
 {% endhint %}
 
 ### Sự minh bạch, bảo mật và phi tập trung <a id="transparency-security-and-decentralization"></a>
 - Ai cũng có thể yêu cầu giao dịch, cũng như truy xuất và xác nhận kết quả giao dịch trên chuỗi khối.
 - Klaytn là một mạng phi tập trung, tại đó không có một nút độc hại nào có thể phá vỡ tính toàn vẹn của dữ liệu.
 ### Quản trị bởi DAO, các nhà xây dựng và doanh nghiệp thực hiện phi tập trung với sự ổn định <a id="governance-by-trusted-entities"></a>
-- Ngoài các doanh nghiệp truyền thống hiện tại đang đóng vai trò Hội đồng quản trị Klaytn (GC), nhờ việc đưa các thực thể phi tập trung hơn như DAO và các nhà xây dựng vào GC, chúng tôi đang mở ra tiềm năng xây dựng lại toàn bộ cấu trúc quản trị của Klaytn một cách chưa từng có tiền lệ với hàng trăm người tham gia quản trị.
+- Ngoài các doanh nghiệp truyền thống hiện tại đang đóng vai trò Hội đồng quản trị của Klaytn (GC), nhờ việc đưa các thực thể phi tập trung hơn như DAO và các nhà xây dựng vào GC, chúng tôi đang mở ra tiềm năng xây dựng lại toàn bộ cấu trúc quản trị của Klaytn một cách chưa từng có tiền lệ với hàng trăm người tham gia quản trị.
 
 [Cơ chế đồng thuận]: design/consensus-mechanism.md
-[Chi phí hợp lý để thực thi hợp đồng thông minh]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
+[Chi phí thực thi hợp đồng thông minh hợp lý]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
 [Phí giao dịch]: design/transaction-fees/transaction-fees.md
 [Ủy thác phí]: design/transactions/README.md#fee-delegation
 [Chuỗi dịch vụ]: scaling-solutions.md#service-chain
