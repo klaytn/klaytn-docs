@@ -45,26 +45,26 @@ Trong phần này, chúng tôi sẽ mô tả mô hình cấu trúc chuỗi chín
 
 ### Các loại nút dựa trên vai trò <a id="role-based-node-types"></a>
 
-Trước khi tìm hiểu về mô hình cấu trúc chuỗi chính của Klaytn, chúng ta cần làm quen với các loại nút Klaytn khác nhau.
+Trước khi tìm hiểu về mô hình cấu trúc chuỗi chính của Klaytn, chúng ta cần làm quen với các loại nút khác nhau của Klaytn.
 
 #### Core Cell (CC): Nút đồng thuận (CN) + Nút Proxy (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
-Một Core Cell (CC) được tạo thành bởi một <strong>Nút đồng thuận (CN)<strong> duy nhất và hai <strong>Nút proxy (PN)<strong>. Nút đồng thuận tham gia vào quá trình tạo khối, trong khi Nút proxy cung cấp giao diện cho mạng lưới. PN truyền yêu cầu giao dịch tới các Nút đồng thuận, và đưa các khối xuống các Nút điểm cuối.
+Một Core Cell (CC) được tạo thành bởi một <strong>Nút đồng thuận (CN)<strong> duy nhất và hai <strong>Nút proxy (PN)<strong>. Nút đồng thuận tham gia vào quá trình tạo khối, trong khi Nút proxy cung cấp giao diện cho mạng. PN truyền yêu cầu giao dịch tới các Nút đồng thuậnvà đưa các khối xuống các Nút điểm cuối.
 
-> Nếu bạn muốn trở thành Người vận hành Core Cell, hãy đọc[hướng dẫn cài đặt và vận hành Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
+> Nếu bạn muốn trở thành Người vận hành Core Cell, hãy đọc phần [hướng dẫn cài đặt và vận hành Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
 
 #### Nút điểm cuối (EN) <a id="endpoint-node-en"></a>
 
 EN đóng vai trò là điểm cuối cho mạng Klaytn xử lý các yêu cầu API RPC và xử lý dữ liệu gửi tới và từ các chuỗi dịch vụ.
 
-> Để thiết lập một Nút điểm cuối cho ứng dụng của bạn, hãy đọc [hướng dẫn cài đặt và vận hành Nút điểm cuối](./../installation-guide/deployment/endpoint-node/README.md).
+> Để thiết lập Nút điểm cuối cho ứng dụng của bạn, hãy đọc phần [hướng dẫn cài đặt và vận hành Nút điểm cuối](./../installation-guide/deployment/endpoint-node/README.md).
 
 #### Nút ban đầu <a id="bootnode"></a>
 
-Nút ban đầu là một loại nút đặc biệt được Klaytn vận hành để giúp các nút mới tham gia đăng ký vào mạng lưới, và để khám phá các nút khác nhằm kết nối cùng. Nút ban đầu CN nằm trong CNN và không công khai, còn các nút ban đầu PN và EN thì công khai.  Các nút ban đầu PN chỉ cho phép các PN được cấp quyền đăng ký, và cho phép các PN đủ điều kiện kết nối với các EN.  Các nút ban đầu EN cung cấp cho các EN thông tin về các PN cần kết nối.
+Nút ban đầu là một loại nút đặc biệt được Klaytn vận hành để giúp các nút mới tham gia đăng ký vào mạng lưới và để khám phá các nút khác nhằm kết nối cùng. Nút ban đầu CN nằm trong CNN và không công khai, còn các nút ban đầu PN và EN thì công khai.  Các nút ban đầu PN chỉ cho phép các PN được cấp quyền đăng ký và cho phép các PN đủ điều kiện kết nối với các EN.  Các nút ban đầu EN cung cấp cho EN thông tin về các PN cần kết nối.
 
 ### Mạng phân tầng <a id="tiered-networks"></a>
 
-CN, PN và EN lần lượt tạo thành các mạng logic, Mạng nút đồng thuận (CNN), Mạng nút proxy (PNN) và Mạng nút điểm cuối (ENN).
+CN, PN và EN lần lượt tạo thành các mạng logic, Mạng nút đồng thuận (CNN), Mạng nút proxy (PNN) và Mạng lưới nút điểm cuối (ENN).
 
 Hình bên dưới hiển thị mô hình cấu trúc tổng thể của mạng chính thức của Klaytn, trong đó mạng Core Cell (CCN) được chia nhỏ thành Mạng nút đồng thuận (CNN) và Mạng nút proxy (PNN).
 
@@ -73,7 +73,7 @@ Hình bên dưới hiển thị mô hình cấu trúc tổng thể của mạng 
 
 #### Mạng nút đồng thuận (CNN) <a id="consensus-node-network-cnn"></a>
 
-CN hình thành một mạng mesh đầy đủ gọi là CNN. CNN áp dụng BFT trên WAN (mạng diện rộng) và cần mỗi CN đáp ứng [các yêu cầu nghiêm ngặt về phần cứng và tài nguyên mạng](./../installation-guide/deployment/core-cell/system-requirements.md) để thực hiện sự đồng thuận BFT ở mức hiệu suất vừa đủ.
+CN hình thành một mạng lưới đầy đủ gọi là CNN. CNN áp dụng BFT trên WAN (mạng diện rộng) và cần mỗi CN đáp ứng [các yêu cầu nghiêm ngặt về phần cứng và tài nguyên mạng](./../installation-guide/deployment/core-cell/system-requirements.md) để thực hiện đồng thuận BFT ở mức hiệu suất vừa đủ.
 
 #### Mạng nút proxy (PNN) <a id="proxy-node-network-pnn"></a>
 
@@ -86,34 +86,34 @@ Mạng con ngoài cùng, ENN, chỉ bao gồm các EN được kết nối.
 
 ## Tạo và truyền khối <a id="block-generation-and-propagation"></a>
 
-Thiết kế của việc tạo và truyền khối, cùng với thuật toán đồng thuận được sử dụng, đó một vai trò quan trọng trong việc giảm thiểu độ trễ của một nền tảng chuỗi khối
+Phương án tạo và truyền khối, cùng với thuật toán đồng thuận được sử dụng, đó một vai trò quan trọng trong việc giảm thiểu độ trễ của một nền tảng chuỗi khối
 
 ### Chu kỳ tạo khối <a id="block-generation-cycle"></a>
 
-Trong Klaytn, chu kỳ tạo khối được goi là "vòng". Mỗi vòng tạo ra một khối mới và một vòng mới bắt đầu ngay sau đó. Klaytn đặt mục tiêu mỗi vòng kéo dài khoảng một giây, mặc dùng khoảng thời gian tạo khối có thể bị ảnh hưởng bởi lưu lượng mạng và điều kiện hoạt động của nút.
+Trong Klaytn, chu kỳ tạo khối được goi là "vòng". Mỗi vòng tạo ra một khối mới và một vòng mới bắt đầu ngay sau đó. Klaytn đặt mục tiêu mỗi vòng kéo dài khoảng một giây, mặc dù khoảng thời gian tạo khối có thể bị ảnh hưởng bởi lưu lượng mạng và điều kiện hoạt động của nút.
 
-#### Lựa chọn Ủy bạn và Người đề xuất <a id="proposer-and-committee-selection"></a>
+#### Lựa chọn ủy bạn và người đề xuất <a id="proposer-and-committee-selection"></a>
 
-Trong mỗi vòng, Klaytn ngẫu nhiên nhưng chắc chắn chọn một Nút đồng thuận (CN) làm người đề xuất khối được tạo, sau đó chọn một nhóm CN làm ủy ban cho vòng đó. Klaytn không liên quan trực tiếp tới việc chọn người đề xuất hay ủy ban; thay vào đó, mỗi CN sử dụng một con số ngẫu nhiên lấy từ tiêu đề của khối gần đây nhất để chạy một hoạt động mã hóa, tạo bằng chứng rằng CN đã (hoặc chưa) được chọn cho vòng này. Quy mô của ủy ban phải chống lỗi Byzantine; nếu quy mô của CNN ở mức nhỏ, tất cả các CN (trừ người đề xuất) sẽ đủ điều kiện để được chọn làm thành viên ủy ban.
+Trong mỗi vòng, Klaytn ngẫu nhiên nhưng chắc chắn chọn một Nút đồng thuận (CN) làm người đề xuất khối được tạo, sau đó chọn một nhóm CN làm ủy ban cho vòng đó. Klaytn không liên quan trực tiếp tới việc chọn người đề xuất hay ủy ban; thay vào đó, mỗi CN sử dụng một con số ngẫu nhiên lấy từ tiêu đề của khối gần đây nhất để chạy một hoạt động mã hóa, tạo bằng chứng rằng CN đã (hoặc chưa) được chọn cho vòng này. Quy mô của ủy ban phải chống lỗi Byzantine; nếu quy mô của CNN ở mức nhỏ, thì tất cả các CN (trừ người đề xuất) sẽ đủ điều kiện để được chọn làm thành viên ủy ban.
 
 #### Đề xuất và xác thực khối <a id="block-proposal-and-validation"></a>
 
-Khi đã được chọn, người đề xuất sẽ phân phối bằng chứng lựa chọn của mình cho vòng đó (nghĩa là bằng chứng mật mã có thể xác thực bằng khóa công khai của người đề xuất) cho tất cả các CN. Sau đó, các CN được lựa chọn làm ủy ban cho vòng nhất định sẽ phản hồi người đề xuất bằng những bằng chứng lựa chọn của riêng họ, thông báo cho người đề xuất về việc ai là người sẽ phân phối khối mới sắp được đề xuất. Sau đó, người đề xuất sẽ chọn một tập hợp các giao dịch từ bể giao dịch và tạo một khối bằng các sắp xếp chúng. Cuối cùng, người đề xuất thực thi sự đồng thuận với ủy ban để đồng ý và hoàn tất khối mới được tạo. Hãy lưu ý rằng Klaytn có kế hoạch liên tục cải tiến thuật toán đồng thuận để đạt được độ bảo mật và hiệu quả cao hơn.
+Khi đã được chọn, người đề xuất sẽ phân phối bằng chứng lựa chọn của mình cho vòng đó (nghĩa là bằng chứng mật mã có thể xác thực bằng mã khóa công khai của người đề xuất) cho tất cả các CN. Sau đó, các CN được lựa chọn làm ủy ban cho vòng nhất định sẽ phản hồi người đề xuất bằng những bằng chứng lựa chọn của riêng họ, thông báo cho người đề xuất về việc ai là người sẽ phân phối khối mới sắp được đề xuất. Sau đó, người đề xuất sẽ chọn một tập hợp các giao dịch từ bể giao dịch và tạo khối bằng các sắp xếp chúng. Cuối cùng, người đề xuất thực thi sự đồng thuận với ủy ban để đồng ý và hoàn tất khối mới được tạo. Lưu ý rằng Klaytn có kế hoạch liên tục cải tiến thuật toán đồng thuận để đạt được độ bảo mật và hiệu quả cao hơn.
 
 ### Truyền khối <a id="block-propagation"></a>
 
-Một khối phải nhận được chữ ký từ hơn hai phần ba thành viên ủy ban để được hoàn tất thành công. Khi ủy ban đạt được sự đồng thuận, khối mới sẽ được truyền tới tất cả các CN và vòng đồng thuận kết thúc. Khi khối mới được truyền tới tất cả các CN, thông tin của khối mới được tạo có thể được cung cấp cho tất cả những người tham gia mạng Klaytn nhờ cung cấp tiêu đề khối và dữ liệu nội dung cho ENN thông quan PNN.
+Một khối phải nhận được chữ ký từ hơn hai phần ba thành viên ủy ban để được hoàn tất thành công. Khi ủy ban đạt được sự đồng thuận, khối mới sẽ được truyền tới tất cả các CN và vòng đồng thuận kết thúc. Khi khối mới được truyền tới tất cả các CN, thông tin của khối mới được tạo có thể được cung cấp cho tất cả những người tham gia mạng Klaytn nhờ cung cấp tiêu đề khối và dữ liệu nội dung cho ENN thông qua PNN.
 
-## Tiết lộ công khai và xác thực mở<a id="public-disclosure-and-open-validation"></a>
+## Công bố công khai và xác thực mở<a id="public-disclosure-and-open-validation"></a>
 
-Các nhà cung cấp dịch vụ và người dùng cuối trên mạng Klaytn có thể tự do xác thực kết quả tạo khối và kiểm tra xem ủy ban CN có tạo khối đó theo các thủ tục phù hợp không. Việc xác thực như vậy bao gồm kiểm tra xem tiêu đề khối có chứa nhiều hơn hai phần ba chữ ký của thành viên ủy ban không. Tất cả các CN phải hỗ trợ việc xác thực mở và bắt buộc phải đăng tải khóa công khai của họ (được dùng để ký các khối) trong một không gian có thể truy cập công khai (ví dụ như tiêu đề khối). Việc xác thực mở sẽ thúc đẩy tính minh bạch, ngăn chặn việc cắt bỏ thông tin và ngăn ngừa các hành vi độc hại.
+Các nhà cung cấp dịch vụ và người dùng cuối trên mạng Klaytn có thể tự do xác thực kết quả tạo khối và kiểm tra xem ủy ban CN có tạo khối đó có theo các thủ tục phù hợp hay không. Việc xác thực như vậy bao gồm kiểm tra xem tiêu đề khối có chứa nhiều hơn hai phần ba chữ ký của thành viên ủy ban hay không. Tất cả các CN phải hỗ trợ việc xác thực mở và bắt buộc phải đăng tải mã khóa công khai của họ (được dùng để ký các khối) trong một không gian có thể truy cập công khai (ví dụ như tiêu đề khối). Việc xác thực mở sẽ thúc đẩy tính minh bạch, ngăn chặn việc cắt bỏ thông tin và ngăn ngừa các hành vi độc hại.
 
-## Các kênh lan truyền riêng biệt cho các khối và giao dịch (truyền đa kênh) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
+## Các kênh truyền riêng biệt cho các khối và giao dịch (truyền đa kênh) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
 
-Độ trễ của một mạng chịu ảnh hưởng nặng nề từ mức độ tắc nghẽn. Giả sử thông lượng của một mạng duy trì không đổi, số lượng giao dịch tăng lên sẽ khiến độ trễ của mạng bị trễ tương ứng. Độ trễ là một vấn đề nghiêm trọng trong các dApp; người dùng thông thường của các ứng dụng di động hoặc dịch vụ web cũ sẽ không chấp nhận thời gian phản hồi mất nhiều hơn vài giây, và các dịch vụ chuỗi khối không có lý do gì để cho rằng người dùng có khả năng chấp nhận cao hơn.
+Độ trễ của một mạng chịu ảnh hưởng rất lớn bởi mức độ nghẽn mạng. Giả sử thông lượng của một mạng duy trì không đổi, số lượng giao dịch tăng lên sẽ khiến độ trễ của mạng bị trễ tương ứng. Độ trễ là một vấn đề nghiêm trọng trong các dApp; người dùng thông thường của các ứng dụng di động hoặc dịch vụ web cũ sẽ không chấp nhận thời gian phản hồi mất nhiều hơn vài giây, và các dịch vụ chuỗi khối không có lý do gì để cho rằng người dùng có khả năng chấp nhận mức cao hơn.
 
-Klaytn áp dụng hướng tiếp cận đa kênh để xử lý các vấn đề tắc nghẽn mạng. Bằng cách chỉ định các kênh truyền riêng cho giao dịch và khối, mạng Klaytn có thể kịp thời truyền các khối mới tạo, ngay cả khi mạng đang bị tắc nghẽn nghiêm trọng với số lượng giao dịch lớn. Bằng cách này, Klaytn đảm bảo rằng các dApp trên mạng của nó có thể luôn phản hồi các yêu cầu từ người dùng cuối, bất kể lưu lượng truy cập mạng có lúc tăng đột biến.
+Klaytn áp dụng hướng tiếp cận đa kênh để xử lý các vấn đề nghẽn mạng. Bằng cách chỉ định các kênh truyền riêng cho giao dịch và khối, mạng Klaytn có thể kịp thời truyền các khối mới tạo, ngay cả khi mạng đang bị nghẽn nghiêm trọng với số lượng giao dịch lớn. Bằng cách này, Klaytn đảm bảo rằng các dApp trên mạng của nó có thể luôn phản hồi các yêu cầu từ người dùng cuối, bất kể lưu lượng truy cập mạng có lúc tăng đột biến.
 
 ## Phần thưởng khối <a id="block-rewards"></a>
 
-Đối với mỗi vòng, phần thưởng khối (tổng của 6,4 KLAY mới đúc và phí giao dịch được trả để xử lý khối) sẽ được phân bổ cho những người tham gia mạng theo tỷ lệ phân phối đặt trước. Người đề xuất của khối mới được tạo sẽ nhận được 100% phần thưởng được trao cho các CN, còn ủy ban sẽ không nhận được gì. Lưu ý rằng xác suất của việc được chọn làm người đề xuất chịu ảnh hưởng của số lượng KLAY được nắm giữ bởi CN, nghĩa là một CN có nhiều KLAY đầu tư và nền tảng hơn sẽ có xác suất nhận được nhiều phần thưởng hơn. Bạn có thể xem chi tiết về việc phân phối phần thưởng khối trong phần [Nền kinh tế token của Klay](design/token-economy.md).
+Đối với mỗi vòng, phần thưởng khối (tổng của 6,4 KLAY mới tạo và phí giao dịch được trả để xử lý khối) sẽ được phân bổ cho những người tham gia mạng theo tỷ lệ phân phối đặt trước. Người đề xuất của khối mới được tạo sẽ nhận được 100% phần thưởng được trao cho các CN, còn ủy ban sẽ không nhận được gì. Lưu ý rằng xác suất của việc được chọn làm người đề xuất chịu ảnh hưởng của số lượng KLAY được nắm giữ bởi CN, nghĩa là một CN có càng nhiều KLAY được đầu tư vào nền tảng thì sẽ có xác suất nhận được nhiều phần thưởng hơn. Bạn có thể xem chi tiết về việc phân phối phần thưởng khối trong phần [Nền kinh tế token của Klay](design/token-economy.md).
