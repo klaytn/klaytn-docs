@@ -1,6 +1,6 @@
 # Cơ chế đồng thuận <a id="consensus-mechanism"></a>
 
-Cơ chế đồng thuận (thuật toán) là cách để đạt được sự đồng thuận giữa các thực thể mà không cần tới sự tin tưởng. Trong công nghệ chuỗi khối, cơ chế này được sử dụng để đạt được sự đồng thuận về việc một khối có hợp lệ hay không. Hiệu suất của các mạng chuỗi khối phụ thuộc vào hiệu suất của các cơ chế đồng thuận đã được thông qua, và nó có tác động đáng kể đến khả năng sử dụng cảm nhận của các Ứng dụng chuỗi khối.
+Cơ chế đồng thuận (thuật toán) là cách để đạt được sự đồng thuận giữa các thực thể mà không cần tới sự tin tưởng. Trong công nghệ chuỗi khối, cơ chế này được sử dụng để đạt được sự đồng thuận về việc một khối có hợp lệ hay không. Hiệu suất của các mạng chuỗi khối phụ thuộc vào hiệu suất của các cơ chế đồng thuận đã được thông qua và nó có tác động đáng kể đến khả năng sử dụng cảm nhận của các Ứng dụng chuỗi khối.
 
 Mạng chính thức Cypress của Klaytn có hiệu suất như sau.
 - Xử lý hơn 4.000 giao dịch mỗi giây.
@@ -18,12 +18,12 @@ Vì thế, trong các hệ thống này, một phân nhánh có thể phát sinh
 
 Tình trạng thiếu tính hoàn thiện này là một vấn đề khó khăn đối với các dịch vụ lấy khách hàng làm trọng tâm có sử dụng nền tảng chuỗi khối. Điều này xảy ra là vì cần phải đợi cho tới khi các phân nhánh được giải quyết và có đủ khối được tạo ra sau giao dịch chuyển tiền để tin rằng giao dịch không thể đảo ngược. Điều này có tác động tiêu cực tới cả người dùng và nhà cung cấp dịch vụ.
 
-Các dịch vụ tài chính có thể làm ví dụ minh họa đơn giản cho vấn đề này. Giả sử một người dùng chuyển tiền cho người khác, và dịch vụ này không thể xác minh rằng giao dịch chuyển tiền đó là hợp lệ trong 30 tới 60 phút. Điều này xảy ra là vì cần phải đợi cho tới khi các phân nhánh đã được hợp nhất thành một chuỗi duy nhất, và có một số khối đã được tạo ra sau giao dịch chuyển tiền để đảm bảo rằng giao dịch đó không thể đảo ngược.
+Các dịch vụ tài chính có thể làm ví dụ minh họa đơn giản cho vấn đề này. Giả sử một người dùng chuyển tiền cho người khác và dịch vụ này không thể xác minh rằng giao dịch chuyển tiền đó là hợp lệ trong 30 tới 60 phút. Điều này xảy ra là vì cần phải đợi cho tới khi các phân nhánh đã được hợp nhất thành một chuỗi duy nhất và có một số khối đã được tạo ra sau giao dịch chuyển tiền để đảm bảo rằng giao dịch đó không thể đảo ngược.
 
 ### PBFT (Hệ thống chịu lỗi Byzantine thiết thực)  <a id="pbft-practical-byzantine-fault-tolerance"></a>
 Để ngăn ngừa các vấn đề trên, chúng ta cần các thuật toán khác, đảm bảo được tính hoàn thiện. Thuật toán BFT là một trong số đó, được [ra mắt](https://dl.acm.org/citation.cfm?doid=357172.357176) lần đầu vào năm 1982 bởi Lamport, Shostak, Pease. Vào năm 1999, Miguel Castro và Barbara Liskov giới thiệu "Hệ thống chịu lỗi Byzantine thiết thực"([PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)) cung cấp tính năng nhân bản máy trạng thái hiệu suất cao.
 
-Trong thuật toán PoW được nêu ở trên, mặc dù mỗi nút đều nhận và xác thực các khối, không có sự trao đổi thông báo giữa các nút để đạt được sự đồng thuận. Tuy nhiên, trong PBFT, mỗi nút đều giao tiếp với các nút tham gia khác để đạt được sự đồng thuận, và tính hoàn thiện của khối cũng có thể được đảm bảo ngay khi các nút có thể đạt được sự đồng thuận.
+Trong thuật toán PoW được nêu ở trên, mặc dù mỗi nút đều nhận và xác thực các khối, không có sự trao đổi thông báo giữa các nút để đạt được sự đồng thuận. Tuy nhiên, trong PBFT, mỗi nút đều giao tiếp với các nút tham gia khác để đạt được sự đồng thuận và tính hoàn thiện của khối cũng có thể được đảm bảo ngay khi các nút có thể đạt được sự đồng thuận.
 
 Hoạt động giao tiếp giữa các nút về cơ bản diễn ra như sau. Tuy nhiên, có một số biến thể phản ánh đặc điểm của từng hệ thống.
 
@@ -40,10 +40,10 @@ Trong Klaytn, có ba loại nút, CN (Nút đồng thuận), ON (Nút proxy) và
 
 Klaytn đạt được tính hoàn thiện nhanh nhờ việc áp dụng và cải thiện Istanbul BFT. Do việc xác thực và đồng thuận được thực hiện cho mỗi khối nên sẽ không phát sinh hiện tượng phân nhánh, đồng thời, tính hoàn thiện của khối được đảm bảo ngay lập tức sau khi đạt được sự đồng thuận.
 
-Ngoài ra, vấn đề về việc tăng khối lượng giao tiếp trong thuật toán BFT cũng được giải quyết bằng cách sử dụng `Ủy ban` được chọn ngẫu nhiên. Các CN cùng nhau tạo thành một `Hội đồng`, và với mỗi lần tạo khối, một phần trong số này được chọn làm thành viên của `Ủy ban` bằng cách sử dụng VRF (Chức năng ngẫu nhiên có thể xác minh).
+Ngoài ra, vấn đề về việc tăng khối lượng giao tiếp trong thuật toán BFT cũng được giải quyết bằng cách sử dụng `Ủy ban` được chọn ngẫu nhiên. Các CN cùng nhau tạo thành một `Hội đồng` và với mỗi lần tạo khối, một phần trong số này được chọn làm thành viên của `Ủy ban` bằng cách sử dụng VRF (Chức năng ngẫu nhiên có thể xác minh).
 
 ![Khái niệm về hội đồng và ủy ban](../images/council-committee.png)
 
-Do các thông báo về sự đồng thuận chỉ được trao đổi giữa các thành viên ủy ban, khối lượng giao tiếp có thể bị giới hạn dưới mức thiết kế, mặc dù tổng số các CN tăng lên.
+Do các thông báo về đồng thuận chỉ được trao đổi giữa các thành viên ủy ban, nên khối lượng giao tiếp có thể bị giới hạn dưới mức thiết kế, mặc dù tổng số các CN tăng lên.
 
-Hiện tại, mạng chính thức của Klaytn, Cypress, có thể cung cấp thông lượng cao ở mức 400 giao dịch mỗi giây, với khoảng thời gian tạo khối là một giây. Hiện tại, hơn 50 nút đồng thuận có thể tham gia vào CNN (Mạng nút đồng thuận), và con số này sẽ liên tục tăng lên khi Klaytn tiếp tục tích cực tối ưu hóa thuật toán.
+Hiện tại, mạng chính thức của Klaytn, Cypress, có thể cung cấp thông lượng cao ở mức 400 giao dịch mỗi giây, với khoảng thời gian tạo khối là một giây. Hiện tại, hơn 50 nút đồng thuận có thể tham gia vào CNN (Mạng nút đồng thuận) và con số này sẽ liên tục tăng lên khi Klaytn tiếp tục tích cực tối ưu hóa thuật toán.
