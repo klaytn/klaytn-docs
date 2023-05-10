@@ -2,7 +2,7 @@
 
 ## Đối tượng mục tiêu  <a id="intended-audience"></a>
 
-- Nhà vận hành Core Cell
+- Người vận hành Core Cell
 - Nếu bạn muốn tạo và chạy Ứng dụng Blockchain trên Klaytn, bạn không cần phải duy trì Core Cell. Thay vào đó, bạn chỉ cần chạy [Endpoint Node](../endpoint-node/README.md) để ứng dụng của bạn có thể tương tác với mạng lưới Klaytn.
 
 
