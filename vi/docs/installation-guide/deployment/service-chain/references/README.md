@@ -1,24 +1,24 @@
 # ServiceChain <a id="service-chain"></a>
 
-## Intended Audience <a id="intended-audience"></a>
+## Đối tượng mục tiêu <a id="intended-audience"></a>
 
-- Companies that want to build blockchains for Metaverse, GameFi, and NFTs
-- dApp developers who need high TPS, minimal transaction fees, and data privacy.
-- Anyone who wants to build a local private network or a ledger database for testing.
+- Các công ty muốn xây dựng blockchain cho Metaverse, GameFi và NFT
+- Nhà phát triển dApp cần TPS cao, phí giao dịch tối thiểu và quyền riêng tư dữ liệu.
+- Bất kỳ ai muốn xây dựng mạng lưới riêng tư cục bộ hoặc cơ sở dữ liệu sổ cái để thử nghiệm.
 
-## ServiceChain Overview <a id="service-chain-overview"></a>
+## Tổng quan về ServiceChain <a id="service-chain-overview"></a>
 
-ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
+ServiceChain là một blockchain cấp doanh nghiệp để đáp ứng các yêu cầu của công ty như chuyển giá trị, bảo mật, hiệu suất cao và tùy chỉnh. ServiceChain Klaytn cung cấp các tính năng sau:
 
-- Immediate finality
-- Token transfer between Klaytn chains
-- Data anchoring to the main chain for data integrity
-- Multi-sig bridge contract to meet enterprise-level security requirements
+- Tính hoàn thiện tức thời
+- Chuyển token giữa các chuôi Klaytn
+- Neo dữ liệu vào chuỗi chính để đảm bảo tính toàn vẹn của dữ liệu
+- Hợp đồng cầu nối đa chữ ký để đáp ứng các yêu cầu bảo mật cấp doanh nghiệp
 
 ![](../images/sc-overview.png)
 
 
-Read the [Klaytn Scaling Solution](../../../../klaytn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+Đọc [Giải pháp mở rộng Klaytn](../../../../klaytn/scaling-solutions.md) để biết thêm chi tiết về ServiceChain. Các video sau đây sẽ giúp bạn hiểu rõ hơn về ServiceChain Klaytn.
 
-- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Mở rộng quy mô theo chiều ngang thông qua Chuỗi dịch vụ trên Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [Kiến trúc có tính sẵn sàng cao của Chuỗi dịch vụ Klaytn | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
