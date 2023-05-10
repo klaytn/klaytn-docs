@@ -92,5 +92,5 @@ Nếu mỗi CN/PN có cấu hình và tác nhân ở trên, bạn có thể ki�
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
-Nhà vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các nhà vận hành CC mới được phép yêu cầu tài khoản Grafana.
+Người vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các người vận hành CC mới được phép yêu cầu tài khoản Grafana.
 
