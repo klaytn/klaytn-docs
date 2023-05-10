@@ -1,13 +1,13 @@
 # Cấu hình <a id="configuration"></a>
 
-Cấu hình NP dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong tập tin cấu hình `kpnd.conf`.
+Cấu hình PN dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong tập tin cấu hình `kpnd.conf`.
 
-1. Tạo thư mục dữ liệu NP
+1. Tạo thư mục dữ liệu PN
 2. Cài đặt khóa nút
 3. Cài đặt `static-node.json`
-4. Định cấu hình NP với `kpnd.conf`.
+4. Định cấu hình PN với `kpnd.conf`.
 
-## Tạo thư mục dữ liệu NP <a id="pn-data-directory-creation"></a>
+## Tạo thư mục dữ liệu PN <a id="pn-data-directory-creation"></a>
 
 Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
@@ -17,7 +17,7 @@ $ mkdir -p /var/kpnd/data
 
 ## Cài đặt Khóa nút <a id="install-node-key"></a>
 
-Để vận hành NP cần có `nodekey`. Nhị phân NP Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu NP. Cách để tạo `khóa nút` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu NP.
+Để vận hành PN cần có `nodekey`. Nhị phân PN Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu PN. Cách để tạo `khóa nút` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp nodekey /var/kpnd/data
@@ -25,7 +25,7 @@ $ cp nodekey /var/kpnd/data
 
 ## Cài đặt `static-nodes.json` <a id="install-static-nodes-json"></a>
 
-`static-nodes.json` nên được tạo bởi nhà vận hành NP. Nó chứa các địa chỉ kết nối với NP của bạn. Bạn nên thêm địa chỉ bao gồm NĐT và NP từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết \(`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab\).
+`static-nodes.json` nên được tạo bởi người vận hành PN. Nó chứa các địa chỉ kết nối với PN của bạn. Bạn nên thêm địa chỉ bao gồm CN và PN từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết \(`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab\).
 
 **static-nodes.json**
 
@@ -36,7 +36,7 @@ $ cp nodekey /var/kpnd/data
 ]
 ```
 
-URI nút của NP có trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của NĐT.\) Dòng lệnh sau sao chép tệp `static-nodes.json` vào thư mục dữ liệu NP.
+URI nút của PN có trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của CN.\) Dòng lệnh sau sao chép tệp `static-nodes.json` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
@@ -61,9 +61,9 @@ DATA_DIR=/var/kpnd/data
 
 ## Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
 
-Mỗi NP duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một NP mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
+Mỗi PN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một PN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu NP. Điều này giúp giảm đáng kể thời gian NP cần để đồng bộ khi bắt đầu lần đầu tiên.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu PN. Điều này giúp giảm đáng kể thời gian PN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
 Tải về bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kpnd.conf`.
 
@@ -79,6 +79,6 @@ Hoặc,
 $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu NP như bình thường.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu PN như bình thường.
 
 Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../../../operation-guide/chaindata-change)
