@@ -1,4 +1,4 @@
-Phần này trình bày cách kết nối mạng lưới Chuỗi dịch vụ 4 nút của bạn với mạng lưới Baobab. Bạn sẽ thiết lập EN Baobab và kết nối EN đó với một trong các SCN của bạn. Sau đó, bạn sẽ kích hoạt tính năng neo để đưa thông tin khối Chuỗi dịch vụ vào mạng lưới Baobab.
+Phần này trình bày cách kết nối mạng lưới ServiceChain 4 nút của bạn với mạng lưới Baobab. Bạn sẽ thiết lập EN Baobab và kết nối EN đó với một trong các SCN của bạn. Sau đó, bạn sẽ kích hoạt tính năng neo để đưa thông tin khối ServiceChain vào mạng lưới Baobab.
 
 ![](../images/sc-en-scn-arch.png)
 
@@ -9,7 +9,7 @@ Phần này trình bày cách kết nối mạng lưới Chuỗi dịch vụ 4 n
    - Vui lòng tham khảo [Yêu cầu hệ thống](../references/system-requirements.md) để biết thêm chi tiết.
  - Tải xuống tập tin thực thi EN Baobab. Để biết danh sách đầy đủ các tập tin nhị phân có thể tải về, hãy xem [Tải về](../../../download/README.md).
  - Giả định và hạn chế
-   - Một mạng lưới Chuỗi dịch vụ đã được cài đặt và đang chạy. Vui lòng tham khảo [Thiết lập Chuỗi dịch vụ 4 nút](4nodes-setup-guide.md) để thiết lập mạng lưới.
+   - Một mạng lưới ServiceChain đã được cài đặt và đang chạy. Vui lòng tham khảo [Thiết lập ServiceChain 4 nút](4nodes-setup-guide.md) để thiết lập mạng lưới.
    - Một EN Baobab.
    - Một EN chỉ có thể kết nối với một SCN vì hệ thống chỉ hỗ trợ kết nối một-một.
    - Mọi SCN không cần phải kết nối với EN.
@@ -77,7 +77,7 @@ SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > 
 ```
 
 ## Bước 7: ĐỊnh cấu hình SCN rồi Khởi động lại kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
-Từ shell của nút SCN-L2-01, hãy chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf`. Nếu `SC_SUB_BRIDGE` được đặt thành 1, quá trình neo dữ liệu sẽ tự động bắt đầu khi nút SCN-L2-01 bắt đầu. Trong ví dụ này, `SC_PARENT_CHAIN_ID` được đặt thành 1001 vì `chainID` của chuỗi gốc, Baobab, là 1001. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi tx neo tới chuỗi chính. Bằng cách đặt giá trị thành 10, bạn đã định cấu hình nút để thực hiện việc neo sau mỗi 10 khối. Giá trị mặc định là 1.
+Từ tập lệnh shell của nút SCN-L2-01, hãy chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf`. Nếu `SC_SUB_BRIDGE` được đặt thành 1, quá trình neo dữ liệu sẽ tự động bắt đầu khi nút SCN-L2-01 bắt đầu. Trong ví dụ này, `SC_PARENT_CHAIN_ID` được đặt thành 1001 vì `chainID` của chuỗi gốc, Baobab, là 1001. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo tới chuỗi chính. Bằng cách đặt giá trị thành 10, bạn đã định cấu hình nút để thực hiện việc neo sau mỗi 10 khối. Giá trị mặc định là 1.
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -88,7 +88,7 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-Restart kscn by executing the following command:
+Khởi động lại kscn bằng cách thực hiện lệnh sau:
 ```
 SCN-L2-01$ kscnd stop
 Shutting down kscnd: Killed
@@ -96,18 +96,18 @@ SCN-L2-01$ kscnd start
 Starting kscnd: OK
 ```
 
-Check if the SCN-L2-01 is connected to the EN-01 by checking `subbridge.peers.length`
+Kiểm tra xem SCN-L2-01 có được kết nối với EN-01 hay không bằng cách kiểm tra `subbridge.peers.length`
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.peers.length
 1
 ```
 
-## Anchoring  <a id="anchoring"></a>
-After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain block information on the parent chain via Anchoring. In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
+## Neo  <a id="anchoring"></a>
+Sau khi kết thúc kết nối EN-01 và SCN-L2-01, bạn có thể ghi lại thông tin khối ServiceChain trên chuỗi mẹ thông qua Neo. Trong phần này, bạn sẽ nạp tiền vào tài khoản toán tử mẹ, bật Neo và kiểm tra số khối được neo.
 
-### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KLAY to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+### Bước 1: Lấy KLAY để thử neo <a id="step-1-get-klay-to-test-anchoring"></a>
+Việc neo yêu cầu SCN-L2-01 thực hiện giao dịch neo với Baobab. Vì vậy, tài khoản `subbridge.parentOperator` phải có đủ KLAY để thanh toán phí giao dịch. Lấy KLAY từ [Vòi Ví Baobab ](https://baobab.wallet.klaytn.foundation/) và chuyển một số KLAY cho `parentOperator`. Để neo dữ liệu vào dịch vụ thực, `parentOperator` cần có đủ KLAY để thanh toán phí giao dịch.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -116,14 +116,14 @@ SCN-L2-01$ kscn attach --datadir ~/data
 ```
 ![](../images/sc-en-scn-faucet.png)
 
-### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
-To start anchoring, execute the following command:
+### Bước 2: Bắt đầu neo <a id="step-2-start-anchoring"></a>
+Để bắt đầu neo, hãy thực hiện lệnh sau:
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+Sau khi bắt đầu neo, bạn có thể kiểm tra khối mới nhất được neo vào Baobab bằng cách sử dụng `subbridge.latestAnchoredBlockNumber`. Xin lưu ý rằng chỉ có thể làm điều này sau khi EN đã gắn với khối Baobab mới nhất. Theo mặc định, SCN-L2-01 sẽ thử neo trên mọi khối từ khối mà tính năng neo được bật. Có thể đặt khoảng thời gian neo bằng cách thay đổi `SC_ANCHORING_PERIOD`. Nếu giá trị được đặt thành 10, nút sẽ thử neo khi số khối là bội số của 10.
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
