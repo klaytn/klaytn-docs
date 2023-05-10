@@ -1057,27 +1057,27 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng Kl
 kip7Instance.burn(amount [, sendParam])
 ```
 
-Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
+Hủy `số lượng` của token trong số dư của người gửi. Nếu không cung cấp `sendParam.from` hoặc `kip7Instance.options.from` thì sẽ xảy ra lỗi.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
-|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| amount    | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
+| Tên       | Loại        | Mô tả                                                                                                                                                                                         |
+|:--------- |:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số lượng  | BigNumber \ | Chuỗi \| Số | Số lượng token sẽ bị phá hủy.                                                                                                                                                  |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** `Số lượng` chấp nhận tham số `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP7- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// Gửi qua một đối tượng sendParam với trường từ đã cho
 > kip7Instance.burn(1000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x7cf9e982510d17a2fd5fca3e7a6f9ce5a25a9da6ba81d51b33129fb7fb93e0ae',
@@ -1115,9 +1115,9 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     },
 }
 
-// Using kip7Instance.options.from
-// If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+// Sử dụng kip7Instance.options.from
+// Nếu giá trị của kip7Instance.options.from được đặt, giá trị này được sử dụng làm giá trị mặc định
+// trừ khi bạn chỉ định `từ` trong đối tượng sendParam khi gửi một giao dịch với phiên bản kip7Instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.burn(1000).then(console.log)
 ```
@@ -1128,23 +1128,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7Instance.burnFrom(account, amount [, sendParam])
 ```
 
-Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7Instance.options.from` is reduced alongside the balance of `account`.
+Hủy số lượng token đã cho từ `tài khoản`. Hạn mức của người gửi được chỉ định trong `sendParam.from` hoặc `kip7Instance.options.from` bị giảm cùng với số dư của `tài khoản`.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng Klaytn, mạng này sẽ tính phí giao dịch cho người gửi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type         | Description                                                                                                                                                                                                 |
-|:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | String       | The address of the account that owns tokens to be burned with allowance mechanism.                                                                                                                          |
-| amount    | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
-| sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
+| Tên       | Loại        | Mô tả                                                                                                                                                                                         |
+|:--------- |:------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tài khoản | Chuỗi        | Địa chỉ của tài khoản sở hữu token sẽ bị đốt cháy với cơ chế trợ cấp.                                                                                                                         |
+| số lượng  | BigNumber \ | Chuỗi \| Số | Số lượng token sẽ bị phá hủy.                                                                                                                                                  |
+| sendParam | Đối tượng    | \(tùy chọn\) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [phê duyệt](caver.klay.KIP7.md#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**LƯU Ý** `Số lượng` chấp nhận tham số `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi Number.MAX \_SAFE\_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `Object` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Biên nhận từ các phiên bản KIP7- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'nhật ký'.
 
 **Ví dụ**
 
