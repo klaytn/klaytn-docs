@@ -233,23 +233,23 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 | extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                                                                     |
 | gasUsed          | SỐ LƯỢNG        | Tổng số đơn vị gas đã dùng của tất cả các giao dịch trong khối này.                                                                                        |
 | governanceData   | DỮ LIỆU         | Cấu hình quản trị được mã hóa RLP                                                                                                                          |
-| hash             | DỮ LIỆU 32 byte | Hash of the block. `null` when it is a pending block.                                                                                                      |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                             |
-| number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                       |
-| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                                  |
-| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                         |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                                |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                       |
-| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                                   |
-| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                             |
-| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                        |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                                 |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                             |
-| transactions     | Array           | Array of transaction objects.                                                                                                                              |
-| transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                             |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                                |
+| hash             | DỮ LIỆU 32 byte | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                         |
+| logsBloom        | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                    |
+| number           | SỐ LƯỢNG        | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                                  |
+| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha.                                                                                                                                      |
+| proposer         | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                            |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch trong khối.                                                                                                         |
+| reward           | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                                 |
+| size             | SỐ LƯỢNG        | Số nguyên chỉ kích thước của khối này tính bằng đơn vị byte.                                                                                               |
+| stateRoot        | DỮ LIỆU 32 byte | Gốc của trie trạng thái cuối trong khối.                                                                                                                   |
+| timestamp        | SỐ LƯỢNG        | Dấu thời gian unix khi khối được đối chiếu.                                                                                                                |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                       |
+| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                                                                              |
+| transactions     | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                  |
+| transactionsRoot | DỮ LIỆU 32 byte | Gốc của trie giao dịch trong khối.                                                                                                                         |
+| voteData         | DỮ LIỆU         | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                                                       |
 
-**Examples**
+**Ví dụ**
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -313,20 +313,20 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 caver.klay.getCommittee([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
+Trả về danh sách tất cả những người xác thực của ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những người xác thực của ủy ban tại khối mới nhất.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| Tên          | Loại           | Mô tả                                                                                                                                      |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - Addresses of all validators in the committee.
+`Promise` trả về `Array` - Địa chỉ của tất cả những người xác thực trong ủy ban.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getCommittee().then(console.log);
@@ -344,20 +344,20 @@ Returns a list of all validators in the committee at the specified block. If the
 caver.klay.getCommitteeSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
+Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tham số không được đặt thì sẽ trả về quy mô của ủy ban tại khối mới nhất.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| Tên          | Loại           | Mô tả                                                                                                                                      |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The size of the committee.
+`Promise` trả về `Number` - Quy mô của ủy ban.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getCommitteeSize().then(console.log);
@@ -365,26 +365,26 @@ Returns the size of the committee at the specified block. If the parameter is no
 ```
 
 ## getCouncil <a id="getcouncil"></a>
-**NOTE**: `getValidators` is replaced with this method and is not supported anymore.
+**LƯU Ý**: `getValidators` được thay bằng phương thức này và không được hỗ trợ nữa.
 
 ```javascript
 caver.klay.getCouncil([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
+Trả về danh sách tất cả những người xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những người xác thực của hội đồng tại khối mới nhất.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| Tên          | Loại            | Mô tả                                                                                                                                      |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - Addresses of all validators of the council.
+`Promise` trả về `Array` - Địa chỉ của tất cả những người xác thực trong hội đồng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getCouncil().then(console.log);
@@ -402,20 +402,20 @@ Returns a list of all validators of the council at the specified block. If the p
 caver.klay.getCouncilSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+Trả về quy mô của hội đồng tại khối được chỉ định. Nếu tham số không được đặt thì sẽ trả về quy mô của hội đồng tại khối mới nhất.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| Tên          | Loại           | Mô tả                                                                                                                                      |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The size of the council.
+`Promise` trả về `Number` - Quy mô của hội đồng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getCouncilSize().then(console.log);
@@ -428,22 +428,22 @@ Returns the size of the council at the specified block. If the parameter is not 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
-Gets the storage at a specific position of an address.
+Nhận dữ liệu lưu trữ tại một vị trí cụ thể của một địa chỉ.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                 |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the storage from.                                                                                        |
-| position     | Number               | The index position of the storage.                                                                                          |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| Tên          | Loại            | Mô tả                                                                                                                                      |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| address      | Chuỗi           | Địa chỉ để nhận bộ nhớ lưu trữ từ đó.                                                                                                      |
+| position     | Số              | Vị trí chỉ mục của bộ nhớ lưu trữ.                                                                                                         |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - The value in storage at the given position.
+`Promise` trả về `String` - Giá trị trong bộ nhớ lưu trữ tại vị trí đã cho.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0).then(console.log);
@@ -457,20 +457,20 @@ Gets the storage at a specific position of an address.
 caver.klay.isMining([callback])
 ```
 
-Returns `true` if client is actively mining new blocks.
+Giá trị trả về là `true` nếu máy khách đang tích cực khai thác các khối mới.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` if the client is mining, otherwise `false`.
+`Promise` trả về `Boolean` - `true` nếu máy khách đang khai thác, nếu không giá trị là `false`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.isMining().then(console.log);
@@ -483,28 +483,28 @@ true
 caver.klay.isSyncing([callback])
 ```
 
-Checks if the node is currently syncing and returns either a syncing object or `false`.
+Kiểm tra xem nút có đang đồng bộ hóa không và trả về một đối tượng đồng bộ hóa hoặc `false`.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
+`Promise` trả về `Object|Boolean` - Đối tượng đồng bộ hóa khi nút hiện đang đồng bộ hóa hoặc `false`:
 
-| Name          | Type   | Description                                                                 |
-| ------------- | ------ | --------------------------------------------------------------------------- |
-| startingBlock | Number | The block number where the sync started.                                    |
-| currentBlock  | Number | The block number where at which block the node currently synced to already. |
-| highestBlock  | Number | The estimated block number to sync to.                                      |
-| knownStates   | Number | The estimated states to download.                                           |
-| pulledStates  | Number | The already downloaded states.                                              |
+| Tên           | Loại | Mô tả                                                 |
+| ------------- | ----- | ----------------------------------------------------- |
+| startingBlock | Số    | Số khối nơi mà quy trình đồng bộ hóa bắt đầu.         |
+| currentBlock  | Số    | Số khối tại khối mà nút hiện đã được đồng bộ hóa đến. |
+| highestBlock  | Số    | Số khối ước tính để đồng bộ hóa đến.                  |
+| knownStates   | Số    | Các trạng thái ước tính cần tải xuống.                |
+| pulledStates  | Số    | Các trạng thái đã tải xuống.                          |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.isSyncing().then(console.log);
