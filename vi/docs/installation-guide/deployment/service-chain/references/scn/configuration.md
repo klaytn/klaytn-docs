@@ -13,7 +13,7 @@ Trong hướng dẫn này, không phải lúc nào chúng ta cũng chỉ định
 
 ## Tạo một tập tin Genesis <a id="creation-of-a-genesis-file"></a>
 
-Trước tiên, bạn nên tạo tập tin khởi nguyên và khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
+Trước tiên, bạn nên tạo tập tin khởi nguyên và tập tin khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
 ```bash
 $ homi setup local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -121,7 +121,7 @@ DATA_DIR=
 Bạn có thể bật `SC_SUB_BRIDGE` để sử dụng tính năng Neo/ Chuyển giá trị. Bạn cũng nên đặt DATA_DIR như dưới đây.
 
 ```
-# Configuration file for the kscnd
+# Tập tin cấu hình cho kscnd
 ...
 SC_SUB_BRIDGE=1
 ...
@@ -129,6 +129,6 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-If you want, you can further modify other options to customize your Service Chain. Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
+Nếu muốn, bạn có thể sửa đổi thêm các tùy chọn khác để tùy chỉnh ServiceChain của mình. Nếu không, bạn có thể hoàn tất cấu hình ngay bây giờ và dùng cấu hình mặc định để chạy chuỗi dịch vụ.
 
 
