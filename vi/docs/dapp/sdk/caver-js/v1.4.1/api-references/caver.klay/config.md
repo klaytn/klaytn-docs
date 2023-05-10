@@ -4,16 +4,16 @@
 caver.klay.gasPriceAt([defaultBlock] [, callback])
 ```
 
-Returns the unit price of gas in peb that was effective at the given block height.
+Trả về đơn giá của gas tính bằng đơn vị peb có hiệu lực tại chiều cao khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type                 | Description                                                                                                                            |
-| ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                             |
+| Tên          | Loại            | Mô tả                                                                                                                                            |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock) sẽ được sử dụng. |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                  |
 
-**Return Value**
+**Giá trị trả về**
 
 `Promise` returns `String` - A numeric string of the gas price in peb.
 
