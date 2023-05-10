@@ -231,9 +231,9 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 | blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Luôn luôn là 1 trong công cụ đồng thuận BFT                                                                                              |
 | committee        | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
 | extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                                                                     |
-| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                      |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                                                                       |
-| hash             | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                      |
+| gasUsed          | SỐ LƯỢNG        | Tổng số đơn vị gas đã dùng của tất cả các giao dịch trong khối này.                                                                                        |
+| governanceData   | DỮ LIỆU         | Cấu hình quản trị được mã hóa RLP                                                                                                                          |
+| hash             | DỮ LIỆU 32 byte | Hash of the block. `null` when it is a pending block.                                                                                                      |
 | logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                             |
 | number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                       |
 | parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                                  |
