@@ -22,7 +22,7 @@ Trong cấu hình này, hai CN được cài đặt cấu hình hoạt động-c
 
 ## Bản sao lưu máy ảo & Thu thập dữ liệu \(khuyến nghị cho đám mây\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
-Cơ sở hạ tầng đám mây cho phép nhà vận hành thay thế các nút không thành công nhanh chóng hơn mà không cần phải chạy CN chờ thứ 2. Thay vào đó, nó đảm bảo một CN mới có thể được cung cấp nhanh chóng và đi kèm bản sao cập nhật của dữ liệu chuỗi.
+Cơ sở hạ tầng đám mây cho phép người vận hành thay thế các nút không thành công nhanh chóng hơn mà không cần phải chạy CN chờ thứ 2. Thay vào đó, nó đảm bảo một CN mới có thể được cung cấp nhanh chóng và đi kèm bản sao cập nhật của dữ liệu chuỗi.
 
 Thuật ngữ và quy trình chính xác có thể khác nhau giữa các môi trường đám mây khác nhau. Quy trình bên dưới dựa trên AWS \(cụ thể là EC2 và EBS\) nhưng có thể được điều chỉnh theo các nền tảng đám mây khác.
 
