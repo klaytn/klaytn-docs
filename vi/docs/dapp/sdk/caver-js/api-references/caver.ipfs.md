@@ -2,7 +2,7 @@
 
 `caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
 
-**NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
+**LƯU Ý** `caver.ipfs` được hỗ trợ kể từ caver-js phiên bản [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
 
 ## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
@@ -10,11 +10,11 @@
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Initializes a connection with an IPFS Node. When an IPFS Node information is set through this function, you can upload files to IPFS or load files from IPFS.
+Khởi tạo kết nối với Nút IPFS. Khi thông tin Nút IPFS được đặt thông qua hàm này, bạn có thể tải tệp lên IPFS hoặc tải tệp từ IPFS.
 
-**Parameters**
+**Tham số**
 
-| Name | Type    | Description                                                                    |
+| Tên  | Type    | Description                                                                    |
 | ---- | ------- | ------------------------------------------------------------------------------ |
 | host | string  | The IPFS Node url to connect with.                                             |
 | port | number  | The port number to use.                                                        |
@@ -85,15 +85,15 @@ Returns a file addressed by a valid IPFS path.
 | hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-`Promise` returns `Buffer`
+`Promise` trả về `Bộ đệm`
 
-| Type   | Description              |
-| ------ | ------------------------ |
-| Buffer | The content of the file. |
+| Loại  | Mô tả                 |
+| ------ | --------------------- |
+| Bộ đệm | Nội dung của tệp tin. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -106,22 +106,22 @@ Returns a file addressed by a valid IPFS path.
 caver.ipfs.toHex(hash)
 ```
 
-Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
+Chuyển đổi [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) thành [Multihash](https://multiformats.io/multihash).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                                                                            |
-| ---- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
-| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| Tên     | Loại  | Mô tả                                                                                                                   |
+| ------- | ----- | ----------------------------------------------------------------------------------------------------------------------- |
+| hàm băm | chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) để chuyển đổi. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                |
-| ------ | ---------------------------------------------------------- |
-| string | The [Multihash](https://multiformats.io/multihash) string. |
+| Loại | Mô tả                                                 |
+| ----- | ----------------------------------------------------- |
+| chuỗi | Chuỗi [Multihash](https://multiformats.io/multihash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -134,22 +134,22 @@ Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addre
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
+Chuyển đổi thành [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) từ [Multihash](https://multiformats.io/multihash).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                  |
-| ---- | ------ | ------------------------------------------------------------ |
-| hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
+| Tên     | Loại | Mô tả                                                         |
+| ------- | ----- | ------------------------------------------------------------- |
+| hàm băm | chuỗi | [Multihash](https://multiformats.io/multihash) để chuyển đổi. |
 
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                                                                   |
-| ------ | ------------------------------------------------------------------------------------------------------------- |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| Loại | Mô tả                                                                                                     |
+| ----- | --------------------------------------------------------------------------------------------------------- |
+| chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
