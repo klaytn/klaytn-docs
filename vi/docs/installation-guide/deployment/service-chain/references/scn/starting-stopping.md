@@ -1,36 +1,36 @@
-# Starting/Stopping SCN <a id="starting-stopping-scn"></a>
+# Bắt đầu/dừng SCN <a id="starting-stopping-scn"></a>
 
-Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
+Tùy thuộc vào loại cài đặt của bạn, bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` hoặc `kscnd` như sau.
 
-**start**
+**bắt đầu**
 
 ```bash
-## when installed from rpm distribution 
+## khi cài đặt từ phân bổ rpm 
 $ systemctl start kscnd.service
 
-## when installed using linux archive
+## khi cài đặt bằng lưu trữ linux
 $ kscnd start
 
 ```
 
-**stop**
+**dừng**
 
 ```bash
-## when installed from rpm distribution 
+## khi cài đặt từ phân bổ rpm 
 $ systemctl stop kscnd.service
 
-## when installed using linux archive
+## khi cài đặt bằng lưu trữ linux
 $ kscnd stop
 
 ```
 
-**status**
+**trạng thái**
 
 ```bash
-## when installed from rpm distribution 
+## khi cài đặt từ phân bổ rpm 
 $ systemctl status kscnd.service
 
-## when installed using linux archive
+## khi cài đặt bằng lưu trữ linux
 $ kscnd status
 
 ```
