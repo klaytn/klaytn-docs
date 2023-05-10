@@ -1,4 +1,4 @@
-# Upgrade & Hard Fork
+# Nâng cấp & Nâng cấp căn bản
 
 Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
 
