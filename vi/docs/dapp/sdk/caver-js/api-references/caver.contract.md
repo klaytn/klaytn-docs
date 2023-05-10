@@ -351,24 +351,24 @@ Trả về đối tượng được sử dụng khi triển khai hợp đồng t
 
 **Giá trị Trả về**
 
-| Type   | Description                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| object | An object in which arguments and functions for contract distribution are defined. See the below table to find the description. |
+| Loại      | Mô tả                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng trong đó các đối số và hàm để phân phối hợp đồng được xác định. Xem bảng dưới đây để tìm mô tả. |
 
-The object contains the following:
+Đối tượng chứa các mục sau:
 
-| Name                                                                  | Type     | Description                                                                                                                                                        |
-| --------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                                             | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
-| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
-| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
-| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
+| Tên                                                                   | Loại | Mô tả                                                                                                                           |
+| --------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
+| đối số                                                                | Mảng  | Các đối số được chuyển vào `options.arguments`.                                                                                 |
+| [gửi](caver.contract.md#methods-methodname-send)                      | hàm   | Hàm sẽ triển khai hợp đồng đến Klaytn. Promise là kết quả của hàm sẽ được xử lý với phiên bản hợp đồng mới.                     |
+| [ký](caver.contract.md#methods-methodname-sign)                       | hàm   | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người gửi. Hàm ký sẽ trả về giao dịch đã ký.                  |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | hàm   | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người trả phí. Hàm signAsFeePayer sẽ trả về giao dịch đã ký.  |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | hàm   | Hàm sẽ ước tính lượng gas sử dụng cho việc triển khai. Việc thực thi hàm này không triển khai hợp đồng.                         |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | hàm   | Hàm mã hóa ABI của quá trình triển khai là dữ liệu hợp đồng + tham số hàm tạo. Việc thực thi hàm này không triển khai hợp đồng. |
 
-**NOTE** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `myContract.deploy({ data, arguments }).sign(options)` và `myContract.deploy({ data, arguments }).signAsFeePayer(options)` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > myContract.deploy({
@@ -389,7 +389,7 @@ The object contains the following:
       console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// When the data is already set as an option to the contract itself
+// Khi dữ liệu đã được đặt làm tùy chọn cho chính hợp đồng
 > myContract.options.data = '0x12345...'
 
 > myContract.deploy({
@@ -404,7 +404,7 @@ The object contains the following:
       console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// Simply encoding
+// Mã hóa đơn giản
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
@@ -412,7 +412,7 @@ The object contains the following:
   .encodeABI()
 '0x12345...0000012345678765432'
 
-// Gas estimation
+// Uớc tính lượng gas
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
@@ -428,22 +428,22 @@ The object contains the following:
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Submits a transaction to execute the function of the smart contract. This can alter the smart contract state.
+Gửi một giao dịch để thực hiện hàm của hợp đồng thông minh. Điều này có thể thay đổi trạng thái hợp đồng thông minh.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.send`, `feeDelegation` and `feePayer` should be set properly.
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `tùy chọn` hoặc giá trị được xác định trong `myContract.options`. Nếu bạn muốn sử dụng giao dịch được ủy quyền phí thông qua `myContract.send` thì phải đặt `feeDelegation` và `feePayer` đúng cách.
 
-* `feeDelegation` is not defined or defined to `false`: [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
-* `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
-* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+* `feeDelegation` không được xác định hoặc được xác định là `sai`: [SmartContractExecution](caver.transaction/basic.md#smartcontractexecution)
+* `feeDelegation` được xác định là `đúng` nhưng `feePayer` không được xác định : Thông báo lỗi.
+* `feeDelegation` được xác định là `đúng` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` được xác định là `đúng` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
-**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
+**LƯU Ý** `caver.wallet` phải chứa các phiên bản khóa tương ứng với `địa chỉ gửi` và `feePayer` trong `tùy chọn` hoặc `myContract.options` để tạo chữ ký.
 
-**NOTE** `myContract.send` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `myContract.send` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**Tham số**
 
-| Name       | Loại     | Mô tả                                                                                                                                   |
+| Tên        | Loại     | Mô tả                                                                                                                                   |
 | ---------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | tùy chọn   | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng trong [methods.methodName.send](caver.contract.md#methods-methodname-send) để biết chi tiết. |
 | methodName | chuỗi     | Tên phương thức của hàm hợp đồng để thực thi.                                                                                           |
@@ -890,16 +890,16 @@ Giải mã lệnh gọi hàm và trả về tham số.
 | ------------ | ----- | ------------------------------- |
 | functionCall | chuỗi | Chuỗi lệnh gọi hàm được mã hóa. |
 
-**Return Value**
+**Giá trị Trả về**
 
-| Type   | Description                                                                                                                                   |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+| Loại     | Mô tả                                                                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng bao gồm các thông số đơn giản. Bạn có thể sử dụng `kết quả[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// The myContract variable is instantiated with the below abi.
+// Biến myContract được khởi tạo với abi bên dưới.
 // [
 //   {
 //     constant: true,
@@ -937,22 +937,22 @@ myContract.methods.methodName([param1 [, param2 [, ...]]])
 myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 
-Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
+Tạo một đối tượng giao dịch cho phương thức đó, sau đó có thể gọi, gửi, ước tính hoặc mã hóa ABI.
 
-The methods of this smart contract are available via:
+Các phương thức của hợp đồng thông minh này có sẵn thông qua:
 
-* Method name: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
-* Method prototype: `myContract.methods['methodName(uint256)'](123)`
-* Method signature: `myContract.methods['0x58cf5f10'](123)`
+* Tên phương thức: `myContract.methods.methodName(123)` hoặc `myContract.methods[methodName](123)`
+* Nguyên mẫu phương thức: `myContract.methods['methodName(uint256)'](123)`
+* Chữ ký phương thức: `myContract.methods['0x58cf5f10'](123)`
 
-This allows calling functions with the same name but different parameters from the JavaScript contract object.
+Điều này cho phép gọi các hàm có cùng tên nhưng khác tham số từ đối tượng hợp đồng JavaScript.
 
 ## cf) \*function signature (function selector) <a href="#cf-function-signature-function-selector" id="cf-function-signature-function-selector"></a>
 
-The first four bytes of the call data for a function call specifies the function to be called.\
-It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
+Bốn byte đầu tiên của dữ liệu lệnh gọi cho lệnh gọi hàm chỉ định chức năng sẽ được gọi.\
+Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
 
-The function signature can be given via 2 different methods.\
+Chữ ký hàm có thể được cung cấp thông qua 2 phương thức khác nhau.\
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
@@ -966,23 +966,23 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Parameters**
+**Tham số**
 
-Parameters of any method that belongs to this smart contract, defined in the JSON interface.
+Các tham số của bất kỳ phương thức nào thuộc về hợp đồng thông minh này, được xác định trong giao diện JSON.
 
-**Return Value**
+**Giá trị Trả về**
 
-`Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
+`Promise` trả về `đối tượng` - Một đối tượng trong đó các đối số và hàm để thực thi hợp đồng được xác định.:
 
-| Name                                                                  | Type     | Description                                                                                                                                                                          |
-| --------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                                             | Array    | The arguments passed to this method.                                                                                                                                                 |
-| [call](caver.contract.md#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state).     |
-| [send](caver.contract.md#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                                 |
-| [sign](caver.contract.md#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                             |
-| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                                |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | hàm      | Hàm đó sẽ ước tính lượng gas được sử dụng để thực thi.                                                                                                                               |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | hàm      | Hàm mã hóa ABI cho phương pháp này. Nó có thể được gửi bằng cách sử dụng một giao dịch, gọi phương thức hoặc chuyển sang một phương thức hợp đồng thông minh khác làm đối số của nó. |
+| Tên                                                                   | Loại | Mô tả                                                                                                                                                                                |
+| --------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| đối số                                                                | Mảng  | Các đối số được đưa vào phương thức này.                                                                                                                                             |
+| [lệnh gọi](caver.contract.md#methods-methodname-call)                 | hàm   | Hàm sẽ gọi và thực thi một phương thức không đổi trong hợp đồng thông minh của nó trên Máy ảo Klaytn mà không gửi giao dịch (không thể thay đổi trạng thái hợp đồng thông minh).     |
+| [gửi](caver.contract.md#methods-methodname-send)                      | hàm   | Hàm sẽ gửi giao dịch đến Klaytn và thực hiện phương thức của nó (có thể thay đổi trạng thái hợp đồng thông minh).                                                                    |
+| [ký](caver.contract.md#methods-methodname-sign)                       | hàm   | Hàm sẽ ký một giao dịch với tư cách là người gửi. Hàm ký sẽ trả về giao dịch đã ký.                                                                                                  |
+| [signAsFeePayer](caver.contract.md#methods-methodname-signasfeepayer) | hàm   | Hàm sẽ ký một giao dịch với tư cách là người trả phí. Hàm signAsFeePayer sẽ trả về giao dịch đã ký.                                                                                  |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas)       | hàm   | Hàm đó sẽ ước tính lượng gas được sử dụng để thực thi.                                                                                                                               |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi)           | hàm   | Hàm mã hóa ABI cho phương pháp này. Nó có thể được gửi bằng cách sử dụng một giao dịch, gọi phương thức hoặc chuyển sang một phương thức hợp đồng thông minh khác làm đối số của nó. |
 
 **LƯU Ý** `ký` và `signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1279,24 +1279,24 @@ Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `tùy ch
 * `feeDelegation` được xác định là `đúng` nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
 * `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
-**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
+**LƯU Ý** `caver.wallet` phải chứa các phiên bản khóa tương ứng với `địa chỉ gửi` trong `tùy chọn` hoặc `myContract.options` để tạo chữ ký.
 
-**NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `methods.methodName.sign` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| Tên      | Loại     | Mô tả                                                                                                                                                     |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn được sử dụng để tạo giao dịch. Xem bảng tham số trong [methods.methodName.send](caver.contract.md#methods-methodname-send) để biết chi tiết. |
 
-**Return Value**
+**Giá trị Trả về**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` trả về [Giao dịch](caver.transaction/) - Giao dịch hợp đồng thông minh đã ký.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Sign a SmartContractDeploy transaction
+// Ký giao dịch SmartContractDeploy
 > myContract.methods.constructor(byteCode, 123).sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
 SmartContractDeploy {
   _type: 'TxTypeSmartContractDeploy',
@@ -1340,7 +1340,7 @@ FeeDelegatedSmartContractDeploy {
 }
 > myContract.methods['constructor'](byteCode, 123).sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 
-// Sign a SmartContractExecution transaction
+// Ký giao dịch SmartContractExecution
 > myContract.methods.methodName('0x...').sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
 SmartContractExecution {
   _type: 'TxTypeSmartContractExecution',
@@ -1357,7 +1357,7 @@ SmartContractExecution {
 
 > myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
 
-// Sign a FeeDelegatedSmartContractExecution transaction
+// Ký giao dịch FeeDelegatedSmartContractExecution
 > myContract.methods.methodName('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 FeeDelegatedSmartContractExecution {
   _type: 'TxTypeFeeDelegatedSmartContractExecution',
@@ -1383,35 +1383,35 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(option
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 ```
 
-Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.signAsFeePayer](caver.contract.md#mycontract-signasfeepayer) provided as a short-cut function.
+Ký một giao dịch hợp đồng thông minh với tư cách là người trả phí để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh. Bạn nên sử dụng [myContract.signAsFeePayer](caver.contract.md#mycontract-signasfeepayer) được cung cấp dưới dạng hàm rút gọn.
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+Nếu một hợp đồng thông minh được triển khai, 'hàm tạo' có thể được nhập vào tên phương thức chẳng hạn như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `tùy chọn` hoặc giá trị được xác định trong `myContract.options`. `signAsFeePayer` là một hàm ký với tư cách là người trả phí giao dịch, vì vậy trường `feeDelegation` phải được xác định là `đúng`. Ngoài ra, địa chỉ của người trả phí phải được xác định trong trường `feePayer`.
 
-* `feeDelegation` is not defined : Throws an error.
-* `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
-* `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-* `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+* `feeDelegation` không được xác định : Thông báo lỗi.
+* `feeDelegation` được xác định nhưng `feePayer` không được xác định : Thông báo lỗi.
+* `feeDelegation` được xác định là `đúng` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+* `feeDelegation` được xác định là `đúng` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
-**NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
+**LƯU Ý** `caver.wallet` phải chứa các phiên bản khóa tương ứng với `feePayer` trong `tùy chọn` hoặc `myContract.options` để tạo chữ ký.
 
-**NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**LƯU Ý** `methods.methodName.signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description                                                                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](caver.contract.md#methods-methodname-send) for the details. |
+| Tên      | Loại     | Mô tả                                                                                                                                                     |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn được sử dụng để tạo giao dịch. Xem bảng tham số trong [methods.methodName.send](caver.contract.md#methods-methodname-send) để biết chi tiết. |
 
-**Return Value**
+**Giá trị Trả về**
 
-`Promise` returning [Transaction](caver.transaction/) - The signed smart contract transaction.
+`Promise` trả về [Giao dịch](caver.transaction/) - Giao dịch hợp đồng thông minh đã ký.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-// Sign a FeeDelegatedSmartContractDeploy transaction
+// Ký giao dịch FeeDelegatedSmartContractDeploy
 > myContract.methods.constructor(byteCode, 123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 > FeeDelegatedSmartContractDeploy {
   _type: 'TxTypeFeeDelegatedSmartContractDeploy',
@@ -1431,7 +1431,7 @@ The transaction type used for this function depends on the `options` or the valu
 }
 > myContract.methods['constructor'](byteCode, 123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 
-// Sign a FeeDelegatedSmartContractExecution transaction
+// Ký giao dịch FeeDelegatedSmartContractExecution
 > myContract.methods.methodName(123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 > FeeDelegatedSmartContractExecution {
   _type: 'TxTypeFeeDelegatedSmartContractExecution',
@@ -1456,7 +1456,7 @@ The transaction type used for this function depends on the `options` or the valu
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. Ước tính có thể khác với gas thực tế được sử dụng khi gửi giao dịch sau này, vì trạng thái của hợp đồng thông minh có thể khác vào thời điểm đó.
+Sẽ ước tính mức gas mà việc thực thi phương thức sẽ sử dụng khi được thực thi trong Máy ảo Klaytn. Ước tính có thể khác với gas thực tế được sử dụng khi gửi giao dịch sau này, vì trạng thái của hợp đồng thông minh có thể khác vào thời điểm đó.
 
 **Tham số**
 
@@ -1656,34 +1656,34 @@ myContract.events.eventName([options][, callback])
 | fromBlock | số        | (tùy chọn) Số khối bắt đầu các sự kiện.                                                                                                                                            |
 | chủ đề    | Mảng      | (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `chủ đề[0]` sẽ không được đặt tự động.   |
 
-**Return Value**
+**Giá trị Trả về**
 
-`EventEmitter`: The event emitter has the following events:
+`EventEmitter`: Trình phát sự kiện có các sự kiện sau:
 
-| Name      | Type   | Description                                                                               |
-| --------- | ------ | ----------------------------------------------------------------------------------------- |
-| data      | object | Fires on each incoming event with the event object as an argument.                        |
-| connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
-| error     | object | Fires when an error in the subscription occurs.                                           |
+| Tên        | Loại     | Mô tả                                                                               |
+| ---------- | --------- | ----------------------------------------------------------------------------------- |
+| dữ liệu    | đối tượng | Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số.                        |
+| đã kết nối | chuỗi     | Kích hoạt một lần sau khi đăng ký được kết nối thành công. Nó sẽ trả về ID đăng ký. |
+| lỗi        | đối tượng | Kích hoạt khi xảy ra lỗi trong đăng ký.                                             |
 
-**NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**LƯU Ý** `tính năng kết nối` khả dụng với caver-js phiên bản [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
-The structure of the returned event `object` looks as follows:
+Cấu trúc của sự kiện trả về `Đối tượng` như sau:
 
-| Name             | Type           | Description                                                                                                                               |
-| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string         | The event name.                                                                                                                           |
-| signature        | string \      | `null` | The event signature, `null` if it is an anonymous event.                                                                         |
-| address          | string         | Address which from this event originated.                                                                                                 |
-| returnValues     | object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                        |
-| logIndex         | number         | Integer of the event index position in the block.                                                                                         |
-| transactionIndex | number         | Integer of the transaction's index position where the event was created.                                                                  |
-| transactionHash  | 32-byte string | Hash of the transaction this event was created in. `null` when it is still pending.                                                       |
-| blockHash        | 32-byte string | Hash of the block this event was created in. `null` when it is still pending.                                                             |
-| blocknumber      | number         | The block number this log was created in. `null` when still pending.                                                                      |
-| raw.data         | string         | The data containing non-indexed log parameter.                                                                                            |
-| raw.topics       | Array          | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                   |
-| id               | string         | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Tên              | Loại          | Mô tả                                                                                                                                     |
+| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện          | chuỗi         | Tên sự kiện.                                                                                                                              |
+| chữ ký           | chuỗi \      | `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                |
+| địa chỉ          | chuỗi         | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                         |
+| returnValues     | đối tượng     | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                            |
+| logIndex         | số            | Số nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                          |
+| transactionIndex | số            | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                           |
+| transactionHash  | chuỗi 32-byte | Hàm băm của giao dịch mà sự kiện này được tạo. `null` khi nó vẫn đang chờ xử lý.                                                          |
+| blockHash        | chuỗi 32-byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                            |
+| blocknumber      | số            | Số khối mà nhật ký này đã được tạo. `null` khi vẫn đang chờ xử lý.                                                                        |
+| raw.data         | string        | The data containing non-indexed log parameter.                                                                                            |
+| raw.topics       | Array         | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                   |
+| id               | string        | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -1756,26 +1756,26 @@ To options object can contain the following:
 | toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                                          |
 | topics    | Array  | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
-**Return Value**
+**Giá trị Trả về**
 
-`Promise` returns `Array` - An array with the past event objects, matching the given event name and filter.
+`Promise` trả về `Mảng`: - Một mảng chứa các đối tượng sự kiện trong quá khứ, khớp với tên sự kiện và bộ lọc đã cho.
 
-An event object can contain the following:
+Một đối tượng sự kiện có thể chứa những điều sau đây:
 
-| Name             | Type      | Description                                                                                                                                                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string    | The event name.                                                                                                                                                                                               |
-| signature        | string \ | `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                              |
-| address          | string    | Address this event originated from.                                                                                                                                                                           |
-| returnValues     | object    | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
-| logIndex         | number    | The event index position in the block.                                                                                                                                                                        |
-| transactionIndex | number    | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | string    | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | string    | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
-| blockNumber      | number    | The block number this log was created in. null when still pending.                                                                                                                                            |
-| raw              | object    | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| Tên              | Loại     | Mô tả                                                                                                                                                                                                                   |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện          | chuỗi     | Tên sự kiện.                                                                                                                                                                                                            |
+| chữ ký           | chuỗi \  | `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                                                                                              |
+| địa chỉ          | chuỗi     | Địa chỉ bắt nguồn sự kiện.                                                                                                                                                                                              |
+| returnValues     | đối tượng | Các giá trị trả về đến từ sự kiện, ví dụ: {myVar: 1, myVar2: '0x234...'}.                                                                                                                                               |
+| logIndex         | số        | Vị trí chỉ mục sự kiện trong khối.                                                                                                                                                                                      |
+| transactionIndex | số        | Vị trí chỉ mục của giao dịch nơi sự kiện được tạo.                                                                                                                                                                      |
+| transactionHash  | chuỗi     | Hàm băm của giao dịch mà sự kiện này được tạo.                                                                                                                                                                          |
+| blockHash        | chuỗi     | Hàm băm của khối mà sự kiện này đã được tạo. null khi nó vẫn đang chờ xử lý.                                                                                                                                            |
+| blockNumber      | số        | Số khối mà nhật ký này đã được tạo. null khi vẫn đang chờ xử lý.                                                                                                                                                        |
+| thô              | đối tượng | Một đối tượng xác định `dữ liệu` và `chủ đề`. `raw.data` chứa tham số nhật ký không được lập chỉ mục. `raw.topic` là một mảng có tối đa bốn chủ đề 32 Byte và chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
