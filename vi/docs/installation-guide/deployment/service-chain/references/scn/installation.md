@@ -1,51 +1,51 @@
-# Installation Guide <a id="installation-guide"></a>
+# Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-This chapter explains the **Service Chain Consensus Node \(SCN\)** installation.
+Chương này giải thích về việc cài đặt **Nút đồng thuận chuỗi dịch vụ\(SCN\)**.
 
-## Linux Archive Distribution <a id="linux-archive-distribution"></a>
+## Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-The archive file for Service Chain Consensus Node has the following directory layout.
+Tệp lưu trữ cho nút đồng thuận chuỗi dịch vụ có bố cục thư mục như sau.
 
-| File Name       | File Description                  |
+| Tên tập tin     | Mô tả tập tin                     |
 |:--------------- |:--------------------------------- |
-| bin/kscn        | SCN executable file               |
-| bin/kscnd       | SCN start/termination script file |
-| conf/kscnd.conf | SCN configuration file            |
+| bin/kscn        | Tập tin thực thi SCN              |
+| bin/kscnd       | Tệp tin lệnh bắt đầu/kết thúc SCN |
+| conf/kscnd.conf | Tập tin cấu hình SCN              |
 
-The archive file for homi binary has the following directory layout.
+Tệp lưu trữ cho nhị phân homi có bố cục thư mục như sau.
 
-| File Name | File Description     |
-|:--------- |:-------------------- |
-| bin/homi  | HOMI executable file |
+| Tên tập tin | Mô tả tập tin         |
+|:----------- |:--------------------- |
+| bin/homi    | Tập tin thực thi HOMI |
 
-### Installation <a id="installation"></a>
+### Cài đặt <a id="installation"></a>
 
-The installation is the uncompression of the downloaded package.
+Quá trình cài đặt chính là giải nén gói đã tải xuống.
 
 ```text
 $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
 $ tar zxf homi-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+## Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### Installation <a id="installation"></a>
+### Cài đặt <a id="installation"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
 ```text
 $ yum install kscnd-vX.X.X.el7.x86_64.rpm
 $ yum install homi-vX.X.X.el7.x86_64.rpm
 ```
 
-### Installed Location <a id="scn-configuration"></a>
+### Vị trí đã cài đặt <a id="scn-configuration"></a>
 
-The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
+Gói Linux Klaytn bao gồm nhị phân thực thi và tập tin cấu hình có cấu trúc như sau.
 
-| File Name  | Location                   |
-|:---------- |:-------------------------- |
-| kscn       | /usr/bin/kscn              |
-| kscnd.conf | /etc/kscnd/conf/kscnd.conf |
-| homi       | /usr/bin/homi              |
+| Tên tệp tin | Vị trí                     |
+|:----------- |:-------------------------- |
+| kscn        | /usr/bin/kscn              |
+| kscnd.conf  | /etc/kscnd/conf/kscnd.conf |
+| homi        | /usr/bin/homi              |
 
 
