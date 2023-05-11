@@ -27,7 +27,7 @@ Markdown text with [links](./hello.md)
 
 ## Liên kết
 
-Các liên kết Markdown thông thường được hỗ trợ, sử dụng đường dẫn url hoặc đường dẫn tệp tương đối.
+Hỗ trợ các liên kết Markdown thông thường, sử dụng đường dẫn url hoặc đường dẫn tệp tương đối.
 
 ```md
 Let's see how to [Create a page](/create-a-page).
@@ -37,11 +37,11 @@ Let's see how to [Create a page](/create-a-page).
 Let's see how to [Create a page](./create-a-page.md).
 ```
 
-**Kết quả:** Hãy cùng xem cách để [Tạo một trang](./create-a-page.md).
+**Kết quả:** Hãy cùng xem cách để [Tạo trang](./create-a-page.md).
 
 ## Hình ảnh
 
-Hình ảnh Markdown thông thường được hỗ trợ.
+Hỗ trợ các hình ảnh Markdown thông thường.
 
 Bạn có thể tạo đường dẫn tuyệt đối tới hình ảnh tham chiếu trong thư mục tĩnh (`static/img/docusaurus.png`):
 
@@ -51,11 +51,11 @@ Bạn có thể tạo đường dẫn tuyệt đối tới hình ảnh tham chi�
 
 ![Logo Docusaurus](/img/docusaurus.png)
 
-Bạn cũng có thể tham chiếu hình ảnh liên quan đến tệp hiện tại như được hiển thị trong [hướng dẫn bổ sung](../tutorial-extras/manage-docs-versions.md).
+Bạn cũng có thể tham chiếu hình ảnh liên quan đến tệp hiện tại như được minh họa trong phần [hướng dẫn bổ sung](../tutorial-extras/manage-docs-versions.md).
 
 ## Khối mã
 
-Các khối mã Markdown được hỗ trợ với tính năng tô sáng cú pháp.
+Hỗ trợ các khối mã Markdown với tính năng tô sáng cú pháp.
 
     ```jsx title="src/components/HelloDocusaurus.js"
     function HelloDocusaurus() {
@@ -89,7 +89,7 @@ Docusaurus có một cú pháp đặc biệt để tạo cảnh cáo và cảnh 
 
 :::
 
-:::tip Mẹo vặt
+:::tip Mẹo hữu ích
 
 Hãy dùng tùy chọn tính năng tuyệt vời này
 
@@ -97,13 +97,13 @@ Hãy dùng tùy chọn tính năng tuyệt vời này
 
 :::danger Coi chừng
 
-Hành động này nguy hiểm
+Hành động này rất nguy hiểm
 
 :::
 
 ## MDX và các thành phần React
 
-[MDX](https://mdxjs.com/) có thể khiến tài liệu của bạn **mang tính tương tác** hơn và cho phép sử dụng bất kỳ **thành phần React nào trong Markdown**:
+[MDX](https://mdxjs.com/) có thể giúp tăng **tính tương tác** cho tài liệu của bạn đồng thời cho phép sử dụng bất kỳ **thành phần React nào trong Markdown**:
 
 ```jsx
 export const Highlight = ({children, color}) => (
@@ -131,6 +131,6 @@ export const Highlight = ({children, color}) => ( <span style={{ backgroundColor
     {children}
   </span> );
 
-Đây là <Highlight color="#25c2a0">Màu xanh lá Docusaurus</Highlight> !
+Đây là <Highlight color="#25c2a0">Màu xanh lá của Docusaurus</Highlight> !
 
-Đây là <Highlight color="#1877F2">Màu xanh dương Facebook</Highlight> !
+Đây là <Highlight color="#1877F2">Màu xanh dương của Facebook</Highlight> !
