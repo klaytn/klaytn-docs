@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# Tạo một tài liệu
+# Tạo tài liệu
 
 Tài liệu là **các nhóm trang** được kết nối thông qua:
 
-- một **thanh bên**
+- **thanh bên**
 - **điều hướng trước/tiếp**
 - **lập phiên bản**
 
@@ -20,11 +20,11 @@ Tạo một tập tin Markdown tại `docs/hello.md`:
 This is my **first Docusaurus document**!
 ```
 
-Bây giờ, một tài liệu mới đã có tại [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
+Đến đây, một tài liệu mới đã có tại [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
 
 ## Cấu hình thanh bên
 
-Docusaurus tự động **tạo ra một thanh bên** từ thư mục `docs`.
+Docusaurus sẽ tự động **tạo một thanh bên** từ thư mục `docs`.
 
 Thêm siêu dữ liệu để tùy chỉnh nhãn và vị trí của thanh bên:
 
