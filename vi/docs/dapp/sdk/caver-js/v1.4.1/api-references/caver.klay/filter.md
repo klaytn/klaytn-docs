@@ -4,34 +4,34 @@
 caver.klay.getFilterChanges(filterId [, callback])
 ```
 
-Polling method for a filter, which returns an array of logs since the last poll.
+Phương thức truy vấn lần lượt đối với bộ lọc, trả về một mảng các nhật ký kể từ lần truy vấn lần lượt trước đó.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại  | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`Promise` trả về `Array` - Mảng các đối tượng nhật ký, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn lần lượt trước đó.
 
-The structure of the returned log `Object` in the `Array` looks as follows:
+Cấu trúc của `Object` nhật ký trả về trong `Array` là như sau:
 
-| Name             | Type          | Description                                                                                                                                                                                                                                  |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| transactionHash  | 32-byte DATA  | Hash of the transaction that this log was created from. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed.                                                                      |
-| transactionIndex | QUANTITY      | Integer. The index of the transaction that this log was created from. `null` when pending.                                                                                                                                                   |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| id               | String        | A log identifier. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                            |
+| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                                    |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address          | DỮ LIỆU 20 byte | Địa chỉ mà nhật ký này được khởi tạo.                                                                                                                                                                                                                    |
+| topics           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số nhật ký được lập chỉ mục. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.). |
+| data             | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của nhật ký.                                                                                                                                                                                                      |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa nhật ký này. `null` nếu đang chờ xử lý.                                                                                                                                                                                                     |
+| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch nơi nhật ký này được tạo. Giá trị là `null` khi giao dịch đang chờ xử lý, trường hợp đặc biệt khi giao dịch đã được thực thi nhưng khối chứa giao dịch chưa được xác nhận.                                                         |
+| transactionIndex | SỐ LƯỢNG        | Số nguyên. Chỉ mục của giao dịch nơi nhật ký này được tạo. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                               |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa nhật ký này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                       |
+| logIndex         | SỐ LƯỢNG        | Số nguyên chỉ vị trí chỉ mục nhật ký trong khối. Giá trị là `null` khi đó là nhật ký đang chờ xử lý.                                                                                                                                                     |
+| id               | Chuỗi           | Mã số định danh nhật ký. Nó được tạo bằng cách nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                                     |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log);
@@ -56,21 +56,21 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 caver.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter).  
-Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
+Trả về một mảng gồm tất cả các nhật ký khớp với bộ lọc với id cho trước. Đối tượng bộ lọc nên được lấy bằng cách sử dụng hàm [newFilter](#newfilter).  
+Lưu ý rằng các id bộ lọc trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [newBlockFilter](#newblockfilter) hoặc [newPendingTransactionFilter](#newpendingtransactionfilter), không thể sử dụng được với hàm này.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại  | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-See [getFilterChanges](#getfilterchanges)
+Tham khảo [getFilterChanges](#getfilterchanges)
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
@@ -96,38 +96,38 @@ See [getFilterChanges](#getfilterchanges)
 caver.klay.getPastLogs(options [, callback])
 ```
 
-Gets past logs, matching the given options.
+Lấy nhật ký quá khứ, phù hợp với các tùy chọn đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type                 | Description                                                                                                                                                                                                                                                                           |
-| ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | The filter options.                                                                                                                                                                                                                                                                   |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                               |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                  |
-| options.address   | String &#124; Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                    |
-| options.topics    | Array                | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
-| callback          | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                            |
+| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                                |
+| ----------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options           | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                                 |
+| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối sớm nhất để lấy nhật ký. (`"latest"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"latest"`.                                                                                                                                                                        |
+| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối cuối cùng để lấy nhật ký. (`"latest"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"latest"`.                                                                                                                                                                      |
+| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Sẽ chỉ trả về các nhật ký liên quan đến (các) tài khoản cụ thể.                                                                                                                                                                                       |
+| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi sự kiện. Thứ tự có vai trò quan trong. Nếu bạn muốn bỏ qua một số chủ đề, sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó *ví dụ:* `[null, ['option1', 'option2']]`. |
+| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                                                                                                                                                      |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - Array of log objects.
+`Promise` trả về `Array` - Mảng các đối tượng nhật ký.
 
-The structure of the returned event `Object` in the `Array` looks as follows:
+Cấu trúc của `Object` sự kiện trả về trong `Array` là như sau:
 
-| Name             | Type           | Description                                                                                                                            |
-| ---------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | String         | From which this event originated from.                                                                                                 |
-| data             | String         | The data containing non-indexed log parameter.                                                                                         |
-| topics           | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                                                  |
-| logIndex         | Number         | Integer of the event index position in the block.                                                                                      |
-| transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                                                 |
-| transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                                                     |
-| blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                                                      |
-| blockNumber      | Number         | The block number where this log was created in. `null` when still pending.                                                             |
-| id               | String         | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Tên              | Loại         | Mô tả                                                                                                                                     |
+| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| address          | Chuỗi         | Địa chỉ bắt nguồn cho sự kiện.                                                                                                            |
+| data             | Chuỗi         | Dữ liệu chứa tham số nhật ký không được lập chỉ mục.                                                                                      |
+| topics           | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của nhật ký.                                            |
+| logIndex         | Số            | Số nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                          |
+| transactionIndex | Số            | Số nguyên biểu thị vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                      |
+| transactionHash  | Chuỗi 32 byte | Hàm băm của giao dịch mà sự kiện này được tạo.                                                                                            |
+| blockHash        | Chuỗi 32 byte | Hàm băm của khối nơi mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                        |
+| blockNumber      | Số            | Số khối nơi mà nhật ký này đã được tạo. `null` khi vẫn đang chờ xử lý.                                                                    |
+| id               | Chuỗi         | Mã số định danh nhật ký. Nó được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getPastLogs({
@@ -155,19 +155,19 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 caver.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node to receive the information about new block arrival. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
+Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback. The callback is fired with an error object as its first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                                  |
+| -------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số đầu tiên của hàm và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - A filter id.
+`Promise` trả về `String` - Id bộ lọc.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.newBlockFilter().then(console.log);
@@ -179,31 +179,31 @@ Creates a filter in the node to receive the information about new block arrival.
 ```javascript
 caver.klay.newFilter(options [, callback])
 ```
-Creates a filter object using the given filter options, to receive the specific state changes (logs).
-- To check if the state has changed, call [getFilterChanges](#getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
+Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất định để nhận thông tin thay đổi trạng thái cụ thể (nhật ký).
+- Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [getFilterLogs](#getfilterlogs).
 
-For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
-
-
-
-**Parameters**
-
-| Name              | Type                 | Description                                                                                                                                                                                                                                                                         |
-| ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | The filter options.                                                                                                                                                                                                                                                                 |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block). The default value is `"latest"`.                                                                                                          |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block). The default value is `"latest"`.                                                                                                      |
-| options.address   | String &#124; Array  | (optional) An address or a list of addresses to get logs generated inside the given contract(s).                                                                                                                                                                                    |
-| options.topics    | Array                | (optional) An array of values to search for in the log entries. The order is important. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array to match one of them.  *e.g.,* `[null, ['option1', 'option2']]`. |
-| callback          | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                          |
+Để biết thông tin chi tiết về các bộ lọc chủ đề, vui lòng tham khảo [API Nền tảng Klaytn - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
 
-**Return Value**
 
-`Promise` returns `String` - A filter id.
+**Tham số**
 
-**Example**
+| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                                                     |
+| ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options           | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                                                      |
+| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối sớm nhất để truy vấn sự kiện. (Có các thẻ đặc biệt, `"latest"` nghĩa là khối gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                                         |
+| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối cuối cùng để truy vấn sự kiện (Có các thẻ đặc biệt, `"latest"` nghĩa là khối được xác nhận gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                           |
+| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ để lấy nhật ký được tạo ra bên trong (các) hợp đồng đã cho.                                                                                                                                                                                                                 |
+| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị để tìm kiếm trong các bản ghi nhật ký. Thứ tự có vai trò quan trọng. Nếu bạn muốn khớp với tất cả mọi thứ trong vị trí cho trước, sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn cũng có thể truyền một mảng để khớp một trong số các giá trị.  *Ví dụ,* `[null, ['option1', 'option2']]`. |
+| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                                                                                                                                                                           |
+
+
+**Giá trị trả về**
+
+`Promise` trả về `String` - Id bộ lọc.
+
+**Ví dụ**
 
 ```javascript
 > caver.klay.newFilter({}).then(console.log);
@@ -219,19 +219,19 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 caver.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transactions arrival. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
+Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối đang chờ xử lý mới. Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - A filter id.
+`Promise` trả về `String` - Id bộ lọc.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.newPendingTransactionFilter().then(console.log);
@@ -244,20 +244,20 @@ Creates a filter in the node, to receive the information about new pending trans
 caver.klay.uninstallFilter(filterId [, callback])
 ```
 
-Removes the filter with the given id. It is strongly recommended to immediately remove the filter if monitoring is no longer needed. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. The default configuration is 5 minutes.
+Gỡ bỏ bộ lọc với id cho trước. Chúng tôi khuyến cáo mạnh mẽ rằng nếu không còn cần theo dõi nữa thì nên ngay lập tức gỡ bỏ bộ lọc. Bộ lọc sẽ bị gỡ bỏ nếu bộ lọc không được kích hoạt thông qua [getFilterChanges](#getfilterchanges) trong thời gian lớn hơn giá trị thời gian chờ được thiết lập trong nút. Cấu hình mặc định là 5 phút.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                             |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                           |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+`Promise` trả về `Boolean` - `true` nếu bộ lọc đã được gỡ cài đặt thành công, nếu không giá trị là `false`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log);
