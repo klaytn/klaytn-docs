@@ -1,11 +1,11 @@
-# Cancel Transaction <a id="cancel-transaction"></a>
+# Giao dịch hủy <a id="cancel-transaction"></a>
 
 ## sendTransaction (CANCEL) <a id="sendtransaction-cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Cancel](../../../../../../klaytn/design/transactions/basic.md#txtypecancel) transaction to the network.
+Gửi một giao dịch [Cancel](../../../../../../klaytn/design/transactions/basic.md#txtypecancel) đến mạng.
 
 **Parameters**
 
