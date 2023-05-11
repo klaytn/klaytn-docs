@@ -384,7 +384,7 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 Khi `caver.wallet.newKeyring` được thực thi với một khóa riêng tư, một phiên bản Keyring với một khóa riêng tư sẽ được tạo ra và thêm vào `caver.wallet`. Đối với nhiều khóa riêng tư, một phiên bản Keyring với nhiều khóa riêng tư sẽ được tạo ra và thêm vào `caver.wallet`. Khi dùng một mảng chuỗi 2D làm dữ liệu đầu vào, bao gồm một hoặc nhiều khóa riêng tư cho mỗi vai trò với tư cách là một phần tử, một phiên bản Keyring có chứa (các) khóa riêng tư khác nhau cho từng vai trò sẽ được tạo ra, và cũng được thêm vào `caver.wallet`.
 
 
-`caver.wallet.add` hoặc `caver.wallet.newKeyring` trả về một phiên bản Keyring sau khi đã thêm nó vào `caver.wallet`.
+`caver.wallet.add` hoặc `caver.wallet.newKeyring` trả về một đối tượng Keyring cụ thể sau khi đã thêm nó vào `caver.wallet`.
 
 ## Gửi giao dịch <a id="sending-a-transaction"></a>
 
@@ -612,7 +612,7 @@ Khi mã trên được thực thi, chuỗi mã hóa RLP bao gồm cả chữ ký
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+Lúc này, giao dịch đã được cả người gửi và người trả phí ký tên, và giờ nó có thể được gửi tới mạng lưới. Thay thế `0x{RLP-encoded string}` bằng kết quả đầu ra chuỗi mã hóa RLP của mã ví dụ ở trên.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -636,29 +636,29 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+Bạn có thể tìm thấy kết quả của giao dịch qua `status` của biên lai. Để biết thêm chi tiết về các giá trị trả về, hãy xem `caver.rpc.klay.getTransactionReceipt`. Nếu một giao dịch thất bại, bạn có thể kiểm tra thêm thông tin về lỗi tại `txError` của biên lai. Để biết thêm thông tin về `txError`, hãy xem [txError: Thông tin chi tiết về các lỗi giao dịch].
 
-### Account Update <a id="account-update"></a>
+### Cập nhật tài khoản <a id="account-update"></a>
 
-If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
+Nếu bạn muốn thay đổi (các) khóa riêng tư cho tài khoản Klaytn của mình, có 3 điều quan trọng mà bạn cần ghi nhớ:
 
-1. Klaytn validates every transaction you send to it.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+1. Klaytn xác thực mọi giao dịch mà bạn gửi đến.
+2. Quy trình xác thực yêu cầu sử dụng các khóa công khai tương ứng chính xác với (các) khóa riêng tư của bạn.
+3. Vì thế, việc thay đổi (các) khóa riêng tư thành (các) khóa mới sẽ **luôn** **kéo theo** việc thay đổi (các) khóa công khai cũ thành (các) khóa mới. (Các) khóa công khai mới phải được lấy từ (các) khóa riêng tư mới.
 
-Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+Khi đã ghi nhớ 3 điều trên, bạn có thể thay đổi (các) khóa riêng tư của mình bằng cách thực hiện những bước sau:
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
-4. Send AccountUpdate transaction including Account instance to Klaytn.
-5. Finally, replace your old keyring to the new one that was created in Step 2.
+1. Chuẩn bị (các) khóa riêng tư mới để tạo một keyring mới.
+2. Tạo một keyring theo loại (Single keyring, Multiple keyring hoặc Role-based keyring) mà bạn cần.
+3. Tạo một đối tượng Tài khoản cụ thể từ keyring mới. Đối tượng Tài khoản cụ thể này giữ (các) khóa công khai mới cho tài khoản Klaytn của bạn.
+4. Gửi giao dịch AccountUpdate bao gồm cả đối tượng Tài khoản cụ thể tới Klaytn.
+5. Cuối cùng, thay thế keyring cũ bằng keyring mới mà bạn tạo ở Bước 2.
 
-Please check `Account Update` for the details.
+Vui lòng xem `Cập nhật tài khoản` để biết thêm chi tiết.
 
-To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
+Để thay đổi AccountKey của mình, bạn phải cung cấp một đối tượng `Account` cụ thể cho trường `account` trong đối tượng đối số đầu vào của `caver.transaction.type.AccountUpdate`. Một đối tượng `Account` cu thể có chứa địa chỉ của tài khoản Klaytn và AccountKey cần được cập nhật.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
+Mã dưới đây là một mã ví dụ dùng để thay đổi (các) khóa riêng tư mà bạn dùng cho tài khoản Klaytn của mình, kèm theo việc thay đổi AccountKey của tài khoản Klaytn thành `AccountKeyPublic`. Đừng quên chuẩn bị (các) khóa riêng tư mới.
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -699,11 +699,11 @@ try {
 senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
-If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+Nếu mã trên được thực thi thành công, bạn sẽ không còn có thể dùng (các) khóa riêng tư cũ để ký bất kỳ giao dịch nào với keyring cũ nữa. Vì thế, bạn phải cập nhật keyring cũ bằng `newKeyring` thông qua `caver.wallet.updateKeyring(newKeyring)`. Khi đã được cập nhật, (các) khóa riêng tư mới được cập nhật sẽ được dùng để ký.
 
-Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Sau đây là hướng dẫn về cách cập nhật AccountKey của tài khoản Klayt có nhiều `AccountKeys`. Ví dụ dưới đây giải thích về cách để tạo một đối tượng `Account` cụ thể với nhiều khóa riêng tư mà bạn muốn sử dụng (Bạn có thể tạo một đối tượng `Account` cụ thể với nhiều khóa công khai qua `caver.account.create`). Tương tự như trên, sau khi nạp đối tượng tài khoản cụ thể vừa tạo ra vào trường `account` bên trong đối tượng giao dịch, phần còn lại của quá trình cập nhật cũng giống như ví dụ ở trên.
 
-First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+Trước tiên, hãy dùng tạo một đối tượng Tài khoản cụ thể để cập nhật bằng `AccountKeyWeightedMultiSig`. Đối với `AccountKeyWeightedMultiSig`, phải xác định ngưỡng và khối lượng của từng khóa. Để thực hiện điều này, hãy dùng `caver.account.weightedMultiSigOptions`. Tham số đầu tiên là ngưỡng, và tham số thứ hai là mảng có chứa khối lượng cho từng khóa.
 
 ```java
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -718,7 +718,7 @@ WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.
 Account account = multipleKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
+Bây giờ, hãy cập nhật AccountKey bằng `AccountKeyRoleBased`. `AccountKeyRoleBased` là một loại `AccountKey` xác định khóa để dùng cho từng `role`.
 
 ```java
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -728,7 +728,7 @@ RoleBasedKeyring newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
+AccountKeyRoleBased ở trên là một ví dụ về việc sử dụng một khóa công khai cho từng vai trò. Như có thể thấy từ mã trên, từng vai trò tương ứng với một khóa riêng tư. Nếu bạn muốn dùng nhiều khóa riêng tư cho từng vai trò, `caver.account.weightedMultiSigOptions` phải được xác định cho từng vai trò như minh họa dưới đây.
 
 ```java
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -744,7 +744,7 @@ WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
 Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
+Nếu bạn muốn cập nhật AccountKey thành `AccountKeyLegacy` hoặc `accountKeyFail`, hãy tạo một đối tượng Tài khoản cụ thể như minh họa dưới đây, và gán nó vào trường `account` của giao dịch. Phần còn lại của quá trình cập nhật cũng tương tự như đối với AccountKey.
 
 ```java
 // Create an account with AccountKeyLegacy
@@ -754,12 +754,12 @@ Account account = caver.account.createWithAccountKeyLegacy(keyringToUpdate.addre
 Account account = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Smart Contract <a id="smart-contract"></a>
+### Hợp đồng thông minh <a id="smart-contract"></a>
 
-The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
+Lớp `Contract` trong gói `caver.contract` giúp việc tương tác với hợp đồng thông minh trên Klaytn trở nên dễ dàng hơn. Tất cả các hàm của một hợp đồng thông minh tự động được quy đổi và lưu trữ bên trong đối tượng `contract` cụ thể khi ABI mức thấp được đưa ra. Điều này cho phép bạn tương tác với hợp đồng thông minh như khi xử lý một đối tượng `contract` cụ thể trong Java.
 
 
-We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
+Chúng ta sẽ bắt đầu giải thích về việc xử lý một hợp đồng thông minh trong Java bằng cách viết một mã ví dụ như dưới đây với Solidity. Tạo tập tin "test.sol" và viết vào đó ví dụ dưới đây.
 
 
 ```
@@ -776,7 +776,7 @@ contract KVstore {
 }
 ```
 
-Then, compile this smart contract to get its bytecode and ABI.
+Sau đó, lập hợp đồng thông minh này để lấy chỉ thị biên dịch và ABI của nó.
 
 ```text
 > solc --abi --bin ./test.sol
@@ -787,15 +787,15 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
+**LƯU Ý**: Để lập một hợp đồng thông minh, bạn phải cài đặt trước [trình biên soạn solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html). Để lập chương trình trên, bạn cần cài đặt solc:0.5.6.
 
-To deploy a smart contract by its type, you can use caver-java classes described below:
-  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
-  - `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+Để triển khai một hợp đồng thông minh theo loại của nó, bạn có thể sử dụng các lớp caver-java được mô tả dưới đây:
+  - Lớp `Contract` trong gói `caver.contract` khi người gửi hoặc người trả phí của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `SmartContractDeploy` trong gói `caver.transaction` khi người gửi của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `feeDelegatedSmartContractDeploy` trong gói `caver.transaction` khi người trả phí của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `feeDelegatedSmartContractDeployWithRatio` trong gói `caver.transaction` khi người trả phí của một giao dịch hợp đồng thông mình thanh toán khoản phí
 
-Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
+Dưới đây là một ví dụ về việc sử dụng lớp `Contract` trong gói `caver.contract`. Bạn có thể tạo một đối tượng `contract` cụ thể như dưới đây từ chỉ thị biên dịch và ABI nhận đươc sau khi lập hợp đồng thông minh.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -817,7 +817,7 @@ Here is an example of exploiting `Contract` class in `caver.contract` package. Y
     }
 ```
 
-Running the code above gives you the following result.
+Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 
 ```bash
 function set(string,string)
@@ -825,9 +825,9 @@ function get(string)
 ContractAddress : null
 ```
 
-Looking at the output above, you can see that the `contract` instance owns the smart contract method. And since it hasn't been deployed yet, you can see that the result of `contract.getContractAddress()` is output as null.
+Nhìn vào kết quả trên, bạn có thể thấy rằng đối tượng `contract` cụ thể sở hữu phương thức của hợp đồng thông minh. Và vì nó vẫn chưa được triển khai, bạn có thể thấy rằng kết quả của `contract.getContractAddress()` có đầu ra là null.
 
-If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
+Nếu hợp đồng này đã được triển khai và bạn đã biết địa chỉ hợp đồng mà tại đó hợp đồng này được triển khai, hãy dùng địa chỉ hợp đồng như tham số thứ ba trong hàm tạo của đối tượng `contract` cụ thể như dưới đây.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -851,7 +851,7 @@ If this contract was already deployed and you knew the contract address where th
     }
 ```
 
-Running the code above gives you the following result.
+Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 
 ```bash
 function set(string,string)
@@ -859,11 +859,11 @@ function get(string)
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
+Một đối tượng `contract` cụ thể chứa địa chỉ hợp đồng của mình dưới dạng thuộc tính `contractAdress` khi được tạo ra. Địa chỉ này có thể truy cập qua hàm getter / setter (`getContractAddress()` / `setContractAddress()`).
 
-Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments (when needed for deploying) as the example below.
+Khi một đối tượng `contract` cụ thể đã được tạo ra, bạn có thể triển khai hợp đồng thông minh bằng cách dùng chỉ thị biên dịch và các đối số của hàm tạo (khi cần dùng để triển khai) như ví dụ bên dưới.
 
-Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
+Hãy lưu ý rằng phương thức `deploy()` của đối tượng `contract` cụ thể gửi các giao dịch cho việc triển khai hợp đồng và thực thi hợp đồng. Đối với việc gửi giao dịch, nó sử dụng Keyrings trong `caver.wallet` để ký giao dịch. Keyring cần dùng phải được thêm vào `caver.wallet` trước khi ký.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -889,20 +889,20 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
     }
 ```
 
-In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
+Trong mã trên, `deployer` triển khai hợp đồng trên Klaytn và trả lại đối tượng `contract` cụ thể đã được triển khai.
 
 ```bash
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
-  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
-  - `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+Một hợp đồng thông minh có thể được triển khai bằng cách dùng một trong các lớp sau, tùy vào loại giao dịch triển khai hợp đồng:
+  - Lớp `Contract` trong gói `caver.contract` khi người gửi hoặc người trả phí của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `SmartContractDeploy` trong gói `caver.transaction` khi người gửi của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `feeDelegatedSmartContractDeploy` trong gói `caver.transaction` khi người trả phí của một giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `feeDelegatedSmartContractDeployWithRatio` trong gói `caver.transaction` khi người trả phí của một giao dịch hợp đồng thông mình thanh toán khoản phí
 
 
-To deploy a smart contract through a fee-delegated transaction, define  the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
+Để triển khai một hợp đồng thông minh qua một giao dịch ủy thác phí, hãy xác định các trường `feeDelegation` và `feePayer` trong lớp `SendOptions` như ví dụ dưới đây.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -937,7 +937,7 @@ To deploy a smart contract through a fee-delegated transaction, define  the `fee
     }
 ```
 
-If you want to send a transaction with sender and feePayer signed seperately when deploying a smart contract through `caver.contract`, refer to the code below.
+Nếu bạn muốn gửi một giao dịch trong đó người gửi và người trả phí ký riêng biệt nhau khi triển khai một hợp đồng thông minh qua `caver.contract`, hãy tham khảo mã dưới đây.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -977,14 +977,14 @@ If you want to send a transaction with sender and feePayer signed seperately whe
 ```
 
 
-To execute a smart contract's function by its type, you can use caver-java classes described below:
-  - `Contract` class in the `caver.contract` package when the sender of a smart contract transaction pays the fee
-  - `SmartContractExecution` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-  - `FeeDelegatedSmartContractExecution` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `FeeDelegatedSmartContractExecutionWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+Để triển khai một hàm của hợp đồng thông minh theo loại của nó, bạn có thể dùng các lớp caver-java như được mô tả dưới đây:
+  - Lớp `Contract` trong gói `caver.contract` khi người gửi giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `SmartContractExecution` trong gói `caver.transaction` khi người tửi giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `FeeDelegatedSmartContractExecution` trong gói `caver.transaction` khi người trả phí của giao dịch hợp đồng thông minh thanh toán khoản phí
+  - Lớp `FeeDelegatedSmartContractExecutionWithRatio` trong gói `canver.transaction` khi người trả phí của giao dịch hợp đồng thông minh thanh toán khoản phí
 
 
-To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below.
+Để xem cách thực thi một hàm trong hợp đồng thông minh, ở đây, chúng ta sẽ gửi đi một giao dịch thực thi hợp đồng dùng chuỗi "testValue" làm tham số đầu vào của hàm hợp đồng `set` như trong mã ví dụ dưới đây.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
