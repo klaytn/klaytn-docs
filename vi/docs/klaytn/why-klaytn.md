@@ -3,7 +3,7 @@ description: >-
   Tài liệu này giải thích về sự khác biệt của Klaytn dựa trên các nguyên tắc thiết kế chủ đạo của nó.
 ---
 
-# Vì sao nên chọn Klaytn <a id="why-klaytn"></a>
+# Tại sao nên chọn Klaytn <a id="why-klaytn"></a>
 
 ## Klaytn với vai trò là lớp tin cậy của vũ trụ ảo <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
 Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho vũ trụ ảo, hoạt động tham gia và đóng góp đến từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới. Nguyên tắc thiết kế ưu tiên hàng đầu là
@@ -39,17 +39,17 @@ Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng nh�
 ### Quỹ sinh thái cấp giao thức trọn bộ <a id="contribution-reward"></a>
 - Klaytn là ví dụ tiên phong lớn nhất về các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một nền kinh tế token theo giao thức chuỗi. 66% số token mới được tái đầu tư vào hệ sinh thái.
 - Xem phần [Khoản dự trữ cải tiến của Klaytn][] và [Quỹ tăng trưởng của Klaytn][].
-### Chung tay xây dựng cộng đồng <a id="community-co-building"></a>
-- Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lãnh thổ của mình thông việc chung tay xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, vân vân. Cuối cùng là các quy tắc cơ bản:
+### Cùng xây dựng cộng đồng <a id="community-co-building"></a>
+- Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lĩnh vực của mình thông việc cùng xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, v.v. Cuối cùng là các quy tắc cơ bản:
 {% hint style="success" %}
-Klaytn không hy sinh các đặc tính cốt lõi của chuỗi khối để đạt được những điểm cải tiến nêu trên và giao thức vẫn sẽ ổn định với các bên liên quan có cam kết bền chặt.
+Klaytn không đánh đổi các đặc tính cốt lõi của chuỗi khối để đạt được những điểm cải tiến nêu trên và giao thức vẫn sẽ ổn định với các bên liên quan có cam kết bền chặt.
 {% endhint %}
 
-### Sự minh bạch, bảo mật và phi tập trung <a id="transparency-security-and-decentralization"></a>
+### Minh bạch, bảo mật và phi tập trung <a id="transparency-security-and-decentralization"></a>
 - Ai cũng có thể yêu cầu giao dịch, cũng như truy xuất và xác nhận kết quả giao dịch trên chuỗi khối.
-- Klaytn là một mạng phi tập trung, tại đó không có một nút độc hại nào có thể phá vỡ tính toàn vẹn của dữ liệu.
-### Quản trị bởi DAO, các nhà xây dựng và doanh nghiệp thực hiện phi tập trung với sự ổn định <a id="governance-by-trusted-entities"></a>
-- Ngoài các doanh nghiệp truyền thống hiện tại đang đóng vai trò Hội đồng quản trị của Klaytn (GC), nhờ việc đưa các thực thể phi tập trung hơn như DAO và các nhà xây dựng vào GC, chúng tôi đang mở ra tiềm năng xây dựng lại toàn bộ cấu trúc quản trị của Klaytn một cách chưa từng có tiền lệ với hàng trăm người tham gia quản trị.
+- Klaytn là một mạng phi tập trung, tại đó không có bất kỳ nút độc hại nào có thể phá vỡ tính toàn vẹn của dữ liệu.
+### Quản trị bởi DAO, các nhà xây dựng và doanh nghiệp thực hiện phi tập trung với khả năng ổn định <a id="governance-by-trusted-entities"></a>
+- Ngoài các doanh nghiệp truyền thống hiện tại đang đóng vai trò Hội đồng quản trị của Klaytn (GC), nhờ việc đưa nhiều thực thể phi tập trung hơn như DAO và các nhà xây dựng vào GC, chúng tôi đang mở ra tiềm năng xây dựng lại toàn bộ cấu trúc quản trị của Klaytn một cách chưa từng có tiền lệ với hàng trăm người tham gia vào hoạt động quản trị.
 
 [Cơ chế đồng thuận]: design/consensus-mechanism.md
 [Chi phí thực thi hợp đồng thông minh hợp lý]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
