@@ -255,7 +255,7 @@ Vui lòng xem phần [Lưu ý-Khối](./caution.md#block) trước khi sử dụ
 | size             | SỐ LƯỢNG         | Số nguyên chỉ kích cỡ của khối này theo byte.                                                                     |
 | stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối trong khối.                                                                          |
 | timestamp        | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                       |
-| totalDifficulty  | SỐ LƯỢNG         | Tổng khối lượng tính toán trung bình của chuỗi cho đến khối này                                                   |
+| totalDifficulty  | SỐ LƯỢNG         | Tổng blockScore của chuỗi cho đến khối này                                                                        |
 | transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                                |
 | transactions     | Mảng             | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số đã cho cuối cùng.                   |
 | uncles           | Mảng             | Mảng các hàm băm chú.                                                                                             |
