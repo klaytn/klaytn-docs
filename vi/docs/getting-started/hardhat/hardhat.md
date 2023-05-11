@@ -2,7 +2,7 @@
 
 # Giới thiệu
 
-Mục này sẽ hướng dẫn bạn triển khai token Soulbound cho mạng Baobab của Klaytn bằng cách dùng [Hardhat](https://hardhat.org/).
+Phần này sẽ hướng dẫn bạn triển khai token Soulbound cho mạng Baobab của Klaytn bằng cách dùng [Hardhat](https://hardhat.org/).
 
 Hardhat là một môi trường phát triển hợp đồng thông minh, có thể giúp bạn:
 * Phát triển và lập hợp đồng thông minh.
@@ -11,8 +11,8 @@ Hardhat là một môi trường phát triển hợp đồng thông minh, có th
 Token Soul-bound (SBT) là các NFT không thể chuyển nhượng. Nghĩa là khi đã bạn đã có được chúng, bạn sẽ không thể bán hoặc chuyển nhượng cho người dùng khác. Để tìm hiểu thêm về SBT, cách hoạt động và trường hợp sử dụng của chúng, bạn có thể xem [bài viết tham khảo](https://vitalik.ca/general/2022/01/26/soulbound.html) được Vitalik Buterin xuất bản.
 
 Đến cuối hướng dẫn này, bạn sẽ có thể:
-* Lập một dự án Hardhat trên Klaytn.
-* Tạo một token soul-bound đơn giản.
+* Thiết lập dự án Hardhat trên Klaytn.
+* Tạo token soul-bound đơn giản.
 * Lập hợp đồng thông minh bằng Hardhat.
 * Kiểm tra, triển khai và tương tác với hợp đồng thông minh bằng Hardhat.
 * Khám phá tính năng mô phỏng Hardhat.
@@ -25,12 +25,12 @@ Token Soul-bound (SBT) là các NFT không thể chuyển nhượng. Nghĩa là 
 * Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
 * Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) được hỗ trợ.
-* KLAY để thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp quỹ cho tài khoản của bạn với một lượng KLAY vừa đủ.
+* KLAY để thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
 * [NodeJS và NPM](https://nodejs.org/en/)
 
 # Thiết lập môi trường phát triển
 
-Để tận dụng hardhat, chúng ta cần thiết lập môi trường phát triển và cài đặt hardhat. Ta có thể thực hiện bằng những bước sau:
+Để tận dụng hardhat, chúng ta cần thiết lập môi trường phát triển và cài đặt hardhat. Hãy cùng thực hiện bằng các bước sau:
 
 **Bước 1**: Tạo một thư mục dự án
 
@@ -61,10 +61,10 @@ npm install --save-dev hardhat
 npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
 ```
 
-> Lưu ý: Mã này sẽ cài đặt các phần phụ thuộc cần thiết khác cho dự án này, gồm `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` và những phần khác.
+> Lưu ý: Mã này sẽ cài đặt các phần phụ thuộc cần thiết khác cho dự án này, gồm `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` cùng các phần khác.
 
 
-**Bước 4**: Khởi tạo một dự án hardhat:
+**Bước 4**: Khởi tạo dự án hardhat:
 
 Chạy lệnh dưới đây để khởi tạo một dự án hardhat
 
@@ -75,7 +75,7 @@ Với hướng dẫn này, bạn sẽ chọn một dự án typescript như bên
 
 ![](./../images/hardhat/hardhat-init.png)
 
-Sau khi khởi tạo một dự án hardhat, thư mục hiện tại của bạn sẽ bao gồm:
+Sau khi khởi tạo dự án hardhat, thư mục hiện tại của bạn sẽ bao gồm:
 
 **contracts/** – thư mục này chứa mã hợp đồng thông minh.
 
@@ -87,7 +87,7 @@ Sau khi khởi tạo một dự án hardhat, thư mục hiện tại của bạn
 
 **Bước 5**: Tạo tập tin .env
 
-Giờ hãy tạo tập tin .env trong thư mục dự án. Tập tin này sẽ giúp chung ta tải các biến môi trường từ tập tin .env vào process.env.
+Đến đây, hãy tạo tập tin .env trong thư mục dự án. Tập tin này sẽ giúp chúng ta tải các biến môi trường từ tập tin .env vào process.env.
 
 * Dán lệnh này vào giao diện dòng lệnh để tạo tập tin .env
 
@@ -95,7 +95,7 @@ Giờ hãy tạo tập tin .env trong thư mục dự án. Tập tin này sẽ g
 touch .env
 ```
 
-* Sau khi tạo tập tin, hãy cấu hình sao cho tập tin .env trông như thế này:
+* Sau khi tạo tập tin, hãy cấu hình sao cho tập tin .env sẽ có dạng:
 
 ```js
  KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
@@ -104,7 +104,7 @@ touch .env
 
 **Bước 6**: Thiết lập cấu hình Hardhat
 
-Sửa đổi `hardhat.config.ts` bằng cấu hình sau:
+Sửa đổi `hardhat.config.ts` bằng các cấu hình sau:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -125,7 +125,7 @@ module.exports = {
 
 ```
 
-Bây giờ chúng ta đã thiết lập xong môi trường phát triển, hãy bắt đầu soạn hợp đồng thông minh cho token soul-bound.
+Đến đây, chúng ta đã thiết lập xong môi trường phát triển, hãy bắt đầu soạn hợp đồng thông minh cho token soul-bound.
 
 # Tạo hợp đồng thông minh SBT
 
