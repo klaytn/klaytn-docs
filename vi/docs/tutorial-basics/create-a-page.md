@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Tạo một trang
+# Tạo trang
 
-Thêm các tập tin **Markdown hoặc React** vào `src/pages` để tạo ra một **trang độc lập**:
+Thêm các tập tin **Markdown hoặc React** vào `src/pages` để tạo một **trang độc lập**:
 
 - `src/pages/index.js` → `localhost:3000/`
 - `src/pages/foo.md` → `localhost:3000/foo`
@@ -28,7 +28,7 @@ export default function MyReactPage() {
 }
 ```
 
-Bây giờ, một trang mới đã có tại [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
+Đến đây, một trang mới đã có tại [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
 
 ## Tạo trang Markdown đầu tiên của bạn
 
@@ -40,4 +40,4 @@ Tạo một tập tin tại `src/pages/my-markdown-page.md`:
 This is a Markdown page
 ```
 
-Bây giờ, một trang mới đã có tại [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+Đến đây, một trang mới đã có tại [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
