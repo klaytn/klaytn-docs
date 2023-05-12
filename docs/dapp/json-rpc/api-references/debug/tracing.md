@@ -1,5 +1,10 @@
 # VM Tracing <a id="vm-tracing"></a>
 
+**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public.
+If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the
+`rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing)
+and only allow [pre-defined tracers](#tracing-options).
+
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
 The `traceBadBlock` method will return a full stack trace of all invoked
@@ -497,6 +502,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
+
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code,
+which is **unsafe**. If you want to provide debug namespace APIs to the public,
+we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running
+the EN, so the JavaScript-based Tracing can be disabled.
+
 Specifying the `tracer` option in the second argument enables JavaScript-based
 tracing. In this mode, `tracer` is interpreted as a JavaScript expression that
 is expected to evaluate to an object with (at least) two methods, named `step`

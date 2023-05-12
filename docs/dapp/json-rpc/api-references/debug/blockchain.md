@@ -1,5 +1,10 @@
 # Blockchain Inspection <a id="blockchain-inspection"></a>
 
+**NOTE** All other debug namespace APIs **EXCEPT FOR** the following APIs are restricted with `rpc.unsafe-debug.disable` flag:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
 Retrieves the state that corresponds to the block number and returns a list of
