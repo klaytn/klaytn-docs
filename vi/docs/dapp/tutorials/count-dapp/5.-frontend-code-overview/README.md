@@ -117,7 +117,7 @@ class App extends Component {
     // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
     if (walletFromSession) {
       try {
-        cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+        cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))
       } catch (e) {
         // Nếu giá trị trong sessionStorage không phải là phiên bản ví hợp lệ,
         // gỡ nó khỏi sessionStorage.
@@ -169,7 +169,7 @@ componentWillMount() {
   // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
   if (walletFromSession) {
     try {
-      cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+      cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))
     } catch (e) {
        // Nếu giá trị trong sessionStorage không phải là phiên bản ví hợp lệ,
        // gỡ nó khỏi sessionStorage.
@@ -182,8 +182,8 @@ componentWillMount() {
 `componentWillMount` kiểm tra xem có phiên `walletInstance` trong sessionStorage của trình duyệt không.  
 phiên `walletInstance` có thể không tồn tại nếu bạn chưa đăng nhập vào ứng dụng hướng dẫn của chúng tôi lần nào.  
 Nếu không, phiên `walletInstance` sẽ có trong chuỗi JSON string, nếu có, nó sẽ thêm một phiên bản ví vào ví của caver.  
-Bạn có thể thêm một phiên bản ví vào caver bằng `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
-Để biết thêm thông tin về `caver.klay.accounts.wallet.add`, hãy xem [caver.klay.accounts.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#wallet-add)
+Bạn có thể thêm một phiên bản ví vào caver bằng `cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))`.  
+Để biết thêm thông tin về `caver.klay.tài khoảns.wallet.add`, hãy xem [caver.klay.tài khoảns.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.tài khoảns.md#wallet-add)
 
 cf\) Cần có `JSON.parse` vì phiên `walletInstance` được lưu trữ là chuỗi JSON.
 
@@ -208,7 +208,7 @@ export default cav
 ```
 
 Thư viện `caver-js` tạo kết nối với nút Klaytn.  
-Sau khi tạo kết nối, bạn có thể lấy được số khối hiện tại nhờ nút và gọi các phương thức hợp đồng.
+Sau khi tạo kết nối, bạn có thể lấy được số khối hiện tại nhờ nút và gọi các phương pháp hợp đồng.
 
 Bạn có thể kết nối với nút dành riêng cho Klaytn bằng cách chỉ định nó trong 'rpcURL'.
 
