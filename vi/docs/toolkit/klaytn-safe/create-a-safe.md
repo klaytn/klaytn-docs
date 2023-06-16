@@ -1,25 +1,25 @@
-Here you will see how to create a Safe and evaluate its benefits on the Klaytn Network.
+Tại đây, bạn sẽ thấy cách tạo Safe và đánh giá lợi ích của nó trên Mạng Klaytn.
 
-**Step 1:** Navigate to [Klaytn Safe App](https://safe.klaytn.foundation/). By navigating to the application on your web browser, you can explore the functionality of Klaytn Safe.
+**Bước 1:** Điều hướng đến [Ứng dụng Klaytn Safe](https://safe.klaytn.foundation/). Bằng cách điều hướng đến ứng dụng trên trình duyệt web của mình, bạn có thể khám phá chức năng của Klaytn Safe.
 
-**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Klaytn Safe has support for [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask) wallet. Make sure you have Klaytn networks([Cypress](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Baobab](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
+**Bước 2:** Kết nối [ví](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/) của bạn. Hiện tại, Klaytn Safe có hỗ trợ ví [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask). Đảm bảo bạn đã thêm mạng lưới Klaytn([Cypress](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) hoặc [Baobab](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) vào ví MetaMask để có thể kết nối thành công.
 
 ![](../img/klaytn-safe/1_safeConnect.gif)
 
-**Step 3:**  Once your wallet is connected, click **"Create New Safe"** and give your new Safe a **name**. This name is linked to your safe account, which is a multi-signature wallet that holds and stores all of your funds.
+**Bước 3:** Sau khi ví của bạn được kết nối, hãy nhấp vào **“Create New Safe”** và đặt **tên** cho Safe mới của bạn. Tên này được liên kết với tài khoản Safe của bạn, đây là ví đa chữ ký cho phép giữ và lưu trữ tất cả tiền của bạn.
 
 ![](../img/klaytn-safe/2_safeName.gif)
 
 
-**Step 4:** Add owners/signers by inputting the addresses that have permission to submit and approve transactions. You can add as many signers as you want and remove or replace any of them at any time.
+**Bước 4:** Thêm chủ sở hữu/người ký bằng cách nhập địa chỉ có quyền gửi và phê duyệt giao dịch. Bạn có thể thêm bao nhiêu người ký tùy thích và xóa hoặc thay thế bất kỳ người nào trong số họ bất kỳ lúc nào.
 
-**Step 5:** Choose how many signer confirmations a transaction in your Safe account needs to be approved. It is important to note that by default our app allows one signer confirmation. But it is advisable to use a threshold higher than 1 to ensure a secured safe account. Good practice is to use a threshold of 51% of the total owners e.g, 2 out of 3, 3 out of 5 etc as shown below:
+**Bước 5:** Chọn số lượng người ký xác nhận giao dịch trong tài khoản Safe của bạn cần được phê duyệt. Điều quan trọng cần lưu ý là, theo mặc định, ứng dụng của chúng tôi cho phép một người ký xác nhận. Tuy nhiên, bạn nên sử dụng ngưỡng cao hơn 1 để đảm bảo tính an toàn cho tài khoản Safe. Tốt nhất nên sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ như 2 trên 3, 3 trên 5, v.v. như minh họa bên dưới:
 
 ![](../img/klaytn-safe/3_safeOwners.png)
 
-**Step 6:** Review and deploy Safe: Once you are completely satisfied with all of your Safe parameters, you can submit the creation of your Safe account and proceed with the on-screen instructions to complete the account creation.
+**Bước 6:** Xem xét và triển khai Safe: Sau khi hoàn toàn hài lòng với tất cả các tham số Safe, bạn có thể gửi yêu cầu tạo tài khoản Safe và tiếp tục với các hướng dẫn trên màn hình để hoàn tất quá trình tạo tài khoản.
 
 ![](../img/klaytn-safe/4_deploySafe.gif)
 
-Congratulations on successfully creating your Klaytn Safe account!
+Chúc mừng bạn đã tạo thành công tài khoản Klaytn Safe!
 
