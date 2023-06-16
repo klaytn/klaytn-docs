@@ -1,4 +1,4 @@
-# EN Operation <a id="en-operation"></a>
+# Hoạt động của nút EN <a id="en-operation"></a>
 
 
 
