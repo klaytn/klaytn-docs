@@ -1,55 +1,55 @@
-# Smart Contract Execution Transaction <a id="smart-contract-execution-transaction"></a>
+# Giao dịch thực thi hợp đồng thông minh <a id="smart-contract-execution-transaction"></a>
 
 ## sendTransaction (SMART_CONTRACT_EXECUTION) <a id="sendtransaction-smart_contract_execution"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Smart Contract Execution](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
+Gửi giao dịch [Thực thi hợp đồng thông minh](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) đến mạng.
 
-**Parameters**
+**Tham số**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Name              | Type     | Description                                                                                                |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction object to send.                                                                            |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type      | Mô tả                                                                                                           |
+| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-A transaction object of type `SMART_CONTRACT_EXECUTION` has the following structure:
+Một đối tượng giao dịch thuộc loại `SMART_CONTRACT_EXECUTION` có cấu trúc như sau:
 
-| Name     | Type                                            | Description                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | String                                          | Transaction Type. "SMART_CONTRACT_EXECUTION"                                                                                                                                                                    |
-| from     | String                                          | Address of this transaction sender.                                                                                                                                                                               |
-| to       | String                                          | The address of the deployed smart contract.                                                                                                                                                                       |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
-| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                            |
-| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                        |
-| nonce    | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                               |
-| data     | String                                          | An input data of the smart contract.                                                                                                                                                                              |
+| Tên     | Loại                                   | Mô tả                                                                                                                                                                                                        |
+| ------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type    | Chuỗi                                   | Loại giao dịch. "SMART_CONTRACT_EXECUTION"                                                                                                                                                                 |
+| từ      | Chuỗi                                   | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                         |
+| đến     | Chuỗi                                   | Địa chỉ của hợp đồng thông minh được triển khai.                                                                                                                                                             |
+| giá trị | Số &#124; Chuỗi &#124; BN &#124; Số lớn | (tùy chọn) Giá trị được chuyển cho giao dịch theo peb. Để chấp nhận chuyển giá trị, hàm của hợp đồng mà giao dịch này sẽ thực thi phải được khai báo là 'payable'. Nếu bỏ qua, tham số này sẽ được đặt về 0. |
+| gas     | Số                                      | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                         |
+| giá gas | Số                                      | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                               |
+| nonce   | Số                                      | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                               |
+| data    | Chuỗi                                   | Dữ liệu đầu vào của hợp đồng thông minh.                                                                                                                                                                     |
 
-**Return Value**
+**Giá trị trả về**
 
-The `callback` will return the 32-byte transaction hash.
+Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-const account = caver.klay.accounts.wallet.add('0x{private key}')
+const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-// Calling smart contract function
+// Gọi ra hàm hợp đồng thông minh
 
-// using the promise
+// sử dụng promise
 caver.klay.sendTransaction({
     type: 'SMART_CONTRACT_EXECUTION',
-    from: account.address,
+    from: tài khoản.address,
     to: '0x1d389d91886fd0af55f44c56e1240eb6162ddff8',
     data: '0x6353586b0000000000000000000000001d389d91886fd0af55f44c56e1240eb6162ddff8',
     gas: '300000',
@@ -59,10 +59,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
     type: 'SMART_CONTRACT_EXECUTION',
-    from: account.address,
+    from: tài khoản.address,
     to: '0x1d389d91886fd0af55f44c56e1240eb6162ddff8',
     data: '0x6353586b0000000000000000000000001d389d91886fd0af55f44c56e1240eb6162ddff8',
     gas: '300000',
@@ -74,7 +74,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 ```
 
 
@@ -83,57 +83,57 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
+Gửi giao dịch [Thực thi hợp đồng thông minh có ủy thác phí](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) đến mạng.
 
-**Parameters**
+**Tham số**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Name              | Type     | Description                                                                                                |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction object to send.                                                                            |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type      | Mô tả                                                                                                           |
+| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` has the following structure:
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` có cấu trúc như sau:
 
-| Name     | Type                                            | Description                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION"                                                                                                                                                    |
-| from     | String                                          | Address of this transaction sender.                                                                                                                                                                               |
-| to       | String                                          | The address of the deployed smart contract.                                                                                                                                                                       |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
-| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                            |
-| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                        |
-| nonce    | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                               |
-| data     | String                                          | An input data of the smart contract.                                                                                                                                                                              |
+| Tên     | Loại                                   | Mô tả                                                                                                                                                                                                        |
+| ------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type    | Chuỗi                                   | Loại giao dịch. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION"                                                                                                                                                 |
+| từ      | Chuỗi                                   | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                         |
+| đến     | Chuỗi                                   | Địa chỉ của hợp đồng thông minh được triển khai.                                                                                                                                                             |
+| giá trị | Số &#124; Chuỗi &#124; BN &#124; Số lớn | (tùy chọn) Giá trị được chuyển cho giao dịch theo peb. Để chấp nhận chuyển giá trị, hàm của hợp đồng mà giao dịch này sẽ thực thi phải được khai báo là 'payable'. Nếu bỏ qua, tham số này sẽ được đặt về 0. |
+| gas     | Số                                      | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                         |
+| giá gas | Số                                      | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                               |
+| nonce   | Số                                      | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                               |
+| data    | Chuỗi                                   | Dữ liệu đầu vào của hợp đồng thông minh.                                                                                                                                                                     |
 
-A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../caver.klay.tài khoảns.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) đối với người trả phí.
 
-In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
+Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
 
-| Name                 | Type   | Description                                   |
-| -------------------- | ------ | --------------------------------------------- |
-| feePayer             | String | The fee payer address of the transaction.     |
-| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
+| Tên                  | Loại | Mô tả                                    |
+| -------------------- | ----- | ---------------------------------------- |
+| feePayer             | Chuỗi | Địa chỉ người trả phí của giao dịch.     |
+| senderRawTransaction | Chuỗi | Giao dịch mã hóa RLP mà người gửi đã ký. |
 
-**Return Value**
+**Giá trị trả về**
 
-The `callback` will return the 32-byte transaction hash.
+Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-const sender = caver.klay.accounts.wallet.add('0x{private key}')
-const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
+const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-// using the promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
   type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
   from: sender.address,
   to:   '0xe56a7260015ad92dd48a305ed232090e51e02391',
@@ -150,8 +150,8 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng bộ phát hiệu ứng sự kiện
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
   type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
   from: sender.address,
   to:   '0xe56a7260015ad92dd48a305ed232090e51e02391',
@@ -170,7 +170,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 ```
 
 
@@ -179,58 +179,58 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
+Gửi giao dịch [Thực thi hợp đồng thông minh có ủy thác phí theo tỷ lệ](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) đến mạng.
 
-**Parameters**
+**Tham số**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Name              | Type     | Description                                                                                                |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction object to send.                                                                            |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type      | Mô tả                                                                                                           |
+| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` has the following structure:
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` có cấu trúc như sau:
 
-| Name     | Type                                            | Description                                                                                                                                                                                                           |
-| -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO"                                                                                                                                           |
-| from     | String                                          | Address of this transaction sender.                                                                                                                                                                                   |
-| to       | String                                          | The address of the deployed smart contract.                                                                                                                                                                           |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero.     |
-| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                |
-| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                            |
-| nonce    | Number                                          | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                   |
-| data     | String                                          | An input data of the smart contract.                                                                                                                                                                                  |
-| feeRatio | Number                                          | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
+| Tên      | Loại                                   | Mô tả                                                                                                                                                                                                              |
+| -------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type     | Chuỗi                                   | Loại giao dịch. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO"                                                                                                                                          |
+| từ       | Chuỗi                                   | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                               |
+| đến      | Chuỗi                                   | Địa chỉ của hợp đồng thông minh được triển khai.                                                                                                                                                                   |
+| giá trị  | Số &#124; Chuỗi &#124; BN &#124; Số lớn | (tùy chọn) Giá trị được chuyển cho giao dịch theo peb. Để chấp nhận chuyển giá trị, hàm của hợp đồng mà giao dịch này sẽ thực thi phải được khai báo là 'payable'. Nếu bỏ qua, tham số này sẽ được đặt về 0.       |
+| gas      | Số                                      | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                               |
+| giá gas  | Số                                      | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                     |
+| nonce    | Số                                      | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                     |
+| data     | Chuỗi                                   | Dữ liệu đầu vào của hợp đồng thông minh.                                                                                                                                                                           |
+| feeRatio | Số                                      | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận. |
 
-A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../caver.klay.tài khoảns.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) đối với người trả phí.
 
-In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
+Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
 
-| Name                 | Type   | Description                                   |
-| -------------------- | ------ | --------------------------------------------- |
-| feePayer             | String | The fee payer address of the transaction.     |
-| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
+| Tên                  | Loại | Mô tả                                    |
+| -------------------- | ----- | ---------------------------------------- |
+| feePayer             | Chuỗi | Địa chỉ người trả phí của giao dịch.     |
+| senderRawTransaction | Chuỗi | Giao dịch mã hóa RLP mà người gửi đã ký. |
 
-**Return Value**
+**Giá trị trả về**
 
-The `callback` will return the 32-byte transaction hash.
+Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**Example**
+**Ví dụ**
 
 ```javascript
-const sender = caver.klay.accounts.wallet.add('0x{private key}')
-const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
+const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-// using the promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
   type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO',
   from: sender.address,
   to:   '0xe56a7260015ad92dd48a305ed232090e51e02391',
@@ -248,8 +248,8 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng bộ phát hiệu ứng sự kiện
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
   type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO',
   from: sender.address,
   to:   '0xe56a7260015ad92dd48a305ed232090e51e02391',
@@ -269,7 +269,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 ```
 
 
