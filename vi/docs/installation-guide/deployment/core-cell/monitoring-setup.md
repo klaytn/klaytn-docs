@@ -17,7 +17,7 @@ Hướng dẫn cài đặt Telegraf \(Người dùng Amazon Linux 2, xem bên d�
 
 **Lưu ý cho Amazon Linux 2**
 
-Để cài đặt Telegraph trên Amazon Linux 2, bạn có thể sử dụng RHEL 7 yum repo của InfluxData nhuw sau:
+Để cài đặt Telegraph trên Amazon Linux 2, bạn có thể sử dụng kho lưu trữ yum của InfluxData như sau:
 
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
@@ -78,7 +78,7 @@ Sao chép tập tin sau vào thư mục cấu hình `telegraf` \(`/etc/telegraf/
 
 Thay đổi như sau trong `/etc/telegraf/telegraf.conf`:
 
-* Ghi chú phần `[[outputs.influxdb]]`
+* Loại bỏ phần `[[outputs.influxdb]]` bằng ghi chú
 
 **Bắt đầu Telegraf**
 
@@ -92,5 +92,5 @@ Nếu mỗi CN/PN có cấu hình và tác nhân ở trên, bạn có thể ki�
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
-Người vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các người vận hành CC mới được phép yêu cầu tài khoản Grafana.
+Là người vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các người vận hành CC mới được phép yêu cầu tài khoản Grafana.
 
