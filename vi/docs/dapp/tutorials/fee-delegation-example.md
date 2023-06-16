@@ -27,7 +27,7 @@ Hãy xem lướt qua cách hoạt động của ủy thác phí.
 
 `Sender` luôn phải ký giao dịch trước khi gửi giao dịch.
 
-Để ký giao dịch, hãy dùng [signTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction) nào ký giao dịch với khóa riêng tư đã cho.
+Để ký giao dịch, hãy dùng [signTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay.tài khoảns.md#signtransaction) nào ký giao dịch với khóa riêng tư đã cho.
 
 ```
 // sử dụng bộ phát hiệu ứng sự kiện
@@ -35,7 +35,7 @@ const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
   type: 'FEE_DELEGATED_VALUE_TRANSFER',
   from: senderAddress,
   to: toAddress,
@@ -52,13 +52,13 @@ Bây giờ, bạn cần gửi `senderRawTransaction` cho người trả phí. C�
 
 Khi `fee payer` nhận `senderRawTransaction`, `fee payer` ký lại `senderRawTransaction` bằng khóa riêng tư của mình và gửi giao dịch đến Klaytn. Đoạn mã dưới đây minh họa quá trình đó. Phương thức `klay.sendTransaction` ký giao dịch bằng khóa riêng tư của tài khoản đã cho trước khi gửi giao dịch. Trước khi chạy mã, hãy thay thế `"FEEPAYER_ADDRESS"` và `"PRIVATE_KEY"` bằng các giá trị thật.
 
-Chú ý rằng khi `fee payer` đại diện cho `sender` gửi giao dịch tới Klaytn, loại `senderRawTransaction` phải là một `FEE_DELEATED` loại giao dịch. Ví dụ dưới đây gọi ra phương thức [sendTransaction(FEE\_DELEGATED\_VALUE\_TRANSFER)](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx\_value\_transfer.md#sendtransaction-fee\_delegated\_value\_transfer), vì `senderRawTransaction` nguyên bản do người gửi tạo là [TxTypeFeeDelegatedValueTransfer](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+Chú ý rằng khi `fee payer` đại diện cho `sender` gửi giao dịch đến Klaytn, loại `senderRawTransaction` phải là một `FEE_DELEATED` loại giao dịch. Ví dụ dưới đây gọi ra phương pháp [sendTransaction(FEE\_DELEGATED\_VALUE\_TRANSFER)](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx\_value\_transfer.md#sendtransaction-fee\_delegated\_value\_transfer), vì `senderRawTransaction` nguyên bản do người gửi tạo là [TxTypeFeeDelegatedValueTransfer](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "PRIVATE_KEY"
 
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.klay.tài khoảns.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 caver.klay.sendTransaction({
   senderRawTransaction: senderRawTransaction,
@@ -106,7 +106,7 @@ const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
     // ký giao dịch với khóa riêng tư của người gửi
-    const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+    const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
       to: toAddress,
@@ -132,7 +132,7 @@ sendFeeDelegateTx = async() => {
 sendFeeDelegateTx();
 ```
 
-Mã trên ký một giao dịch chuyển giá trị ủy thác phí bằng `senderPrivateKey` và gửi `senderRawTransaction` đã ký tới máy chủ của người trả phí đang chạy trên cổng `1337` trên `127.0.0.1`, tức là localhost.
+Mã trên ký một giao dịch chuyển giá trị ủy thác phí bằng `senderPrivateKey` và gửi `senderRawTransaction` đã ký đến máy chủ của người trả phí đang chạy trên cổng `1337` trên `127.0.0.1`, tức là localhost.
 
 ### 3.2 Máy chủ của người trả phí <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
@@ -146,8 +146,8 @@ const caver = new Caver('https://public-en-baobab.klaytn.net');
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
-// add fee payer account
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+// add fee payer tài khoản
+caver.klay.tài khoảns.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
@@ -209,7 +209,7 @@ Hãy chạy `sender_client.js` để gửi giao dịch có phí ủy thác.
 ```
 $ node sender_client.js
 Đã ký giao dịch chuyển giá trị ủy thác phí.
-Đang gửi giao dịch đã ký tới dịch vụ ủy thác phí.
+Đang gửi giao dịch đã ký đến dịch vụ ủy thác phí.
 Đã kết nối với dịch vụ ủy thác phí
 Đã nhận dữ liệu từ máy chủ: Đây là dịch vụ ủy thác phí
 Đã nhận dữ liệu từ máy chủ: Người trả phí là 0x2645BA5Be42FfEe907ca8e9d88f6Ee6dAd8c1410
@@ -217,7 +217,7 @@ $ node sender_client.js
 Đã nhận dữ liệu từ máy chủ: Hàm băm Người gửi Tx là 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-Giao dịch sẽ được ký với khóa riêng tư `sender`; giao dịch đã ký được gửi đến dịch vụ ủy thác phí (nghĩa là máy chủ của người trả phí). Sau đó, máy chủ sẽ nhận phản hồi từ dịch vụ ủy thác phí bao gồm địa chỉ của `Fee payer`, `Tx hash`, và `Sender Tx hash`. `Tx hash` là hàm băm của giao dịch được gửi tới mạng lưới Klaytn, trong khi đó `Sender Tx hash` là hàm băm của giao dịch không có địa chỉ, chữ ký của người trả phí. Để biết thêm chi tiết, vui lòng xem [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
+Giao dịch sẽ được ký với khóa riêng tư `sender`; giao dịch đã ký được gửi đến dịch vụ ủy thác phí (nghĩa là máy chủ của người trả phí). Sau đó, máy chủ sẽ nhận phản hồi từ dịch vụ ủy thác phí bao gồm địa chỉ của `Fee payer`, `Tx hash`, và `Sender Tx hash`. `Tx hash` là hàm băm của giao dịch được gửi đến mạng lưới Klaytn, trong khi đó `Sender Tx hash` là hàm băm của giao dịch không có địa chỉ, chữ ký của người trả phí. Để biết thêm chi tiết, vui lòng xem [SenderTxHash](../../klaytn/design/transactions/#sendertxhash).
 
 ### 4.3 Kiểm tra `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
@@ -255,8 +255,8 @@ receipt { blockHash:
   gas: '0x493e0',
   gasPrice: '0x5d21dba00',
   gasUsed: 31000,
-  logs: [],
-  logsBloom:
+  nhật ký: [],
+  nhật kýBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   nonce: '0x3a',
   senderTxHash:
@@ -267,7 +267,7 @@ receipt { blockHash:
         '0xe636e67d01acc1f368db5e60290721e9059b13b0bf74af6d46391cc48bd31a81',
        S:
         '0x135118878be87f808e064f64fa4f13d6dc5bd9888b154ecd17f02980063b9e42' } ],
-  status: true,
+  trạng thái: true,
   to: '0xfc83add44939ef818ce62dacea23697fa1725783',
   transactionHash:
    '0xd99086aa8188255d4ee885d9f1933b6cc062085c1196731ba599b2fb8f2dbbd7',
