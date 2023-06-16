@@ -1,6 +1,6 @@
-# Khởi động NĐT <a id="startup-the-cn"></a>
+# Khởi động CN <a id="startup-the-cn"></a>
 
-## Bắt đầu/Dừng NĐT  <a id="cn-start-stop"></a>
+## Bắt đầu/Dừng CN  <a id="cn-start-stop"></a>
 
 Bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` sau đây.
 
@@ -23,7 +23,7 @@ $ systemctl stop kcnd.service
 **trạng thái**
 
 ```bash
-$ systemctl status kcnd.service
+$ systemctl trạng thái kcnd.service
 
 ```
 
