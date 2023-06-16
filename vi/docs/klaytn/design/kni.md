@@ -1,6 +1,6 @@
 # KNI <a id="KNI"></a>
 
-**KNI (Mã định danh mạng Klaytn)** là một lược đồ URL dùng để xác định nút Klaytn. Cú pháp của mã này như sau:
+**KNI (Mã định danh mạng lưới Klaytn)** là một lược đồ URL dùng để xác định nút Klaytn. Cú pháp của mã này như sau:
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
