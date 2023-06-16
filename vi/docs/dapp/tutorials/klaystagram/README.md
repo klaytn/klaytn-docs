@@ -3,15 +3,15 @@
 ## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [1. Thiết lập môi trường](1.-environment-setup.md)
-* [2. Sao chép DApp Klaystagram](2.-clone-klaystagram-dapp.md)
+* [2. Sao chép Klaystagram DApp](2.-clone-klaystagram-dapp.md)
 * [3. Cấu trúc thư mục](3.-directory-structure.md)
 * [4. Soạn hợp đồng thông minh Klaystagram](4.-write-klaystagram-smart-contract.md)
 * [5. Triển khai hợp đồng](5.-deploy-contract.md)
-* [6. Tổng quan về mã giao diện](6.-frontend-code-overview.md)
+* [6. Tổng quan về mã Frontend](6.-frontend-code-overview.md)
 * [7. Trang thông tin](7.-feedpage/)
-  * [7-1. Kết nối hợp đồng với giao diện](7.-feedpage/7-1.-connect-contract-to-frontend.md)
+  * [7-1. Kết nối hợp đồng với Frontend](7.-feedpage/7-1.-connect-contract-to-frontend.md)
   * [7-2. Thành phần UploadPhoto](7.-feedpage/7-2.-uploadphoto-component.md)
-  * [7-3. Thành phần Feed](7.-feedpage/7-3.-feed-component.md)
+  * [7-3. Thành phần nguồn cấp dữ liệu](7.-feedpage/7-3.-feed-component.md)
   * [7-4. Thành phần TransferOwnership](7.-feedpage/7-4.-transferownership-component.md)
 * [8. Chạy ứng dụng](8.-run-app.md)
 
@@ -48,5 +48,5 @@ Có ba tính năng chính.
 Chúng ta sẽ xây dựng một ứng dụng web tương tác với các hợp đồng thông minh. Để hiểu trọn vẹn hướng dẫn này, người xem phải làm quen với các khái niệm sau.
 
 * Chúng tôi sẽ xem như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/) và [Redux](https://redux.js.org/). Khóa học này không dành cho những người mới bắt đầu.
-* Bạn cần có kinh nghiệm và kiến thức cơ bản về quá trình phát triển [Solidity](https://solidity.readthedocs.io/en/v0.5.10/). Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
-* Bất cứ ai quan tâm tới [Token ERC-721](http://erc721.org/).
+* Bạn nên có kiến thức và kinh nghiệm cơ bản về phát triển [Solidity](https://solidity.readthedocs.io/en/v0.5.10/). Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
+* Bất cứ ai quan tâm đến [Token ERC-721](http://erc721.org/).
