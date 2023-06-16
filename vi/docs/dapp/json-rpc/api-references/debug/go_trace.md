@@ -1,22 +1,22 @@
-# Theo dõi thời gian chạy <a id="go-runtime-tracing"></a>
+# Theo dõi thời gian chạy Go <a id="go-runtime-tracing"></a>
 
 ## debug_goTrace <a id="debug_gotrace"></a>
 
 Bật theo dõi thời gian chạy Go trong khoảng thời gian nhất định và ghi dữ liệu theo dõi vào đĩa.
 
-|    Máy khách    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi phương pháp                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.goTrace(file, seconds)`                            |
 |       RPC       | `{"method": "debug_goTrace", "params": [string, number]}` |
 
 **Tham số**
 
-| Tên     | Loại  | Mô tả                               |
-| ------- | ----- | ----------------------------------- |
-| tệp tin | chuỗi | Tên tệp cho đầu ra theo dõi.        |
-| giây    | int   | Thời lượng theo dõi tính bằng giây. |
+| Tên     | type  | Mô tả                              |
+| ------- | ----- | ---------------------------------- |
+| tệp tin | chuỗi | Tên tệp cho đầu ra theo dõi.       |
+| giây    | int   | Thời gian theo dõi tính bằng giây. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -37,20 +37,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startGoTrace <a id="debug_startgotrace"></a>
 
-Bắt đầu viết theo dõi thời gian chạy Go vào tệp đã cho.
+Bắt đầu ghi theo dõi thời gian chạy Go vào tệp đã cho.
 
-|    Máy khách    | Gọi phương thức                                        |
+|    Máy khách    | Gọi phương pháp                                        |
 |:---------------:| ------------------------------------------------------ |
 | Bảng điều khiển | `debug.startGoTrace(file)`                             |
 |       RPC       | `{"method": "debug_startGoTrace", "params": [string]}` |
 
 **Tham số**
 
-| Tên     | Loại  | Mô tả                        |
+| Tên     | type  | Mô tả                        |
 | ------- | ----- | ---------------------------- |
 | tệp tin | chuỗi | Tên tệp cho đầu ra theo dõi. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -70,9 +70,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopGoTrace <a id="debug_stopgotrace"></a>
 
-Dừng ghi dấu vết thời gian chạy Go.
+Dừng ghi theo dõi thời gian chạy Go.
 
-|    Máy khách    | Gọi phương thức                                 |
+|    Máy khách    | Gọi phương pháp                                 |
 |:---------------:| ----------------------------------------------- |
 | Bảng điều khiển | `debug.stopGoTrace()`                           |
 |       RPC       | `{"method": "debug_stopGoTrace", "params": []}` |
@@ -81,7 +81,7 @@ Dừng ghi dấu vết thời gian chạy Go.
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
