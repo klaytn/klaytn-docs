@@ -19,7 +19,7 @@ Thư mục `docs` được sao chép vào `versioned_docs/version-1.0` và `vers
 Tài liệu của bạn giờ đây có 2 phiên bản:
 
 - `1.0` tại `http://localhost:3000/docs/` cho phiên bản tài liệu 1.0
-- `current` tại `http://localhost:3000/docs/next/` dành cho **các tài liệu sắp tới, chưa được phát hành**
+- `current` tại `http://localhost:3000/docs/next/` dành cho **các tài liệu sắp đến, chưa được phát hành**
 
 ## Thêm danh sách thả xuống cho phiên bản
 
