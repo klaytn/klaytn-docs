@@ -1,64 +1,64 @@
-In this section, we will see how to add your assets (KLAY, FT, NFT)  to your safe account and keep your funds safe.
+Trong phần này, chúng ta sẽ xem cách thêm tài sản (KLAY, FT, NFT) vào tài khoản Safe của bạn và bảo đảm an toàn cho tiền của bạn.
 
-## KLAY Deposits
+## Nạp KLAY
 
-Below are the steps to add **‘KLAY’** to your safe account
+Dưới đây là các bước để thêm **‘KLAY’** vào tài khoản Safe của bạn
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Bước 1:** Sao chép địa chỉ Safe từ bảng điều khiển tài khoản của bạn.
 
 ![](../img/klaytn-safe/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask wallet and click **"send”** to send asset to your safe account. Note that there are different ways to send assets to your Safe account. You can send from your [hardware wallet](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [web wallet](https://docs.ethhub.io/using-ethereum/wallets/web/), or even a smart contract. In this case, we're making use of a web wallet called MetaMask.
+**Bước 2:** Mở ví Metamask của bạn và nhấp vào **“send”** để gửi tài sản vào tài khoản Safe của bạn. Lưu ý rằng có nhiều cách khác nhau để gửi tài sản vào tài khoản Safe của bạn. Bạn có thể gửi từ [ví phần cứng](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [ví web](https://docs.ethhub.io/using-ethereum/wallets/web/) hoặc thậm chí là hợp đồng thông minh. Trong trường hợp này, chúng tôi đang sử dụng ví web có tên là MetaMask.
 
 
 ![](../img/klaytn-safe/f2_sendBtn.png)
 
-**Step 3:** Paste your safe address in the search field as seen below.
+**Bước 3:** Dán địa chỉ Safe của bạn vào trường tìm kiếm như bên dưới.
 
 ![](../img/klaytn-safe/f3_searchAddr.png)
 
-**Step 4:** Input **amount** and click **next**.
+**Bước 4:** Nhập **số tiền** và nhấp vào **next**.
 
 ![](../img/klaytn-safe/f4_amountNext.png)
 
-**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Klaytn Safe account.
+**Bước 5:** Xác nhận giao dịch và kiểm tra trang tổng quan nội dung của bạn. Bạn có thể thấy số tiền được từ tài khoản metamask sang tài khoản Klaytn Safe của mình.
 
 ![](../img/klaytn-safe/f5_sendDone.png)
 
-## KIP-7 Deposits
+## Nạp KIP-7
 
-Now we will see how to deposit KIP7 (fungible tokens) to our safe by following the below steps.
+Đến đây, chúng ta sẽ xem cách gửi KIP7 (token có thể thay thế) vào Safe bằng cách thực hiện theo các bước bên dưới.
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Bước 1:** Sao chép địa chỉ Safe từ bảng điều khiển tài khoản của bạn.
 
 ![](../img/klaytn-safe/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask Wallet and navigate to **“assets”** tab.
+**Bước 2:** Mở Ví Metamask của bạn và điều hướng đến tab **“asset”**.
 
 ![](../img/klaytn-safe/ft2_assetTst.png)
 
-**Step 3:** Select the token you will love to send and click **“send”**.
+**Bước 3:** Chọn token mà bạn muốn gửi và nhấp vào **“send”**.
 
-Step 4: Repeat step **3**, **4**, **5** of **KLAY** Deposits.
+Bước 4: Lặp lại bước **3**, **4**, **5** của quy trình Nạp **KLAY**.
 
-Step 5: View your assets dashboard, you can see the KIP7 tokens being transferred to your safe account. Similarly you can transfer any Fungible token to your safe account.
+Bước 5: Xem bảng điều khiển tài sản của bạn, bạn có thể thấy token KIP7 được chuyển vào tài khoản Safe của mình. Tương tự, bạn có thể chuyển token Fungible bất kỳ vào tài khoản Safe.
 
 ![](../img/klaytn-safe/ft3_tstDone.png)
 
 
-* KIP-17 Tokens (NFTs)
+* Token KIP-17 (NFT)
 
-Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by following the below steps.
+Bây giờ chúng ta sẽ xem cách nạp KIP17 (token Non Fungible) vào safe của mình bằng cách làm theo các bước dưới đây.
 
-You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
+Bạn có thể chuyển NFT vào tài khoản Safe theo nhiều cách khác nhau. Dưới đây là ví dụ về cách chuyển NFT sang tài khoản Safe bằng [OpenSea](https://opensea.io/about).
 
-* Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-* Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
-* On the next page, click on the transfer button.
-* Paste the safe address in the text box and transfer to safe
-* Under Assets section in Klaytn Safe you can find NFT’s from OpenSea.
+* Điều hướng đến trang hồ sơ [Tài khoản OpenSea](https://testnets.opensea.io/tài khoản) của bạn
+* Điều hướng đến một NFT mà bạn muốn chuyển. Đảm bảo chọn một NFT trên Mạng Klaytn (Cypress hoặc Baobab)
+* Trên trang tiếp theo, nhấp vào nút Transfer.
+* Dán địa chỉ Safe vào hộp văn bản và chuyển đến safe
+* Trong phần Tài sản trong Klaytn Safe, bạn có thể tìm thấy NFT từ OpenSea.
 
 ![](../img/klaytn-safe/sendNFTOpensea.gif)
 
-Please refer to this [guide](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee) from OpenSea for more details on transferring NFTs.
+Vui lòng tham khảo [hướng dẫn](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee) này từ OpenSea để biết thêm thông tin chi tiết về cách chuyển NFT.
 
