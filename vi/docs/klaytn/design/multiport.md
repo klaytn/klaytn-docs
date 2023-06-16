@@ -11,14 +11,14 @@ Có thể kích hoạt nút đa kênh bằng cờ báo `--multichannel`. Nếu b
 ![Máy chủ đa kênh](../images/multichannel.png)
 
 Hình trên cho thấy kết nối giữa hai nút đa kênh. Hai cổng, cổng chính (A) và cổng phụ (B), truyền tải các thông điệp khác nhau.
-* **Cổng chính**(A) được dùng để truyền tải thông điệp liên quan tới khối và giao thức đồng thuận.
+* **Cổng chính**(A) được dùng để truyền tải thông điệp liên quan đến khối và giao thức đồng thuận.
   * Các thông điệp về khối bao gồm các yêu cầu và phản hồi của hàm băm, tiêu đề, phần nội dung và biên lai của một khối.
   * Các thông điệp đồng thuận bao gồm Request, Preprepare, Prepare, Commit và RoundChange. Bạn có thể tìm thấy ý nghĩa của các thông điệp này tại [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
 * **Cổng phụ**(B) được dùng để truyền tải các thông báo về giao dịch.
 
 ![Máy chủ đơn kênh](../images/singlechannel.png)
 
-Hình ảnh thể hiện kết nối giữa hai nút đơn kênh hoặc giữa một nút đơn kênh và một nút đa kênh. Trong trường hợp này, tất cả các thông báo liên quan tới khối, giao dịch và giao thức đồng thuận sẽ được chuyển qua cùng một cổng.
+Hình ảnh thể hiện kết nối giữa hai nút đơn kênh hoặc giữa một nút đơn kênh và một nút đa kênh. Trong trường hợp này, tất cả các thông báo liên quan đến khối, giao dịch và giao thức đồng thuận sẽ được chuyển qua cùng một cổng.
 
 ## Cổng  <a id="multichannel-port"></a>
 
