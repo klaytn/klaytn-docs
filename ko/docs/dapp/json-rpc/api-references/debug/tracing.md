@@ -1,10 +1,12 @@
 # VM 추적 <a id="vm-tracing"></a>
 
+**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public. If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
+
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
+The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
-**참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
+**NOTE**: the parent of this block must be present or it will fail.
 
 | Client  | Method Invocation                                         |
 |:-------:| --------------------------------------------------------- |
@@ -57,7 +59,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
+The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
@@ -105,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
-[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByHash`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
 
 | Client  | Method Invocation                                            |
 |:-------:| ------------------------------------------------------------ |
@@ -148,7 +150,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
-[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByNumber`는 블록 번호를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
 
 | Client  | Method Invocation                                                |
 |:-------:| ---------------------------------------------------------------- |
@@ -248,9 +250,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-[debug_traceBlock](#debug_traceblock)와 유사하게 `traceBlockFromFile`은 블록의 RLP를 담고 있는 파일을 입력으로 받습니다.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
 
-**참고**: 해당 파일은 `0x`를 제거한 16진수 문자열을 담고 있어야 합니다.
+**NOTE**: the file must include the associated hexadecimal string without `0x`.
 
 | Client  | Method Invocation                                                  |
 |:-------:| ------------------------------------------------------------------ |
@@ -274,7 +276,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Example**
 
-다음과 같이 실행 중인 노드에 `block.rlp` 파일의 내용이 출력됩니다.
+The contents of the `block.rlp` file was printed on the running node as follows.
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
@@ -303,7 +305,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-`traceTransaction` 디버깅 메서드는 네트워크에서 실행되었던 그대로 트랜잭션을 실행합니다. 입력으로 받은 트랜잭션 해시에 대응되는 트랜잭션을 실행하기 전에 이전에 실행되었을 수 있는 모든 트랜잭션들을 재실행합니다.
+The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
 
 | Client  | Method Invocation                                              |
 |:-------:| -------------------------------------------------------------- |
@@ -486,11 +488,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
-`tracer` 옵션의 두 번째 인자(argument)를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현으로 해석(interpret) 됩니다.
 
-`step`은 `log`와 `db`를 두 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 
-`log`는 다음의 필드를 갖고 있습니다.
+Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
+
+`step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
+
+`log` has the following fields:
 
 | 필드명        | Type           | Description                   |
 | ---------- | -------------- | ----------------------------- |
@@ -504,9 +509,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 | `account`  | String         | 현재 연산을 실행하는 계정의 주소입니다.        |
 | `err`      | String         | 발생한 오류에 대한 정보입니다.             |
 
-`err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
+If `err` is non-null, all other fields should be ignored.
 
-효율성을 위해 현재 값으로 업데이트한 뒤 동일한 `log` 객체를 각 실행 단계에서 재사용합니다. 따라서 현재 호출 이후에도 보존하려는 값은 복사해놓아야 합니다. 예를 들어 아래와 같은 함수는 작동하지 않습니다.
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
 
 ```javascript
 function(log) {
@@ -514,7 +519,7 @@ function(log) {
 }
 ```
 
-하지만 아래의 경우 작동합니다.
+But this step function will:
 
 ```javascript
 function(log) {
@@ -522,7 +527,7 @@ function(log) {
 }
 ```
 
-`log.op`는 다음의 메서드를 갖고 있습니다.
+`log.op` has the following methods:
 
 | 메서드 이름       | Description                    |
 | ------------ | ------------------------------ |
@@ -530,21 +535,21 @@ function(log) {
 | `toString()` | Opcode의 문자열 표현을 반환합니다.         |
 | `toNumber()` | Opcode의 번호를 반환합니다.             |
 
-`log.memory`는 다음의 메서드를 갖고 있습니다.
+`log.memory` has the following methods:
 
 | Method Name          | Description                |
 | -------------------- | -------------------------- |
 | `slice(start, stop)` | 지정된 메모리 부분을 바이트 단위로 반환합니다. |
 | `length()`           | 메모리의 길이를 반환합니다.            |
 
-`log.stack`는 다음의 메서드를 갖고 있습니다.
+`log.stack` has the following methods:
 
 | Method Name | Description                                                    |
 | ----------- | -------------------------------------------------------------- |
 | `peek(idx)` | idx번째 요소를 스택의 맨 위에서 가져와 `big.Int`로 반환합니다. (0이 가장 위에 있는 요소입니다.) |
 | `length()`  | 스택에 있는 요소의 수를 반환합니다.                                           |
 
-`db`는 다음의 메서드를 갖고 있습니다.
+`db` has the following methods:
 
 | Method Name               | Description                       |
 | ------------------------- | --------------------------------- |
@@ -554,13 +559,13 @@ function(log) {
 | `getState(address, hash)` | 입력으로 받은 계정과 해시의 상태 값을 반환합니다.      |
 | `exists(address)`         | 입력으로 받은 계정이 존재하면 true를 반환합니다.     |
 
-두 번째 함수 `result`는 받는 매개변수가 없고, JSON 직렬화 값을 RPC 호출자에게 반환합니다.
+The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
-언제라도 `step` 함수가 예외를 발생시키거나 잘못된 연산을 수행하면, 더는 VM 스텝에서 호출되지 않고 호출자에게는 에러가 반환됩니다.
+If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
 
-몇몇 값은 자바스크립트 numbers나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 정확하게 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
+Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 
-아래 예제와 같이 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
+As an usage example below, it returns the top element of the stack at each CALL opcode only:
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
