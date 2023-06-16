@@ -1,24 +1,24 @@
 ## eth_feeHistory<a id="eth_feehistory"></a>
 
-Trả về lịch sử phí cơ sở trên mỗi gas cùng với phí ưu tiên thực hiện giao dịch trên mỗi gas cho khoảng khối được yêu cầu, nếu có.
+Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của một giao dịch trên mỗi lịch sử gas đối với phạm vi khối được yêu cầu, nếu có.êu cầu (nếu có).
 
 **Tham số**
 
-| Tên               | Loại               | Mô tả                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | SỐ LƯỢNG            | Số lượng khối trong khoảng yêu cầu được trình bày dưới dạng số thập lục phân. Có thể yêu cầu giữa 1 (0x1) và 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
-| lastBlock         | SỐ LƯỢNG &#124; THẺ | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                                         |
-| rewardPercentiles | Mảng DẤU PHẢY ĐỘNG  | Mảng số thực dấu phảy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                                        |
+| Tên               | Loại                      | Mô tả                                                                                                                                                                                                                                                                        |
+| ----------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | SỐ LƯỢNG                   | Số lượng khối trong khoảng yêu cầu được trình bày dưới dạng số thập lục phân. Có thể yêu cầu trong khoảng từ 1 (0x1) đến 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
+| lastBlock         | SỐ LƯỢNG &#124; THẺ        | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                                                     |
+| rewardPercentiles | Mảng SỐ THỰC DẤU PHẨY ĐỘNG | Mảng giá trị số thực dấu phẩy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                                            |
 
 
 **Giá trị trả về**
 
-| Tên           | Loại               | Mô tả                                                                                                                                                             |
-| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | SỐ LƯỢNG           | Khối thấp nhất trong khoảng trả về được trình bày dưới dạng số thập lục phân.                                                                                     |
-| baseFeePerGas | Mảng SỐ LƯỢNG      | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
-| gasUsedRatio  | Mảng DẤU PHẢY ĐỘNG | Mảng tỷ lệ sử dụng gas của khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                                     |
-| reward        | Mảng SỐ LƯỢNG      | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, tất cả các giá trị được trả về sẽ là 0.           |
+| Tên           | type                       | Mô tả                                                                                                                                                             |
+| ------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | SỐ LƯỢNG                   | Khối thấp nhất trong khoảng trả về được trình bày dưới dạng số thập lục phân.                                                                                     |
+| baseFeePerGas | Mảng SỐ LƯỢNG              | Mảng phí cơ bản của khối trên mỗi gas. Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
+| gasUsedRatio  | Mảng SỐ THỰC DẤU PHẨY ĐỘNG | Mảng tỷ lệ sử dụng gas của khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                                     |
+| phần thưởng   | Mảng SỐ LƯỢNG              | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, thì tất cả các giá trị được trả về sẽ là 0.       |
 
 
 **Ví dụ**
@@ -169,9 +169,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                     |
-| -------- | ----------------------------------------- |
-| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
+| type     | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
 
 **Ví dụ**
 
