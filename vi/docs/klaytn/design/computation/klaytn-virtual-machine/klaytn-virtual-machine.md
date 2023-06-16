@@ -1,146 +1,146 @@
-# Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
+# Máy ảo Klaytn <a id="klaytn-virtual-machine"></a>
 
-## Overview <a id="overview"></a>
+## Tổng quan <a id="overview"></a>
 
-The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
+Phiên bản hiện tại của Máy ảo Klaytn \(KLVM\) có nguồn gốc từ Máy ảo Ethereum \(EVM\). Nội dung của chương này chủ yếu dựa theo [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM liên tục được cải thiện bởi đội ngũ Klaytn, vì thế, tài liệu này có thể được cập nhật thường xuyên. Vui lòng không coi tài liệu này là phiên bản cuối cùng về thông số kỹ thuật của KLVM. Như đã được mô tả trong tuyên bố lập trường, đội ngũ Klaytn cũng có dự định áp dụng các máy ảo khác hoặc môi trường thực thi khác nhằm củng cố khả năng và hiệu suất của nền tảng Klaytn. Chương này đề cập đến thông số kỹ thuật của KLVM và sự khác biệt giữa KLVM và EVM.
 
-KLVM is a virtual state machine that formally specifies Klaytn's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
+KLVM là một cỗ máy trạng thái ảo, chính thức chỉ định mô hình thực thi của Klaytn. Mô hình thực thi này chỉ định cách thay đổi trạng thái hệ thống dựa trên một loạt chỉ thị bytecode và một tuple dữ liệu môi trường nhỏ. KLVM là một cỗ máy gần giống với Turing Complete, tính chất _gần giống_ này bắt nguồn từ một thực tế là việc tính toán chịu sự ràng buộc nội tại qua một tham số, _gas_, tham số này hạn chế tổng lượng tính toán được thực hiện.
 
-KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
+KLVM thực thi mã máy ảo Klaytn \(hoặc bytecode Klaytn\), trong đó có chứa một chuỗi các hướng dẫn KLVM. Mã KLVM là ngôn ngữ lập trình được dùng cho các tài khoản trên chuỗi khối Klaytn có chứa mã. Mã KLVM liên kết với một tài khoản được thực thi mỗi lần có một tin nhắn được gửi đến tài khoản đó; mã này có khả năng đọc/viết dữ liệu từ/vào lưu trữ và gửi tin nhắn.
 
-## KLVM Specification <a id="klvm-specification"></a>
+## Thông số kỹ thuật của KLVM <a id="klvm-specification"></a>
 
-### Conventions <a id="conventions"></a>
+### Các quy tắc <a id="conventions"></a>
 
-We use the following notations and conventions in this document.
+Trong tài liệu này, chúng tôi sử dụng các ký hiệu và quy tắc sau.
 
 * `A := B`
-  * `:=` is used to define `A` as `B`.
-* We use the terms "smart contract" and "contract" interchangeably.
+  * `:=` được dùng để xác định `A` là `B`.
+* Chúng tôi sử dụng thuật ngữ "hợp đồng thông minh" và "hợp đồng" thay thế lẫn nhau.
 
-### Symbols <a id="symbols"></a>
+### Ký hiệu <a id="symbols"></a>
 
-The following tables summarize the symbols used in the KLVM specification.
+Bảng dưới đây tóm tắt các ký hiệu được dùng trong thông số kỹ thuật của KLVM.
 
-#### Blockchain-Related Symbols <a id="blockchain-related-symbols"></a>
+#### Các ký hiệu liên quan đến chuỗi khối <a id="blockchain-related-symbols"></a>
 
-| Symbol     | Description                           |
-|:---------- |:------------------------------------- |
-| `BC`       | Blockchain                            |
-| `B`        | Block                                 |
-| `B_header` | The block header of the present block |
+| Ký hiệu    | Mô tả                          |
+|:---------- |:------------------------------ |
+| `BC`       | Chuỗi khối                     |
+| `B`        | Khối                           |
+| `B_header` | Tiêu đề khối của khối hiện tại |
 
-#### State-Related Symbols <a id="state-related-symbols"></a>
+#### Các ký hiệu liên quan đến trạng thái <a id="state-related-symbols"></a>
 
-| Symbol           | Description                                |
-|:---------------- |:------------------------------------------ |
-| `S`              | State                                      |
-| `S_system`       | System state                               |
-| `S_machine`      | Machine state                              |
-| `P_modify_state` | The permission to make state modifications |
+| Ký hiệu          | Mô tả                                         |
+|:---------------- |:--------------------------------------------- |
+| `S`              | Trạng thái                                    |
+| `S_system`       | Trạng thái của hệ thống                       |
+| `S_machine`      | Trạng thái của máy                            |
+| `P_modify_state` | Quyền được phép thực hiện thay đổi trạng thái |
 
-#### Transaction-Related Symbols <a id="transaction-related-symbols"></a>
+#### Các ký hiệu liên quan đến giao dịch <a id="transaction-related-symbols"></a>
 
-| Symbol    | Description                                                                                                                                              |
-|:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `T`       | Transaction                                                                                                                                              |
-| `T_code`  | A byte array containing machine code to be executed                                                                                                      |
-| `T_data`  | A byte array containing the input data to the execution; if the execution agent is a transaction, this would be the transaction data.                    |
-| `T_value` | A value, in peb, passed to the account as part of the execution procedure; if the execution agent is a transaction, this would be the transaction value. |
-| `T_depth` | The depth of the present message-call or contract-creation stack \(_i.e._, the number of `CALL`s or `CREATE`s being executed at present\)              |
+| Ký hiệu   | Mô tả                                                                                                                                                              |
+|:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `T`       | Giao dịch                                                                                                                                                          |
+| `T_code`  | Một mảng byte chứa mã máy cần thực thi                                                                                                                             |
+| `T_data`  | Một mảng byte chứa dữ liệu đầu vào để thực thi; nếu tác nhân thực thi là một giao dịch, dữ liệu này sẽ là dữ liệu giao dịch.                                       |
+| `T_value` | Một giá trị tình bằng peb được đưa vào tài khoản như một phần của quy trình thực thi; nếu tác nhân thực thi là một giao dịch, giá trị này sẽ là giá trị giao dịch. |
+| `T_depth` | Độ sâu của ngăn xếp dữ liệu tin nhắn-cuộc gọi hoặc tạo hợp đồng \(_nghĩa là_ số lượng `CALL` hoặc `CREATE` đang được thực thi ở thời điểm hiện tại\)             |
 
-#### Gas-Related Symbols <a id="gas-related-symbols"></a>
+#### Các ký hiệu liên quan đến gas <a id="gas-related-symbols"></a>
 
-| Symbol    | Description                                                       |
-|:--------- |:----------------------------------------------------------------- |
-| `G`       | Gas                                                               |
-| `G_rem`   | Remaining gas for computation                                     |
-| `G_price` | The price of gas in the transaction that originated the execution |
+| Ký hiệu   | Mô tả                                              |
+|:--------- |:-------------------------------------------------- |
+| `G`       | Gas                                                |
+| `G_rem`   | Lượng gas còn lại để tính toán                     |
+| `G_price` | Giá gas trong giao dịch phát sinh từ việc thực thi |
 
-#### Address-Related Symbols <a id="address-related-symbols"></a>
+#### Các ký hiệu liên quan đến địa chỉ <a id="address-related-symbols"></a>
 
-| Symbol            | Description                                                                                                                              |
-|:----------------- |:---------------------------------------------------------------------------------------------------------------------------------------- |
-| `A`               | Address                                                                                                                                  |
-| `A_code_owner`    | The address of the account that owns the executing code                                                                                  |
-| `A_tx_sender`     | The sender address of the transaction that originated the current execution                                                              |
-| `A_code_executor` | the address of the account that initiated code execution; if the execution agent is a transaction, this would be the transaction sender. |
+| Ký hiệu           | Mô tả                                                                                                                              |
+|:----------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| `A`               | Địa chỉ                                                                                                                            |
+| `A_code_owner`    | Địa chỉ của tài khoản sở hữu mã thực thi                                                                                           |
+| `A_tx_sender`     | Địa chỉ người gửi của giao dịch phát sinh từ việc thực thi hiện tại                                                                |
+| `A_code_executor` | địa chỉ của tài khoản bắt đầu việc thực thi mã; nếu tác nhân thực thi là một giao dịch, địa chỉ này sẽ là của người gửi giao dịch. |
 
-#### Functions <a id="functions"></a>
+#### Hàm <a id="functions"></a>
 
-|  Symbol   | Description                                                                                                   |
-|:---------:|:------------------------------------------------------------------------------------------------------------- |
-| `F_apply` | A function that applies a transaction with input to a given state and returns the resultant state and outputs |
+|  Ký hiệu  | Mô tả                                                                                                                           |
+|:---------:|:------------------------------------------------------------------------------------------------------------------------------- |
+| `F_apply` | Một hàm áp dụng một giao dịch kèm dữ liệu đầu vào cho một trạng thái cho trước và trả về trạng thái tổng hợp kèm dữ liệu đầu ra |
 
-### Basics <a id="basics"></a>
+### Cơ bản <a id="basics"></a>
 
-KLVM is a simple stack-based architecture. The word size of the machine \(and thus the size of stack items\) is 256-bit. This was chosen to facilitate the Keccak-256 hash scheme and the elliptic-curve computations. The memory model is a simple word-addressed byte array. The stack has a maximum size of 1024. The machine also has an independent storage model; this is similar in concept to the memory but rather than a byte array, it is a word-addressable word array. Unlike memory, which is volatile, storage is nonvolatile and is maintained as part of the system state. All locations in both storage and memory are initially well-defined as zero.
+KLVM là một kiến trúc dựa trên ngăn xếp dữ liệu đơn giản. Kích thước từ của máy \(cũng là kích thước của các mục trong ngăn xếp dữ liệu\) là 256 bit. Con số này được chọn để tạo điều kiện thuận lợi cho hệ thống hàm băm Keccak-256 và các tính toán đường cong elip. Mô hình bộ nhớ là một mảng byte chứa từ có gắn địa chỉ đơn giản. Ngăn xếp dữ liệu có kích thước tối đa là 1024. Máy cũng có một mô hình lưu trữ độc lập; về khái niệm thì nó cũng giống như bộ nhớ, nhưng thay vì một mảng byte, nó là một mảng từ với khả năng xác định địa chỉ từ. Khác với bộ nhớ mang tính biến động, lưu trữ không biến động và được duy trì như một phần của trạng thái hệ thống. Tất cả các vị trí trong lưu trữ và bộ nhớ đều được xác định bằng 0 ngay từ đầu.
 
-The machine does not follow the standard von Neumann architecture. Rather than storing program code in generally accessible memory or storage, code is stored separately in virtual read-only memory and can be interacted with only through specialized instructions.
+Máy không tuân theo kiến trúc von Neumann tiêu chuẩn. Thay vì lưu trữ mã chương trình trong một bộ nhớ hoặc lưu trữ dễ truy cập, mã được lữu trữ riêng trong một bộ nhớ ảo chỉ đọc và chỉ có thể được tương tác qua các chỉ thị chuyên biệt.
 
-The machine can execute exception code for several reasons, including stack underflows and invalid instructions. Similar to an out-of-gas exception, these exceptions do not leave state changes intact. Rather, the virtual machine halts immediately and reports the issue to the execution agent \(either the transaction processor or, recursively, the spawning execution environment\), which will be addressed separately.
+Máy có thể thực thi mã ngoại lệ vì một số lí do, bao gồm hiện tượng tràn dưới ngăn xếp và chỉ thị không hợp lệ. Tương tự như trường hợp ngoại lệ hết gas, những ngoại lệ này không giữ nguyên các thay đổi về trạng thái. Thay vào đó, máy ảo sẽ tạm dừng ngay lập tức và báo cáo vấn đề cho tác nhân thực thi \(trình xử lý giao dịch hoặc theo cách đệ quy, môi trường thực thi phát sinh\), việc này sẽ được xử lý riêng biệt.
 
-### Fees Overview <a id="fees-overview"></a>
+### Tổng quan về phí <a id="fees-overview"></a>
 
-Fees \(denominated in gas\) are charged under three distinct circumstances, all three are prerequisite to operation execution. The first and most common is the fee intrinsic to the computation of the operation. Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`. Finally, gas may be charged due to an increase in memory usage.
+Phí \(được ghi bằng gas\) được tính trong ba trường hợp riêng biệt, cả ba trường hợp đều là điều kiện tiên quyết để thực thi hoạt động. Trường hợp đầu tiên và phổ biến nhất là phí nội tại để tính toán hoạt động. Trường hợp thứ hai, gas có thể được trừ để hình thành một khoản thanh toán cho một cuộc gọi tin nhắn phụ thuộc hoặc tạo hợp đồng; đây là một phần trong khoản thanh toán dành cho `CREATE`, `CALL` và `CALLCODE`. Cuối cùng, gas có thể được tính do có sự tăng lên trong việc sử dụng bộ nhớ.
 
-Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
+Trong quá trình thực thi tài khoản, tổng phí phải trả cho việc sử dụng bộ nhớ phải trả tỷ lệ thuận với bội số nhỏ nhất của 32 byte cần có để bao gồm tất cả các chỉ báo bộ nhớ \(dù là để đọc hay để ghi\) trong phạm vi. Phí này được thanh toán dựa trên cơ sở kịp thời; do đó, việc tham chiếu một vùng bộ nhớ có kích thước lớn hơn ít nhất 32 byte so với bất kỳ bộ nhớ nào khác được lập chỉ mục trước đó sẽ dẫn đến phí sử dụng bộ nhớ bổ sung. Do phí này, các địa chỉ ít có khả năng vượt quá giới hạn 32 bit. Như vậy nghĩa là việc triển khai phải có khả năng kiểm soát được tình huống này.
 
-Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
+Phí lưu trữ có cách vận hành hơi khác biệt. Để khuyến khích việc giảm thiểu sử dụng bộ nhớ \(tương ứng trực tiếp với một cơ sở dữ liệu trạng thái lớn hơn trên tất cả các nút\), phí thực thi cho một hoạt động xóa mục nhập khỏi lưu trữ sẽ được miễn phí và đủ điều kiện để nhận hoàn phí; trên thực tế, khoản hoàn phí này được thanh toán trước vì chi phí sử dụng ban đầu của một vị trí lưu trữ lại cao hơn đáng kể so với việc sử dụng thông thường.
 
-#### Fee Schedule <a id="fee-schedule"></a>
+#### Biểu phí <a id="fee-schedule"></a>
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
+Biểu phí `G` là một tuple gồm 37 giá trị vô hướng, tương ứng với chi phí tương đối tính bằng gas của một số hoạt động trừu tượng mà một giao dịch có thể làm phát sinh. Để xem các bảng khác như `Precompiled contracts` và `tài khoảns`, vui lòng tham khảo [tài liệu này](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
-NOTE: Fee has been changed after `IstanbulEVM` protocol upgrade, or the "hard fork". If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+LƯU Ý: Phí đã thay đổi sau việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "hard fork". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](klaytn-virtual-machine-previous.md).
 
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
+Số khối nâng cấp giao thức `IstanbulEVM` như sau.
+* Mạng thử nghiệm Baobab: `#75373312`
+* Mạng chính thức Cypress: `#86816005`
 {% endhint %}
 
-| Name              | Value | Description                                                                                                     |
-|:----------------- | -----:|:--------------------------------------------------------------------------------------------------------------- |
-| `G_zero`          |     0 | Nothing paid for operations of the set `W_zero`                                                                 |
-| `G_base`          |     2 | Amount of gas paid for operations of the set `W_base`                                                           |
-| `G_verylow`       |     3 | Amount of gas paid for operations of the set `W_verylow`                                                        |
-| `G_low`           |     5 | Amount of gas paid for operations of the set `W_low`                                                            |
-| `G_mid`           |     8 | Amount of gas paid for operations of the set `W_mid`                                                            |
-| `G_high`          |    10 | Amount of gas paid for operations of the set `W_high`                                                           |
-| `G_blockhash`     |    20 | Payment for a `BLOCKHASH` operation                                                                             |
-| `G_extcode`       |   700 | Amount of gas paid for operations of the set `W_extcode`                                                        |
-| `G_balance`       |   700 | Amount of gas paid for a `BALANCE` operation                                                                    |
-| `G_sload`         |   800 | Amount of gas paid for an `SLOAD` operation                                                                     |
-| `G_jumpdest`      |     1 | Amount of gas paid for a `JUMPDEST` operation                                                                   |
-| `G_sset`          | 20000 | Amount of gas paid for an `SSTORE` operation when the storage value is set to nonzero from zero                 |
-| `G_sreset`        |  5000 | Amount of gas paid for an `SSTORE` operation when the storage value remains unchanged at zero or is set to zero |
-| `R_sclear`        | 15000 | Refund given \(added to the refund counter\) when the storage value is set to zero from nonzero               |
-| `R_selfdestruct`  | 24000 | Refund given \(added to the refund counter\) for self-destructing an account                                  |
-| `G_selfdestruct`  |  5000 | Amount of gas paid for a `SELFDESTRUCT` operation                                                               |
-| `G_create`        | 32000 | Amount of gas paid for a `CREATE` operation                                                                     |
-| `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state                   |
-| `G_call`          |   700 | Amount of gas paid for a `CALL` operation                                                                       |
-| `G_callvalue`     |  9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation                                   |
-| `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer                    |
-| `G_newaccount`    | 25000 | Amount of gas paid for a `CALL` or `SELFDESTRUCT` operation that creates an account                             |
-| `G_exp`           |    10 | Partial payment for an `EXP` operation                                                                          |
-| `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation                             |
-| `G_memory`        |     3 | Amount of gas paid for every additional word when expanding memory                                              |
-| `G_txcreate`      | 32000 | Amount of gas paid by all contract-creating transactions                                                        |
-| `G_txdatazero`    |     4 | Amount of gas paid for every zero byte of data or code for a transaction                                        |
-| `G_txdatanonzero` |    68 | Amount of gas paid for every nonzero byte of data or code for a transaction                                     |
-| `G_transaction`   | 21000 | Amount of gas paid for every transaction                                                                        |
-| `G_log`           |   375 | Partial payment for a `LOG` operation                                                                           |
-| `G_logdata`       |     8 | Amount of gas paid for each byte in a `LOG` operation's data                                                    |
-| `G_logtopic`      |   375 | Amount of gas paid for each topic of a `LOG` operation                                                          |
-| `G_sha3`          |    30 | Amount of gas paid for each `SHA3` operation                                                                    |
-| `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation                          |
-| `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                                   |
-| `G_extcodehash`   |   700 | Paid for getting `keccak256` hash of a contract's code                                                          |
-| `G_create2`       | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguments                     |
+| Tên               | Giá trị | Mô tả                                                                                                                      |
+|:----------------- | -------:|:-------------------------------------------------------------------------------------------------------------------------- |
+| `G_zero`          |       0 | Không cần thanh toán cho các hoạt động của bộ `W_zero`                                                                     |
+| `G_base`          |       2 | Lượng gas thanh toán cho các hoạt động của bộ `W_base`                                                                     |
+| `G_verylow`       |       3 | Lượng gas thanh toán cho các hoạt động của bộ `W_verylow`                                                                  |
+| `G_low`           |       5 | Lượng gas thanh toán cho các hoạt động của bộ `W_low`                                                                      |
+| `G_mid`           |       8 | Lượng gas thanh toán cho các hoạt động của bộ `W_mid`                                                                      |
+| `G_high`          |      10 | Lượng gas thanh toán cho các hoạt động của bộ `W_high`                                                                     |
+| `G_blockhash`     |      20 | Khoản thanh toán cho một hoạt động `BLOCKHASH`                                                                             |
+| `G_extcode`       |     700 | Lượng gas thanh toán cho các hoạt động của bộ `W_extcode`                                                                  |
+| `G_balance`       |     700 | Lượng gas thanh toán cho một hoạt động `BALANCE`                                                                           |
+| `G_sload`         |     800 | Lượng gas thanh toán cho một hoạt động `SLOAD`                                                                             |
+| `G_jumpdest`      |       1 | Lượng gas thanh toán cho một hoạt động `JUMPDEST`                                                                          |
+| `G_sset`          |   20000 | Lượng gas thanh toán cho một hoạt động `SSTORE` khi giá trị lưu trữ được đặt từ số khác 0 sang số 0                        |
+| `G_sreset`        |    5000 | Lượng gas thanh toán cho một hoạt động `SSTORE` khi giá trị lưu trữ giữ nguyên không đổi ở mức 0 hoặc được đặt thành 0     |
+| `R_sclear`        |   15000 | Khoản hoàn tiền đã được thực hiện \(được thêm vào bộ đếm hoàn tiền\) khi giá trị lưu trữ được đặt từ số khác 0 sang số 0 |
+| `R_selfdestruct`  |   24000 | Khoản hoàn tiền đã thực hiện \(được thêm vào bộ đếm hoàn tiền\) cho việc tự hủy một tài khoản                            |
+| `G_selfdestruct`  |    5000 | Lượng gas thanh toán cho một hoạt động `SELFDESTRUCT`                                                                      |
+| `G_create`        |   32000 | Lượng gas thanh toán cho một hoạt động `CREATE`                                                                            |
+| `G_codedeposit`   |     200 | Lượng gas thanh toán cho mỗi byte cho một hoạt động `CREATE` thành công trong việc đặt mã vào trạng thái                   |
+| `G_call`          |     700 | Lượng gas thanh toán cho một hoạt động `CALL`                                                                              |
+| `G_callvalue`     |    9000 | Lượng gas thanh toán một giao dịch chuyển giá trị khác 0 như một phần của hoạt động `CALL`                                 |
+| `G_callstipend`   |    2300 | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi `G_callvalue` đối với giao dịch chuyển giá trị khác 0                |
+| `G_newtài khoản`  |   25000 | Lượng gas thanh toán cho một hoạt động `CALL` hoặc `SELFDESTRUCT` tạo ra một tài khoản                                     |
+| `G_exp`           |      10 | Khoản thanh toán một phần cho một hoạt động `EXP`                                                                          |
+| `G_expbyte`       |      50 | Khoản thanh toán một phần khi nhân với `ceil(log_256(exponent))` cho một hoạt động `EXP`                                   |
+| `G_memory`        |       3 | Lượng gas thanh toán cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                             |
+| `G_txcreate`      |   32000 | Lượng gas được trả bởi tất cả các giao dịch tạo hợp đồng                                                                   |
+| `G_txdatazero`    |       4 | Lượng gas thanh toán cho mỗi byte 0 của dữ liệu hoặc mã cho một giao dịch                                                  |
+| `G_txdatanonzero` |      68 | Lượng gas thanh toán cho mỗi byte khác 0 của dữ liệu hoặc mã cho một giao dịch                                             |
+| `G_transaction`   |   21000 | Lượng gas thanh toán cho mỗi giao dịch                                                                                     |
+| `G_log`           |     375 | Khoản thanh toán một phần cho một hoạt động `LOG`                                                                          |
+| `G_logdata`       |       8 | Lượng gas thanh toán cho mỗi byte trong dữ liệu của một hoạt động `LOG`                                                    |
+| `G_logtopic`      |     375 | Lượng gas thanh toán cho mỗi chủ đề của một hoạt động `LOG`                                                                |
+| `G_sha3`          |      30 | Lượng gas thanh toán cho từng hoạt động `SHA3`                                                                             |
+| `G_sha3word`      |       6 | Lượng gas thanh toán cho từng từ \(được làm tròn\) cho dữ liệu nhập vào một hoạt động `SHA3`                             |
+| `G_copy`          |       3 | Thanh toán một phần cho các hoạt động `COPY`, nhân lên theo số từ được sao chép, được làm tròn                             |
+| `G_extcodehash`   |     700 | Được trả cho việc nhận hàm băm `keccak256` của mã hợp đồng                                                                 |
+| `G_create2`       |   32000 | Được trả cho mã vận hành `CREATE2`, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                            |
 
-We define the following subsets of instructions:
+Chúng tôi xác định những tập hợp con gồm những chỉ thị sau:
 
 * `W_zero` = {`STOP`, `RETURN`, `REVERT`}
 * `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`, `BASEFEE`}
@@ -150,9 +150,9 @@ We define the following subsets of instructions:
 * `W_high` = {`JUMPI`}
 * `W_extcode` = {`EXTCODESIZE`}
 
-#### Gas Cost <a id="gas-cost"></a>
+#### Chi phí gas <a id="gas-cost"></a>
 
-The general gas cost function, `C`, is defined as follows:
+Hàm chi phí gas chung, `C`, được xác định như sau:
 
 `C(S_system, S_machine, I) := C_mem(S_machine,i') - C_mem(S_machine, i) +`
 
@@ -222,27 +222,27 @@ The general gas cost function, `C`, is defined as follows:
   * `STOP`, otherwise
 * where `C_mem(a) := G_memory x a + floor(a^2 / 512)`
 
-with `C_CALL`, `C_SELFDESTRUCT` and `C_SSTORE` which will be described in the future.
+với `C_CALL`, `C_SELFDESTRUCT` và `C_SSTORE` sẽ được mô tả trong tương lai.
 
-### Execution Environment <a id="execution-environment"></a>
+### Môi trường thực thi <a id="execution-environment"></a>
 
-The execution environment consists of the system state `S_system`, the remaining gas for computation `G_rem`, and the information `I` that the execution agent provides. `I` is a tuple defined as shown below:
+Môi trường thực thi có chứa trạng thái hệ thống `S_system`, lượng gas còn lại để tính toán `G_rem` và thông tin `I` mà tác nhân thực thi cung cấp. `I` là một tuple được định nghĩa như dưới đây:
 
 `I := (B_header, T_code, T_depth, T_value, T_data, A_tx_sender, A_code_executor, A_code_owner, G_price, P_modify_state)`
 
-The execution model defines the function `F_apply`, which can compute the resultant state `S_system'`, the remaining gas `G_rem'`, the accrued substate `A` and the resultant output `O_result` when given these definitions. For the present context, we will define it as follows:
+Mô hình thực thi xác định hàm `F_apply`, hàm này có thể tính toán trạng thái tổng hợp `S_system`, lượng gas còn lại `G_rem`, trạng thái con tích lũy `A` và dữ liệu đầu ra tổng hợp `O_result` khi đưa ra các định nghĩa này. Với bối cảnh hiện tại, chúng tôi sẽ định nghĩa như sau:
 
 `(S_system', G_rem', A, O_result) = F_apply(S_system, G_rem, I)`
 
-where we must remember that `A`, the accrued substate, is defined as the tuple of the suicides set `Set_suicide`, the log series `L`, the touched accounts `Set_touched_accounts` and the refunds `G_refund`:
+trong đó, chúng ta phải nhớ rằng `A`, trạng thái con tích lũy, được định nghĩa như một tuple gồm các tập loại bỏ `Set_suicide`, chuỗi bản ghi `L`, các tài khoản chịu ảnh hưởng `Set_touched_tài khoảns` và khoản hoàn tiền `G_refund`:
 
-`A := (Set_suicide, L, Set_touched_accounts, G_refund)`
+`A := (Set_suicide, L, Set_touched_tài khoảns, G_refund)`
 
-### Execution Overview <a id="execution-overview"></a>
+### Tổng quan về thực thi <a id="execution-overview"></a>
 
-In most practical implementations, `F_apply` will be modeled as an iterative progression of the pair comprising the full system state `S_system` and the machine state `S_machine`. Formally, we define it recursively with a function `X` that uses an iterator function `O` \(which defines the result of a single cycle of the state machine\) together with functions `Z`, which determines if the present state is an exceptional halted machine state, and `H`, which specifies the output data of an instruction if and only if the present state is a normal halted machine state.
+Trong hầu hết những lần triển khai thực tế, `F_apply` sẽ đóng vai trò tiến trình lặp mẫu của cặp trạng thái hệ thống đầy đủ `S_system` và trạng thái máy `S_machine`. Chúng tôi chính thức định nghĩa theo cách đệ quy bằng hàm `X`, hàm này sử dụng hàm lặp `O` \(xác định kết quả của một chu kỳ duy nhất của máy trạng thái\) cùng với các hàm `Z`, hàm này xác định xem trạng thái hiện tại có phải là trạng máy tạm dừng ngoại lệ hay không và `H` chỉ định dữ liệu đầu ra của một chỉ thị nếu và chỉ nếu trạng thái hiện tại là trạng thái máy tạm dừng bình thường.
 
-The empty sequence, denoted as `()`, is not equal to the empty set, denoted as `Set_empty`; this is important when interpreting the output of `H`, which evaluates to `Set_empty` when execution is to continue but to a series \(potentially empty\) when execution should halt.
+Dãy rỗng, được ký hiệu là `()`, không tương đương với tập hợp rỗng, được ký hiệu là `Set_empty`; điều này rất quan trọng khi diễn giải dữ liệu đầu ra của `H`, dữ liệu đầu ra này sẽ ước lượng thành `Set_empty` khi quá trình thực thi tiếp tục, nhưng nó sẽ trở thành chuỗi \(có khả năng rỗng\) khi quá trình thực thi tạm dừng.
 
 `F_apply(S_machine, G_rem, I, T) := (S_system', S_machine,g', A, o)`
 
@@ -267,37 +267,37 @@ where
 
   `S_machine,g' := S_machine,g - C(S_system, S_machine, I)`
 
-  * This means that when we evaluate `F_apply`, we
+  * Điều này có nghĩa là khi chúng ta ước tính `F_apply`, chúng ta
 
-    extract the remaining gas `S_machine,g'` from the
+    trích phần gas còn lại `S_machine,g'` từ
 
-    resultant machine state `S_machine'`.
+    trạng thái máy tổng hợp `S_machine'`.
 
-`X` is thus cycled \(recursively here, but implementations are generally expected to use a simple iterative loop\) until either `Z` becomes true, indicating that the present state is exceptional and that the machine must be halted and any changes are discarded, or until `H` becomes a series \(rather than the empty set\), indicating that the machine has reached a controlled halt.
+Do đó, `X` được quay vòng \(ở đây là đệ quy, nhưng việc triển khai thường phải sử dụng một vòng lặp đơn giản\) cho đến khi `Z` trở thành đúng, cho biết trạng thái hiện tại là ngoại lệ, rằng máy phải tạm dừng và mọi thay đổi sẽ bị hủy hoặc cho đến khi `H` trở thành một chuỗi \(thay vì một tập hợp rỗng\), cho biết máy đã đạt đến trạng thái tạm dừng có kiểm soát.
 
-#### Machine State <a id="machine-state"></a>
+#### Trạng thái của máy <a id="machine-state"></a>
 
-The machine state `S_machine` is defined as a tuple `(g, pc, memory, i, stack)`, which represent the available gas, the program counter `pc` \(64-bit unsigned integer\), the memory contents, the active number of words in memory \(counting continuously from position 0\), and the stack contents. The memory contents `S_machine,memory` are a series of zeroes of size 2^256.
+Trạng thái của máy `S_machine` được định nghĩa là một tuple `(g, pc, memory, i, stack)`, thể hiện lượng gas khả dụng, bộ đếm chương trình `pc` \(số nguyên không dấu 64 bit\), nội dung bộ nhớ, số lượng từ đang hoạt động trong bộ nhớ \(đếm liên tục từ vị trí 0\) và nội dung của ngăn xếp dữ liệu. Nội dung bộ nhớ `S_machine,memory` là một chuỗi các số 0 có kích thước 2^256.
 
-For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine.md#instruction-set) section.
+Để dễ đọc, phần thủ thuật ghi nhớ chỉ thị ghi bằng chữ hoa nhỏ \(_ví dụ_: `ADD`\) nên được hiểu là chỉ số đương lượng của chúng; bảng chỉ thị đầy đủ và chi tiết cụ thể của chúng được nêu trong phần [Bộ chỉ thị](klaytn-virtual-machine.md#instruction-set).
 
-To define `Z`, `H` and `O`, we define `w` as the current operation to be executed:
+Để xác định `Z`, `H` và `O`, chúng tôi xác định `w` là hoạt động hiện tại cần được thực thi:
 
 * `w := T_code[S_machine,pc]` if `S_machine,pc < len(T_code)`
 * `w :=STOP` otherwise
 
-### Instruction Set <a id="instruction-set"></a>
+### Bộ chỉ thị <a id="instruction-set"></a>
 
-NOTE: This section will be filled in the future.
+LƯU Ý: Mục này sẽ được bổ sung sau.
 
-## How KLVM Differs From EVM <a id="how-klvm-differs-from-evm"></a>
+## KLVM khác với EVM như thế nào <a id="how-klvm-differs-from-evm"></a>
 
-As mentioned earlier, the current KLVM is based on EVM; thus, its specification currently is very similar to that of EVM. Some differences between KLVM and EVM are listed below.
+Như đã đề cập từ trước, KLVM hiện tại dựa theo EVM; vì thế, thông số kỹ thuật của nó hiện rất giống với EVM. Một số điểm khác nhau giữa KLVM và EVM được liệt kê dưới đây.
 
-* KLVM uses Klaytn's gas units, such as peb, ston, or KLAY.
-* KLVM does not accept a gas price from the user; instead, it uses a platform-defined value as the gas price.
+* KLVM dùng đơn vị gas của Klaytn, ví dụ như peb, ston hoặc KLAY.
+* KLVM không chấp nhận giá gas từ người dùng; thay vào đó, nó dùng một giá trị được nền tảng xác định làm giá gas.
 
-The Klaytn team will try to maintain compatibility between KLVM and EVM, but as Klaytn becomes increasingly implemented and evolves, the KLVM specification will be updated, and there will probably be more differences compared to EVM.
+Đội ngũ Klaytn sẽ cố gắng duy trì khả năng tương thích giữa KLVM và EVM, nhưng khi Klaytn được triển khai ngày càng nhiều và phát triển, thông số kỹ thuật của KLVM sẽ được cập nhật và có thể sẽ có nhiều điểm khác biệt hơn so với EVM.
 
-NOTE: This section will be updated in the future.
+LƯU Ý: Mục này sẽ được cập nhật trong tương lai.
 
