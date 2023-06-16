@@ -1,62 +1,62 @@
 ---
 description: >-
-  Các API liên quan đến Cơ chế Quản trị Klaytn.
+  Các API liên quan đến Cơ chế quản trị của Klaytn.
 ---
 
-# Cơ chế Quản trị Namespace <a id="namespace-governance"></a>
+# Cơ chế quản trị không gian tên <a id="namespace-governance"></a>
 
-Để quản trị mạng, Klaytn cung cấp các API sau dưới namespace `quản trị`.
+Để quản trị mạng, Klaytn cung cấp các API sau trong phần không gian tên `quản trị`.
 
 Có ba chế độ quản trị khác nhau tại Klaytn.
 * `Không có`: Tất cả các nút tham gia mạng đều có quyền thay đổi cấu hình.
 * `duy nhất`: Chỉ một nút được chỉ định có quyền thay đổi cấu hình.
-* `bỏ phiếu`: Tất cả các nút có quyền biểu quyết đều có thể bỏ phiếu cho một sự thay đổi. Khi tổng số quyền biểu quyết quá bán, một cuộc bỏ phiếu sẽ được thông qua.
+* `biểu quyết`: Tất cả các nút có quyền biểu quyết đều có thể biểu quyết cho một sự thay đổi. Khi tổng số quyền biểu quyết quá bán, một cuộc biểu quyết sẽ được thông qua.
 
-Dựa trên chế độ quản trị, người đề xuất có thể bỏ phiếu về các tham số mạng như đơn giá, số lượng stack tối thiểu, v. v. Để trở thành người đề xuất, các nút ứng cử viên cần nạp một lượng KLAY tối thiểu. Tất cả các nút hợp cách có thể đề xuất một khối nhưng cơ hội sẽ phụ thuộc vào số lượng stack.
+Dựa trên chế độ quản trị, người đề xuất có thể biểu quyết về các tham số mạng như đơn giá, số lượng ngăn xếp tối thiểu, v.v. Để trở thành người đề xuất, các nút ứng viên cần nạp một lượng KLAY tối thiểu. Tất cả các nút hợp cách có thể đề xuất một khối nhưng cơ hội sẽ phụ thuộc vào số lượng nắm giữ.
 
-Khi tính toán tỷ lệ đặt cược để xác định số lượng slot (số lượng cơ hội) để trở thành người đề xuất trong một khoảng thời gian nhất định, Một nút có thể không được phân bổ bất kỳ slot nào do làm tròn số. Tuy nhiên, một nút hợp cách đã nạp một lượng KLAY tối thiểu sẽ luôn được đảm bảo một slot.
+Khi tính toán tỷ lệ nắm giữ để xác định số lượng vị trí (số lượng cơ hội) để trở thành người đề xuất trong một khoảng thời gian nhất định, Một nút có thể không được phân bổ bất kỳ vị trí nào do làm tròn số. Tuy nhiên, một nút hợp cách đã nạp một lượng KLAY tối thiểu sẽ luôn được đảm bảo một vị trí.
 
 Nghĩa là, nếu một nút không hợp cách - nút này không có đủ số lượng KLAY - thì sẽ không có cơ hội đề xuất cũng như xác thực một khối.
 
 **Cảnh báo**
 - Một nút quản trị luôn hợp cách ở chế độ `duy nhất` như một ngoại lệ.
-- Một cuộc bỏ phiếu sẽ được thực hiện khi một khối được đề xuất. Cuộc bỏ phiếu này được áp dụng sau hai giai đoạn bao gồm cả giai đoạn mà khối được đề xuất. Như một ngoại lệ, chỉ addValidator/removeValidator được áp dụng ngay lập tức.
+- Một cuộc biểu quyết sẽ được thực hiện khi một khối được đề xuất. Cuộc biểu quyết này được áp dụng sau hai giai đoạn bao gồm cả giai đoạn mà khối được đề xuất. Như một ngoại lệ, chỉ addValidator/removeValidator được áp dụng ngay lập tức.
 ## governance_vote <a id="governance_vote"></a>
 
-Phương thức `bỏ phiếu` gửi một phiếu bầu mới. Nếu nút có quyền bỏ phiếu dựa trên chế độ quản trị thì có thể đặt phiếu bầu. Nếu không, một thông báo lỗi sẽ được trả về và phiếu bầu sẽ bị bỏ qua.
+Phương thức `biểu quyết` sẽ gửi một phiếu bầu mới. Nếu nút có quyền biểu quyết dựa trên chế độ quản trị thì có thể đặt phiếu bầu. Nếu không, một thông báo lỗi sẽ được trả về và phiếu bầu sẽ bị bỏ qua.
 
 **Tham số**
 
-- `Khóa` : Tên của cài đặt cấu hình sẽ được thay đổi. Khóa có dạng `domain.field`
+- `Khóa` : Tên của tùy chọn cài đặt cấu hình sẽ được thay đổi. Khóa có dạng `domain.field`
 - `Giá trị` : Các loại giá trị khác nhau cho mỗi khóa.
 
-| Khóa                                | Mô tả                                                                                                                                                                                                                                                                                                                           |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`       | `CHUỖI`. Một trong ba chế độ quản trị. `"không có"`, `"duy nhấy"`, `"bỏ phiếu"`                                                                                                                                                                                                                                                 |
-| `"governance.governingnode"`        | `ĐỊA CHỈ`. Địa chỉ của nút quản trị được chỉ định. Nó chỉ hoạt động khi chế độ quản trị là `"duy nhất"` ví dụ:`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                                                                                                    |
-| `"governance.unitprice"`            | `SỐ`. Giá đơn vị gas. vd: `25000000000`                                                                                                                                                                                                                                                                                         |
-| `"governance.addvalidator"`         | `ĐỊA CHỈ`. Địa chỉ của một ứng cử viên nút xác thực mới. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                       |
-| `"governance.removevalidator"`      | `ĐỊA CHỈ`. Địa chỉ của nút xác thực hiện tại cần được xóa. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                     |
-| `"governance.deriveshaimpl"`        | `SỐ`. Chính sách tạo hàm băm giao dịch và hàm băm biên lai trong tiêu đề khối. Xem [tại đây](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) để biết các tùy chọn khả dụng. vd: `2` (DeriveShaConcat)                                                                                         |
-| `"governance.govparamcontract"`     | `ĐỊA CHỈ`. Địa chỉ của hợp đồng GovParam. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                                      |
-| `"istanbul.epoch"`                  | `SỐ`. Khoảng thời gian trong đó các phiếu bầu được thu thập theo khối. Khi khoảng thời gian kết thúc, tất cả các phiếu bầu chưa được thông qua sẽ bị xóa. vd: `86400`                                                                                                                                                           |
-| `"istanbul.committeesize"`          | `SỐ`. Số lượng nút xác thực trong một ủy ban.(`sub` trong cấu hình chuỗi), ví dụ: `7`                                                                                                                                                                                                                                           |
-| `"reward.mintingamount"`            | `CHUỖI`. Số lượng Peb được đúc khi một khối được tạo. Giá trị phải ở trong dấu ngoặc kép. vd: `"9600000000000000000"`                                                                                                                                                                                                           |
-| `"reward.ratio"`                    | `CHUỖI`. Tỷ lệ phân phối cho CN/KGF/KIR được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `100`. vd: `"50/40/10"` nghĩa là CN 50%, KGF 40%, KIR 10%                                                                                                                                                              |
-| `"reward.kip82ratio"`               | `CHUỖI`. Tỷ lệ phân phối của người đề xuất khối cho người đặt cược được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `"100"`. Xem [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) để biết thêm chi tiết. vd: `"20/80"` có nghĩa là người đề xuất nhận 20% trong khi người đặt cược nhận 80%. |
-| `"reward.useginicoeff"`             | `BOOL`. Sử dụng hệ số Gini hoặc không. `đúng`, `sai`                                                                                                                                                                                                                                                                            |
-| `"reward.deferredtxfee"`            | `BOOL`. Cách đưa ra phí giao dịch cho người đề xuất. Nếu đúng, điều đó có nghĩa là phí tx sẽ được tổng hợp bằng phần thưởng khối và được phân phối cho người đề xuất, KIR và KGF. Nếu sai, tất cả phí tx sẽ được trao cho người đề xuất. `đúng`, `sai`                                                                          |
-| `"reward.minimumstake"`             | `CHUỖI`. Lượng Klay cần thiết để trở thành CN (Nút Đồng thuận). Giá trị phải ở trong dấu ngoặc kép. e.g., `"5000000"`                                                                                                                                                                                                           |
-| `"kip71.lowerboundbasefee"`         | `SỐ`. Phí cơ sở thấp nhất cho phép. Xem [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) để biết thêm chi tiết. vd: `25000000000`                                                                                                                                                                              |
-| `"kip71.upperboundbasefee"`         | `SỐ`. Phí cơ sở cao nhất cho phép. vd: `750000000000`                                                                                                                                                                                                                                                                           |
-| `"kip71.gastarget"`                 | `SỐ`. Gas khối mà phí cơ sở muốn đạt được. Phí cơ sở tăng khi khối cha chứa nhiều hơn mục tiêu gas và giảm khi khối cha chứa ít hơn mục tiêu gas. vd: `30000000`                                                                                                                                                                |
-| `"kip71.basefeedenominator"`        | `SỐ`. Kiểm soát tốc độ thay đổi phí cơ sở. vd: `20`                                                                                                                                                                                                                                                                             |
-| `"kip71.maxblockgasusedforbasefee"` | `SỐ`. Gas khối tối đa nắm được trong tính toán phí cơ sở. vd: `60000000`                                                                                                                                                                                                                                                        |
+| Khóa                                | Mô tả                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.governancemode"`       | `CHUỖI`. Một trong ba chế độ quản trị. `"không có"`, `"duy nhất"`, `"biểu quyết"`                                                                                                                                                                                                                                             |
+| `"governance.governingnode"`        | `ĐỊA CHỈ`. Địa chỉ của nút quản trị được chỉ định. Địa chỉ này chỉ hoạt động khi chế độ quản trị là `"duy nhất"` ví dụ:`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                                                                                         |
+| `"governance.unitprice"`            | `SỐ`. Giá đơn vị gas. vd: `25000000000`                                                                                                                                                                                                                                                                                       |
+| `"governance.addvalidator"`         | `ĐỊA CHỈ`. Địa chỉ của một ứng viên nút xác thực mới. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                        |
+| `"governance.removevalidator"`      | `ĐỊA CHỈ`. Địa chỉ của nút xác thực hiện tại cần được xóa. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                   |
+| `"governance.deriveshaimpl"`        | `SỐ`. Chính sách tạo hàm băm giao dịch và hàm băm biên lai trong tiêu đề khối. Xem [tại đây](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) để biết các tùy chọn khả dụng. vd: `2` (DeriveShaConcat)                                                                                       |
+| `"governance.govparamcontract"`     | `ĐỊA CHỈ`. Địa chỉ của hợp đồng GovParam. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                                    |
+| `"istanbul.epoch"`                  | `SỐ`. Khoảng thời gian trong đó các phiếu bầu được thu thập theo khối. Khi khoảng thời gian này kết thúc, tất cả các phiếu bầu chưa được thông qua sẽ bị xóa. vd: `86400`                                                                                                                                                     |
+| `"istanbul.committeesize"`          | `SỐ`. Số lượng nút xác thực trong một ủy ban.(`sub` trong cấu hình chuỗi), ví dụ: `7`                                                                                                                                                                                                                                         |
+| `"reward.mintingamount"`            | `CHUỖI`. Số lượng Peb được tạo khi tạo ra một khối. Giá trị phải ở trong dấu ngoặc kép. vd: `"9600000000000000000"`                                                                                                                                                                                                           |
+| `"reward.ratio"`                    | `CHUỖI`. Tỷ lệ phân phối cho CN/KGF/KIR được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `100`. vd: `"50/40/10"` nghĩa là CN 50%, KGF 40%, KIR 10%                                                                                                                                                            |
+| `"reward.kip82ratio"`               | `CHUỖI`. Tỷ lệ phân phối của người đề xuất khối cho người nắm giữ được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `"100"`. Xem [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) để biết thêm chi tiết. vd: `"20/80"` có nghĩa là người đề xuất nhận 20% trong khi người nắm giữ nhận 80%. |
+| `"reward.useginicoeff"`             | `BOOL`. Sử dụng hệ số Gini hoặc không. `true`, `false`                                                                                                                                                                                                                                                                        |
+| `"reward.deferredtxfee"`            | `BOOL`. Cách đưa ra phí giao dịch cho người đề xuất. Nếu true, điều đó có nghĩa là phí tx sẽ được tổng hợp bằng phần thưởng khối và được phân phối cho người đề xuất, KIR và KGF. Nếu false, thì tất cả phí tx sẽ được trao cho người đề xuất. `true`, `false`                                                                |
+| `"reward.minimumstake"`             | `CHUỖI`. Lượng Klay cần thiết để trở thành CN (Nút đồng thuận). Giá trị phải ở trong dấu ngoặc kép. ví dụ như `"5000000"`                                                                                                                                                                                                     |
+| `"kip71.lowerboundbasefee"`         | `SỐ`. Phí cơ sở thấp nhất được phép. Xem [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) để biết thêm chi tiết. vd: `25000000000`                                                                                                                                                                           |
+| `"kip71.upperboundbasefee"`         | `SỐ`. Phí cơ sở cao nhất được phép. vd: `750000000000`                                                                                                                                                                                                                                                                        |
+| `"kip71.gastarget"`                 | `SỐ`. Gas khối mà phí cơ sở muốn đạt được. Phí cơ sở tăng khi khối cha mẹ chứa nhiều hơn mục tiêu gas và giảm khi khối cha mẹ chứa ít hơn mục tiêu gas. vd: `30000000`                                                                                                                                                        |
+| `"kip71.basefeedenominator"`        | `SỐ`. Kiểm soát tốc độ thay đổi phí cơ sở. vd: `20`                                                                                                                                                                                                                                                                           |
+| `"kip71.maxblockgasusedforbasefee"` | `SỐ`. Gas khối tối đa nắm được trong tính toán phí cơ sở. vd: `60000000`                                                                                                                                                                                                                                                      |
 
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả                 |
+| type  | Mô tả                 |
 | ----- | --------------------- |
 | Chuỗi | Kết quả gửi phiếu bầu |
 
@@ -96,19 +96,19 @@ Phương thức `bỏ phiếu` gửi một phiếu bầu mới. Nếu nút có q
 
 // when `governancemode` is "single" and the node is not `governingnode`
 > governance.vote("governance.governancemode", "ballot")
-"Bạn không có quyền bỏ phiếu"
+"Bạn không có quyền biểu quyết"
 ```
 
 
 ## governance_showTally <a id="governance_showtally"></a>
 
-Thuộc tính `showTally` cung cấp số phiếu bầu quản trị hiện tại. Nó hiển thị tỷ lệ phê duyệt tổng hợp theo tỷ lệ phần trăm. Khi vượt quá 50%, một cuộc bỏ phiếu sẽ được thông qua.
+Thuộc tính `showTally` cung cấp số phiếu bầu quản trị hiện tại. Thuộc tính này sẽ hiển thị tỷ lệ phê duyệt tổng hợp theo tỷ lệ phần trăm. Khi vượt quá 50%, một cuộc biểu quyết sẽ được thông qua.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                                                             |
 | ----- | ----------------------------------------------------------------- |
@@ -138,49 +138,49 @@ Thuộc tính `totalVotingPower` cung cấp tổng của tất cả quyền bi�
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại   | Mô tả                                  |
-| ------- | -------------------------------------- |
-| Số thực | Tổng quyền bỏ phiếu hoặc thông báo lỗi |
+| Loại                 | Mô tả                                    |
+| --------------------- | ---------------------------------------- |
+| Số thực dấu phẩy động | Tổng quyền biểu quyết hoặc thông báo lỗi |
 
 **Ví dụ**
 
 ```javascript
-// Trong chế độ quản trị "bỏ phiếu"
+// Trong chế độ quản trị "biểu quyết"
 > governance.totalVotingPower
 32.452
 
 // Trong chế độ quản trị "không có", "duy nhất"
 > governance.totalVotingPower
-"Chế độ quản trị hiện tại không có quyền bỏ phiếu"
+"Chế độ quản trị hiện tại không có quyền biểu quyết"
 ```
 
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-Thuộc tính `myVotingPower` cung cấp quyền bỏ phiếu của nút. Quyền bỏ phiếu có thể là 1.0 ~ 2.0. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
+Thuộc tính `myVotingPower` cung cấp quyền biểu quyết của nút. Quyền biểu quyết có thể là 1.0 ~ 2.0. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại   | Mô tả                                     |
-| ------- | ----------------------------------------- |
-| Số thực | Quyền bỏ phiếu của nút hoặc thông báo lỗi |
+| Loại                 | Mô tả                                       |
+| --------------------- | ------------------------------------------- |
+| Số thực dấu phẩy động | Quyền biểu quyết của nút hoặc thông báo lỗi |
 
 **Ví dụ**
 
 ```javascript
-// Trong chế độ quản trị "bỏ phiếu"
+// Trong chế độ quản trị "biểu quyết"
 > governance.myVotingPower
 1.323
 
 // Trong chế độ quản trị "không có", "duy nhất"
 > governance.myVotingPower
-"Chế độ quản trị hiện tại không có quyền bỏ phiếu"
+"Chế độ quản trị hiện tại không có quyền biểu quyết"
 ```
 
 
@@ -192,11 +192,11 @@ Thuộc tính `myVotes` cung cấp thông tin phiếu bầu của tôi trong m�
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại              | Mô tả                                                                                                                                                                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Danh sách Bỏ phiếu | Trạng thái bỏ phiếu của nút trong giai đoạn<br>- `BlockNum`: Số khối mà phiếu bầu này được lưu trữ<br>- `Bỏ phiếu`: Nếu phiếu bầu này được lưu trữ trong một khối hay không <br>- `Khóa/Giá trị`: Nội dung bỏ phiếu |
+| Loại               | Mô tả                                                                                                                                                                                                                                     |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Danh sách phiếu bầu | Trạng thái biểu quyết của nút trong giai đoạn<br>- `BlockNum`: Số khối mà phiếu bầu này được lưu trữ<br>- `Bỏ phiếu`: Nếu phiếu bầu này được lưu trữ trong một khối hay không <br>- `Khóa/Giá trị`: Nội dung biểu quyết |
 
 **Ví dụ**
 
@@ -216,19 +216,19 @@ Không có
 
 ## governance_getChainConfig <a id="governance_getchainconfig"></a>
 
-`getChainConfig` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, nó sẽ trả về cấu hình chuỗi tại khối mới nhất.
+`getChainConfig` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, phương pháp này sẽ trả về cấu hình chuỗi tại khối latest.
 
 **Tham số**
 
-| Loại                | Mô tả                                                                                                                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| type                | Mô tả                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
 {% endhint %}
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                             |
 | ----- | --------------------------------- |
@@ -279,23 +279,23 @@ LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trư�
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-Thuộc tính `chainConfig` cung cấp cấu hình chuỗi mới nhất. Nó tương đương với `chainConfigAt()` với tham số trống.
+Thuộc tính `chainConfig` cung cấp cấu hình chuỗi latest. Nó tương đương với `chainConfigAt()` với tham số trống.
 
 {% hint style="warning" %}
 `governance_chainConfig` Không được dùng API kể từ Klaytn v1.11 (Xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getchainconfig">`governance_getChainConfig`</a>.
 
-LƯU Ý: Không được dùng API RPC kể từ v1.11. Tuy nhiên, thuộc tính `governance.chainConfig` trong bảng điều khiển Klaytn JavaScript đã bị xóa kể từ Klaytn v1.10.2.
+LƯU Ý: API RPC không còn được sử dụng kể từ v1.11. Tuy nhiên, thuộc tính `governance.chainConfig` trong bảng điều khiển Klaytn JavaScript đã bị xóa kể từ Klaytn v1.10.2.
 {% endhint %}
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước Klaytn v1.10.0, API này trả về cấu hình chuỗi ban đầu. Tuy nhiên, do tên dễ gây nhầm lẫn nên nó được cập nhật kể từ phiên bản Klaytn v1.10.0. Để truy vấn cấu hình chuỗi ban đầu, hãy sử dụng `chainConfigAt(0)` thay thế.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.10.0, API này trả về cấu hình chuỗi ban đầu. Tuy nhiên, do tên dễ gây nhầm lẫn nên nó được cập nhật kể từ phiên bản Klaytn v1.10.0. Để truy vấn cấu hình chuỗi ban đầu, hãy sử dụng `chainConfigAt(0)` thay thế.
 {% endhint %}
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                   |
 | ----- | ----------------------- |
@@ -345,7 +345,7 @@ Không có
 
 ## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-`chainConfigAt` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, nó sẽ trả về cấu hình chuỗi tại khối mới nhất.
+`chainConfigAt` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, phương pháp này sẽ trả về cấu hình chuỗi tại khối latest.
 
 {% hint style="warning" %}
 `governance_chainConfigAt` Không được dùng API kể từ Klaytn v1.11 (xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getchainconfig">`governance_getChainConfig`</a>.
@@ -353,15 +353,15 @@ Không có
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
 {% endhint %}
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                             |
 | ----- | --------------------------------- |
@@ -411,13 +411,13 @@ LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trư�
 
 ## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
-Thuộc tính `nodeAddress` cung cấp địa chỉ của nút mà người dùng đang sử dụng. Nó được lấy từ nodekey và được sử dụng để ký các tin nhắn đồng thuận. Và giá trị của `"governingnode"` phải là một trong những địa chỉ nút của nút xác thực.
+Thuộc tính `nodeAddress` cung cấp địa chỉ của nút mà người dùng đang sử dụng. Nó được lấy từ nodekey và được sử dụng để ký các thông báo đồng thuận. Và giá trị `"governingnode"` phải là một trong những địa chỉ nút của nút xác thực.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại   | Mô tả                       |
 | ------- | --------------------------- |
@@ -436,15 +436,15 @@ Không có
 
 **Tham số**
 
-| Loại                | Mô tả                                                                                                                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| type                | Mô tả                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
 {% endhint %}
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả            |
 | ----- | ---------------- |
@@ -484,24 +484,24 @@ LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trư�
 `itemsAt` trả về các tham số quản trị tại một khối cụ thể.
 
 {% hint style="warning" %}
-`governance_itemsAt` Không được dùng API kể từ Klaytn v1.11 (xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getparams">`governance_getParams`</a>.
+API `governance_itemsAt` sẽ không còn được dùng kể từ Klaytn v1.11 (xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getparams">`governance_getParams`</a>.
 {% endhint %}
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Loại               | Mô tả                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"cũ nhất"` và `"mới nhất"` khả dụng.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 {% hint style="success" %}
-LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
 {% endhint %}
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả        |
 | ----- | ------------ |
@@ -544,11 +544,11 @@ LƯU Ý: Số khối có thể lớn hơn số khối mới nhất, trong trư�
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại              | Mô tả                                                        |
-| ------------------ | ------------------------------------------------------------ |
-| Danh sách Bỏ phiếu | Các thay đổi hiện đang chờ xử lý bao gồm các khóa và giá trị |
+| Loại               | Mô tả                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| Danh sách phiếu bầu | Các thay đổi hiện đang chờ xử lý bao gồm các khóa và giá trị |
 
 **Ví dụ**
 ```javascript
@@ -567,11 +567,11 @@ Không có
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại              | Mô tả                                                       |
-| ------------------ | ----------------------------------------------------------- |
-| Danh sách Bỏ phiếu | Phiếu bầu hiện tại bao gồm các khóa, giá trị và địa chỉ nút |
+| Loại               | Mô tả                                                       |
+| ------------------- | ----------------------------------------------------------- |
+| Danh sách phiếu bầu | Phiếu bầu hiện tại bao gồm các khóa, giá trị và địa chỉ nút |
 
 **Ví dụ**
 ```javascript
@@ -588,17 +588,17 @@ Không có
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-Thuộc tính `idxCache` trả về một mảng idxCache hiện tại trong bộ nhớ đệm. idxCache chứa số khối nơi thay đổi quản trị diễn ra. Theo mặc định, bộ đệm có thể có tối đa 1000 số khối trong bộ nhớ.
+Thuộc tính `idxCache` trả về một mảng idxCache hiện tại trong bộ nhớ đệm. idxCache chứa số khối nơi diễn ra thay đổi về quản trị. Theo mặc định, bộ đệm có thể có tối đa 1000 số khối trong bộ nhớ.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại       | Mô tả                                 |
-| ----------- | ------------------------------------- |
-| mảng uint64 | Số khối nơi thay đổi quản trị diễn ra |
+| Loại       | Mô tả                                    |
+| ----------- | ---------------------------------------- |
+| mảng uint64 | Số khối nơi diễn ra thay đổi về quản trị |
 
 **Ví dụ**
 ```javascript
@@ -607,17 +607,17 @@ Không có
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-`idxCacheFromDb` trả về một mảng chứa tất cả các số khối đã từng có thay đổi quản trị. Kết quả của `idxCacheFromDb` giống hoặc dài hơn kết quả của `idxCache`
+`idxCacheFromDb` trả về một mảng chứa tất cả các số khối đã từng có thay đổi quản trị. Kết quả `idxCacheFromDb` giống hoặc dài hơn kết quả của `idxCache`
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại       | Mô tả                                        |
-| ----------- | -------------------------------------------- |
-| mảng uint64 | Tất cả số khối nơi thay đổi quản trị diễn ra |
+| Loại       | Mô tả                                           |
+| ----------- | ----------------------------------------------- |
+| mảng uint64 | Tất cả số khối nơi diễn ra thay đổi về quản trị |
 
 **Ví dụ**
 ```javascript
@@ -634,9 +634,9 @@ Không có
 | ------ | ---------------------------------------------------------------- |
 | uint64 | Số khối để truy vấn thay đổi quản trị được thực hiện trong khối. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                  |
+| type | Mô tả                                                  |
 | ---- | ------------------------------------------------------ |
 | JSON | Thông tin quản trị được lưu trữ tại một khối nhất định |
 
@@ -662,25 +662,25 @@ Không có
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
 `getStakingInfo` trả về thông tin nắm giữ tại một khối cụ thể. Kết quả bao gồm các thông tin sau.
-- `BlockNum`: Số khối cung cấp thông tin đặt nắm giữ.
+- `BlockNum`: Số khối nơi cung cấp thông tin nắm giữ.
 - `CouncilNodeAddrs`: Địa chỉ của nút đồng thuận.
-- `CouncilRewardAddrs`: Các địa chỉ mà phần thưởng mỗi khối của các nút được liên kết được gửi đến.
+- `CouncilRewardAddrs`: Các địa chỉ mà phần thưởng khối của các nút liên kết được gửi đến.
 - `CouncilStakingAddrs`: Địa chỉ hợp đồng mà các nút được liên kết triển khai để nắm giữ.
 - `CouncilStakingAmounts`: Số lượng KLAY mà các nút được liên kết nắm giữ.
 - `Gini`: Hệ số Gini.
 - `KIRAddr`: Địa chỉ hợp đồng của KIR.
 - `PoCAdr`: Địa chỉ hợp đồng của KGF. PoC là tên trước đây của KGF.
-- `UseGini`: Giá trị boolean cho dù hệ số Gini có được sử dụng hay không.
+- `UseGini`: Giá trị boolean dù hệ số Gini có được sử dụng hay không.
 
 Lưu ý rằng thứ tự của tất cả các địa chỉ và số lượng nắm giữ phải khớp với nhau.
 
 **Tham số**
 
-| Loại                | Mô tả                                                                                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên của số khối hoặc chuỗi `"cũ nhất"`, `"mới nhất"` hoặc `"đang chờ xử lý"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
+| type                | Mô tả                                                                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG &#124; THẺ | Số nguyên của số khối hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả             |
 | ----- | ----------------- |
