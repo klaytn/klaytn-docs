@@ -6,15 +6,15 @@ Có thể kiểm tra trạng thái quy trình của SCN bằng các lệnh trạ
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của SCN như sau.
+`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của SCN như sau.
 
 ```bash
-$ systemctl status kscnd.service
+$ systemctl trạng thái kscnd.service
 ● kscnd.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kscnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kscnd start (code=exited, status=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kscnd start (code=exited, trạng thái=0/SUCCESS)
  Main PID: 29641 (kscn)
    CGroup: /system.slice/kscnd.service
            └─29641 /usr/local/bin/kscn --networkid 1000 --datadir ~/kscnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -31,7 +31,7 @@ Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (runn
 `kscnd` được cài đặt cùng với gói; trạng thái của SCN có thể được kiểm tra như sau.
 
 ```bash
-$ kscnd status
+$ kscnd trạng thái
 kscnd đang chạy
 ```
 
@@ -42,7 +42,7 @@ Nhật ký được lưu trữ trong tập tin `kscnd.out` được đặt tại
 Ví dụ:
 
 ```bash
-$ tail -F ~/kscnd_home/logs/kscnd.out
+$ tail -F ~/kscnd_home/nhật ký/kscnd.out
   INFO[11/12,10:19:09 +09] [49] Khối đào đã được ghi thành công            num=11 hash=03da06…f194b0 txs=0
   INFO[11/12,10:19:09 +09] [49] Cam kết công việc đào mới                    number=12 txs=0 elapsed=236.972µs
   INFO[11/12,10:19:10 +09] [24] Đã cam kết                                 number=12 hash=470aca…be4fdf address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
@@ -75,7 +75,7 @@ tại khối: 11573551 (thứ Tư ngày 13/02/2019 lúc 07:12:52 UTC)
  >
 ```
 
-Bạn có thể kiểm tra các lệnh có thể sử dụng trên [API Document](../../../../../dapp/json-rpc/README.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../../../dapp/json-rpc/README.md)
 
 Các API hữu ích để kiểm tra trạng thái của SCN:
 
