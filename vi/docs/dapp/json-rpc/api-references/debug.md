@@ -3,12 +3,17 @@ description: >-
   API được sử dụng để kiểm tra và gỡ lỗi trạng thái nút và dữ liệu chuỗi khối trong thời gian chạy.
 ---
 
-# Gỡ lỗi Namespace <a id="namespace-debug"></a>
+# Gỡ lỗi Không gian tên <a id="namespace-debug"></a>
 
-`Gỡ lỗi` namespace cung cấp cho bạn quyền truy cập vào một số phương thức RPC không chuẩn, cho phép bạn kiểm tra, gỡ lỗi và đặt các cờ gỡ lỗi nhất định trong thời gian chạy.
+Không gian tên `debug` cung cấp cho bạn quyền truy cập vào một số phương pháp RPC phi tiêu chuẩn, cho phép bạn kiểm tra, gỡ lỗi và đặt các cờ gỡ lỗi nhất định trong thời gian chạy.
+
+**NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public. We recommend you to provide the debug namespace APIs to authorized users only. However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs. The enabled APIs are as follows:
+- [VM Tracing](./debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./debug/tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
 
 
-## [Đang ghi nhật ký](./debug/logging.md) <a id="logging"></a>
+## [Ghi bản ghi](./debug/logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
@@ -18,7 +23,7 @@ description: >-
 - [debug_vmodule](./debug/logging.md#debug_vmodule)
 
 
-## [Đang cấu hình](./debug/profile.md) <a id="profiling"></a>
+## [Tạo hồ sơ](./debug/profile.md) <a id="profiling"></a>
 
 - [debug_blockProfile](./debug/profile.md#debug_blockprofile)
 - [debug_cpuProfile](./debug/profile.md#debug_cpuprofile)
@@ -61,18 +66,18 @@ description: >-
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
-- [Tùy chọn theo dõi](./debug/tracing.md#tracing-options)
-- [Theo dõi dựa trên JavaScript](./debug/tracing.md#javascript-based-tracing)
+- [Tracing Options](./debug/tracing.md#tracing-options)
+- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [Theo dõi tiêu chuẩn VM](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [Tùy chọn Theo dõi Tiêu chuẩn](./debug/standard_tracing.md#standard-tracing-options)
+- [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [Kiểm soát Chuỗi khối](./debug/blockchain.md) <a id="blockchain-inspection"></a>
+## [Kiểm soát chuỗi khối](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_dumpStateTrie](./debug/blockchain.md#debug_dumpstatetrie)
