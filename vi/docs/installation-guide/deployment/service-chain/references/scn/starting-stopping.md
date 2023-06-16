@@ -28,10 +28,10 @@ $ kscnd stop
 
 ```bash
 ## khi cài đặt từ phân bổ rpm 
-$ systemctl status kscnd.service
+$ systemctl trạng thái kscnd.service
 
 ## khi cài đặt bằng lưu trữ linux
-$ kscnd status
+$ kscnd trạng thái
 
 ```
 
