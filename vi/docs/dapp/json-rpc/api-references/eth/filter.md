@@ -1,31 +1,31 @@
 ## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
-Phương thức truy vấn thay đổi (poll) đối với bộ lọc, trả về một mảng các bản ghi phát sinh kể từ lần truy vấn thay đổi trước đó.
+Phương thức truy vấn lần lượt đối với bộ lọc trả về một mảng các bản ghi phát sinh kể từ lần truy vấn lần lượt trước đó.
 
 **Tham số**
 
-| Tên | Loại     | Mô tả                              |
+| Tên | type     | Mô tả                              |
 | --- | -------- | ---------------------------------- |
-| id  | SỐ LƯỢNG | Id bộ lọc (*ví dụ*: "0x16" // 22). |
+| id  | SỐ LƯỢNG | ID bộ lọc (*ví dụ*: "0x16" // 22). |
 
 **Giá trị trả về**
 
-`Array` - Mảng các đối tượng bản ghi, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn thay đổi trước đó.
-- Đối với các bộ lọc được tạo bằng [eth_newBlockFilter](#eth_newblockfilter), giá trị trả về là các giá trị băm của khối (DỮ LIỆU 32 byte), *ví dụ*: `["0x3454645634534..."]`.
-- Đối với các bộ lọc được tạo bằng [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), giá trị trả về là các giá trị băm của giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
-- Đối với các bộ lọc được tạo bằng [eth_newFilter](#eth_newfilter), các bản ghi là các đối tượng có tham số như sau:
+`Mảng` - Mảng các đối tượng bản ghi, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn lần lượt trước đó.đó.
+- Đối với các bộ lọc được tạo bằng [eth_newBlockFilter](#eth_newblockbộ lọc), giá trị trả về là các giá trị băm của khối (DỮ LIỆU 32 byte), *ví dụ*: `["0x3454645634534..."]`.
+- Đối với các bộ lọc được tạo bằng [eth_newPendingTransactionFilter](#eth_newpendingtransactionbộ lọc), giá trị trả về là các giá trị băm của giao dịch (DỮ LIỆU 32 byte), *ví dụ*: `["0x6345343454645..."]`.
+- Đối với các bộ lọc được tạo bằng [eth_newFilter](#eth_newbộ lọc), bản ghi là các đối tượng có tham số như sau:
 
-| Tên              | Loại            | Mô tả                                                                                                                                                                                                                                               |
-| ---------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | THẺ             | `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. `false` nếu đó là bản ghi hợp lệ.                                                                                                                                                                |
-| logIndex         | SỐ LƯỢNG        | Số nguyên chỉ vị trí chỉ mục bản ghi trong khối. `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                                           |
-| transactionIndex | SỐ LƯỢNG        | Số nguyên chỉ vị trí chỉ mục giao dịch mà bản ghi được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                        |
-| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. `null` nếu đang chờ xử lý.                                                                                                                                                                     |
-| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                       |
-| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. `null` nếu đang chờ xử lý.                                                                                                                                                                                                |
-| address          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                       |
-| data             | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                 |
-| topics           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục của bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với từ khóa `anonymous`.). |
+| Tên              | type            | Mô tả                                                                                                                                                                                                                                                 |
+| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đã xóa           | THẺ             | Kết quả là `true` nếu bản ghi đã bị xóa do tổ chức lại chuỗi. Kết quả là `false` nếu đó là bản ghi hợp lệ.                                                                                                                                            |
+| logIndex         | SỐ LƯỢNG        | Giá trị nguyên chỉ vị trí chỉ mục bản ghi trong khối. Giá trị là `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                             |
+| transactionIndex | SỐ LƯỢNG        | Giá trị nguyên chỉ vị trí chỉ mục giao dịch mà bản ghi được tạo ra từ đó. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                             |
+| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                  |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                    |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                             |
+| address          | DỮ LIỆU 20 byte | Địa chỉ khởi tạo bản ghi này.                                                                                                                                                                                                                         |
+| data             | DATA            | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                   |
+| chủ đề           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục trong bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với từ khóa `anonymous`.). |
 
 **Ví dụ**
 
@@ -55,21 +55,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getFilterLogs <a id="eth_getfilterlogs"></a>
 
-Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id đã cho, có được bằng cách sử dụng [eth_newFilter](#eth_newfilter).  Lưu ý rằng các id bộ lọc được trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [eth_newBlockFilter](#eth_newblockfilter) hoặc [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter), không thể sử dụng được với hàm này.
+Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id đã cho, có được bằng cách sử dụng [eth_newFilter](#eth_newbộ lọc).  Lưu ý rằng các id bộ lọc được trả về bằng hàm tạo bộ lọc khác, chẳng hạn như [eth_newBlockFilter](#eth_newblockbộ lọc) hoặc [eth_newPendingTransactionFilter](#eth_newpendingtransactionbộ lọc), không thể dùng được với hàm này.
 
-Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý tài nguyên của nút Klaytn một cách an toàn.
 - Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
-- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
+- Thời gian thực thi giới hạn của một truy vấn (Mặc định: 10 giây).
 
 **Tham số**
 
-| Tên | Loại     | Mô tả     |
+| Tên | type     | Mô tả     |
 | --- | -------- | --------- |
 | id  | SỐ LƯỢNG | Id bộ lọc |
 
 **Giá trị trả về**
 
-Tham khảo [eth_getFilterChanges](#eth_getfilterchanges)
+Tham khảo [eth_getFilterChanges](#eth_getbộ lọcchanges)
 
 **Ví dụ**
 
@@ -100,25 +100,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Trả về một mảng gồm tất cả bản ghi khớp với một đối tượng bộ lọc đã cho.
 
-Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý một cách an toàn tài nguyên của nút Klaytn.
+Việc thực thi API này có thể bị giới hạn bởi hai cấu hình nút để quản lý tài nguyên của nút Klaytn một cách an toàn.
 - Số lượng kết quả trả về tối đa trong một truy vấn (Mặc định: 10.000).
-- Giới hạn thời gian thực thi của một truy vấn (Mặc định: 10 giây).
+- Thời gian thực thi giới hạn của một truy vấn (Mặc định: 10 giây).
 
 **Tham số**
 
 `Object` - Các tùy chọn bộ lọc:
 
-| Tên       | Loại                        | Mô tả                                                                                                                                                                                                                                                                                                  |
+| Tên       | type                        | Mô tả                                                                                                                                                                                                                                                                                                  |
 | --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                                    |
-| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                                    |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                             |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter).                                                                                             |
 | address   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                                                                                                               |
-| topics    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                       |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                                                                                                                       |
 | blockHash | DỮ LIỆU 32 byte             | (tùy chọn) Tùy chọn bộ lọc hạn chế các bản ghi được trả về cho một khối với giá trị băm 32 byte blockHash. Việc sử dụng blockHash tương đương với fromBlock = toBlock = số khối với hàm băm blockHash. Nếu blockHash xuất hiện trong tiêu chí bộ lọc, thì cả fromBlock và toBlock đều không được phép. |
 
 **Giá trị trả về**
 
-Tham khảo [eth_getFilterChanges](#eth_getfilterchanges)
+Tham khảo [eth_getFilterChanges](#eth_getbộ lọcchanges)
 
 **Ví dụ**
 
@@ -239,7 +239,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ## eth_newBlockFilter <a id="eth_newblockfilter"></a>
 
-Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getbộ lọcchanges).
 
 **Tham số**
 
@@ -247,7 +247,7 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả      |
+| type     | Mô tả      |
 | -------- | ---------- |
 | SỐ LƯỢNG | Id bộ lọc. |
 
@@ -269,26 +269,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_newFilter <a id="eth_newfilter"></a>
 
 Tạo một đối tượng bộ lọc dựa trên các tùy chọn bộ lọc để thông báo khi trạng thái thay đổi (bản ghi).
-- Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
-- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `eth_newFilter`, hãy gọi [eth_getFilterLogs](#eth_getfilterlogs).
+- Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getbộ lọcchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `eth_newFilter`, hãy gọi [eth_getFilterLogs](#eth_getbộ lọcnhật ký).
 
 **Lưu ý về việc xác định bộ lọc chủ đề:** Các chủ đề phụ thuộc vào thứ tự. Một giao dịch với bản ghi có các chủ đề `[A, B]` sẽ được khớp bởi các bộ lọc chủ đề như sau:
-* `[]` "bất cứ thứ gì"
-* `[A]` "A ở vị trí đầu tiên (và bất cứ thứ gì sau đó)"
-* `[null, B]` "bất cứ thứ gì ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
-* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
-* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và bất cứ thứ gì sau đó)"
+* `[]` "chủ đề bất kỳ"
+* `[A]` "A ở vị trí đầu tiên (và chủ đề bất kỳ sau đó)"
+* `[null, B]` "chủ đề bất kỳ ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
+* `[A, B]` "A ở vị trí đầu tiên VÀ B ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
+* `[[A, B], [A, B]]` "(A HOẶC B) ở vị trí đầu tiên VÀ (A HOẶC B) ở vị trí thứ hai (và chủ đề bất kỳ sau đó)"
 
 **Tham số**
 
 `Object` - Các tùy chọn bộ lọc:
 
-| Tên       | Loại                       | Mô tả                                                                                                                                                                                               |
-| --------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
-| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
-| address   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                            |
-| topics    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                    |
+| Tên       | Loại                       | Mô tả                                                                                                                                                                                                      |
+| --------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| toBlock   | SỐ LƯỢNG &#124; THẺ         | (tùy chọn, mặc định: `"latest"`) Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
+| address   | DỮ LIỆU 20 byte &#124; Mảng | (tùy chọn) Địa chỉ hợp đồng hoặc danh sách các địa chỉ khởi tạo bản ghi.                                                                                                                                   |
+| chủ đề    | Mảng DỮ LIỆU                | (tùy chọn) Mảng các chủ đề DỮ LIỆU 32 byte. Các chủ đề phụ thuộc vào thứ tự. Mỗi chủ đề cũng có thể là một mảng DỮ LIỆU với các tùy chọn "hoặc".                                                           |
 
 {% hint style="success" %}
 LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
@@ -296,7 +296,7 @@ LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có 
 
 **Giá trị trả về**
 
-| Loại     | Mô tả     |
+| type     | Mô tả     |
 | -------- | --------- |
 | SỐ LƯỢNG | Id bộ lọc |
 
@@ -313,7 +313,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ## eth_newPendingTransactionFilter <a id="eth_newpendingtransactionfilter"></a>
 
-Tạo một bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getfilterchanges).
+Tạo một bộ lọc trong nút để thông báo khi có giao dịch mới đang chờ xử lý. Để kiểm tra thay đổi trạng thái, hãy gọi [eth_getFilterChanges](#eth_getbộ lọcchanges).
 
 **Tham số**
 
@@ -341,27 +341,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_subscribe <a id="eth_subscribe"></a>
 
-Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép khách hàng đợi các sự kiện thay vì phải truy vấn thay đổi.
+Tạo đăng ký mới cho các sự kiện cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Tính năng này cho phép máy khách chờ các sự kiện thay vì phải truy vấn lần lượt.
 
-Nút sẽ trả về id đăng ký cho mỗi đăng ký được tạo. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
+Nút sẽ trả về id đăng ký cho mỗi lượt đăng ký được tạo. Đối với mỗi sự kiện khớp với gói đăng ký, thông báo chứa dữ liệu liên quan sẽ được gửi cùng với id đăng ký. Nếu một kết nối bị đóng lại, tất cả các đăng ký được tạo qua kết nối đó sẽ bị xóa.
 
 **Tham số**
 
-`Object` - Loại thông báo: `"newHeads"` hoặc `"logs"`.
+`Object` - Loại thông báo: `"newHeads"` hoặc `"nhật ký"`.
 
 
-`"newHeads"` thông báo cho bạn khi mỗi khối được thêm vào chuỗi khối. `"logs"` thông báo cho bạn khi các bản ghi được đưa vào các khối mới. Loại thông báo này yêu cầu phải có tham số thứ hai chỉ định tùy chọn bộ lọc. Để biết thêm thông tin, vui lòng truy cập [eth_newFilter > tham số](./filter#eth_newfilter).
+`"newHeads"` thông báo cho bạn khi mỗi khối được thêm vào chuỗi khối. `"nhật ký"` thông báo cho bạn khi các bản ghi được đưa vào các khối mới. Loại thông báo này yêu cầu phải có tham số thứ hai chỉ định tùy chọn bộ lọc. Để biết thêm thông tin, vui lòng truy cập [eth_newFilter > tham số](./bộ lọc#eth_newbộ lọc).
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                                                                                |
-| -------- | -------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Id đăng ký khi tạo đăng ký. Đối với mỗi sự kiện khớp với đăng ký, thông báo chứa dữ liệu liên quan cũng sẽ được gửi. |
+| type     | Mô tả                                                                                                                    |
+| -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| SỐ LƯỢNG | Id đăng ký khi tạo đăng ký. Đối với mỗi sự kiện khớp với gói đăng ký, thông báo chứa dữ liệu liên quan cũng sẽ được gửi. |
 
 
 **Ví dụ**
 
-API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp cho việc sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Yêu cầu
@@ -376,7 +376,7 @@ wscat -c http://localhost:8551
 ```shell
 // Yêu cầu
 wscat -c http://localhost:8551
-> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
+> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["nhật ký", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
 
 // Kết quả
 < {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
@@ -386,19 +386,19 @@ wscat -c http://localhost:8551
 
 ## eth_uninstallFilter <a id="eth_uninstallfilter"></a>
 
-Gỡ cài đặt bộ lọc với id đã cho. Nên luôn được gọi khi không còn cần theo dõi. Ngoài ra, bộ lọc hết thời gian chờ nếu không được yêu cầu [eth_getFilterChanges](#eth_getfilterchanges) trong một khoảng thời gian.
+Gỡ cài đặt bộ lọc với id đã cho. Luôn phải được gọi ra khi không còn cần theo dõi. Ngoài ra, bộ lọc hết thời gian chờ nếu không được yêu cầu bằng [eth_getFilterChanges](#eth_getbộ lọcchanges) trong một khoảng thời gian.
 
 **Tham số**
 
-| Tên    | Loại     | Mô tả      |
+| Tên    | type     | Mô tả      |
 | ------ | -------- | ---------- |
 | bộ lọc | SỐ LƯỢNG | Id bộ lọc. |
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                             |
-| ----- | ----------------------------------------------------------------- |
-| Logic | `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`. |
+| Loại                | Mô tả                                                             |
+| -------------------- | ----------------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`. |
 
 **Ví dụ**
 
@@ -417,7 +417,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_unsubscribe <a id="eth_unsubscribe"></a>
 
-Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ có kết nối đã tạo đăng ký mới có thể hủy đăng ký.
+Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub/Sub thông qua WebSocket hoặc bộ lọc thông qua HTTP. Chỉ có kết nối đã tạo gói đăng ký mới có thể hủy gói đăng ký.
 
 **Tham số**
 
@@ -427,14 +427,14 @@ Hủy đăng ký với id đăng ký cụ thể bằng cách sử dụng RPC Pub
 
 **Giá trị trả về**
 
-| Loại  | Mô tả                                                       |
-| ----- | ----------------------------------------------------------- |
-| Logic | `true` nếu hủy đăng ký thành công, nếu không sẽ là `false`. |
+| type                 | Mô tả                                                       |
+| -------------------- | ----------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | `true` nếu hủy đăng ký thành công, ngược lại sẽ là `false`. |
 
 
 **Ví dụ**
 
-API này phù hợp để sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
+API này phù hợp cho việc sử dụng cùng với công cụ Websocket, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Yêu cầu
