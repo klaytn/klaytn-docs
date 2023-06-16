@@ -1,6 +1,6 @@
 ## klay_chainID <a id="klay_chainid"></a>
 
-Trả về ID chuỗi của chuỗi.
+Trả về mã chuỗi của chuỗi.
 
 **Tham số**
 
@@ -8,17 +8,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                         |
-| -------- | ----------------------------- |
-| SỐ LƯỢNG | Số nguyên ID chuỗi của chuỗi. |
+| Loại    | Mô tả                              |
+| -------- | ---------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên ID chuỗi của chuỗi. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -37,17 +37,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại  | Mô tả                                        |
+| type  | Mô tả                                        |
 | ----- | -------------------------------------------- |
 | Chuỗi | Phiên bản máy khách hiện tại của nút Klaytn. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -66,17 +66,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                     |
-| -------- | ----------------------------------------- |
-| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
+| Loại    | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -95,23 +95,23 @@ Trả về các giá trị khác nhau dựa trên điều kiện được mô t�
 
 **Tham số**
 
-| Loại | Mô tả                                                        |
+| type | Mô tả                                                        |
 | ---- | ------------------------------------------------------------ |
 | SỐ   | Số khối. Nếu bị bỏ qua, hệ thống sẽ trả về đơn giá mới nhất. |
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                     |
-| -------- | ----------------------------------------- |
-| SỐ LƯỢNG | Số nguyên giá gas hiện tại tính bằng peb. |
+| Loại    | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
 
 **Ví dụ**
 
 ```javascript
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPriceAt","params":["0x64"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -136,10 +136,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -150,7 +150,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-Trả về `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
+Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
 
 **Tham số**
 
@@ -158,17 +158,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                                                                                             |
+| type    | Mô tả                                                                                                             |
 | ------- | ----------------------------------------------------------------------------------------------------------------- |
 | Boolean | `true` có nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -194,10 +194,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
    "jsonrpc":"2.0",
    "id":1,
@@ -208,7 +208,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-Trả về rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Chỉ yêu cầu đối với CN.
+Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Chỉ yêu cầu đối với CN.
 
 **Tham số**
 
@@ -223,10 +223,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả - Nếu được yêu cầu từ các nút không phải CN
+// Result - If requested from non-CN nodes
 {
     "jsonrpc":"2.0",
     "id":1,
