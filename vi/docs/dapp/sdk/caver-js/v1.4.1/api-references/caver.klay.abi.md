@@ -5,7 +5,7 @@ description: >-
 
 # caver.klay.abi <a id="caver-klay-abi"></a>
 
-Gói `caver-klay-abi` cho phép bạn khử và mã hóa các tham số từ ABI (Giao diện nhị phân ứng dụng). Nó được sử dụng để gọi các hàm của hợp đồng thông minh đã triển khai.
+Gói `caver-klay-abi` cho phép bạn giải mã và mã hóa các tham số từ ABI (Giao diện nhị phân ứng dụng). Quy trình này được sử dụng để gọi ra các hàm của hợp đồng thông minh đã triển khai.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -13,17 +13,17 @@ Gói `caver-klay-abi` cho phép bạn khử và mã hóa các tham số từ ABI
 caver.klay.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Mã hóa chữ ký hàm thành chữ ký ABI của nó, là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại.
+Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại tham số.
 
 **Tham số**
 
-| Tên               | Loại                   | Mô tả                                                                                                                                                                             |
+| Tên               | type                   | Mô tả                                                                                                                                                                             |
 | ----------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | functionSignature | Chuỗi &#124; Đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì nó phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
 
-| Loại  | Mô tả               |
+| type  | Mô tả               |
 | ----- | ------------------- |
 | Chuỗi | Chữ ký ABI của hàm. |
 
@@ -44,7 +44,7 @@ caver.klay.abi.encodeFunctionSignature({
 })
 > 0x24ee0097
 
-// Từ một chữ ký chức năng
+// Từ một chữ ký hàm
 caver.klay.abi.encodeFunctionSignature('myMethod(uint256,string)')
 > '0x24ee0097'
 ```
@@ -55,11 +55,11 @@ caver.klay.abi.encodeFunctionSignature('myMethod(uint256,string)')
 caver.klay.abi.encodeEventSignature(eventSignature)
 ```
 
-Mã hóa chữ ký sự kiện thành chữ ký ABI của nó, là hàm băm sha3 của tên sự kiện bao gồm các loại đầu vào.
+Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của tên sự kiện bao gồm các loại đầu vào.
 
 **Tham số**
 
-| Tên            | Loại                   | Mô tả                                                                                                                                                                           |
+| Tên            | type                   | Mô tả                                                                                                                                                                           |
 | -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | eventSignature | Chuỗi &#124; Đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi, nó phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
@@ -97,22 +97,22 @@ caver.klay.abi.encodeEventSignature('myEvent(uint256,bytes32)')
 caver.klay.abi.encodeParameter(type, parameter)
 ```
 
-Mã hóa một tham số dựa trên loại của nó thành sự biểu diễn ABI của nó.
+Mã hóa một tham số dựa trên loại của tham số đó thành biểu diễn ABI.
 
 **Tham số**
 
 | Tên     | Loại                  | Mô tả                                                                                                             |
 | ------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | loại   | Chuỗi &#124; Đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| tham số | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
+| tham số | Hỗn hợp                | Tham số thực tế cần mã hóa.                                                                                       |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                |
-| ------ | -------------------------- |
-| String | The ABI encoded parameter. |
+| Loại | Mô tả                    |
+| ----- | ------------------------ |
+| Chuỗi | Tham số được mã hóa ABI. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.encodeParameter('uint256', '2345675643')
@@ -134,22 +134,22 @@ caver.klay.abi.encodeParameter('bytes32[]', [caver.utils.rightPad('0xdf3234', 64
 caver.klay.abi.encodeParameters(typesArray, parameters)
 ```
 
-Encodes function parameters based on its JSON interface object.
+Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của các tham số đó.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type                                  | Description                                                                                                                                                        |
-| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| parameters | Array                                 | The parameters to encode.                                                                                                                                          |
+| Tên        | Loại                                 | Mô tả                                                                                                                                                        |
+| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| tham số    | Mảng                                  | Các tham số cần mã hóa.                                                                                                                                      |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                 |
-| ------ | --------------------------- |
-| String | The ABI encoded parameters. |
+| Loại | Mô tả                    |
+| ----- | ------------------------ |
+| Chuỗi | Tham số được mã hóa ABI. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.encodeParameters(['uint256','string'], ['2345675643', 'Hello!%'])
@@ -165,22 +165,22 @@ caver.klay.abi.encodeParameters(['uint8[]','bytes32'], [['34','255'], caver.util
 caver.klay.abi.encodeFunctionCall(jsonInterface, parameters)
 ```
 
-Encodes a function call using its JSON interface object and given parameters.
+Mã hóa lệnh gọi hàm bằng cách sử dụng đối tượng giao diện JSON và các tham số đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name          | Type   | Description                              |
-| ------------- | ------ | ---------------------------------------- |
-| jsonInterface | Object | The JSON interface object of a function. |
-| parameters    | Array  | The parameters to encode.                |
+| Tên           | Loại     | Mô tả                                 |
+| ------------- | --------- | ------------------------------------- |
+| jsonInterface | Đối tượng | Đối tượng giao diện JSON của một hàm. |
+| tham số       | Mảng      | Các tham số cần mã hóa.               |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                                                 |
-| ------ | --------------------------------------------------------------------------- |
-| String | The ABI encoded function call, which means function signature + parameters. |
+| Loại | Mô tả                                                 |
+| ----- | ----------------------------------------------------- |
+| Chuỗi | Lệnh gọi hàm được mã hóa ABI là chữ ký hàm + tham số. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 caver.klay.abi.encodeFunctionCall({
@@ -210,7 +210,7 @@ Giải mã tham số được mã hóa ABI thành loại JavaScript của nó.
 | Tên       | Loại              | Mô tả                                                                                                            |
 | --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | loại     | String&#124;Object | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexString | Mảng               | Mã byte ABI để giải mã.                                                                                          |
+| hexString | Mảng               | Mã byte ABI cần giải mã.                                                                                         |
 
 **Giá trị Trả về**
 
@@ -234,19 +234,19 @@ caver.klay.abi.decodeParameter('string', '0x000000000000000000000000000000000000
 caver.klay.abi.decodeParameters(typesArray, hexString)
 ```
 
-Giải mã các tham số được mã hóa ABI thành các loại JavaScript của nó.
+Giải mã các tham số được mã hóa ABI thành loại JavaScript của các tham số đó.
 
 **Tham số**
-| Tiêu đề    | Loại                                 | Mô tả                                                                                                                                                                |
-| ---------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có các loại hoặc một mảng đầu ra giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexString  | Chuỗi                                 | Mã byte ABI để giải mã.                                                                                                                                              |
+| Tên        | Loại                                 | Mô tả                                                                                                                                                                                  |
+| ---------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexString  | Chuỗi                                 | Mã byte ABI cần giải mã.                                                                                                                                                               |
 
 **Giá trị trả về**
 
-| Loại      | Mô tả                                            |
-| --------- | ------------------------------------------------ |
-| Đối tượng | Đối tượng kết quả chứa các tham số được giải mã. |
+| type      | Mô tả                                          |
+| --------- | ---------------------------------------------- |
+| Đối tượng | Đối tượng kết quả chứa các tham số đã giải mã. |
 
 **Ví dụ**
 
@@ -275,20 +275,20 @@ caver.klay.abi.decodeParameters([{
 caver.klay.abi.decodeLog(inputs, hexString, topics)
 ```
 
-Giải mã dữ liệu nhật ký được mã hóa ABI và dữ liệu chủ đề được lập chỉ mục.
+Giải mã dữ liệu bản ghi được mã hóa ABI và dữ liệu chủ đề được lập chỉ mục.
 
 **Tham số**
-| Tiêu đề   | Loại | Mô tả                                                                                                                                       |
+| Tên       | Loại | Mô tả                                                                                                                                       |
 | --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | đầu vào   | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexString | Chuỗi | Mã byte ABI trong trường `dữ liệu` của nhật ký.                                                                                             |
-| chủ đề    | Mảng  | Một mảng có tham số chỉ mục chủ đề của nhật ký, không có chủ đề[0] nếu đó là sự kiện không ẩn danh, ngược lại có chủ đề[0].                 |
+| hexString | Chuỗi | Mã byte ABI trong trường `data` của bản ghi.                                                                                                |
+| chủ đề    | Mảng  | Một mảng có các chủ đề tham số chỉ mục của bản ghi, không có chủ đề[0] nếu đó là sự kiện không ẩn danh, ngược lại sẽ có chủ đề[0].          |
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                            |
-| --------- | ------------------------------------------------ |
-| Đối tượng | Đối tượng kết quả chứa các tham số được giải mã. |
+| Loại     | Mô tả                                          |
+| --------- | ---------------------------------------------- |
+| Đối tượng | Đối tượng kết quả chứa các tham số đã giải mã. |
 
 **Ví dụ**
 
@@ -323,14 +323,14 @@ caver.klay.abi.decodeLog([{
 caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 ```
 
-Mã hóa mã byte hợp đồng thông minh với các đối số của hàm tạo.
+Mã hóa bytecode hợp đồng thông minh với các đối số của hàm tạo.
 
 **Tham số**
-| Tên           | Loại   | Mô tả                                                   |
-| ------------- | ------- | ------------------------------------------------------- |
-| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                            |
-| hexString     | Chuỗi   | Một mã byte của hợp đồng thông minh sẽ được triển khai. |
-| tham số       | Hỗn hợp | Các đối số để chuyển đến hàm tạo.                       |
+| Tên           | Loại   | Mô tả                                                    |
+| ------------- | ------- | -------------------------------------------------------- |
+| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                             |
+| hexString     | Chuỗi   | Một bytecode của hợp đồng thông minh sẽ được triển khai. |
+| tham số       | Hỗn hợp | Các đối số để chuyển đến hàm tạo.                        |
 
 **Giá trị trả về**
 
