@@ -1,10 +1,10 @@
-# ERC-721 Example <a id="erc-721-example"></a>
+# Ví dụ về ERC-721 <a id="erc-721-example"></a>
 
-## Introduction <a id="introduction"></a>
+## Giới thiệu <a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-kip-17).
+Hướng dẫn này giúp bạn tạo một ví dụ về token tương thích với ERC-721, tuân thủ các [Tiêu chuẩn token Klaytn](../../token-standard.md), đặc biệt là [Tiêu chuẩn token không thể thay thế (ERC-721)](../../token-standard.md#non-fungible-token-standard-kip-17).
 
-[ERC-721 Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721) defines three events and 10 methods as below. `supportsInterface` of ERC-721 is derived from [ERC-165 Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165) and ERC-165 is a part of ERC-721. ERC-721 compatible tokens are the token contracts that implement ERC-721 and ERC-165 interfaces as below.
+[Tiêu chuẩn token không thể thay thế ERC-721](https://eips.ethereum.org/EIPS/eip-721) xác định ba sự kiện và 10 phương pháp như sau. Hàm `supportsInterface` của ERC-721 được kế thừa từ tiêu chuẩn [ERC-165 Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165) và ERC-165 là một phần của ERC-721. Các token tương thích với ERC-721 là các hợp đồng token triển khai các giao diện ERC-721 và ERC-165 như sau.
 
 ```solidity
 event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
@@ -23,17 +23,17 @@ function isApprovedForAll(address _owner, address _operator) external view retur
 function supportsInterface(bytes4 interfaceID) external view returns (bool);
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Klaytn network. For more information, refer to official [ERC-721 specification](https://eips.ethereum.org/EIPS/eip-721).
+Dựa trên giao diện trên đây, các nhà phát triển có thể tùy chỉnh token bằng cách thêm các tính năng và logic mới và triển khai trên mạng lưới Klaytn. Để biết thêm thông tin, hãy tham khảo [tiêu chuẩn kỹ thuật của ERC-721](https://eips.ethereum.org/EIPS/eip-721) chính thức.
 
-In this tutorial, you are going to implement `MyERC721Card.sol` which implements a card-type non-fungible token, i.e. `MyERC721Card`,  which is an ERC-721 token. Each `MyERC721Card` has name and level, e.g. "King" with level 1, "Queen" with level 1.
+Trong hướng dẫn này, bạn sẽ triển khai `MyERC721Card.sol`, sẽ triển khai một token không thể thay thế theo kiểu thẻ, tức là `MyERC721Card`, một token ERC-721. Mỗi `MyERC721Card` có tên và cấp độ, ví dụ: "King" với cấp độ 1, "Queen" với cấp độ 1.
 
-`MyERC721Card.sol` is based on OpenZeppelin's ERC721 implementation. A major part of the code in this tutorial is forked from [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0).
+`MyERC721Card.sol` được dựa trên việc triển khai ERC721 của OpenZeppelin. Phần lớn mã trong hướng dẫn này được phân nhánh từ [OpenZeppelin 2.3](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0).
 
-The rest of this tutorial is organized as follows.
+Phần còn lại của hướng dẫn được sắp xếp như sau.
 
-* [1. Writing ERC-721 smart contract](./1-erc721.md)
-  - 1.1 Overall structure of `MyERC721Card` code with whole `MyERC721Card` code
-  - 1.2 Take a look at important functions
-* [2. Deploying smart contract](./2-erc721.md)
-  - 2.1 Deploying smart contract using Remix Online IDE
-  - 2.2 Deploying smart contract using truffle
+* [1. Soạn hợp đồng thông minh ERC-721](./1-erc721.md)
+  - 1.1 Cấu trúc tổng quan của mã `MyERC721Card` với toàn bộ mã `MyERC721Card`
+  - 1.2 Tìm hiểu một số hàm quan trọng
+* [2. Triển khai hợp đồng thông minh](./2-erc721.md)
+  - 2.1 Triển khai hợp đồng thông minh bằng Remix Online IDE
+  - 2.2 Triển khai hợp đồng thông minh bằng truffle
