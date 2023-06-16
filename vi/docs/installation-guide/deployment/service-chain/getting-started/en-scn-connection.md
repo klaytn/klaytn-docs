@@ -5,9 +5,9 @@ Phần này trình bày cách kết nối mạng lưới ServiceChain 4 nút c�
 ## Điều kiện tiên quyết <a id="prerequisites"></a>
  - 1 máy chủ Linux hoặc MacOS cho EN
  - Yêu cầu phần cứng tối thiểu cho việc thử nghiệm
-   - CPU: 4-core (Intel Xeon hoặc tương đương), RAM: 16GB, HDD: 50GB
+   - CPU: 4 nhân (Intel Xeon hoặc tương đương), RAM: 16GB, HDD: 50GB
    - Vui lòng tham khảo [Yêu cầu hệ thống](../references/system-requirements.md) để biết thêm chi tiết.
- - Tải xuống tập tin thực thi EN Baobab. Để biết danh sách đầy đủ các tập tin nhị phân có thể tải về, hãy xem [Tải về](../../../download/README.md).
+ - Tải xuống tập tin thực thi EN Baobab. Để biết danh sách đầy đủ các tập tin nhị phân có thể tải về, hãy xem [Tải xuống](../../../download/README.md).
  - Giả định và hạn chế
    - Một mạng lưới ServiceChain đã được cài đặt và đang chạy. Vui lòng tham khảo [Thiết lập ServiceChain 4 nút](4nodes-setup-guide.md) để thiết lập mạng lưới.
    - Một EN Baobab.
@@ -28,7 +28,7 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 ```
 
 ## Bước 2: Khởi tạo nút EN <a id="step-2-en-node-initialization"></a>
-Bây giờ, chúng ta sẽ khởi tạo nút EN bằng tệp khởi nguyên. Thực thi các lệnh sau. Điều này sẽ tạo thư mục dữ liệu lưu trữ dữ liệu chuỗi và nhật ký trên thư mục chủ của bạn. Bạn có thể thay đổi thư mục dữ liệu bằng lệnh dẫn hướng `--datadir`.
+Bây giờ, chúng ta sẽ khởi tạo nút EN bằng tệp khởi nguyên. Thực thi các lệnh sau. Điều này sẽ tạo thư mục dữ liệu lưu trữ dữ liệu chuỗi và bản ghi trên thư mục chủ của bạn. Bạn có thể thay đổi thư mục dữ liệu bằng lệnh dẫn hướng `--datadir`.
 
 ```
 EN-01$ ken --datadir ~/data init ~/genesis.json
@@ -76,8 +76,8 @@ EN-01$ ken attach --datadir ~/data
 SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Bước 7: ĐỊnh cấu hình SCN rồi Khởi động lại kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
-Từ tập lệnh shell của nút SCN-L2-01, hãy chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf`. Nếu `SC_SUB_BRIDGE` được đặt thành 1, quá trình neo dữ liệu sẽ tự động bắt đầu khi nút SCN-L2-01 bắt đầu. Trong ví dụ này, `SC_PARENT_CHAIN_ID` được đặt thành 1001 vì `chainID` của chuỗi gốc, Baobab, là 1001. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo tới chuỗi chính. Bằng cách đặt giá trị thành 10, bạn đã định cấu hình nút để thực hiện việc neo sau mỗi 10 khối. Giá trị mặc định là 1.
+## Bước 7: Định cấu hình SCN rồi Khởi động lại kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
+Từ tập lệnh shell của nút SCN-L2-01, hãy chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf`. Nếu `SC_SUB_BRIDGE` được đặt thành 1, quá trình neo dữ liệu sẽ tự động bắt đầu khi nút SCN-L2-01 bắt đầu. Trong ví dụ này, `SC_PARENT_CHAIN_ID` được đặt thành 1001 vì `chainID` của chuỗi gốc, Baobab, là 1001. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo đến chuỗi chính. Bằng cách đặt giá trị thành 10, bạn đã định cấu hình nút để thực hiện việc neo sau mỗi 10 khối. Giá trị mặc định là 1.
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -104,7 +104,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 ```
 
 ## Neo  <a id="anchoring"></a>
-Sau khi kết thúc kết nối EN-01 và SCN-L2-01, bạn có thể ghi lại thông tin khối ServiceChain trên chuỗi mẹ thông qua Neo. Trong phần này, bạn sẽ nạp tiền vào tài khoản toán tử mẹ, bật Neo và kiểm tra số khối được neo.
+Sau khi kết thúc kết nối EN-01 và SCN-L2-01, bạn có thể ghi lại thông tin khối ServiceChain trên chuỗi mẹ thông qua Neo. Trong phần này, bạn sẽ nạp tiền vào tài khoản người vận hành mẹ, bật Neo và kiểm tra số khối được neo.
 
 ### Bước 1: Lấy KLAY để thử neo <a id="step-1-get-klay-to-test-anchoring"></a>
 Việc neo yêu cầu SCN-L2-01 thực hiện giao dịch neo với Baobab. Vì vậy, tài khoản `subbridge.parentOperator` phải có đủ KLAY để thanh toán phí giao dịch. Lấy KLAY từ [Vòi Ví Baobab ](https://baobab.wallet.klaytn.foundation/) và chuyển một số KLAY cho `parentOperator`. Để neo dữ liệu vào dịch vụ thực, `parentOperator` cần có đủ KLAY để thanh toán phí giao dịch.
