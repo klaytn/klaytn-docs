@@ -1,18 +1,18 @@
 ---
 description: >-
-  API để kiểm soát nút Klaytn.
+  API dùng để kiểm soát nút Klaytn.
 ---
 
-# Quản trị viên Namespace <a id="namespace-admin"></a>
+# Quản trị viên Không gian tên <a id="namespace-admin"></a>
 
-`Quản trị viên` namespace cung cấp cho bạn quyền truy cập vào một số phương thức RPC không chuẩn. Họ sẽ cho phép bạn quyền kiểm soát chi tiết đối với phiên bản Klaytn của bạn, bao gồm nhưng không giới hạn đối với mạng ngang hàng và quản lý điểm cuối RPC.
+`Quản trị viên` namespace cung cấp cho bạn quyền truy cập vào một số phương pháp RPC phi tiêu chuẩn. Họ sẽ cho phép bạn quyền kiểm soát chi tiết đối với phiên bản Klaytn của bạn, bao gồm nhưng không giới hạn đối với mạng ngang hàng và quản lý điểm cuối RPC.
 
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-Có thể truy vấn thuộc tính quản trị `nodeInfo` đối với tất cả thông tin đã biết về nút Klaytn đang chạy ở mức độ chi tiết của mạng. Chúng bao gồm thông tin chung về nút như một thành phần tham gia của [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P giao thức phủ, cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy, e.g., `klay`.
+Có thể truy vấn thuộc tính quản trị `nodeInfo` đối với tất cả thông tin đã biết về nút Klaytn đang chạy ở mức độ chi tiết của mạng. Thuộc tính này bao gồm thông tin chung về nút như một thành phần tham gia của giao thức phủ P2P [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md), cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy, ví dụ như `klay`.
 
-|    Máy khách    | Gọi phương thức                |
+|    Máy khách    | Gọi phương pháp                |
 |:---------------:| ------------------------------ |
 | Bảng điều khiển | `admin.nodeInfo`               |
 |       RPC       | `{"method": "admin_nodeInfo"}` |
@@ -21,7 +21,7 @@ Có thể truy vấn thuộc tính quản trị `nodeInfo` đối với tất c�
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại      | Mô tả          |
 | ---------- | -------------- |
@@ -62,7 +62,7 @@ Bảng điều khiển
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' https://public-en-baobab.klaytn.net
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' https://public-en-baobab.klaytn.net 
 {"jsonrpc":"2.0","id":1,
 "result":               {"id":"377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d", "name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X",    "kni":"kni://377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d@[::]:32323?discport=0",
 "ip":"::",
@@ -76,7 +76,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Có thể truy vấn thuộc tính quản trị `datadir` cho đường dẫn tuyệt đối của nút Klaytn đang chạy hiện đang sử dụng để lưu trữ tất cả các cơ sở dữ liệu của nó. Đường dẫn mặc định khác nhau tùy thuộc vào loại nút (kcn, kpn và ken) và loại hệ điều hành.
 
-|    Máy khách    | Gọi phương thức               |
+|    Máy khách    | Gọi phương pháp               |
 |:---------------:| ----------------------------- |
 | Bảng điều khiển | `admin.datadir`               |
 |       RPC       | `{"method": "admin_datadir"}` |
@@ -85,9 +85,9 @@ Có thể truy vấn thuộc tính quản trị `datadir` cho đường dẫn tu
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả                |
+| type  | Mô tả                |
 | ----- | -------------------- |
 | chuỗi | Đường dẫn `datadir`. |
 
@@ -109,9 +109,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-Có thể truy vấn thuộc tính quản trị `peers` đối với tất cả thông tin đã biết về các nút từ xa được kết nối ở mức độ chi tiết của mạng. Chúng bao gồm thông tin chung về nút như một thành phần tham gia của [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) giao thức phủ P2P cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy.
+Có thể truy vấn thuộc tính quản trị `peers` đối với tất cả thông tin đã biết về các nút từ xa được kết nối ở mức độ chi tiết của mạng. Thuộc tính này bao gồm thông tin chung về nút như một thành phần tham gia của giao thức phủ P2P [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md), cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy.
 
-|    Máy khách    | Gọi phương thức             |
+|    Máy khách    | Gọi phương pháp             |
 |:---------------:| --------------------------- |
 | Bảng điều khiển | `admin.peers`               |
 |       RPC       | `{"method": "admin_peers"}` |
@@ -120,9 +120,9 @@ Có thể truy vấn thuộc tính quản trị `peers` đối với tất cả 
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại       | Mô tả                                                 |
+| type       | Mô tả                                                 |
 | ---------- | ----------------------------------------------------- |
 | Chuỗi JSON | Thông tin về tất cả các mạng ngang hàng được kết nối. |
 
@@ -174,7 +174,7 @@ Bảng điều khiển
 ```
 HTTP RPC
 
-**LƯU Ý**: Tất cả các địa chỉ IP bên dưới được hiển thị làm ví dụ. Vui lòng thay thế chúng bằng địa chỉ IP thực tế trong môi trường triển khai của bạn.
+**LƯU Ý**: Tất cả các địa chỉ IP bên dưới là các ví dụ minh họa. Vui lòng thay thế chúng bằng địa chỉ IP thực trong môi trường thực thi của bạn.
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' https://public-en-baobab.klaytn.net
@@ -184,33 +184,33 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-`addPeer` là một phương thức quản trị yêu cầu thêm một nút từ xa mới vào danh sách các nút tĩnh được theo dõi. Nút sẽ cố gắng duy trì kết nối với các nút này mọi lúc, thỉnh thoảng kết nối lại nếu kết nối từ xa bị hỏng.
+`addPeer` là một phương pháp quản trị yêu cầu thêm nút từ xa mới vào danh sách các nút tĩnh được theo dõi. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
 
-Phương thức chấp nhận một đối số duy nhất kni, nghĩa là "Định danh mạng Klaytn". Nó tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận để theo dõi hoặc đã lỗi xảy ra hay không.
+Phương thức này chấp nhận một đối số duy nhất kni, nghĩa là "Mã định danh mạng lưới Klaytn". Tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận để theo dõi hoặc đã có lỗi xảy ra hay không.
 
-|    Máy khách    | Gọi phương thức                                |
+|    Máy khách    | Gọi phương pháp                                |
 |:---------------:| ---------------------------------------------- |
 | Bảng điều khiển | `admin.addPeer(url)`                           |
 |       RPC       | `{"method": "admin_addPeer", "params": [url]}` |
 
 **Tham số**
 
-| Tên | Loại  | Mô tả                         |
+| Tên | type  | Mô tả                         |
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ---- | ---------------------------------------------------------- |
-| bool | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
+| type | Mô tả                                                              |
+| ---- | ------------------------------------------------------------------ |
+| bool | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
 Bảng điều khiển
 ```javascript
-> admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //Đây là một địa chỉ ví dụ.
-đúng
+> admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
+true
 ```
 HTTP RPC
 
@@ -222,33 +222,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-`removePeer` là một phương thức quản trị yêu cầu xóa một nút khỏi danh sách nút tĩnh được theo dõi.
+`removePeer` là một phương pháp quản trị yêu cầu xóa một nút khỏi danh sách nút tĩnh được theo dõi.
 
-Phương thức chấp nhận một đối số duy nhất kni, nghĩa là "Định danh mạng Klaytn". Nó tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa sẽ bị xóa khỏi danh sách và trả về `BOOL` cho biết liệu máy ngang hàng đã bị xóa hay xảy ra lỗi nào đó.
+Phương thức này chấp nhận một đối số duy nhất kni, nghĩa là "Mã định danh mạng lưới Klaytn". Tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth. Đó là URL của máy ngang hàng từ xa sẽ bị xóa khỏi danh sách và trả về `BOOL` cho biết liệu máy ngang hàng đã bị xóa hay xảy ra lỗi nào đó.
 
-|    Máy khách    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương pháp                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `admin.removePeer(url)`                           |
 |       RPC       | `{"method": "admin_removePeer", "params": [url]}` |
 
 **Tham số**
 
-| Tên | Loại  | Mô tả                         |
+| Tên | type  | Mô tả                         |
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ---- | ---------------------------------------------------------- |
-| bool | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
+| type | Mô tả                                                              |
+| ---- | ------------------------------------------------------------------ |
+| bool | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
 Bảng điều khiển
 ```javascript
-> admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //Đây là một địa chỉ ví dụ.
-đúng
+> admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
+true
 ```
 HTTP RPC
 
@@ -259,31 +259,31 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startHTTP <a id="admin_starthttp"></a>
 
-**LƯU Ý**: API này thay thế cho `admin_startRPC`. `admin_startRPC` sẽ sớm ngừng hoạt động.
+**LƯU Ý**: API này sẽ thay thế cho `admin_startRPC`. `admin_startRPC` sẽ sớm ngừng hoạt động.
 
-`startHTTP` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên HTTP Máy chủ web API để xử lý các yêu cầu của máy khách.
+`startHTTP` là phương pháp quản trị khởi chạy máy chủ web API [JSON RPC](http://www.jsonrpc.org/specification) dựa trên HTTP để xử lý các yêu cầu của máy khách.
 
-Phương thức này trả về một cờ boolean chỉ định xem trình nghe HTTP RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối HTTP được phép hoạt động bất cứ lúc nào.
+Phương thức này sẽ trả về một cờ boolean để xác định xem trình nghe HTTP RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối HTTP được phép hoạt động bất kỳ lúc nào.
 
-|    Máy khách    | Gọi phương thức                                                     |
+|    Máy khách    | Gọi phương pháp                                                     |
 |:---------------:| ------------------------------------------------------------------- |
 | Bảng điều khiển | `admin.startHTTP(host, port, cors, apis)`                           |
 |       RPC       | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
 **Tham số**
 
-| Tên     | Loại  | Mô tả                                                                                                                                              |
-| ------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở ổ cắm trình nghe (mặc định: `"localhost"`).                                                                        |
-| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8551`).                                                                                   |
-| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) để sử dụng (mặc định: `""`). |
-| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,rpc"`).                                                             |
+| Tên     | type  | Mô tả                                                                                                                                               |
+| ------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở socket trình nghe (mặc định: `"localhost"`).                                                                        |
+| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8551`).                                                                                    |
+| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) cần sử dụng (mặc định: `""`). |
+| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,rpc"`).                                                              |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                              |
-| ----- | ------------------------------------------------------------------ |
-| bool  | `true` nếu trình nghe HTTP RPC đã được mở, `false` nếu không phải. |
+| Loại | Mô tả                                                               |
+| ----- | ------------------------------------------------------------------- |
+| bool  | `true` nếu trình nghe HTTP RPC đã được mở, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -302,11 +302,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
 
-**LƯU Ý**: API này thay thế cho `admin_stopRPC`. `admin_stopRPC` sẽ sớm ngừng hoạt động.
+**LƯU Ý**: API này sẽ thay thế cho `admin_stopRPC`. `admin_stopRPC` sẽ sớm ngừng hoạt động.
 
-`stopHTTP` là một phương thức quản trị đóng điểm cuối HTTP RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối HTTP duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
+`stopHTTP` là một phương pháp quản trị đóng điểm cuối HTTP RPC hiện đang mở. Vì nút này chỉ có thể có một điểm cuối HTTP duy nhất đang chạy, nên phương pháp này không nhận tham số mà trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|    Máy khách    | Gọi phương thức                |
+|    Máy khách    | Gọi phương pháp                |
 |:---------------:| ------------------------------ |
 | Bảng điều khiển | `admin.stopHTTP()`             |
 |       RPC       | `{"method": "admin_stopHTTP"}` |
@@ -315,11 +315,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                               |
-| ---- | --------------------------------------------------- |
-| bool | `đúng` nếu điểm cuối đã đóng, `sai` nếu không phải. |
+| type | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| bool | `true` nếu điểm cuối đã đóng, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -338,29 +338,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` là phương pháp quản trị khởi động [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket Máy chủ web API để xử lý các yêu cầu của máy khách.
+`startWS` là phương pháp quản trị khởi chạy máy chủ web API [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket để xử lý các yêu cầu của máy khách.
 
-Phương thức này trả về một cờ boolean chỉ định xem trình nghe WebSocket RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối WebSocket được phép hoạt động bất cứ lúc nào.
+Phương thức này sẽ trả về một cờ boolean để xác định xem trình nghe WebSocket RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối WebSocket được phép hoạt động bất kỳ lúc nào.
 
-|    Máy khách    | Gọi phương thức                                                   |
+|    Máy khách    | Gọi phương pháp                                                   |
 |:---------------:| ----------------------------------------------------------------- |
 | Bảng điều khiển | `admin.startWS(host, port, cors, apis)`                           |
 |       RPC       | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
 **Tham số**
 
-| Tên     | Loại  | Mô tả                                                                                                                                              |
-| ------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở ổ cắm trình nghe (mặc định: `"localhost"`).                                                                        |
-| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8552`).                                                                                   |
-| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) để sử dụng (mặc định: `""`). |
-| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,personal"`).                                                        |
+| Tên     | type  | Mô tả                                                                                                                                               |
+| ------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở socket trình nghe (mặc định: `"localhost"`).                                                                        |
+| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8552`).                                                                                    |
+| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) cần sử dụng (mặc định: `""`). |
+| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,personal"`).                                                         |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                 |
-| ---- | --------------------------------------------------------------------- |
-| bool | `đúng` nếu trình nghe WebSocket RPC đã được mở, `sai` nếu không phải. |
+| type | Mô tả                                                                    |
+| ---- | ------------------------------------------------------------------------ |
+| bool | `true` nếu trình nghe WebSocket RPC đã được mở, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -379,9 +379,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-`stopWS` là một phương thức quản trị đóng điểm cuối WebSocket RPC hiện đang mở. Vì nút chỉ có thể có một điểm cuối WebSocket duy nhất đang chạy, nên phương thức này không nhận tham số, trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
+`stopWS` là một phương pháp quản trị đóng điểm cuối WebSocket RPC hiện đang mở. Vì nút này chỉ có thể có một điểm cuối WebSocket duy nhất đang chạy, nên phương pháp này không nhận tham số mà trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|    Máy khách    | Gọi phương thức              |
+|    Máy khách    | Gọi phương pháp              |
 |:---------------:| ---------------------------- |
 | Bảng điều khiển | `admin.stopWS()`             |
 |       RPC       | `{"method": "admin_stopWS"}` |
@@ -390,11 +390,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                               |
-| ---- | --------------------------------------------------- |
-| bool | `đúng` nếu điểm cuối đã đóng, `sai` nếu không phải. |
+| type | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| bool | `true` nếu điểm cuối đã đóng, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -413,24 +413,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-`exportChain` là một phương thức quản trị xuất chuỗi khối thành một tệp.
+`exportChain` là một phương pháp quản trị xuất chuỗi khối thành một tệp.
 
-|    Máy khách    | Gọi phương thức                                          |
+|    Máy khách    | Gọi phương pháp                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `admin.exportChain(fileName)`                            |
 |       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
 **Tham số**
 
-| Tên         | Loại  | Mô tả                                                        |
+| Tên         | type  | Mô tả                                                        |
 | ----------- | ----- | ------------------------------------------------------------ |
 | tên tệp tin | chuỗi | đường dẫn đủ điều kiện đến tệp mà chuỗi khối phải được xuất. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                             |
-| ----- | ------------------------------------------------- |
-| bool  | `đúng` nếu chuỗi được xuất, `sai` nếu không phải. |
+| Loại | Mô tả                                                |
+| ----- | ---------------------------------------------------- |
+| bool  | `true` nếu chuỗi được xuất, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -449,24 +449,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-`importChain` là một phương thức quản trị để nhập một chuỗi đã xuất từ ​​một tệp vào một nút. Phương thức này chỉ nhập các khối chưa có trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
+`importChain` là một phương pháp quản trị để nhập một chuỗi đã xuất từ ​​một tệp vào một nút. Phương thức này chỉ nhập các khối chưa có trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|    Máy khách    | Gọi phương thức                                          |
+|    Máy khách    | Gọi phương pháp                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `admin.importChain(fileName)`                            |
 |       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
 **Tham số**
 
-| Tên         | Loại  | Mô tả                                                   |
+| Tên         | type  | Mô tả                                                   |
 | ----------- | ----- | ------------------------------------------------------- |
 | tên tệp tin | chuỗi | đường dẫn đủ điều kiện đến tệp chứa chuỗi sẽ được nhập. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                |
-| ---- | ---------------------------------------------------- |
-| bool | `đúng` nếu chuỗi đã được nhập, `sai` nếu không phải. |
+| type | Mô tả                                                   |
+| ---- | ------------------------------------------------------- |
+| bool | `true` nếu chuỗi đã được nhập, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -484,24 +484,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn. Nó chỉ hoạt động nếu chưa có chuỗi hiện có nào trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
+`importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn. Phương thức này chỉ hoạt động nếu chưa có chuỗi nào trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|    Máy khách    | Gọi phương thức                                                            |
+|    Máy khách    | Gọi phương pháp                                                            |
 |:---------------:| -------------------------------------------------------------------------- |
 | Bảng điều khiển | `admin.importChainFromString(blockRlp)`                                    |
 |       RPC       | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
 **Tham số**
 
-| Tên      | Loại  | Mô tả                                                                                                |
+| Tên      | type  | Mô tả                                                                                                |
 | -------- | ----- | ---------------------------------------------------------------------------------------------------- |
 | blockRlp | chuỗi | chuỗi được mã hóa RLP đại diện cho các khối được nhập. (bằng giá trị trả về của `debug.getBlockRlp`) |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                    |
-| ---- | -------------------------------------------------------- |
-| bool | `đúng` nếu chuỗi đã được nhập hoặc `sai` nếu không phải. |
+| type | Mô tả                                                       |
+| ---- | ----------------------------------------------------------- |
+| bool | `true` nếu chuỗi đã được nhập hoặc ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -519,9 +519,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-`startStateMigration` là một phương thức quản trị để bắt đầu di chuyển trạng thái và loại bỏ các nút trie lưu trữ/trạng thái cũ. Nó có thể giúp tiết kiệm không gian lưu trữ của nút Klaytn. Phương thức trả về lỗi nếu không thể bắt đầu di chuyển trạng thái hoặc `null` khi bắt đầu thành công. LƯU Ý: Sau khi di chuyển trạng thái, nút không thể cung cấp API với các trạng thái trước đó.
+`startStateMigration` là một phương pháp quản trị để bắt đầu di chuyển trạng thái và loại bỏ các nút trie lưu trữ/trạng thái cũ. Nó có thể giúp tiết kiệm không gian lưu trữ của nút Klaytn. Phương thức này sẽ trả về lỗi nếu không thể bắt đầu di chuyển trạng thái hoặc `null` khi bắt đầu thành công. LƯU Ý: Sau khi di chuyển trạng thái, nút không thể cung cấp API với các trạng thái trước đó.
 
-|    Máy khách    | Gọi phương thức                           |
+|    Máy khách    | Gọi phương pháp                           |
 |:---------------:| ----------------------------------------- |
 | Bảng điều khiển | `admin.startStateMigration()`             |
 |       RPC       | `{"method": "admin_startStateMigration"}` |
@@ -530,11 +530,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                                   |
-| ---- | --------------------------------------------------------------------------------------- |
-| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bắt đầu hoặc thông báo lỗi nếu không phải. |
+| type | Mô tả                                                                                     |
+| ---- | ----------------------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bắt đầu hoặc thông báo lỗi nếu chưa bắt đầu. |
 
 **Ví dụ**
 
@@ -554,9 +554,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-`stopStateMigration` là một phương thức quản trị để dừng quá trình di chuyển trạng thái hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc một lỗi cho dù quá trình di chuyển trạng thái có bị dừng hay không.
+`stopStateMigration` là một phương pháp quản trị để dừng quá trình di chuyển trạng thái hiện đang chạy. Phương thức này không nhận tham số và trả về `null` hoặc báo lỗi dù quá trình di chuyển trạng thái có bị dừng hay không.
 
-|    Máy khách    | Gọi phương thức                          |
+|    Máy khách    | Gọi phương pháp                          |
 |:---------------:| ---------------------------------------- |
 | Bảng điều khiển | `admin.stopStateMigration()`             |
 |       RPC       | `{"method": "admin_stopStateMigration"}` |
@@ -565,11 +565,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                         |
-| ---- | ----------------------------------------------------------------------------- |
-| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bị dừng hoặc lỗi nếu không phải. |
+| type | Mô tả                                                                            |
+| ---- | -------------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bị dừng hoặc báo lỗi nếu ngược lại. |
 
 
 **Ví dụ**
@@ -588,9 +588,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-`stateMigrationStatus` là một phương thức quản trị trả về thông tin trạng thái của quá trình di chuyển trạng thái. Phương thức này không nhận tham số và trả về trạng thái của quá trình di chuyển trạng thái hiện đang chạy.
+`stateMigrationStatus` là một phương pháp quản trị trả về thông tin trạng thái của quá trình di chuyển trạng thái. Phương thức này không nhận tham số và trả về trạng thái của quá trình di chuyển trạng thái hiện đang chạy.
 
-|    Máy khách    | Gọi phương thức                            |
+|    Máy khách    | Gọi phương pháp                            |
 |:---------------:| ------------------------------------------ |
 | Bảng điều khiển | `admin.stateMigrationStatus`               |
 |       RPC       | `{"method": "admin_stateMigrationStatus"}` |
@@ -599,17 +599,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên                  | Loại    | Mô tả                                                                                                       |
-| -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| đã lưu trữ           | int     | `committed` là số nút trie đã được sao chép bởi quá trình di chuyển trạng thái.                             |
-| lỗi                  | Lỗi     | `null` nếu quá trình di chuyển trạng thái kết thúc tốt đẹp hoặc lỗi nếu không phải.                         |
-| isMigration          | bool    | `đúng` nếu quá trình di chuyển trạng thái đang chạy hoặc `sai` nếu không phải.                              |
-| migrationBlockNumber | uint64  | blockNumber mà quá trình di chuyển trạng thái bắt đầu. (`0` nếu quá trình di chuyển trạng thái không chạy.) |
-| đang chờ xử lý       | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                |
-| tiến trình           | float64 | `tiến trình ` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                  |
-| đọc                  | int     | `đọc` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                  |
+| Tên                  | type    | Mô tả                                                                                                        |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| đã lưu trữ           | int     | `committed` là số nút trie đã được sao chép bởi quá trình di chuyển trạng thái.                              |
+| lỗi                  | Lỗi     | `null` nếu quá trình di chuyển trạng thái kết thúc thành công hoặc báo lỗi nếu ngược lại.                    |
+| isMigration          | bool    | `true` nếu quá trình di chuyển trạng thái đang chạy hoặc ngược lại sẽ là `false`.                            |
+| migrationBlockNumber | uint64  | blockNumber nơi quá trình di chuyển trạng thái bắt đầu. (`0` nếu quá trình di chuyển trạng thái không chạy.) |
+| đang chờ xử lý       | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                 |
+| tiến trình           | float64 | `progress` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                      |
+| đọc                  | int     | `read` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                  |
 
 **Ví dụ**
 
@@ -637,7 +637,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `saveTrieNodeCacheToDisk` là một phương pháp quản trị bắt đầu lưu nút trie đã lưu trong bộ nhớ cache vào đĩa để sử dụng lại chúng khi nút khởi động lại. Dữ liệu nút trie đã lưu trong bộ nhớ cache sẽ được lưu trữ và tải từ `$DATA_DIR/fastcache` . Phương thức này trả về lỗi nếu quá trình lưu đã được kích hoạt hoặc bộ nhớ đệm nút trie bị tắt. Tính năng này được hỗ trợ kể từ Klaytn 1.5.3.
 
-|    Máy khách    | Gọi phương thức                               |
+|    Máy khách    | Gọi phương pháp                               |
 |:---------------:| --------------------------------------------- |
 | Bảng điều khiển | `admin.saveTrieNodeCacheToDisk()`             |
 |       RPC       | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
@@ -646,11 +646,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                     |
-| ---- | ------------------------------------------------------------------------- |
-| Lỗi  | `null` nếu quá trình lưu nút trie đã bắt đầu hoặc báo lỗi nếu không phải. |
+| type | Mô tả                                                                    |
+| ---- | ------------------------------------------------------------------------ |
+| Lỗi  | `null` nếu quá trình lưu nút trie đã bắt đầu hoặc báo lỗi nếu ngược lại. |
 
 **Ví dụ**
 
@@ -669,22 +669,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-`setMaxSubscriptionPerWSConn` là phương thức quản trị đặt số lượng đăng ký tối đa được phép cho mỗi kết nối WebSocket. Ví dụ: nếu số lượng tối đa được đặt là năm và người dùng yêu cầu nhiều hơn năm đăng ký thông qua API `klay_subscribe`, một thông báo lỗi "Cho phép tối đa 5 đăng ký cho một kết nối WebSocket" sẽ được hiển thị. Tính năng này được hỗ trợ kể từ Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn` là phương pháp quản trị đặt số lượt đăng ký tối đa được phép cho mỗi kết nối WebSocket. Ví dụ, nếu số lượng tối đa được đặt là năm và người dùng yêu cầu nhiều hơn năm lượt đăng ký thông qua API `klay_subscribe`, một thông báo lỗi "Cho phép tối đa 5 đăng ký cho một kết nối WebSocket" sẽ được hiển thị. Tính năng này được hỗ trợ kể từ Klaytn 1.6.0.
 
-|    Máy khách    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương pháp                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `admin.setMaxSubscriptionPerWSConn(limit)`        |
 |       RPC       | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                        |
-| -------- | ---- | ------------------------------------------------------------ |
-| giới hạn | int  | Số lượng đăng ký tối đa cho phép trên mỗi kết nối WebSocket. |
+| Tên      | type | Mô tả                                                       |
+| -------- | ---- | ----------------------------------------------------------- |
+| giới hạn | int  | Số lượt đăng ký tối đa cho phép trên mỗi kết nối WebSocket. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                      |
+| type | Mô tả                                                                      |
 | ---- | -------------------------------------------------------------------------- |
 | Lỗi  | `null` nếu đặt giới hạn thành công; nếu không sẽ trả về một thông báo lỗi. |
 
