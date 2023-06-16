@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Xin chúc mừng!
 
-Bạn đã học xong <strong x-d="1">những khái niệm cơ bản về Docusaurus</strong> và thực hiện một số thay đổi cho **mẫu ban đầu**.
+Bạn đã vừa tìm hiểu qua **những khái niệm cơ bản về Docusaurus** và thực hiện một số thay đổi cho **mẫu ban đầu**.
 
 Docusaurus còn **rất nhiều những nội dung khác chờ bạn khám phá**!
 
