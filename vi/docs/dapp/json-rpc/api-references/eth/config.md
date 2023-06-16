@@ -1,6 +1,6 @@
 ## eth_coinbase <a id="eth_coinbase"></a>
 
-Trả về địa chỉ coinbase khách hàng.
+Trả về địa chỉ coinbase của khách hàng.
 
 **Tham số**
 
@@ -8,9 +8,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại            | Mô tả                        |
-| --------------- | ---------------------------- |
-| DỮ LIỆU 20 byte | Địa chỉ coinbase khách hàng. |
+| type            | Mô tả                            |
+| --------------- | -------------------------------- |
+| DỮ LIỆU 20 byte | Địa chỉ coinbase của khách hàng. |
 
 **Ví dụ**
 
@@ -29,7 +29,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
-Trả về địa chỉ etherbase khách hàng.
+Trả về địa chỉ etherbase của khách hàng.
 
 **Tham số**
 
@@ -37,9 +37,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại           | Mô tả                         |
-| --------------- | ----------------------------- |
-| DỮ LIỆU 20 byte | Địa chỉ etherbase khách hàng. |
+| Loại           | Mô tả                             |
+| --------------- | --------------------------------- |
+| DỮ LIỆU 20 byte | Địa chỉ etherbase của khách hàng. |
 
 **Ví dụ**
 
@@ -58,7 +58,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_chainId <a id="eth_chainid"></a>
 
-Trả về mã chuỗi hiện tại được đặt trên nút yêu cầu.
+Trả về chainId hiện tại được đặt trên nút yêu cầu.
 
 **Tham số**
 
@@ -66,7 +66,7 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                               |
+| type     | Mô tả                               |
 | -------- | ----------------------------------- |
 | SỐ LƯỢNG | Mã chuỗi được đặt trên nút yêu cầu. |
 
@@ -97,9 +97,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                         |
-| -------- | --------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên chỉ giá gas hiện tại tính bằng peb. |
+| type     | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
 
 **Ví dụ**
 
