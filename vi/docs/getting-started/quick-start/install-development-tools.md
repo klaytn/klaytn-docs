@@ -10,7 +10,7 @@ $ mkdir $HOME/klaytn
 
 > Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-[caver-js](../../dapp/sdk/caver-js/README.md) là khung RPC JSON dành cho mạng Klaytn \(tương đương với web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
+[caver-js](../../dapp/sdk/caver-js/README.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn \(tương đương với web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -35,12 +35,12 @@ npm ERR! git Refusing to remove it. Update manually,
 npm ERR! git or move it out of the way first.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
+npm ERR!     /Users/username/.npm/_nhật ký/2019-06-25T01_49_37_032Z-debug.log​
 
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
-**Lưu ý:** Đối với tất cả các chức năng gọi hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
+**Lưu ý:** Đối với tất cả các chức năng gọi ra hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
 
 `web3.eth.sendTransaction({ ... })` \(X\)
 
@@ -48,7 +48,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 ## Cài đặt Truffle <a id="installing-truffle"></a>
 
-Trong bài hướng dẫn này, Truffle được sử dụng để lập và triển khai hợp đồng thông minh được viết bằng Solidify. Hiện tại, Klaytn hỗ trợ Truffle phiên bản 4.1.15. Để biết thêm thông tin về Truffle, hãy tham khảo các trang sau:
+Trong bài hướng dẫn này, Truffle được sử dụng để lập và triển khai hợp đồng thông minh được viết bằng Solidity. Hiện tại, Klaytn hỗ trợ Truffle phiên bản 4.1.15. Để biết thêm thông tin về Truffle, hãy tham khảo các trang sau:
 
 * Kho lưu trữ Truffle - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
 * Tài liệu Truffle - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
@@ -80,7 +80,7 @@ $ export PATH=`pwd`:$PATH
 
 ## Cài đặt vvisp <a id="installing-vvisp"></a>
 
-vvisp là một công cụ/khung làm việc cli dễ sử dụng để phát triển các hợp đồng thông minh, do [HEACHI LABS](https://henesis.io/) cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ khung làm việc Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể dễ dàng sử dụng vvisp.
+vvisp là một công cụ/bộ khung cli dễ sử dụng để phát triển các hợp đồng thông minh, do [HEACHI LABS](https://henesis.io/) cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ bộ khung Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể dễ dàng sử dụng vvisp.
 
 Ở đây, chúng tôi giới thiệu cách cài đặt vvisp và sử dụng công cụ này để thiết lập môi trường phát triển Klaytn dApp.
 
