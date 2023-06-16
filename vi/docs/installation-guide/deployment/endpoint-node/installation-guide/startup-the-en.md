@@ -1,4 +1,4 @@
-# Khởi động NĐC <a id="startup-the-en"></a>
+# Khởi động EN <a id="startup-the-en"></a>
 
 Bạn có thể bắt đầu hoặc dừng Nút điểm cuối bằng các lệnh sau.
 
@@ -19,7 +19,7 @@ Shutting down kend: Killed
 **trạng thái**
 
 ```bash
-$ kend status
+$ kend trạng thái
 kend is running
 ```
 
