@@ -1,6 +1,6 @@
 ---
 description: >-
-  Hãy thử và làm quen với Klaytn. Chương này là điểm bắt đầu của hành trình tới các dApp Klaytn của bạn.
+  Dùng thử và làm quen với Klaytn. Chương này là điểm khởi đầu cho hành trình của bạn đến các dApp Klaytn.
 ---
 
 # Tổng quan <a id="overview"></a>
