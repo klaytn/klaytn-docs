@@ -1,8 +1,13 @@
 # ランタイムデバッグ <a id="runtime-debugging"></a>
 
+**NOTE** All other debug namespace APIs **EXCEPT FOR** the following APIs are restricted with `rpc.unsafe-debug.disable` flag:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
-未使用のメモリをOSに返却します。
+Returns unused memory to the OS.
 
 | Client  | Method Invocation                  |
 |:-------:| ---------------------------------- |
@@ -33,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_gcStats <a id="debug_gcstats"></a>
 
-GC の統計情報を返します。
+Returns GC statistics.
 
 | Client  | Method Invocation                           |
 |:-------:| ------------------------------------------- |
@@ -46,7 +51,7 @@ None
 
 **Return Value**
 
-返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) を参照してください。
+See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
 
 **Example**
 
@@ -71,7 +76,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_memStats <a id="debug_memstats"></a>
 
-詳細なランタイムメモリ統計を返します。
+Returns detailed runtime memory statistics.
 
 | Client  | Method Invocation                            |
 |:-------:| -------------------------------------------- |
@@ -84,7 +89,7 @@ None
 
 **Return Value**
 
-返されるオブジェクトのフィールドについては、 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) を参照してください。
+See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
 
 **Example**
 
@@ -120,7 +125,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_metrics <a id="debug_metrics"></a>
 
-ノードによって収集された既知のシステムメトリックをすべて取得します。
+Retrieves all the known system metrics collected by the node.
 
 | Client  | Method Invocation                              |
 |:-------:| ---------------------------------------------- |
@@ -206,7 +211,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
-ガベージコレクションのターゲットパーセントを設定します。 前の設定を返します。 負の値はGCを無効にします。
+Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
 
 **Parameters**
 
@@ -220,7 +225,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | ------- | ------------------------- |
 | integer | 以前のガベージコレクションのターゲットパーセント。 |
 
-**例** コンソール
+**Example** Console
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -243,7 +248,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks <a id="debug_stacks"></a>
 
-すべてのゴロチンのスタックの印刷表現を返します。
+Returns a printed representation of the stacks of all goroutines.
 
 | Client  | Method Invocation                          |
 |:-------:| ------------------------------------------ |
