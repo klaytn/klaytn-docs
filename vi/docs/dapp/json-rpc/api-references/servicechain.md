@@ -1,5 +1,5 @@
 ---
 description: >-
-  Namespaces liên quan đến "Chuỗi dịch vụ".
+  Không gian tên liên quan đến "Chuỗi dịch vụ".
 ---
 
