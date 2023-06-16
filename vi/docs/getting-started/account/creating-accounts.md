@@ -15,9 +15,9 @@ Việc chuyển toàn bộ thư mục hoặc tập tin lưu trữ khóa riêng l
 ### ken <a id="ken"></a>
 
 ```bash
-$ ken account new --datadir <DATADIR>
-$ ken account new --password <passwordfile> --datadir <DATADIR>
-$ ken account new --password <(echo $mypassword) --datadir <DATADIR>
+$ ken tài khoản new --datadir <DATADIR>
+$ ken tài khoản new --password <passwordfile> --datadir <DATADIR>
+$ ken tài khoản new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
 **`CẢNH BẢO`**: Lưu ý rằng việc dùng một tập tin mật khẩu chỉ dành cho quá trình thử nghiệm; bạn không nên lưu mật khẩu vào một tập tin hoặc để lộ mật khẩu dưới bất kỳ hình thức nào khác. Nếu bạn sử dụng tính năng gắn cờ mật khẩu trong một tập tin mật khẩu, hãy đảm bảo rằng không ai có thể thấy hoặc đọc được tập tin này ngoài bạn. Để thực hiện việc này:
@@ -46,13 +46,13 @@ Bạn có thể nhập một tài khoản bằng tập tin khóa. Tập tin khó
 
 Tập tin này nhập một khóa riêng tư chưa được mã hóa từ tập tin khóa đã cho, tạo tài khoản mới, tạo một tập tin lưu trữ khóa trong thư mục dữ liệu và in địa chỉ vào bảng điều khiển. Bạn phải nhớ cụm mật khẩu này để mở khóa tài khoản của mình trong tương lai.
 
-**LƯU Ý**: Nếu có thể sao chép trực tiếp các tập tin lưu trữ khóa của mình vào một phiên bản Klaytn khác, bạn không cần tới cơ chế nhập/xuất này/xuất này.
+**LƯU Ý**: Nếu có thể sao chép trực tiếp các tập tin lưu trữ khóa của mình vào một phiên bản Klaytn khác, bạn không cần đến cơ chế nhập/xuất này/xuất này.
 
 ### ken <a id="ken-1"></a>
 
 ```bash
-$ ken account import <keyfile> --datadir <DATADIR>
-$ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
+$ ken tài khoản import <keyfile> --datadir <DATADIR>
+$ ken tài khoản import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
 ### Bảng điều khiển JavaScript <a id="javascript-console-1"></a>
