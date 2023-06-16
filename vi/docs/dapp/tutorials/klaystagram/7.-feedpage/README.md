@@ -1,6 +1,6 @@
-# 7. FeedPage
+# 7. Trang thông tin
 
-![FeedPage](../../../../bapp/tutorials/klaystagram/images/klaystagram-feedpage.png)
+![Trang thông tin](../../../../bapp/tutorials/klaystagram/images/klaystagram-feedpage.png)
 
 FeedPage chứa 3 thành phần chính tương tác với hợp đồng `Klaystagram`.
 
