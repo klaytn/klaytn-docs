@@ -3,19 +3,19 @@ description: >-
   API liên quan đến EN chuỗi chính được kết nối với chuỗi dịch vụ.
 ---
 
-# Namespace mainbridge <a id="namespace-mainbridge"></a>
+# Không gian tên mainbridge <a id="namespace-mainbridge"></a>
 
-Namespace `cầu nối chính` cung cấp các hàm liên quan đến Chuỗi Dịch vụ. Để sử dụng các hàm trong namespace này, tùy chọn `cầu nối chính` phải được kích hoạt trong EN được kết nối với chuỗi chính (Mainnet hoặc mạng thử nghiệm Baobab).
+Không gian tên `mainbridge` cung cấp các hàm liên quan đến Chuỗi Dịch vụ. Để sử dụng các hàm trong không gian tên này, tùy chọn `cầu nối chính` phải được kích hoạt trong EN được kết nối với chuỗi chính (Mạng chính hoặc mạng thử nghiệm Baobab).
 
 ## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
-Trả về thông tin nút cầu nối bao gồm KNI (Định danh mạng Klaytn) ​​của nút. Một nút cầu chính có thể kết nối với một nút cầu nối con thông qua KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút. Một nút cầu nối chính có thể kết nối với một nút cầu nối con thông qua KNI.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại      | Mô tả                  |
 | ---------- | ---------------------- |
@@ -54,9 +54,9 @@ Không có
 ```
 
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
-Trả về `đúng` nếu thêm một máy ngang hàng cầu nối phụ thành công.
+Trả về `true` nếu thêm thành công một máy ngang hàng cầu nối con.
 
-Nó Thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút sẽ cố gắng duy trì kết nối với các nút này mọi lúc, thỉnh thoảng kết nối lại nếu kết nối từ xa bị hỏng. Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Nó sẽ thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
 **Tham số**
 
@@ -64,11 +64,11 @@ Nó Thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút sẽ c
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ----- | ---------------------------------------------------------- |
-| bool  | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
+| Loại | Mô tả                                                              |
+| ----- | ------------------------------------------------------------------ |
+| bool  | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -86,9 +86,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
-Trả về `đúng` khi máy ngang hàng được xóa thành công.
+Trả về `true` khi máy ngang hàng được xóa thành công.
 
-Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
 **Tham số**
 
@@ -96,11 +96,11 @@ Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ----- | ---------------------------------------------------------- |
-| bool  | `đúng` nếu máy ngang hàng đã bị xóa, `sai` nếu không phải. |
+| Loại | Mô tả                                                         |
+| ----- | ------------------------------------------------------------- |
+| bool  | `true` nếu máy ngang hàng đã bị xóa, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -126,11 +126,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                   |
-| ----- | ------------------------------------------------------- |
-| bool  | `đúng` nếu lập chỉ mục được kích hoạt, `sai` nếu không. |
+| Loại | Mô tả                                                                     |
+| ----- | ------------------------------------------------------------------------- |
+| bool  | `true` nếu tính năng lập chỉ mục được kích hoạt, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -145,15 +145,15 @@ Trả về hàm băm giao dịch neo của hàm băm khối chuỗi con đã cho
 
 **Tham số**
 
-| Loại            | Mô tả                   |
+| type            | Mô tả                   |
 | --------------- | ----------------------- |
-| DỮ LIỆU 32-byte | Hàm băm khối chuỗi con. |
+| DỮ LIỆU 32 byte | Hàm băm khối chuỗi con. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại           | Mô tả                                                   |
 | --------------- | ------------------------------------------------------- |
-| DỮ LIỆU 32-byte | Hàm băm giao dịch neo bao gồm thông tin khối chuỗi con. |
+| DỮ LIỆU 32 byte | Hàm băm giao dịch neo bao gồm thông tin khối chuỗi con. |
 
 **Ví dụ**
 
