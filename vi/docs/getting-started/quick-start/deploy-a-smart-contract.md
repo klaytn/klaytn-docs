@@ -19,7 +19,7 @@ Khởi chạy Truffle để triển khai hợp đồng.
 $ truffle init
 ```
 
-## Soạn một hợp đồng thông minh đơn giản bằng Solidify <a id="writing-a-simple-smart-contract-in-solidity"></a>
+## Soạn một hợp đồng thông minh đơn giản bằng Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
 Tạo `KlaytnGreeter.sol` trong thư mục `klaytn-testboard/contracts`.
 
@@ -95,7 +95,7 @@ module.exports = {
         klaytn: {
             host: '127.0.0.1',
             port: 8551,
-            from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your account address
+            from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your tài khoản address
             network_id: '1001', // Baobab network id
             gas: 20000000, // transaction gas limit
             gasPrice: 25000000000, // gasPrice of Baobab is 25 Gpeb
@@ -146,7 +146,7 @@ Error: authentication needed: password or unlock
 
 ```javascript
 > personal.unlockAccount('0x775a59b94889a05c03c66c3c84e9d2f8308ca4abd')
-Unlock account 0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd
+Unlock tài khoản 0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 Passphrase:
 true
 ```
