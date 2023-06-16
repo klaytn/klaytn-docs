@@ -2,7 +2,7 @@
 
 Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `0x0`.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `0x0`.
 
 **Tham số**
 
@@ -32,7 +32,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `0`.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `0`.
 
 **Tham số**
 
@@ -40,7 +40,7 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                |
+| type     | Mô tả                |
 | -------- | -------------------- |
 | SỐ LƯỢNG | Số lần băm mỗi giây. |
 
@@ -62,7 +62,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Trả về mã băm của khối hiện tại, seedHash, và điều kiện biên cần đáp ứng ("mục tiêu").
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `errNoMiningWork`.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `errNoMiningWork`.
 
 **Tham số**
 
@@ -96,11 +96,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Được dùng để gửi giải pháp bằng chứng công việc.
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `false`.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `false`.
 
 **Tham số**
 
-| Loại            | Mô tả                                     |
+| type            | Mô tả                                     |
 | --------------- | ----------------------------------------- |
 | DỮ LIỆU 8 byte  | Tìm thấy giá trị số dùng một lần (64 bit) |
 | DỮ LIỆU 32 byte | Hàm băm pow của tiêu đề (256 bit)         |
@@ -108,9 +108,9 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công vi�
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                                                 |
-| ----- | ------------------------------------------------------------------------------------- |
-| Logic | Nếu giải pháp cung cấp hợp lệ, giá trị trả về là true, nếu không giá trị sẽ là false. |
+| Loại                | Mô tả                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | Nếu giải pháp cung cấp hợp lệ, giá trị trả về là true, nếu không giá trị sẽ là false. |
 
 **Ví dụ**
 
@@ -129,22 +129,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitHashrate <a id="eth_submithashrate"></a>
 
-Được dùng để gửi tốc độ băm khai thác.
+Dùng để gửi tốc độ băm khai thác.
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng công việc), giá trị trả về luôn là `false`.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `false`.
 
 **Tham số**
 
-| Tên      | Loại           | Mô tả                                                                         |
-| -------- | --------------- | ----------------------------------------------------------------------------- |
-| hashrate | DỮ LIỆU 32 byte | Chuỗi thập lục phân (32 byte) biểu thị tốc độ băm.                            |
-| id       | DỮ LIỆU 32 byte | ID ngẫu nhiên dưới dạng chuỗi thập lục phân (32 byte) để xác định khách hàng. |
+| Tên      | Loại           | Mô tả                                                                          |
+| -------- | --------------- | ------------------------------------------------------------------------------ |
+| hashrate | DỮ LIỆU 32 byte | Chuỗi thập lục phân (32 byte) biểu thị tốc độ băm.                             |
+| id       | DỮ LIỆU 32 byte | ID ngẫu nhiên dưới dạng chuỗi thập lục phân (32 byte) để định danh khách hàng. |
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                                     |
-| ----- | ------------------------------------------------------------------------- |
-| Logic | Kết quả trả về là true nếu gửi thành công, nếu không kết quả sẽ là false. |
+| Loại                | Mô tả                                                                     |
+| -------------------- | ------------------------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | Kết quả trả về là true nếu gửi thành công, nếu không kết quả sẽ là false. |
 
 **Ví dụ**
 
