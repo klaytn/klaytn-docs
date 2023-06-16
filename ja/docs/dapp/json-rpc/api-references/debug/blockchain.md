@@ -1,10 +1,15 @@
 # ブロックチェーン検査 <a id="blockchain-inspection"></a>
 
+**NOTE** All other debug namespace APIs **EXCEPT FOR** the following APIs are restricted with `rpc.unsafe-debug.disable` flag:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
-ブロック番号に対応する状態を取得し、 アカウントのリスト（ストレージ、コードを含む）を返す。
+Retrieves the state that corresponds to the block number and returns a list of accounts (including storage and code).
 
-**注意**: この関数は、現在4つの 番目の最新の数値の状態を正しく返します。  コマンドライン オプション `--state.block-interval` (デフォルト: 128) の値に応じて、古いブロック状態の取得が制限されます。  これは、関数 が、 state.block-interval の倍数であるブロック番号のみに対して状態の取得を行うことを意味します。  例えば、 state.block-interval が 128 の場合、この関数は ブロック番号 "0x0", "0x80", "0x100", "0x180" などの状態を返します。  ブロック 番号が state.block-interval の倍数でない場合、それは 'missing trie node' エラーを返します。
+**NOTE**: This function correctly returns the state for a few latest, currently 4, block numbers.  Retrieving older block state is restricted depending on the value set for the command-line option `--state.block-interval` (default: 128).  This means that the function performs the state retrieval against only the block numbers that are multiples of state.block-interval.  For example, when state.block-interval is 128, this function returns the state for the block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval, it returns 'missing trie node' error.
 
 | Client  | メソッドの呼び出し                                           |
 |:-------:| --------------------------------------------------- |
@@ -18,7 +23,7 @@
 | ブロック番号またはハッシュ | QUANTITY &#124; Tag &#124; Hash | 整数または16進ブロック番号、または文字列 `"forest"`、 ` "latest" ` または `"pending"` `"pending"` [既定のブロックパラメータ](../klay/block.md#the-default-block-parameter)、またはブロックハッシュのように。 |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、hex文字列タイプのみ使用できます。
+NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
 {% endhint %}
 
 **Return Value**
@@ -68,7 +73,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_dumpStateTrie <a id="debug_dumpstatetrie"></a>
 
-指定した状態ルートのすべての状態/ストレージの試行を取得します。
+Retrieves all state/storage tries of the given state root.
 
 | Client  | Method Invocation                                       |
 |:-------:| ------------------------------------------------------- |
@@ -105,14 +110,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
-ブロック番号から RLP でエンコードされたブロックを取得し、返します。
+Retrieves and returns the RLP-encoded block by the block number.
 
 | Client  | Method Invocation                                     |
 |:-------:| ----------------------------------------------------- |
 | Console | `debug.getBlockRlp(number)`                           |
 |   RPC   | `{"method": "debug_getBlockRlp", "params": [number]}` |
 
-参照: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
@@ -121,7 +126,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
-注意: Klaytn v1.7.0 より前のバージョンでは、整数型のみ使用できます。
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 {% endhint %}
 
 **Return Value**
@@ -146,7 +151,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block hashes. `endBlockHash` で行われた変更は含まれますが、 `startBlockHash` で行われた変更は含まれません。 `endBlockHash` が指定されていない場合、 `startBlockHash` で変更された口座を返します。 変更は、nonce、balance、code hash、またはstorage hashの差として定義されます。
+Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in `endBlockHash` are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
 | Client  | Method Invocation                                                                           |
@@ -186,7 +191,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block numbers. `endBlockNum` で行われた変更は含まれますが、 `startBlockNum` で行われた変更は含まれません。 `endBlockNum` が指定されていない場合、 `startBlockNum` で変更された口座を返します。 変更は、nonce、balance、 code hash、またはstorage hashの差として定義されます。
+Returns all accounts that have changed between the two blocks specified by their block numbers. Changes made in `endBlockNum` are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
 | Client  | Method Invocation                                                                         |
@@ -225,7 +230,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_preimage <a id="debug_preimage"></a>
 
-既知の場合、sha3 ハッシュのプリイメージを返します。
+Returns the preimage for a sha3 hash, if known.
 
 | Client  | Method Invocation                                |
 |:-------:| ------------------------------------------------ |
@@ -261,7 +266,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBadBlocks <a id="debug_getbadblocks"></a>
 
-クライアントがネットワーク上で最後に見た「バッドブロック」のリストを返します。
+Returns a list of the last 'bad blocks' that the client has seen on the network.
 
 | Client  | Method Invocation                                |
 |:-------:| ------------------------------------------------ |
@@ -293,7 +298,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
-ブロックを取得し、きれいな形式を返します。
+Retrieves a block and returns its pretty printed form.
 
 | Client  | Method Invocation                                    |
 |:-------:| ---------------------------------------------------- |
@@ -333,11 +338,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`警告`**: この API はまだ実装されておらず、常に "未実装の API" エラーを返します。
+**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
 
-ローカルチェーンの現在の先頭をブロック番号で設定します。
+Sets the current head of the local chain by block number.
 
-**注意**: これは破壊的な行為であり、あなたのチェーンに深刻なダメージを与える可能性があります。 *の極端な* に注意して使用してください。
+**NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
 
 | Client  | Method Invocation                                 |
 |:-------:| ------------------------------------------------- |
@@ -370,7 +375,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_seedHash <a id="debug_seedhash"></a>
 
-ブロックのシードハッシュを取得します。
+Retrieves the seed hash of a block.
 
 
 | Client  | Method Invocation                                  |
@@ -407,7 +412,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-`startUp` は、最新の状態の trie を繰り返して、trie キャッシュをウォーム アップします。 trieキャッシュの90%がいっぱいの場合、反復は自動的に停止されます。 このメソッドは、ウォームアップの開始に失敗した場合にエラーを返すか、成功した場合は `null` を返します。
+The `startWarmUp` iterates the latest state trie to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
 
 | Client  | Method invocation                 |
 |:-------:| --------------------------------- |
@@ -441,7 +446,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` は、トリエキャッシュをウォームアップするために、指定されたコントラクトアドレスの最新のストレージトライを繰り返します。 The iteration will be automatically stopped if 90% of the trie cache is full. ウォーム アップの開始に失敗した場合、または指定されたアドレスがコントラクトアドレスではない場合、メソッドはエラーを返します。 または `null` が正常に開始された場合。
+The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
 
 | Client  | Method invocation                                              |
 |:-------:| -------------------------------------------------------------- |
@@ -477,7 +482,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
-`stopWarmUp` は現在実行中のウォームアップを停止します。 このメソッドはパラメータを取りません。 `null` を返すか、ウォームアップが停止したかどうかに応じてエラーが返されます。
+The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
 
 | Client  | Method invocation          |
 |:-------:| -------------------------- |
@@ -510,7 +515,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-`startCollectingTrieStats` は、最新の状態またはストレージのトライを反復してトリの統計を収集します。 指定されたアドレスにコントラクトのストレージトライの統計を収集します。 空のアドレス(="0x00...00")が与えられると、状態全体の統計が収集されます。 統計は終了の1分前に記録され、全体情報と深さごとの情報が含まれます。 このメソッドは、タスクの開始に失敗した場合にエラーを返すか、成功した場合は `null` を返します。
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information. The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
 
 | Client  | Method invocation                                                   |
 |:-------:| ------------------------------------------------------------------- |
@@ -548,7 +553,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-ログ
+Log
 
 ```
 INFO[03/10,12:03:12 +09] [5] trie statistics blockNum=1491072root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264len(children)=16
