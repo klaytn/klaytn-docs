@@ -1,32 +1,34 @@
 # Theo dõi VM <a id="vm-tracing"></a>
 
+**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public. If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
+
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-Phương thức `traceBadBlock` sẽ trả về theo dõi stack hoàn chỉnh của tất cả mã vận hành của tất cả các giao dịch được bao gồm trong khối này.
+The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
-**LƯU Ý**: khối cha của khối này phải hiện diện nếu không nó sẽ không thành công.
+**NOTE**: the parent of this block must be present or it will fail.
 
-|    Máy khách    | Gọi Phương thức                                           |
+|    Máy khách    | Gọi phương pháp                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBadBlock(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại           | Mô tả                                      |
-| -------- | --------------- | ------------------------------------------ |
-| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                      |
-| tùy chọn | đối tượng       | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | Loại           | Mô tả                                          |
+| -------- | --------------- | ---------------------------------------------- |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                          |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
-| Loại      | Mô tả                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình triển khai KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBadBlock("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 [{
@@ -57,33 +59,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-Phương thúc `traceBlock` sẽ trả về theo dõi stack hoàn chỉnh của tất cả mã vận hành được gọi của tất cả các giao dịch được bao gồm trong khối này.
+The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
-**LƯU Ý**: khối cha của khối này phải hiện diện nếu không nó sẽ không thành công.
+**NOTE**: the parent of this block must be present or it will fail.
 
-|    Máy khách    | Gọi Phương thức                                            |
+|    Máy khách    | Gọi phương pháp                                            |
 |:---------------:| ---------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlock(blockRlp, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
-Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                      |
-| -------- | --------- | ------------------------------------------ |
-| blockRlp | chuỗi     | Mã hóa RLP.                                |
-| tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | Loại     | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| blockRlp | chuỗi     | Khối mã hóa RLP.                               |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại      | Mô tả                                                       |
 | ---------- | ----------------------------------------------------------- |
 | Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBlock("0xblock_rlp")
 [{
@@ -105,29 +107,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
-Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByHash` chấp nhận một hàm băm khối và sẽ chạy lại khối đã có trong cơ sở dữ liệu.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
 
-|    Máy khách    | Gọi Phương thức                                              |
+|    Máy khách    | Gọi phương pháp                                              |
 |:---------------:| ------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockByHash(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại           | Mô tả                                      |
-| -------- | --------------- | ------------------------------------------ |
-| hàm băm  | DỮ LIỆU 32-byte | Hàm băm của một khối.                      |
-| tùy chọn | đối tượng       | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | Loại           | Mô tả                                          |
+| -------- | --------------- | ---------------------------------------------- |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                          |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại      | Mô tả                                                       |
 | ---------- | ----------------------------------------------------------- |
 | Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBlockByHash("0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890")
 [{
@@ -148,29 +150,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
-Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` chấp nhận một số khối và sẽ phát lại khối đã có trong cơ sở dữ liệu.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
 
-|    Máy khách    | Gọi Phương thức                                                  |
+|    Máy khách    | Gọi phương pháp                                                  |
 |:---------------:| ---------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumber(number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại      | Mô tả                                      |
-| -------- | --------- | ------------------------------------------ |
-| số       | int       | Số khối.                                   |
-| tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| số       | int       | Số khối.                                       |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại      | Mô tả                                                       |
 | ---------- | ----------------------------------------------------------- |
 | Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBlockByNumber(1449)
 [{
@@ -192,32 +194,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
 
-Trả về nhật ký có cấu trúc được tạo trong quá trình triển khai EVM giữa hai khối (bao gồm khởi đầu) dưới dạng đối tượng JSON. Nghĩa là, kết quả của việc theo dõi tổng số khối end-start+1 được trả về.
+Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object. That is, the result of tracing for a total of end-start+1 blocks is returned.
 
-|    Máy khách    | Gọi Phương thức                                                               |
+|    Máy khách    | Gọi phương pháp                                                               |
 |:---------------:| ----------------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumberRange(number, number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
-**LƯU Ý**: Không theo dõi quá nhiều khối cùng lúc vì có thể gây lạm dụng tài nguyên máy.
+**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại      | Mô tả                                      |
-| -------- | --------- | ------------------------------------------ |
-| số       | int       | Theo dõi số khối bắt đầu.                  |
-| số       | int       | Theo dõi số khối cuối.                     |
-| tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| số       | int       | Theo dõi số khối bắt đầu.                      |
+| số       | int       | Theo dõi số khối kết thúc.                     |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại                                  | Mô tả                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------ |
-| map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
+| map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa bản ghi có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBlockByNumberRange(21, 30, {})
 {
@@ -248,39 +250,39 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-Tương tự như [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` chấp nhận một tệp chứa RLP của khối.
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
 
-**LƯU Ý**: tệp phải bao gồm chuỗi thập lục phân được liên kết mà không có `0x`.
+**NOTE**: the file must include the associated hexadecimal string without `0x`.
 
-|    Máy khách    | Gọi Phương thức                                                    |
+|    Máy khách    | Gọi phương pháp                                                    |
 |:---------------:| ------------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockFromFile(fileName, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
-Tham chiếu: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Tham số**
+**Parameters**
 
-| Tên         | Loại      | Mô tả                                      |
-| ----------- | --------- | ------------------------------------------ |
-| tên tệp tin | chuỗi     | Tên tệp chứa RLP của khối.                 |
-| tùy chọn    | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên         | type      | Mô tả                                          |
+| ----------- | --------- | ---------------------------------------------- |
+| tên tệp tin | chuỗi     | Tên tệp chứa RLP của khối.                     |
+| tùy chọn    | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại      | Mô tả                                                       |
 | ---------- | ----------------------------------------------------------- |
 | Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Nội dung của tệp `block.rlp` được in trên nút đang chạy như sau.
+The contents of the `block.rlp` file was printed on the running node as follows.
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
 ```
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceBlockFromFile("block.rlp")
 [{
@@ -303,29 +305,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-Phương thức gỡ lỗi `traceTransaction` sẽ cố chạy giao dịch theo cách tương tự như khi nó được triển khai trên mạng. Nó sẽ chạy lại bất kỳ giao dịch nào có thể đã được thực hiện trước giao dịch này trước khi cuối cùng nó sẽ cố gắng thực hiện giao dịch tương ứng với hàm băm đã cho.
+The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
 
-|    Máy khách    | Gọi Phương thức                                                |
+|    Máy khách    | Gọi phương pháp                                                |
 |:---------------:| -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceTransaction(txHash, [options])`                    |
 |       RPC       | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại      | Mô tả                                      |
-| -------- | --------- | ------------------------------------------ |
-| txHash   | chuỗi     | Hàm băm của giao dịch.                     |
-| tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| txHash   | chuỗi     | Hàm băm của giao dịch.                         |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Giá trị Trả về**
+**Return Value**
 
 | Loại      | Mô tả                                                       |
 | ---------- | ----------------------------------------------------------- |
 | Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09")
 {
@@ -407,19 +409,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceChain <a id="debug_tracechain"></a>
 
-Trả về nhật ký có cấu trúc được tạo trong quá trình triển khai EVM giữa hai khối (không bao gồm khởi đầu) dưới dạng đối tượng JSON. Điểm cuối này phải được gọi thông qua debug_subscribe như sau:
+Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
 
-**LƯU Ý**: Không theo dõi quá nhiều khối cùng lúc vì có thể gây lạm dụng tài nguyên máy.
+**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại      | Mô tả                                      |
-| -------- | --------- | ------------------------------------------ |
-| số       | int       | Theo dõi số khối bắt đầu.                  |
-| số       | int       | Theo dõi số khối cuối.                     |
-| tùy chọn | đối tượng | Xem [tùy chọn theo dõi](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| số       | int       | Theo dõi số khối bắt đầu.                      |
+| số       | int       | Theo dõi số khối kết thúc.                     |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
-**Ví dụ**
+**Example**
 ```
 wscat -c ws://localhost:8552
 > {"id": 1, "method": "debug_subscribe", "params": ["traceChain", 21, 30, {}]}
@@ -430,34 +432,34 @@ wscat -c ws://localhost:8552
 >
 ```
 
-## Tùy chọn theo dõi <a id="tracing-options"></a>
+## Các tùy chọn theo dõi <a id="tracing-options"></a>
 
-Bạn có thể cung cấp cho chức năng API theo dõi một đối số tùy chọn phụ, chỉ định các tùy chọn cho lệnh gọi cụ thể này. Các tùy chọn khả thi là:
+You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
-- `disableStorage`: `BOOL`. Đặt nó thành true sẽ vô hiệu hóa tính năng thu thập lưu trữ (mặc định = false).
-- `disableMemory`: `BOOL`. Đặt nó thành true sẽ vô hiệu hóa tính năng thu thập bộ nhớ (mặc định = false).
-- `disableStack`: `BOOL`. Đặt nó thành true sẽ vô hiệu hóa tính năng thu thập stack (mặc định = false).
-- `hết thời gian`: `CHUỖI`. Ghi đè thời gian chờ mặc định là 5 giây cho các lệnh gọi theo dõi dựa trên JavaScript. Các giá trị hợp lệ được mô tả [tại đây](https://golang.org/pkg/time/#ParseDuration).
-- `trình theo dõi`: `CHUỖI`. Thiết lập cài đặt này sẽ kích hoạt theo dõi giao dịch dựa trên JavaScript, được mô tả tại [phần tiếp theo](#javascript-based-tracing). Nếu được thiết lập, bốn đối số trước đó sẽ bị bỏ qua. Các trình theo dõi được xác định trước cũng có thể được sử dụng như bảng sau.
+- `disableStorage`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập lưu trữ (mặc định = false).
+- `disableMemory`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập bộ nhớ (mặc định = false).
+- `disableStack`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập ngăn xếp (mặc định = false).
+- `hết thời gian chờ`: `CHUỖI`. Ghi đè thời gian chờ mặc định là 5 giây cho các lệnh gọi theo dõi dựa trên JavaScript. Các giá trị hợp lệ được mô tả [tại đây](https://golang.org/pkg/time/#ParseDuration).
+- `trình theo dõi`: `CHUỖI`. Thiết lập cài đặt này sẽ kích hoạt theo dõi giao dịch dựa trên JavaScript, được mô tả trong [phần tiếp theo](#javascript-based-tracing). Nếu được thiết lập, bốn đối số trước đó sẽ bị bỏ qua. Các trình theo dõi được xác định trước cũng có thể được sử dụng như trong bảng sau.
 
-| Tên Trình theo dõi | Mô tả                                                                                                                                                                                                                                    |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4byteTracer        | 4byteTracer tìm kiếm các mã định danh 4byte và thu thập chúng để xử lý hậu kỳ. Nó thu thập các mã định danh phương thức cùng với kích thước của dữ liệu được cung cấp, do đó, chữ ký đảo ngược có thể khớp với kích thước của dữ liệu.   |
-| callTracer         | callTracer là một công cụ theo dõi giao dịch toàn diện trích xuất và báo cáo tất cả các lệnh gọi nội bộ được thực hiện bởi một giao dịch cũng như các thông tin hữu ích khác.                                                            |
-| fastCallTracer     | fastCallTracer là phiên bản Go-native của callTracer. Do nó không được thực thi trên máy ảo JavaScript nên nó sẽ hiển thị tốc độ gấp 10 lần so với callTracer. Vui lòng sử dụng fastCallTracer thay vì callTracer nếu ưu tiên hiệu suất. |
-| evmdisTracer       | evmdisTracer trả về đầy đủ thông tin theo dõi để thực hiện quá trình tháo gỡ kiểu evmdis.                                                                                                                                                |
-| noopTracer         | noopTracer là mã soạn sẵn cơ bản được yêu cầu từ một đối tượng JavaScript để sử dụng làm công cụ theo dõi giao dịch.                                                                                                                     |
-| opcountTracer      | opcountTracer là công cụ theo dõi mẫu chỉ đếm số lượng lệnh được KLVM thực thi trước khi giao dịch kết thúc.                                                                                                                             |
-| prestateTracer     | prestateTracer cung cấp thông tin đầy đủ để thực thi cục bộ một giao dịch từ một khối khởi nguyên được kết hợp tùy chỉnh.                                                                                                                |
-| revertTracer       | revertTracer cung cấp chuỗi lỗi REVERT. Nếu quá trình thực thi không được hoàn nguyên, nó sẽ xuất ra một chuỗi trống.                                                                                                                    |
-| unigramTracer      | unigramTracer trả về số lần xuất hiện của mỗi mã vận hành.                                                                                                                                                                               |
-| bigramTracer       | bigramTracer trả về số lần xuất hiện của hai mã vận hành liên tiếp.                                                                                                                                                                      |
-| trigramTracer      | trigramTracer trả về số lần xuất hiện của ba mã vận hành liên tiếp.                                                                                                                                                                      |
+| Tên trình theo dõi | Mô tả                                                                                                                                                                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 4byteTracer        | 4byteTracer tìm kiếm các mã định danh 4byte và thu thập chúng để xử lý hậu kỳ. Phương thức này sẽ thu thập các mã định danh phương pháp cùng với kích thước của dữ liệu được cung cấp, do đó, chữ ký đảo ngược có thể khớp với kích thước của dữ liệu. |
+| callTracer         | callTracer là một công cụ theo dõi giao dịch toàn diện trích xuất và báo cáo tất cả các lệnh gọi nội bộ được thực hiện bởi một giao dịch cũng như các thông tin hữu ích khác.                                                                          |
+| fastCallTracer     | fastCallTracer là phiên bản Go-native của callTracer. Do nó không được thực thi trên máy ảo JavaScript nên nó sẽ hiển thị tốc độ gấp 10 lần so với callTracer. Hãy sử dụng fastCallTracer thay vì callTracer nếu ưu tiên hiệu suất.                    |
+| evmdisTracer       | evmdisTracer trả về đầy đủ thông tin theo dõi để thực hiện quá trình phân giải kiểu evmdis.                                                                                                                                                            |
+| noopTracer         | noopTracer là mã soạn sẵn cơ bản được yêu cầu từ một đối tượng JavaScript để sử dụng làm công cụ theo dõi giao dịch.                                                                                                                                   |
+| opcountTracer      | opcountTracer là công cụ theo dõi mẫu chỉ đếm số lượng lệnh được KLVM thực thi trước khi giao dịch kết thúc.                                                                                                                                           |
+| prestateTracer     | prestateTracer cung cấp thông tin đầy đủ để thực thi cục bộ một giao dịch từ một khối khởi nguyên được kết hợp tùy chỉnh.                                                                                                                              |
+| revertTracer       | revertTracer cung cấp chuỗi lỗi REVERT. Nếu quá trình thực thi không được hoàn nguyên, nó sẽ xuất ra một chuỗi trống.                                                                                                                                  |
+| unigramTracer      | unigramTracer trả về số lần xuất hiện của mỗi mã vận hành.                                                                                                                                                                                             |
+| bigramTracer       | bigramTracer trả về số lần xuất hiện của hai mã vận hành liên tiếp.                                                                                                                                                                                    |
+| trigramTracer      | trigramTracer trả về số lần xuất hiện của ba mã vận hành liên tiếp.                                                                                                                                                                                    |
 
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09", {tracer: "callTracer"})
 {
@@ -486,67 +488,70 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## Theo dõi dựa trên JavaScript <a id="javascript-based-tracing"></a>
-Chỉ định tùy chọn `trình theo dõi` trong đối số thứ hai để kích hoạch theo dõi dựa trên JavaScript. Trong chế độ này, `trình theo dõi` được hiểu là một biểu thức JavaScript dự kiến ​​sẽ đánh giá một đối tượng có (ít nhất) hai phương thức có tên là `bước` và `kết quả`.
 
-`bước` là một hàm nhận hai đối số, `nhật ký` và `db`, và được gọi cho từng bước của KLVM hoặc khi xảy ra lỗi theo quy định giao dịch được theo dõi.
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 
-`nhật ký` có các trường sau:
+Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
-| Tên Trường  | Loại           | Mô tả                                                        |
+`step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
+
+`log` has the following fields:
+
+| Tên trường  | type           | Mô tả                                                        |
 | ----------- | -------------- | ------------------------------------------------------------ |
 | `pc`        | Số             | Bộ đếm chương trình hiện tại.                                |
 | `op`        | Đối tượng      | Một đối tượng Mã vận hành đại diện cho mã vận hành hiện tại. |
 | `gas`       | Số             | Lượng gas còn lại.                                           |
-| `giá ga`    | Số             | Chi phí tính bằng peb của mỗi đơn vị gas.                    |
+| `giá gas`   | Số             | Chi phí tính bằng peb của mỗi đơn vị gas.                    |
 | `bộ nhớ`    | Đối tượng      | Một cấu trúc đại diện cho không gian bộ nhớ của hợp đồng.    |
-| `phân loại` | array[big.Int] | Stack thực thi KLVM.                                         |
+| `ngăn xếp`  | array[big.Int] | Ngăn xếp thực thi KLVM.                                      |
 | `độ sâu`    | Số             | Độ sâu thực thi.                                             |
 | `tài khoản` | Chuỗi          | Địa chỉ của tài khoản thực hiện thao tác hiện tại.           |
-| `lỗi`       | Chuỗi          | Nếu xảy ra lỗi, thông tin về lỗi.                            |
+| `lỗi`       | Chuỗi          | Nếu xảy ra lỗi, thông tin về lỗi đó.                         |
 
-Nếu `lỗi` là non-null, thì tất cả các trường khác sẽ bị bỏ qua.
+If `err` is non-null, all other fields should be ignored.
 
-Để đạt hiệu quả, cùng một đối tượng `nhật ký` sẽ được sử dụng lại ở mỗi bước thực hiện, được cập nhật với các giá trị hiện tại; đảm bảo sao chép các giá trị bạn muốn giữ lại ngoài lệnh gọi hiện tại. Chẳng hạn, chức năng bước sẽ không hoạt động:
-
-```javascript
-function(log) {
-  this.logs.append(log);
-}
-```
-
-Nhưng chức năng bước sẽ:
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
 
 ```javascript
 function(log) {
-  this.logs.append({gas: log.gas, pc: log.pc, ...});
+  this.nhật ký.append(log);
 }
 ```
 
-`log.op` có các phương thức sau:
+But this step function will:
 
-| Tên Phương thức | Mô tả                                   |
+```javascript
+function(log) {
+  this.nhật ký.append({gas: log.gas, pc: log.pc, ...});
+}
+```
+
+`log.op` has the following methods:
+
+| Tên phương pháp | Mô tả                                   |
 | --------------- | --------------------------------------- |
 | `isPush()`      | Trả về true nếu mã vận hành là `PUSHn`. |
 | `toString()`    | Trả về chuỗi đại diện của mã vận hành.  |
 | `toNumber()`    | Trả về số của mã vận hành.              |
 
-`log.memory` có các phương thức sau:
+`log.memory` has the following methods:
 
-| Tên Phương thức      | Mô tả                                                       |
+| Tên phương pháp      | Mô tả                                                       |
 | -------------------- | ----------------------------------------------------------- |
 | `slice(start, stop)` | Trả về phân đoạn bộ nhớ đã chỉ định dưới dạng lát cắt byte. |
 | `length()`           | Trả về độ dài của bộ nhớ.                                   |
 
-`log.stack` có các phương thức sau:
+`log.stack` has the following methods:
 
-| Tên Phương thức | Mô tả                                                                             |
-| --------------- | --------------------------------------------------------------------------------- |
-| `peek(idx)`     | Trả về phần tử thứ idx từ đầu stack (0 là phần tử trên cùng) dưới dạng `big.Int`. |
-| `length()`      | Trả về số phần tử trong stack.                                                    |
+| Tên phương pháp | Mô tả                                                                                |
+| --------------- | ------------------------------------------------------------------------------------ |
+| `peek(idx)`     | Trả về phần tử thứ idx từ đầu ngăn xếp (0 là phần tử trên cùng) dưới dạng `big.Int`. |
+| `length()`      | Trả về số phần tử trong ngăn xếp.                                                    |
 
-`db` có các phương thức sau:
+`db` has the following methods:
 
-| Tên Phương thức           | Mô tả                                                                           |
+| Tên phương pháp           | Mô tả                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------- |
 | `getBalance(address)`     | Trả về `big.Int` với số dư của tài khoản được chỉ định.                         |
 | `getNonce(address)`       | Trả về một số với số dùng một lần của tài khoản được chỉ định.                  |
@@ -554,13 +559,13 @@ function(log) {
 | `getState(address, hash)` | Trả về giá trị trạng thái cho tài khoản được chỉ định và hàm băm được chỉ định. |
 | `exists(address)`         | Trả về true nếu địa chỉ được chỉ định tồn tại.                                  |
 
-Hàm thứ hai, `kết quả`, không nhận đối số và sẽ trả về một giá trị tuần tự hóa JSON để trả về người gọi RPC.
+The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
-Nếu hàm `bước` đưa ra một ngoại lệ hoặc thực thi một thao tác bất hợp pháp tại thởi điểm bất kỳ, nó sẽ không được gọi trong bất kỳ bước VM nào và lỗi sẽ được trả về cho người gọi.
+If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
 
-Lưu ý rằng một số giá trị là đối tượng Golang `big.Int`, không phải số JavaScript hoặc bigint JS. Như vậy, chúng có giao diện giống như được mô tả trong godocs. Tuần tự hóa mặc định của chúng thành JSON là một số Javascript; để tuần tự hóa các số lớn một cách chính xác, hãy gọi lệnh `.String()` trên chúng. Để thuận tiện, `big.NewInt(x)` được cung cấp và sẽ chuyển đổi uint thành Golang `big.Int`.
+Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 
-Như ví dụ sử dụng bên dưới, nó trả về phần tử trên cùng của stack với mỗi LỆNH GỌI riêng mã vận hành:
+As an usage example below, it returns the top element of the stack at each CALL opcode only:
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
