@@ -3,9 +3,9 @@ description: >-
   API được sử dụng để truy vấn cấu hình mạng.
 ---
 
-# Namespace net <a id="namespace-net"></a>
+# Không gian tên net <a id="namespace-net"></a>
 
-Namespace `net` cung cấp các hàm liên quan đến mạng Klaytn.
+Không gian tên `net` cung cấp các hàm liên quan đến mạng lưới Klaytn.
 
 
 ## net_networkID <a id="net_networkid"></a>
@@ -16,7 +16,7 @@ Trả về mã định danh mạng (ID mạng).
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại    | Mô tả                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,17 +39,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_listening <a id="net_listening"></a>
 
-Trả về `đúng` nếu máy khách đang tích cực lắng nghe các kết nối mạng.
+Trả về `true` nếu máy khách đang chủ động lắng nghe các kết nối mạng.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại    | Mô tả                                                 |
-| ------- | ----------------------------------------------------- |
-| Boolean | `đúng` khi máy khách đang nghe, `sai` nếu không phải. |
+| type    | Mô tả                                                    |
+| ------- | -------------------------------------------------------- |
+| Boolean | `true` khi máy khách đang nghe, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -74,7 +74,7 @@ Trả về số lượng máy ngang hàng hiện đang kết nối với máy kh
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại    | Mô tả                                               |
 | -------- | --------------------------------------------------- |
@@ -102,7 +102,7 @@ Trả về số nút được kết nối theo loại và tổng số nút đư�
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại      | Mô tả                                                                                        |
 | ---------- | -------------------------------------------------------------------------------------------- |
@@ -130,7 +130,7 @@ Trả về phiên bản giao thức klaytn hiện tại.
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại    | Mô tả                                                                                                                                           |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
