@@ -1,5 +1,5 @@
-# Tools and Configuration
-## :Prometheus, InfluxDB+Grafana, Datadog and NewRelic <a id="tools-and-configuration"></a>
+# Công cụ và cấu hình
+## :Prometheus, InfluxDB+Grafana, Datadog và NewRelic <a id="tools-and-configuration"></a>
 
 
 
