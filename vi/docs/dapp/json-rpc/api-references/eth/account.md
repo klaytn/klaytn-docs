@@ -1,6 +1,6 @@
-## eth_accounts <a id="eth_accounts"></a>
+## eth_tài khoảns <a id="eth_accounts"></a>
 
-Trả về danh sách các địa chỉ thuộc sở hữu của khách hàng.
+Trả về danh sách địa chỉ thuộc sở hữu của máy khách.
 
 **Tham số**
 
@@ -8,15 +8,15 @@ Không có
 
 **Giá trị trả về**
 
-| Loại                 | Mô tả                                    |
-| -------------------- | ---------------------------------------- |
-| Mảng DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của khách hàng. |
+| type                 | Mô tả                                   |
+| -------------------- | --------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của máy khách. |
 
 **Ví dụ**
 
 ```shell
 // Yêu cầu
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_tài khoảns","params":[],"id":1}' http://localhost:8551
 
 // Kết quả
 {
@@ -29,20 +29,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBalance <a id="eth_getbalance"></a>
 
-Trả về số dư tài khoản của địa chỉ đã cung cấp.
+Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                  | Loại                               | Mô tả                                                                                                                                                                                         |
-| -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| địa chỉ              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                                    |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| Tên                  | type                               | Mô tả                                                                                                                                                                                   |
+| -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                              |
+| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
-| Kiểu     | Mô tả                                   |
-| -------- | --------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số dư hiện tại trong peb. |
+| type     | Mô tả                                       |
+| -------- | ------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên của số dư hiện tại theo peb. |
 
 **Ví dụ**
 
@@ -60,20 +60,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getCode <a id="eth_getcode"></a>
 
-Trả về mã ở địa chỉ đã cấp.
+Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                         |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                   | Địa chỉ                                                                                                                                                                                       |
-| SỐ LƯỢNG &#124; THẺ &#124; MÃ BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| type                               | Mô tả                                                                                                                                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
-| Loại   | Mô tả                 |
-| ------- | --------------------- |
-| DỮ LIỆU | Mã từ địa chỉ đã cho. |
+| Loại | Mô tả                 |
+| ----- | --------------------- |
+| DATA  | Mã từ địa chỉ đã cho. |
 
 **Ví dụ**
 
@@ -92,20 +92,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Trả về số lượng giao dịch *đã gửi* từ một địa chỉ.
+Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                         |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                       |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối là số nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm của khối. |
+| Loại                              | Mô tả                                                                                                                                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
+| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                     |
+| type     | Mô tả                                                     |
 | -------- | --------------------------------------------------------- |
-| SỐ LƯỢNG | Giá trị nguyên của số lượng giao dịch gửi từ địa chỉ này. |
+| SỐ LƯỢNG | Giá trị nguyên chỉ số lượng giao dịch gửi từ địa chỉ này. |
 
 **Ví dụ**
 
@@ -129,22 +129,22 @@ Phương thức ký tính chữ ký dành riêng cho Klaytn bằng hàm:
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Thêm tiền tố vào thông điệp giúp chữ ký đã tính có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Việc này giúp ngăn chặn việc dùng một dApp (ứng dụng phi tập trung) độc hại để ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
+Việc thêm tiền tố vào thông báo giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Việc này giúp ngăn chặn việc dùng một dApp (ứng dụng phi tập trung) độc hại để ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
 
 **LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa.
 
 **Tham số**
 
-| Tên        | Loại           | Mô tả             |
-| ---------- | --------------- | ----------------- |
-| tài khoản  | DỮ LIỆU 20 byte | Địa chỉ           |
-| thông điệp | DỮ LIỆU N byte  | Thông điệp cần ký |
+| Tên       | Loại           | Mô tả            |
+| --------- | --------------- | ---------------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ          |
+| thông báo | DỮ LIỆU N byte  | Thông báo cần ký |
 
 **Giá trị trả về**
 
-| Loại    | Mô tả  |
-| ------- | ------ |
-| DỮ LIỆU | Chữ ký |
+| type | Mô tả  |
+| ---- | ------ |
+| DATA | Chữ ký |
 
 **Ví dụ**
 
