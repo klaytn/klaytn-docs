@@ -1,8 +1,13 @@
 # VM 표준 추적 <a id="vm-standard-tracing"></a>
 
+**NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public. We recommend you to provide the debug namespace APIs to authorized users only. However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs. The enabled APIs are as follows:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-[debug_traceBadBlock](./tracing.md#debug_tracebadblock)과 유사하게 `standardTraceBadBlockToFile`는 잘못된 블록 해시를 입력으로 받아 잘못된 해당 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
+Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
 
 | Client  | Method Invocation                                                       |
@@ -40,7 +45,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
-[debug_traceBlock](./tracing.md#debug_traceblock)과 유사하게 `standardTraceBlockToFile`은 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
+Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
 | Client  | Method Invocation                                                    |
 |:-------:| -------------------------------------------------------------------- |
@@ -77,11 +82,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## 표준 추적 옵션 <a id="standard-tracing-options"></a>
 
-추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
+You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
-- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다.(기본 설정: false)
-- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다.(기본 설정: false)
-- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다.(기본 설정: false)
-- `txHash`: `string`. 이 옵션으로 설정한 트랜잭션만 추적합니다.
+- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
+- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
+- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
+- `txHash`: `string`. Setting this value will trace only the specified transaction.
 
 
