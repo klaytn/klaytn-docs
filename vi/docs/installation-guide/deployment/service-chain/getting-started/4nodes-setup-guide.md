@@ -1,13 +1,13 @@
-Phần này trình bày cách thiết lập Chuỗi dịch vụ đa nút. Chúng ta sẽ thiết lập Chuỗi dịch vụ 4 nút đồng thuận với `chainID` 1002, như bạn có thể thấy trong hộp viền màu xanh trong hình bên dưới.
+Phần này trình bày cách thiết lập ServiceChain đa nút. Chúng ta sẽ thiết lập ServiceChain 4 nút đồng thuận với `chainID` 1002, như bạn có thể thấy trong hộp viền màu xanh trong hình bên dưới.
 
 ![](../images/sc-4scn-arch.png)
 
 
 ## Điều kiện tiên quyết <a id="prerequisites"></a>
- - Tải về gói nhị phân `kscn` và `homi` từ [Tải về](../../../download/README.md).
+ - Gói tải về nhị phân `kscn` và `homi` từ [Tải xuống](../../../download/README.md).
  - 4 máy chủ Linux hoặc MacOS
  - Yêu cầu phần cứng tối thiểu
-   - CPU: 4-core (Intel Xeon hoặc tương đương), RAM: 16GB, HDD: 50GB
+   - CPU: 4 nhân (Intel Xeon hoặc tương đương), RAM: 16GB, HDD: 50GB
    - Vui lòng tham khảo [Yêu cầu hệ thống](../references/system-requirements.md) để biết thêm chi tiết.
 
 ## Bước 0: Cài đặt SCN trên tất cả các nút <a id="install-scn"></a>
@@ -23,7 +23,7 @@ x kscn-XXXXX-amd64/bin/kscnd
 x kscn-XXXXX-amd64/bin/kscn
 ```
 
-Để thuận tiện, chúng tôi sẽ thêm đường dẫn nhị phân vào $PATH. Sử dụng đường dẫn thự trên nút của bạn.
+Để thuận tiện, chúng tôi sẽ thêm đường dẫn nhị phân vào $PATH. Sử dụng đường dẫn thực trên nút của bạn.
 ```console
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
@@ -65,7 +65,7 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-Chuyển đến thư mục `bin` và thực thi `homi` với các tùy chọn sau để tạo tập tin. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Vì `chainID` của Baobab là 1001, để thuận tiện, `chainID` của Chuỗi dịch vụ trong ví dụ này được đặt là 1002. Khi vận hành một blockchain bằng cách khởi chạy một dịch vụ thực tế, bạn nên sử dụng dịch vụ đó sau khi đăng ký giá trị chainID mới tại https://chainlist.defillama.com/ để chainID không trùng lặp với các Chuỗi dịch vụ khác. Cổng chuỗi dịch vụ được đặt là 22323 hay chính là cổng mặc định.
+Chuyển đến thư mục `bin` và thực thi `homi` với các tùy chọn sau để tạo tập tin. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Vì `chainID` của Baobab là 1001, để thuận tiện, `chainID` của ServiceChain trong ví dụ này được đặt là 1002. Khi vận hành một blockchain bằng cách khởi chạy một dịch vụ thực tế, bạn nên sử dụng dịch vụ đó sau khi đăng ký giá trị chainID mới tại https://chainlist.defillama.com/ để chainID không trùng lặp với các ServiceChain khác. Cổng ServiceChain được đặt là 22323 hay chính là cổng mặc định.
 
 ```console
 $ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -89,12 +89,12 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Trong số các đầu ra, chúng ta sẽ sử dụng `nodekey*`, `genesis.json` và `static-nodes.json` trong các bước tiếp theo.
+Trong số các đầu ra, chúng ta sẽ sử dụng `khóa nút*`, `genesis.json` và `static-nodes.json` trong các bước tiếp theo.
 
 
 ## Bước 2: Tùy chỉnh static-nodes.json <a id="step-2-customize-static-nodes-json"></a>
 
-Mở `homi-output/scripts/static-nodes.json` trong trình soạn thảo văn bản, rồi cập nhật địa chỉ IP và cổng bằng giá trị thực của các nút của bạn. Trong ví dụ này, giả định rằng IP của mỗi nút SCN trong Chuỗi dịch vụ giồng như trong hình bên dưới. Hãy nhớ cổng bạn đã gán ở đây vì nó sẽ được sử dụng sau trong bước 4.
+Mở `homi-output/scripts/static-nodes.json` trong trình soạn thảo văn bản, rồi cập nhật địa chỉ IP và cổng bằng giá trị thực của các nút của bạn. Trong ví dụ này, giả định rằng IP của mỗi nút SCN trong ServiceChain giống như trong hình bên dưới. Hãy nhớ cổng bạn đã gán ở đây vì nó sẽ được sử dụng sau trong bước 4.
 
 ![](../images/sc-4scn-ip.png)
 
@@ -117,7 +117,7 @@ $ scp -r path/to/homi-output/ user@192.168.0.4:~/
 ```
 
 ## Bước 3: Khởi tạo nút <a id="step-3-node-initialization"></a>
-Bây giờ, chúng ta sẽ khởi tạo từng nút bằng tệp khởi nguyên. Trên mỗi nút, hãy thực hiện lệnh sau. Điều này sẽ tạo thư mục dữ liệu lưu trữ dữ liệu chuỗi và nhật ký trên thư mục chủ của bạn. Bạn có thể thay đổi thư mục dữ liệu bằng lệnh dẫn hướng `--datadir`. Trong ví dụ này, chúng ta đặt thư mục dữ liệu thành `\~/data`.
+Bây giờ, chúng ta sẽ khởi tạo nút EN bằng tập tin khởi nguyên. Trên mỗi nút, hãy thực hiện lệnh sau. Điều này sẽ tạo thư mục dữ liệu lưu trữ dữ liệu chuỗi và bản ghi trên thư mục chủ của bạn. Bạn có thể thay đổi thư mục dữ liệu bằng lệnh dẫn hướng `--datadir`. Trong ví dụ này, chúng ta đặt thư mục dữ liệu thành `\~/data`.
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -127,14 +127,14 @@ keystore    klay        kscn
 ```
 
 
-## Bước 4: Cài đặt `nodekey` và `static-nodes.json` <a id="step-4-install-nodekey"></a>
+## Bước 4: Cài đặt `khóa nút` và `static-nodes.json` <a id="step-4-install-nodekey"></a>
 
 Trên mỗi SCN, hãy sao chép `static-nodes.json` vào thư mục dữ liệu.
 ```console
 $ cp ~/homi-output/scripts/static-nodes.json ~/data/
 ```
 
-Ở bước 1, chúng ta đã tạo 4 khóa nút. Gán từng khóa nút cho SCN và sao chép `nodekey` phù hợp vào từng thư mục dữ liệu của SCN. Ví dụ: sử dụng `nodekey1` cho nút SCN-L2-01(192.168.0.1) và sử dụng `nodekey2`, `nodekey3` và `nodekey4` tương ứng cho SCN-L2-02(192.168.0.2), SCN-L2-03(192.168.0.3) và SCN-L2-04(192.168.0.4).
+Ở bước 1, chúng ta đã tạo 4 khóa nút. Gán từng khóa nút cho SCN và sao chép `khóa nút` phù hợp vào từng thư mục dữ liệu của SCN. Ví dụ: sử dụng `nodekey1` cho nút SCN-L2-01(192.168.0.1) và sử dụng `nodekey2`, `nodekey3` và `nodekey4` tương ứng cho SCN-L2-02(192.168.0.2), SCN-L2-03(192.168.0.3) và SCN-L2-04(192.168.0.4).
 ```console
 $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 ```
@@ -143,7 +143,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## Bước 5: Định cấu hình nút <a id="step-5-configure-nodes"></a>
 
-Trên mỗi SCN, chuyển tới thư mục cài đặt kscn và chỉnh sửa `conf/kscnd.conf` như sau. `PORT` là cổng dùng để thiết lập `homi` và `SC_SUB_BRIDGE` cần thiết để kết nối cầu nối trrorng phần tiếp theo. Hiện tại, chỉ cần đặt nó thành 0. Trong `DATA_DIR`, nhập thư mục dữ liệu được sử dụng trrong bước 3.
+Trên mỗi SCN, chuyển đến thư mục cài đặt kscn và chỉnh sửa `conf/kscnd.conf` như sau. `PORT` là cổng dùng để thiết lập `homi` và `SC_SUB_BRIDGE` cần thiết để kết nối cầu nối trong phần tiếp theo. Hiện tại, chỉ cần đặt nó thành 0. Trong `DATA_DIR`, nhập thư mục dữ liệu được sử dụng trrong bước 3.
 ```
 ...
 PORT=22323
@@ -169,7 +169,7 @@ $ kscn attach --datadir ~/data
 Nếu bạn muốn dừng một nút, bạn có thể sử dụng lệnh `kscnd stop`
 
 ## (Ví dụ) Tạo và xác nhận giao dịch chuyển giá trị <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
-Bây giờ, Chuỗi dịch vụ 4 nút đã hoạt động. Chúng ta sẽ thực hiện giao dịch chuyển giá trị trong Chuỗi dịch vụ để xác nhận cài đặt.
+Bây giờ, ServiceChain 4 nút đã hoạt động. Chúng ta sẽ thực hiện giao dịch chuyển giá trị trong ServiceChain để xác nhận cài đặt.
 
 ![](../images/sc-4scn-test.png)
 
@@ -178,7 +178,7 @@ Bây giờ, Chuỗi dịch vụ 4 nút đã hoạt động. Chúng ta sẽ thự
 
 
 ```console
-$ kscn account import --datadir ~/data ~/homi-output/keys_test/testkey1
+$ kscn tài khoản import --datadir ~/data ~/homi-output/keys_test/testkey1
 Tài khoản mới của bạn được khóa bằng mật khẩu. Vui lòng nhập mật khẩu. Đừng quên mật khẩu này.
 Cụm mật khẩu:
 Nhắc lại cụm mật khẩu:
@@ -190,7 +190,7 @@ Chỉ có thể mở khóa tài khoản thông qua bảng điều khiển của 
 ```console
 $ kscn attach --datadir ~/data
 > personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
-Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
+Unlock tài khoản 80119c31cdae67c42c8296929bb4f89b2a52cec4
 Passphrase:
 true
 ```
@@ -204,7 +204,7 @@ true
 ```
 
 {% hint style="info" %}
-Hình thức đơn giản nhất của Chuỗi dịch vụ là có một SCN. Chuỗi dịch vụ được minh họa trong hướng dẫn này là Chuỗi dịch vụ 4 nút. Tuy nhiên, bạn có thể thiết lập Chuỗi dịch vụ một nút nếu muốn. Chỉ cần chuyển `--cn-num 1` thay vì `--cn-num 4` cho homi trong "Bước 1:Tạo genesis.json và khóa nút".
+Hình thức đơn giản nhất của ServiceChain là có một SCN. ServiceChain được minh họa trong hướng dẫn này là ServiceChain 4 nút. Tuy nhiên, bạn có thể thiết lập ServiceChain một nút nếu muốn. Chỉ cần chuyển `--cn-num 1` thay vì `--cn-num 4` cho homi trong "Bước 1:Tạo genesis.json và khóa nút".
 
 Cần ít nhất 4 nút để kháng lỗi byzantine. Do đó, số lượng SCN tối thiểu để đạt được tính sẵn sàng cao theo thuật toán BFT là 4. Có 2 nút SCN là không đủ, bởi vì nếu một SCN bị lỗi thì nút còn lại sẽ không thể đạt được sự đồng thuận.
 {% endhint %}
