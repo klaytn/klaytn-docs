@@ -1,4 +1,4 @@
-# những câu lệnh CLI ken <a id="ken-cli-commands"></a>
+# các lệnh CLI ken <a id="ken-cli-commands"></a>
 
 `ken` là giao dịch dòng lệnh cho Nút điểm cuối Klaytn.
 
@@ -13,7 +13,7 @@ CÁCH SỬ DỤNG:
 
 ```bash
 LỆNH:
-   account     Quản lý tài khoản
+   tài khoản     Quản lý tài khoản
    attach      Bắt đầu một môi trường JavaScript tương tác (kết nối với nút)
    console     Bắt đầu một môi trường JavaScript tương tác
    dumpconfig  Hiển thị giá trị cấu hình
@@ -27,11 +27,11 @@ LỆNH:
 Để xem hướng dẫn sử dụng chi tiết cho từng lệnh, hãy chọn tùy chọn `-h`.
 
 ```bash
-$ ken account -h
+$ ken tài khoản -h
 Quản lý tài khoản, liệt kê tất cả các tài khoản hiện có, nhập khóa riêng tư vào tài khoản mới,
 tạo tài khoản mới hoặc cập nhật tài khoản hiện có.
  ...
-Khóa được lưu trữ dưới <DATADIR>/Lưu trữ khóa.
+Khóa được lưu trữ dưới <DATADIR>/keystore.
 Việc chuyển toàn bộ thư mục hoặc khóa riêng lẻ trong đó
 giữa các nút Klaytn chỉ là sao chép đơn thuần.
 
@@ -59,7 +59,7 @@ tham gia vào.
 
 ## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh bảng điều khiển, bạn có thể khởi tạo một phần của các cuộc gọi API Klaytn tới EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
+Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh của bảng điều khiển, bạn có thể khởi tạo một phần của các lệnh gọi ra API Klaytn đến EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
