@@ -10,11 +10,11 @@
 Chuỗi dịch vụ Klaytn cung cấp các tính năng sau.
 
 - Tính hoàn thiện tức thời.
-- Chuyển token xuyên chuỗi.
+- Chuyển token chuỗi chéo.
 - Neo dữ liệu vào chuỗi chính.
 - Hợp đồng cầu nối đa chữ ký để đáp ứng các yêu cầu bảo mật của doanh nghiệp.
 
 ![](../../../klaytn/images/sc_connection.png)
 
 
-Đọc [Giải pháp mở rộng Klaytn](../../../klaytn/scaling-solutions.md) để biết thêm chi tiết về ServiceChain.
+Đọc [Giải pháp mở rộng Klaytn](../../../klaytn/scaling-solutions.md) để biết thêm chi tiết về Chuỗi dịch vụ.
