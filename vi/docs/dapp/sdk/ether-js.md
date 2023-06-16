@@ -1,76 +1,76 @@
 ![](./images/Klaytn-ether.js.png)
 
-# Introduction
+# Giới thiệu
 
-[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Klaytn without any significant modifications.
+[ethers.js](https://docs.ethers.org/) là một thư viện JavaScript cho phép các nhà phát triển tương tác với các mạng chuỗi khối tương tích với EVM như Klaytn. Với các tính năng hỗ trợ của Klaytn dành cho [Sự tương đương với Ethereum](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), các công cụ của Ethereum như ethers.js có thể được dùng trên Klaytn mà không cần thực hiện những sửa đổi đáng kể.
 
-Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
+Do đó, các nhà phát triển có thể tận dụng tính tương thích này và dùng thư viện ethers.js để tương tác với một nút Klaytn.
 
-In this guide, you'll learn how to use the ethers.js library to send a transaction, read data from the blockchain and interact with an existing contract on the Klaytn Network.
-
-
-# Prerequisites
-
-* Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* [NodeJS and NPM](https://nodejs.org/en/)
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách để dùng thư viện ethers.js để gửi một giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng cõ sẵn trên Mạng Klaytn.
 
 
-# Setup Project
+# Điều kiện tiên quyết
 
-To get started, you need to create a project directory to house the files to be created in this guide.
+* Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
+* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) được hỗ trợ.
+* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+* [NodeJS và NPM](https://nodejs.org/en/)
+
+
+# Thiết lập dự án
+
+Để bắt đầu, bạn cần tạo một thư mục dự án để chứa các tập tin được tạo trong hướng dẫn này.
 
 ```bash
 mkdir ethers-js
 cd ethers-js
 ```
 
-## Install ethers.js
+## Cài đặt ethers.js
 
-To install ethers.js, run the following command in your terminal:
+Để cài đặt ethers.js, hãy chạy lệnh sau trong giao diện dòng lệnh:
 
 ```bash
 npm install --save ethers
 ```
 
-## Initialize ethers.js
+## Khởi động ethers.js
 
-In this tutorial, we would be creating a bunch of script files to send transactions, read data from the blockchain, and also interact with an existing smart contract. To get started, you need to know how to initialize ethers.js for each of your script files.
+Trong phần hướng dẫn này, chúng ta sẽ tạo một số tập tin mã lập trình để gửi giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng thông minh có sẵn. Để bắt đầu, bạn cần biết cách để khởi động ethers.js cho từng tập tin mã lập trình.
 
 
-Import `ethers` into your script file.
+Nhập `ethers` vào tập tin mã lập trình.
 
 ```js
 const ethers = require('ethers');
 ```
 
 
-After successfully importing ethers, you need to connect to Klaytn by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Klaytn network. Add the code below to the existing code:
+Sau khi nhập ethers thành công, bạn cần kết nối với Klaytn bằng cách khởi tạo một đối tượng ether.js mới `JsonRpcProvider` với một URL RPC của mạng lưới Klaytn. Thêm mã dưới đây vào mã đã có sẵn:
 
 ```js
 const url = "RPC URL";
 const provider = new ethers.JsonRpcProvider(url)
 ```
-Further, you need to add your private key to sign transactions. Add the code below to the existing code:
+Ngoài ra, bạn cần thêm vào khóa riêng tư của mình để ký các giao dịch. Thêm mã dưới đây vào mã đã có sẵn:
 
 ```js
 const privKey = "Paste Privatekey"
 const signer = new ethers.Wallet(privKey, provider)
 ```
 
-# Reading data from the blockchain
+# Đọc dữ liệu từ chuỗi khối
 
-To read data from the blockchain, create a new `read.js` file in your project folder by running this command:
+Để đọc dữ liệu từ chuỗi khối, hãy tạo một tập tin `read.js` trong thư mục dự án bằng cách chạy lệnh sau:
 
 ```bash
 touch read.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
+Sau khi tạo tập tin này, hãy khởi động ethers như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ tìm hiểu cách đọc dữ liệu từ chuỗi khối (ví dụ như blockNumber, số dư KLAY).
 
-To see this in action, paste the following code in your `read.js`.
+Để xem hành động này, hãy dán mã sau vào `read.js`.
 
 
 ```js
@@ -91,28 +91,28 @@ getKlayBalance()
 
 ```
 
-**Output**
+**Kết quả đầu ra**
 
-To run the script and read data from the blockchain, you can run the following command in your terminal:
+Để chạy mã lập trình và đọc dữ liệu từ chuỗi khối, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
 
 ```bash
 node read.js
 ```
 
-If the transaction was succesful, you'll see the block number and user’s KLAY balance in your terminal.
+Nếu giao dịch thành công, bạn sẽ thấy số khối và số tư KLAY của người dùng trong giao diện dòng lệnh của mình.
 
 
-# Sending a transaction to the blockchain
+# Để gửi một giao dịch đến chuỗi khối
 
-To send a transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
+Để gửi một giao dịch đến chuỗi khối, hãy tạo một tập tin `send.js` mới trong thư mục dự án bằng cách chạy lệnh sau:
 
 ```bash
 touch send.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KLAY to an address).
+Sau khi tạo tập tin này, hãy khởi động ethers như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ tìm hiểu cách để gửi một giao dịch đến chuỗi khối (ví dụ như gửi KLAY đến một địa chỉ).
 
-To see this in action, paste the following code in your `send.js`.
+Để xem hành động này, hãy dán mã sau vào `send.js`.
 
 ```js
 const ethers = require('ethers');
@@ -142,33 +142,33 @@ async function sendTx() {
 sendTx();
 ```
 
-**Output**
+**Kết quả đầu ra**
 
-To run the script and send data to the blockchain, you can run the following command in your terminal:
+Để chạy mã lập trình và gửi dữ liệu đến chuỗi khối, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
 
 ```bash
 node send.js
 ```
 
-If the transaction was succesful, you'll see the transaction receipt been logged in your terminal.
+Nếu giao dịch thành công, bạn sẽ thấy biên lai giao dịch được ghi lại trong giao diện dòng lệnh của mình.
 
 ![](images/send-ethers.png)
 
-# Interact with smart contracts
+# Tương tác với hợp đồng thông minh
 
-To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
+Để tương tác với một hợp đồng thông minh có sẵn trên Klaytn, hãy tạo một tập tin `interact.js` trong thư mục dự án bằng cách chạy lệnh sau:
 
 
 ```bash
 touch interact.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
+Sau khi tạo tập tin này, hãy khởi động ethers như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ dùng ethers.js để tương tác với một hợp đồng thông minh trên Klaytn bằng cách khởi tạo một đối tượng `Contract` bằng ABI và địa chỉ của một hợp đồng đã triển khai:
 
-For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
+Vì mục đích của hướng dẫn này, một hợp đồng lưu trữ đơn giản đã được lập và triển khai trên [Remix IDE](https://docs.klaytn.foundation/content/dapp/tutorials/connecting-remix). Chúng ta sẽ gửi một giao dịch đến hợp đồng bằng cách gọi hàm `store` và đọc dữ liệu từ đó bằng cách gọi hàm `retrieve`.
 
 
-To see this in action, paste the following code in your `interact.js`.
+Để xem hành động này, hãy dán mã sau vào `interact.js`.
 
 ```js
 const ethers = require('ethers');
@@ -237,14 +237,14 @@ retrieveValue()
 ```
 
 
-**Output**
+**Kết quả đầu ra**
 
-To run the script and interact with smart contracts, you can run the following command in your terminal:
+Để chạy mã lập trình và tương tác với hợp đồng thông minh, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
 
 ```js
 node interact.js
 ```
 
-If the transaction was successful, in your terminal you'll see the transaction hash and the value stored.
+Nếu giao dịch thành công, trong giao diện dòng lệnh của mình, bạn sẽ thấy hàm băm của giao dịch và giá trị được lưu trữ.
 
-For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)
+Để được hướng dẫn sâu hơn về ethers.js, vui lòng tham khảo [tài liệu về ethers.js](https://docs.ethers.org/). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)
