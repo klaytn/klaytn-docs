@@ -11,7 +11,7 @@
 ServiceChain là một blockchain cấp doanh nghiệp để đáp ứng các yêu cầu của công ty như chuyển giá trị, bảo mật, hiệu suất cao và tùy chỉnh. ServiceChain Klaytn cung cấp các tính năng sau:
 
 - Tính hoàn thiện tức thời
-- Chuyển token giữa các chuôi Klaytn
+- Chuyển token giữa các chuỗi Klaytin
 - Neo dữ liệu vào chuỗi chính để đảm bảo tính toàn vẹn của dữ liệu
 - Hợp đồng cầu nối đa chữ ký để đáp ứng các yêu cầu bảo mật cấp doanh nghiệp
 
@@ -21,4 +21,4 @@ ServiceChain là một blockchain cấp doanh nghiệp để đáp ứng các y�
 Đọc [Giải pháp mở rộng Klaytn](../../../../klaytn/scaling-solutions.md) để biết thêm chi tiết về ServiceChain. Các video sau đây sẽ giúp bạn hiểu rõ hơn về ServiceChain Klaytn.
 
 - [Mở rộng quy mô theo chiều ngang thông qua Chuỗi dịch vụ trên Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [Kiến trúc có tính sẵn sàng cao của Chuỗi dịch vụ Klaytn | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Kiến trúc có tính khả dụng cao của Chuỗi dịch vụ Klaytn | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
