@@ -4,14 +4,14 @@ Chương này giải thích cách xây dựng mạng lưới ServiceChain theo c
 
 
 ## Điều kiện tiên quyết <a id="prerequisites"></a>
- - Giả sử rằng bạn đã chuyển sang cấu hình ServiceChain và EN Baobab được mô tả trong [ServiceChain lồng nhau](nested-sc.md). Vì vậy, chúng ta sẽ giải thích ngắn gọn những gì đã được giải thích trong phần trước.
+ - Giả sử rằng bạn đã chuyển sang cấu hình ServiceChain và EN Baobab được mô tả trong [Chuỗi dịch vụ lồng nhau](nested-sc.md). Vì vậy, chúng ta sẽ giải thích ngắn gọn những gì đã được giải thích trong phần trước.
  - Giả định và hạn chế
    - Một EN có thể kết nối trực tiếp với một trong các SCN của ServiceChain L2. Tương tự, một SCN trong L2 của ServiceChain có thể kết nối một-một với một trong các SCN trong L3.
    - Một nút SCN có thể có một cầu chính và cả một cầu nối con. Tuy nhiên, số cổng của cầu nối chính và cầu nối con phải được đặt khác nhau. (Ví dụ: cầu nối chính: 50505, cầu nối con: 50506)
-   - Không phải tất cả các SCN trong L2 đều cần có cầu nối tới EN và tương tự như vậy, không phải tất cả các SCN trong L3 đều cần cầu nối tới L2. Tuy nhiên, để đạt được tính sẵn sàng cao, nên có hai hoặc nhiều cặp cầu nối chính và cầu nối con giữa các chuỗi. Trong chương này, chỉ một cặp sẽ được kết nối giữa L2 và L3 và tính sẵn sàng cao giữa L2 và L3 cũng giống như HA giữa Baobab và L2.
+   - Không phải tất cả các SCN trong L2 đều cần có cầu nối đến EN và tương tự như vậy, không phải tất cả các SCN trong L3 đều cần cầu nối đến L2. Tuy nhiên, để đạt được tính sẵn sàng cao, nên có hai hoặc nhiều cặp cầu nối chính và cầu nối con giữa các chuỗi. Trong chương này, chỉ một cặp sẽ được kết nối giữa L2 và L3 và tính sẵn sàng cao giữa L2 và L3 cũng giống như HA giữa Baobab và L2.
 
 ## Bước 1: Tạo và cập nhật dữ liệu Homi cho L3 <a id="step-1-create-and-update-homi"></a>
-Giống như khi định cấu hình ServiceChain L2, hãy thực thi lệnh `homi` để tạo tập lệnh và tập tin cấu hình cho việc xây dựng L3. Bạn có thể chạy `homi` trên bất kỳ máy tính để bàn Linux/Mac nào. `chainID` của Baobab là `1001` và `chainID` của L2 được đặt thành `1002` trong ví dụ trước, vì vậy, để thuận tiện, `chainID` của L3 được đặt thành `1003`. Khi vận hành chuỗi khối cho một dịch vụ thực tế, bạn phải đăng ký giá trị `chainID` mới tại https://chainlist.defillama.com/ để tránh xung đột `chainID` với các ServiceChain khác và chuỗi EVM.
+Giống như khi định cấu hình ServiceChain L2, hãy thực thi lệnh `homi` để tạo tập lệnh và tập tin cấu hình cho việc xây dựng L3. Bạn có thể chạy `homi` trên bất kỳ máy tính để bàn Linux/Mac nào. `chainID` của Baobab là `1001` và `chainID` của L2 được đặt thành `1002` trong ví dụ trước, vì vậy, để thuận tiện, `chainID` của L3 được đặt thành `1003`. Khi vận hành chuỗi khối cho một dịch vụ thực tế, bạn phải đăng ký giá trị `chainID` mới tại https://chainlist.defillama.com/ để tránh xung đột `chainID` với các ServiceChain và chuỗi EVM khác.
 
 
 ```console
@@ -38,7 +38,7 @@ Created :  homi-output/Klaytn_txpool.json
 
 ![](../images/sc-nestedsc-ip.png)
 
-Cập nhật thông tin `IP address` và `port` của các nút ServiceChain L3 trong `homi-output/scripts/static-nodes.json`.
+Cập nhật thông tin `địa chỉ IP` và `cổng` của các nút ServiceChain L3 trong `homi-output/scripts/static-nodes.json`.
 
 
 ```json
@@ -59,7 +59,7 @@ $ scp -r path/to/homi-output user@192.168.0.23:~/
 $ scp -r path/to/homi-output user@192.168.0.24:~/ 
 ```
 
-Khởi tạo tất cả các node.
+Khởi tạo tất cả các nút.
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -67,7 +67,7 @@ $ ls ~/data
 keystore    klay        kscn
 ```
 
-Kết nối với tất cả các SCN (SCN-L3-01, SCN-L3-02, SCN-L3-03 và SCN-L3-04), sao chép `static-nodes.json` vào thư mục dữ liệu `~/data` và sao chép từng `nodekeys` một.
+Kết nối với tất cả các SCN (SCN-L3-01, SCN-L3-02, SCN-L3-03 và SCN-L3-04), sao chép `static-nodes.json` vào thư mục dữ liệu `~/data` và sao chép từng `khóa núts` một.
 
 ```console
 $ cp   ~/homi-output/scripts/static-nodes.json   ~/data/
@@ -75,10 +75,10 @@ $ cp   ~/homi-output/keys/nodekey{1..4}   ~/data/klay/nodekey
 ```
 
 
-## Bước 2: ĐỊnh cấu hình SCN trong L3 <a id="step-2-scn-configuration"></a>
+## Bước 2: Định cấu hình SCN trong L3 <a id="step-2-scn-configuration"></a>
 
 
-Chỉnh sửa `conf/kscnd.conf` trên tất cả các SCN trong ServiceChain L3 như sau: `PORT` sử dụng 22323, cổng mặc định của ServiceChain. `DATA_DIR` is `~/data`.
+Chỉnh sửa `conf/kscnd.conf` trên tất cả các SCN trong ServiceChain L3 như sau: `PORT` sử dụng 22323, cổng mặc định của ServiceChain. `DATA_DIR` là `~/data`.
 
 ```
 ...
