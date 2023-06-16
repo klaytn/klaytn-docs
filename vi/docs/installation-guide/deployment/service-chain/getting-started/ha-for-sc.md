@@ -1,4 +1,4 @@
-Nếu chỉ có một cầu nối được sử dụng trong Chuỗi dịch v thì cầu nối đó có thể trở thành một điểm lỗi duy nhất. Để giải quyết vấn đề này, chúng tôi sẽ mô tả cách bạn có thể xây dựng hệ thống HA với hai hoặc nhiều cầu nối. Như thể hiện trong hình bên dưới, hãy định cấu hình các cầu nối được kết nối thành ít nhất hai cặp để ngay cả khi có sự cố trong một kết nối cầu nối, việc neo dữ liệu và truyền giá trị giữa các chuỗi vẫn có thể hoạt động bình thường qua cầu nối còn lại.
+Nếu chỉ có một cầu nối được sử dụng trong ServiceChain thì cầu nối đó có thể trở thành một điểm lỗi duy nhất. Để giải quyết vấn đề này, chúng tôi sẽ mô tả cách bạn có thể xây dựng hệ thống HA với hai hoặc nhiều cầu nối. Như minh họa trong hình bên dưới, hãy định cấu hình các cầu nối được kết nối thành ít nhất hai cặp để ngay cả khi có sự cố trong một kết nối cầu nối, việc neo dữ liệu và chuyển giá trị giữa các chuỗi vẫn có thể hoạt động bình thường qua cầu nối còn lại.
 
 ![](../images/sc-ha-arch.png)
 
@@ -36,7 +36,7 @@ EN-02$ ken attach --datadir ~/data
 SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-Trên tập lệnh shell của SCN-L2-02, chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf` như bên dưới. Để kết nối cầu nối, hãy đặt `SC_SUB_BRIDGE` thành 1. `SC_PARENT_CHAIN_ID` được đặt thành `chainID` 1001 của Baobob. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo tới chuỗi mẹ. Trong ví dụ này, một giao dịch neo được gửi tới chuỗi mẹ (Baobab) sau mỗi 10 khối con.
+Trên tập lệnh shell của SCN-L2-02, chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf` như bên dưới. Để kết nối cầu nối, hãy đặt `SC_SUB_BRIDGE` thành 1. `SC_PARENT_CHAIN_ID` được đặt thành `chainID` 1001 của Baobob. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo đến chuỗi mẹ. Trong ví dụ này, một giao dịch neo được gửi đến chuỗi mẹ (Baobab) sau mỗi 10 khối con.
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -56,9 +56,9 @@ Sau khi thêm cầu nối giữa EN-02 và SCN-L2-02, bạn có thể thấy k�
 
 ## Bước 2: Đăng ký và đặt mua Hợp đồng cầu nối <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
-Như trong hình trên, hợp đồng cầu nối chỉ được đăng ký trong EN-01 và SCN-L2-01.
+Như minh họa trong hình trên, hợp đồng cầu nối chỉ được đăng ký trong EN-01 và SCN-L2-01.
 
-Kết nối với bảng điều khiển SCN-L2-02 và chạy các API để đăng ký cầu nối, đặt mua cầu nối và đăng ký token. Hợp đồng cầu nối và token được tạo trong khi triển khai hợp đồng cầu nối với EN-01 và SCN-L2-01 ở bước 2 của [Chuyển giá trị xuyên chuỗi](value-transfer.md).
+Kết nối với bảng điều khiển SCN-L2-02 và chạy các API để đăng ký cầu nối, đặt mua cầu nối và đăng ký token. Hợp đồng cầu nối và token được tạo trong khi triển khai hợp đồng cầu nối với EN-01 và SCN-L2-01 ở bước 2 của [Chuyển giá trị chuỗi chéo](value-transfer.md).
 
 ```
 $ kscn attach --datadir ~/data
@@ -72,7 +72,7 @@ null
 
 ![](../images/sc-ha-before-register2.png)
 
-Trong hợp đồng cầu nối, cần cập nhật thông tin về việc thêm một cầu nối bổ sun. Viết thông tin toán tử con và toán tử mẹ của cầu nối bổ sung được thêm vào trong tập tin `erc20/erc20-addOperator4HA.js` của [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) và thực thi `node erc20-addOperator4HA.js`.
+Trong hợp đồng cầu nối, cần cập nhật thông tin về việc thêm một cầu nối bổ sung. Ghi thông tin người vận hành con và người vận hành mẹ của cầu nối bổ sung được thêm vào trong tập tin `erc20/erc20-addOperator4HA.js` của [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) và thực thi `node erc20-addOperator4HA.js`.
 
 ```
 // register operator
@@ -80,7 +80,7 @@ await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR
 await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-Khi có nhiều cầu nối, việc chuyển giá trị có thể được thực hiện an toàn hơn bằng cách đặt một ngưỡng. Chỉ có thể kích hoạt chuyển giá trị khi một toán tử trên ngưỡng theo yêu cầu chuyển giá trị như bình thường. Ví dụ: như trong ví dụ hiện tại, nếu có hai cặp cầu nối và ngưỡng được đặt thành 2, chỉ có thể thực hiện việc chuyển giá trị khi cả hai đều yêu cầu như bình thường. Nghĩa là, ngay cả khi một cầu nối bị tấn công và gửi một yêu cầu bất thường, điều này vẫn có thể được ngăn chặn. Giá trị mặc định của ngưỡng là 1. Trong tập tin `erc20/erc20-addOperator4HA.js` của [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples), hãy bỏ ghi chú mã bên dưới và đặt giá trị ngưỡng rồi chạy mã đó để thay đổi ngưỡng cho hợp đồng cầu nối.
+Khi có nhiều cầu nối, việc chuyển giá trị có thể được thực hiện an toàn hơn bằng cách đặt một ngưỡng. Chỉ có thể kích hoạt chuyển giá trị khi một người vận hành trên ngưỡng yêu cầu chuyển giá trị như bình thường. Ví dụ: như trong ví dụ hiện tại, nếu có hai cặp cầu nối và ngưỡng được đặt thành 2, chỉ có thể thực hiện việc chuyển giá trị khi cả hai được yêu cầu như bình thường. Nghĩa là, ngay cả khi một cầu nối bị tấn công và gửi một yêu cầu bất thường, điều này vẫn có thể được ngăn chặn. Giá trị mặc định của ngưỡng là 1. Trong tập tin `erc20/erc20-addOperator4HA.js` của [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples), hãy bỏ ghi chú mã bên dưới và đặt giá trị ngưỡng rồi chạy mã đó để thay đổi ngưỡng cho hợp đồng cầu nối.
 
 ```
 // // set threshold
