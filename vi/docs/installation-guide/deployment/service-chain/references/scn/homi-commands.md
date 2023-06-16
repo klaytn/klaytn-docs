@@ -1,1 +1,1 @@
-# homi commands
+# các lệnh homi
