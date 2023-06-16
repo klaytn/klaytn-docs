@@ -7,6 +7,11 @@ description: >-
 
 名前空間 `debug` を使用すると、いくつかの非標準RPCメソッドにアクセスできます。 実行時に特定のデバッグフラグを検査、デバッグ、設定できます。
 
+**NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public. We recommend you to provide the debug namespace APIs to authorized users only. However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs. The enabled APIs are as follows:
+- [VM Tracing](./debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./debug/tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 
 ## [ログ記録](./debug/logging.md) <a id="logging"></a>
 
@@ -61,15 +66,15 @@ description: >-
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
-- [トレースオプション](./debug/tracing.md#tracing-options)
-- [JavaScript ベースのトレース](./debug/tracing.md#javascript-based-tracing)
+- [Tracing Options](./debug/tracing.md#tracing-options)
+- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [VM の標準トレース](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [標準トレーシングオプション](./debug/standard_tracing.md#standard-tracing-options)
+- [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
 
 
 ## [ブロックチェーン検査](./debug/blockchain.md) <a id="blockchain-inspection"></a>
