@@ -1,10 +1,12 @@
 # VMトレース <a id="vm-tracing"></a>
 
+**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public. If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
+
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-`traceBadBlock` メソッドは、このブロックに含まれていたすべてのトランザクションの が呼び出された全てのスタックトレースを返します。
+The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
-**注意**: このブロックの親が存在しなければ、失敗します。
+**NOTE**: the parent of this block must be present or it will fail.
 
 | Client  | Method Invocation                                         |
 |:-------:| --------------------------------------------------------- |
@@ -57,7 +59,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-`traceBlock` メソッドは、このブロックに含まれていたすべてのトランザクションの 全ての呼び出された全てのスタックトレースを返します。
+The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
@@ -192,14 +194,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
 
-EVMの実行中に作成された構造化されたログを (startを含む) 2つのブロック間でJSONオブジェクトとして返します。 つまり、合計の end-start+1 ブロックのトレースの結果が返されます。
+Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object. That is, the result of tracing for a total of end-start+1 blocks is returned.
 
 | Client  | Method Invocation                                                             |
 |:-------:| ----------------------------------------------------------------------------- |
 | Console | `debug.traceBlockByNumberRange(number, number, [options])`                    |
 |   RPC   | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
-**注意**: マシンリソースを過剰に使用できるので、同時にブロックが多すぎないようにしてください。
+**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
 **Parameters**
 
@@ -248,9 +250,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-[debug_traceBlock](#debug_traceblock)と同様、 `traceBlockFromFile` は ブロックの RLP を含むファイルを受け付けます。
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
 
-**注意**: ファイルには、 `0x` のない関連する16進数文字列を含める必要があります。
+**NOTE**: the file must include the associated hexadecimal string without `0x`.
 
 | Client  | Method Invocation                                                  |
 |:-------:| ------------------------------------------------------------------ |
@@ -274,7 +276,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Example**
 
-実行中のノードに `block.rlp` ファイルの内容を以下のように印字しました。
+The contents of the `block.rlp` file was printed on the running node as follows.
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a3dcc4de8dec75d7aab85b567b6cd41ad312451b948a7413f0a142fd40347940000000000000000000000000000000000000000000000000000000000000000000000000000000000000b2f1b94a0b4a0bfd4934494c8494a0b9494c848a0b4a0b2b2f1e417312faa241fb93d93d83860e09
@@ -303,7 +305,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-`traceTransaction` デバッグメソッドは、ネットワーク上で実行されたのとまったく同じ方法で トランザクションを実行しようとします。 これより前に実行されている可能性のある トランザクションは、 与えられたハッシュに対応するトランザクションの実行を最終的に試みます。
+The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
 
 | Client  | Method Invocation                                              |
 |:-------:| -------------------------------------------------------------- |
@@ -407,7 +409,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceChain <a id="debug_tracechain"></a>
 
-JSONオブジェクトとして、2つのブロック(スタートを除く)の間でEVMの実行中に作成された構造化されたログを返します。 このエンドポイントは debug_subscribe 経由で呼び出される必要があります。
+Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
 
 **NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
@@ -486,11 +488,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## JavaScript ベースのトレース <a id="javascript-based-tracing"></a>
-第2引数に `トレーサー` オプションを指定すると、JavaScriptベースの トレースが有効になります。 In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
+
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
+
+Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
 `step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
 
-`ログ` には以下のフィールドがあります。
+`log` has the following fields:
 
 | フィールド名     | Type        | Description                   |
 | ---------- | ----------- | ----------------------------- |
@@ -504,9 +509,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 | `account`  | String      | 現在の操作を実行しているアカウントのアドレス。       |
 | `err`      | String      | エラーが発生した場合、エラーに関する情報です。       |
 
-`err` が null でない場合、他のすべてのフィールドは無視されます。
+If `err` is non-null, all other fields should be ignored.
 
-For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. 例えば、このステップ関数は動作しません:
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
 
 ```javascript
 function(log) {
@@ -514,7 +519,7 @@ function(log) {
 }
 ```
 
-しかし、このステップ関数は次のようになります。
+But this step function will:
 
 ```javascript
 function(log) {
@@ -522,7 +527,7 @@ function(log) {
 }
 ```
 
-`log.op` には以下のメソッドがあります。
+`log.op` has the following methods:
 
 | メソッド名        | Description                     |
 | ------------ | ------------------------------- |
@@ -530,21 +535,21 @@ function(log) {
 | `toString()` | オペコードの文字列表現を返します。               |
 | `toNumber()` | オペコードの番号を返します。                  |
 
-`log.memory` には以下のメソッドがあります。
+`log.memory` has the following methods:
 
 | Method Name          | Description                   |
 | -------------------- | ----------------------------- |
 | `slice(start, stop)` | 指定したメモリのセグメントをバイトスライスとして返します。 |
 | `length()`           | メモリの長さを返します。                  |
 
-`log.stack` には以下のメソッドがあります。
+`log.stack` has the following methods:
 
 | Method Name | Description                                             |
 | ----------- | ------------------------------------------------------- |
 | `peek(idx)` | スタックの先頭から idx 番目の要素を返します(0 が最上位の要素です)。 `big.Int` を返します。 |
 | `length()`  | スタック内の要素数を返します。                                         |
 
-`db` には以下のメソッドがあります。
+`db` has the following methods:
 
 | Method Name               | Description                   |
 | ------------------------- | ----------------------------- |
@@ -554,13 +559,13 @@ function(log) {
 | `getState(address, hash)` | 指定した口座と指定したハッシュの状態値を返します。     |
 | `exists(address)`         | 指定されたアドレスが存在する場合は true を返します。 |
 
-2番目の関数 `result`は引数を取らず、RPC呼び出し元に戻すために JSON-serializable 値を返すことが期待されます。
+The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
 If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
 
-いくつかの値はGolang `big.Int` オブジェクトであり、JavaScript 番号 や JS bigintsではないことに注意してください。 そのため、彼らは godocsで説明されているのと同じインターフェイスを持っています。 JSON へのデフォルトのシリアル化は、Javascript 番号として行われます。 大規模な数値をシリアライズするには `.String()` を正確に呼び出します。 便宜上、 `big.NewInt(x)` が提供され、 uint を Golang `big.int` に変換します。
+Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 
-以下の使用例では、各 CALL オペコードのみでスタックの一番上の要素を返します。
+As an usage example below, it returns the top element of the stack at each CALL opcode only:
 
 ```javascript
 debug.traceTransaction(txh, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
