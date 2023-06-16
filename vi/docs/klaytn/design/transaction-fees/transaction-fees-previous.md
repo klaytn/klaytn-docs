@@ -15,7 +15,7 @@ Phí giao dịch tính toán này được trừ từ số dư tài khoản củ
 
 ### Gas <a id="gas"></a>
 
-Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần tới gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token ERC-20, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bằng số `gas` cần dùng.
+Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần đến gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token ERC-20, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bằng số `gas` cần dùng.
 
 `Gas` là đơn vị đo thể hiện số lượng phép tính cần thiết để xử lý giao dịch của người dùng.
 
@@ -37,14 +37,14 @@ Thông báo lỗi `invalid unit price` được trả về khi giá gas của m�
 
 ### Thay thế giao dịch <a id="transaction-replacement"></a>
 
-Klaytn hiện không cung cấp phương thức thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương thức thay thế giao dịch khác trong tương lai. Xin lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
+Klaytn hiện không cung cấp phương pháp thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp thay thế giao dịch khác trong tương lai. Xin lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
 
-## Bảng giá gas của Klaytn  <a id="klaytns-gas-table"></a>
+## Biểu giá gas của Klaytn  <a id="klaytns-gas-table"></a>
 
-Về cơ bản, Klaytn luôn duy trì khả năng tương thích với Ethereum. Vì thế, bảng giá gas của Klaytn cũng khá tương đồng với bảng của Ethereum. Tuy nhiên, do sự tồn tại của những tính năng độc đáo của Klaytn nên sẽ có một số hằng số mới cho những tính năng đó.
+Về cơ bản, Klaytn luôn duy trì khả năng tương thích với Ethereum. Vì thế, biểu giá gas của Klaytn cũng khá tương đồng với biểu giá của Ethereum. Tuy nhiên, do sự tồn tại của những tính năng độc đáo của Klaytn nên sẽ có một số hằng số mới cho những tính năng đó.
 
 {% hint style="success" %}
-LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước khi kích hoạt nâng cấp giao thức. Nếu bạn muốn nhận tài liệu mới nhất, vui lòng tham khảo [tài liệu mới nhất](transaction-fees.md).
+LƯU Ý: Tài liệu này chứa biểu giá gas được sử dụng trước khi kích hoạt nâng cấp giao thức. Nếu bạn muốn nhận tài liệu mới nhất, vui lòng tham khảo [tài liệu mới nhất](transaction-fees.md).
 {% endhint %}
 
 ### Phí chung <a id="common-fee"></a>
@@ -70,9 +70,9 @@ LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước k
 | G\_create       | 32000 | Được trả cho một hoạt động CREATE                                                                                      |
 | G\_codedeposit  | 200   | Được trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                 |
 | G\_call         | 700   | Được trả cho một hoạt động CALL                                                                                        |
-| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển giao giá trị khác 0như một phần của hoạt động CALL                                   |
-| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi Gcallvalue đối với giao dịch chuyển giao giá trị khác 0          |
-| G\_newaccount   | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo tài khoản                                                         |
+| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển giá trị khác 0 như một phần của hoạt động CALL                                       |
+| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi Gcallvalue đối với giao dịch chuyển giá trị khác 0               |
+| G\_newtài khoản | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo tài khoản                                                         |
 | G\_exp          | 10    | Khoản thanh toán một phần cho hoạt động EXP                                                                            |
 | G\_expbyte      | 50    | Khoản thanh toán một phần khi nhân với dlog256\(exponent\)e cho hoạt động EXP                                        |
 | G\_memory       | 3     | Được trả cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                                     |
@@ -90,7 +90,7 @@ LƯU Ý: Tài liệu này chứa bảng giá gas được sử dụng trước k
 
 ### Hợp đồng đã lập trước <a id="precompiled-contracts"></a>
 
-Hợp đồng được lập trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mã hóa phức tạp và được khởi tạo bởi những hợp đồng khác.
+Hợp đồng đã lập trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mã hóa phức tạp và được khởi tạo bởi những hợp đồng khác.
 
 | Mục                     | Gas                 | Mô tả                                                          |
 |:----------------------- |:------------------- |:-------------------------------------------------------------- |
@@ -106,7 +106,7 @@ Hợp đồng được lập trước là loại hợp đồng đặc biệt, th
 | Bn256ScalarMulGas       | 40000               |                                                                |
 | Bn256PairingBaseGas     | 100000              |                                                                |
 | Bn256PairingPerPointGas | 80000               |                                                                |
-| VMLogBaseGas            | 100                 | Ghi nhật ký vào tập tin nhật ký của nút - chỉ dành cho Klaytn  |
+| VMLogBaseGas            | 100                 | Ghi bản ghi vào tập tin bản ghi của nút - chỉ dành cho Klaytn  |
 | VMLogPerByteGas         | 20                  | Chỉ dành cho Klaytn                                            |
 | FeePayerGas             | 300                 | Nhận địa chỉ của feePayer - chỉ dành cho Klaytn                |
 | ValidateSenderGas       | 5000 cho mỗi chữ ký | Xác thực địa chỉ và chữ ký của người gửi - chỉ dành cho Klaytn |
@@ -123,7 +123,7 @@ ValidateSenderGas phải được trả trên cơ sở từng chữ ký.
 TotalGas = số lượng chữ ký * ValidateSenderGas
 ```
 
-### Bảng gas liên quan tới tài khoản <a id="account-related-gas-table"></a>
+### Bảng gas liên quan đến tài khoản <a id="account-related-gas-table"></a>
 
 | Mục                        | Gas   | Mô tả                                                            |
 |:-------------------------- |:----- |:---------------------------------------------------------------- |
@@ -174,5 +174,5 @@ Dựa theo loại khóa, KeyCreationGas được định nghĩa như sau,
 | Legacy    | 0                                                                                                                                                                                                                                 |
 | Fail      | 0                                                                                                                                                                                                                                 |
 | Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                                     |
-| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                                                                 |
+| MultiSig  | \(khóa\) \* GasCreationPerKey                                                                                                                                                                                                 |
 | RoleBased | Phí gas được tính toán dựa trên các khóa trong từng vai trò. ví dụ: GasRoleTransaction = \(khóa\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(khóa\)_ GasCreationPerKey GasRoleFeePayer = \(khóa\) \* GasCreationPerKey |
