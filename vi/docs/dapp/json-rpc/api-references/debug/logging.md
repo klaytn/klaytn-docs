@@ -1,10 +1,10 @@
-# Đang ghi nhật ký <a id="logging"></a>
+# Ghi bản ghi <a id="logging"></a>
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
-Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyên được thiết lập và một thông báo nhật ký được phát ra tại vị trí đó, stack của goroutine đang thực thi câu lệnh nhật ký sẽ được in ra `stderr`.
+Thiết lập vị trí truy nguyên bản ghi. Khi một vị trí truy nguyên được thiết lập và một thông báo bản ghi được phát ra tại vị trí đó, ngăn xếp của goroutine đang thực thi câu lệnh bản ghi sẽ được in ra `stderr`.
 
-|    Máy khách    | Gọi Phương thức                                       |
+|    Máy khách    | Gọi phương pháp                                       |
 |:---------------:| ----------------------------------------------------- |
 | Bảng điều khiển | `debug.backtraceAt(location)`                         |
 |       RPC       | `{"method": "debug_backtraceAt", "params": [string]}` |
@@ -13,9 +13,9 @@ Thiết lập vị trí truy nguyên nhật ký. Khi một vị trí truy nguyê
 
 | Tên    | Loại | Mô tả                                                                        |
 | ------ | ----- | ---------------------------------------------------------------------------- |
-| vị trí | chuỗi | Vị trí truy nguyên nhật ký được chỉ định là `<filename>:<line>`. |
+| vị trí | chuỗi | Vị trí truy nguyên bản ghi được chỉ định là `<filename>:<line>`. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -36,9 +36,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
-Thiết lập mục tiêu đầu ra của hợp đồng biên dịch trước vmlog.  Khi mục tiêu đầu ra là một tệp, nhật ký từ lệnh gọi `vmlog` trong hợp đồng thông minh sẽ được ghi vào `DATADIR/log/vm.log`.  `DATADIR` ở đây là thư mục được chỉ định bởi `--datadir` khi khởi chạy `klay`.  Mặt khác, mục tiêu đầu ra là `stdout`, nhật ký sẽ được hiển thị như một thông báo gỡ lỗi trên đầu ra tiêu chuẩn.
+Thiết lập mục tiêu đầu ra của hợp đồng đã lập trước vmlog.  Khi mục tiêu đầu ra là một tệp thì bản ghi từ lệnh gọi `vmlog` trong hợp đồng thông minh sẽ được ghi vào `DATADIR/log/vm.log`.  `DATADIR` ở đây là thư mục được chỉ định bởi `--datadir` khi khởi chạy `klay`.  Mặt khác, mục tiêu đầu ra là `stdout`, bản ghi sẽ được hiển thị như một thông báo gỡ lỗi trên đầu ra tiêu chuẩn.
 
-|    Máy khách    | Gọi Phương thức                                          |
+|    Máy khách    | Gọi phương pháp                                          |
 |:---------------:| -------------------------------------------------------- |
 | Bảng điều khiển | `debug.setVMLogTarget(target)`                           |
 |       RPC       | `{"method": "debug_setVMLogTarget", "params": [number]}` |
@@ -49,9 +49,9 @@ Thiết lập mục tiêu đầu ra của hợp đồng biên dịch trước vm
 | -------- | ----- | -------------------------------------------------------------------------------- |
 | mục tiêu | int   | Mục tiêu đầu ra (0: không có đầu ra, 1: tệp, 2: stdout, 3: cả hai) (mặc định: 0) |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả                                                                        |
+| type  | Mô tả                                                                        |
 | ----- | ---------------------------------------------------------------------------- |
 | chuỗi | Mục tiêu đầu ra.  Xem các ví dụ bên dưới để biết các giá trị trả về thực tế. |
 
@@ -87,24 +87,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosity <a id="debug_verbosity"></a>
 
-Thiết lập trần độ chi tiết ghi nhật ký. Tin nhắn nhật ký với cấp độ lên đến và bao gồm mức đã cho sẽ được in ra.
+Thiết lập giới hạn mức độ chi tiết ghi bản ghi. Ghi bản ghi thông báo với cấp độ lên đến và bao gồm mức đã cho sẽ được in ra.
 
 (Cấp độ: 0=crit, 1=lỗi, 2=cảnh báo, 3=thông tin, 4=gỡ lỗi, 5=truy vết)
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|    Máy khách    | Gọi phương thức                                   |
+|    Máy khách    | Gọi phương pháp                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosity(level)`                          |
 |       RPC       | `{"method": "debug_vmodule", "params": [number]}` |
 
 **Tham số**
 
-| Tên    | Loại | Mô tả                        |
+| Tên    | type | Mô tả                        |
 | ------ | ---- | ---------------------------- |
-| cấp độ | int  | Cấp độ chi tiết ghi nhập ký. |
+| cấp độ | int  | Cấp độ chi tiết ghi bản ghi. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -123,25 +123,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByName <a id="debug_verbositybyname"></a>
 
-Thiết lập mức độ chi tiết của mô-đun nhật ký với tên đã cho. Xin lưu ý rằng VerbosityByName chỉ hoạt động với zapLogger.
+Thiết lập mức độ chi tiết của mô-đun bản ghi với tên đã cho. Xin lưu ý rằng VerbosityByName chỉ hoạt động với zapLogger.
 
 (Cấp độ: 0=crit, 1=lỗi, 2=cảnh báo, 3=thông tin, 4=gỡ lỗi, 5=truy vết)
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|    Máy khách    | Gọi phương thức                                                   |
+|    Máy khách    | Gọi phương pháp                                                   |
 |:---------------:| ----------------------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosityByName(name, level)`                              |
 |       RPC       | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
 **Tham số**
 
-| Tên    | Loại  | Mô tả                        |
+| Tên    | type  | Mô tả                        |
 | ------ | ----- | ---------------------------- |
 | tên    | chuỗi | Tên mô-đun.                  |
-| cấp độ | int   | Cấp độ chi tiết ghi nhập ký. |
+| cấp độ | int   | Cấp độ chi tiết ghi bản ghi. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -161,7 +161,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByID <a id="debug_verbositybyid"></a>
 
-Thiết lập mức độ chi tiết của mô-đun nhật ký với ModuleID đã cho. Xin lưu ý rằng VerbosityByID chỉ hoạt động với zapLogger.
+Thiết lập mức độ chi tiết của mô-đun bản ghi với ModuleID đã cho. Xin lưu ý rằng VerbosityByID chỉ hoạt động với zapLogger.
 
 (ModuleID : Vui lòng tham khảo mã trên [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
 
@@ -169,19 +169,19 @@ Thiết lập mức độ chi tiết của mô-đun nhật ký với ModuleID đ
 
 Có thể tăng mức độ chi tiết của các gói và tệp nguồn riêng lẻ bằng cách sử dụng `debug_vmodule`.
 
-|    Máy khách    | Gọi Phương thức                                                 |
+|    Máy khách    | Gọi phương pháp                                                 |
 |:---------------:| --------------------------------------------------------------- |
 | Bảng điều khiển | `debug.verbosityByID(id, level)`                                |
 |       RPC       | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
 **Tham số**
 
-| Tên    | Loại | Mô tả                        |
+| Tên    | type | Mô tả                        |
 | ------ | ---- | ---------------------------- |
 | id     | int  | Id mô-đun.                   |
-| cấp độ | int  | Cấp độ chi tiết ghi nhập ký. |
+| cấp độ | int  | Cấp độ chi tiết ghi bản ghi. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -201,20 +201,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 
-Thiết lập mẫu mức độ chi tiết ghi nhật ký.
+Thiết lập mẫu mức độ chi tiết ghi bản ghi.
 
-|    Máy khách    | Gọi Phương thức                                   |
+|    Máy khách    | Gọi phương pháp                                   |
 |:---------------:| ------------------------------------------------- |
 | Bảng điều khiển | `debug.vmodule(module)`                           |
 |       RPC       | `{"method": "debug_vmodule", "params": [string]}` |
 
 **Tham số**
 
-| Tên    | Loại  | Mô tả                      |
+| Tên    | type  | Mô tả                      |
 | ------ | ----- | -------------------------- |
-| mô-đun | chuỗi | Tên mô-đun để ghi nhật ký. |
+| mô-đun | chuỗi | Tên mô-đun để ghi bản ghi. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Không có
 
@@ -222,19 +222,19 @@ Không có
 
 Bảng điều khiển
 
-Nếu bạn muốn xem tin nhắn từ một gói Go cụ thể (thư mục) và tất cả các thư mục con, sử dụng
+Nếu bạn muốn xem thông báo từ một gói Go cụ thể (thư mục) và tất cả các thư mục con, sử dụng
 
 ```javascript
 > debug.vmodule("p2p/*=5")
 ```
 
-Nếu bạn muốn giới hạn thư trong một gói cụ thể (*ví dụ:*, p2p) nhưng loại trừ các thư mục con, sử dụng
+Nếu bạn muốn giới hạn thông báo trong một gói cụ thể (*ví dụ:*, p2p) nhưng loại trừ các thư mục con, sử dụng
 
 ```javascript
 > debug.vmodule("p2p=4")
 ```
 
-Nếu bạn muốn xem tin nhắn nhật ký từ một tệp nguồn cụ thể, hãy sử dụng
+Nếu bạn muốn xem thông báo bản ghi từ một tệp nguồn cụ thể, hãy sử dụng
 
 ```javascript
 > debug.vmodule("server.go=3")
