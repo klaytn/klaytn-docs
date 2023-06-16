@@ -17,7 +17,7 @@ $ mkdir -p /var/kpnd/data
 
 ## Cài đặt Khóa nút <a id="install-node-key"></a>
 
-Để vận hành PN cần có `nodekey`. Nhị phân PN Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu PN. Cách để tạo `khóa nút` là mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu PN.
+Để vận hành PN cần có `khóa nút`. Nhị phân PN Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu PN. Cách để tạo `khóa nút` được mô tả trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp nodekey /var/kpnd/data
@@ -36,7 +36,7 @@ $ cp nodekey /var/kpnd/data
 ]
 ```
 
-URI nút của PN có trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của CN.\) Dòng lệnh sau sao chép tệp `static-nodes.json` vào thư mục dữ liệu PN.
+URI nút của PN có trong phần '[Trước khi bạn cài đặt](../before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của CN.\) Dòng lệnh sau sao chép tập tin `static-nodes.json` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
@@ -46,8 +46,8 @@ $ cp static-nodes.json /var/kpnd/data
 
 Vị trí tập tin cấu hình:
 
-* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-* Đối với việc phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
+* Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
+* Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
 ### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
@@ -65,7 +65,7 @@ Mỗi PN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nế
 
 Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu PN. Điều này giúp giảm đáng kể thời gian PN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Tải về bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kpnd.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kpnd.conf`.
 
 Ví dụ:
 
