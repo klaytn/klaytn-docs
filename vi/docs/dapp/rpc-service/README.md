@@ -62,7 +62,7 @@ Tatum là cách nhanh nhất để xây dựng, thử nghiệm và chạy các �
 
 Mục tiêu của mạng lưới BlockPI là cung cấp dịch vụ RPC chất lượng cao, mạnh mẽ và hiệu quả. Để tránh sự hư hỏng tại cục bộ và sự hạn chế trong khả năng mở rộng, mạng lưới được thiết kế để có cấu trúc phân phối với các nút RPC có thể mở rộng.
 
-BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ chi tiêu theo khả năng để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết giá cho mỗi gói (https://docs.blockpi.io/documentations/pricing) và chi phí của từng phương thức của Klaytn (https://docs.blockpi.io/documentations/request-unit-ru)
+BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ chi tiêu theo khả năng để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết giá cho mỗi gói (https://docs.blockpi.io/documentations/pricing) và chi phí của từng phương pháp của Klaytn (https://docs.blockpi.io/documentations/request-unit-ru)
 
 ### Tính năng
 
@@ -133,7 +133,7 @@ NodeReal là hạ tầng blockchain và nhà cung cấp dịch vụ. NodeReal g
 - Cấp miễn phí, 3 khóa API, 350 triệu đơn vị tính toán (CU) hàng tháng, 300 đơn vị tinh toán/giây (CUPS) hàng tháng, dữ liệu lưu trữ
 - Cấp tăng trưởng, 15 khóa API, 500 triệu đơn vị tính toán (CU) hàng tháng, 700 đơn vị tính toán/giây (CUPS) hàng tháng, dữ liệu lưu trữ, gỡ lỗi & theo dõi API
 - Cấp doanh nghiệp, số lượng khóa API tùy chỉnh, lượng sử dụng hàng tháng tùy chỉnh, hỗ trợ riêng, thỏa thuận mức dịch vụ (SLA) và các yêu cầu khác
-- 50 truy vấn/giây (QPS)/phương thức
+- 50 truy vấn/giây (QPS)/phương pháp
 
 ### Tài liệu tham khảo
 
