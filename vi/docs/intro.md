@@ -15,7 +15,7 @@ Hoặc **dùng thử Docusaurus ngay** với **[docusaurus.new](https://docusaur
 ### Những thứ bạn sẽ cần
 
 - [Node.js](https://nodejs.org/en/download/) phiên bản 16.14 trở lên:
-  - Khi cài đặt Node.js, bạn nên kiểm tra tất cả các hộp kiểm liên quan tới các mục phụ thuộc.
+  - Khi cài đặt Node.js, bạn nên kiểm tra tất cả các hộp kiểm liên quan đến các mục phụ thuộc.
 
 ## Tạo trang mới
 
@@ -40,7 +40,7 @@ cd my-website
 npm run start
 ```
 
-Lệnh `cd` sẽ thay đổi thư mục mà bạn đang làm việc. Để làm việc với trang Docusaurus mới tạo, bạn sẽ cần phải điều hướng trình giao diện dòng lệnh tới đó.
+Lệnh `cd` sẽ thay đổi thư mục mà bạn đang làm việc. Để làm việc với trang Docusaurus mới tạo, bạn sẽ cần phải điều hướng trình giao diện dòng lệnh đến đó.
 
 Lệnh `npm run start` sẽ xây dựng trang web của bạn theo cách cục bộ và cung cấp nó thông qua một máy chủ phát triển, bạn có thể xem tại http://localhost:3000/.
 
