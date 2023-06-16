@@ -1,8 +1,13 @@
 # 런타임 디버깅 <a id="runtime-debugging"></a>
 
+**NOTE** All other debug namespace APIs **EXCEPT FOR** the following APIs are restricted with `rpc.unsafe-debug.disable` flag:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
-사용하지 않는 메모리를 운영체제에 반환합니다.
+Returns unused memory to the OS.
 
 | Client  | Method Invocation                  |
 |:-------:| ---------------------------------- |
@@ -33,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_gcStats <a id="debug_gcstats"></a>
 
-GC 통계를 반환합니다.
+Returns GC statistics.
 
 | Client  | Method Invocation                           |
 |:-------:| ------------------------------------------- |
@@ -46,7 +51,7 @@ None
 
 **Return Value**
 
-반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)를 참고해주세요.
+See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
 
 **Example**
 
@@ -71,7 +76,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_memStats <a id="debug_memstats"></a>
 
-런타임 메모리 통계를 반환합니다.
+Returns detailed runtime memory statistics.
 
 | Client  | Method Invocation                            |
 |:-------:| -------------------------------------------- |
@@ -84,7 +89,7 @@ None
 
 **Return Value**
 
-반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)를 참고해주세요.
+See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
 
 **Example**
 
@@ -120,7 +125,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_metrics <a id="debug_metrics"></a>
 
-노드가 수집한 시스템의 측정 수치들을 검색합니다.
+Retrieves all the known system metrics collected by the node.
 
 | Client  | Method Invocation                              |
 |:-------:| ---------------------------------------------- |
@@ -206,7 +211,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
-GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
+Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
 
 **Parameters**
 
@@ -220,7 +225,7 @@ GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설
 | ------- | ----------------- |
 | integer | 이전에 설정된 GC 비율입니다. |
 
-**예시** 콘솔
+**Example** Console
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -243,7 +248,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks <a id="debug_stacks"></a>
 
-모든 go루틴의 스택을 반환합니다.
+Returns a printed representation of the stacks of all goroutines.
 
 | Client  | Method Invocation                          |
 |:-------:| ------------------------------------------ |
