@@ -1,2 +1,2 @@
-# Computation <a id="computation"></a>
+# Tính toán <a id="computation"></a>
 
