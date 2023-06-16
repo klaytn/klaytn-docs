@@ -5,7 +5,7 @@ description: >-
 
 # caver.utils <a id="caver-utils"></a>
 
-`caver.utils` provides utility functions.
+`caver.utils` cung cấp các chức năng tiện ích.
 
 
 ## randomHex <a id="randomhex"></a>
@@ -13,21 +13,21 @@ description: >-
 ```javascript
 caver.utils.randomHex(size)
 ```
-The [randomHex](https://github.com/frozeman/randomHex) library to generate cryptographically strong pseudo-random HEX strings from a given byte size.
+Thư viện [randomHex](https://github.com/frozeman/randomHex) để tạo các chuỗi số HEX giả ngẫu nhiên được mã hóa mạnh mẽ từ một kích thước byte nhất định.một kích thước byte nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                                                                               |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| size | Number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters preficed with "0x". |
+| Tên        | type | Mô tả                                                                                                          |
+| ---------- | ---- | -------------------------------------------------------------------------------------------------------------- |
+| kích thước | Số   | Kích thước byte cho chuỗi số HEX, *ví dụ*, `32` sẽ dẫn đến chuỗi số HEX 32 byte có 64 ký tự bắt đầu bằng "0x". |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                      |
-| ------ | -------------------------------- |
-| String | The generated random HEX string. |
+| type  | Mô tả                             |
+| ----- | --------------------------------- |
+| Chuỗi | Chuỗi số HEX ngẫu nhiên được tạo. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.randomHex(32);
@@ -53,11 +53,11 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 caver.utils._()
 ```
 
-The [underscore](http://underscorejs.org) library for many convenience JavaScript functions.
+Thư viện [underscore](http://underscorejs.org) dành cho nhiều hàm JavaScript thuận tiện.
 
-See the [underscore API reference](http://underscorejs.org) for details.
+Xem [tham chiếu API underscore](http://underscorejs.org) để biết chi tiết.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var _ = caver.utils._;
@@ -75,21 +75,21 @@ See the [underscore API reference](http://underscorejs.org) for details.
 ```javascript
 caver.utils.BN(mixed)
 ```
-The [BN.js](https://github.com/indutny/bn.js/) library for calculating with big numbers in JavaScript. See the [BN.js documentation](https://github.com/indutny/bn.js/) for details.
+Thư viện [BN.js](https://github.com/indutny/bn.js/) để tính toán với các số lớn trong JavaScript. Xem [Tài liệu BN.js](https://github.com/indutny/bn.js/) để biết thông tin chi tiết.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type                 | Description                                                      |
-| ----- | -------------------- | ---------------------------------------------------------------- |
-| mixed | String &#124; Number | A number, number string or HEX string to convert to a BN object. |
+| Tên     | type            | Mô tả                                                                |
+| ------- | --------------- | -------------------------------------------------------------------- |
+| hỗn hợp | Chuỗi &#124; Số | Một số, chuỗi số hoặc chuỗi số HEX để chuyển đổi thành đối tượng BN. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                              |
-| ------ | -------------------------------------------------------- |
-| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Loại     | Mô tả                                                 |
+| --------- | ----------------------------------------------------- |
+| Đối tượng | Phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var BN = caver.utils.BN;
@@ -111,22 +111,22 @@ The [BN.js](https://github.com/indutny/bn.js/) library for calculating with big 
 caver.utils.isBN(bn)
 ```
 
-Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance.
+Kiểm tra xem một giá trị đã cho có phải là phiên bản [BN.js](https://github.com/indutny/bn.js/) hay không.
 
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                            |
-| ---- | ------ | ------------------------------------------------------ |
-| bn   | Object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Tên | Loại     | Mô tả                                                     |
+| --- | --------- | --------------------------------------------------------- |
+| bn  | Đối tượng | Một phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                       |
-| ------- | --------------------------------------------------------------------------------- |
-| Boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Loại   | Mô tả                                                                              |
+| ------- | ---------------------------------------------------------------------------------- |
+| Boolean | `true` nếu giá trị đã cho là phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var number = new BN(10);
@@ -141,22 +141,22 @@ true
 caver.utils.isBigNumber(bignumber)
 ```
 
-Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance.
+Kiểm tra xem một giá trị đã cho có phải là phiên bản [BigNumber.js](http://mikemcl.github.io/bignumber.js/) hay không.
 
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                        |
-| --------- | ------ | ------------------------------------------------------------------ |
-| bignumber | Object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
+| Tên       | Loại     | Mô tả                                                                 |
+| --------- | --------- | --------------------------------------------------------------------- |
+| bignumber | Đối tượng | Một phiên bản [BigNumber.js](http://mikemcl.github.io/bignumber.js/). |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                           |
-| ------- | ----------------------------------------------------- |
-| Boolean | `true` if a given value is a `BigNumber.js` instance. |
+| Loại   | Mô tả                                                  |
+| ------- | ------------------------------------------------------ |
+| Boolean | `true` nếu giá trị đã cho là đối tượng `BigNumber.js`. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > var number = new BigNumber(10);
@@ -171,23 +171,23 @@ true
 caver.utils.sha3(string)
 caver.utils.keccak256(string) // ALIAS
 ```
-Calculates the sha3 of the input.
+Tính toán sha3 của giá trị đầu vào.
 
-**NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](#soliditysha3).
+**LƯU Ý**: Để bắt chước hành vi sha3 của việc sử dụng Solidity [caver.utils.soliditySha3](#soliditysha3).
 
-**Parameters**
+**Tham số**
 
-| Name   | Type   | Description       |
-| ------ | ------ | ----------------- |
-| string | String | A string to hash. |
+| Tên   | Loại | Mô tả                    |
+| ----- | ----- | ------------------------ |
+| chuỗi | Chuỗi | Một chuỗi thành hàm băm. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description      |
-| ------ | ---------------- |
-| String | The result hash. |
+| Loại | Mô tả            |
+| ----- | ---------------- |
+| Chuỗi | Hàm băm kết quả. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.sha3('234'); // taken as string
@@ -197,12 +197,12 @@ Calculates the sha3 of the input.
 "0xc1912fee45d61c87cc5ea59dae311904cd86b84fee17cc96966216f811ce6a79"
 
 > caver.utils.sha3(234);
-null // can't calculate the has of a number
+null // không tính được số có của một số
 
-> caver.utils.sha3(0xea); // same as above, just the HEX representation of the number
+> caver.utils.sha3(0xea); // giống như trên, chỉ là biểu diễn HEX của số
 null
 
-> caver.utils.sha3('0xea'); // will be converted to a byte array first, and then hashed
+> caver.utils.sha3('0xea'); // sẽ được chuyển đổi thành một mảng byte trước, sau đó được hàm băm
 "0x2f20677459120677484f7104c76deb6846a2c071f9b3152c103bb12cd54d1a4a"
 ```
 
@@ -214,21 +214,21 @@ null
 caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
-Calculates the sha3 of given input parameters in the same way solidity would. This means arguments will be ABI converted and tightly packed before being hashed.
+Tính toán sha3 của các tham số đầu vào đã cho theo cách tương tự như solidity. Điều này có nghĩa các đối số sẽ được chuyển đổi thành ABI và đóng gói chặt chẽ trước khi đưa vào hàm băm.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br> - `String` non numerical UTF-8 string is interpreted as `string`.<br> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br> - `String|Number|BN` negative number is interpreted as `int256`.<br> - `Boolean` as `bool`.<br> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br> |
+| Tên    | Loại   | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| paramX | Hỗn hợp | Bất kỳ loại hoặc đối tượng nào có `{type: 'uint', value: '123456'}` hoặc `{t: 'bytes', v: '0xfff456'}`. Các loại cơ bản được tự động nhận diện như sau:<br> - `String` chuỗi UTF-8 không phải là số được hiểu là `string`.<br> - `String|Number|BN| Số dương HEX` được hiểu là `uint256`.<br> - `String|Number|BN` số âm được hiểu là `int256`.<br> - `Boolean` dưới dạng `bool`.<br> - `String` Chuỗi số HEX với `0x` ở đầu được hiểu là `byte`.<br> - `HEX` Biểu diễn số HEX được hiểu là `uint256`.<br> |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description      |
-| ------ | ---------------- |
-| String | The result hash. |
+| Loại | Mô tả            |
+| ----- | ---------------- |
+| Chuỗi | Hàm băm kết quả. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10);
@@ -275,21 +275,21 @@ Calculates the sha3 of given input parameters in the same way solidity would. Th
 ```javascript
 caver.utils.isHex(hex)
 ```
-Checks if a given string is a HEX string.
+Kiểm tra xem một chuỗi đã cho có phải là chuỗi số HEX hay không.
 
-**Parameters**
+**Tham số**
 
-| Name | Type              | Description           |
-| ---- | ----------------- | --------------------- |
-| hex  | String &#124; HEX | The given HEX string. |
+| Tên | Loại            | Mô tả                |
+| --- | ---------------- | -------------------- |
+| hex | Chuỗi &#124; HEX | Chuỗi số HEX đã cho. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| Boolean | `true` if a given string is a HEX string. |
+| Loại   | Mô tả                                            |
+| ------- | ------------------------------------------------ |
+| Boolean | `true` nếu một chuỗi đã cho là một chuỗi số HEX. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isHex('0xc1912');
@@ -302,7 +302,7 @@ true
 true
 
 > caver.utils.isHex(345);
-true // this is tricky, as 345 can be a HEX representation or a number, be careful when not having a 0x in front!
+true // điều này rất khó, vì 345 có thể là biểu diễn HEX hoặc một số, hãy cẩn thận khi không có 0x ở phía trước!
 
 > caver.utils.isHex('0xZ1912');
 false
@@ -318,22 +318,22 @@ false
 ```javascript
 caver.utils.isHexStrict(hex)
 ```
-Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ishex) is that it expects HEX to be prefixed with `0x`.
+Kiểm tra xem một chuỗi đã cho có phải là chuỗi số HEX hay không. Sự khác biệt đối với [caver.utils.isHex](#ishex) là nó cần có HEX tiền tố `0x`.
 
-**Parameters**
+**Tham số**
 
-| Name | Type              | Description           |
-| ---- | ----------------- | --------------------- |
-| hex  | String &#124; HEX | The given HEX string. |
+| Tên | Loại            | Mô tả                |
+| --- | ---------------- | -------------------- |
+| hex | Chuỗi &#124; HEX | Chuỗi số HEX đã cho. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| Boolean | `true` if a given string is a HEX string. |
+| Loại   | Mô tả                                            |
+| ------- | ------------------------------------------------ |
+| Boolean | `true` nếu một chuỗi đã cho là một chuỗi số HEX. |
 
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isHexStrict('0xc1912');
@@ -346,7 +346,7 @@ false
 false
 
 > caver.utils.isHexStrict(345);
-false // this is tricky, as 345 can be a HEX representation or a number, be careful when not having a 0x in front!
+false // điều này rất khó, vì 345 có thể là biểu diễn HEX hoặc một số, hãy cẩn thận khi không có 0x ở phía trước!
 
 > caver.utils.isHexStrict('0xZ1912');
 false
@@ -361,21 +361,21 @@ false
 ```javascript
 caver.utils.isAddress(address)
 ```
-Checks if a given string is a valid Klaytn address. It will also check the checksum, if the address has upper and lowercase letters.
+Kiểm tra xem chuỗi đã cho có phải là địa chỉ Klaytn hợp lệ hay không. Nó cũng sẽ kiểm tra giá trị tổng kiểm nếu địa chỉ có chữ hoa và chữ thường.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| Tên     | type  | Mô tả              |
+| ------- | ----- | ------------------ |
+| address | Chuỗi | Một chuỗi địa chỉ. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                         |
-| ------- | --------------------------------------------------- |
-| Boolean | `true` if a given string is a valid Klaytn address. |
+| Loại   | Mô tả                                             |
+| ------- | ------------------------------------------------- |
+| Boolean | `true` nếu chuỗi đã cho là địa chỉ Klaytn hợp lệ. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
@@ -391,7 +391,7 @@ true // as all is uppercase, no checksum will be checked
 true
 
 > caver.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
-false // wrong checksum
+false // tổng kiểm tra sai
 ```
 
 
@@ -400,28 +400,28 @@ false // wrong checksum
 ```javascript
 caver.utils.toChecksumAddress(address)
 ```
-Converts an upper or lowercase Klaytn address to a checksum address.
+Chuyển đổi địa chỉ Klaytn viết hoa hoặc viết thường thành địa chỉ giá trị tổng kiểm.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| Tên     | Loại | Mô tả              |
+| ------- | ----- | ------------------ |
+| address | Chuỗi | Một chuỗi địa chỉ. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description           |
-| ------ | --------------------- |
-| String | The checksum address. |
+| Loại | Mô tả                      |
+| ----- | -------------------------- |
+| Chuỗi | Địa chỉ giá trị tổng kiểm. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.toChecksumAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
 "0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d"
 
 > caver.utils.toChecksumAddress('0XC1912FEE45D61C87CC5EA59DAE31190FFFFF232D');
-"0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d" // same as above
+"0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d" // giống như trên
 ```
 
 
@@ -430,21 +430,21 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 ```javascript
 caver.utils.checkAddressChecksum(address)
 ```
-Checks the checksum of a given address. Will also return `false` on non-checksum addresses.
+Kiểm tra giá trị tổng kiểm của một địa chỉ đã cho. Trả về `false` trên các địa chỉ không phải là giá trị tổng kiểm.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| Tên     | Loại | Mô tả              |
+| ------- | ----- | ------------------ |
+| address | Chuỗi | Một chuỗi địa chỉ. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                                                            |
-| ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
+| type    | Mô tả                                                                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` khi giá trị tổng kiểm của địa chỉ hợp lệ, `false` nếu đó không phải là địa chỉ giá trị tổng kiểm hoặc giá trị tổng kiểm không hợp lệ. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.checkAddressChecksum('0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
@@ -457,21 +457,21 @@ true
 ```javascript
 caver.utils.toHex(mixed)
 ```
-Converts any given value to HEX. Number strings will interpreted as numbers. Text strings will be interpreted as UTF-8 strings.
+Chuyển đổi giá trị đã cho bất kỳ thành HEX. Chuỗi số sẽ được hiểu là số. Chuỗi văn bản sẽ được hiểu là chuỗi UTF-8.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type                                            | Description                  |
-| ----- | ----------------------------------------------- | ---------------------------- |
-| mixed | String &#124; Number &#124; BN &#124; BigNumber | The input to convert to HEX. |
+| Tên     | Loại                                      | Mô tả                           |
+| ------- | ------------------------------------------ | ------------------------------- |
+| hỗn hợp | Chuỗi &#124; Số &#124; BN &#124; BigNumber | Đầu vào để chuyển đổi sang HEX. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description               |
-| ------ | ------------------------- |
-| String | The resulting HEX string. |
+| Loại | Mô tả                 |
+| ----- | --------------------- |
+| Chuỗi | Chuỗi số HEX kết quả. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.toHex('234');
@@ -496,24 +496,24 @@ Converts any given value to HEX. Number strings will interpreted as numbers. Tex
 ```javascript
 caver.utils.toBN(number)
 ```
-Safely converts any given value (including [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
+Chuyển đổi một cách an toàn mọi giá trị đã cho (bao gồm đối tượng [BigNumber.js](http://mikemcl.github.io/bignumber.js/)) thành [BN.js](https://github.com/indutny/bn.js/) để xử lý các số lớn trong JavaScript./a>) thành [BN.js](https://github.com/indutny/bn.js/) để xử lý các số lớn trong JavaScript.
 
-**NOTE**: For just the [BN.js](https://github.com/indutny/bn.js/) class, use [caver.utils.BN](#bn).
+**LƯU Ý**: Chỉ với lớp [BN.js](https://github.com/indutny/bn.js/), hãy sử dụng [caver.utils.BN](#bn).
 
 
-**Parameters**
+**Tham số**
 
-| Name   | Type                            | Description                        |
-| ------ | ------------------------------- | ---------------------------------- |
-| number | String &#124; Number &#124; HEX | Number to convert to a big number. |
+| Tên | type                       | Mô tả                              |
+| --- | -------------------------- | ---------------------------------- |
+| số  | Chuỗi &#124; Số &#124; HEX | Số để chuyển đổi thành một số lớn. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                              |
-| ------ | -------------------------------------------------------- |
-| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Loại     | Mô tả                                                 |
+| --------- | ----------------------------------------------------- |
+| Đối tượng | Phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.toBN(1234).toString();
@@ -532,21 +532,21 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 ```javascript
 caver.utils.hexToNumberString(hex)
 ```
-Returns the number representation of a given HEX value as a string.
+Trả về biểu diễn số của một giá trị HEX nhất định dưới dạng chuỗi.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type       | Description                   |
-| --------- | ---------- | ----------------------------- |
-| hexString | HEX String | A HEX string to be converted. |
+| Tên       | Loại        | Mô tả                             |
+| --------- | ------------ | --------------------------------- |
+| hexString | Chuỗi số HEX | Một chuỗi số HEX được chuyển đổi. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description             |
-| ------ | ----------------------- |
-| String | The number as a string. |
+| Loại | Mô tả               |
+| ----- | ------------------- |
+| Chuỗi | Số dưới dạng chuỗi. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.hexToNumberString('0xea');
@@ -559,23 +559,23 @@ Returns the number representation of a given HEX value as a string.
 ```javascript
 caver.utils.hexToNumber(hex)
 ```
-Returns the number representation of a given HEX value.
+Trả về biểu diễn số của một giá trị HEX đã cho.
 
-**NOTE**: This is not useful for big numbers, rather use [caver.utils.toBN](#tobn).
+**LƯU Ý**: Hàm này không hiệu quả với các số lớn, thay vào đó hãy sử dụng [caver.utils.toBN](caver.utils.md#tobn).
 
-**Parameters**
+**Tham số**
 
-| Name      | Type       | Description                   |
-| --------- | ---------- | ----------------------------- |
-| hexString | HEX String | A HEX string to be converted. |
+| Tên       | Loại        | Mô tả                             |
+| --------- | ------------ | --------------------------------- |
+| hexString | Chuỗi số HEX | Một chuỗi số HEX được chuyển đổi. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
-| Number | The number representation of a given HEX value. |
+| Loại | Mô tả                                    |
+| ----- | ---------------------------------------- |
+| Số    | Biểu diễn số của một giá trị HEX đã cho. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.hexToNumber('0xea');
@@ -588,21 +588,21 @@ Returns the number representation of a given HEX value.
 ```javascript
 caver.utils.numberToHex(number)
 ```
-Returns the HEX representation of a given number value.
+Trả về biểu diễn HEX của một giá trị số đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type                                            | Description                   |
-| ------ | ----------------------------------------------- | ----------------------------- |
-| number | String &#124; Number &#124; BN &#124; BigNumber | A number as string or number. |
+| Tên | Loại                                      | Mô tả                           |
+| --- | ------------------------------------------ | ------------------------------- |
+| số  | Chuỗi &#124; Số &#124; BN &#124; BigNumber | Một số dưới dạng chuỗi hoặc số. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
-| String | The HEX value of the given number. |
+| Loại | Mô tả                      |
+| ----- | -------------------------- |
+| Chuỗi | Giá trị HEX của số đã cho. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.numberToHex('234');
@@ -616,22 +616,22 @@ Returns the HEX representation of a given number value.
 caver.utils.hexToUtf8(hex)
 caver.utils.hexToString(hex) // ALIAS
 ```
-Returns the UTF-8 string representation of a given HEX value.
+Trả về biểu diễn chuỗi UTF-8 của một giá trị HEX đã cho.
 
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                |
-| ---- | ------ | ------------------------------------------ |
-| hex  | String | A HEX string to convert to a UTF-8 string. |
+| Tên | Loại | Mô tả                                         |
+| --- | ----- | --------------------------------------------- |
+| hex | Chuỗi | Chuỗi số HEX để chuyển đổi thành chuỗi UTF-8. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description       |
-| ------ | ----------------- |
-| String | The UTF-8 string. |
+| Loại | Mô tả        |
+| ----- | ------------ |
+| Chuỗi | Chuỗi UTF-8. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.hexToUtf8('0x49206861766520313030e282ac');
@@ -644,22 +644,22 @@ Returns the UTF-8 string representation of a given HEX value.
 ```javascript
 caver.utils.hexToAscii(hex)
 ```
-Returns the ASCII string representation of a given HEX value.
+Trả về biểu diễn chuỗi ASCII của một giá trị HEX đã cho.
 
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                |
-| ---- | ------ | ------------------------------------------ |
-| hex  | String | A HEX string to convert to a ASCII string. |
+| Tên | Loại | Mô tả                                                 |
+| --- | ----- | ----------------------------------------------------- |
+| hex | Chuỗi | Một chuỗi số HEX để chuyển đổi thành một chuỗi ASCII. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description       |
-| ------ | ----------------- |
-| String | The ASCII string. |
+| Loại | Mô tả        |
+| ----- | ------------ |
+| Chuỗi | Chuỗi ASCII. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.hexToAscii('0x4920686176652031303021');
@@ -672,22 +672,22 @@ Returns the ASCII string representation of a given HEX value.
 caver.utils.utf8ToHex(string)
 caver.utils.stringToHex(string) // ALIAS
 ```
-Returns the HEX representation of a given UTF-8 string.
+Trả về biểu diễn HEX của một chuỗi UTF-8 đã cho.
 
 
-**Parameters**
+**Tham số**
 
-| Name   | Type   | Description                                |
-| ------ | ------ | ------------------------------------------ |
-| string | String | A UTF-8 string to convert to a HEX string. |
+| Tên   | Loại | Mô tả                                         |
+| ----- | ----- | --------------------------------------------- |
+| chuỗi | Chuỗi | Chuỗi UTF-8 để chuyển đổi thành chuỗi số HEX. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description     |
-| ------ | --------------- |
-| String | The HEX string. |
+| type  | Mô tả         |
+| ----- | ------------- |
+| Chuỗi | Chuỗi số HEX. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.utf8ToHex('I have 100€');
@@ -701,22 +701,22 @@ Returns the HEX representation of a given UTF-8 string.
 caver.utils.asciiToHex(string)
 ```
 
-Returns the HEX representation of a given ASCII string.
+Trả về biểu diễn HEX của một chuỗi ASCII đã cho.
 
 
-**Parameters**
+**Tham số**
 
-| Name   | Type   | Description                                 |
-| ------ | ------ | ------------------------------------------- |
-| string | String | An ASCII string to convert to a HEX string. |
+| Tên   | Loại | Mô tả                                             |
+| ----- | ----- | ------------------------------------------------- |
+| chuỗi | Chuỗi | Một chuỗi ASCII để chuyển đổi thành chuỗi số HEX. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description     |
-| ------ | --------------- |
-| String | The HEX string. |
+| Loại | Mô tả         |
+| ----- | ------------- |
+| Chuỗi | Chuỗi số HEX. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.asciiToHex('I have 100!');
@@ -729,21 +729,21 @@ Returns the HEX representation of a given ASCII string.
 ```javascript
 caver.utils.hexToBytes(hex)
 ```
-Returns a byte array from the given HEX string.
+Trả về một mảng byte từ chuỗi số HEX đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name | Type       | Description                   |
-| ---- | ---------- | ----------------------------- |
-| hex  | HEX String | A HEX string to be converted. |
+| Tên | type         | Mô tả                             |
+| --- | ------------ | --------------------------------- |
+| hex | Chuỗi số HEX | Một chuỗi số HEX được chuyển đổi. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description     |
-| ----- | --------------- |
-| Array | The byte array. |
+| type | Mô tả      |
+| ---- | ---------- |
+| Mảng | Mảng byte. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.hexToBytes('0x000000ea');
@@ -756,21 +756,21 @@ Returns a byte array from the given HEX string.
 ```javascript
 caver.utils.bytesToHex(byteArray)
 ```
-Returns a HEX string from a byte array.
+Trả về một chuỗi số HEX từ một mảng byte.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type  | Description              |
-| --------- | ----- | ------------------------ |
-| byteArray | Array | A byte array to convert. |
+| Tên       | Loại | Mô tả                        |
+| --------- | ----- | ---------------------------- |
+| byteArray | Mảng  | Một mảng byte để chuyển đổi. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description     |
-| ------ | --------------- |
-| String | The HEX string. |
+| Loại | Mô tả         |
+| ----- | ------------- |
+| Chuỗi | Chuỗi số HEX. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.bytesToHex([ 72, 101, 108, 108, 111, 33, 36 ]);
@@ -784,24 +784,24 @@ Returns a HEX string from a byte array.
 caver.utils.toPeb(number [, unit])
 ```
 
-Converts any KLAY value into peb.
+Chuyển đổi giá trị KLAY bất kỳ thành peb.
 
-**NOTE**: "peb" is the smallest KLAY unit, and you should always make calculations in peb and convert only for display reasons.
+**LƯU Ý**: "peb" là đơn vị KLAY nhỏ nhất và bạn phải luôn tính toán bằng peb và chỉ chuyển đổi vì lý do hiển thị.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number | String &#124; Number &#124; BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert from. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Tên    | Loại                     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------ | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số     | Chuỗi &#124; Số &#124; BN | Giá trị.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| đơn vị | Chuỗi                     | (tùy chọn, mặc định là `"KLAY"`) KLAY để chuyển đổi. Các đơn vị có thể là:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type             | Description                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Loại           | Mô tả                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chuỗi &#124; BN | Nếu một số hoặc một chuỗi được cung cấp, nó sẽ trả về một chuỗi số, nếu không thì sẽ là một phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.toPeb('1', 'KLAY');
@@ -815,22 +815,22 @@ Converts any KLAY value into peb.
 caver.utils.fromPeb(number [, unit])
 ```
 
-**NOTE**: "peb" is the smallest KLAY unit, and you should always make calculations in KLAY and convert only for display reasons.
+**LƯU Ý**: "peb" là đơn vị KLAY nhỏ nhất và bạn phải luôn tính toán bằng KLAY và chỉ chuyển đổi vì lý do hiển thị.
 
-**Parameters**
+**Tham số**
 
-| Name   | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| number | String &#124; Number &#124; BN | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert to. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Tên    | Loại                     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số     | Chuỗi &#124; Số &#124; BN | Giá trị tính bằng peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| đơn vị | Chuỗi                     | (tùy chọn, mặc định là `"KLAY"`) KLAY để chuyển đổi sang. Các đơn vị có thể là:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type             | Description                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
+| Loại           | Mô tả                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chuỗi &#124; BN | Nếu một số hoặc một chuỗi được cung cấp, nó sẽ trả về một chuỗi số, nếu không thì sẽ là một phiên bản [BN.js](https://github.com/indutny/bn.js/). |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.fromPeb('1', 'KLAY');
@@ -844,16 +844,16 @@ caver.utils.fromPeb(number [, unit])
 caver.utils.unitMap
 ```
 
-Shows all possible KLAY values and their amount in peb.
+Hiển thị tất cả các giá trị KLAY có thể có và số lượng của chúng tính bằng peb.
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đối tượng | Với các thuộc tính sau:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.unitMap
@@ -882,24 +882,24 @@ caver.utils.padLeft(string, characterAmount [, sign])
 caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
-Adds a padding on the left of a string. Useful for adding paddings to HEX strings.
+Thêm phần đệm vào bên trái của một chuỗi. Hữu ích khi thêm phần đệm vào chuỗi số HEX.
 
 
-**Parameters**
+**Tham số**
 
-| Name            | Type   | Description                                              |
-| --------------- | ------ | -------------------------------------------------------- |
-| string          | String | The string to add padding on the left.                   |
-| characterAmount | Number | The number of characters the total string should have.   |
-| sign            | String | (optional) The character sign to use, defaults to `"0"`. |
+| Tên             | Loại | Mô tả                                           |
+| --------------- | ----- | ----------------------------------------------- |
+| chuỗi           | Chuỗi | Chuỗi để thêm phần đệm vào bên trái.            |
+| characterAmount | Số    | Số lượng ký tự mà tổng chuỗi phải có.           |
+| ký              | Chuỗi | (tùy chọn) Ký tự để sử dụng, mặc định là `"0"`. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description        |
-| ------ | ------------------ |
-| String | The padded string. |
+| Loại | Mô tả      |
+| ----- | ---------- |
+| Chuỗi | Chuỗi đệm. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.padLeft('0x3456ff', 20);
@@ -919,24 +919,24 @@ Adds a padding on the left of a string. Useful for adding paddings to HEX string
 caver.utils.padRight(string, characterAmount [, sign])
 caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 ```
-Adds a padding on the right of a string, Useful for adding paddings to HEX strings.
+Thêm phần đệm vào bên phải của chuỗi, Hữu ích khi thêm phần đệm vào chuỗi số HEX.
 
 
-**Parameters**
+**Tham số**
 
-| Name            | Type   | Description                                              |
-| --------------- | ------ | -------------------------------------------------------- |
-| string          | String | The string to add padding on the right.                  |
-| characterAmount | Number | The number of characters the total string should have.   |
-| sign            | String | (optional) The character sign to use, defaults to `"0"`. |
+| Tên             | Loại | Mô tả                                           |
+| --------------- | ----- | ----------------------------------------------- |
+| chuỗi           | Chuỗi | Chuỗi để thêm phần đệm vào bên phải.            |
+| characterAmount | Số    | Số lượng ký tự mà tổng chuỗi phải có.           |
+| ký              | Chuỗi | (tùy chọn) Ký tự để sử dụng, mặc định là `"0"`. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description        |
-| ------ | ------------------ |
-| String | The padded string. |
+| Loại | Mô tả      |
+| ----- | ---------- |
+| Chuỗi | Chuỗi đệm. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.padRight('0x3456ff', 20);
@@ -956,22 +956,22 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 caver.utils.toTwosComplement(number)
 ```
 
-Converts a negative number into a two's complement.
+Chuyển đổi một số âm thành phần bù hai.
 
 
-**Parameters**
+**Tham số**
 
-| Name   | Type                                  | Description            |
-| ------ | ------------------------------------- | ---------------------- |
-| number | Number &#124; String &#124; BigNumber | The number to convert. |
+| Tên | Loại                            | Mô tả              |
+| --- | -------------------------------- | ------------------ |
+| số  | Số &#124; Chuỗi &#124; BigNumber | Số cần chuyển đổi. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description               |
-| ------ | ------------------------- |
-| String | The converted hex string. |
+| Loại | Mô tả                       |
+| ----- | --------------------------- |
+| Chuỗi | Chuỗi số hex đã chuyển đổi. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.toTwosComplement('-1');
@@ -995,23 +995,23 @@ Converts a negative number into a two's complement.
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
 ```
-Returns `true` if the given transaction is a smart contract deploy transaction. It returns `false` if the transaction is not a smart contract deploy transaction. The result is determined by the values of the parameters in the `transactionObject`. Make sure all the mandatory parameters are set correctly.
+Trả về `true` nếu giao dịch đã cho là giao dịch triển khai hợp đồng thông minh. Trả về `false` nếu giao dịch không phải là giao dịch triển khai hợp đồng thông minh. Kết quả được xác định bởi giá trị của các tham số trong `transactionObject`. Đảm bảo tất cả các tham số bắt buộc được đặt chính xác.
 
-**NOTE** caver.klay.isContractDeployment is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+**LƯU Ý** caver.klay.isContractDeployment được hỗ trợ từ **v1.0.1-rc.8**. Để sử dụng tính năng này, hãy cài đặt từ phiên bản [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) trở lên.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type   | Description                                                                                    |
-| ----------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| transactionObject | Object | Transaction object that you want to determine if the transaction is for smart contract deploy. |
+| Tên               | Loại     | Mô tả                                                                                                        |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| transactionObject | Đối tượng | Đối tượng giao dịch mà bạn muốn xác định xem giao dịch có dành cho triển khai hợp đồng thông minh hay không. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                       |
-| ------- | ----------------------------------------------------------------- |
-| Boolean | `true` means the transaction object is for smart contract deploy. |
+| Loại   | Mô tả                                                                             |
+| ------- | --------------------------------------------------------------------------------- |
+| Boolean | `true` nghĩa là đối tượng giao dịch dùng cho việc triển khai hợp đồng thông minh. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isContractDeployment({
@@ -1058,23 +1058,23 @@ false
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
 ```
-Returns the x and y coordinates of the given publicKey. For more information on key cryptography, see [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
+Trả về tọa độ x và y của publicKey đã cho. Để biết thêm thông tin về mật mã khóa, xem [Mật mã đường cong Elliptic](https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography).cong Elliptic</a>.
 
-**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length.
+**LƯU Ý** Hàm này không chứa bất kỳ logic nào để kiểm tra xem khóa công khai có hợp lệ hay không. Hàm chỉ chia publicKey đầu vào thành các điểm x và y theo độ dài.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| publicKey | String | The publicKey to get x and y points. |
+| Tên       | Loại | Mô tả                          |
+| --------- | ----- | ------------------------------ |
+| publicKey | Chuỗi | PublicKey để nhận điểm x và y. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description                                                                    |
-| ----- | ------------------------------------------------------------------------------ |
-| Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
+| Loại | Mô tả                                                                         |
+| ----- | ----------------------------------------------------------------------------- |
+| Mảng  | Một mảng lưu trữ các điểm x và y. Chỉ mục 0 có điểm x và chỉ mục 1 có điểm y. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.xyPointFromPublicKey('0xa5862ded55cd9c7e9ff246dbc264ca5d5c605308f59b74e581b4f089d4c8c88cb9f00df6a56493f6029af215d266c907660ea0f7a4111ea025ea9d9be418fa55')
@@ -1089,23 +1089,23 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 ```javascript
 caver.utils.isHexPrefixed(input)
 ```
-Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
+Trả về `true` nếu đầu vào là một chuỗi số hex có tiền tố 0x, nếu không sẽ trả về `false`.
 
-**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**LƯU Ý** caver.klay.isHexPrefixed được hỗ trợ kể từ phiên bản **v1.0.1**. Để sử dụng tính năng này, vui lòng cài đặt phiên bản [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) trở lên.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type   | Description                                                                   |
-| ----- | ------ | ----------------------------------------------------------------------------- |
-| input | String | The value to be determined if the parameter is 0x-prefixed hex string or not. |
+| Tên  | Loại | Mô tả                                                                              |
+| ---- | ----- | ---------------------------------------------------------------------------------- |
+| nhập | Chuỗi | Giá trị được xác định xem tham số có phải là chuỗi số hex có tiền tố 0x hay không. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                       |
-| ------- | ------------------------------------------------- |
-| Boolean | `true` means the input is 0x-prefixed hex string. |
+| Loại   | Mô tả                                                  |
+| ------- | ------------------------------------------------------ |
+| Boolean | `true` nghĩa là đầu vào là chuỗi số hex có tiền tố 0x. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isHexPrefixed('0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1126,23 +1126,23 @@ false
 ```javascript
 caver.utils.addHexPrefix(input)
 ```
-Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
+Trả về một chuỗi số hex có tiền tố là 0x. Nếu đầu vào đã có tiền tố 0x hoặc một chuỗi không phải hex thì giá trị đầu vào được trả về nguyên trạng.
 
-**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**LƯU Ý** caver.klay.addHexPrefix được hỗ trợ kể từ phiên bản **v1.0.1**. Để sử dụng tính năng này, vui lòng cài đặt phiên bản [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) trở lên.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type   | Description                          |
-| ----- | ------ | ------------------------------------ |
-| input | String | String value to be prefixed with 0x. |
+| Tên  | Loại | Mô tả                           |
+| ---- | ----- | ------------------------------- |
+| nhập | Chuỗi | Giá trị chuỗi có tiền tố là 0x. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
-| String | 0x-prefixed hex string is returned. |
+| Loại | Mô tả                                   |
+| ----- | --------------------------------------- |
+| Chuỗi | Chuỗi hex có tiền tố 0x sẽ được trả về. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.addHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1157,23 +1157,23 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 ```javascript
 caver.utils.stripHexPrefix(input)
 ```
-Returns the result with 0x prefix stripped from input.
+Trả về kết quả với tiền tố 0x bị loại bỏ khỏi đầu vào.
 
-**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**LƯU Ý** caver.klay.stripHexPrefix được hỗ trợ từ phiên bản **v1.0.1**. Để sử dụng tính năng này, vui lòng cài đặt phiên bản [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) trở lên.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type   | Description                 |
-| ----- | ------ | --------------------------- |
-| input | String | String to remove 0x prefix. |
+| Tên  | Loại | Mô tả                    |
+| ---- | ----- | ------------------------ |
+| nhập | Chuỗi | Chuỗi để xóa tiền tố 0x. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
-| String | A string stripped of 0x is returned. |
+| Loại | Mô tả                                |
+| ----- | ------------------------------------ |
+| Chuỗi | Một chuỗi bị loại bỏ 0x được trả về. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.stripHexPrefix('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
@@ -1188,76 +1188,76 @@ Returns the result with 0x prefix stripped from input.
 ```javascript
 caver.utils.toBuffer(input)
 ```
-This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
+Hàm này chuyển đổi đầu vào thành [Bộ đệm](https://nodejs.org/api/buffer.html). Để chuyển đổi một đối tượng thành Bộ đệm bằng `toBuffer`, đối tượng đó phải triển khai hàm **toArray**. Đối với đầu vào loại chuỗi, hàm này chỉ hoạt động với **chuỗi hex có tiền tố 0x**.
 
-**NOTE** caver.klay.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**LƯU Ý** caver.klay.toBuffer được hỗ trợ từ **v1.1.0**. Để sử dụng tính năng này, hãy cài đặt [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) trở lên.
 
-**Parameters**
+**Tham số**
 
-| Name  | Type                                                                    | Description                            |
-| ----- | ----------------------------------------------------------------------- | -------------------------------------- |
-| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
+| Tên  | Loại                                                                | Mô tả                                    |
+| ---- | -------------------------------------------------------------------- | ---------------------------------------- |
+| nhập | Bộ đệm &#124; Chuỗi &#124; Số &#124; Mảng &#124; BN &#124; Đối tượng | Giá trị sẽ được chuyển đổi thành Bộ đệm. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
-| Buffer | The value converted to Buffer type is returned. |
+| Loại  | Mô tả                                                  |
+| ------ | ------------------------------------------------------ |
+| Bộ đệm | Giá trị được chuyển đổi thành loại Bộ đệm được trả về. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// Buffer
+// Bộ đệm
 > caver.utils.toBuffer(Buffer.alloc(0))
 <Buffer >
-// 0x-prefixed hex string
+// Chuỗi hex có tiền tố 0x
 > caver.utils.toBuffer('0x1234')
 <Buffer 12 34>
-// Number
+// Số
 > caver.utils.toBuffer(1)
 <Buffer 01>
-// Array
+// Mảng
 > caver.utils.toBuffer([1,2,3])
 <Buffer 01 02 03>
 // BN
 > caver.utils.toBuffer(new caver.utils.BN(255))
 <Buffer ff>
-// Object that implements toArray function
+// Đối tượng thực hiện hàm toArray
 > caver.utils.toBuffer({toArray: function() {return [1,2,3,4]}})
 <Buffer 01 02 03 04>
-// null or undefined
+// vô giá trị hoặc không xác định
 > caver.utils.toBuffer(null)
 <Buffer >
 > caver.utils.toBuffer(undefined)
 <Buffer >
-// non 0x-prefixed hex string
+// chuỗi số hex không có tiền tố 0x
 > caver.utils.toBuffer('0xqwer')
-Error: Failed to convert string to Buffer. 'toBuffer' function only supports 0x-prefixed hex string
-// Object that does not implement toArray function
+Error: Failed to convert string to Buffer. Hàm 'toBuffer' chỉ hỗ trợ chuỗi số hex có tiền tố 0x
+// Đối tượng không triển khai hàm toArray
 > caver.utils.toBuffer({})
-Error: To convert an object to a buffer, the toArray function must be implemented inside the object
+Lỗi: Để chuyển đổi một đối tượng thành bộ đệm, hàm toArray phải được triển khai bên trong đối tượng
 ```
 ## numberToBuffer <a id="numbertobuffer"></a>
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
-This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
+Hàm này chuyển đổi một số thành [Bộ đệm](https://nodejs.org/api/buffer.html). [caver.utils.toBuffer](#tobuffer) có hoạt động tương tự như hàm này khi đầu vào là một số.
 
-**NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**LƯU Ý** caver.klay.numberToBuffer được hỗ trợ từ **v1.1.0**. Để sử dụng tính năng này, hãy cài đặt [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) trở lên.
 
-**Parameters**
-| Name  | Type                           | Description                           |
-| ----- | ------------------------------ | ------------------------------------- |
-| input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
-
-
-**Return Value**
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
-| Buffer | The value converted to Buffer type is returned. |
+**Tham số**
+| Tên  | Loại                     | Mô tả                                |
+| ---- | ------------------------- | ------------------------------------ |
+| nhập | Chuỗi &#124; Số &#124; BN | Một số được chuyển đổi thành Bộ đệm. |
 
 
-**Examples**
+**Giá trị trả về**
+| Loại  | Mô tả                                                  |
+| ------ | ------------------------------------------------------ |
+| Bộ đệm | Giá trị được chuyển đổi thành loại Bộ đệm được trả về. |
+
+
+**Ví dụ**
 ```javascript
 > caver.utils.numberToBuffer(1)
 <Buffer 01>
@@ -1273,24 +1273,24 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 ```javascript
 caver.utils.isTxHash(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| Name  | Type   | Description                                                                              |
-| ----- | ------ | ---------------------------------------------------------------------------------------- |
-| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
+Trả về `true` nếu đầu vào ở định dạng hàm băm giao dịch, nếu không sẽ trả về `false`. Hàm này chỉ xem xét đầu vào và xác định xem nó có ở định dạng hàm băm giao dịch hay không. **LƯU Ý** caver.klay.isTxHash được hỗ trợ kể từ phiên bản **v1.2.0-rc.1**. Để sử dụng tính năng này, hãy cài đặt từ phiên bản [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) trở lên. **Tham số**
+| Tên  | Loại | Mô tả                                                                         |
+| ---- | ----- | ----------------------------------------------------------------------------- |
+| nhập | Chuỗi | Giá trị được xác định xem tham số có ở định dạng hàm băm giao dịch hay không. |
 
 
-**Return Value**
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | `true` means the input is in format of transaction hash. |
+**Giá trị trả về**
+| Loại   | Mô tả                                                  |
+| ------- | ------------------------------------------------------ |
+| Boolean | `true` nghĩa là đầu vào ở định dạng hàm băm giao dịch. |
 
 
-**Examples**
+**Ví dụ**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
-// without '0x' hex prefix
+// không có tiền tố hex
 > caver.utils.isTxHash('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 > caver.utils.isTxHash('0x1')
@@ -1300,24 +1300,24 @@ false
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with `0x`. **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| Name  | Type   | Description                                                                              |
-| ----- | ------ | ---------------------------------------------------------------------------------------- |
-| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
+Trả về `true` nếu đầu vào ở định dạng hàm băm giao dịch, nếu không sẽ trả về `false`. Hàm này chỉ xem xét đầu vào và xác định xem nó có ở định dạng hàm băm giao dịch hay không. Sự khác biệt đối với [caver.utils.isTxHash](#istxhash) là nó cho là HEX có tiền tố là `0x`. **LƯU Ý** caver.klay.isTxHashStrict được hỗ trợ kể từ phiên bản **v1.2.0-rc.1**. Để sử dụng tính năng này, hãy cài đặt từ phiên bản [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) trở lên. **Tham số**
+| Tên  | Loại | Mô tả                                                                         |
+| ---- | ----- | ----------------------------------------------------------------------------- |
+| nhập | Chuỗi | Giá trị được xác định xem tham số có ở định dạng hàm băm giao dịch hay không. |
 
 
-**Return Value**
-| Type    | Description                                                  |
-| ------- | ------------------------------------------------------------ |
-| Boolean | `true` means the input is in the format of transaction hash. |
+**Giá trị trả về**
+| Loại   | Mô tả                                                  |
+| ------- | ------------------------------------------------------ |
+| Boolean | `true` nghĩa là đầu vào ở định dạng hàm băm giao dịch. |
 
 
-**Examples**
+**Ví dụ**
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isTxHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
-// without '0x' hex prefix
+// không có tiền tố hex
 > caver.utils.isTxHashStrict('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 false
 > caver.utils.isTxHashStrict('0x1')
@@ -1329,21 +1329,21 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-Returns `true` if privateKey is valid, otherwise it returns `false`.
+Trả về `true` nếu privateKey hợp lệ, nếu không thì trả về `false`.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type   | Description                       |
-| ---------- | ------ | --------------------------------- |
-| privateKey | String | A private key string to validate. |
+| Tên        | Loại | Mô tả                         |
+| ---------- | ----- | ----------------------------- |
+| privateKey | Chuỗi | Chuỗi khóa riêng để xác thực. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                           |
+| Loại   | Mô tả                                 |
 | ------- | ------------------------------------- |
-| Boolean | `true` means the privateKey is valid. |
+| Boolean | `true` có nghĩa là privateKey hợp lệ. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isValidPrivateKey('0x{private key}')
@@ -1361,30 +1361,30 @@ false
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
 ```
-Returns `true` if publicKey is valid, otherwise it returns `false`.
+Trả về `true` nếu publicKey hợp lệ, nếu không sẽ trả về `false`.
 
-**NOTE** `caver.utils.isValidPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.utils.isValidPublicKey` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                      |
-| --------- | ------ | -------------------------------- |
-| publicKey | String | A public key string to validate. |
+| Tên       | Loại | Mô tả                             |
+| --------- | ----- | --------------------------------- |
+| publicKey | Chuỗi | Chuỗi khóa công khai để xác thực. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                          |
-| ------- | ------------------------------------ |
-| Boolean | `true` means the publicKey is valid. |
+| Loại   | Mô tả                             |
+| ------- | --------------------------------- |
+| Boolean | `true` nghĩa là publicKey hợp lệ. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
-// validation with uncompressed public key
+// xác thực bằng khóa công khai không nén
 > caver.utils.isValidPublicKey('0xbd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0e8beba92e2e675101eb2a55ba4693080d0bf14548beae7bc93b18b72d10dd350')
 true
 
-// validation with compressed public key
+// xác thực bằng khóa công khai nén
 > caver.utils.isValidPublicKey('0x02bd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0')
 true
 
@@ -1403,23 +1403,23 @@ false
 ```javascript
 caver.utils.isValidRole(role)
 ```
-Returns `true` if role is valid, otherwise it returns `false`. Roles that are currently defined for AccountKeyRoleBased are `transactionKey`,`updateKey`, and `feePayerKey`.
+Trả về `true` nếu vai trò hợp lệ, nếu không sẽ trả về `false`. Các vai trò hiện được xác định cho AccountKeyRoleBased là `transactionKey`, `updateKey` và `feePayerKey`.
 
-**NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.utils.isValidRole` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                |
-| ---- | ------ | -------------------------- |
-| role | String | A role string to validate. |
+| Tên     | Loại | Mô tả                          |
+| ------- | ----- | ------------------------------ |
+| vai trò | Chuỗi | Một chuỗi vai trò để xác thực. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                     |
-| ------- | ------------------------------- |
-| Boolean | `true` means the role is valid. |
+| Loại   | Mô tả                              |
+| ------- | ---------------------------------- |
+| Boolean | `true` có nghĩa là vai trò hợp lệ. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isValidRole('transactionKey')
@@ -1440,25 +1440,25 @@ false
 ```javascript
 caver.utils.isEmptySig(sig)
 ```
-Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`.
+Trả về `true` nếu sig ở định dạng chữ ký trống (`[['0x01', '0x', '0x']]` hoặc `['0x01', '0x', '0x']`), nếu không sẽ trả về `false`.
 
-When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[['0x01', '0x', '0x']]`, is returned for the property. This function is used to check whether the given signature is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` in the 'LEGACY' transaction).
+Khi mã hóa RLP một giao dịch trong caver-js, nếu chữ ký hoặc phíPayerSignatures trống, thì giá trị đại diện cho chữ ký trống, `[['0x01', '0x', '0x']]`, được trả về cho thuộc tính. Hàm này dùng để kiểm tra xem chữ ký đã cho có phải là `[['0x01', '0x', '0x']]` (hay `['0x01', '0x', '0x']` trong giao dịch 'LEGACY').
 
-**NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**LƯU Ý** `caver.utils.isEmptySig` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-**Parameters**
+**Tham số**
 
-| Name | Type  | Description                                   |
-| ---- | ----- | --------------------------------------------- |
-| sig  | Array | An array of signatures to check empty or not. |
+| Tên | Loại | Mô tả                                                   |
+| --- | ----- | ------------------------------------------------------- |
+| sig | Mảng  | Một mảng các chữ ký để kiểm tra xem có trống hay không. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                 |
-| ------- | --------------------------------------------------------------------------- |
-| Boolean | `true` means the sig is `[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`. |
+| Loại   | Mô tả                                                                        |
+| ------- | ---------------------------------------------------------------------------- |
+| Boolean | `true` nghĩa là sig là `[['0x01', '0x', '0x']]` hoặc `['0x01', '0x', '0x']`. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isEmptySig([['0x01', '0x', '0x']])
@@ -1476,23 +1476,23 @@ false
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-Returns `true` if key is in [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Trả về `true` nếu khóa thuộc định dạng [KlaytnWalletKey](../../../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format), nếu không sẽ trả về `false`.
 
-**NOTE** `caver.utils.isKlaytnWalletKey` has been updated with the additional logic for a more accurate result since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
+**LƯU Ý** `caver.utils.isKlaytnWalletKey` đã được cập nhật với logic bổ sung để có kết quả chính xác hơn vì caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                    |
-| ---- | ------ | -------------------------------------------------------------- |
-| key  | String | A key string to check in the format of KlaytnWalletKey or not. |
+| Tên  | Loại | Mô tả                                                              |
+| ---- | ----- | ------------------------------------------------------------------ |
+| khóa | Chuỗi | Một chuỗi khóa để kiểm tra có định dạng KlaytnWalletKey hay không. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                                                                       |
-| ------- | ----------------------------------------------------------------------------------------------------------------- |
-| Boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
+| Loại   | Mô tả                                                                                                                  |
+| ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` có nghĩa là khóa là `0x{private key}0x{type}0x{address in hex}` hoặc `{private key}0x{type}0x{address in hex}`. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
@@ -1510,23 +1510,23 @@ false
 ```javascript
 caver.utils.bufferToHex(buffer)
 ```
-Converts buffer to 0x-prefixed hex string.
+Chuyển đổi bộ đệm thành chuỗi số hex có tiền tố 0x.
 
-**NOTE** `caver.utils.bufferToHex` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+**LƯU Ý** `caver.utils.bufferToHex` được hỗ trợ kể từ caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
 
-**Parameters**
+**Tham số**
 
-| Name   | Type   | Description                        |
-| ------ | ------ | ---------------------------------- |
-| buffer | Buffer | A buffer to convert to hex string. |
+| Tên    | Loại  | Mô tả                                       |
+| ------ | ------ | ------------------------------------------- |
+| bộ đệm | Bộ đệm | Một bộ đệm để chuyển đổi sang chuỗi số hex. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                 |
-| ------ | --------------------------- |
-| String | The 0x-prefixed hex string. |
+| Loại | Mô tả                       |
+| ----- | --------------------------- |
+| Chuỗi | Chuỗi số hex có tiền tố 0x. |
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.utils.bufferToHex(Buffer.from('5b9ac8', 'hex'))
