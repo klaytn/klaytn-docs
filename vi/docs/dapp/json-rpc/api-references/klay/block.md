@@ -4,9 +4,9 @@ Khi các yêu cầu được thực hiện hành động theo trạng thái củ
 
 Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
-- `HEX String` - số khối là số nguyên
-- `String "earliest"` cho khối sớm nhất/đầu tiên
-- `String "latest"` - cho khối đào mới nhất
+- `HEX String` - số khối là giá trị nguyên
+- `String "earliest"` cho khối sớm nhất/khởi nguyên
+- `String "latest"` - cho khối đã đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
 
 
@@ -20,17 +20,17 @@ Không có
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                         |
-| -------- | ------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số khối hiện tại mà máy khách đang kết nối đến. |
+| type     | Mô tả                                                              |
+| -------- | ------------------------------------------------------------------ |
+| SỐ LƯỢNG | Giá trị nguyên của số khối hiện tại mà máy khách đang kết nối đến. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_blockNumber","params":[],"id":83}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":83,
@@ -58,9 +58,9 @@ Xem phần [klay_getHeaderByHash](#klay_getheaderbyhash)
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByNumber","params":["0x1b4"],"id":1}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -71,7 +71,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -93,38 +93,38 @@ Trả về thông tin tiêu đề theo hàm băm. API này chỉ hoạt động 
 
 **Tham số**
 
-| Loại           | Mô tả             |
-| --------------- | ----------------- |
-| DỮ LIỆU 32 byte | Hàm băm của khối. |
+| Loại           | Mô tả                 |
+| --------------- | --------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Một đối tượng tiêu đề, hoặc `lỗi` khi không tìm thấy tiêu đề:
 
-| Tên              | Loại            | Mô tả                                                                                                             |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                    |
-| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                             |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các nhật ký của khối. `null` khi đó là khối đang chờ xử lý.                                      |
-| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của cây tiền tố giao dịch trong khối.                                                                         |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của cây tiền tố trạng thái cuối của khối.                                                                     |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                  |
-| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                        |
-| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                     |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                            |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                              |
-| dấu thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                       |
-| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                              |
-| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                 |
-| voteData         | DỮ LIỆU          | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                              |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ sở trên mỗi gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
+| Tên              | Loại            | Mô tả                                                                                                                     |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                            |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha mẹ.                                                                                                  |
+| nhật kýBloom     | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                              |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                                        |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                                    |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                                 |
+| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                |
+| blockScore       | SỐ LƯỢNG         | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                                          |
+| extraData        | DATA             | Trường "dữ liệu bổ sung" của khối này.                                                                                    |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                      |
+| dấu thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                               |
+| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                      |
+| governanceData   | DATA             | Cấu hình quản trị được mã hóa RLP                                                                                         |
+| voteData         | DATA             | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                      |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi đơn vị gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c"],"id":1}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -135,7 +135,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -152,17 +152,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-Trả về thông tin về khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin của một khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Kiểu                | Mô tả                                                                                                                                                   |
+| Loại               | Mô tả                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 | Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.                                         |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị Trả về**
@@ -172,10 +172,10 @@ Xem phần [klay_getBlockByHash](#klay_getblockbyhash)
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockByNumber","params":["0x1b4", true],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -186,7 +186,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -206,48 +206,48 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
-Trả về thông tin về khối theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin của một khối theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
 | Loại           | Mô tả                                                                                                           |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 32 byte | Hàm băm của khối.                                                                                               |
+| DỮ LIỆU 32 byte | Hàm băm của một khối.                                                                                           |
 | Boolean         | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Một đối tượng khối, hoặc `lỗi` khi không tìm thấy khối:
 
-| Tên              | Loại            | Mô tả                                                                                                             |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                    |
-| hàm băm          | DỮ LIỆU 32 byte  | Hàm băm của khối. `null` khi đó là khối đang chờ xử lý.                                                           |
-| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha.                                                                                             |
-| logsBloom        | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các nhật ký của khối. `null` khi đó là khối đang chờ xử lý.                                      |
-| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của cây tiền tố giao dịch trong khối.                                                                         |
-| stateRoot        | DỮ LIỆU 32 byte  | Gốc của cây tiền tố trạng thái cuối của khối.                                                                     |
-| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                  |
-| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                        |
-| blockScore       | SỐ LƯỢNG         | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                     |
-| totalBlockScore  | SỐ LƯỢNG         | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                                     |
-| extraData        | DỮ LIỆU          | Trường "dữ liệu bổ sung" của khối này.                                                                            |
-| kích thước       | SỐ LƯỢNG         | Số nguyên chỉ kích thước của khối này theo byte.                                                                  |
-| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                              |
-| dấu thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                       |
-| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                              |
-| giao dịch        | Mảng             | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số đã cho gần nhất.                    |
-| governanceData   | DỮ LIỆU          | Cấu hình quản trị được mã hóa RLP                                                                                 |
-| voteData         | DỮ LIỆU          | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                              |
-| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ sở trên mỗi gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
+| Tên              | Loại            | Mô tả                                                                                                                     |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| số               | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                            |
+| hash             | DỮ LIỆU 32 byte  | Hàm băm của một khối. `null` khi đó là khối đang chờ xử lý.                                                               |
+| parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha mẹ.                                                                                                  |
+| nhật kýBloom     | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                              |
+| transactionsRoot | DỮ LIỆU 32 byte  | Gốc của trie giao dịch trong khối.                                                                                        |
+| stateRoot        | DỮ LIỆU 32 byte  | Gốc của trie trạng thái cuối của khối.                                                                                    |
+| receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                                 |
+| phần thưởng      | DỮ LIỆU 20 byte  | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                |
+| blockScore       | SỐ LƯỢNG         | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                                          |
+| totalBlockScore  | SỐ LƯỢNG         | Tổng số blockScore bằng giá trị nguyên của chuỗi cho đến khối này.                                                        |
+| extraData        | DATA             | Trường "dữ liệu bổ sung" của khối này.                                                                                    |
+| kích thước       | SỐ LƯỢNG         | Giá trị nguyên chỉ kích thước của khối này theo byte.                                                                     |
+| gasUsed          | SỐ LƯỢNG         | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                      |
+| dấu thời gian    | SỐ LƯỢNG         | Dấu thời gian Unix khi khối được đối chiếu.                                                                               |
+| timestampFoS     | SỐ LƯỢNG         | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                      |
+| giao dịch        | Mảng             | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số đã cho gần nhất.                            |
+| governanceData   | DATA             | Cấu hình quản trị được mã hóa RLP                                                                                         |
+| voteData         | DATA             | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                      |
+| baseFeePerGas    | SỐ LƯỢNG         | Phí cơ bản trên mỗi đơn vị gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", true],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
@@ -258,7 +258,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -292,10 +292,10 @@ Biên lai có trong một khối.  Nếu khối mục tiêu không chứa giao d
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30"],"id":73}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":73,
@@ -308,12 +308,12 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
     "gas":"0x30d40",
     "gasPrice":"0xba43b7400",
     "gasUsed":"0x1886c",
-    "logs":[],
-    "logsBloom":"0x00000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000040000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật ký":[],
+    "nhật kýBloom":"0x00000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000040000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "nonce":"0x58e",
     "senderTxHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
     "signatures":["0x7f6","0x50b2b0f95b8a6d7018369b1933d6cebb52ef119463d1840a6181d05bf8fc29d8","0x329630f88d9d06c5f1bd7644dbf6bd6b92e4ab0e3d47122972f8294c9289e7bb"],
-    "status":"0x1",
+    "trạng thái":"0x1",
     "to":"0xdbb98c72e9818ad2c93a09e35ad43ada0d4223f0",
     "transactionHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
     "transactionIndex":"0x0",
@@ -336,22 +336,22 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 | SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                             |
-| -------- | ------------------------------------------------- |
-| SỐ LƯỢNG | Số lượng giao dịch bằng số nguyên trong khối này. |
+| Loại    | Mô tả                                                 |
+| -------- | ----------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ số lượng giao dịch trong khối này. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -366,23 +366,23 @@ Trả về số lượng giao dịch trong một khối từ một khối khớp
 
 **Tham số**
 
-| Loại           | Mô tả            |
-| --------------- | ---------------- |
-| DỮ LIỆU 32 byte | Hàm băm của khối |
+| Loại           | Mô tả                |
+| --------------- | -------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối |
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                             |
-| -------- | ------------------------------------------------- |
-| SỐ LƯỢNG | Số lượng giao dịch bằng số nguyên trong khối này. |
+| Loại    | Mô tả                                                 |
+| -------- | ----------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ số lượng giao dịch trong khối này. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -401,20 +401,20 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 | SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
-Xem phần [klay_getBlockWithConsensusInfoByHash](#klay_getblockwithconsensusinfobyhash)
+Xem [klay_getBlockWithConsensusInfoByHash](#klay_getblockwithconsensusinfobyhash)
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByNumber", "params":["0x6e0431"],"id":73}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 73,
@@ -426,7 +426,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
     "gasUsed": "0x1d065",
     "governanceData": "0x",
     "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
-    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number": "0x6e0431",
     "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
     "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
@@ -455,8 +455,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
         "gasPrice": "0x5d21dba00",
         "gasUsed": "0x1d065",
         "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
-        "logs": [],
-        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "nhật ký": [],
+        "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x8",
         "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
         "signatures": [
@@ -466,7 +466,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
             "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
           }
         ],
-        "status": "0x1",
+        "trạng thái": "0x1",
         "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
         "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
         "transactionIndex": "0x0",
@@ -488,40 +488,40 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
 
 **Tham số**
 
-| Loại            | Mô tả             |
-| --------------- | ----------------- |
-| DỮ LIỆU 32 byte | Hàm băm của khối. |
+| type            | Mô tả                 |
+| --------------- | --------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối. |
 
 **Giá trị trả về**
 
 `Đối tượng` - Đối tượng khối có thông tin đồng thuận (người đề xuất và danh sách thành viên ủy ban) hoặc `lỗi` khi không tìm thấy khối:
 
-| Tên              | Loại            | Mô tả                                                                                                                                                      |
-| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | SỐ LƯỢNG        | Khó khăn trước đây. Luôn là số 1 trong công cụ đồng thuận BFT                                                                                              |
-| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                                                                              |
-| uỷ ban           | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
-| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                       |
-| hàm băm          | DỮ LIỆU 32 byte | Hàm băm của khối. `null` khi đó là khối đang chờ xử lý.                                                                                                    |
-| số               | SỐ LƯỢNG        | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                             |
-| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha.                                                                                                                                      |
-| người đề xuất    | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                            |
-| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch của khối.                                                                                                           |
-| kích thước       | SỐ LƯỢNG        | Số nguyên chỉ kích thước của khối này theo byte.                                                                                                           |
-| stateRoot        | DỮ LIỆU 32 byte | Gốc của cây tiền tố trạng thái cuối của khối.                                                                                                              |
-| dấu thời gian    | SỐ LƯỢNG        | Dấu thời gian Unix khi khối được đối chiếu.                                                                                                                |
-| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                       |
-| giao dịch        | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                  |
-| transactionsRoot | DỮ LIỆU 32 byte | Gốc của cây tiền tố giao dịch trong khối.                                                                                                                  |
-| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ sở trên mỗi gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                          |
+| Tên              | type            | Mô tả                                                                                                                                                    |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                                                                         |
+| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng giá trị nguyên của chuỗi cho đến khối này.                                                                                       |
+| uỷ ban           | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những nút xác thực đã tham gia vào giao thức đồng thuận cho khối này. |
+| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                     |
+| hash             | DỮ LIỆU 32 byte | Hàm băm của một khối. `null` khi đó là khối đang chờ xử lý.                                                                                              |
+| số               | SỐ LƯỢNG        | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                           |
+| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha mẹ.                                                                                                                                 |
+| người đề xuất    | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                          |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của trie biên lai giao dịch của khối.                                                                                                                |
+| kích thước       | SỐ LƯỢNG        | Giá trị nguyên chỉ kích thước của khối này theo byte.                                                                                                    |
+| stateRoot        | DỮ LIỆU 32 byte | Gốc của trie trạng thái cuối của khối.                                                                                                                   |
+| dấu thời gian    | SỐ LƯỢNG        | Dấu thời gian Unix khi khối được đối chiếu.                                                                                                              |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                     |
+| giao dịch        | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                |
+| transactionsRoot | DỮ LIỆU 32 byte | Gốc của trie giao dịch trong khối.                                                                                                                       |
+| baseFeePerGas    | SỐ LƯỢNG        | Phí cơ bản trên mỗi đơn vị gas. Phí này có giá trị có nghĩa khi các hardfork EthTxTypeCompatible và Magma được kích hoạt.                                |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByHash", "params":["0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61"],"id":73}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 73,
@@ -533,7 +533,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
     "gasUsed": "0x1d065",
     "governanceData": "0x",
     "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
-    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number": "0x6e0431",
     "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
     "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
@@ -562,8 +562,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
         "gasPrice": "0x5d21dba00",
         "gasUsed": "0x1d065",
         "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
-        "logs": [],
-        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "nhật ký": [],
+        "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x8",
         "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
         "signatures": [
@@ -573,7 +573,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
             "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
           }
         ],
-        "status": "0x1",
+        "trạng thái": "0x1",
         "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
         "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
         "transactionIndex": "0x0",
@@ -590,7 +590,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCommittee <a id="klay_getcommittee"></a>
-Trả về danh sách tất cả các nút xác thực trong ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả các nút xác thực trong ủy ban ở khối mới nhất.
+Trả về danh sách tất cả các nút xác thực của ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả các nút xác thực trong ủy ban ở khối mới nhất.
 
 **Tham số**
 
@@ -599,23 +599,23 @@ Trả về danh sách tất cả các nút xác thực trong ủy ban tại kh�
 | SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
 `Mảng` - Mảng địa chỉ của tất cả các nút xác thực trong ủy ban hoặc `null` khi không tìm thấy ủy ban nào:
 
-| Loại                | Mô tả                                                 |
-| -------------------- | ----------------------------------------------------- |
-| Mảng DỮ LIỆU 20 byte | Địa chỉ của tất cả những người xác thực trong ủy ban. |
+| Loại                | Mô tả                                               |
+| -------------------- | --------------------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Địa chỉ của tất cả những nút xác thực trong ủy ban. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCommittee", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -633,17 +633,17 @@ Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tha
 
 **Tham số**
 
-| Tên                 | Loại    | Mô tả                                                                                                                                                         |
+| Tên                 | type    | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
-`Số nguyên` - Quy mô của ủy ban hoặc `-1` khi không tìm thấy ủy ban nào:
+`Giá trị nguyên` - Quy mô của ủy ban hoặc `-1` khi không tìm thấy ủy ban nào:
 
 | Loại    | Mô tả               |
 | -------- | ------------------- |
@@ -652,9 +652,9 @@ LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCommitteeSize", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -664,34 +664,34 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getCouncil <a id="klay_getcouncil"></a>
-Trả về danh sách tất cả những người xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những người xác thực của hội đồng tại khối mới nhất.
+Trả về danh sách tất cả những nút xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những nút xác thực của hội đồng tại khối mới nhất.
 
-**LƯU Ý**: `klay_getValidators` được thay bằng phương thức này và không được hỗ trợ nữa.
+**LƯU Ý**: `klay_getValidators` được thay bằng phương pháp này và không được hỗ trợ nữa.
 
 **Tham số**
 
-| Tên                 | Loại    | Mô tả                                                                                                                                                         |
+| Tên                 | type    | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
-`Mảng` - Mảng địa chỉ người xác thực của hội đồng hoặc `null` khi không tìm thấy hội đồng nào:
+`Mảng` - Mảng địa chỉ nút xác thực của hội đồng hoặc `null` khi không tìm thấy hội đồng nào:
 
-| Loại                | Mô tả                                                 |
-| -------------------- | ----------------------------------------------------- |
-| Mảng DỮ LIỆU 20 byte | Địa chỉ của tất cả những người xác thực của hội đồng. |
+| Loại                | Mô tả                                               |
+| -------------------- | --------------------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Địa chỉ của tất cả những nút xác thực của hội đồng. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncil", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -714,23 +714,23 @@ Trả về quy mô của hội đồng tại khối được chỉ định. Nế
 | SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
 **Giá trị trả về**
 
-`Số nguyên` - Quy mô của hội đồng hoặc `-1` khi không tìm thấy hội đồng nào:
+`Giá trị nguyên` - Quy mô của hội đồng hoặc `-1` khi không tìm thấy hội đồng nào:
 
-| Loại     | Mô tả               |
+| type     | Mô tả               |
 | -------- | ------------------- |
 | SỐ LƯỢNG | Quy mô của hội đồng |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncilSize", "params":["0x1b4"],"id":73}' https://public-en-baobab.klaytn.net
-// Kết quả
+// Result
 {
     "jsonrpc":"2.0",
     "id":73,
@@ -745,39 +745,39 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 
 **Tham số**
 
-| Loại                               | Mô tả                                                                                                                                                                              |
+| type                               | Mô tả                                                                                                                                                                              |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ lưu trữ.                                                                                                                                                                   |
-| SỐ LƯỢNG                           | Số nguyên chỉ vị trí lưu trữ.                                                                                                                                                      |
+| DỮ LIỆU 20 byte                    | Địa chỉ kho lưu trữ.                                                                                                                                                               |
+| SỐ LƯỢNG                           | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                                 |
 | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định ](block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 {% hint style="success" %}
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0 thì chỉ có số khối nguyên, chuỗi `"earliest"` và `"latest"`.
+LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
 {% endhint %}
 
  **Giá trị trả về**
 
-| Loại   | Mô tả                           |
-| ------- | ------------------------------- |
-| DỮ LIỆU | Giá trị tại vị trí lưu trữ này. |
+| Loại | Mô tả                           |
+| ----- | ------------------------------- |
+| DATA  | Giá trị tại vị trí lưu trữ này. |
 
 **Ví dụ**
 
 Việc tính toán vị trí chính xác sẽ tùy thuộc vào kho lưu trữ cần truy xuất. Xem xét hợp đồng sau được triển khai tại `0x295a70b2de5e3953354a6a8344e616ed314d7251` theo địa chỉ `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
-hợp đồng lưu trữ {
+contract Storage {
     uint pos0;
     mapping(address => uint) pos1;
 
-    chức nang lưu trữ() {
+    function Storage() {
         pos0 = 1234;
         pos1[msg.sender] = 5678;
     }
 }
 ```
 
-Truy xuất giá trị `pos0` rất đơn giản:
+Truy xuất giá trị của `pos0` rất đơn giản:
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
@@ -785,23 +785,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
-Truy xuất chi tiết của bản đồ thì khó hơn. Vị trí của chi tiết trên bản đồ được tính bằng:
+Việc truy xuất thành phần của bản đồ thì khó hơn. Vị trí của một thành phần trên bản đồ được tính bằng:
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
-Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` chúng ta cần tính toán vị trí bằng:
+Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`, chúng ta cần tính toán vị trí bằng:tính toán vị trí bằng:
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-Có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
+Bạn có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Đến đây, để tìm nạp kho lưu trữ:
+Bây giờ sẽ lấy kho lưu trữ:
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
@@ -819,23 +819,23 @@ Không có
 
 **Giá trị trả về**
 
-`Object|Boolean`, đối tượng với dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
+`Object|Boolean`, đối tượng có dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
 
-| Tên           | Loại     | Mô tả                                                                                                                                  |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                          |
-| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `klay_blockNumber`.                                                                                           |
-| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                 |
-| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0. |
-| knownStates   | SỐ LƯỢNG | Số mục nhập trạng thái đã biết vẫn cần được truy xuất.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh" thì sẽ trả về giá trị bằng 0.    |
+| Tên           | type     | Mô tả                                                                                                                                 |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                         |
+| currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `klay_blockNumber`.                                                                                          |
+| highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                |
+| pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh", giá trị trả về sẽ bằng 0.   |
+| knownStates   | SỐ LƯỢNG | Số lượng các mục trạng thái đã biết vẫn cần được truy xuất.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh", giá trị trả về sẽ bằng 0. |
 
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_syncing","params":[],"id":1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -872,10 +872,10 @@ Trả về kết quả phân phối phần thưởng về một khối theo số
 | JSON  | Kết quả phân phối phần thưởng |
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getRewards", "params": ["0x1000"], "id": 1}' https://public-en-baobab.klaytn.net
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 1,
