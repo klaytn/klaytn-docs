@@ -1,27 +1,27 @@
 ## eth_feeHistory<a id="eth_feehistory"></a>
 
-Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
+가스당 기본 수수료와, 가능한 경우 요청된 블록 범위에 대한 가스 내역당 트랜잭션 유효 급행 수수료를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name              | Type                | Description                                                                                                                                                                                                                 |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | QUANTITY            | Number of blocks in the requested range expressed as a hexidecimal number. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
-| lastBlock         | QUANTITY &#124; TAG | Highest number block of the requested range as a block number or block tag.                                                                                                                                                 |
-| rewardPercentiles | Array of FLOAT      | Array of floating point value between 0 and 100.                                                                                                                                                                            |
-
-
-**Return Value**
-
-| Name          | Type              | Description                                                                                                                                                        |
-| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| oldestBlock   | QUANTITY          | Lowest number block of the returned range expressed as a hexidecimal number.                                                                                       |
-| baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
-| gasUsedRatio  | Array of FLOAT    | An array of block gas used ratios. These are calculated as the ratio of gasUsed and gasLimit.                                                                      |
-| reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
+| 이름                | 타입                  | 설명                                                                                                                       |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| blockCount        | QUANTITY            | 요청된 범위의 블록 수를 16진수로 표시합니다. 단일 쿼리로 1(0x1)에서 1024(0x400) 사이의 블록을 요청할 수 있습니다. 모든 블록을 사용할 수 없는 경우 요청한 것보다 적은 블록이 반환될 수 있습니다. |
+| lastBlock         | QUANTITY &#124; TAG | 요청된 범위의 가장 높은 블록의 블록 번호 또는 블록 태그를 반환합니다.                                                                                 |
+| rewardPercentiles | Array of FLOAT      | 0에서 100 사이의 부동 소수점 값 배열입니다.                                                                                              |
 
 
-**Example**
+**리턴값**
+
+| 이름            | 타입                | 설명                                                                              |
+| ------------- | ----------------- | ------------------------------------------------------------------------------- |
+| oldestBlock   | QUANTITY          | 반환된 범위 내 가장 낮은 블록 번호를 16진수로 표시합니다.                                              |
+| baseFeePerGas | Array of QUANTITY | 가스당 블록 기본 수수료의 배열입니다. 이 값은 최신 블록에서 파생될 수 있으므로, 반환된 범위 중 가장 최신 블록의 다음 블록도 포함됩니다. |
+| gasUsedRatio  | Array of FLOAT    | 블록의 가스 사용 비율의 배열입니다. 이는 가스 사용량과 가스 리밋의 비율로 계산됩니다.                               |
+| reward        | Array of QUANTITY | 단일 블록의 가스 데이터 포인트당 유효 급행 수수료의 배열입니다. 블록이 비어 있으면 모두 0을 반환합니다.                    |
+
+
+**예시**
 
 ```shell
 // Request
@@ -159,21 +159,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
 
-Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
+동적 수수료 트랜잭션의 가스 팁 상한에 대한 제안을 peb 단위로 반환합니다.
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| 타입       | 설명                           |
+| -------- | ---------------------------- |
+| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
