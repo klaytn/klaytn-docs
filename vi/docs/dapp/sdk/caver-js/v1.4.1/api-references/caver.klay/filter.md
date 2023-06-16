@@ -1,35 +1,35 @@
 ## getFilterChanges <a id="getfilterchanges"></a>
 
 ```javascript
-caver.klay.getFilterChanges(filterId [, callback])
+caver.klay.getFilterChanges(bộ lọcId [, callback])
 ```
 
-Phương thức truy vấn lần lượt đối với bộ lọc, trả về một mảng các nhật ký kể từ lần truy vấn lần lượt trước đó.
+Phương thức truy vấn lần lượt đối với bộ lọc, trả về một mảng các bản ghi kể từ lần truy vấn trước đó.
 
 **Tham số**
 
-| Tên      | Loại  | Mô tả                                                                                                           |
+| Tên      | type  | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| bộ lọcId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Array` - Mảng các đối tượng nhật ký, hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn lần lượt trước đó.
+`Promise` trả về `Array` - Mảng các đối tượng bản ghi hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn trước đó.
 
-Cấu trúc của `Object` nhật ký trả về trong `Array` là như sau:
+Cấu trúc của `Object` bản ghi trả về trong `Array` có dạng như sau:
 
-| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                                    |
-| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | DỮ LIỆU 20 byte | Địa chỉ mà nhật ký này được khởi tạo.                                                                                                                                                                                                                    |
-| topics           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số nhật ký được lập chỉ mục. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.). |
-| data             | DỮ LIỆU         | Chứa các đối số không được lập chỉ mục của nhật ký.                                                                                                                                                                                                      |
-| blockNumber      | SỐ LƯỢNG        | Số khối chứa nhật ký này. `null` nếu đang chờ xử lý.                                                                                                                                                                                                     |
-| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch nơi nhật ký này được tạo. Giá trị là `null` khi giao dịch đang chờ xử lý, trường hợp đặc biệt khi giao dịch đã được thực thi nhưng khối chứa giao dịch chưa được xác nhận.                                                         |
-| transactionIndex | SỐ LƯỢNG        | Số nguyên. Chỉ mục của giao dịch nơi nhật ký này được tạo. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                               |
-| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa nhật ký này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                       |
-| logIndex         | SỐ LƯỢNG        | Số nguyên chỉ vị trí chỉ mục nhật ký trong khối. Giá trị là `null` khi đó là nhật ký đang chờ xử lý.                                                                                                                                                     |
-| id               | Chuỗi           | Mã số định danh nhật ký. Nó được tạo bằng cách nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                                     |
+| Tên              | Loại           | Mô tả                                                                                                                                                                                                                                                          |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address          | DỮ LIỆU 20 byte | Địa chỉ mà bản ghi này được khởi tạo.                                                                                                                                                                                                                          |
+| chủ đề           | Mảng DỮ LIỆU    | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục trong bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (*ví dụ*: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.). |
+| data             | DATA            | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                            |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                                      |
+| transactionHash  | DỮ LIỆU 32 byte | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. Giá trị là `null` khi giao dịch đang chờ xử lý, đây là trường hợp đặc biệt khi giao dịch đã được thực thi nhưng khối chứa giao dịch chưa được xác nhận.                                                   |
+| transactionIndex | SỐ LƯỢNG        | Giá trị nguyên. Chỉ mục của giao dịch nơi bản ghi này được tạo. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                             |
+| logIndex         | SỐ LƯỢNG        | Giá trị nguyên chỉ vị trí chỉ mục bản ghi trong khối. Giá trị là Giá trị là `null` khi đó là bản ghi đang chờ xử lý.                                                                                                                                           |
+| id               | Chuỗi           | Mã số định danh bản ghi. Mã này được tạo bằng cách nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                                       |
 
 **Ví dụ**
 
@@ -53,22 +53,22 @@ Cấu trúc của `Object` nhật ký trả về trong `Array` là như sau:
 ## getFilterLogs <a id="getfilterlogs"></a>
 
 ```javascript
-caver.klay.getFilterLogs(filterId [, callback])
+caver.klay.getFilterLogs(bộ lọcId [, callback])
 ```
 
-Trả về một mảng gồm tất cả các nhật ký khớp với bộ lọc với id cho trước. Đối tượng bộ lọc nên được lấy bằng cách sử dụng hàm [newFilter](#newfilter).  
-Lưu ý rằng các id bộ lọc trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [newBlockFilter](#newblockfilter) hoặc [newPendingTransactionFilter](#newpendingtransactionfilter), không thể sử dụng được với hàm này.
+Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id cho trước. Nên lấy đối tượng bộ lọc bằng cách sử dụng hàm [newFilter](#newbộ lọc).  
+Lưu ý rằng không thể sử dụng các id bộ lọc trả về bằng các hàm tạo bộ lọc khác, chẳng hạn như [newBlockFilter](#newblockbộ lọc) hoặc [newPendingTransactionFilter](#newpendingtransactionbộ lọc), với hàm này.
 
 **Tham số**
 
-| Tên      | Loại  | Mô tả                                                                                                           |
+| Tên      | type  | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| bộ lọcId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-Tham khảo [getFilterChanges](#getfilterchanges)
+Tham khảo [getFilterChanges](#getbộ lọcchanges)
 
 **Ví dụ**
 
@@ -96,36 +96,36 @@ Tham khảo [getFilterChanges](#getfilterchanges)
 caver.klay.getPastLogs(options [, callback])
 ```
 
-Lấy nhật ký quá khứ, phù hợp với các tùy chọn đã cho.
+Lấy bản ghi trong quá khứ, phù hợp với các tùy chọn đã cho.
 
 **Tham số**
 
-| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                                |
-| ----------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                                 |
-| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối sớm nhất để lấy nhật ký. (`"latest"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"latest"`.                                                                                                                                                                        |
-| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối cuối cùng để lấy nhật ký. (`"latest"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"latest"`.                                                                                                                                                                      |
-| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Sẽ chỉ trả về các nhật ký liên quan đến (các) tài khoản cụ thể.                                                                                                                                                                                       |
-| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi sự kiện. Thứ tự có vai trò quan trong. Nếu bạn muốn bỏ qua một số chủ đề, sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó *ví dụ:* `[null, ['option1', 'option2']]`. |
-| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                                                                                                                                                      |
+| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                         |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn          | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                          |
+| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối lấy bản ghi sớm nhất. (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"latest"`.                                                                                                                                                                  |
+| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của khối lấy bản ghi cuối cùng. (`"mới nhất"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"latest"`.                                                                                                                                                                |
+| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                                                                                                                                                            |
+| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. Nếu bạn muốn bỏ qua một số chủ đề, hãy sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn cũng có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó *ví dụ:* `[null, ['option1', 'option2']]`. |
+| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                               |
 
 **Giá trị trả về**
 
-`Promise` trả về `Array` - Mảng các đối tượng nhật ký.
+`Promise` trả về `Array` - Mảng các đối tượng bản ghi.
 
-Cấu trúc của `Object` sự kiện trả về trong `Array` là như sau:
+Cấu trúc của `Object` sự kiện trả về trong `Array` có dạng như sau:
 
-| Tên              | Loại         | Mô tả                                                                                                                                     |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | Chuỗi         | Địa chỉ bắt nguồn cho sự kiện.                                                                                                            |
-| data             | Chuỗi         | Dữ liệu chứa tham số nhật ký không được lập chỉ mục.                                                                                      |
-| topics           | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của nhật ký.                                            |
-| logIndex         | Số            | Số nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                          |
-| transactionIndex | Số            | Số nguyên biểu thị vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                      |
-| transactionHash  | Chuỗi 32 byte | Hàm băm của giao dịch mà sự kiện này được tạo.                                                                                            |
-| blockHash        | Chuỗi 32 byte | Hàm băm của khối nơi mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                        |
-| blockNumber      | Số            | Số khối nơi mà nhật ký này đã được tạo. `null` khi vẫn đang chờ xử lý.                                                                    |
-| id               | Chuỗi         | Mã số định danh nhật ký. Nó được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Tên              | Loại         | Mô tả                                                                                                                                         |
+| ---------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| address          | Chuỗi         | Địa chỉ khởi tạo sự kiện.                                                                                                                     |
+| data             | Chuỗi         | Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                                                                                          |
+| chủ đề           | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của bản ghi.                                                |
+| logIndex         | Số            | Giá trị nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                         |
+| transactionIndex | Số            | Giá trị nguyên chỉ vị trí chỉ mục giao dịch nơi sự kiện được tạo.                                                                             |
+| transactionHash  | Chuỗi 32 byte | Hàm băm của giao dịch mà sự kiện này được tạo.                                                                                                |
+| blockHash        | Chuỗi 32 byte | Hàm băm của khối nơi sự kiện này được tạo. Giá trị là `null` khi sự kiện vẫn đang chờ xử lý.                                                  |
+| blockNumber      | Số            | Số khối nơi bản ghi này được tạo. Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                                                           |
+| id               | Chuỗi         | Mã số định danh bản ghi. Mã này được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Ví dụ**
 
@@ -155,13 +155,13 @@ Cấu trúc của `Object` sự kiện trả về trong `Array` là như sau:
 caver.klay.newBlockFilter([callback])
 ```
 
-Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối mới. Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
+Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối mới. Để kiểm tra xem trạng thái có thay đổi hay không, hãy gọi ra [getFilterChanges](#getbộ lọcchanges).
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                                                  |
+| Tên      | type | Mô tả                                                                                                                                  |
 | -------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số đầu tiên của hàm và kết quả làm tham số thứ hai. |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số thứ nhất của hàm và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -179,24 +179,24 @@ Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện củ
 ```javascript
 caver.klay.newFilter(options [, callback])
 ```
-Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất định để nhận thông tin thay đổi trạng thái cụ thể (nhật ký).
-- Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
-- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [getFilterLogs](#getfilterlogs).
+Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất định để nhận thông tin thay đổi trạng thái cụ thể (bản ghi).
+- Để kiểm tra xem trạng thái có thay đổi hay không, hãy gọi ra [getFilterChanges](#getbộ lọcchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi ra [getFilterLogs](#getbộ lọcnhật ký).
 
-Để biết thông tin chi tiết về các bộ lọc chủ đề, vui lòng tham khảo [API Nền tảng Klaytn - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
+Để biết thông tin chi tiết về các bộ lọc theo chủ đề, hãy tham khảo [API Nền tảng Klaytn - klay_newFilter](../../../../../json-rpc/api-references/klay/bộ lọc.md#klay_newbộ lọc).
 
 
 
 **Tham số**
 
-| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                                                     |
-| ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                                                      |
-| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối sớm nhất để truy vấn sự kiện. (Có các thẻ đặc biệt, `"latest"` nghĩa là khối gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                                         |
-| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối cuối cùng để truy vấn sự kiện (Có các thẻ đặc biệt, `"latest"` nghĩa là khối được xác nhận gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                           |
-| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ để lấy nhật ký được tạo ra bên trong (các) hợp đồng đã cho.                                                                                                                                                                                                                 |
-| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị để tìm kiếm trong các bản ghi nhật ký. Thứ tự có vai trò quan trọng. Nếu bạn muốn khớp với tất cả mọi thứ trong vị trí cho trước, sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn cũng có thể truyền một mảng để khớp một trong số các giá trị.  *Ví dụ,* `[null, ['option1', 'option2']]`. |
-| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                                                                                                                                                                           |
+| Tên               | Loại             | Mô tả                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn          | Đối tượng         | Các tùy chọn bộ lọc.                                                                                                                                                                                                                                                                                                  |
+| options.fromBlock | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối truy vấn sự kiện sớm nhất. (Có các thẻ đặc biệt, `"latest"` nghĩa là khối gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                                        |
+| options.toBlock   | Số &#124; Chuỗi   | (tùy chọn) Số hiệu của chiều cao khối truy vấn sự kiện cuối cùng (Có các thẻ đặc biệt, `"latest"` nghĩa là khối được xác nhận gần đây nhất). Giá trị mặc định là `"latest"`.                                                                                                                                          |
+| options.address   | Chuỗi &#124; Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ để lấy bản ghi được tạo ra bên trong (các) hợp đồng đã cho.                                                                                                                                                                                                             |
+| options.topics    | Mảng              | (tùy chọn) Mảng các giá trị để tìm kiếm trong mục nhập bản ghi. Quan trọng là thứ tự. Nếu bạn muốn khớp với tất cả mọi thứ trong vị trí cho trước, hãy sử dụng `null`, *ví dụ*, `[null, '0x12...']`. Bạn cũng có thể truyền một mảng để khớp một trong số các giá trị đó.  *Ví dụ,* `[null, ['option1', 'option2']]`. |
+| callback          | Hàm               | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                                       |
 
 
 **Giá trị trả về**
@@ -219,13 +219,13 @@ Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất 
 caver.klay.newPendingTransactionFilter([callback])
 ```
 
-Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối đang chờ xử lý mới. Để kiểm tra thay đổi trạng thái, hãy gọi [getFilterChanges](#getfilterchanges).
+Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối đang chờ xử lý mới. Để kiểm tra xem trạng thái có thay đổi hay không, hãy gọi ra [getFilterChanges](#getbộ lọcchanges).
 
 **Tham số**
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -241,21 +241,21 @@ Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện củ
 ## uninstallFilter <a id="uninstallfilter"></a>
 
 ```javascript
-caver.klay.uninstallFilter(filterId [, callback])
+caver.klay.uninstallFilter(bộ lọcId [, callback])
 ```
 
-Gỡ bỏ bộ lọc với id cho trước. Chúng tôi khuyến cáo mạnh mẽ rằng nếu không còn cần theo dõi nữa thì nên ngay lập tức gỡ bỏ bộ lọc. Bộ lọc sẽ bị gỡ bỏ nếu bộ lọc không được kích hoạt thông qua [getFilterChanges](#getfilterchanges) trong thời gian lớn hơn giá trị thời gian chờ được thiết lập trong nút. Cấu hình mặc định là 5 phút.
+Gỡ bỏ bộ lọc với id cho trước. Bạn nên xóa ngay bộ lọc nếu việc giám sát không còn cần thiết nữa. Bộ lọc sẽ bị xóa nếu không được gọi ra thông qua [getFilterChanges](#getbộ lọcchanges) trong thời gian lớn hơn giá trị thời gian chờ được thiết lập trong nút. Cấu hình mặc định là 5 phút.
 
 **Tham số**
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| filterId | Chuỗi | Id bộ lọc.                                                                                                      |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| bộ lọcId | Chuỗi | Id bộ lọc.                                                                                                      |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Boolean` - `true` nếu bộ lọc đã được gỡ cài đặt thành công, nếu không giá trị là `false`.
+`Promise` trả về `Boolean` - Giá trị là `true` nếu bộ lọc đã được gỡ cài đặt thành công, ngược lại, giá trị sẽ là `false`.
 
 **Ví dụ**
 
