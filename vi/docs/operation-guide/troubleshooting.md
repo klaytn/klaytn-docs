@@ -1,4 +1,4 @@
-# Troubleshooting <a id="troubleshooting"></a>
+# Khắc phục sự cố <a id="troubleshooting"></a>
 
 
 
