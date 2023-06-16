@@ -1,8 +1,13 @@
 # VM標準トレース <a id="vm-standard-tracing"></a>
 
+**NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public. We recommend you to provide the debug namespace APIs to authorized users only. However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs. The enabled APIs are as follows:
+- [VM Tracing](./tracing.md) APIs, however with limited functionality (only [pre-defined tracers](./tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-[debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` と同様に、不正なブロックハッシュを受け入れ、不良 ブロックを再生します。 トレース結果を含むファイル名のリストを返します。 ファイルはこの API を提供するマシンに保存されます。
+Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
 
 | Client  | Method Invocation                                                       |
@@ -40,7 +45,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
-Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database. トレース結果を含むファイル名のリストを返します。 ファイルはこの API を提供するマシンに保存されることに注意してください。
+Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
 | Client  | Method Invocation                                                    |
 |:-------:| -------------------------------------------------------------------- |
@@ -77,11 +82,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## 標準トレーシングオプション <a id="standard-tracing-options"></a>
 
-トレースAPI関数に、この特定の呼び出しのオプションを 指定する2番目のオプション引数を与えることができます。 利用可能なオプションは次のとおりです。
+You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
-- `disableStorage`: `BOOL`. true に設定すると、ストレージキャプチャが無効になります (デフォルト = false)。
-- `disableMemory`: `BOOL`. これをtrueに設定すると、メモリキャプチャが無効になります(既定値はfalse)。
-- `disableStack`: `BOOL`. これをtrueに設定するとスタックキャプチャが無効になります(デフォルトはfalse)。
-- `txHash`: `string`. この値を設定すると、指定されたトランザクションのみトレースされます。
+- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
+- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
+- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
+- `txHash`: `string`. Setting this value will trace only the specified transaction.
 
 
