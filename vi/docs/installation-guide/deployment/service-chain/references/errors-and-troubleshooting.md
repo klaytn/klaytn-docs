@@ -1,2 +1,2 @@
-# Lỗi & Xử lý sự cố <a id="errors-troubleshooting"></a>
+# Lỗi & Khắc phục sự cố <a id="errors-troubleshooting"></a>
 
