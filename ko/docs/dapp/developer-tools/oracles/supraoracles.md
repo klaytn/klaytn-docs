@@ -1,33 +1,33 @@
-# Introduction
+# 소개
 
 ![](../images/klaytnXsupraOracles.png)
 
-[SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
+[SupraOracles](https://supraoracles.com/)는 모든 퍼블릭(L1 및 L2) 또는 프라이빗(기업용) 블록체인을 상호 연결하는 크로스체인 솔루션(데이터 오라클, 자산 브릿지, 자동화 네트워크 등) 의 수직 통합 툴킷인 새로운 고성능 오라클 & 인트라레이어(IntraLayer) 입니다. 데이터 정확성, 속도, 확장성 및 보안성이 뛰어난 차세대 크로스 체인 오라클 솔루션을 탑재한 스마트 컨트랙트를 제공합니다.
 
-With SupraOracles, your smart contract can get access to price data feeds to build your various decentralized finance(DeFi) use cases. In this tutorial, you will use SupraOracles  to get price feeds easily on Klaytn blockchain using Remix IDE.
+SupraOracles를 사용하면, 스마트 컨트랙트가 가격 데이터 피드에 접근하여 다양한 탈중앙화 금융(DeFi) 사용 사례를 구축할 수 있습니다. 본 튜토리얼에서, 우리는 SupraOracles를 사용하여 Remix IDE를 통해 Klaytn 블록체인 위에서 쉽게 가격 피드를 가져올 것입니다.
 
-# Prerequisites
+# 준비 사항
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
-* [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+* [Remix의 Klaytn 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 얻은 테스트 KLAY
 
-# Getting Started
+# 시작하기
 
-In the following steps, you will request an ETH/USD price feed in your smart contract using SupraOracles. Let's get started!
+다음 단계에서는 SupraOralces를 사용하여 스마트 컨트랙트에서 ETH/USD 가격 피드를 요청해볼 것입니다. 시작해 봅시다!
 
-## Step 1: Create The S-Value Interface
+## 1단계: S-값 인터페이스 만들기
 
-This creates the interface that will be used to fetch prices from SupraOracles. Add the following code to the solidity smart contract that you wish to retrieve an S-Value.
+1단계를 통해 SupraOracles에서 가격을 가져오는 데 사용되는 인터페이스가 생성됩니다. S-값을 필요로 하는 솔리디티 스마트 컨트랙트에 다음 코드를 추가합니다.
 
 ```solidity
 interface ISupraSValueFeed {
 function checkPrice(string memory marketPair) external view returns (int256 price, uint256 timestamp);
 }
 ```
-## Step 2: Configure The S-Value Feed Address
+## 2단계: S-값 피드 주소 구성하기
 
-To fetch the S-Value from a SupraOracles smart contract, first find the S-Value Feed Address for the chain of your choice. When you have the right address, create an instance of the S-Value Feed using the interface we previously defined as such:
+SupraOracles 스마트 컨트랙트에서 S-값을 가져오려면, 먼저 선택한 체인에 대한 S-값 피드 주소를 찾아야 합니다. 올바른 주소를 찾았다면 앞서 정의한 인터페이스를 사용하여 S-Value 피드 인스턴스를 만듭니다:
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -37,11 +37,11 @@ contract ISupraSValueFeedExample {
     }
 }
 ```
-In this example, we are implementing the S-Value Feed on the Klaytn Baobab TestNet. You can verify the Klaytn Baobab S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
+본 예제에서는 Klaytn baobab 테스트넷에서 S-값 피드를 구현하고 있습니다. Klaytn baobab S-값 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
 
-## Step 3: Get The S-Value Crypto Price
+## 3단계: S-값 암호화폐 가격 확인하기
 
-Now you can simply access the S-Value Crypto Price of our supported market pairs. In this step, you'll get the price of ETH/USDT (eth_usdt) by applying the following code to your Smart Contract.
+이제 지원되는 시장 쌍의 S-값 암호화폐 가격에 쉽게 접근할 수 있습니다. 3단계에서는 스마트 컨트랙트에 다음 코드를 적용하여 ETH/USDT(eth_usdt) 의 가격을 얻습니다.
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -53,24 +53,24 @@ return price;
 }
 ```
 
-# Practical implementation
+# 실제 구현
 
-In the example below, we will be deploying the S-Value Price Feed Contract and also executing the getEthUsdtPrice() function to get the price ETH/USDT pairs.
+아래 예시에서는 S-값 가격 피드 컨트랙트를 배포하고 getEthUsdtPrice() 함수를 실행하여 ETH/USDT 쌍의 가격을 가져올 것입니다.
 
-## Create and Deploy Sample Code
+## 샘플 코드 생성 및 배포
 
 **Remix IDE**
 
-* Navigate to [Remix IDE](https://remix.ethereum.org/)
-* Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
-* Paste the code below in your newly created file
-* In Remix, click **Compile contract**.
-* Click the Klaytn tab on your left having installed the plugin
-* Select **Environment** > **Injected Caver** - **Kaikas**.
-* In **Contract**, select your contract. For example, ISupraSValueFeedExample.
-* Click **Deploy**.
+* [Remix IDE](https://remix.ethereum.org/)로 이동합니다
+* File Explorer 탭을 클릭하고 컨트랙트 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 새 파일을 만듭니다
+* 새로 생성한 파일에 아래 코드를 붙여넣습니다
+* Remix에서 **Compile contract**를 클릭합니다.
+* Klaytn 플러그인을 설치한 후 왼쪽의 Klaytn 탭을 클릭합니다
+* **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
+* **Contract**에서, 생성한 컨트랙트를 선택합니다. 예를 들어, ISupraSvalueFeedExample 컨트랙트를 선택합니다.
+* **Deploy**를 클릭합니다.
 
-**Sample Code**
+**샘플 코드**
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -93,19 +93,19 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-## Interact with Smart Contract
+## 스마트 컨트랙트와 상호작용
 
-To get the price feed for the selected currency pair, you have to execute the `getEthUsdtPrice()` function.
+선택한 통화 쌍의 가격 피드를 가져오려면 `getEthUsdtPrice()` 함수를 실행해야 합니다.
 
 ![](../images/sPriceFeed.png)
 
-Tada 🎉! You just requested for a currency price feed (ETH/USDT)  in your smart contract.
+짜잔 🎉! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT) 를 요청하셨습니다.
 
-As of the time of writing, getEthUsdtPrice() returned "185795966200", an 8-point precision figure. To get the actual ETH/USD value, you need to divide the figure by 10^8 which equals $1857.95966200.
+이 글을 작성하는 시점을 기준으로, getEthUsdtPrice()는 소수점 8자리의 정확도를 가지는 "185795966200"을 반환했습니다. 실제 ETH/USD 가격을 얻기위해 이 반환값을 10^8로 나누면 $1857.95966200이 됩니다.
 
-# More Ways To Use SupraOracles Crypto Price Feeds
+# SupraOracles 암호화폐 가격 피드를 사용하는 다양한 방법
 
-## S-Value Feeds With Web3.js
+## Web3.js를 이용한 S-값 피드
 
 ```javascript
 // example assumes that the web3 library has been imported and is accessible within your scope
@@ -139,6 +139,6 @@ console.log(`The price is: ${price.toString()}`)
 getEthUsdtPrice()
 ```
 
-# Conclusion
+# 결론
 
-In this tutorial, you learned how to request an ETH/USD price using the SupraOracle price feed solution. With SupraOracle, you can also generate random numbers in your smart contract. Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Klaytn. For more in-depth guides on SupraOracles, please refer to the [SupraOracles Docs](https://supraoracles.com/docs/development-guides).
+본 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles와 함께라면, 스마트 컨트랙트에서 난수도 생성할 수 있습니다. 이 과정이 궁금하다면 Klaytn에 SupraVRF를 통합하는 방법에 대한 [가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참조하세요. SupraOracles에 대한 자세한 가이드는 [SupraOracles 문서](https://supraoracles.com/docs/development-guides)를 참조하세요.
