@@ -1,6 +1,6 @@
-# Tải về <a id="download"></a>
+# Tải xuống <a id="download"></a>
 
-## Tải về các gói <a id="get-the-packages"></a>
+## Tải xuống các gói <a id="get-the-packages"></a>
 Bạn có thể tải về các gói cho CN, PN, EN, SCN, SPN và SEN.
 
 * [v1.10.2](v1.10.2.md)
@@ -35,7 +35,7 @@ Bạn có thể tải về các gói cho CN, PN, EN, SCN, SPN và SEN.
 * [v1.0.0](v1.0.0.md)
 * [v0.9.6](v0.9.6.md)
 
-## Tải về các nguồn <a id="get-the-sources"></a>
+## Tải xuống các nguồn <a id="get-the-sources"></a>
 Bạn có thể truy xuất mã nguồn thông qua Git. Tài liệu được lưu trữ trên GoDoc.
 
 - [github/klaytn](https://github.com/klaytn/klaytn)
