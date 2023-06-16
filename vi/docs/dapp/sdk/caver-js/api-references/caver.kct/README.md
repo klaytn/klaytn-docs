@@ -1,5 +1,5 @@
 ---
 description: >-
-  A caver-js package used to interact with a KCT.
+  Gói caver-js được sử dụng để tương tác với KCT.
 ---
 
