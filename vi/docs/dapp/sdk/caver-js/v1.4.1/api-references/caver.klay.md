@@ -1,16 +1,16 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
+  Trình bao JavaScript cho API Klaytn xung quanh không gian tên 'klay'.
 ---
 
 # caver.klay <a id="caver-klay"></a>
 
-The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below enumerates the API functions that are currently supported in `caver-js`.
+Gói `caver-klay` cho phép bạn tương tác với các nút Klaytn.  Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong `caver-js`.
 
 
-## [Account](./caver.klay/account.md) <a id="account"></a>
+## [Tài khoản](./caver.klay/tài khoản.md) <a id="account"></a>
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
-- [accountCreated](./caver.klay/account.md#accountcreated)
+- [tài khoảnCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
 - [getAccounts](./caver.klay/account.md#getaccounts)
 - [getAccountKey](./caver.klay/account.md#getaccountkey)
@@ -18,10 +18,10 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [getCode](./caver.klay/account.md#getcode)
 - [getTransactionCount](./caver.klay/account.md#gettransactioncount)
 - [isContractAccount](./caver.klay/account.md#iscontractaccount)
-- [sign](./caver.klay/account.md#sign)
+- [ký](./caver.klay/account.md#sign)
 
 
-## [Block](./caver.klay/block.md) <a id="block"></a>
+## [Khối](./caver.klay/block.md) <a id="block"></a>
 - [defaultBlock](./caver.klay/block.md#defaultblock)
 - [getBlockNumber](./caver.klay/block.md#getblocknumber)
 - [getBlock](./caver.klay/block.md#getblock)
@@ -37,9 +37,9 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [isSyncing](./caver.klay/block.md#issyncing)
 
 
-## [Transaction](./caver.klay/transaction.md) <a id="transaction"></a>
+## [Giao dịch](./caver.klay/transaction.md) <a id="transaction"></a>
 
-- [call](./caver.klay/transaction.md#call)
+- [lệnh gọi](./caver.klay/transaction.md#call)
 - [estimateGas](./caver.klay/transaction.md#estimategas)
 - [estimateComputationCost](./caver.klay/transaction.md#estimatecomputationcost)
 - [decodeTransaction](./caver.klay/transaction.md#decodetransaction)
@@ -71,7 +71,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [signTransaction](./caver.klay/transaction.md#signtransaction)
 
 
-## [Configuration](./caver.klay/config.md) <a id="configuration"></a>
+## [Cấu hình](./caver.klay/config.md) <a id="configuration"></a>
 - [gasPriceAt](./caver.klay/config.md#gaspriceat)
 - [getChainId](./caver.klay/config.md#getchainid)
 - [getGasPrice](./caver.klay/config.md#getgasprice)
@@ -82,7 +82,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [rewardbase](./caver.klay/config.md#rewardbase)
 
 
-## [Filter](./caver.klay/filter.md) <a id="filter"></a>
+## [Bộ lọc](./caver.klay/bộ lọc.md) <a id="filter"></a>
 - [getFilterChanges](./caver.klay/filter.md#getfilterchanges)
 - [getFilterLogs](./caver.klay/filter.md#getfilterlogs)
 - [getPastLogs](./caver.klay/filter.md#getpastlogs)
@@ -91,5 +91,5 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [newPendingTransactionFilter](./caver.klay/filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./caver.klay/filter.md#uninstallfilter)
 
-## [Miscellaneous](./caver.klay/misc.md) <a id="miscellaneous"></a>
+## [Khác](./caver.klay/misc.md) <a id="miscellaneous"></a>
 - [sha3](./caver.klay/misc.md#sha3)
