@@ -18,6 +18,7 @@ jobs:
           git config user.email "$MERGE_AUTHOR_EMAIL"
           git config user.name "$MERGE_AUTHOR_NAME"
       - run: .circleci/subtree-merge.sh ko $L10N_KO_REPO dev
+      - run: .circleci/subtree-merge.sh vi $L10N_VN_REPO dev
 
 workflows:
   version: 2
