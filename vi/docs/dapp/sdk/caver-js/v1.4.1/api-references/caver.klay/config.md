@@ -4,18 +4,18 @@
 caver.klay.gasPriceAt([defaultBlock] [, callback])
 ```
 
-Trả về đơn giá của gas tính bằng đơn vị peb có hiệu lực tại chiều cao khối nhất định.
+Trả về đơn giá của gas theo peb có hiệu lực tại chiều cao khối nhất định.
 
 **Tham số**
 
-| Tên          | Loại            | Mô tả                                                                                                                                            |
+| Tên          | type            | Mô tả                                                                                                                                            |
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock) sẽ được sử dụng. |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                  |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                  |
 
 **Giá trị trả về**
 
-`Promise` trả về `String` - Chuỗi số biểu diễn giá gas bằng đơn vị peb.
+`Promise` trả về `String` - Chuỗi số biểu diễn giá gas theo peb.
 
 
 **Ví dụ**
@@ -34,17 +34,17 @@ Trả về đơn giá của gas tính bằng đơn vị peb có hiệu lực t�
 caver.klay.getChainId([callback])
 ```
 
-Returns the chain ID of the chain.
+Trả về mã chuỗi của chuỗi.
 
 **Tham số**
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Number` - Số nguyên biểu thị ID chuỗi của chuỗi.
+`Promise` trả về `Number` - Giá trị nguyên biểu thị mã chuỗi của chuỗi.
 
 **Ví dụ**
 
@@ -59,17 +59,17 @@ Returns the chain ID of the chain.
 caver.klay.getGasPrice([callback])
 ```
 
-Trả về đơn giá được xác định trong mạng Klaytn.
+Trả về đơn giá được xác định trong mạng lưới Klaytn.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                           |
+| Tên      | type | Mô tả                                                                                                           |
 | -------- | ---- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `String` - Chuỗi số biểu thị đơn giá hiện tại bằng đơn vị peb.
+`Promise` trả về `String` - Chuỗi số biểu thị đơn giá hiện tại theo peb.
 
 **Ví dụ**
 
@@ -90,7 +90,7 @@ Trả về phiên bản máy khách hiện tại của nút Klaytn.
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -116,7 +116,7 @@ Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -136,17 +136,17 @@ Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại
 caver.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Trả về `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch.
+Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                                          |
+| Tên      | type | Mô tả                                                                                                                          |
 | -------- | ---- | ------------------------------------------------------------------------------------------------------------------------------ |
-| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Boolean` - `true` nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi để tìm kiếm giao dịch người trả phí đã ký. Để biết thông tin chi tiết, vui lòng tham khảo [API Nền tảng Klaytn - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) và [Giao dịch Klaytn - Ủy thác phí và SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
+`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi để tìm kiếm giao dịch người trả phí đã ký. Để biết thông tin chi tiết, hãy tham khảo [API Nền tảng Klaytn - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) và [Giao dịch Klaytn - Ủy thác phí và SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
 
 
 **Ví dụ**
@@ -162,17 +162,17 @@ true
 caver.klay.isParallelDBWrite([callback])
 ```
 
-Trả về `true` nếu nút đang ghi dữ liệu chuỗi khối theo cách song song. Nút được kích hoạt theo mặc định.
+Trả về giá trị `true` nếu nút đang ghi dữ liệu chuỗi khối theo phương pháp song song. Nút được kích hoạt theo mặc định.
 
 **Tham số**
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Boolean` - `true` nghĩa là nút đang ghi dữ liệu chuỗi khối theo cách song song. Trả về `false` nếu nút đang ghi dữ liệu theo cách nối tiếp.
+`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang ghi dữ liệu chuỗi khối theo phương pháp song song. Hàm sẽ trả về giá trị `false` nếu nút đang ghi dữ liệu theo phương pháp nối tiếp.
 
 
 **Ví dụ**
@@ -188,14 +188,14 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Trả về rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản nơi các phần thưởng khối được chuyển đến. Chỉ có các nút đồng thuận (CN) Klaytn mới có phần thưởng khối trong cấu hình của nút. Xem [Tập tin cấu hình](../../../../../../node/core-cell/operation-guide/configuration.md).
+Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản mà các phần thưởng khối được chuyển đến. Chỉ có các nút đồng thuận (CN) Klaytn mới có địa chỉ ví rewardbase trong cấu hình của nút. Xem [Tập tin cấu hình](../../../../../../node/core-cell/operation-guide/configuration.md).
 
 
 **Tham số**
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
