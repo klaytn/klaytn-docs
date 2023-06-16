@@ -1,10 +1,10 @@
 # Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-Bạn có thể tải về phiên bản mới nhất của `ken` trên trang [Tải về](download.md).
+Bạn có thể tải về phiên bản mới nhất của `ken` trên trang [Tải xuống](download.md).
 
 ## Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-Tập tin lưu trữ bao gồm nhị phân thực thi và tập tin cấu hình có cấu trúc như sau.
+Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình có cấu trúc như sau.
 
 **Lưu ý**: KHÔNG thay đổi cấu trúc hoặc tên tập tin. Nếu bạn thay đổi điều đó, nút có thể sẽ không hoạt động đúng.
 
@@ -16,11 +16,11 @@ Tập tin lưu trữ bao gồm nhị phân thực thi và tập tin cấu hình 
   |- kend.conf
 ```
 
-| Tên tập tin    | Mô tả tập tin                     |
-|:-------------- |:--------------------------------- |
-| bin/ken        | Tập tin thực thi NĐC              |
-| bin/kend       | Tệp tin lệnh bắt đầu/kết thúc NĐC |
-| conf/kend.conf | Tập tin cấu hình NĐC              |
+| Tên tập tin    | Mô tả tập tin                    |
+|:-------------- |:-------------------------------- |
+| bin/ken        | Tập tin thực thi EN              |
+| bin/kend       | Tập tin lệnh bắt đầu/kết thúc EN |
+| conf/kend.conf | Tập tin cấu hình EN              |
 
 ### Cài đặt <a id="installation"></a>
 
@@ -36,7 +36,7 @@ Hoặc,
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `ken-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `ken` và `kend` trên toàn cầu. Ví dụ,
+**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `ken-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `ken` và `kend` trên toàn hệ thống. Ví dụ,
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
