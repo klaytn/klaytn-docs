@@ -4,19 +4,19 @@
 
 ## Tình trạng xử lý <a id="process-status"></a>
 
-Có thể kiểm tra trạng thái quy trình của NĐC bằng các lệnh trạng thái `systemctl` và `kend`.
+Có thể kiểm tra trạng thái quy trình của EN bằng các lệnh trạng thái `systemctl` và `kend`.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của NĐC như sau.
+`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của EN như sau.
 
 ```bash
-$ systemctl status kend.service
+$ systemctl trạng thái kend.service
 ● kend.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kend; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kend start (code=exited, status=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kend start (code=exited, trạng thái=0/SUCCESS)
  Main PID: 29641 (ken)
    CGroup: /system.slice/kend.service
            └─29641 /usr/local/bin/ken --networkid 1000 --datadir /kend_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -30,10 +30,10 @@ Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (runn
 
 ### kend <a id="kend"></a>
 
-`kend` được cài đặt cùng với gói; trạng thái của NĐC có thể được kiểm tra như sau.
+`kend` được cài đặt cùng với gói; trạng thái của EN có thể được kiểm tra như sau.
 
 ```bash
-$ kend status
+$ kend trạng thái
 kend is running
 ```
 
@@ -61,13 +61,13 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken console <a id="ken-console"></a>
 
-Klaytn cung cấp một máy khách CLI: `ken console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một NĐC.
+Klaytn cung cấp một máy khách CLI: `ken console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một EN.
 
 Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
@@ -77,7 +77,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../../dapp/json-rpc/README.md)
 
-Các API hữu ích để kiểm tra trạng thái của NĐC:
+Các API hữu ích để kiểm tra trạng thái của EN:
 
 * `klay.blockNumber` (để lấy số khối mới nhất)
 * `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
@@ -98,7 +98,7 @@ Bạn có thể lấy số khối mới nhất để xem các khối có đượ
 14
 ```
 
-Dòng lệnh trên trả về số nút mà NĐC kết nối tới.
+Dòng lệnh trên trả về số nút mà EN kết nối đến.
 
 
 
