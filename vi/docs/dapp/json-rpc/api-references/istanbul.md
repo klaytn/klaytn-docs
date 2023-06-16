@@ -1,10 +1,10 @@
 ---
-description: '>- API liên quan đến namespace "istanbul".'
+description: '>- API liên quan đến không gian tên "istanbul".'
 ---
 
-# Namespace istanbul <a id="namespace-istanbul"></a>
+# Không gian tên istanbul <a id="namespace-istanbul"></a>
 
-Namespace `istanbul` cung cấp các hàm liên quan đến sự đồng thuận.
+Không gian tên `istanbul` cung cấp các hàm liên quan đến đồng thuận.
 
 ## istanbul_getSnapshot <a id="istanbul_getsnapshot"></a>
 
@@ -12,15 +12,15 @@ Trả về ảnh chụp nhanh trạng thái tại một số khối nhất đị
 
 **Tham số**
 
-| Tên     | Loại                | Mô tả                                                                                                                                      |
-| ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"cũ nhất"` hoặc `"mới nhất"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
+| Tên     | type                | Mô tả                                                                                                                                     |
+| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 `Đối tượng` - Đối tượng chụp nhanh hoặc thông báo `lỗi` khi không tìm thấy ảnh chụp nhanh:
 
-| Tên | Loại | Mô tả | | Epoch | DỮ LIỆU 64-byte | Số lượng khối mà sau đó để kiểm tra và đặt lại các phiếu đang chờ xử lý | | Số | DỮ LIỆU 64-byte | Số khối nơi ảnh chụp nhanh được tạo | | Số | DỮ LIỆU 64-byte | Số khối nơi ảnh chụp nhanh được tạo | | Giá trị thiết lập | DỮ LIỆU 64-byte | Tập hợp các nút xác thực tại thời điểm này | | Chính sách | DỮ LIỆU 64-byte | | | CommiteeSize | DỮ LIỆU 64-byte | | | Số phiếu | DỮ LIỆU 64-byte | Danh sách bỏ phiếu theo thứ tự thời gian | | Tally | DỮ LIỆU 64-byte | Kiểm phiếu hiện tại để tránh tính toán lại |
+| Tên | Loại | Mô tả | | Epoch | DỮ LIỆU 64 byte | Số lượng khối mà sau đó để kiểm tra và đặt lại các phiếu đang chờ xử lý | | Số | DỮ LIỆU 64 byte | Số khối nơi ảnh chụp nhanh được tạo | | Số | DỮ LIỆU 64 byte | Số khối nơi ảnh chụp nhanh được tạo | | Giá trị thiết lập | DỮ LIỆU 64 byte | Tập hợp các nút xác thực vào thời điểm này | | Chính sách | DỮ LIỆU 64 byte | | | CommiteeSize | DỮ LIỆU 64 byte | | | Số phiếu | DỮ LIỆU 64 byte | Danh sách biểu quyết theo thứ tự thời gian | | Tally | DỮ LIỆU 64 byte | Kiểm phiếu hiện tại để tránh tính toán lại |
 
 **Ví dụ**
 
@@ -39,9 +39,9 @@ Trả về ảnh chụp nhanh trạng thái tại một hàm băm khối nhất 
 
 | Tên          | Loại           | Mô tả                 |
 | ------------ | --------------- | --------------------- |
-| hàm băm khối | DỮ LIỆU 32-byte | Hàm băm của một khối. |
+| hàm băm khối | DỮ LIỆU 32 byte | Hàm băm của một khối. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Xem [istanbul_getSnapshot](#istanbul_getsnapshot)
 
@@ -61,15 +61,15 @@ Trả về danh sách nút xác thực tại một số khối nhất định.
 
 **Tham số**
 
-| Tên     | Loại                | Mô tả                                                                                                                                      |
-| ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"cũ nhất"` hoặc `"mới nhất"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
+| Tên     | type                | Mô tả                                                                                                                                     |
+| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| số khối | SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên          | Loại           | Mô tả                           |
 | ------------ | --------------- | ------------------------------- |
-| nút xác thực | DỮ LIỆU 20-byte | Danh sách địa chỉ nút xác thực. |
+| nút xác thực | DỮ LIỆU 20 byte | Danh sách địa chỉ nút xác thực. |
 
 **Ví dụ**
 
@@ -88,9 +88,9 @@ Trả về danh sách các nút xác thực được ủy quyền tại một h�
 
 | Tên          | Loại           | Mô tả                 |
 | ------------ | --------------- | --------------------- |
-| hàm băm khối | DỮ LIỆU 32-byte | Hàm băm của một khối. |
+| hàm băm khối | DỮ LIỆU 32 byte | Hàm băm của một khối. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 Xem [istanbul_getValidators](#istanbul_getvalidators)
 
@@ -105,15 +105,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_candidates <a id="istanbul_candidates"></a>
 
-Trả về các ứng cử viên hiện tại mà nút tán thành và bỏ phiếu.
+Trả về các ứng viên hiện tại mà nút tán thành và biểu quyết.
 
 **Tham số**
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên. | | xác thực | boolean | Một giá trị cho biết trạng thái ủy quyền của ứng cử viên. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của ứng viên. | | xác thực | boolean | Một giá trị cho biết trạng thái ủy quyền của ứng viên. |
 
 **Ví dụ**
 
@@ -126,16 +126,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_propose <a id="istanbul_propose"></a>
 
-Thêm một ứng cử viên ủy quyền mới mà nút xác thực sẽ cố gắng đẩy qua.
+Thêm một ứng viên ủy quyền mới mà nút xác thực sẽ cố gắng đẩy qua.
 
 **Tham số**
 
-| Tên       | Loại           | Mô tả                                                     |
-| --------- | --------------- | --------------------------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên.                                  |
-| xác thực  | boolean         | Một giá trị cho biết trạng thái ủy quyền của ứng cử viên. |
+| Tên       | Loại           | Mô tả                                                  |
+| --------- | --------------- | ------------------------------------------------------ |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của ứng viên.                                  |
+| xác thực  | boolean         | Một giá trị cho biết trạng thái ủy quyền của ứng viên. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 không có
 
@@ -150,15 +150,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Loại bỏ một ứng cử viên hiện đang tranh cử, ngăn nút xác thực tiếp tục bỏ phiếu (thuận hoặc chống).
+Loại bỏ một ứng viên hiện đang chạy đua vào vị trí, ngăn nút xác thực tiếp tục biểu quyết (thuận hoặc chống).
 
 **Tham số**
 
-| Tên       | Loại           | Mô tả                    |
-| --------- | --------------- | ------------------------ |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của ứng cử viên. |
+| Tên       | Loại           | Mô tả                 |
+| --------- | --------------- | --------------------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của ứng viên. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 không có
 
@@ -173,14 +173,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
 
-Trả về thời gian chờ cấu hình istanbul. Giá trị mặc định là 10000ms và nếu vượt quá, timeoutEvent sẽ được gửi. Trong trường hợp của CN, timeoutEvent chứa thông tin như entRound, preparesSize và commitsSize để ghi nhật ký.
+Trả về thời gian chờ cấu hình istanbul. Giá trị mặc định là 10000ms và nếu vượt quá, timeoutEvent sẽ được gửi. Trong trường hợp của CN, timeoutEvent chứa thông tin như entRound, preparesSize và commitsSize để ghi bản ghi.
 
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên           | Loại | Mô tả                  |
 | ------------- | ----- | ---------------------- |
