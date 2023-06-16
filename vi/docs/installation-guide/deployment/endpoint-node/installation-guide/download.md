@@ -1,3 +1,3 @@
-# Tải về <a id="download"></a>
+# Tải xuống <a id="download"></a>
 
-Bạn có thể tải về các gói cho NĐC tại [trang tải về](../../../download/README.md).
+Bạn có thể tải về các gói cho EN tại [trang tải về](../../../download/README.md).
