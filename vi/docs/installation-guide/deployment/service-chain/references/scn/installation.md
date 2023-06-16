@@ -4,15 +4,15 @@ Chương này giải thích về việc cài đặt **Nút đồng thuận chu�
 
 ## Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-Tệp lưu trữ cho nút đồng thuận chuỗi dịch vụ có bố cục thư mục như sau.
+Tập tin lưu trữ cho nút đồng thuận chuỗi dịch vụ có bố cục thư mục như sau.
 
 | Tên tập tin     | Mô tả tập tin                     |
 |:--------------- |:--------------------------------- |
 | bin/kscn        | Tập tin thực thi SCN              |
-| bin/kscnd       | Tệp tin lệnh bắt đầu/kết thúc SCN |
+| bin/kscnd       | Tập tin lệnh bắt đầu/kết thúc SCN |
 | conf/kscnd.conf | Tập tin cấu hình SCN              |
 
-Tệp lưu trữ cho nhị phân homi có bố cục thư mục như sau.
+Tập tin lưu trữ cho nhị phân homi có bố cục thư mục như sau.
 
 | Tên tập tin | Mô tả tập tin         |
 |:----------- |:--------------------- |
@@ -42,7 +42,7 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 Gói Linux Klaytn bao gồm nhị phân thực thi và tập tin cấu hình có cấu trúc như sau.
 
-| Tên tệp tin | Vị trí                     |
+| Tên tập tin | Vị trí                     |
 |:----------- |:-------------------------- |
 | kscn        | /usr/bin/kscn              |
 | kscnd.conf  | /etc/kscnd/conf/kscnd.conf |
