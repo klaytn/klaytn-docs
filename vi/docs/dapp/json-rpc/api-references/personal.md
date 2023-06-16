@@ -1,36 +1,36 @@
 ---
 description: >-
-  API để quản lý tài khoản và khóa riêng trong nút.
+  API để quản lý tài khoản và khóa riêng tư trong nút.
 ---
 
-# Namespace personal <a id="namespace-personal"></a>
+# Không gian tên personal <a id="namespace-personal"></a>
 
-Namespace `cá nhân` quản lý khóa riêng trong kho lưu trữ khóa.
+Không gian tên `cá nhân` quản lý khóa riêng tư trong kho lưu trữ khóa.
 
 
 ## personal_importRawKey <a id="personal_importrawkey"></a>
 
-Nhập khóa cá nhân chưa mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) vào kho lưu trữ khóa, mã hóa nó bằng cụm mật khẩu.
+Nhập khóa riêng tư chưa mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc [khóa ví Klaytn](../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format) vào kho lưu trữ khóa, mã hóa bằng cụm mật khẩu.
 
 Trả về địa chỉ của tài khoản đã nhập.
 
-|    Máy khách    | Gọi phương thức                                                        |
+|    Máy khách    | Gọi phương pháp                                                        |
 |:---------------:| ---------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.importRawKey(keydata, passphrase)`                           |
 |       RPC       | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
 **Tham số**
 
-| Tên          | Loại | Mô tả                                                                                                                                                     |
-| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata      | chuỗi | Khóa cá nhân không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| cụm mật khẩu | chuỗi | Cụm mật khẩu để mã hóa.                                                                                                                                   |
+| Tên          | Loại | Mô tả                                                                                                                                                        |
+| ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| keydata      | chuỗi | Khóa riêng tư không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format). |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để mã hóa.                                                                                                                                      |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên     | Loại  | Mô tả                          |
+| Tên     | type  | Mô tả                          |
 | ------- | ----- | ------------------------------ |
-| địa chỉ | chuỗi | Địa chỉ của tài khoản đã nhập. |
+| address | chuỗi | Địa chỉ của tài khoản đã nhập. |
 
 **Ví dụ**
 
@@ -55,7 +55,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Trả về tất cả các địa chỉ tài khoản Klaytn của tất cả các khóa trong kho lưu trữ khóa.
 
-|    Máy khách    | Gọi phương thức                                     |
+|    Máy khách    | Gọi phương pháp                                     |
 |:---------------:| --------------------------------------------------- |
 | Bảng điều khiển | `personal.listAccounts`                             |
 |       RPC       | `{"method": "personal_listAccounts", "params": []}` |
@@ -64,7 +64,7 @@ Trả về tất cả các địa chỉ tài khoản Klaytn của tất cả cá
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                                         |
 | ----- | --------------------------------------------- |
@@ -89,7 +89,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Trả về danh sách ví mà nút này quản lý.
 
-|    Máy khách    | Gọi phương thức                                    |
+|    Máy khách    | Gọi phương pháp                                    |
 |:---------------:| -------------------------------------------------- |
 | Bảng điều khiển | `personal.listWallets`                             |
 |       RPC       | `{"method": "personal_listWallets", "params": []}` |
@@ -98,7 +98,7 @@ Trả về danh sách ví mà nút này quản lý.
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên        | Loại | Mô tả                        |
 | ---------- | ----- | ---------------------------- |
@@ -115,8 +115,8 @@ Bảng điều khiển
 [
   {
     "url":"keystore:///", 
-    "status":"Locked",
-    "accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]
+    "trạng thái":"Locked",
+    "tài khoảns":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]
   },
   ...
 ]
@@ -124,32 +124,32 @@ Bảng điều khiển
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' https://public-en-baobab.klaytn.net
-{"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","status":"Locked","accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]}]}
+{"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","trạng thái":"Locked","tài khoảns":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]}]}
 ```
 
 ## personal_openWallet <a id="personal_openwallet"></a>
 
-Bắt đầu quy trình mở ví phần cứng, thiết lập kết nối USB và cố gắng xác thực bằng cụm mật khẩu được cung cấp.
+Bắt đầu quy trình mở ví cứng, thiết lập kết nối USB và cố gắng xác thực bằng cụm mật khẩu được cung cấp.
 
 {% hint style="success" %}
 LƯU Ý: Phương thức này có thể trả về một thử thách bổ sung yêu cầu lần mở thứ hai (ví dụ: thử thách ma trận mã PIN Trezor).
 {% endhint %}
 
-|    Máy khách    | Gọi phương thức                                                  |
+|    Máy khách    | Gọi phương pháp                                                  |
 |:---------------:| ---------------------------------------------------------------- |
 | Bảng điều khiển | `personal.openWallet(url, passhrase)`                            |
 |       RPC       | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
 
 **Tham số**
 
-| Tên          | Loại  | Mô tả               |
+| Tên          | type  | Mô tả               |
 | ------------ | ----- | ------------------- |
 | URL          | chuỗi | url Ví              |
 | Cụm mật khẩu | chuỗi | cụm mật khẩu cho ví |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên | Loại | Mô tả          |
+| Tên | type | Mô tả          |
 | --- | ---- | -------------- |
 | Lỗi | lỗi  | Tình trạng lỗi |
 
@@ -168,24 +168,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_deriveAccount <a id="personal_deriveaccount"></a>
 
-Yêu cầu ví HD để tạo tài khoản mới, tùy chọn ghim tài khoản đó để sử dụng lại sau này.
+Yêu cầu ví HD để tạo tài khoản mới, có thể ghim tài khoản đó để sử dụng lại sau này.
 
-|    Máy khách    | Gọi phương thức                                                    |
+|    Máy khách    | Gọi phương pháp                                                    |
 |:---------------:| ------------------------------------------------------------------ |
 | Bảng điều khiển | `personal.deriveAccount(url, path, pin)`                           |
 |       RPC       | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
 
 **Tham số**
 
-| Tên       | Loại    | Mô tả              |
+| Tên       | type    | Mô tả              |
 | --------- | ------- | ------------------ |
 | URL       | chuỗi   | Url Ví             |
 | đường dẫn | chuỗi   | đường dẫn dẫn xuất |
 | pin       | boolean | pin tùy chọn       |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên       | Loại  | Mô tả                      |
+| Tên       | type  | Mô tả                      |
 | --------- | ----- | -------------------------- |
 | Tài khoản | chuỗi | Địa chỉ của tài khoản mới. |
 | Lỗi       | lỗi   | Tình trạng lỗi             |
@@ -207,9 +207,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Tạo một khóa riêng tư mới và lưu trữ nó trong thư mục lưu trữ khóa. Tệp khóa được mã hóa bằng cụm mật khẩu đã cho. Trả về địa chỉ của tài khoản mới.
 
-Tại bảng điều khiển Klaytn, `newAccount` sẽ nhắc nhập cụm mật khẩu khi nó không được cung cấp làm đối số.
+Tại bảng điều khiển Klaytn, `newAccount` sẽ nhắc nhập cụm mật khẩu khi không được cung cấp làm đối số.
 
-|    Máy khách    | Gọi phương thức                                             |
+|    Máy khách    | Gọi phương pháp                                             |
 |:---------------:| ----------------------------------------------------------- |
 | Bảng điều khiển | `personal.newAccount(passphrase)`                           |
 |       RPC       | `{"method": "personal_newAccount", "params": [passphrase]}` |
@@ -220,7 +220,7 @@ Tại bảng điều khiển Klaytn, `newAccount` sẽ nhắc nhập cụm mật
 | ------------ | ----- | ----------------------------------------------- |
 | cụm mật khẩu | chuỗi | (tùy chọn) cụm mật khẩu được sử dụng để mã hóa. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                      |
 | ----- | -------------------------- |
@@ -254,22 +254,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Xóa khóa riêng tư có địa chỉ đã cho khỏi bộ nhớ. Tài khoản không còn có thể được sử dụng để gửi giao dịch.
 
-|    Máy khách    | Gọi phương thức                                           |
+|    Máy khách    | Gọi phương pháp                                           |
 |:---------------:| --------------------------------------------------------- |
 | Bảng điều khiển | `personal.lockAccount(address)`                           |
 |       RPC       | `{"method": "personal_lockAccount", "params": [address]}` |
 
 **Tham số**
 
-| Tên     | Loại  | Mô tả                      |
+| Tên     | type  | Mô tả                      |
 | ------- | ----- | -------------------------- |
-| địa chỉ | chuỗi | Địa chỉ tài khoản để khóa. |
+| address | chuỗi | Địa chỉ tài khoản để khóa. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                        |
-| ----- | ------------------------------------------------------------ |
-| bool  | `đúng` nếu tài khoản đã bị khóa thành công, `sai` nếu không. |
+| Loại | Mô tả                                                                  |
+| ----- | ---------------------------------------------------------------------- |
+| bool  | `true` nếu tài khoản đã được khóa thành công, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -289,13 +289,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Giải mã khóa với địa chỉ đã cho từ kho lưu trữ khóa.
 
-Cả cụm mật khẩu và thời gian mở khóa đều là tùy chọn khi sử dụng bảng điều khiển JavaScript. Nếu cụm mật khẩu không được cung cấp làm đối số, bảng điều khiển sẽ chủ động nhắc cụm mật khẩu.
+Cả cụm mật khẩu và thời gian mở khóa đều là tùy chọn khi sử dụng bảng điều khiển JavaScript. Nếu cụm mật khẩu không được cung cấp làm đối số, bảng điều khiển sẽ nhắc cụm mật khẩu theo kiểu tương tác.
 
 Khóa không được mã hóa sẽ được giữ trong bộ nhớ cho đến khi hết thời gian mở khóa. Nếu thời gian mở khóa mặc định là 300 giây. Thời gian cụ thể trong 0 giây sẽ mở khóa cho đến khi nút cục bộ Klaytn thoát ra.
 
-Tài khoản này có thể được sử dụng `klay_sign` và `klay_sendTransaction` khi nó được mở khóa.
+Tài khoản này có thể được sử dụng `klay_sign` và `klay_sendTransaction` khi được mở khóa.
 
-|    Máy khách    | Gọi phương thức                                                                   |
+|    Máy khách    | Gọi phương pháp                                                                   |
 |:---------------:| --------------------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.unlockAccount(address, passphrase, duration)`                           |
 |       RPC       | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
@@ -304,22 +304,22 @@ Tài khoản này có thể được sử dụng `klay_sign` và `klay_sendTrans
 
 | Tên              | Loại | Mô tả                                                |
 | ---------------- | ----- | ---------------------------------------------------- |
-| địa chỉ          | chuỗi | Địa chỉ tài khoản để mở khóa.                        |
+| address          | chuỗi | Địa chỉ tài khoản để mở khóa.                        |
 | cụm mật khẩu     | chuỗi | cụm mật khẩu được sử dụng để mã hóa.                 |
 | khoảng thời gian | int   | (tùy chọn) thời gian mở khóa (mặc định là 300 giây). |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                            |
-| ---- | ------------------------------------------------ |
-| bool | `đúng` nếu đã được mở khóa, `sai` nếu không phải |
+| type | Mô tả                                               |
+| ---- | --------------------------------------------------- |
+| bool | `true` nếu đã được mở khóa, ngược lại sẽ là `false` |
 
 **Ví dụ**
 
 Bảng điều khiển
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120")
-Unlock account 0x5e97870f263700f46aa00d967821199b9bc5a120
+Unlock tài khoản 0x5e97870f263700f46aa00d967821199b9bc5a120
 Passphrase:
 true
 ```
@@ -331,11 +331,11 @@ Cung cấp cụm mật khẩu và thời gian mở khóa làm đối số:
 true
 ```
 
-Nếu bạn muốn nhập cụm mật khẩu và vẫn ghi đè thời gian mở khóa mặc định, đặt `null` làm cụm mật khẩu.
+Nếu bạn muốn nhập cụm mật khẩu và vẫn ghi đè thời gian mở khóa mặc định, hãy đặt `null` làm cụm mật khẩu.
 
 ```
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", null, 30)
-Unlock account 0x5e97870f263700f46aa00d967821199b9bc5a120
+Unlock tài khoản 0x5e97870f263700f46aa00d967821199b9bc5a120
 Passphrase:
 true
 ```
@@ -347,28 +347,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_replaceRawKey <a id="personal_replacerawkey"></a>
 
-Thay thế tệp khóa được mã hóa trong kho lưu trữ khóa bằng khóa riêng không được mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format), mã hóa nó bằng cụm mật khẩu mới. Nó cũng nhận cụm mật khẩu cũ để giải mã khóa riêng tư cũ trước khi bị thay thế. Nếu không thể giải mã hoặc không thể tìm thấy tài khoản phù hợp, nó sẽ báo lỗi.
+Thay thế tệp khóa được mã hóa trong kho lưu trữ khóa bằng khóa riêng tư được mã hóa đã cho (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format), mã hóa bằng cụm mật khẩu mới. Nó cũng nhận cụm mật khẩu cũ để giải mã khóa riêng tư cũ trước khi bị thay thế. Nếu không thể giải mã hoặc không thể tìm thấy tài khoản phù hợp, nó sẽ báo lỗi.
 
 Trả về địa chỉ của tài khoản được thay thế nếu thành công.
 
-|    Máy khách    | Gọi phương thức                                                                           |
+|    Máy khách    | Gọi phương pháp                                                                           |
 |:---------------:| ----------------------------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
 |       RPC       | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
 **Tham số**
 
-| Tên           | Loại  | Mô tả                                                                                                                                                     |
-| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata       | chuỗi | Khóa cá nhân không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| oldPassphrase | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư cũ.                                                                                                                 |
-| newPassphrase | chuỗi | Cụm mật khẩu để mã hóa khóa riêng tư mới.                                                                                                                 |
+| Tên           | type  | Mô tả                                                                                                                                                        |
+| ------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| keydata       | chuỗi | Khóa riêng tư không được mã hóa (chuỗi hex không có '0x' đứng đầu) hoặc một [khóa ví Klaytn](../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format). |
+| oldPassphrase | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư cũ.                                                                                                                    |
+| newPassphrase | chuỗi | Cụm mật khẩu để mã hóa khóa riêng tư mới.                                                                                                                    |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên     | Loại  | Mô tả                                |
+| Tên     | type  | Mô tả                                |
 | ------- | ----- | ------------------------------------ |
-| địa chỉ | chuỗi | Địa chỉ của tài khoản được thay thế. |
+| address | chuỗi | Địa chỉ của tài khoản được thay thế. |
 
 **Ví dụ**
 
@@ -389,25 +389,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
-Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate). Đối tượng giao dịch phải có các trường `nơi bắt đầu` và `khóa`. Các trường khác như `gas`, `Giá ga`, và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypetài khoảnupdate). Đối tượng giao dịch phải có các trường `nơi bắt đầu` và `khóa`. Các trường khác như `gas`, `Giá ga` và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-|    Máy khách    | Gọi phương thức                                                        |
+|    Máy khách    | Gọi phương pháp                                                        |
 |:---------------:| ---------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.sendAccountUpdate(tx, passphrase)`                           |
 |       RPC       | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
 **Tham số**
 
-| Tên          | Loại  | Mô tả                                                          |
+| Tên          | type  | Mô tả                                                          |
 | ------------ | ----- | -------------------------------------------------------------- |
 | tx           | chuỗi | Đối tượng giao dịch. Yêu cầu chỉ định `nơi bắt đầu` và `khóa`. |
 | cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.           |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại          | Mô tả                                                                              |
-| ------------- | ---------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| type          | Mô tả                                                                         |
+| ------------- | ----------------------------------------------------------------------------- |
+| chuỗi 32 byte | một hàm băm giao dịch nếu thành công. Nếu không, sẽ đưa ra một thông báo lỗi. |
 
 **Ví dụ**
 
@@ -428,25 +428,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
-Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). Đối tượng giao dịch phải có `nơi bắt đầu` và `nơi đến` ngoại trừ trường hợp triển khai hợp đồng. Nên bỏ qua `nơi đến` nếu giao dịch triển khai là hợp đồng thông minh. Nếu không chỉ định `giá trị`, giá trị sẽ được đặt thành 0 trong nội bộ. Các trường khác như `gas`, `giá ga`, và `số dùng một lần` được đặt thành các giá trị phù hợp trong nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). Đối tượng giao dịch phải có `nơi bắt đầu` và `nơi đến` ngoại trừ trường hợp triển khai hợp đồng. Nên bỏ qua `nơi đến` nếu giao dịch triển khai là hợp đồng thông minh. Nếu không chỉ định `giá trị`, giá trị sẽ được đặt thành 0 trong nội bộ. Các trường khác như `gas`, `gasPrice` và `số dùng một lần` được đặt thành các giá trị phù hợp trong nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-|    Máy khách    | Gọi phương thức                                                      |
+|    Máy khách    | Gọi phương pháp                                                      |
 |:---------------:| -------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.sendTransaction(tx, passphrase)`                           |
 |       RPC       | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
 
 **Tham số**
 
-| Tên          | Loại | Mô tả                                                                                                                                    |
-| ------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| tx           | chuỗi | Đối tượng giao dịch. `nơi bắt đầu` là trường bắt buộc. `nơi đến`, `giá trị`, `ga`, `giá ga` và `số dùng một lần` là các trường tùy chọn. |
-| cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.                                                                                     |
+| Tên          | Loại | Mô tả                                                                                                                                       |
+| ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx           | chuỗi | Đối tượng giao dịch. `nơi bắt đầu` là trường bắt buộc. `nơi đến`, `giá trị`, `gas`, `gasPrice` và `số dùng một lần` là các trường tùy chọn. |
+| cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.                                                                                        |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại         | Mô tả                                                                              |
-| ------------- | ---------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| Loại         | Mô tả                                                                         |
+| ------------- | ----------------------------------------------------------------------------- |
+| chuỗi 32 byte | một hàm băm giao dịch nếu thành công. Nếu không, sẽ đưa ra một thông báo lỗi. |
 
 **Ví dụ**
 
@@ -467,9 +467,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
-Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). Đối tượng giao dịch phải có các trường `nơi bắt đầu`, `nơi đến`, và `giá trị`. Các trường khác như `gas`, `Giá ga`, và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
+Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer). Đối tượng giao dịch phải có các trường `nơi bắt đầu`, `nơi đến` và `giá trị`. Các trường khác như `gas`, `gasPrice` và `số dùng một lần` được đặt nội bộ nếu không được chỉ định. Nếu cụm mật khẩu có thể giải mã khóa riêng tư của `tx.from` và giao dịch được xác minh, giao dịch sẽ được ký và gửi lên mạng. Tài khoản không được mở khóa trên toàn cầu trong nút và không thể được sử dụng trong các lệnh gọi RPC khác.
 
-|    Máy khách    | Gọi phương thức                                                        |
+|    Máy khách    | Gọi phương pháp                                                        |
 |:---------------:| ---------------------------------------------------------------------- |
 | Bảng điều khiển | `personal.sendValueTransfer(tx, passphrase)`                           |
 |       RPC       | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
@@ -481,11 +481,11 @@ Xác thực cụm mật khẩu đã cho và gửi một giao dịch [TxTypeValue
 | tx           | chuỗi | Đối tượng giao dịch. Yêu cầu chỉ định `nơi bắt đầu`, `nơi đến` và `giá trị`. |
 | cụm mật khẩu | chuỗi | Cụm mật khẩu để giải mã khóa riêng tư của `tx.from`.                         |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại         | Mô tả                                                                              |
-| ------------- | ---------------------------------------------------------------------------------- |
-| chuỗi 32-byte | một hàm băm giao dịch nếu thành công. Nếu không, một thông báo lỗi sẽ được đưa ra. |
+| Loại         | Mô tả                                                                         |
+| ------------- | ----------------------------------------------------------------------------- |
+| chuỗi 32 byte | một hàm băm giao dịch nếu thành công. Nếu không, sẽ đưa ra một thông báo lỗi. |
 
 **Ví dụ**
 
@@ -508,26 +508,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Phương thúc `ký` tính toán chữ ký dành riêng cho Klaytn với: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
-Thêm tiền tố vào thông điệp giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một DApp độc hại có thể ký dữ liệu tùy ý (*ví dụ:* giao dịch) và sử dụng chữ ký để mạo danh nạn nhân.
+Việc thêm tiền tố vào thông báo giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Điều này ngăn chặn việc lạm dụng khi một DApp độc hại có thể ký dữ liệu tùy ý (*ví dụ:* giao dịch) và sử dụng chữ ký để mạo danh nạn nhân.
 
 Xem `personal_ecRecover` để xác minh chữ ký.
 
-|    Máy khách    | Gọi phương thức                                                       |
-|:---------------:| --------------------------------------------------------------------- |
-| Bảng điều khiển | `personal.sign(message, account, password)`                           |
-|       RPC       | `{"method": "personal_sign", "params": [message, account, password]}` |
+|    Máy khách    | Gọi phương pháp                                                         |
+|:---------------:| ----------------------------------------------------------------------- |
+| Bảng điều khiển | `personal.sign(message, tài khoản, password)`                           |
+|       RPC       | `{"method": "personal_sign", "params": [message, tài khoản, password]}` |
 
 **Tham số**
 
 | Tên       | Loại | Mô tả                            |
 | --------- | ----- | -------------------------------- |
-| tin nhắn  | chuỗi | Thông báo có thể ký.             |
+| thông báo | chuỗi | Thông báo cần ký.                |
 | tài khoản | chuỗi | Địa chỉ tài khoản.               |
 | mật khẩu  | chuỗi | Cụm mật khẩu được sử dụng để ký. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả   |
+| type  | Mô tả   |
 | ----- | ------- |
 | chuỗi | Chữ ký. |
 
@@ -549,18 +549,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 Thiết lập cấu hình mặc định và ký giao dịch đã cho.
 
 {% hint style="success" %}
-LƯU Ý: Gửi mật khẩu tài khoản của bạn qua kết nối HTTP RPC không an toàn là rất nguy hiểm. Sử dụng [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
+LƯU Ý: Việc gửi mật khẩu tài khoản của bạn qua kết nối HTTP RPC không an toàn là rất nguy hiểm. Sử dụng [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
 {% endhint %}
 
 **Tham số**
 
 Các tham số bắt buộc phụ thuộc vào loại giao dịch. Kiểm tra các tham số phù hợp trong [Làm việc với các loại giao dịch Klaytn](./klay/transaction/transaction-type-support.md).
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại     | Mô tả               |
+| type     | Mô tả               |
 | -------- | ------------------- |
-| thô      | Giao dịch thô đã ký |
+| raw      | Giao dịch thô đã ký |
 | tx       | Đối tượng giao dịch |
 | mật khẩu | Mật khẩu người gửi  |
 
@@ -569,19 +569,19 @@ Các tham số bắt buộc phụ thuộc vào loại giao dịch. Kiểm tra c�
 
 `ecRecover` trả về địa chỉ được liên kết với khóa riêng tư được sử dụng để tính toán chữ ký trong `personal_sign`.
 
-|    Máy khách    | Gọi phương thức                                                    |
+|    Máy khách    | Gọi phương pháp                                                    |
 |:---------------:| ------------------------------------------------------------------ |
 | Bảng điều khiển | `personal.ecRecover(message, signature)`                           |
 |       RPC       | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
 **Tham số**
 
-| Tên      | Loại | Mô tả     |
-| -------- | ----- | --------- |
-| tin nhắn | chuỗi | Tin nhắn. |
-| chữ ký   | chuỗi | Chữ ký.   |
+| Tên       | Loại | Mô tả      |
+| --------- | ----- | ---------- |
+| thông báo | chuỗi | Thông báo. |
+| chữ ký    | chuỗi | Chữ ký.    |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả              |
 | ----- | ------------------ |
