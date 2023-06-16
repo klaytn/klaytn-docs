@@ -1,10 +1,10 @@
-# Oracles
+# 오라클
 
-Blockchain oracles serve as a link between the blockchain and other external data sources. In actuality, the blockchain is a closed system; as such, it is unable to pull data into or out of any external systems (off-chain data) and only has access to data that is already present within the original blockchain context. This creates a blockchain-oracle issue where the blockchain is unable to obtain data from actual occurrences. Smart contracts must, however, connect to a wide range of external data sources in order to fulfill a number of useful functions. As an illustration, a [hybrid smart contract](https://chain.link/education-hub/hybrid-smart-contracts) that uses oracles to give asset prices for finance, weather data for insurance, randomness for gaming, IoT sensors for supply chain management, etc.
+블록체인 오라클은 블록체인과 다른 외부 데이터 소스 간의 연결고리 역할을 합니다. 실제 블록체인은 폐쇄형 시스템으로, 외부 시스템(오프체인 데이터)에서 데이터를 가져오거나 내보낼 수 없으며, 블록체인 내에 이미 존재하는 데이터에만 액세스할 수 있습니다. 이로 인해 블록체인이 실제 발생한 데이터를 얻을 수 없는 블록체인-오라클 문제가 발생합니다. 그러나 스마트 컨트랙트는 여러 가지 유용한 기능을 수행하기 위해 광범위한 외부 데이터 소스에 연결해야 합니다. 예를 들어, 오라클을 사용하여 금융 서비스에는 자산 가격을, 보험 서비스에는 날씨 데이터를, 게임에는 무작위성을, 공급망 관리에는 IoT 센서 등을 제공하는 [하이브리드 스마트 컨트랙트](https://chain.link/education-hub/hybrid-smart-contracts)가 있습니다.
 
-The need for blockchains to access and connect to external data sources, legacy systems, and advanced computation brought about oracles. The benefits of oracles in the blockchain industry cannot be underestimated, and it is therefore crucial to do your research before choosing your oracles when creating hybrid smart contracts. Avoiding centralized oracles is therefore encouraged since leveraging decentralized oracles is important for developing your decentralized apps. On one hand, centralized oracles are controlled by a single entity and, as such, have a single point of failure, making smart contracts vulnerable to attacks. On the other hand, decentralized oracles are designed to fly above the limitations of centralized oracles by eliminating the single point of failure. A decentralized oracle comprises multiple participants in a peer-to-peer network that form consensus on off-chain data before sending it to a smart contract.
+외부 데이터 소스, 레거시 시스템, 고급 연산을 블록체인에서 사용하고 연결하기 위해 오라클이 등장했습니다. 블록체인 업계에서 오라클의 이점은 과소평가할 수 없으므로, 하이브리드 스마트 컨트랙트를 만들 때 오라클을 선택하기 전에 충분한 조사를 하는 것이 매우 중요합니다. 탈중앙화된 앱을 개발하려면 탈중앙화된 오라클을 활용하는 것이 중요하므로 중앙화된 오라클을 피하는 것이 좋습니다. 한편으로 중앙화된 오라클은 단일 주체에 의해 제어되므로 단일 장애 지점이 있어 스마트 컨트랙트가 공격에 취약할 수 있습니다. 반면에 분산형 오라클은 단일 장애 지점을 제거하여 중앙화된 오라클의 한계를 뛰어넘도록 설계되었습니다. 탈중앙화된 오라클은 스마트 컨트랙트로 전송하기 전에 오프체인 데이터에 대한 합의를 형성하는 P2P 네트워크의 여러 참여자로 구성됩니다.
 
-The following providers have integrated with Klaytn to deliver decentralized oracle services:
+다음과 같은 프로젝트가 Klaytn과 통합하여 탈중앙화된 오라클 서비스를 제공하고 있습니다:
 
 * [Orakl Network](https://docs.orakl.network/docs/developers-guide/readme)
 * [Witnet](https://docs.witnet.io/)
