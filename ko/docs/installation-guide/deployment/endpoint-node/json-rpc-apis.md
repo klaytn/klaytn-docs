@@ -59,3 +59,18 @@ will give all enabled modules including the version number:
 }
 ```
 
+## Disabling unsafe debug APIs <a id="disabling-unsafe-debug-apis"></a>
+
+Some debug namespace APIs are unsafe/unappropriate to be opened to public. We recommend you to provide the debug namespace APIs to authorized users only. However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
+
+The enabled APIs are as follows:
+
+- [VM Tracing](../../../dapp/json-rpc/api-references/debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](../../../dapp/json-rpc/api-references/debug/tracing.md#tracing-options) are allowed)
+- debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
+- debug_metrics
+
+To set the `rpc.unsafe-debug.disable` flag, append the following line in the `kend.conf` file.
+
+```
+ADDITIONAL="$ADDITIONAL --rpc.unsafe-debug.disable"
+```
