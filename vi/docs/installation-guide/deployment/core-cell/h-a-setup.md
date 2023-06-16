@@ -1,15 +1,15 @@
 # Thiết lập H/A <a id="h-a-setup"></a>
 
-Định cấu hình CN để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Tính sẵn có cao được khuyến nghị tùy thuộc vào Core Cell được triển khai trên cơ sở hạ tầng thực tế hay trên đám mây.
+Định cấu hình CN để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Sơ đồ tính sẵn có cao được khuyến nghị tùy thuộc vào việc Core Cell được triển khai trên cơ sở hạ tầng vật lý hay trên đám mây.
 
 ## Hoạt động-chờ \(khuyến nghị cho bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
 
-Trong cấu hình này, hai CN được cài đặt cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng CN chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
+Trong cấu hình này, hai nút CN được cài đặt cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng CN chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
 
 ### Thiết lập <a id="setup"></a>
 
 1. Tạo bản sao lưu của `khóa nút` của CN hoạt động.
-2. Cái đặt CN chờ. Cấu hình này giống với CN hoạt động ngoại trừ:
+2. Cài đặt CN chờ. Cấu hình này giống với CN hoạt động, ngoại trừ:
    * Nút chờ sử dụng `khóa nút` khác
    * Thêm địa chỉ của PN vào `$DATA_DIR/static-nodes.json`
 
@@ -18,7 +18,7 @@ Trong cấu hình này, hai CN được cài đặt cấu hình hoạt động-c
 1. Dừng CN chờ: `sudo systemctl stop kcnd`
 2. Thay thế `khóa nút` của nút chờ bằng `khóa nút` của CN hoạt động không thành công.
 3. Gán lại địa chỉ IP của CN hoạt động cho CN chờ.
-4. Bắt đầu CN chờ và xác minh nó đã đồng bộ với mạng lưới: `sudo systemctl start kcnd`
+4. Khởi chạy CN chờ và xác minh nó đã đồng bộ với mạng lưới: `sudo systemctl start kcnd`
 
 ## Bản sao lưu máy ảo & Thu thập dữ liệu \(khuyến nghị cho đám mây\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
@@ -29,7 +29,7 @@ Thuật ngữ và quy trình chính xác có thể khác nhau giữa các môi t
 ### Thiết lập <a id="setup"></a>
 
 1. Tạo bản sao lưu của `khóa nút` của CN hoạt động.
-2. Mỗi lần cấu hình và phần mềm CN được cập nhật, một bản sao lưu máy ảo sẽ được tạo ra \(ví dụ: AMI\). Không bao gồm khối lượng chứa `DATA_DIR` trong ảnh này mà sẽ tách riêng ra.
+2. Mỗi lần cấu hình và phần mềm CN được cập nhật, một bản sao lưu máy ảo sẽ được tạo ra \(ví dụ: AMI\). Đừng thêm khối lượng chứa `DATA_DIR` trong bản sao lưu này, nó sẽ được tách riêng ra.
 
 ### Dự phòng <a id="failover"></a>
 
@@ -44,7 +44,7 @@ Tạo một CN mới sử dụng bản sao CN hoặc dữ liệu chuỗi:
 1. Tạo một phiên bản bằng bản sao CN \(tạo trong phần "Thiết lập" phía trên\).
 2. Đính kèm khối lượng được tạo từ bản thu thập dữ liệu `$DATA_DIR` của PN.
 3. Xóa tất cả các tập tin trong khối lượng ngoại trừ `$DATA_DIR/klay/chaindata`. Xác nhận rằng `DATA_DIR` trong `kcnd.conf` khớp với thư mục chứa dữ liệu chuỗi. Có thể sẽ cần đổi tên thư mục nếu tên khác nhau.
-4. Sao chép `nodekey` của CN không thành công vào `$DATA_DIR/klay/nodekey`.
+4. Sao chép `khóa nút` của CN không thành công vào `$DATA_DIR/klay/nodekey`.
 5. Gán lại địa chỉ IP của CN không thành công vào nút thay thế.
 6. Bắt đầu kcnd: `sudo systemctl start kcnd`
 7. Xác minh CN đã đồng bộ với mạng lưới.
