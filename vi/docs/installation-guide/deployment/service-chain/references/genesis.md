@@ -1,14 +1,14 @@
-Trang này mô tả chi tiết của tệp `genesis.json`.
+Trang này mô tả chi tiết tập tin `genesis.json`.
 
-# Cấu trúc tệp Genesis JSON <a id="genesis-json-file-structure"></a>
+# Cấu trúc tập tin Genesis JSON <a id="genesis-json-file-structure"></a>
 
-Cấu trúc tệp `genesis.json` được mô tả trong bảng dưới đây.
+Cấu trúc tập tin `genesis.json` được mô tả trong bảng dưới đây.
 
 | Tên trường      | Mô tả                                                                                                                                                                |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cấu hình        | Cấu hình blokchain. Xem phần [Config](#config).                                                                                                                      |
+| config          | Cấu hình blokchain. Xem phần [Config](#config).                                                                                                                      |
 | số dùng một lần | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                                                  |
-| mốc thời gian   | Thời gian Unix khi tạo ra khối.                                                                                                                                      |
+| dấu thời gian   | Thời gian Unix khi tạo ra khối.                                                                                                                                      |
 | extraData       | Trường kết hợp dữ liệu cho vanity người ký và dữ liệu bổ sung istanbul được mã hóa RLP có chứa danh sách nút xác thực, con dấu của người đề xuất và con dấu cam kết. |
 | gasLimit        | Lượng gas tối đa dùng trong một khối.                                                                                                                                |
 | độ khó          | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                                                  |
@@ -23,14 +23,14 @@ Cấu trúc tệp `genesis.json` được mô tả trong bảng dưới đây.
 
 Trường `config` lưu trữ thông tin liên quan đến chuỗi.
 
-| Tên trường              | Mô tả                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------- |
-| chainId                 | Trường này xác định chuỗi hiện tại và được dùng để ngăn chặn việc tấn công lặp lại. |
-| istanbulCompatibleBlock | Số khối có áp dụng thay đổi istanbul.                                               |
-| istanbul, clique        | Loại công cụ đồng thuận.                                                            |
-| unitPrice               | Đơn giá.                                                                            |
-| deriveShaImpl           | Xác định phương thức mới để tạo hàm băm giao dịch và hàm băm biên lai.              |
-| governance              | Thông tin quản trị về mạng lưới. Xem phần [Governance](#governance)                 |
+| Tên trường              | Mô tả                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------ |
+| chainId                 | Trường này xác định chuỗi hiện tại và được dùng để ngăn chặn việc tấn công phát lại. |
+| istanbulCompatibleBlock | Số khối có áp dụng thay đổi istanbul.                                                |
+| istanbul, clique        | Loại công cụ đồng thuận.                                                             |
+| unitPrice               | Đơn giá.                                                                             |
+| deriveShaImpl           | Xác định phương pháp mới để tạo hàm băm giao dịch và hàm băm biên lai.               |
+| governance              | Thông tin quản trị về mạng lưới. Xem phần [Governance](#governance)                  |
 
 
 ## extraData <a id="extradata"></a>
@@ -44,12 +44,12 @@ Trường `extraData` là sự kết hợp giữa vanity người đề xuất v
      - CommittedSeal: danh sách các con dấu chữ ký cam kết chứng tỏ sự đồng thuận. Đối với `genesis.json`, đó là một mảng trống.
 
 **Ví dụ**
-| Trường        | Loại                      | Giá trị                                                                                 |
-| ------------- | ------------------------- | --------------------------------------------------------------------------------------- |
-| Vanity        | Chuỗi số hex 32-byte      | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
-| Nút xác thực  | []address                 | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Con dấu       | mảng byte gồm 65 chi tiết | [0x0,...,0x0]                                                                           |
-| CommittedSeal | [][]byte                  | []                                                                                      |
+| Trường        | type                           | Giá trị                                                                                 |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
+| Vanity        | Chuỗi số thập lục phân 32-byte | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
+| Nút xác thực  | []address                      | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
+| Con dấu       | mảng byte gồm 65 phần tử       | [0x0,...,0x0]                                                                           |
+| CommittedSeal | [][]byte                       | []                                                                                      |
 
 `extraData` với dữ liệu trên được tạo bởi
 ```
@@ -57,7 +57,7 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 ```
 khi `concat` là hàm ghép chuỗi và `RLPEncode` là một hàm để chuyển đổi một cấu trúc đã cho thành chuỗi mã hóa RLP.
 
-Với hàm đó, kết quả đầu ra `extraData` cho ví dụ này là 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
+Với hàm này, kết quả đầu ra `extraData` cho ví dụ này là 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
 
 
 # Công cụ đồng thuận <a id="consensus-engine"></a>
@@ -66,12 +66,12 @@ Các công cụ đồng thuận dành cho mạng lưới Klaytn là Clique và I
 
 ## Clique <a id="clique"></a>
 
-Trường `clique` lưu trữ cấu hình cho niêm phong dựa trên Bằng-chứng-về-thẩm-quyền (POA).
+Trường `clique` lưu trữ cấu hình cho niêm phong dựa trên Bằng chứng ủy quyền (POA).
 
 | Các trường | Mô tả                                                              |
 | ---------- | ------------------------------------------------------------------ |
 | thời kỳ    | Khoảng thời gian tối thiểu giữa các khối liên tiếp (đơn vị: giây). |
-| giai đoạn  | Số khối để đặt lại phiếu và được đánh dấu là điểm xác minh.        |
+| epoch      | Số khối để đặt lại phiếu và được đánh dấu là điểm xác minh.        |
 
 ## Istanbul <a id="istanbul"></a>
 
@@ -79,9 +79,9 @@ Trường `istanbul` lưu trữ cấu hình cho niêm phong dựa trên Istanbul
 
 | Các trường | Mô tả                                                                                   |
 | ---------- | --------------------------------------------------------------------------------------- |
-| giai đoạn  | Số khối để đặt lại phiếu là một điểm xác minh.                                          |
+| epoch      | Số khối để đặt lại phiếu là một điểm xác minh.                                          |
 | chính sách | Chính sách lựa chọn người đề xuất khối. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
-| sub        | Quy mô của ủy ban.                                                                      |
+| sub        | Quy mô của Ủy ban.                                                                      |
 
 # Quản trị <a id="governance"></a>
 
@@ -91,7 +91,7 @@ Trường `governance` lưu trữ thông tin quản trị cho một mạng lư�
 | -------------- | -------------------------------------------------------------------------------------- |
 | governanceMode | Một trong ba chế độ quản trị. [`none`, `single`, `ballot`]                             |
 | governingNode  | Địa chỉ của nút quản trị được chỉ định. Chỉ hoạt động nếu chế độ quản trị là `single`. |
-| reward         | Trường này lưu trữ cấu hình phần thưởng. Xem phần [Reward](#reward).                   |
+| phần thưởng    | Trường này lưu trữ cấu hình phần thưởng. Xem phần [Phần thưởng](#reward).              |
 
 ## Phần thưởng <a id="reward"></a>
 
@@ -99,7 +99,7 @@ Trường `reward` lưu trữ thông tin về nền kinh tế token của mạng
 
 | Các trường             | Mô tả                                                                                                |
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| mintingAmount          | Số lượng peb được đúc khi tạo ra một khối. Giá trị phải ở trong dấu ngoặc kép.                       |
+| mintingAmount          | Số lượng peb được tạo khi tạo ra một khối. Giá trị phải ở trong dấu ngoặc kép.                       |
 | ratio                  | Tỷ lệ phân phối cho `CN/KIR/PoC` được phân tách bằng `/`. Tổng của tất cả các giá trị phải bằng 100. |
 | useGiniCoeff           | Sử dụng hệ số GINI hoặc không.                                                                       |
 | deferredTxFee          | Cách phân phối phí TX cho một khối.                                                                  |
