@@ -22,10 +22,10 @@ $ kscn attach --datadir ~/data
 
 ![](../images/sc-vt-add-klay.png)
 
-`subbridge.parentOperator` và `subbridge.childOperator` phải có đủ KLAY để gửi giao dịch. Lưu ý rằng `subbridge.parentOperator` là tài khoản trên mạng lưới Baobab và `subbridge.childOperator` là tài khoản trên mạng lưới ServiceChain. Tạo tài khoản thử nghiệm trên [Ví Baobab](https://baobab.wallet.klaytn.foundation/) và lấy KLAY để thử từ vòi. Sau đó, gửi một số KLAY tới `parentOperator`. `childOperator` phải lấy KLAY từ tài khoản thử nghiệm do `homi` tạo ([Tham khảo Hướng dẫn thiết lập EN và kết nối SCN](en-scn-connection.md)).
+`subbridge.parentOperator` và `subbridge.childOperator` phải có đủ KLAY để gửi giao dịch. Lưu ý rằng `subbridge.parentOperator` là tài khoản trên mạng lưới Baobab và `subbridge.childOperator` là tài khoản trên mạng lưới ServiceChain. Tạo tài khoản thử nghiệm trên [Ví Baobab](https://baobab.wallet.klaytn.foundation/) và lấy KLAY để thử từ vòi. Sau đó, gửi một số KLAY đến `parentOperator`. `childOperator` phải lấy KLAY từ tài khoản thử nghiệm do `homi` tạo ([Tham khảo Hướng dẫn thiết lập EN và kết nối SCN](en-scn-connection.md)).
 
 ```
-$ kscn account import ~/homi-output/keys_test/testkey1
+$ kscn tài khoản import ~/homi-output/keys_test/testkey1
 Tài khoản mới của bạn được khóa bằng mật khẩu. Vui lòng nhập mật khẩu. Đừng quên mật khẩu này.
 Cụm mật khẩu:
 Nhắc lại cụm mật khẩu:
@@ -34,7 +34,7 @@ Nhắc lại cụm mật khẩu:
 ```
 $ kscn attach --datadir ~/data
 > personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
-Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
+Unlock tài khoản 80119c31cdae67c42c8296929bb4f89b2a52cec4
 Passphrase:
 True
 > klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
@@ -55,7 +55,7 @@ Kiểm tra xem các tài khoản của người vận hành có đủ số dư k
 
 ![](../images/sc-vt-deploy.png)
 
-Trong bước này, chúng ta sẽ triển khai cả hợp đồng cầu nối và hợp đồng token rong chuỗi mẹ cũng như chuỗi con. Hợp đồng token dành cho việc thử nghiệm đúc/chuyển và hợp đồng cầu nối được sử dụng để lắng nghe/xử lý các yêu cầu chuyển giá trị.
+Trong bước này, chúng ta sẽ triển khai cả hợp đồng cầu nối và hợp đồng token trong chuỗi mẹ cũng như chuỗi con. Hợp đồng token dành cho việc thử nghiệm tạo/chuyển và hợp đồng cầu nối được sử dụng để lắng nghe/xử lý các yêu cầu chuyển giá trị.
 
 ```bash
 $ git clone https://github.com/klaytn/servicechain-value-transfer-examples
@@ -87,7 +87,7 @@ Trên trình chỉnh sửa văn bản, hãy chỉnh sửa `bridge_info.json` nh�
  }
 ```
 
-Thực hiện triển khai token bằng cách chạy lệnh `node erc20-deploy.js`. Tập lệnh này triển khai cả hợp đồng cầu nối và hợp đồngtoken, đồng thời xuất ra sử dụng API để khởi tạo cặp cầu nối.
+Thực hiện triển khai token bằng cách chạy lệnh `node erc20-deploy.js`. Tập lệnh này triển khai cả hợp đồng cầu nối và hợp đồng token, đồng thời xuất ra sử dụng API để khởi tạo cặp cầu nối.
 ```
 $ node erc20-deploy.js
 ------------------------- erc20-deploy START -------------------------
@@ -116,10 +116,10 @@ alice balance: 100
 ------------------------- erc20-transfer-1step END -------------------------
 ```
 
-Nếu kết quả là `alice balance: 100` thì việc đó đã được thực thi thành công.
+Nếu kết quả là `alice balance: 100` thì việc chuyển token đã được thực thi thành công.
 
 ## Chuyển token ERC-20 (hai bước) <a id="erc-20-token-transfer-twostep"></a>
-Chạy erc20-transfer-2step.js để xem ví dụ về chuyển hai bước. Với ví dụ chuyển token hai bước này, có thể sử dụng hợp đồng token ERC-20 chưa sửa đổi. Quá trình chuyển hai bước bao gồm hai lệnh gọi hàm: (1) trước tiên hãy phê duyệt hợp đồng cầu nối, rồi (2) gọi hàm hợp đồng `requestERC20Transfer()`. Chúng ta không triển khai hợp đồng trong phần này vì đã triển khai cả hợp đồng cầu nối và hợp đồng token. Bạn phải triển khai trước nếu bạn không thể triển khai hợp đồng được. Bạn có thể triển khai hợp đồng bằng cách sử dụng `node erc20-deploy.js`.
+Chạy erc20-transfer-2step.js để xem ví dụ về chuyển hai bước. Với ví dụ chuyển token hai bước này, có thể sử dụng hợp đồng token ERC-20 chưa sửa đổi. Quá trình chuyển hai bước bao gồm hai lệnh gọi hàm: (1) trước tiên hãy phê duyệt hợp đồng cầu nối, rồi (2) gọi hàm hợp đồng `requestERC20Transfer()`. Chúng ta không triển khai hợp đồng trong phần này vì đã triển khai cả hợp đồng cầu nối và hợp đồng token. Bạn phải triển khai trước nếu bạn chưa triển khai chúng. Bạn có thể triển khai hợp đồng bằng cách sử dụng `node erc20-deploy.js`.
 ```
 $ node erc20-transfer-2step.js
 > ------------------------- erc20-transfer-2step START -------------------------
