@@ -8,7 +8,7 @@ caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 
 `FeeDelegatedValueTransferWithRatio` biểu thị một [giao dịch chuyển giá trị có phí ủy thác theo tỷ lệ](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedValueTransferWithRatio`.
 
-`FeeDelegatedValueTransferWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedValueTransferWithRatio`.
+`FeeDelegatedValueTransferWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedValueTransfer`.
 
 {% hint style="success" %}
 LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedValueTransferWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây. LƯU Ý: `caver.transaction.feeDelegatedValueTransferWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
@@ -18,19 +18,19 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại  | Mô tả                                                                                                                                                                                                                 |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value              | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                               |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
-| to                 | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                        |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                             |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                         |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                 |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
+| Tên                | type  | Mô tả                                                                                                                                                                                                         |
+| ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| giá trị            | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                       |
+| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                        |
+| đến                | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                |
+| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                  |
+| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                     |
+| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
+| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
+| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
+| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
 
 **Ví dụ**
 
@@ -79,20 +79,20 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                 |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value              | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                               |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
-| to                 | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                        |
-| input              | chuỗi | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                        |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                             |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                         |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                 |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
+| Tên                | Loại | Mô tả                                                                                                                                                                                                         |
+| ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| giá trị            | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                       |
+| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                        |
+| đến                | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                |
+| nhập               | chuỗi | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                |
+| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                  |
+| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                     |
+| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
+| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
+| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
+| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
 
 **Ví dụ**
 
@@ -131,7 +131,7 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdateWithRatio` biểu thị một [giao dịch cập nhật tài khoản có phí ủy thác theo tỷ lệ](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedAccountUpdateWithRatio`.
+`FeeDelegatedAccountUpdateWithRatio` biểu thị một [giao dịch cập nhật tài khoản có phí ủy thác theo tỷ lệ](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedtài khoảnupdatewithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedAccountUpdateWithRatio`.
 
 `FeeDelegatedAccountUpdateWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedAccountUpdateWithRatio`.
 
@@ -143,20 +143,20 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại      | Mô tả                                                                                                                                                                                                                 |
-| ------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | chuỗi     | Địa chỉ của người gửi.                                                                                                                                                                                                |
-| account            | [Account] | Một đối tượng [Account] chứa các thông tin cần thiết để cập nhật tài khoản của bạn.                                                                                                                                   |
-| gas                | chuỗi     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
-| feeRatio           | chuỗi     | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                             |
-| signatures         | Mảng      | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
-| feePayerSignatures | Mảng      | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                         |
-| feePayer           | chuỗi     | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                 |
-| nonce              | chuỗi     | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| gasPrice           | chuỗi     | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
-| chainId            | chuỗi     | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
+| Tên                | type      | Mô tả                                                                                                                                                                                                         |
+| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                 | chuỗi     | Địa chỉ của người gửi.                                                                                                                                                                                        |
+| tài khoản          | [Account] | Một đối tượng [Account] chứa các thông tin cần thiết để cập nhật tài khoản của bạn.                                                                                                                           |
+| gas                | chuỗi     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                  |
+| feeRatio           | chuỗi     | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                     |
+| chữ ký             | Mảng      | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
+| feePayerSignatures | Mảng      | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
+| feePayer           | chuỗi     | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| nonce              | chuỗi     | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| giá gas            | chuỗi     | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
+| chainId            | chuỗi     | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
 
-Để biết cách tạo một đối tượng [Account] cho mỗi loại `AccountKey`, hãy tham khảo [Bắt đầu - Cập nhật tài khoản](../../getting-started.md#account-update) hoặc [caver.account.create](../caver.account.md#caver-account-create).
+Để biết cách tạo một đối tượng [Account] cho mỗi loại `AccountKey`, hãy tham khảo [Bắt đầu - Cập nhật tài khoản](../../getting-started.md#tài khoản-update) hoặc [caver.tài khoản.create](../caver.tài khoản.md#caver-tài khoản-create).
 
 **Ví dụ**
 
@@ -165,7 +165,7 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 > caver.transaction.feeDelegatedAccountUpdateWithRatio({
     from: '0x{address in hex}',
     gas: 50000,
-    account: caver.account.createWithAccountKeyLegacy('0x{address in hex}'),
+    tài khoản: caver.tài khoản.createWithAccountKeyLegacy('0x{address in hex}'),
     feeRatio: 30,
 })
 
@@ -181,9 +181,9 @@ FeeDelegatedAccountUpdateWithRatio {
     _feePayer: '0x294f5bc8fadbd1079b191d9c47e1f217d6c987b4',
     _feePayerSignatures: [ SignatureData { _v: '0x0fea', _r: '0xa44cb...', _s: '0x01161...' } ],
     _feeRatio: '0x1e',
-    _account: Account {
+    _tài khoản: Account {
         _address: '0x5c525570f2b8e7e25f3a6b5e17f2cc63b872ece7',
-        _accountKey: AccountKeyPublic { _publicKey: '0x02a1d...' }
+        _tài khoảnKey: AccountKeyPublic { _publicKey: '0x02a1d...' }
     }
 }
 ```
@@ -206,22 +206,22 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                                   |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                                  |
-| input              | chuỗi | Dữ liệu gắn kèm theo giao dịch. Chỉ thị biên dịch của hợp đồng thông minh sẽ được triển khai và các đối số của nó. Bạn có thể lấy dữ liệu này bằng hàm [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).          |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                            |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                               |
-| value              | chuỗi | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                   |
-| to                 | chuỗi | (tùy chọn, mặc định: `'0x'`) Địa chỉ mà hợp đồng thông minh được triển khai. Hiện tại không thể xác định giá trị này. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                        |
-| humanReadable      | logic | (tùy chọn, mặc định: `false`) Phải là giá trị false vì địa chỉ con người có thể đọc được chưa được hỗ trợ.                                                                                                                              |
-| codeFormat         | chuỗi | (tùy chọn, mặc định: `'EVM'`) Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM. Giá trị này được chuyển đổi thành chuỗi số hex sau khi được gán (ví dụ:> `EVM` được chuyển đổi thành `0x0`) bên trong. |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                             |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                           |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                   |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                   |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                          |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                         |
+| Tên                | Loại                | Mô tả                                                                                                                                                                                                                                   |
+| ------------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                 | chuỗi                | Địa chỉ của người gửi.                                                                                                                                                                                                                  |
+| nhập               | chuỗi                | Dữ liệu gắn kèm theo giao dịch. Chỉ thị biên dịch của hợp đồng thông minh sẽ được triển khai và các đối số của nó. Bạn có thể lấy dữ liệu này bằng hàm [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).          |
+| gas                | chuỗi                | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                            |
+| feeRatio           | chuỗi                | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                               |
+| giá trị            | chuỗi                | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                   |
+| đến                | chuỗi                | (tùy chọn, mặc định: `'0x'`) Địa chỉ mà hợp đồng thông minh được triển khai. Hiện tại không thể xác định giá trị này. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                        |
+| humanReadable      | kiểu dữ liệu Boolean | (tùy chọn, mặc định: `false`) Phải là giá trị false vì địa chỉ con người có thể đọc được chưa được hỗ trợ.                                                                                                                              |
+| codeFormat         | chuỗi                | (tùy chọn, mặc định: `'EVM'`) Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM. Giá trị này được chuyển đổi thành chuỗi số hex sau khi được gán (ví dụ:> `EVM` được chuyển đổi thành `0x0`) bên trong. |
+| chữ ký             | Mảng                 | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                             |
+| feePayerSignatures | Mảng                 | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                           |
+| feePayer           | chuỗi                | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                   |
+| nonce              | chuỗi                | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                           |
+| giá gas            | chuỗi                | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                          |
+| chainId            | chuỗi                | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                    |
 
 **Ví dụ**
 
@@ -272,20 +272,20 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                                                                         |
-| ------------------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                                                                        |
-| to                 | chuỗi | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                               |
-| input              | chuỗi | Dữ liệu được gắn kèm giao dịch, được sử dụng để thực thi giao dịch. Đầu vào là một chuỗi mã hóa cho biết một hàm cần gọi và các tham số được truyền vào hàm này. Bạn có thể lấy chuỗi mã hóa này bằng hàm [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                  |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                                                                     |
-| value              | chuỗi | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                                                         |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                                                                   |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                                                                 |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                                                         |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                                                         |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                                                                |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                                                               |
+| Tên                | Loại | Mô tả                                                                                                                                                                                                                                                                 |
+| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                                                                |
+| đến                | chuỗi | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                       |
+| nhập               | chuỗi | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch. Đầu vào là một chuỗi mã hóa cho biết một hàm cần gọi và các tham số được truyền vào hàm này. Bạn có thể lấy chuỗi mã hóa này bằng hàm [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                          |
+| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                                                             |
+| giá trị            | chuỗi | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                                                 |
+| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                                                           |
+| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                                                         |
+| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                                                 |
+| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                                                         |
+| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                                                        |
+| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                                                  |
 
 **Ví dụ**
 
@@ -335,17 +335,17 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                 |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                             |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                         |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                 |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
+| Tên                | Loại | Mô tả                                                                                                                                                                                                         |
+| ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                        |
+| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                  |
+| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                     |
+| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
+| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
+| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
+| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
 
 **Ví dụ**
 
@@ -391,18 +391,18 @@ LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/pac
 
 **thuộc tính**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                 |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                |
-| input              | chuỗi | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                            |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                          |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                             |
-| nonce              | chuỗi | (tùy chọn) Giá trị được sử dụng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| signatures         | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                           |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                         |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                 |
-| gasPrice           | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                        |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                       |
+| Tên                | Loại | Mô tả                                                                                                                                                                                                         |
+| ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                        |
+| nhập               | chuỗi | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                    |
+| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                  |
+| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                     |
+| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
+| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
+| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
+| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
+| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
 
 **Ví dụ**
 
