@@ -1,6 +1,6 @@
 # caver.abi <a id="caver-abi"></a>
 
-Gói `caver.abi` cho phép bạn giải mã và mã hóa các tham số bằng ABI (Giao diện Nhị phân Ứng dụng). Nó được sử dụng để gọi các hàm của một hợp đồng thông minh đã triển khai.
+Gói `caver.abi` cho phép bạn giải mã và mã hóa các tham số bằng ABI (Giao diện nhị phân ứng dụng). Gói này dùng để gọi các hàm của một hợp đồng thông minh đã triển khai.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -8,17 +8,17 @@ Gói `caver.abi` cho phép bạn giải mã và mã hóa các tham số bằng A
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Mã hóa chữ ký hàm thành chữ ký ABI của nó, là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại tham số.
+Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại tham số.
 
 **Tham số**
 
-| Tên               | Loại                   | Mô tả                                                                                                                                                                             |
-| ----------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | chuỗi &#124; đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì nó phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| Tên               | type                   | Mô tả                                                                                                                                                                                    |
+| ----------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | chuỗi &#124; đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả               |
+| type  | Mô tả               |
 | ----- | ------------------- |
 | chuỗi | Chữ ký ABI của hàm. |
 
@@ -50,15 +50,15 @@ Mã hóa chữ ký hàm thành chữ ký ABI của nó, là 4 byte đầu tiên 
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Mã hóa chữ ký sự kiện thành chữ ký ABI của nó, là hàm băm sha3 của tên sự kiện bao gồm các loại tham số đầu vào.
+Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của tên sự kiện bao gồm các loại tham số đầu vào.
 
 **Tham số**
 
-| Tên            | Loại                   | Mô tả                                                                                                                                                                           |
-| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | chuỗi &#124; đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi, nó phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| Tên            | type                   | Mô tả                                                                                                                                                                                     |
+| -------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | chuỗi &#124; đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                   |
 | ----- | ----------------------- |
@@ -92,22 +92,22 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI của nó, là hàm băm sha
 caver.abi.encodeParameter(type, parameter)
 ```
 
-Mã hóa một tham số dựa trên loại của nó thành sự biểu diễn ABI của nó.
+Mã hóa một tham số dưới dạng ABI dựa trên loại của tham số đó.
 
 **Tham số**
 
-| Tên     | Loại                  | Mô tả                                                                                                             |
-| ------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| loại   | chuỗi &#124; đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| tham số | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
+| Tên       | Loại                  | Mô tả                                                                                                             |
+| --------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| type      | chuỗi &#124; đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| parameter | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu Solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                    |
-| ----- | ------------------------ |
-| chuỗi | Tham số được mã hóa ABI. |
+| Loại | Mô tả                              |
+| ----- | ---------------------------------- |
+| chuỗi | Tham số được mã hóa dưới dạng ABI. |
 
 **Ví dụ**
 
@@ -144,22 +144,22 @@ Mã hóa một tham số dựa trên loại của nó thành sự biểu diễn 
 caver.abi.encodeParameters(typesArray, parameters)
 ```
 
-Mã hóa các tham số chức năng dựa trên đối tượng giao diện JSON của nó.
+Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của các tham số đó.
 
 **Tham số**
 
 | Tên        | Loại                 | Mô tả                                                                                                                                                        |
 | ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Mảng &#124; đối tượng | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| tham số    | Mảng                  | Các tham số để mã hóa.                                                                                                                                       |
+| Tham số    | Mảng                  | Các tham số để mã hóa.                                                                                                                                       |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu Solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                    |
-| ----- | ------------------------ |
-| chuỗi | Tham số được mã hóa ABI. |
+| Loại | Mô tả                                  |
+| ----- | -------------------------------------- |
+| chuỗi | Các tham số được mã hóa dưới dạng ABI. |
 
 **Ví dụ**
 
@@ -213,9 +213,9 @@ Mã hóa lệnh gọi hàm bằng cách sử dụng đối tượng giao diện 
 | Tên           | Loại     | Mô tả                                 |
 | ------------- | --------- | ------------------------------------- |
 | jsonInterface | đối tượng | Đối tượng giao diện JSON của một hàm. |
-| tham số       | Mảng      | Các tham số để mã hóa.                |
+| Tham số       | Mảng      | Các tham số để mã hóa.                |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                                                 |
 | ----- | ----------------------------------------------------- |
@@ -255,11 +255,11 @@ Giải mã lệnh gọi hàm từ đối tượng abi của hàm hoặc chuỗi 
 | abi          | đối tượng | Đối tượng abi của hàm.          |
 | functionCall | chuỗi     | Chuỗi lệnh gọi hàm được mã hóa. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại     | Mô tả                                                                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Một đối tượng bao gồm các thông số đơn giản. Bạn có thể sử dụng `kết quả[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số. |
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng bao gồm các tham số đơn giản. Bạn có thể sử dụng `result[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số. |
 
 **Ví dụ**
 
@@ -290,18 +290,18 @@ Result {
 caver.abi.decodeParameter(type, hexstring)
 ```
 
-Giải mã tham số được mã hóa ABI thành loại JavaScript của nó.
+Giải mã tham số được mã hóa dưới dạng ABI thành loại JavaScript của tham số đó.
 
 **Tham số**
 
 | Tên       | Loại                | Mô tả                                                                                                            |
 | --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| loại     | chuỗi&#124;đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| type      | chuỗi&#124;đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexstring | Mảng                 | Mã byte ABI để giải mã.                                                                                          |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu Solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại   | Mô tả                 |
 | ------- | --------------------- |
@@ -341,17 +341,17 @@ Giải mã tham số được mã hóa ABI thành loại JavaScript của nó.
 caver.abi.decodeParameters(typesArray, hexstring)
 ```
 
-Giải mã các tham số được mã hóa ABI thành các loại JavaScript của nó.
+Giải mã các tham số được mã hóa dưới dạng ABI thành loại JavaScript của các tham số đó.
 
 **Tham số**
-| Tên        | Loại                 | Mô tả                                                                                                                                                                                |
-| ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Mảng &#124; đối tượng | Một mảng có các loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring  | chuỗi                 | Mã byte ABI để giải mã.                                                                                                                                                              |
+| Tên        | Loại                 | Mô tả                                                                                                                                                                                  |
+| ---------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | Mảng &#124; đối tượng | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexstring  | chuỗi                 | Mã byte ABI để giải mã.                                                                                                                                                                |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu Solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại     | Mô tả                                            |
 | --------- | ------------------------------------------------ |
@@ -435,20 +435,20 @@ Result {
 caver.abi.decodeLog(inputs, hexstring, topics)
 ```
 
-Giải mã dữ liệu nhật ký được mã hóa ABI và dữ liệu chủ đề được lập chỉ mục.
+Giải mã dữ liệu bản ghi được mã hóa dưới dạng ABI và dữ liệu chủ đề được lập chỉ mục.
 
 **Tham số**
 | Tên       | Loại | Mô tả                                                                                                                                       |
 | --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| đầu vào   | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring | chuỗi | Mã byte ABI trong trường `dữ liệu` của nhật ký.                                                                                             |
-| chủ đề    | Mảng  | Một mảng các chủ đề tham số chỉ mục của nhật ký. Mảng không có chủ đề[0] nếu là sự kiện không ẩn danh, nếu không, mảng sẽ có chủ đề[0].     |
+| inputs    | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexstring | chuỗi | Mã byte ABI trong trường `data` của bản ghi.                                                                                                |
+| chủ đề    | Mảng  | Một mảng các chủ đề tham số chỉ mục của bản ghi. Mảng không có chủ đề[0] nếu là sự kiện không ẩn danh, nếu không, mảng sẽ có chủ đề[0].     |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại     | Mô tả                                      |
 | --------- | ------------------------------------------ |
-| đối tượng | Đối tượng kết quả chứa nhật ký đã giải mã. |
+| đối tượng | Đối tượng kết quả chứa bản ghi đã giải mã. |
 
 **Ví dụ**
 
@@ -483,20 +483,20 @@ Result {
 caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 ```
 
-Mã hóa mã byte hợp đồng thông minh với các đối số của hàm tạo.
+Mã hóa bytecode hợp đồng thông minh với các đối số của hàm tạo.
 
 **Tham số**
-| Tên           | Loại   | Mô tả                                                   |
-| ------------- | ------- | ------------------------------------------------------- |
-| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                            |
-| hexstring     | chuỗi   | Một mã byte của hợp đồng thông minh sẽ được triển khai. |
-| tham số       | Hỗn hợp | (tùy chọn) Các đối số để chuyển đến hàm tạo.            |
+| Tên           | Loại   | Mô tả                                                    |
+| ------------- | ------- | -------------------------------------------------------- |
+| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                             |
+| hexstring     | chuỗi   | Một bytecode của hợp đồng thông minh sẽ được triển khai. |
+| params        | Hỗn hợp | (tùy chọn) Các đối số để chuyển đến hàm tạo.             |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                                                             |
-| ----- | ------------------------------------------------------------------------------------------------- |
-| chuỗi | Việc triển khai hợp đồng thông minh được mã hóa ABI với các đối số hàm tạo là byteCode + tham số. |
+| Loại | Mô tả                                                                                                       |
+| ----- | ----------------------------------------------------------------------------------------------------------- |
+| chuỗi | Việc triển khai hợp đồng thông minh được mã hóa dưới dạng ABI với các đối số hàm tạo là byteCode + tham số. |
 
 **Ví dụ**
 
