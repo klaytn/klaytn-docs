@@ -5,78 +5,78 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi một giao dịch [Cập nhật tài khoản](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) đến mạng.
+Gửi giao dịch [Cập nhật tài khoản](../../../../../../klaytn/design/transactions/basic.md#txtypetài khoảnupdate) đến mạng.
 
 **Tham số**
 
 Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Tên               | Loại      | Mô tả                                                                                                           |
+| Tên               | type      | Mô tả                                                                                                           |
 | ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-Một đối tượng giao dịch loại `ACCOUNT_UPDATE` có cấu trúc như sau: Lưu ý rằng khi bạn cung cấp khóa mới, bạn chỉ nên cung cấp một trong các giá trị dưới đây phù hợp với loại khóa. Nếu cung cấp nhiều hơn một khóa, bạn sẽ nhận được lỗi 'khóa trùng lặp'. Từ phiên bản caver-js v1.2.0, khuyến nghị sử dụng `key` với đối tượng `AccountForUpdate`.
-- key
+Một đối tượng giao dịch loại `ACCOUNT_UPDATE` có cấu trúc như sau: Lưu ý rằng khi cung cấp khóa mới, bạn chỉ nên cung cấp một trong các giá trị dưới đây phù hợp với loại khóa. Nếu cung cấp nhiều hơn một khóa, bạn sẽ nhận được lỗi 'khóa trùng lặp'. Từ phiên bản caver-js v1.2.0, nên sử dụng `key` với đối tượng `AccountForUpdate`.
+- khóa
 - legacyKey
 - publicKey
 - multisig
 - roleTransactionKey, roleAccountUpdateKey, roleFeePayerKey
 - failKey
 
-| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                              |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | Chuỗi     | Loại giao dịch. "ACCOUNT_UPDATE"                                                                                                                                                                                                                                                   |
-| from                 | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                            |
-| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (gas không được sử dụng sẽ được hoàn lại).                                                                                                                                                                                             |
-| gasPrice             | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                     |
-| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getTransactionCount`.                                                                                                                                    |
-| key                  | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, xem [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate).    |
-| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, nên đặt giá trị này thành true.                                                                                                                                                                                         |
-| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                    |
-| multisig             | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập. |
-| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                        |
-| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                        |
-| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch dưới vai trò người trả phí.                          |
-| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, đặt giá trị này là true.                                                                                                                                                                                                   |
+| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                                     |
+| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                 | Chuỗi     | Loại giao dịch. "ACCOUNT_UPDATE"                                                                                                                                                                                                                                                          |
+| từ                   | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                                   |
+| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                                                      |
+| giá gas              | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                            |
+| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                                                                                            |
+| khóa                 | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, hãy xem [caver.klay.tài khoảns.createAccountForUpdate](../caver.klay.tài khoảns.md#createtài khoảnforupdate). |
+| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, hãy đặt giá trị này thành true.                                                                                                                                                                                                |
+| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                           |
+| multisig             | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập.        |
+| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                               |
+| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                               |
+| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch với vai trò là người trả phí.                               |
+| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, hãy đặt giá trị này thành true.                                                                                                                                                                                                   |
 
-Nếu bạn gọi hàm `caver.klay.sendTransaction` với một đối tượng giao dịch thuộc loại `ACCOUNT_UPDATE` như trên, caver-js sẽ gửi nó đến mạng sau khi ký bằng khóa của tài khoản người gửi (`from`) trong ví trong bộ nhớ.
+Nếu bạn gọi ra hàm `caver.klay.sendTransaction` với một đối tượng giao dịch thuộc loại `ACCOUNT_UPDATE` như trên, caver-js sẽ gửi đối tượng này đến mạng sau khi ký bằng khóa của tài khoản người gửi (`from`) trong ví trong bộ nhớ.
 
 **Giá trị trả về**
 
 Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra, các sự kiện sau đây có sẵn:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 - `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Ở lỗi hết gas, thông số thứ hai là biên lai.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
 ```javascript
-const account = caver.klay.accounts.wallet.add('0x{private key}')
+const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-// Case 1: Updating account with an AccountForUpdate instance
+// Trường hợp 1: Cập nhật tài khoản bằng đối tượng AccountForUpdate
 
-const accountForUpdate = caver.klay.accounts.createAccountForUpdate(account.address, '0x{private key}')
+const tài khoảnForUpdate = caver.klay.tài khoảns.createAccountForUpdate(tài khoản.address, '0x{private key}')
 
-// using the promise
+// sử dụng promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
-    key: accountForUpdate,
+    from: tài khoản.address,
+    key: tài khoảnForUpdate,
     gas: '300000',
 })
 .then(function(receipt){
     ...
 })
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
-    key: accountForUpdate,
+    from: tài khoản.address,
+    key: tài khoảnForUpdate,
     gas: '300000',
 })
 .on('transactionHash', function(hash){
@@ -87,12 +87,12 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error)
 
-// Case 2: Updating account with legacy key
+// Trường hợp 2: Cập nhật tài khoản bằng khóa legacy
 
 // using the promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     legacyKey: true,
     gas: '300000',
 })
@@ -100,10 +100,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     legacyKey: true,
     gas: '300000',
 })
@@ -113,14 +113,14 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-// Case 3: Updating account with public key
+// Trường hợp 3: Cập nhật tài khoản bằng khóa công khai
 
-// using the promise
+// sử dụng promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     publicKey: '0x9016de15ebb219b1e8bc732070df93a28903e5799d0cd24a807a5afabf4601f7e5ab312b5a682dd8c0e72e71e67552174d5082cde25db3626a5b025f97f8a005',
     gas: '300000',
 })
@@ -128,10 +128,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     publicKey: '0x9016de15ebb219b1e8bc732070df93a28903e5799d0cd24a807a5afabf4601f7e5ab312b5a682dd8c0e72e71e67552174d5082cde25db3626a5b025f97f8a005',
     gas: '300000',
 })
@@ -141,14 +141,14 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-// Case 4: Updating account with fail key
+// Trường hợp 4: Cập nhật tài khoản sử dụng khóa fail
 
 // using the promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     failKey: true,
     gas: '300000',
 })
@@ -156,10 +156,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: account.address,
+    from: tài khoản.address,
     failKey: true,
     gas: '300000',
 })
@@ -169,14 +169,14 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-// Case 5: Updating account with weighted-multisig
+// Trường hợp 5: Cập nhật tài khoản bằng đa chữ ký có trọng số
 
-// using the promise
+// sử dụng promise
 caver.klay.sendTransaction({
   type: 'ACCOUNT_UPDATE',
-  from: account.address,
+  from: tài khoản.address,
   multisig: {
     threshold: 3,
     keys: [
@@ -192,10 +192,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
   type: 'ACCOUNT_UPDATE',
-  from: account.address,
+  from: tài khoản.address,
   multisig: {
     threshold: 3,
     keys: [
@@ -213,14 +213,14 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-// Case 6: Updating account with role-based key
+// Trường hợp 6: Cập nhật tài khoản bằng khóa theo vai trò
 
-// using the promise
+// sử dụng promise
 caver.klay.sendTransaction({
   type: 'ACCOUNT_UPDATE',
-  from: account.address,
+  from: tài khoản.address,
   roleTransactionKey: {
     publicKey: '0xe4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512d0a5735a23ce1654b14680054a993441eae7c261983a56f8e0da61280758b5919',
   },
@@ -236,10 +236,10 @@ caver.klay.sendTransaction({
     ...
 });
 
-// using the event emitter
+// sử dụng bộ phát hiệu ứng sự kiện
 caver.klay.sendTransaction({
   type: 'ACCOUNT_UPDATE',
-  from: account.address,
+  from: tài khoản.address,
   roleTransactionKey: {
     publicKey: '0xe4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512d0a5735a23ce1654b14680054a993441eae7c261983a56f8e0da61280758b5919',
   },
@@ -257,7 +257,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 ```
 
 
@@ -266,47 +266,47 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi một giao dịch [Cập nhật tài khoản có ủy thác phí](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) đến mạng.
+Gửi giao dịch [Cập nhật tài khoản có ủy thác phí](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedtài khoảnupdate) đến mạng.
 
-Có hai cách để người trả phí ký một giao dịch và gửi giao dịch đến mạng.
+Có hai cách cho phép người trả phí ký một giao dịch và gửi giao dịch đến mạng.
 
-1. Gọi `caver.klay.sendTransaction` với một đối tượng, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, định dạng giao dịch được sử dụng cho người trả phí. Trong trường hợp này, tài khoản của người trả phí phải tồn tại trong ví caver-js trong bộ nhớ.
-2. Ký bằng hàm [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) và gửi đến mạng thông qua [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
+1. Gọi ra `caver.klay.sendTransaction` với một đối tượng, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, sử dụng định dạng giao dịch cho người trả phí. Trong trường hợp này, tài khoản của người trả phí phải tồn tại trong ví caver-js trong bộ nhớ.
+2. Ký bằng hàm [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) và gửi đến mạng thông qua [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
 
 Ví dụ ở đây chỉ mô tả cách sử dụng hàm `caver.klay.sendTransaction`.
 
-Để biết thông tin về cách gửi bằng cách sử dụng hàm `caver.klay.accounts.feePayerSignTransaction` và `caver.klay.sendSignedTransaction`, hãy xem [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) và [Gửi giao dịch với nhiều người ký](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
+Để biết thông tin về cách gửi sử dụng hàm `caver.klay.tài khoảns.feePayerSignTransaction` và `caver.klay.sendSignedTransaction`, hãy xem [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) và [Gửi giao dịch với nhiều người ký](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
 
 **Tham số**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Tên               | Loại      | Mô tả                                                                                                           |
+| Tên               | type      | Mô tả                                                                                                           |
 | ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` có cấu trúc như sau:
 
-| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                              |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | Chuỗi     | Loại giao dịch. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                                                                                   |
-| from                 | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                            |
-| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (gas không được sử dụng sẽ được hoàn lại).                                                                                                                                                                                             |
-| gasPrice             | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                     |
-| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getTransactionCount`.                                                                                                                                    |
-| key                  | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, xem [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate).    |
-| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, đặt giá trị này là true.                                                                                                                                                                                                |
-| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                    |
-| multisig             | Object    | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập. |
-| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                        |
-| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                        |
-| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch dưới vai trò người trả phí.                          |
-| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, đặt giá trị này là true.                                                                                                                                                                                                   |
+| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                                     |
+| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                 | Chuỗi     | Loại giao dịch. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                                                                                          |
+| từ                   | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                                   |
+| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                                                      |
+| giá gas              | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                            |
+| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                                                                                            |
+| khóa                 | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, hãy xem [caver.klay.tài khoảns.createAccountForUpdate](../caver.klay.tài khoảns.md#createtài khoảnforupdate). |
+| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, hãy đặt giá trị này thành true.                                                                                                                                                                                                |
+| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                           |
+| multisig             | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập.        |
+| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                               |
+| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                               |
+| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch với vai trò là người trả phí.                               |
+| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, hãy đặt giá trị này thành true.                                                                                                                                                                                                   |
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` có thể được sử dụng làm tham số trong [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) đối với người gửi hoặc trong [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) đối với người trả phí.
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../caver.klay.tài khoảns.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) đối với người trả phí.
 
-Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi giao dịch đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi hàm `caver.klay.sendTransaction`.
+Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
 
 | Tên                  | Loại | Mô tả                                    |
 | -------------------- | ----- | ---------------------------------------- |
@@ -317,25 +317,25 @@ Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE` 
 
 Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra, các sự kiện sau đây có sẵn:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 - `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Ở lỗi hết gas, thông số thứ hai là biên lai.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
 ```javascript
-const sender = caver.klay.accounts.wallet.add('0x{private key}')
-const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
+const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-const accountForUpdate = caver.klay.accounts.createAccountForUpdate(sender.address, '0x{private key}')
+const tài khoảnForUpdate = caver.klay.tài khoảns.createAccountForUpdate(sender.address, '0x{private key}')
 
-// using the promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE',
     from: sender.address,
-    key: accountForUpdate,
+    key: tài khoảnForUpdate,
     gas: '300000',
 }, sender.privateKey)
 
@@ -347,11 +347,11 @@ caver.klay.sendTransaction({
     ...
 })
 
-// using the event emitter
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng bộ phát hiệu ứng sự kiện
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE',
     from: sender.address,
-    key: accountForUpdate,
+    key: tài khoảnForUpdate,
     gas: '300000',
 }, sender.privateKey)
 
@@ -374,47 +374,47 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi một giao dịch [Cập nhật tài khoản có ủy thác phí theo tỷ lệ](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) đến mạng.
+Gửi giao dịch [Cập nhật tài khoản có ủy thác phí theo tỷ lệ](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedtài khoảnupdatewithratio) đến mạng.
 
-Có hai cách để người trả phí ký một giao dịch và gửi giao dịch đến mạng.
+Có hai cách cho phép người trả phí ký một giao dịch và gửi giao dịch đến mạng.
 
-1. Gọi hàm `caver.klay.sendTransaction` với định dạng giao dịch của người trả phí (Một đối tượng xác định `senderRawTransaction` và `feepayer`). Trong trường hợp này, tài khoản của người trả phí phải tồn tại trong ví trong bộ nhớ của hàm caver-js.
-2. Ký bằng hàm [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) và gửi đến mạng thông qua [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
+1. Gọi ra hàm `caver.klay.sendTransaction` với định dạng giao dịch của người trả phí (Một đối tượng xác định `senderRawTransaction` và `feepayer`). Trong trường hợp này, tài khoản của người trả phí phải tồn tại trong ví trong bộ nhớ của hàm caver-js.
+2. Ký bằng hàm [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) và gửi đến mạng thông qua [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
 
 Ví dụ ở đây chỉ mô tả cách sử dụng hàm `caver.klay.sendTransaction`.
 
-Để biết thông tin về cách gửi bằng cách sử dụng hàm `caver.klay.accounts.feePayerSignTransaction` và `caver.klay.sendSignedTransaction`, hãy xem [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) và [Gửi giao dịch với nhiều người ký](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
+Để biết thông tin về cách gửi sử dụng hàm `caver.klay.tài khoảns.feePayerSignTransaction` và `caver.klay.sendSignedTransaction`, hãy xem [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) và [Gửi giao dịch với nhiều người ký](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
 
 **Tham số**
 
 Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Tên               | Loại      | Mô tả                                                                                                           |
+| Tên               | type      | Mô tả                                                                                                           |
 | ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-Đối tượng giao dịch loại plain của giao dịch `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` có cấu trúc như sau:
+Loại đối tượng giao dịch thuần của giao dịch `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` có cấu trúc như sau:
 
-| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                              |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | Chuỗi     | Loại giao dịch "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO".                                                                                                                                                                                                                      |
-| from                 | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                            |
-| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (gas không được sử dụng sẽ được hoàn lại).                                                                                                                                                                                             |
-| gasPrice             | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                     |
-| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getTransactionCount`.                                                                                                                                    |
-| key                  | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, xem [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate).    |
-| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, đặt giá trị này là true.                                                                                                                                                                                                |
-| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                    |
-| multisig             | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập. |
-| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                        |
-| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                        |
-| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch dưới vai trò người trả phí.                          |
-| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, đặt giá trị này là true.                                                                                                                                                                                                   |
+| Tên                  | Loại     | Mô tả                                                                                                                                                                                                                                                                                     |
+| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                 | Chuỗi     | Loại giao dịch "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO".                                                                                                                                                                                                                             |
+| từ                   | Chuỗi     | Địa chỉ của người gửi giao dịch này. Tài khoản này sẽ được cập nhật bằng giao dịch này.                                                                                                                                                                                                   |
+| gas                  | Số        | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                                                      |
+| giá gas              | Số        | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                            |
+| nonce                | Số        | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                                                                                            |
+| khóa                 | Đối tượng | (tùy chọn) Một đối tượng `AccountForUpdate` chứa địa chỉ và khóa sẽ được sử dụng khi cập nhật tài khoản. Để biết cách tạo một đối tượng AccountForUpdate cho mỗi loại khóa, hãy xem [caver.klay.tài khoảns.createAccountForUpdate](../caver.klay.tài khoảns.md#createtài khoảnforupdate). |
+| legacyKey            | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa kế thừa, hãy đặt giá trị này thành true.                                                                                                                                                                                                |
+| publicKey            | Chuỗi     | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa công khai, hãy ghi ra khóa công khai 64 byte.                                                                                                                                                                                           |
+| multisig             | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa đa chữ ký, hãy ghi ra danh sách các khóa công khai có trọng số tạo thành khóa đa chữ ký. Cơ chế đa chữ ký cũng xác định ngưỡng. Khi ký một giao dịch, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập.        |
+| roleTransactionKey   | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleTransactionKey. Khóa roleTransactionKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này sẽ được sử dụng khi ký một giao dịch.                                               |
+| roleAccountUpdateKey | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleAccountUpdateKey. Khóa roleAccountUpdateKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này sẽ được sử dụng khi ký giao dịch AccountUpdate.                               |
+| roleFeePayerKey      | Đối tượng | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa theo vai trò, hãy ghi ra khóa roleFeePayerKey. Khóa roleFeePayerKey có thể là khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này sẽ được sử dụng khi ký giao dịch với vai trò là người trả phí.                               |
+| failKey              | Bool      | (tùy chọn) Nếu muốn cập nhật tài khoản để có khóa fail, hãy đặt giá trị này thành true.                                                                                                                                                                                                   |
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` có thể được sử dụng làm tham số trong [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) đối với người gửi hoặc trong [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) đối với người trả phí.
+Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../caver.klay.tài khoảns.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../caver.klay.tài khoảns.md#feepayersigntransaction) đối với người trả phí.
 
-Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi giao dịch đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi hàm `caver.klay.sendTransaction`.
+Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
 
 | Tên                  | Loại | Mô tả                                    |
 | -------------------- | ----- | ---------------------------------------- |
@@ -425,25 +425,25 @@ Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_ACCOUNT_UPDATE_W
 
 Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra, các sự kiện sau đây có sẵn:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 - `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Ở lỗi hết gas, thông số thứ hai là biên lai.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
 ```javascript
-const sender = caver.klay.accounts.wallet.add('0x{private key}')
-const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
+const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
 
-const accountForUpdate = caver.klay.accounts.createAccountForUpdate(sender.address, '0x{private key}')
+const tài khoảnForUpdate = caver.klay.tài khoảns.createAccountForUpdate(sender.address, '0x{private key}')
 
-// using the promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO',
     from: sender.address,
-    key: accountForUpdate,
+    key: tài khoảnForUpdate,
     gas: '300000',
     feeRatio: 30,
 }, sender.privateKey)
@@ -456,11 +456,11 @@ caver.klay.sendTransaction({
     ...
 })
 
-// using the event emitter
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+// sử dụng bộ phát tín hiệu sự kiện
+const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO',
     from: sender.address,
-    key: accountForUpdate,
+    key: tài khoảnForUpdate,
     gas: '300000',
     feeRatio: 30,
 }, sender.privateKey)
