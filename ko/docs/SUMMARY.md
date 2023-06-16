@@ -317,8 +317,7 @@
     * [Block Explorers](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
-
-
+* [Glossary](misc/glossary.md)
 ## --- <a href="#misc" id="misc"></a>
 
 * [Klaytn 하드포크](misc/klaytn-history.md)
