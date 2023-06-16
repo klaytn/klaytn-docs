@@ -1,29 +1,29 @@
-# Computation Cost <a id="computation-cost"></a>
+# Chi phí tính toán <a id="computation-cost"></a>
 
-Since Klaytn aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that:
+Vì Klaytn hướng đến việc duy trì khoảng thời gian xử lý khối là 1 giây, thời gian thực thi giao dịch cần phải được kiểm soát. Dưới đây là ba hướng tiếp cận để đạt được điều đó:
 
 
-1. Limiting the gas limit of a transaction
-2. Limiting the execution time of a transaction
-3. Limiting the computation cost of a transaction
+1. Hạn chế giới hạn gas của một giao dịch
+2. Hạn chế thời gian thực thi của một giao dịch
+3. Hạn chế chi phí tính toán của một giao dịch
 
-Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
+Việc hạn chế giới hạn gas của một giao dịch không phải là một giải pháp khả thi do khái niệm về gas đại diện cho giá trị trao đổi hiện tại của nhiều nguồn tài nguyên khác nhau trên nền tảng chuỗi khối, chẳng hạn như tính toán, lưu trữ, băng thông mạng lưới, v.v. Hướng tiếp cận này không phù hợp để làm chỉ số cho thời gian thực thi giao dịch.
 
-Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 milli-second. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
+Việc hạn chế thời gian thực thi giao dịch cũng không khả thi vì thời gian thực thi có thể khác nhau giữa các nút trên nền tảng chuỗi khối. Ví dụ: hãy xem xét trường hợp chúng ta hạn chế thời gian thực thi một giao dịch ở mức 100 mili-giây. Nếu một nút thực thi một giao dịch trong 90 mili-giây và một nút khác thực thi trong 110 mili-giây, hai nút này sẽ không thể đạt được sự đồng thuận. Vì thế, giải pháp này không phù hợp.
 
-The last approach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
+Hướng tiếp cận cuối cùng là giới hạn chi phí tính toán của một giao dịch. Chúng tôi đã lập mô hình chi phí tính toán của từng mã vận hành EVM dựa trên thời gian thực thi thật và hạn chế tổng chi phí tính toán của một giao dịch. Với hướng tiếp cận này, chúng tôi loại trừ các yếu tố khác, chỉ tính đơn vị thời gian thực thi chuẩn hóa và các nút cũng có thể đạt được sự đồng thuận.
 
-Therefore, we chose the third option for Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimateComputationCost). The usage is almost the same as [klay_estimateGas](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimateGas).
+Vì thế, chúng tôi đã chọn phương án thứ ba cho Klaytn. Hiện tại, giới hạn chi phí thực thi được đặt ở mức 100.000.000. Vì giới hạn này là do nền tảng quyết định, các nhà phát triển nên lưu ý đến chi phí tính toán của giao dịch. Để tính chi phí tính toán của một giao dịch, Klaytn cung cấp [klay_estimateComputationCost](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimateComputationCost). Cách sử dụng gần giống như [klay_estimateGas](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimateGas).
 
-## Computation Cost of Opcodes <a id="computation-cost-of-opcodes"></a>
+## Chi phí tính toán của mã vận hành <a id="computation-cost-of-opcodes"></a>
 
-The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
+Bảng dưới đây cho thấy chi phí tính toán của các mã vận hành EVM. Chi phí tính toán được xác định dựa trên các thử nghiệm.
 
 {% hint style="success" %}
-NOTE: This document contains computation costs used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](computation-cost.md).
+LƯU Ý: Tài liệu này chứa chi phí tính toán được sử dụng trước thời điểm kích hoạt nâng cấp giao thức. Nếu bạn muốn nhận tài liệu mới nhất, vui lòng tham khảo [tài liệu mới nhất](computation-cost.md).
 {% endhint %}
 
-| Opcode         | ComputationCost |
+| Mã vận hành    | ComputationCost |
 |:-------------- | ---------------:|
 | STOP           |               0 |
 | ADD            |             150 |
@@ -53,7 +53,7 @@ NOTE: This document contains computation costs used before the activation of the
 | SAR            |            1815 |
 | SHA3           |            2465 |
 | ADDRESS        |             284 |
-| BALANCE        |            1407 |
+| SỐ DƯ          |            1407 |
 | ORIGIN         |             210 |
 | CALLER         |             188 |
 | CALLVALUE      |             149 |
@@ -159,7 +159,7 @@ NOTE: This document contains computation costs used before the activation of the
 | DUP            |               0 |
 | SWAP           |               0 |
 | CREATE         |            2094 |
-| CALL           |            5000 |
+| LỆNH GỌI       |            5000 |
 | CALLCODE       |            4000 |
 | RETURN         |               0 |
 | DELEGATECALL   |             696 |
