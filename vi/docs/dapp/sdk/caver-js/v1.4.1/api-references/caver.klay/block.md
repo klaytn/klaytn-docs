@@ -4,7 +4,7 @@
 caver.klay.defaultBlock
 ```
 
-Khối mặc định được sử dụng cho các phương thức nhất định.  Bạn có thể ghi đè khối này bằng cách truyền vào defaultBlock như là tham số cuối cùng.  Giá trị mặc định là `"latest"`.
+Khối mặc định được sử dụng cho các phương pháp nhất định.  Bạn có thể ghi đè tham số này bằng cách truyền defaultBlock để làm tham số cuối cùng.  Giá trị mặc định là `"latest"`.
 
 - [caver.klay.getBalance()](./account.md#getbalance)
 - [caver.klay.getCode()](./account.md#getcode)
@@ -19,7 +19,7 @@ Tham số khối mặc định có thể là một trong các tham số sau:
 
 - Số: Số khối
 - `"genesis"` - Chuỗi: Khối khởi nguyên
-- `"latest"` - Chuỗi: Khối mới nhất (tiêu đề hiện tại của chuỗi khối)
+- `"latest"` - Chuỗi: Khối mới nhất (khối cuối cùng trong chuỗi khối vào thời điểm hiện tại)
 
 Mặc định là `"latest"`.
 
@@ -43,9 +43,9 @@ Trả về số khối hiện tại.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                           |
+| Tên      | type | Mô tả                                                                                                           |
 | -------- | ---- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -67,36 +67,36 @@ Trả về khối khớp với hàm băm của khối hoặc số khối.
 
 **Tham số**
 
-| Tên                      | Loại           | Mô tả                                                                                                                                                                |
-| ------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber   | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                                                                              |
-| returnTransactionObjects | Logic           | (tùy chọn, mặc định `false`) Nếu giá trị là `true`, khối trả về sẽ chứa tất cả các giao dịch dưới dạng đối tượng, nếu là `false` thì chỉ chứa các hàm băm giao dịch. |
-| callback                 | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                                                      |
+| Tên                      | Loại           | Mô tả                                                                                                                                                                   |
+| ------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber   | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                                                                  |
+| returnTransactionObjects | Boolean         | (tùy chọn, mặc định là `false`) Nếu giá trị là `true`, khối trả về sẽ chứa tất cả các giao dịch dưới dạng đối tượng, nếu là `false` thì chỉ chứa các hàm băm giao dịch. |
+| callback                 | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                         |
 
 **Giá trị trả về**
 
 `Promise` trả về `Object` - Đối tượng của khối:
 
-| Tên              | Loại            | Mô tả                                                                                                     |
+| Tên              | type            | Mô tả                                                                                                     |
 | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
-| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Luôn luôn là 1 trong công cụ đồng thuận BFT                                             |
+| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                          |
 | extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                    |
 | gasUsed          | Số              | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                      |
-| governanceData   | DỮ LIỆU         | Cấu hình quản trị được mã hóa RLP                                                                         |
-| hash             | Chuỗi 32 byte   | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                        |
-| logsBloom        | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                   |
+| governanceData   | DATA            | Cấu hình quản trị được mã hóa RLP                                                                         |
+| hash             | Chuỗi 32 byte   | Hàm băm của một khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                    |
+| nhật kýBloom     | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                   |
 | number           | Số              | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                 |
-| parentHash       | Chuỗi 32 byte   | Hàm băm của khối cha.                                                                                     |
-| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch của khối.                                                          |
-| reward           | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                |
-| size             | Số              | Số nguyên chỉ kích thước của khối này theo byte.                                                          |
-| stateRoot        | Chuỗi 32 byte   | Gốc của cây tiền tố trạng thái cuối của khối.                                                             |
-| timestamp        | Số              | Dấu thời gian unix khi khối được đối chiếu.                                                               |
+| parentHash       | Chuỗi 32 byte   | Hàm băm của khối cha mẹ.                                                                                  |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của trie biên lai giao dịch của khối.                                                                 |
+| phần thưởng      | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                |
+| size             | Số              | Giá trị nguyên chỉ kích cỡ của khối này theo byte.                                                        |
+| stateRoot        | Chuỗi 32 byte   | Gốc của trie trạng thái cuối trong khối.                                                                  |
+| dấu thời gian    | Số              | Dấu thời gian unix khi khối được đối chiếu.                                                               |
 | timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                      |
-| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                             |
-| transactions     | Mảng            | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số `returnTransactionObjects`. |
-| transactionsRoot | Chuỗi 32 byte   | Gốc của cây tiền tố giao dịch trong khối.                                                                 |
-| voteData         | DỮ LIỆU         | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                      |
+| totalBlockScore  | SỐ LƯỢNG        | Giá trị nguyên chỉ tổng khối lượng tính toán trung bình của chuỗi cho đến khối này.                       |
+| giao dịch        | Mảng            | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số `returnTransactionObjects`. |
+| transactionsRoot | Chuỗi 32 byte   | Gốc của trie giao dịch trong khối.                                                                        |
+| voteData         | DATA            | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                      |
 
 **Ví dụ**
 
@@ -108,7 +108,7 @@ Trả về khối khớp với hàm băm của khối hoặc số khối.
     gasUsed: '0x5208',
     governanceData: '0x',
     hash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
-    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
     number: '0x4a99',
     parentHash: '0x3b56b598828368d86b175a78ba21845125372851154840c6b1b318da910849c2',
     receiptsRoot: '0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
@@ -129,18 +129,18 @@ Trả về khối khớp với hàm băm của khối hoặc số khối.
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
 ```
-Trả về danh sách các biên lai giao dịch được bao gồm trong khối được xác định bởi hàm băm của khối đã cho.
+Trả về danh sách các biên lai giao dịch bao gồm trong khối được xác định bởi hàm băm của khối đã cho.
 
 **Tham số**
 
 | Tên       | Loại | Mô tả                                                                                                           |
 | --------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| blockHash | Chuỗi | Hàm băm của khối.                                                                                               |
-| callback  | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| blockHash | Chuỗi | Hàm băm của một khối.                                                                                           |
+| callback  | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `Array` - Các biên lai được bao gồm trong một khối.  Nếu khối mục tiêu không chứa giao dịch, thì hệ thống sẽ trả về một mảng trống `[]`.
+`Promise` trả về `Array` - Các biên lai được bao gồm trong một khối.  Nếu khối mục tiêu không chứa giao dịch, thì hàm sẽ trả về một mảng trống `[]`.
 
 
 **Ví dụ**
@@ -156,8 +156,8 @@ Trả về danh sách các biên lai giao dịch được bao gồm trong khối
         gas: '0x493e0',
         gasPrice: '0x5d21dba00',
         gasUsed: '0x5208',
-        logs: [],
-        logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+        nhật ký: [],
+        nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
         nonce: '0x2',
         senderTxHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
         signatures: [ 
@@ -167,7 +167,7 @@ Trả về danh sách các biên lai giao dịch được bao gồm trong khối
                 S: '0x43fba9e5c2c16511f951e27957f1279ea3c1f913b27f9fbb2a8dcb5884e37e3d'
             } 
         ],
-        status: '0x1',
+        trạng thái: '0x1',
         to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
         transactionHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
         transactionIndex: '0x0',
@@ -192,8 +192,8 @@ Trả về số lượng giao dịch trong một khối đã cho.
 
 | Tên                    | Loại           | Mô tả                                                                                                           |
 | ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | Chuỗi &#124; Số | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                                  |
-| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| blockHashOrBlockNumber | Chuỗi &#124; Số | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                   |
+| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -217,37 +217,37 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 
 **Tham số**
 
-| Tên                    | Loại            | Mô tả                                                                                                           |
+| Tên                    | type            | Mô tả                                                                                                           |
 | ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"`, hoặc `"latest"`.                                         |
-| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| blockHashOrBlockNumber | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                          |
+| callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `Object` - Một đối tượng khối với thông tin đồng thuận (bao gồm một người đề xuất và một danh sách các thành viên ủy ban) Đối tượng khối bao gồm:
 
-| Tên              | Loại           | Mô tả                                                                                                                                                      |
-| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Luôn luôn là 1 trong công cụ đồng thuận BFT                                                                                              |
-| committee        | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những người xác nhận đã tham gia vào giao thức đồng thuận cho khối này. |
-| extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                                                                     |
-| gasUsed          | SỐ LƯỢNG        | Tổng số đơn vị gas đã dùng của tất cả các giao dịch trong khối này.                                                                                        |
-| governanceData   | DỮ LIỆU         | Cấu hình quản trị được mã hóa RLP                                                                                                                          |
-| hash             | DỮ LIỆU 32 byte | Hàm băm của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                         |
-| logsBloom        | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                    |
-| number           | SỐ LƯỢNG        | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                                  |
-| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha.                                                                                                                                      |
-| proposer         | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                            |
-| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của cây tiền tố biên lai giao dịch trong khối.                                                                                                         |
-| reward           | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                                 |
-| size             | SỐ LƯỢNG        | Số nguyên chỉ kích thước của khối này tính bằng đơn vị byte.                                                                                               |
-| stateRoot        | DỮ LIỆU 32 byte | Gốc của trie trạng thái cuối trong khối.                                                                                                                   |
-| timestamp        | SỐ LƯỢNG        | Dấu thời gian unix khi khối được đối chiếu.                                                                                                                |
-| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                       |
-| totalBlockScore  | SỐ LƯỢNG        | Tổng số blockScore bằng số nguyên của chuỗi cho đến khối này.                                                                                              |
-| transactions     | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                  |
-| transactionsRoot | DỮ LIỆU 32 byte | Gốc của trie giao dịch trong khối.                                                                                                                         |
-| voteData         | DỮ LIỆU         | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                                                       |
+| Tên              | Loại           | Mô tả                                                                                                                                                    |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | SỐ LƯỢNG        | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                                                                         |
+| committee        | Mảng            | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những nút xác thực đã tham gia vào giao thức đồng thuận cho khối này. |
+| extraData        | Chuỗi           | Trường "dữ liệu bổ sung" của khối này.                                                                                                                   |
+| gasUsed          | SỐ LƯỢNG        | Tổng số gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                     |
+| governanceData   | DATA            | Cấu hình quản trị được mã hóa RLP                                                                                                                        |
+| hash             | DỮ LIỆU 32 byte | Hàm băm của một khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                   |
+| nhật kýBloom     | Chuỗi 256 byte  | Bộ lọc Bloom cho các bản ghi của khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                  |
+| number           | SỐ LƯỢNG        | Số khối. Giá trị là `null` nếu đó là khối đang chờ xử lý.                                                                                                |
+| parentHash       | DỮ LIỆU 32 byte | Hàm băm của khối cha mẹ.                                                                                                                                 |
+| người đề xuất    | DỮ LIỆU 20 byte | Địa chỉ của người đề xuất khối.                                                                                                                          |
+| receiptsRoot     | DỮ LIỆU 32 byte | Gốc của trie biên lai giao dịch của khối.                                                                                                                |
+| phần thưởng      | DỮ LIỆU 20 byte | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                               |
+| size             | SỐ LƯỢNG        | Giá trị nguyên chỉ kích cỡ của khối này theo byte.                                                                                                       |
+| stateRoot        | DỮ LIỆU 32 byte | Gốc của trie trạng thái cuối trong khối.                                                                                                                 |
+| dấu thời gian    | SỐ LƯỢNG        | Dấu thời gian unix khi khối được đối chiếu.                                                                                                              |
+| timestampFoS     | SỐ LƯỢNG        | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                     |
+| totalBlockScore  | SỐ LƯỢNG        | Giá trị nguyên chỉ tổng khối lượng tính toán trung bình của chuỗi cho đến khối này.                                                                      |
+| giao dịch        | Mảng            | Mảng đối tượng giao dịch.                                                                                                                                |
+| transactionsRoot | DỮ LIỆU 32 byte | Gốc của trie giao dịch trong khối.                                                                                                                       |
+| voteData         | DATA            | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                                                     |
 
 **Ví dụ**
 ```javascript
@@ -262,7 +262,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
     gasUsed: '0x5208',
     governanceData: '0x',
     hash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
-    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
     number: '0x4a99',
     parentHash: '0x3b56b598828368d86b175a78ba21845125372851154840c6b1b318da910849c2',
     proposer: '0x715dd3ce7a285f21111715a2ba5537414d40506b',
@@ -282,8 +282,8 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
             gas: '0x493e0',
             gasPrice: '0x5d21dba00',
             gasUsed: '0x5208',
-            logs: [],
-            logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+            nhật ký: [],
+            nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
             nonce: '0x2',
             senderTxHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
             signatures: [ 
@@ -293,7 +293,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
                     S: '0x43fba9e5c2c16511f951e27957f1279ea3c1f913b27f9fbb2a8dcb5884e37e3d' 
                 } 
             ],
-            status: '0x1',
+            trạng thái: '0x1',
             to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
             transactionHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
             transactionIndex: '0x0',
@@ -313,18 +313,18 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 caver.klay.getCommittee([defaultBlock] [, callback])
 ```
 
-Trả về danh sách tất cả những người xác thực của ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những người xác thực của ủy ban tại khối mới nhất.
+Trả về danh sách tất cả các nút xác thực của ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả các nút xác thực trong ủy ban ở khối mới nhất.
 
 **Tham số**
 
-| Tên          | Loại           | Mô tả                                                                                                                                      |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
+| Tên          | Loại           | Mô tả                                                                                                                                                  |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
 
-`Promise` trả về `Array` - Địa chỉ của tất cả những người xác thực trong ủy ban.
+`Promise` trả về `Array` - Địa chỉ của tất cả các nút xác thực của ủy ban.
 
 **Ví dụ**
 
@@ -348,10 +348,10 @@ Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tha
 
 **Tham số**
 
-| Tên          | Loại           | Mô tả                                                                                                                                      |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
+| Tên          | Loại           | Mô tả                                                                                                                                                  |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
 
@@ -365,24 +365,24 @@ Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tha
 ```
 
 ## getCouncil <a id="getcouncil"></a>
-**LƯU Ý**: `getValidators` được thay bằng phương thức này và không được hỗ trợ nữa.
+**LƯU Ý**: Phương thức `getValidators` được thay thế bằng phương pháp này và không còn được hỗ trợ.
 
 ```javascript
 caver.klay.getCouncil([defaultBlock] [, callback])
 ```
 
-Trả về danh sách tất cả những người xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những người xác thực của hội đồng tại khối mới nhất.
+Trả về danh sách tất cả các nút xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những nút xác thực của hội đồng tại khối mới nhất.
 
 **Tham số**
 
-| Tên          | Loại            | Mô tả                                                                                                                                      |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
+| Tên          | type            | Mô tả                                                                                                                                                  |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
 
-`Promise` trả về `Array` - Địa chỉ của tất cả những người xác thực trong hội đồng.
+`Promise` trả về `Array` - Địa chỉ của tất cả các nút xác thực trong hội đồng.
 
 **Ví dụ**
 
@@ -406,10 +406,10 @@ Trả về quy mô của hội đồng tại khối được chỉ định. Nế
 
 **Tham số**
 
-| Tên          | Loại           | Mô tả                                                                                                                                      |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
+| Tên          | Loại           | Mô tả                                                                                                                                                  |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
 
@@ -428,16 +428,16 @@ Trả về quy mô của hội đồng tại khối được chỉ định. Nế
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
-Nhận dữ liệu lưu trữ tại một vị trí cụ thể của một địa chỉ.
+Nhận bộ nhớ lưu trữ tại một vị trí cụ thể của địa chỉ.
 
 **Tham số**
 
-| Tên          | Loại            | Mô tả                                                                                                                                      |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| address      | Chuỗi           | Địa chỉ để nhận bộ nhớ lưu trữ từ đó.                                                                                                      |
-| position     | Số              | Vị trí chỉ mục của bộ nhớ lưu trữ.                                                                                                         |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, nó sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai.                            |
+| Tên          | type            | Mô tả                                                                                                                                                  |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address      | Chuỗi           | Địa chỉ để nhận bộ nhớ lưu trữ từ đó.                                                                                                                  |
+| vị trí       | Số              | Vị trí chỉ mục của bộ nhớ lưu trữ.                                                                                                                     |
+| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
 
@@ -463,12 +463,12 @@ Giá trị trả về là `true` nếu máy khách đang tích cực khai thác 
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 
 **Giá trị trả về**
 
-`Promise` trả về `Boolean` - `true` nếu máy khách đang khai thác, nếu không giá trị là `false`.
+`Promise` trả về `boolean` - giá trị là `true` nếu máy khách đang khai thác, nếu không sẽ là `false`. sẽ là `false`.
 
 **Ví dụ**
 
@@ -489,7 +489,7 @@ Kiểm tra xem nút có đang đồng bộ hóa không và trả về một đ�
 
 | Tên      | Loại | Mô tả                                                                                                           |
 | -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số đầu tiên và kết quả làm tham số thứ hai. |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 
 **Giá trị trả về**
@@ -498,7 +498,7 @@ Kiểm tra xem nút có đang đồng bộ hóa không và trả về một đ�
 
 | Tên           | Loại | Mô tả                                                 |
 | ------------- | ----- | ----------------------------------------------------- |
-| startingBlock | Số    | Số khối nơi mà quy trình đồng bộ hóa bắt đầu.         |
+| startingBlock | Số    | Số khối nơi quy trình đồng bộ hóa bắt đầu.            |
 | currentBlock  | Số    | Số khối tại khối mà nút hiện đã được đồng bộ hóa đến. |
 | highestBlock  | Số    | Số khối ước tính để đồng bộ hóa đến.                  |
 | knownStates   | Số    | Các trạng thái ước tính cần tải xuống.                |
