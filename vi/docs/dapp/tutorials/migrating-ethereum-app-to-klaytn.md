@@ -6,7 +6,7 @@
 * [2. Klaytn có tính tương thích với Ethereum](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
 * [3. Thay đổi kết nối nút từ Ethereum sang Klaytn](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
 * [4. Tương tác với nút Klaytn: Thành phần `BlockNumber`](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
-* [5. Tương tác với hợp đồng: Thành phần `Count`](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
+* [5. Tương tác với hợp đồng: Thành phần `Đếm`](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
   * [5-1. Triển khai hợp đồng Count trên Klaytn](migrating-ethereum-app-to-klaytn.md#5-1-deploy-count-contract-on-klaytn)
   * [5-2. Tạo một phiên bản hợp đồng](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
   * [5-3. Tương tác với hợp đồng](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
@@ -72,7 +72,7 @@ export default caver
 
 ![thành phần blocknumber](../../bapp/tutorials/count-bapp/images/blocknumber-component.gif)
 
-Thành phần BlockNumber lấy số khối hiện tại trên từng giây (1000ms).
+Thành phần số khối lấy số khối hiện tại trên từng giây (1000ms).
 
 Chỉ cần thay thế thư viện `web3` bằng `caver-js`, bạn có thể đồng bộ hóa BlockNumber của Klaytn theo thời gian thực thay vì BlockNumber của Ethereum.
 
@@ -100,9 +100,9 @@ export default BlockNumber
 
 Để biết thêm chi tiết về thành phần `BlockNumber`, hãy tham khảo [Hướng dẫn về CountDApp - Thành phần Blocknumber](count-dapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
-## 5. Tương tác với hợp đồng: Thành phần `Count` <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
+## 5. Tương tác với hợp đồng: Thành phần `Đếm` <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
-![thành phần count](../../bapp/tutorials/count-bapp/images/count-component.gif)
+![Thành phần đếm](../../bapp/tutorials/count-bapp/images/count-component.gif)
 
 Để tương tác với hợp đồng, chúng ta cần tạo một phiên bản của hợp đồng đã được triển khai. Với phiên bản đó, chúng ta có thể đọc và viết dữ liệu của hợp đồng.
 
@@ -165,7 +165,7 @@ module.exports = {
 
 ### 5-2. Tạo một phiên bản hợp đồng <a href="#5-2-create-a-contract-instance" id="5-2-create-a-contract-instance"></a>
 
-Bạn có thể tạo một phiên bản hợp đồng bằng API `caver-js`. Phiên bản hợp đồng này tạo một kết nối với hợp đồng `Count`. Bạn có thể gọi phương thức hợp đồng thông qua phiên bản này.
+Bạn có thể tạo một phiên bản hợp đồng bằng API `caver-js`. Phiên bản hợp đồng này tạo một kết nối với hợp đồng `Count`. Bạn có thể gọi phương pháp hợp đồng thông qua phiên bản này.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)\
   Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
@@ -194,7 +194,7 @@ export default Count
 
 ### 5-3. Tương tác với hợp đồng <a href="#5-3-interact-with-contract" id="5-3-interact-with-contract"></a>
 
-`ABI` (Giao diện nhị phân ứng dụng) dùng để tạo phiên bản hợp đồng Count cho phép `caver-js` gọi các phương thức hợp đồng như sau. Bạn có thể tương tác với hợp đồng Count giống như với một đối tượng JavaScript.
+`ABI` (Giao diện nhị phân ứng dụng) dùng để tạo phiên bản hợp đồng Count cho phép `caver-js` gọi các phương pháp hợp đồng như sau. Bạn có thể tương tác với hợp đồng Count giống như với một đối tượng JavaScript.
 
 * Đọc dữ liệu (call)\
 `CountContract.methods.count().call()`
@@ -202,9 +202,9 @@ export default Count
 `CountContract.methods.plus().send({ ... })`\
 `CountContract.methods.minus().send({ ... })`
 
-Sau khi tạo một phiên bản hợp đồng trong bước trước, bạn không cần thay đổi bất cứ mã nào khi dùng phương thức hợp đồng sau đó. Đã hoàn tất di chuyển dApp!
+Sau khi tạo một phiên bản hợp đồng trong bước trước, bạn không cần thay đổi bất cứ mã nào khi dùng phương pháp hợp đồng sau đó. Đã hoàn tất di chuyển dApp!
 
-#### Mã đầy đủ: Thành phần `Count` <a href="#full-code-count-component" id="full-code-count-component"></a>
+#### Mã đầy đủ: Thành phần `Đếm` <a href="#full-code-count-component" id="full-code-count-component"></a>
 
 `src/components/Count.js`
 
@@ -221,8 +221,8 @@ class Count extends Component {
     super()
     // ** 1. Tạo phiên bản hợp đồng **
     // ex:) new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
-    // Bạn có thể gọi phương thức hợp đồng qua phiên bản này.
-    // Giờ bạn có thể truy cập phiên bản này bằng biến `this.countContract`.
+    // Bạn có thể gọi phương pháp hợp đồng qua phiên bản này.
+    // Hiện giờ bạn có thể truy cập vào phiên bản bằng biến `this.countContract`.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
       && new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
@@ -236,10 +236,10 @@ class Count extends Component {
   intervalId = null
 
   getCount = async () => {
-    // ** 2. Gọi phương thức hợp đồng (CALL) **
+    // ** 2. Gọi phương pháp hợp đồng (CALL) **
     // ex:) this.countContract.methods.methodName(arguments).call()
-    // Bạn có thể gọi phương thức hợp đồng (CALL) như ở trên.
-    // Ví dụ: Hợp đồng của bạn có phương thức tên là `count`.
+    // Bạn có thể gọi phương pháp hợp đồng (CALL) như ở trên.
+    // Ví dụ: Hợp đồng của bạn có phương pháp tên là `count`.
     // Bạn có thể gọi như dưới đây:
     // ex:) this.countContract.methods.count().call()
     // Lệnh trả về promise nên bạn có thể truy cập bằng .then() hoặc sử dụng async-await.
@@ -252,18 +252,18 @@ class Count extends Component {
   }
 
   setPlus = () => {
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    const walletInstance = caver.klay.tài khoảns.wallet && caver.klay.tài khoảns.wallet[0]
 
-    // Cần tích hợp ví để gọi phương thức hợp đồng.
+    // Cần tích hợp ví để gọi phương pháp hợp đồng.
     if (!walletInstance) return
 
     this.setState({ settingDirection: 'plus' })
 
-    // 3. ** Gọi phương thức hợp đồng (SEND) **
+    // 3. ** Gọi phương pháp hợp đồng (SEND) **
     // ex:) this.countContract.methods.methodName(arguments).send(txObject)
-    // Bạn có thể gọi phương thức hợp đồng (SEND) như trên.
-    // Ví dụ: Hợp đồng của bạn có phương thức tên là `plus`.
-    // Bạn có thể gọi phương thức đó như sau:
+    // Bạn có thể gọi phương pháp hợp đồng (SEND) như trên.
+    // Ví dụ: Hợp đồng của bạn có phương pháp tên là `plus`.
+    // Bạn có thể gọi phương pháp đó như sau:
     // ex:) this.countContract.methods.plus().send({
     //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // ĐIỀN ĐỊA CHỈ CỦA BẠN
     //   gas: '200000',
@@ -296,18 +296,18 @@ class Count extends Component {
   }
 
   setMinus = () => {
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    const walletInstance = caver.klay.tài khoảns.wallet && caver.klay.tài khoảns.wallet[0]
 
-    // Cần tích hợp ví để gọi phương thức hợp đồng.
+    // Cần tích hợp ví để gọi phương pháp hợp đồng.
     if (!walletInstance) return
 
     this.setState({ settingDirection: 'minus' })
 
-    // 3. ** Gọi phương thức hợp đồng (SEND) **
+    // 3. ** Gọi phương pháp hợp đồng (SEND) **
     // ex:) this.countContract.methods.methodName(arguments).send(txObject)
-    // Bạn có thể gọi phương thức hợp đồng (SEND) như trên.
-    // Ví dụ: Hợp đồng của bạn có phương thức tên là `minus`.
-    // Bạn có thể gọi phương thức đó như sau:
+    // Bạn có thể gọi phương pháp hợp đồng (SEND) như trên.
+    // Ví dụ: Hợp đồng của bạn có phương pháp tên là `minus`.
+    // Bạn có thể gọi phương pháp đó như sau:
     // ex:) this.countContract.methods.minus().send({
     //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // ĐIỀN ĐỊA CHỈ CỦA BẠN
     //   gas: '200000',
