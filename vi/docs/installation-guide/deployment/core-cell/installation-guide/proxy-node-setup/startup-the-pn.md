@@ -1,6 +1,6 @@
-# Khởi động NP <a id="startup-the-pn"></a>
+# Khởi động PN <a id="startup-the-pn"></a>
 
-## Bắt đầu/Dừng NP  <a id="pn-start-stop"></a>
+## Bắt đầu/Dừng PN  <a id="pn-start-stop"></a>
 
 Bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` sau đây.
 
@@ -23,7 +23,7 @@ $ systemctl stop kpnd.service
 **trạng thái**
 
 ```bash
-$ systemctl status kpnd.service
+$ systemctl trạng thái kpnd.service
 
 ```
 
