@@ -1,13 +1,13 @@
-Như đã giải thích trong phần thiết kế, Chuỗi dịch vụ hỗ trợ tính năng neo giữ dữ liệu. Trang này hiển thị cách bật chức năng neo. Nếu bật chức năng này, SCN sẽ định kỳ neo dữ liệu khối chuỗi con vào chuỗi mẹ làm bằng chứng về sự tồn tại và tính bất biến. Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
+Như đã giải thích trong phần thiết kế, Chuỗi dịch vụ hỗ trợ tính năng neo dữ liệu. Trang này hiển thị cách bật chức năng neo. Nếu bật chức năng này, SCN sẽ định kỳ neo dữ liệu khối chuỗi con vào chuỗi mẹ làm bằng chứng về sự tồn tại và tính bất biến. Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
 
 # Bật chức năng Neo <a id="enable-anchoring"></a>
 
-## Kiểm tra toán tử mẹ của SCN <a id="check-parent-operator-of-scn"></a>
-Nếu bạn đã cài đặt và chạy SCN thành công, tài khoản người vận hành chuỗi mẹ sẽ được tạo. Bạn có thể cung cấp tập tin lưu trữ khóa mà bạn muốn sử dụng làm toán tử mẹ. Nếu bạn không cung cấp, SCN sẽ tạo khóa cho bạn. Bạn có thể kiểm tra địa chỉ của toán tử mẹ thông qua API RPC, `subbridge_parentOperator`.
+## Kiểm tra người vận hành mẹ của SCN <a id="check-parent-operator-of-scn"></a>
+Nếu bạn đã cài đặt và chạy SCN thành công, tài khoản người vận hành chuỗi mẹ sẽ được tạo. Bạn có thể cung cấp tập tin lưu trữ khóa mà bạn muốn sử dụng làm người vận hành mẹ. Nếu bạn không cung cấp, SCN sẽ tạo khóa cho bạn. Bạn có thể kiểm tra địa chỉ của người vận hành mẹ thông qua API RPC, `subbridge_parentOperator`.
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
@@ -17,11 +17,11 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 
 ```
-*Địa chỉ tài khoản toán tử gốc này được lấy từ tập tin lưu trữ khóa trong thư mục `$dataDIR/parent_bridge_account`.*
+*Địa chỉ tài khoản người vận hành được lấy từ tập tin lưu trữ khóa trong thư mục `$dataDIR/parent_bridge_tài khoản`.*
 
 
-## Thêm KLAY vào tài khoản toán tử mẹ<a id="add-klay-to-parent-operator-account"></a>
-Khi SCN neo dữ liệu khối, SCN thực hiện giao dịch neo với tư cách là toán tử mẹ. Do đó, tài khoản cần có KLAY để thanh toán phí giao dịch. Bạn nên thêm đủ KLAY vào tài khoản toán tử mẹ.
+## Thêm KLAY vào tài khoản người vận hành mẹ<a id="add-klay-to-parent-operator-account"></a>
+Khi SCN neo dữ liệu khối, SCN thực hiện giao dịch neo với tư cách là người vận hành mẹ. Do đó, tài khoản cần có KLAY để thanh toán phí giao dịch. Bạn nên thêm đủ KLAY vào tài khoản người vận hành mẹ.
 
 ## Bật chức năng Neo <a id="enable-anchoring"></a>
 Sau khi gửi KLAY, bạn có thể kiểm tra số dư như bên dưới.
@@ -60,7 +60,7 @@ Trong Cầu nối chính, nếu tùy chọn lập chỉ mục chuỗi được b
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-Bạn có thể lấy dữ liệu neo được giải mã bằng cách neo giao dịch băm như bên dưới.
+Bạn có thể lấy dữ liệu neo được giải mã bằng cách neo hàm băm giao dịch như bên dưới.
 ```javascript
 > klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
