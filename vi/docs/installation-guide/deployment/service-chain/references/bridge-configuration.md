@@ -23,7 +23,7 @@ Bạn nên kích hoạt cầu nối chính bằng cách định cấu hình `ken
 * thêm API `mainbridge` cho RPC như ví dụ bên dưới.
 
 ```text
-# Tập tin cấu hình cho kend
+# Configuration file for the kend
 
 ...
 
@@ -60,13 +60,13 @@ Bạn cần chạy EN của chuỗi chính như cầu nối chính. Đồng th�
 
 #### Mở Bảng điều khiển EN <a id="open-en-console"></a>
 
-Có nhiều cách khác nhau để gắn vào quy trình EN. Bạn có thể kiểm tra các lệnh có thể sử dụng trên [lệnh CLI ken CLI](../../endpoint-node/ken-cli-commands.md). Trang này giải thích cách gắn vào quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục dữ liệu trên nút.
+Có nhiều cách khác nhau để gắn vào quy trình EN. Bạn có thể kiểm tra các lệnh có thể sử dụng trên [lệnh ken CLI](../../endpoint-node/ken-cli-commands.md). Trang này giải thích cách gắn vào quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục dữ liệu trên nút.
 
 Hãy thực hiện lệnh sau và kiểm tra kết quả. (Nếu bạn đã thêm API `mainbridge` cho RPC, bạn có thể kiểm tra API cầu nối như bên dưới. Nếu không có API `mainbridge`, bạn nên kiểm tra lại [Cấu hình EN - Kích hoạt cầu nối chính](#en-configuration-enable-main-bridge). )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
@@ -115,11 +115,11 @@ Bạn nên ghi lại `kni` cầu nối chính.
 
 #### Mở Bảng điều khiển SCN <a id="open-scn-console"></a>
 
-Gắn với quy trình SCN như bên dưới. Bạn nên bật API `subbridge` cho RPC, bạn có thể tìm thấy mô-đun cầu nối con trong đầu ra. Nếu không có API `subbridge`, bạn nên kiểm tra lại [Cấu hình SCN](scn/configuration.md#configuration-of-the-scn).
+Gắn với quy trình SCN như bên dưới. Bạn nên bật sẵn API `subbridge` cho RPC, bạn có thể tìm thấy mô-đun cầu nối con trong đầu ra. Nếu không có API `subbridge`, bạn nên kiểm tra lại [Cấu hình SCN](scn/configuration.md#configuration-of-the-scn).
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
@@ -130,7 +130,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 #### Kết nối SCN với EN <a id="connect-scn-with-en"></a>
 
-Bạn có thể thêm EN ngang hàng trên SCN thông qua IPC như bên dưới. Kni là KNI của EN mà bạn đã ghi lại trước đó.
+Bạn có thể thêm EN ngang hàng trên SCN thông qua IPC như bên dưới. kni là KNI của EN mà bạn đã ghi lại trước đó.
 
 ```javascript
  > subbridge.addPeer("kni://08b99d2297e0a27ddeb33f3a81b59ea1c065b9adbaff9fefab0d16f65b1a8db22939a104c24447e9aca521c158922ca912476b544baf48995a382d88886e0a37@[::]:50505?discport=0")
