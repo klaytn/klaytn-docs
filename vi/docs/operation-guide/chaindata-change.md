@@ -1,26 +1,26 @@
-# Disk management - Chaindata Change <a id="disk-management"></a>
+# Quản lý ổ đĩa - Thay đổi dữ liệu chuỗi <a id="disk-management"></a>
 
 
 
 <aside>
-💡 THIS GUIDE IS BASED ON Amazon Linux 2
+💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
 
 </aside>
 
-## CN Node **Migration STEP**
+##  **BƯỚC di chuyển** nút CN
 
-### Create new disk
+### Tạo ổ đĩa mới
 
-1. Preparing new disk (3,500GB disk) or creating new path on the current disk (It must have 3,500GB available.)
+1. Chuẩn bị ổ đĩa mới (dung lượng 3.500GB) hoặc tạo đường dẫn mới trên ổ đĩa hiện tại (Dung lượng khả dụng của ổ đĩa phải bằng 3.500GB.)
 
 <aside>
-💡 Assuming that the new path is `/var/kcnd2`
+💡 Giả sử đường dẫn mới là `/var/kcnd2`
 
 </aside>
 
-#### Option 1 - New disk (more than 2500GB)
+#### Phương án 1 - Ổ đĩa mới (dung lượng trên 2500GB)
 
-1. Attach the disk to EC2 and run the command below
+1. Đính kèm ổ đĩa vào EC2 và chạy lệnh dưới đây
 
 ```bash
 $ lsblk
@@ -32,7 +32,7 @@ nvme0n1       259:2    0    8G  0 disk
 └─nvme0n1p128 259:4    0    1M  0 part
 ```
 
-2. Mount it following the process below
+2. Gắn ổ đĩa theo quy trình bên dưới
 
 ```bash
 $ sudo e2fsck -f /dev/nvme2n1
@@ -43,94 +43,94 @@ $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-#### Option 2 - Current Disk (not recommended)
+#### Phương án 2 - Ổ đĩa hiện tại (không khuyến nghị)
 
-1. Create New Folder
+1. Tạo thư mục mới
 
 ```bash
 $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-### Download the latest chaindata
+### Tải xuống dữ liệu chuỗi mới nhất
 
-Download Chain Data to the data of the new Klaytn Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
+Tải xuống dữ liệu chuỗi vào dữ liệu của thư mục Klaytn Data DIR mới. (Bạn có thể kiểm tra chi tiết trên dữ liệu chuỗi tại [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
 
-1. Download with the following command
+1. Tải xuống bằng lệnh dưới đây
 
 ```bash
-# (Option 1: recommended) curl 
+# (Phương án 1: khuyến nghị) curl 
 $ curl -o klaytn-cypress-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz"
 
-# (Option 2) aws s3 command
+# (Phương án 2) lệnh aws s3
 $ aws s3 cp s3://klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz klaytn-cypress-chaindata-20211113011111.tar.gz 
 
-# (Option 3) axel (need to install axel)
+# (Phương án 3) axel (cần cài đặt axel)
 sudo amazon-linux-extras install epel -y
 sudo yum install axel pigz
 $ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
-2. Decompress
+2. Giải nén
 
 ```bash
-# (Option 1: recommended) tar
+# (Phương án 1: khuyến nghị) tar
 $ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
-# (Option 2) pigz (need to isntall pigz)
+# (Phương án 2) pigz (cần cài đặt pigz)
 $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
 
 
-## Configure DATA_DIR & LOG_DIR
+## Cấu hình DATA_DIR & LOG_DIR
 
-### Option 1 - Swap the old & new path
+### Phương án 1 - Hoán đổi đường dẫn cũ & mới
 
 <aside>
 🚨 TBD
 
 </aside>
 
-1. Stop klaytn daemon process before swap
-    1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
+1. Dừng quá trình daemon klaytn trước khi hoán đổi
+    1. ***LƯU Ý*** Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
 
-    💡 You can get packages for EN in the [Startup the CN](../installation-guide/deployment/core-cell/installation-guide/consensus-node-setup/startup-the-cn.md).
+    💡 Bạn có thể nhận gói cho nút EN trong phần [Khởi động CN](../installation-guide/deployment/core-cell/installation-guide/consensus-node-setup/startup-the-cn.md).
 
 
-2. Swap the old and new path
-    1. New Disk
+2. Hoán đổi đường dẫn cũ và mới
+    1. Ổ đĩa mới
 
         ```bash
         umount /var/kcnd # old path
         umount /var/kcnd2 # new path
         mount /dev/nvme2n1 /var/kcnd
         ```
-   💡 These commands should be executed with the appropriate privileges.
+   💡 Các lệnh này nên được thực thi với các đặc quyền thích hợp.
 
-    2. Current Disk
+    2. Ổ đĩa hiện tại
 
         ```bash
         sudo mv /var/kcnd /var/kcnd_old # old_path
         sudo mv /var/kcnd2 /var/kcnd # new path
         ```
 
-3. (Optional) Delete the old path if it is not required anymore
+3. (Tùy chọn) Xóa đường dẫn cũ nếu không còn cần thiết
 
-### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
+### Phương án 2 - Cập nhật DATA_DIR & LOG_DIR trong tập tin cấu hình Klaytn
 
-1. Klaytn DIR Path Change
-    - Option 1 - New disk
-        - Change `fstab` value from old disk to new disk
-    - Option 2 - Current disk
-        - change the DIR Path from `kcnd.conf`
+1. Thay đổi đường dẫn Klaytn DIR
+    - Phương án 1 - Ổ đĩa mới
+        - Thay đổi giá trị `fstab` từ ổ đĩa cũ sang ổ đĩa mới
+    - Phương án 2 - Ổ đĩa hiện tại
+        - thay đổi đường dẫn DIR từ `kcnd.conf`
 
-## Restart Process(or Reboot Instance)
+## Khởi động lại quy trình (hoặc khởi động lại đối tượng)
 
 <aside>
-💡 If reboot is required to add an additional disk, reboot the instance.
+💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
 
 </aside>
 
-1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
-2. Restart process or reboot instance
+1. ***LƯU Ý*** Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
+2. Khởi động lại quy trình hoặc khởi động lại đối tượng
