@@ -6,7 +6,7 @@
 
 Mỗi lớp giao dịch được mô tả chi tiết trong bảng dưới đây:
 
-|                        | Cơ bản                                                    | Uỷ thác phí                                                                                | Uỷ thác phí một phần                                                                                                 |
+|                        | Cơ bản                                                    | Ủy thác phí                                                                                | Ủy thác phí một phần                                                                                                 |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | Không có                                                                                   | Không có                                                                                                             |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
@@ -120,7 +120,7 @@ Khôi phục các chuỗi khóa công khai từ trường `signatures` của gia
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                    |
+| type | Mô tả                                                    |
 | ---- | -------------------------------------------------------- |
 | Mảng | Mảng chứa khóa công khai được khôi phục từ `signatures`. |
 
@@ -176,15 +176,15 @@ transaction.sign(keyring [, index] [, hasher])
 
 Ký giao dịch bằng (các) khóa riêng tư của người gửi giao dịch trong `keyring` và thêm chữ ký vào đối tượng giao dịch với trường `signatures`.
 
-Đối với giao dịch [Cập nhật tài khoản](basic.md#accountupdate), sử dụng [roleAccountUpdateKey](../../../../../klaytn/design/accounts.md#roles), nếu không, sử dụng [roleTransactionKey](../../../../../klaytn/design/accounts.md#roles) trong [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). Nếu người dùng chưa xác định `index`, `transaction.sign` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.sign` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+Đối với giao dịch [Cập nhật tài khoản](basic.md#tài khoảnupdate), sử dụng [roleAccountUpdateKey](../../../../../klaytn/design/tài khoảns.md#roles), nếu không, sử dụng [roleTransactionKey](../../../../../klaytn/design/tài khoảns.md#roles) trong [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring). Nếu người dùng chưa xác định `index`, `transaction.sign` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.sign` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
 
 **Tham số**
 
-| Tên     | Loại         | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | đối tượng \ | chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). Nếu một chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
-| index   | số           | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được xác định cho mỗi vai trò. Nếu không xác định chỉ mục, phương thức này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                                      |
-| hasher  | Hàm          | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Tên     | type         | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| keyring | đối tượng \ | chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). Nếu một chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
+| chỉ số  | number       | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                                            |
+| hasher  | Hàm          | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 **Giá trị trả về**
 
@@ -282,27 +282,27 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 Ký giao dịch với vai trò là `fee payer` giao dịch và thêm `feePayerSignatures` vào đối tượng giao dịch với (các) khóa riêng tư trong `keyring`.
 
-Để ký giao dịch với vai trò là người trả phí, hãy sử dụng [roleFeePayerKey](../../../../../klaytn/design/accounts.md#roles) trong `keyring`. Nếu người dùng chưa xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+Để ký giao dịch với vai trò là người trả phí, hãy sử dụng [roleFeePayerKey](../../../../../klaytn/design/tài khoảns.md#roles) trong `keyring`. Nếu người dùng chưa xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
 
 Nếu không xác định `transaction.feePayer`, địa chỉ của keyring đã cho được đặt thành `transaction.feePayer`.
 
-Nếu `keyring` được sử dụng để ký giao dịch được thêm vào `caver.wallet`, bạn có thể sử dụng [caver.wallet.signAsFeePayer](../caver.wallet/#caver-wallet-signasfeepayer).
+Nếu `keyring` được sử dụng để ký giao dịch được thêm vào `caver.wallet`, bạn có thể dùng [caver.wallet.signAsFeePayer](../caver.wallet/#caver-wallet-signasfeepayer).
 
 **LƯU Ý** Hàm này chỉ hoạt động cho các giao dịch "có phí ủy thác" hoặc giao dịch "có phí ủy thác theo tỷ lệ".
 
 **Tham số**
 
-| Tên     | Loại         | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | đối tượng \ | chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). Nếu chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
-| index   | số           | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được xác định cho mỗi vai trò. Nếu không xác định chỉ mục, phương thức này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                                  |
-| hasher  | Hàm          | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Tên     | type         | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | đối tượng \ | chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver.wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver.wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver.wallet/keyring.md#rolebasedkeyring)). Nếu chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../klaytn/design/tài khoảns.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
+| chỉ số  | number       | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                                        |
+| hasher  | Hàm          | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 **Giá trị trả về**
 
 `Promise` trả về `object`: Giao dịch đã ký.
 
-| Loại      | Mô tả                                                                                                    |
+| type      | Mô tả                                                                                                    |
 | --------- | -------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng [Giao dịch](./#class) đã ký. Chữ ký được thêm vào trường `transaction.feePayerSignatures`. |
 
@@ -404,9 +404,9 @@ Thêm chữ ký vào giao dịch với trường `signatures`.
 
 **Tham số**
 
-| Tên        | Loại         | Mô tả                                                                                                                                                                                                                                                                                                                                                        |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| signatures | đối tượng \ | Mảng | Chữ ký được thêm vào giao dịch. Đối tượng [SignatureData](../caver.wallet/keyring.md#signaturedata) hoặc mảng chứa các đối tượng [SignatureData](../caver.wallet/keyring.md#signaturedata). Một mảng trong đó mỗi 'v', 'r' và 's' được xác định theo định dạng chuỗi tuần tự hoặc một mảng 2D chứa những mảng đó cũng có thể được chuyển làm tham số. |
+| Tên    | type         | Mô tả                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| chữ ký | đối tượng \ | Mảng | Chữ ký được thêm vào giao dịch. Đối tượng [SignatureData](../caver.wallet/keyring.md#signaturedata) hoặc mảng chứa các đối tượng [SignatureData](../caver.wallet/keyring.md#signaturedata). Một mảng trong đó mỗi 'v', 'r' và 's' được xác định theo định dạng chuỗi tuần tự hoặc một mảng 2D chứa những mảng đó cũng có thể được chuyển làm tham số. |
 
 **Ví dụ**
 
@@ -567,7 +567,7 @@ Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký
 
 **Giá trị trả về**
 
-| Loại  | Mô tả                                                   |
+| type  | Mô tả                                                   |
 | ----- | ------------------------------------------------------- |
 | chuỗi | Chuỗi giao dịch được mã hóa RLP không có chữ ký đi kèm. |
 
@@ -592,7 +592,7 @@ Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký
 
 **Giá trị trả về**
 
-| Loại  | Mô tả                                                   |
+| type  | Mô tả                                                   |
 | ----- | ------------------------------------------------------- |
 | chuỗi | Chuỗi giao dịch được mã hóa RLP không có chữ ký đi kèm. |
 
@@ -611,7 +611,7 @@ transaction.fillTransaction()
 
 Điền các biến tùy chọn vào giao dịch.
 
-Nếu `gasPrice`, `nonce` hoặc `chainId` của giao dịch không được xác định, phương thức này sẽ yêu cầu các giá trị mặc định cho các biến tùy chọn này và thiết lập chúng bằng cách gửi lệnh gọi RPC JSON tới nút Klaytn đã kết nối.
+Nếu `gasPrice`, `nonce` hoặc `chainId` của giao dịch không được xác định, phương pháp này sẽ yêu cầu các giá trị mặc định cho các biến tùy chọn này và thiết lập chúng bằng cách gửi lệnh gọi RPC JSON đến nút Klaytn đã kết nối.
 
 Sử dụng lệnh gọi [caver.rpc.klay.getGasPrice](../caver.rpc/klay.md#caver-rpc-klay-getgasprice) để lấy `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount) để lấy `nonce` và [caver.rpc.klay.getChainId](../caver.rpc/klay.md#caver-rpc-klay-getchainid) để lấy `chainId`.
 
