@@ -1,35 +1,35 @@
-# Points to Note <a id="Points to Note"></a>
+# Điểm lưu ý <a id="Points to Note"></a>
 
-The following are things you will want to keep in mind while using Klaytn Safe:
+Sau đây là những điều bạn cần lưu ý khi sử dụng Klaytn Safe:
 
-# Transaction Fees <a id="Transaction Fees"></a>
+# Phí giao dịch <a id="Transaction Fees"></a>
 
-Klaytn Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
+Các giao dịch Klaytn Safe, dù là chuyển giao tài sản hay tương tác hợp đồng, đều phát sinh một khoản phí do người ký thực hiện giao dịch thanh toán (thường là người ký cuối cùng đạt đến ngưỡng chữ ký bắt buộc).
 
-# Safe Nonce <a id="Safe Nonce"></a>
+# Số dùng một lần của Safe <a id="Safe Nonce"></a>
 
 ![](../img/klaytn-safe/21_safeNounce.png)
 
-For security reasons, transactions made with Safe need to be executed in order. To achieve this, a number called **nonce** is assigned to a transaction to ensure that each transaction can be executed once.
+Vì lý do bảo mật, các giao dịch được thực hiện với Safe cần được thực hiện theo thứ tự. Để đạt được điều này, một số được gọi là **số dùng một lần** được chỉ định cho một giao dịch để đảm bảo rằng mỗi giao dịch chỉ có thể được thực hiện một lần.
 
-At any given time, only transactions with a nonce _last executed transaction +1_ can be executed. Transactions with a higher nonce are queued for execution. So, whenever a transaction is completed, the next transaction in the queue is made available for execution, provided it has accumulated enough signatures.
+Tại bất kỳ thời điểm nào, chỉ các giao dịch có _giao dịch được thực hiện lần cuối +1_ mới có thể được thực hiện. Các giao dịch có số dùng một lần cao hơn được xếp vào hàng đợi để thực hiện. Vì vậy, bất cứ khi nào một giao dịch được hoàn thành, giao dịch tiếp theo trong hàng đợi sẽ sẵn sàng để thực hiện, miễn là nó đã thu thập đủ chữ ký.
 
 
-# Chain-specific addresses <a id="Chain-specific addresses"></a>
+# Địa chỉ dành riêng cho chuỗi <a id="Chain-specific addresses"></a>
 
 ![](../img/klaytn-safe/22_chainSpec.png)
 
 
-You can choose whether to prepend short chain names across Safes.
+Bạn có thể chọn có thêm tên chuỗi rút gọn vào trước các Safe hay không.
 
-* Prepend addresses with chain prefix: You can prepend the chain name “baobab” to the address by clicking the first check box or otherwise.
+* Thêm trước địa chỉ với tiền tố chuỗi: Bạn có thể thêm tên chuỗi “baobab” vào trước địa chỉ bằng cách nhấp vào hộp kiểm đầu tiên hoặc dùng cách khác.
 
 ![](../img/klaytn-safe/23_acctPrepend.png)
 
-* Copy addresses with chain prefix:
+* Sao chép địa chỉ với tiền tố chuỗi:
 
 ![](../img/klaytn-safe/24_chainAddrError.png)
 
-When copying your safe address from your dashboard to paste in your wallet as seen above, you can either choose to add the chain name or not by clicking the checkbox. It is suggested that you leave it unchecked to avoid the error above.
+Khi sao chép địa chỉ Safe từ bảng điều khiển để dán vào ví như trên, bạn có thể chọn thêm tên chuỗi hoặc bằng cách nhấp vào hộp kiểm. Bạn cần bỏ chọn để tránh lỗi trên.
 
 ![](../img/klaytn-safe/25_copyAcctPrepend.png)
