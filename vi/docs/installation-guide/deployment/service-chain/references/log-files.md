@@ -1,1 +1,1 @@
-# Tập tin nhật ký <a id="log-files"></a>
+# Tập tin bản ghi <a id="log-files"></a>
