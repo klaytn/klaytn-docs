@@ -12,7 +12,7 @@ Phần này giới thiệu các điều kiện tiên quyết khi sử dụng KAS
 
 [![đăng ký](../images/kas-signup-en.png)](https://www.klaytnapi.com)
 
-## Tạo thông tin xác thực <a id="check-credential"></a>
+## Tạo thông tin đăng nhập <a id="check-credential"></a>
 Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mình như bên dưới. `AccessKey ID` và `Secret AccessKey` hoặc `Authorization` sẽ được dùng để gọi API KAS.
 
 ![thông tin đăng nhập](../images/kas-credential-en.png)
@@ -20,24 +20,24 @@ Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mìn
 ## Anchor API <a id="anchor-api"></a>
 KAS cung cấp Anchor API được thiết kế để neo dữ liệu; đây chắc chắn là ứng dụng bạn sẽ sử dụng cho tác vụ neo.
 
-![neo api](../images/kas-anchor-api-en.png)
+![anchor api](../images/kas-anchor-api-en.png)
 
-## Tạo địa chỉ toán tử <a id="create-kas-credential"></a>
-Để neo dữ liệu chuỗi dịch vụ qua KAS, cần có một địa chỉ Klaytn đăng ký tham gia KAS và thực sự gửi giao dịch neo cho Klaytn. Vì vậy, trước khi thiết lập nút dịch vụ của mình, bạn cần tạo một tài khoản Klaytn mang tên là "Toán tử" qua Kas. Vui lòng sử dụng bảng điều khiển KAS để tạo tài khoản này.
+## Tạo địa chỉ người vận hành <a id="create-kas-credential"></a>
+Để neo dữ liệu chuỗi dịch vụ qua KAS, cần có một địa chỉ Klaytn đăng ký tham gia KAS và thực sự gửi giao dịch neo cho Klaytn. Vì vậy, trước khi thiết lập nút dịch vụ của mình, bạn cần tạo một tài khoản Klaytn mang tên "Người vận hành " qua Kas. Vui lòng sử dụng bảng điều khiển KAS để tạo tài khoản này.
 
-Điều quan trọng bạn cần nhớ: **đầu tiên là chọn chuỗi** trong Klaytn mà bạn muốn neo dữ liệu vào trên **góc trên cùng bên phải của trang bảng điều khiển KAS**. Bạn nên tạo một toán tử cho mỗi chuỗi (Cypress/Baobab).
+Điều quan trọng bạn cần nhớ: **đầu tiên là chọn chuỗi** trong Klaytn mà bạn muốn neo dữ liệu vào trên **góc trên cùng bên phải của trang bảng điều khiển KAS**. Bạn nên tạo một người vận hành cho mỗi chuỗi (Cypress/Baobab).
 
 
 
 ![chọn chuỗi](../images/kas-select-chain-en.png)
 
-Tạo một toán tử như dưới đây.
+Tạo một người vận hành như dưới đây.
 
-![tạo toán tử](../images/kas-create-operator-en.png)
+![tạo người vận hành](../images/kas-create-operator-en.png)
 
-Sau đó bạn có thể kiểm tra danh sách toán tử như bên dưới. Xin lưu ý rằng bắt buộc phải có địa chỉ toán tử để thiết lập nút chuỗi dịch vụ của bạn.
+Sau đó bạn có thể kiểm tra danh sách người vận hành như bên dưới. Xin lưu ý rằng bắt buộc phải có địa chỉ người vận hành để thiết lập nút chuỗi dịch vụ của bạn.
 
-![tạo toán tử](../images/kas-operator-list-en.png)
+![tạo người vận hành](../images/kas-operator-list-en.png)
 
 ## Định cấu hình nút chuỗi dịch vụ <a id="configure-service-chain-node"></a>
 Sau khi có được thông tin đăng nhập API, thông tin Anchor API (tham số và điểm cuối API) và tài khoản người vận hành trong KAS, bạn có thể thiết lập nút chuỗi dịch vụ của mình. Bạn cần chỉnh sửa tập tin cấu hình (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) của nút chuỗi dịch vụ của bạn như bên dưới.
@@ -51,18 +51,18 @@ Bạn nên đặt `SC_SUB_BRIDGE=1` và toàn bộ các mục có tiền tố `S
 SC_SUB_BRIDGE=1
 ...
 
-SC_KAS_ANCHOR=1                                                         # 1: kích hoạt, 0: hủy kích hoạt
-SC_KAS_ANCHOR_PERIOD=10                                                 # khoảng thời gian neo khối
+SC_KAS_ANCHOR=1                                                         # 1: enable, 0: disable
+SC_KAS_ANCHOR_PERIOD=10                                                 # Anchoring block period
 SC_KAS_ANCHOR_URL="https://anchor-api.klaytn.com/v1/anchor"             # Anchor API URL
-SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Địa chỉ toán tử
-SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Khóa truy cập thông tin đăng nhập
-SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Khóa bí mật thông tin đăng nhập
+SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Operator address
+SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Credential Access key
+SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Credential Secret key
 SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypress: 8217, Baobab: 1001
 ...
 ```
 
 ## Chạy nút chuỗi dịch vụ <a id="run-service-chain-node"></a>
-Bây giờ bạn đã sẵn sàng. Bạn có thể chạy nút chuỗi dịch vụ. Bạn sẽ thấy tin nhắn nhật ký liên quan đến KAS Anchor API như bên dưới.
+Bây giờ bạn đã sẵn sàng. Bạn có thể chạy nút chuỗi dịch vụ. Bạn sẽ thấy tin nhắn bản ghi liên quan đến Anchor API của KAS như bên dưới.
 
 ```bash
 ...
