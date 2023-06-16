@@ -3,14 +3,14 @@ description: >-
   API liên quan đến tài khoản, khối, giao dịch và nút.
 ---
 
-# Namespace klay <a id="namespace-klay"></a>
+# Không gian tên klay <a id="namespace-klay"></a>
 
-`klay` namespacce cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v. v. Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
+Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v.v. Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
 
 
-### [Tài khoản](./klay/account.md) <a id="account"></a>
-- [klay_accountCreated](./klay/account.md#klay_accountcreated)
-- [klay_accounts](./klay/account.md#klay_accounts)
+### [Tài khoản](./klay/tài khoản.md) <a id="account"></a>
+- [klay_tài khoảnCreated](./klay/account.md#klay_accountcreated)
+- [klay_tài khoảns](./klay/account.md#klay_accounts)
 - [klay_encodeAccountKey](./klay/account.md#klay_encodeaccountkey)
 - [klay_decodeAccountKey](./klay/account.md#klay_decodeaccountkey)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
@@ -70,11 +70,11 @@ description: >-
 - [klay_protocolVersion](./klay/config.md#klay_protocolversion)
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
 
-### [Ga](./klay/gas.md) <a id="gas"></a>
+### [Gas](./klay/gas.md) <a id="gas"></a>
 - [klay_feeHistory](./klay/gas.md#klay_feehistory)
 - [klay_maxPriorityFeePerGas](./klay/gas.md#klay_maxpriorityfeepergas)
 
-### [Bộ lọc](./klay/filter.md) <a id="filter"></a>
+### [Bộ lọc](./klay/bộ lọc.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./klay/filter.md#klay_getfilterlogs)
 - [klay_getLogs](./klay/filter.md#klay_getlogs)
