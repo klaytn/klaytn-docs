@@ -1,22 +1,22 @@
-# Thử Core Cell <a id="testing-the-core-cell"></a>
+# Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 
 Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
 ## Tình trạng xử lý <a id="process-status"></a>
 
-Có thể kiểm tra trạng thái quy trình của NĐT/NP bằng các lệnh trạng thái `systemctl` và `kcnd/kpnd`.
+Có thể kiểm tra trạng thái quy trình của CN/PN bằng các lệnh trạng thái `systemctl` và `kcnd/kpnd`.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của NĐT/NP như sau.
+`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của CN/PN như sau.
 
 ```bash
-$ systemctl status kcnd.service
+$ systemctl trạng thái kcnd.service
 ● kcnd.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kcnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kcnd start (code=exited, status=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kcnd start (code=exited, trạng thái=0/SUCCESS)
  Main PID: 29641 (kcn)
    CGroup: /system.slice/kcnd.service
            └─29641 /usr/local/bin/kcn --networkid 1000 --datadir /kcnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -30,10 +30,10 @@ Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (runn
 
 ### kcnd (kpnd) <a id="kcnd-kpnd"></a>
 
-`kcnd` (hoặc `kpnd`) được cài đặt cùng với gói và trạng thái của NĐT/NP có thể được kiểm tra như sau.
+`kcnd` (hoặc `kpnd`) được cài đặt cùng với gói và trạng thái của CN/PN có thể được kiểm tra như sau.
 
 ```bash
-$ kcnd status
+$ kcnd trạng thái
 kcnd is running
 ```
 
@@ -57,19 +57,19 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-## kcn console (kpn console) <a id="kcn-console-kpn-console"></a>
+## bảng điều khiển kcn (bảng điều khiển kpn) <a id="kcn-console-kpn-console"></a>
 
-Klaytn cung cấp một CLI khách: `kcn console` (hoặc `kpn console`). Tuy nhiên, NĐT/NP có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
+Klaytn cung cấp một CLI khách: `bảng điều khiển kpn` (hoặc `bảng điều khiển kpn`). Tuy nhiên, CN/PN có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
-Tập tin IPC `klay.ipc` nằm ở thư mục `data` trên NĐT/NP.
+Tập tin IPC `klay.ipc` nằm ở thư mục `data` trên CN/PN.
 
 Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
-Trong trường hợp NP,
+Trong trường hợp CN,
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
@@ -77,11 +77,11 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-Trong trường hợp NP,
+Trong trường hợp PN,
 
 ```bash
  $ kpn attach /var/kpnd/data/klay.ipc
- Welcome to the Klaytn JavaScript console!
+ Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
 
  instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
@@ -93,14 +93,14 @@ Trong trường hợp NP,
 
 Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../dapp/json-rpc/README.md)
 
-API hữu dụng để kiểm tra trạng thái cảu NĐT/NP:
+API hữu dụng để kiểm tra trạng thái của CN/PN:
 
 * `klay.blockNumber` (để lấy số khối mới nhất)
 * `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 ### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với NĐT) hay được truyền (đối với NĐT và NP) đúng cách không dựa trên loại nút của bạn.
+Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với CN) hay được truyền (đối với CN và PN) đúng cách không dựa trên loại nút của bạn.
 
 ```javascript
 > klay.blockNumber
@@ -116,8 +116,8 @@ Bạn có thể lấy số khối mới nhất để xem liệu các khối đư
 
 Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-* NĐT: số NĐT được kết nối + số NP được kết nối.
-* Np: số NĐT được kết nối + số NP được kết nối + số NĐC được kết nối.
+* CN: số CN được kết nối + số PN được kết nối.
+* PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.
 
 
 
