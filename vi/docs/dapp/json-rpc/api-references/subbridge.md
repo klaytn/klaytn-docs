@@ -3,19 +3,19 @@ description: >-
   API liên quan đến chuỗi dịch vụ EN.
 ---
 
-# Namespace subbridge <a id="namespace-subbridge"></a>
+# Không gian tên subbridge <a id="namespace-subbridge"></a>
 
-Namespace `cầu nối phụ` cung cấp các hàm liên quan đến Chuỗi Dịch vụ. Để sử dụng các hàm trong namespace này, tùy chọn `cầu nối phụ` phải được kích hoạt trong SEN được kết nối với chuỗi dịch vụ.
+Không gian tên `subbridge` cung cấp các hàm liên quan đến Chuỗi dịch vụ. Để sử dụng các hàm trong không gian tên này, tùy chọn `subbridge` phải được kích hoạt trong SEN được kết nối với chuỗi dịch vụ.
 
 ## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
-Trả về thông tin nút cầu nối bao gồm KNI (Định danh mạng Klaytn) ​​của nút. Một nút cầu nối phụ có thể kết nối với một nút cầu nối chính thông qua KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút. Một nút cầu nối con có thể kết nối với một nút cầu nối chính thông qua KNI.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại      | Mô tả                  |
 | ---------- | ---------------------- |
@@ -54,11 +54,11 @@ Không có
 ```
 
 ## subbridge_addPeer <a id="subbridge_addPeer"></a>
-Trả về `đúng` nếu thêm một máy ngang hàng cầu nối chính thành công.
+Trả về `true` nếu thêm thành công một máy ngang hàng cầu nối chính.
 
-Phương thức `addPeer` thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút sẽ cố gắng duy trì kết nối với các nút này mọi lúc, thỉnh thoảng kết nối lại nếu kết nối từ xa bị hỏng.
+Phương thức `addPeer` thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
 
-Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
 **Tham số**
 
@@ -66,11 +66,11 @@ Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ----- | ---------------------------------------------------------- |
-| bool  | `đúng` nếu máy ngang hàng được chấp nhận, `sai` nếu không. |
+| Loại | Mô tả                                                              |
+| ----- | ------------------------------------------------------------------ |
+| bool  | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -88,9 +88,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_removePeer <a id="subbridge_removePeer"></a>
-Trả về `đúng` khi máy ngang hàng được xóa thành công.
+Trả về `true` khi máy ngang hàng được xóa thành công.
 
-Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
 **Tham số**
 
@@ -98,11 +98,11 @@ Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh
 | --- | ----- | ----------------------------- |
 | url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                                      |
-| ----- | ---------------------------------------------------------- |
-| bool  | `đúng` nếu máy ngang hàng đã bị xóa, `sai` nếu không phải. |
+| Loại | Mô tả                                                         |
+| ----- | ------------------------------------------------------------- |
+| bool  | `true` nếu máy ngang hàng đã bị xóa, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -127,7 +127,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại     | Mô tả                               |
 | --------- | ----------------------------------- |
@@ -147,9 +147,9 @@ không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại      | Mô tả                                |
+| type      | Mô tả                                |
 | --------- | ------------------------------------ |
 | Tài khoản | Địa chỉ tài khoản toán tử chuỗi con. |
 
@@ -167,11 +167,11 @@ không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại    | Mô tả                                                              |
-| -------- | ------------------------------------------------------------------ |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch được gửi từ tài khoản toán tử mẹ. |
+| Loại    | Mô tả                                                               |
+| -------- | ------------------------------------------------------------------- |
+| SỐ LƯỢNG | Số lượng giao dịch bằng số nguyên được gửi từ tài khoản toán tử mẹ. |
 
 **Ví dụ**
 
@@ -187,11 +187,11 @@ không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại    | Mô tả                                                               |
-| -------- | ------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng giao dịch được gửi từ tài khoản toán tử con. |
+| Loại    | Mô tả                                                                |
+| -------- | -------------------------------------------------------------------- |
+| SỐ LƯỢNG | Số lượng giao dịch bằng số nguyên được gửi từ tài khoản toán tử con. |
 
 **Ví dụ**
 
@@ -207,11 +207,11 @@ không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại    | Mô tả                                              |
-| -------- | -------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên số dư hiện tại của tài khoản toán tử mẹ. |
+| Loại    | Mô tả                                                   |
+| -------- | ------------------------------------------------------- |
+| SỐ LƯỢNG | Số dư hiện tại bằng số nguyên của tài khoản toán tử mẹ. |
 
 **Ví dụ**
 
@@ -227,11 +227,11 @@ không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại    | Mô tả                                               |
-| -------- | --------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên số dư hiện tại của tài khoản toán tử con. |
+| Loại    | Mô tả                                                    |
+| -------- | -------------------------------------------------------- |
+| SỐ LƯỢNG | Số dư hiện tại bằng số nguyên của tài khoản toán tử con. |
 
 **Ví dụ**
 
@@ -244,17 +244,17 @@ không có
 
 ## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
-`sendChainTxslimit` lấy số lượng giao dịch đang chờ xử lý tối đa để gửi cùng một lúc.
+`sendChainTxslimit` lấy số lượng giao dịch đang chờ xử lý tối đa để gửi đồng thời.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả                                                         |
-| ------ | ------------------------------------------------------------- |
-| Uint64 | số lượng giao dịch đang chờ xử lý tối đa để gửi cùng một lúc. |
+| Loại  | Mô tả                                                      |
+| ------ | ---------------------------------------------------------- |
+| Uint64 | số lượng giao dịch đang chờ xử lý tối đa để gửi đồng thời. |
 
 **Ví dụ**
 
@@ -268,15 +268,15 @@ Không có
 
 **Tham số**
 
-| Tên | Loại | Mô tả                                              |
-| --- | ---- | -------------------------------------------------- |
-| bật | Bool | `đúng` bật tính năng neo, `sai` tắt tính năng này. |
+| Tên | type | Mô tả                                                   |
+| --- | ---- | ------------------------------------------------------- |
+| bật | Bool | `true` bật tính năng neo, `false` sẽ tắt tính năng này. |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại | Mô tả                                     |
-| ----- | ----------------------------------------- |
-| bool  | `đúng` nếu neo được bật, `sai` nếu không. |
+| Loại | Mô tả                                             |
+| ----- | ------------------------------------------------- |
+| bool  | `true` nếu neo được bật, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -299,17 +299,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ```
 
 ## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
-`subbridge_latestAnchoredBlockNumber` trả về số khối được neo mới nhất của chuỗi dịch vụ.
+`subbridge_latestAnchoredBlockNumber` trả về số khối được neo latest của chuỗi dịch vụ.
 
 **Tham số**
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại  | Mô tả                 |
-| ------ | --------------------- |
-| Uint64 | Số khối neo mới nhất. |
+| Loại  | Mô tả               |
+| ------ | ------------------- |
+| Uint64 | Số khối neo latest. |
 
 **Ví dụ**
 
@@ -325,21 +325,21 @@ Không có
 
 | Loại           | Mô tả                                               |
 | --------------- | --------------------------------------------------- |
-| DỮ LIỆU 32-byte | Hàm băm khối chuỗi con được bao gồm hàm băm tx neo. |
+| DỮ LIỆU 32 byte | Hàm băm khối chuỗi con được bao gồm hàm băm tx neo. |
 
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 `Đối tượng` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai.
 
-| Tên             | Loại             | Mô tả                                                                                                                        |
-| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| contractAddress | DỮ LIỆU          | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là `null`. (sẽ sớm ngừng được sử dụng) |
-| gasUsed         | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                       |
-| bản ghi nhật ký | Mảng             | Mảng đối tượng bản ghi nhật ký mà giao dịch này tạo ra.                                                                      |
-| logsBloom       | DỮ LIỆU 256-byte | Bộ lọc Bloom cho các ứng dụng khách nhẹ để nhanh chóng truy xuất các bản ghi liên quan.                                      |
-| trạng thái      | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                                        |
-| transactionHash | DỮ LIỆU 32-byte  | Hàm băm của giao dịch.                                                                                                       |
+| Tên             | type             | Mô tả                                                                                                                      |
+| --------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| contractAddress | DATA             | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`. (sẽ sớm ngừng sử dụng) |
+| gasUsed         | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                     |
+| bản ghi         | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                            |
+| nhật kýBloom    | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                   |
+| trạng thái      | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                                      |
+| transactionHash | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                     |
 
 **Ví dụ**
 
@@ -348,9 +348,9 @@ Không có
 {
   contractAddress: "0x0000000000000000000000000000000000000000",
   gasUsed: "0x9470",
-  logs: [],
-  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  status: "0x1",
+  nhật ký: [],
+  nhật kýBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  trạng thái: "0x1",
   transactionHash: "0x3641f52359f44ef2a9941ea840aed4befbace5cac28d5cc8cacd94eae211fd1e"
 }
 ```
@@ -362,12 +362,12 @@ Không có
 
 không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên       | Loại            | Mô tả                                    |
+| Tên       | type            | Mô tả                                    |
 | --------- | --------------- | ---------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
 **Ví dụ**
 
@@ -377,18 +377,18 @@ không có
 ```
 
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
-`subbridge_registerBridge` đã triển khai các hợp đồng cầu nối trong chuỗi mẹ và chuỗi con.
+`subbridge_registerBridge` đăng ký đã triển khai các hợp đồng cầu nối trong chuỗi mẹ và chuỗi con.
 
 **Tham số**
 
 | Tên       | Loại           | Mô tả                                    |
 | --------- | --------------- | ---------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên | Loại | Mô tả                                                |
+| Tên | type | Mô tả                                                |
 | --- | ---- | ---------------------------------------------------- |
 | lỗi | Lỗi  | `null` nếu đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
@@ -409,12 +409,12 @@ Lỗi: cầu nối đã tồn tại
 
 | Tên       | Loại           | Mô tả                                    |
 | --------- | --------------- | ---------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên | Loại | Mô tả                                                    |
+| Tên | type | Mô tả                                                    |
 | --- | ---- | -------------------------------------------------------- |
 | lỗi | Lỗi  | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
@@ -435,12 +435,12 @@ Lỗi: cặp cầu nối không hợp lệ
 
 | Tên       | Loại           | Mô tả                                    |
 | --------- | --------------- | ---------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên | Loại | Mô tả                                                |
+| Tên | type | Mô tả                                                |
 | --- | ---- | ---------------------------------------------------- |
 | lỗi | Lỗi  | `null` nếu đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
@@ -454,16 +454,16 @@ Lỗi: đã đăng ký
 ```
 
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
-`subbridge_unsubscribeBridge` hủy đăng ký cầu nối con khỏi hợp đồng cầu nối trong chuỗi mẹ và chuỗi con. Nếu cầu nối con bị hủy đăng ký khỏi các hợp đồng cầu nốithì cầu nối con này không thể xử lý các yêu cầu chuyển giá trị chéo chuỗi.
+`subbridge_unsubscribeBridge` hủy đăng ký cầu nối con khỏi hợp đồng cầu nối trong chuỗi mẹ và chuỗi con. Nếu cầu nối con bị hủy đăng ký khỏi các hợp đồng cầu nối thì cầu nối con này không thể xử lý các yêu cầu chuyển giá trị chuỗi chéo.
 
 **Tham số**
 
-| Tên       | Loại            | Mô tả                                    |
+| Tên       | type            | Mô tả                                    |
 | --------- | --------------- | ---------------------------------------- |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên | Loại | Mô tả                                                     |
 | --- | ----- | --------------------------------------------------------- |
@@ -481,14 +481,14 @@ null
 
 **Tham số**
 
-| Tên       | Loại            | Mô tả                                      |
+| Tên       | type            | Mô tả                                      |
 | --------- | --------------- | ------------------------------------------ |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng token trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên | Loại | Mô tả                                                |
 | --- | ----- | ---------------------------------------------------- |
@@ -510,14 +510,14 @@ Lỗi: token đã tồn tại
 
 | Tên       | Loại           | Mô tả                                      |
 | --------- | --------------- | ------------------------------------------ |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi con. |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi con.   |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối trên chuỗi mẹ.    |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng token trên chuỗi con. |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng token trên chuỗi mẹ.  |
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên | Loại | Mô tả                                                    |
+| Tên | type | Mô tả                                                    |
 | --- | ---- | -------------------------------------------------------- |
 | lỗi | Lỗi  | `null` nếu hủy đăng ký thành công, ngược lại sẽ báo Lỗi. |
 
@@ -531,20 +531,20 @@ Lỗi: cặp token không hợp lệ
 ```
 
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
-The `subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử lý giao dịch chuyển giá trị" tương ứng trong chuỗi đối nghịch cho hàm băm "giao dịch chuyển giá trị yêu cầu" cụ thể. "Yêu cầu giao dịch chuyển giá trị" là giao dịch do người dùng bắt đầu, yêu cầu chuyển giá trị chéo chuỗi. "Xử lý giao dịch chuyển giá trị" là giao dịch được tạo bởi cầu nối con để xử lý yêu cầu chuyển giá trị từ người dùng.
+`subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử lý giao dịch chuyển giá trị" tương ứng trong chuỗi đối nghịch cho hàm băm "giao dịch chuyển giá trị yêu cầu" cụ thể. "Yêu cầu giao dịch chuyển giá trị" là giao dịch do người dùng bắt đầu, yêu cầu chuyển giá trị chuỗi chéo. "Xử lý giao dịch chuyển giá trị" là giao dịch được tạo bởi cầu nối con để xử lý yêu cầu chuyển giá trị từ người dùng.
 
 **Tham số**
 
-| Tên     | Loại           | Mô tả                                           |
-| ------- | --------------- | ----------------------------------------------- |
-| Hàm băm | DỮ LIỆU 32-byte | Hàm băm của giao dịch "yêu cầu chuyển giá trị". |
+| Tên  | Loại           | Mô tả                                           |
+| ---- | --------------- | ----------------------------------------------- |
+| Hash | DỮ LIỆU 32 byte | Hàm băm của giao dịch "yêu cầu chuyển giá trị". |
 
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên     | Loại           | Mô tả                                                                                                                             |
-| ------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Hàm băm | DỮ LIỆU 32-byte | Hàm băm của giao dịch "xử lý chuyển giá trị". hàm băm bằng không có nghĩa là không có giao dịch "xử lý chuyển giá trị" tương ứng. |
+| Tên  | Loại           | Mô tả                                                                                                                             |
+| ---- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Hash | DỮ LIỆU 32 byte | Hàm băm của giao dịch "xử lý chuyển giá trị". hàm băm bằng không có nghĩa là không có giao dịch "xử lý chuyển giá trị" tương ứng. |
 
 
 **Ví dụ**
@@ -563,13 +563,13 @@ The `subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử l�
 
 số dùng một lần
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Tên          | Loại     | Mô tả                                                                    |
-| ------------ | --------- | ------------------------------------------------------------------------ |
-| localAddress | tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (dịch vụ) con. |
-| localAddress | tài khoản | DỮ LIỆU 20-byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (chính) mẹ.    |
-| đã đăng ký   | bool      | `đúng` nếu cặp hợp đồng cầu nối đã được đăng ký, `sai` nếu không phải.   |
+| Tên          | Loại     | Mô tả                                                                     |
+| ------------ | --------- | ------------------------------------------------------------------------- |
+| localAddress | tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (dịch vụ) con.  |
+| localAddress | tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (chính) mẹ.     |
+| đã đăng ký   | bool      | `true` nếu cặp hợp đồng cầu nối đã được đăng ký, ngược lại sẽ là `false`. |
 
 **Ví dụ**
 
@@ -597,18 +597,18 @@ số dùng một lần
 
 | Tên       | Loại           | Mô tả                    |
 | --------- | --------------- | ------------------------ |
-| tài khoản | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối |
 
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Tên              | Loại           | Mô tả                                                                                                                  |
 | ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | DỮ LIỆU 20-byte | Địa chỉ hợp đồng cầu nối đối ứng. (Chưa được hỗ trợ)                                                                   |
-| isRunning        | bool            | `đúng` nếu hợp đồng cầu nối đang chạy, `sai` nếu không phải.                                                           |
-| isSubscribed     | bool            | `đúng` nếu hợp đồng cầu nối đã được đăng ký, `sai` nếu không phải.                                                     |
-| onServiceChain   | bool            | `đúng` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, `sai` nếu không phải.                                        |
-| pendingEventSize | SỐ LƯỢNG        | Số sự kiện "yêu cầu chuyển giá trị" đang chờ xử lý được tạo bởi các hợp đồng cầu nối, chưa được xử lý bởi cầu nối phụ. |
+| counterPart      | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối đối ứng. (Chưa được hỗ trợ)                                                                   |
+| isRunning        | bool            | `true` nếu hợp đồng cầu nối đang chạy, ngược lại sẽ là `false`.                                                        |
+| isSubscribed     | bool            | `true` nếu hợp đồng cầu nối đã được đăng ký, ngược lại sẽ là `false`.                                                  |
+| onServiceChain   | bool            | `true` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, ngược lại sẽ là `false`.                                     |
+| pendingEventSize | SỐ LƯỢNG        | Số sự kiện "yêu cầu chuyển giá trị" đang chờ xử lý được tạo bởi các hợp đồng cầu nối, chưa được xử lý bởi cầu nối con. |
 | requestNonce     | SỐ LƯỢNG        | Yêu cầu số dùng một lần của hợp đồng cầu nối.                                                                          |
 | handleNonce      | SỐ LƯỢNG        | Số dùng một lần trên của hợp đồng cầu nối.                                                                             |
 | lowerHandleNonce | SỐ LƯỢNG        | Số dùng một lần dưới của hợp đồng cầu nối.                                                                             |
@@ -637,7 +637,7 @@ số dùng một lần
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
 | Loại  | Mô tả                                                         |
 | ------ | ------------------------------------------------------------- |
@@ -657,9 +657,9 @@ Không có
 
 Không có
 
-**Giá trị Trả về**
+**Giá trị trả về**
 
-| Loại       | Mô tả                                                              |
+| type       | Mô tả                                                              |
 | ---------- | ------------------------------------------------------------------ |
 | Chuỗi JSON | Danh sách các giao dịch đang chờ xử lý trong bể giao dịch cầu nối. |
 
