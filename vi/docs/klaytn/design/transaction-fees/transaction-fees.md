@@ -12,12 +12,12 @@ Phí giao dịch tính toán này được trừ từ số dư tài khoản củ
 
 ## Tổng quan về gas và phí cơ sở <a id="gas-and-base-fee-overview"></a>
 ### Gas <a id="gas"></a>
-Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần tới gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token KIP-7, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bằng số `gas` cần dùng.
+Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần đến gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token KIP-7, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bằng số `gas` cần dùng.
 
 `Gas` là đơn vị đo thể hiện số lượng phép tính cần thiết để xử lý giao dịch của người dùng.
 
 ### Cơ chế phí gas động <a id="dynamic-gas-fee-mechanism"></a>
-Sau khi nâng cấp căn bản Klaytn v1.9.0, một cơ chế phí gas động đã thay thế chính sách phí cố định hiện có. Chính sách phí gas động cung cấp một dịch vụ ổn định cho người dùng bằng cách ngăn chặn các hành vi lạm dụng mạng lưới và chiếm dụng dung lượng lưu trữ. Phí gas thay đổi tùy theo tình hình của mạng. Có bảy tham số ảnh hưởng tới `phí cơ sở (phí gas)`:
+Sau khi nâng cấp căn bản Klaytn v1.9.0, một cơ chế phí gas động đã thay thế chính sách phí cố định hiện có. Chính sách phí gas động cung cấp một dịch vụ ổn định cho người dùng bằng cách ngăn chặn các hành vi lạm dụng mạng lưới và chiếm dụng dung lượng lưu trữ. Phí gas thay đổi tùy theo tình hình của mạng. Có bảy tham số ảnh hưởng đến `phí cơ sở (phí gas)`:
 
 1. PREVIOUS_BASE_FEE: Phí cơ sở của khối trước đó
 2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Lượng gas dùng để xử lý tất cả các giao dịch của khối trước đó
@@ -43,14 +43,14 @@ Sau khi nâng cấp căn bản Klaytn v1.9.0, một cơ chế phí gas động �
 
 ### Thay thế giao dịch <a id="transaction-replacement"></a>
 
-Klaytn hiện không cung cấp phương thức thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương thức thay thế giao dịch khác trong tương lai. Xin lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
+Klaytn hiện không cung cấp phương pháp thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp thay thế giao dịch khác trong tương lai. Xin lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
 
-## Bảng giá gas của Klaytn  <a id="klaytns-gas-table"></a>
+## Biểu giá gas của Klaytn  <a id="klaytns-gas-table"></a>
 
-Về cơ bản, Klaytn luôn duy trì khả năng tương thích với Ethereum. Vì thế, bảng giá gas của Klaytn cũng khá tương đồng với bảng của Ethereum. Tuy nhiên, có một số tính năng chỉ Klaytn mới có và cần một vài hằng số mới.
+Về cơ bản, Klaytn luôn duy trì khả năng tương thích với Ethereum. Vì thế, biểu giá gas của Klaytn cũng khá tương đồng với biểu giá của Ethereum. Tuy nhiên, có một số tính năng chỉ Klaytn mới có và cần một vài hằng số mới.
 
 {% hint style="success" %}
-LƯU Ý: Bảng gas đã thay đổi cùng với việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "nâng cấp căn bản". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo [tài liệu trước đây ](transaction-fees-previous.md).
+LƯU Ý: Bảng gas đã thay đổi cùng với việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "nâng cấp căn bản". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](transaction-fees-previous.md).
 
 Số khối nâng cấp giao thức `IstanbulEVM` như sau.
 * Mạng thử nghiệm Baobab: `#75373312`
@@ -80,9 +80,9 @@ Số khối nâng cấp giao thức `IstanbulEVM` như sau.
 | G\_create       | 32000 | Được trả cho một hoạt động CREATE                                                                                      |
 | G\_codedeposit  | 200   | Được trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                 |
 | G\_call         | 700   | Được trả cho một hoạt động CALL                                                                                        |
-| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển giao giá trị khác 0như một phần của hoạt động CALL                                   |
-| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi Gcallvalue đối với giao dịch chuyển giao giá trị khác 0          |
-| G\_newaccount   | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo tài khoản                                                         |
+| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển giá trị khác 0 như một phần của hoạt động CALL                                       |
+| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi Gcallvalue đối với giao dịch chuyển giá trị khác 0               |
+| G\_newtài khoản | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo tài khoản                                                         |
 | G\_exp          | 10    | Khoản thanh toán một phần cho hoạt động EXP                                                                            |
 | G\_expbyte      | 50    | Khoản thanh toán một phần khi nhân với dlog256\(exponent\)e cho hoạt động EXP                                        |
 | G\_memory       | 3     | Được trả cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                                     |
@@ -116,7 +116,7 @@ Hợp đồng đã lập trước là loại hợp đồng đặc biệt, thư�
 | Bn256ScalarMulGas       | 6000                |                                                                |
 | Bn256PairingBaseGas     | 45000               |                                                                |
 | Bn256PairingPerPointGas | 34000               |                                                                |
-| VMLogBaseGas            | 100                 | Ghi nhật ký vào tập tin nhật ký của nút - chỉ dành cho Klaytn  |
+| VMLogBaseGas            | 100                 | Ghi bản ghi vào tập tin bản ghi của nút - chỉ dành cho Klaytn  |
 | VMLogPerByteGas         | 20                  | Chỉ dành cho Klaytn                                            |
 | FeePayerGas             | 300                 | Nhận địa chỉ của feePayer - chỉ dành cho Klaytn                |
 | ValidateSenderGas       | 5000 cho mỗi chữ ký | Xác thực địa chỉ và chữ ký của người gửi - chỉ dành cho Klaytn |
@@ -138,7 +138,7 @@ Chi phí gas Blake2f được tính dựa trên công thức dưới đây. `inp
 Gas = uint64(binary.BigEndian.Uint32(input[0:4]))
 ```
 
-### Bảng gas liên quan tới tài khoản <a id="account-related-gas-table"></a>
+### Bảng gas liên quan đến tài khoản <a id="account-related-gas-table"></a>
 
 | Mục                        | Gas   | Mô tả                                                            |
 |:-------------------------- |:----- |:---------------------------------------------------------------- |
