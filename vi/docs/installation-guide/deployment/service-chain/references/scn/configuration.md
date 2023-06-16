@@ -11,7 +11,7 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 
 Trong hướng dẫn này, không phải lúc nào chúng ta cũng chỉ định đường dẫn đầy đủ đến lệnh.
 
-## Tạo một tập tin Genesis <a id="creation-of-a-genesis-file"></a>
+## Tạo một tập tin Genesis (Khởi nguyên) <a id="creation-of-a-genesis-file"></a>
 
 Trước tiên, bạn nên tạo tập tin khởi nguyên và tập tin khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
 ```bash
@@ -60,13 +60,13 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Hãy thay đổi chainID trong tập tin khởi nguyên. Dùng số của chính bạn để đề phòng tấn công lặp lại. (Đừng sử dụng chainID giống nhau với Klaytn Cypress (8217) và Baobab (1001))
+Hãy thay đổi chainID trong tập tin khởi nguyên. Dùng số của chính bạn để đề phòng tấn công phát lại. (Không sử dụng chainID giống nhau với Klaytn Cypress (8217) và Baobab (1001))
 
-Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [Genesis JSON](../genesis.md).)
+Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [JSON KHỞI NGUYÊN](../genesis.md).)
 
 ## Tạo thư mục dữ liệu SCN <a id="scn-data-directory-creation"></a>
 
-Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể tạo thư mục dữ liệu trên đường dẫn bạn muốn. Trong văn bảo này, chúng tôi tạo `~/kscnd_home` như một thư mục dữ liệu.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể tạo thư mục dữ liệu trên đường dẫn bạn muốn. Trong văn bản này, chúng ta tạo `~/kscnd_home` như một thư mục dữ liệu.
 
 ```bash
 $ mkdir -p ~/kscnd_home
@@ -98,7 +98,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 ```
 
 ### Cài đặt khóa nút <a id="install_nodekey"></a>
-Sao chép `homi-output/keys/nodekey1` vào thư mục `klay` trong thư mục dữ liệu SCN như bên dưới.
+Sao chép `homi-output/keys/khóa nút1` vào thư mục `klay` trong thư mục dữ liệu SCN như bên dưới.
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
