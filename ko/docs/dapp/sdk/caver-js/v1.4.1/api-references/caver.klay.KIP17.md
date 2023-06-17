@@ -26,29 +26,29 @@ KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.klay
 
 **파라미터**
 
-| 이름        | 타입     | 설명                                                                                                                    |
-|:--------- |:------ |:--------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | Object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer  | String | KIP-17 토큰 컨트랙트를 배포하는 계정 주소입니다. 이 계정은 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다.                                                |
+| 이름        | 타입     | 설명                                                                     |
+|:--------- |:------ |:---------------------------------------------------------------------- |
+| tokenInfo | Object | Klaytn 블록체인에 KIP-17 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.    |
+| deployer  | String | KIP-17 토큰 컨트랙트를 배포하는 계정 주소입니다. 이 계정은 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. |
 
-The tokenInfo object must contain the following:
+tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
-| Name   | Type   | Description              |
-|:------ |:------ |:------------------------ |
-| name   | String | The name of the token.   |
-| symbol | String | The symbol of the token. |
+| 이름     | 타입     | 설명        |
+|:------ |:------ |:--------- |
+| name   | String | 토큰 이름입니다. |
+| symbol | String | 토큰 심볼입니다. |
 
-**Return Value**
+**리턴값**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
+`PromiEvent`: 이벤트 이미터와 결합된 프로미스이며 새로운 KIP17 인스턴스를 반환합니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| Name            | Type   | Description                                                                                                                                                                                                                                                                                               |
-|:--------------- |:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                            |
-| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                  |
+| 이름              | 타입     | 설명                                                                                                                                                                                                   |
+|:--------------- |:------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                            |
+| receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt)를 참고하십시오. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| error           | Error  | 전송 중 오류가 나타나면 발생합니다.                                                                                                                                                                                 |
 
-**Example**
+**예시**
 
 ```javascript
 // using the promise
@@ -96,21 +96,21 @@ KIP17 {
 new caver.klay.KIP17([tokenAddress])
 ```
 
-Creates a new KIP17 instance with its bound methods and events.
+새로운 KIP17 인스턴스를 인스턴스 메서드, 이벤트들과 함께 생성합니다.
 
-**Parameters**
+**파라미터**
 
-| Name         | Type   | Description                                                                                                                               |
-|:------------ |:------ |:----------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the KIP-17 token contract, which can be assigned later through `kip17Instance.options.address = '0x1234..'` |
+| 이름           | 타입     | 설명                                                                                           |
+|:------------ |:------ |:-------------------------------------------------------------------------------------------- |
+| tokenAddress | String | (선택 사항) KIP-17 토큰 컨트랙트 주소이며 나중에 `kip17Instance.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
 
-**Return Value**
+**리턴값**
 
-| Type   | Description                                           |
-|:------ |:----------------------------------------------------- |
-| Object | The KIP17 instance with its bound methods and events. |
+| 타입     | 설명                                   |
+|:------ |:------------------------------------ |
+| Object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP17 인스턴스입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create a KIP17 instance without a parameter
@@ -126,21 +126,21 @@ Creates a new KIP17 instance with its bound methods and events.
 kip17Instance.clone([tokenAddress])
 ```
 
-Clones the current KIP17 instance.
+현재 KIP17 인스턴스를 복제합니다.
 
-**Parameters**
+**파라미터**
 
-| Name         | Type   | Description                                                                                                                                                       |
-|:------------ |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | String | \(optional\) The address of the smart contract that deployed another KIP-17 token. If omitted, it will be set to the contract address in the original instance. |
+| 이름           | 타입     | 설명                                                                         |
+|:------------ |:------ |:-------------------------------------------------------------------------- |
+| tokenAddress | String | \(선택 사항) 다른 KIP-17 토큰을 배포했던 스마트 컨트랙트 주소입니다. 미입력시 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
-**Return Value**
+**리턴값**
 
-| Type   | Description                               |
-|:------ |:----------------------------------------- |
-| Object | The clone of the original KIP17 instance. |
+| 타입     | 설명                          |
+|:------ |:--------------------------- |
+| Object | 원본 KIP17 인스턴스를 복제한 인스턴스입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > const kip17Instance = new caver.klay.KIP17(address)
@@ -158,19 +158,19 @@ Clones the current KIP17 instance.
 kip17Instance.supportsInterface(interfaceId)
 ```
 
-Returns `true` if this contract implements the interface defined by `interfaceId`.
+이 컨트랙트가 `interfaceId`로 정의된 인터페이스를 구현한다면 `true`를 반환합니다.
 
-**Parameters**
+**파라미터**
 
-| Name        | Type   | Description                    |
-|:----------- |:------ |:------------------------------ |
-| interfaceId | String | The interfaceId to be checked. |
+| 이름          | 타입     | 설명                  |
+|:----------- |:------ |:------------------- |
+| interfaceId | String | 확인할 interfaceId입니다. |
 
-**Return Value**
+**리턴값**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+`프로미스`는 `Boolean`을 반환: 이 컨트랙트가 해당 `interfaceId`를 가진 인터페이스를 구현한다면 `true`를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > kip17Instance.supportsInterface('0x80ac58cd').then(console.log)
