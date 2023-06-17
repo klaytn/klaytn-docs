@@ -4,13 +4,13 @@ description: KIP-17 표준을 구현한 스마트 컨트랙트와 상호작용�
 
 # caver.klay.KIP17
 
-`caver.klay.KIP17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
+`caver.klay.KIP17`은 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) 표준을 구현한 스마트 컨트랙트를 JavaScript 객체 형태로 Klaytn 블록체인에서 손쉽게 다룰 수 있도록 돕습니다.
 
-The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
+`caver.klay.KIP17`는 KIP-17 토큰 컨트랙트를 구현하기 위해 [caver.klay.Contract](caver.klay.Contract.md)를 상속합니다. `caver.klay.KIP17`은 `caver.klay.Contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.klay.KIP17` 메서드들 중 오직 새롭게 추가된 것만을 소개합니다.
 
-The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/token/KIP17).
+caver-js에서 KIP-17을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/token/KIP17)에서 확인할 수 있습니다.
 
-For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17).
+KIP-17에 관한 더 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17)를 참조하십시오.
 
 **참고** `caver.klay.KIP17`은 caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1)부터 지원됩니다.
 
@@ -20,13 +20,13 @@ For more information about KIP-17, see [Klaytn Improvement Proposals](https://ki
 caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-17 token contract to the Klaytn blockchain. caver.klay.KIP17.deploy를 사용해 배포한 컨트랙트는 KIP-17 표준을 따르는 대체 불가 토큰입니다.
+KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.klay.KIP17.deploy를 사용해 배포한 컨트랙트는 KIP-17 표준을 따르는 대체 불가 토큰입니다.
 
-After successful deployment, the promise will be resolved with a new KIP17 instance.
+성공적으로 배포된 후, 프로미스는 새로운 KIP17 인스턴스를 반환할 것입니다.
 
-**Parameters**
+**파라미터**
 
-| Name      | Type   | Description                                                                                                           |
+| 이름        | 타입     | 설명                                                                                                                    |
 |:--------- |:------ |:--------------------------------------------------------------------------------------------------------------------- |
 | tokenInfo | Object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
 | deployer  | String | KIP-17 토큰 컨트랙트를 배포하는 계정 주소입니다. 이 계정은 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다.                                                |
