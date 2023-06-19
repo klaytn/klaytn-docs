@@ -4,6 +4,7 @@ KlaytnDocs is available in the following languages:
 
 * [English](https://docs.klaytn.foundation)
 * [한국어](https://ko.docs.klaytn.foundation)
+* [Tiếng Việt](https://vn.docs.klaytn.foundation)
 
 ## Get involved! <a href="#get-involved" id="get-involved"></a>
 
