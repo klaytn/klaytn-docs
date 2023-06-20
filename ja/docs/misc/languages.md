@@ -4,6 +4,7 @@ KlaytnDocs は以下の言語で利用できます。
 
 * [日本語](https://docs.klaytn.foundation)
 * [한국어](https://ko.docs.klaytn.foundation)
+* [Tiếng Việt](https://vn.docs.klaytn.foundation)
 
 ## 参加しましょう！ <a href="#get-involved" id="get-involved"></a>
 
