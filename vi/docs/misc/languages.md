@@ -4,6 +4,7 @@ KlaytnDoc có sẵn bằng các ngôn ngữ sau:
 
 * [Tiếng Anh](https://docs.klaytn.foundation)
 * [Tiếng Hàn](https://ko.docs.klaytn.foundation)
+* [Tiếng Việt](https://vn.docs.klaytn.foundation)
 
 ## Tham gia! <a href="#get-involved" id="get-involved"></a>
 
