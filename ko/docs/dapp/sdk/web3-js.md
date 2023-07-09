@@ -43,7 +43,7 @@ In this tutorial, we would be creating a bunch of scripts file to send transacti
 Import `web3` into your script file.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 ```
 
 After successfully importing web3, you need to connect to Klaytn by instantiating a new web3.js  object with an RPC URL of the Klaytn network. Add the code below to the existing code:
@@ -71,15 +71,20 @@ After creating this file, initialize `web3` as done in the `initialize` section.
 To see this in action, paste the following code in your `read.js`.
 
 ```js
+const { Web3 } = require('web3');
+
+const url = "RPC URL"
+const web3 = new Web3(url);
+
 async function getLatestBlock() {
     const latestBlock = await web3.eth.getBlockNumber();
     console.log(latestBlock.toString());
 }
 
 async function getKlayBalance() {
-    const klayBalance  = await web3.eth.getBalance("Paste wallet address")
-    const formatBalance = await web3.utils.fromWei(klayBalance)
-    console.log(`You have ${formatBalance} KLAY`)  
+    const klayBalance  = await web3.eth.getBalance("Paste wallet address");
+    const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
+    console.log(`You have ${formatBalance} KLAY`);
 }
 
 // call the following functions
@@ -112,24 +117,27 @@ After creating this file, initialize `web3` as done in the `initialize` section.
 To see this in action, paste the following code in your `send.js`.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 
-const url = "RPC URL"  
+const url = "RPC URL";
 const web3 = new Web3(url);
 
-const privateKey = "Paste private key";
+const senderPrivateKey = "Paste private key";
+const senderAddr = "Paste sender address";
+const recipientAddr = "Paste recipient address";
 
 async function sendTx() {
     const tx = await web3.eth.accounts.signTransaction({
-        to: "Paste recipient address",
+        from: senderAddr,
+        to: recipientAddr,
         value: 90000000000,
         maxFeePerGas: 250000000000,
         maxPriorityFeePerGas: 250000000000,
         gas: 21000,
-    }, privateKey)
+    }, privateKey);
 
-const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction)
-console.log(receipt);
+    const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction);
+    console.log(receipt);
 }
 
 // call function
@@ -163,7 +171,7 @@ For the purpose of this guide, a simple_storage contract was compiled and deploy
 To see this in action, paste the following code in your `interact.js`.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 
 const url = "RPC URL"  
 const web3 = new Web3(url);
@@ -218,6 +226,8 @@ const abi = [
           to: contractAddress,
           data: storeTx.encodeABI(),
           gas: await storeTx.estimateGas(),
+          maxFeePerGas: 250000000000,
+          maxPriorityFeePerGas: 250000000000,
         },
         privateKey
       );
