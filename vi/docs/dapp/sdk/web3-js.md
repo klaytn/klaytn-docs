@@ -43,7 +43,7 @@ Trong phần hướng dẫn này, chúng ta sẽ tạo một số tập tin mã 
 Nhập `web3` vào tập tin mã lập trình.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 ```
 
 Sau khi nhập web3 thành công, bạn cần kết nối với Klaytn bằng cách khởi tạo một đối tượng web3.js với một URL PRC của mạng lưới Klaytn. Thêm mã dưới đây vào mã đã có sẵn:
@@ -71,15 +71,20 @@ Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện
 Để xem hành động này, hãy dán mã sau vào `read.js`.
 
 ```js
+const { Web3 } = require('web3');
+
+const url = "RPC URL"
+const web3 = new Web3(url);
+
 async function getLatestBlock() {
     const latestBlock = await web3.eth.getBlockNumber();
     console.log(latestBlock.toString());
 }
 
 async function getKlayBalance() {
-    const klayBalance  = await web3.eth.getBalance("Paste wallet address")
-    const formatBalance = await web3.utils.fromWei(klayBalance)
-    console.log(`You have ${formatBalance} KLAY`)  
+    const klayBalance  = await web3.eth.getBalance("Paste wallet address");
+    const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
+    console.log(`You have ${formatBalance} KLAY`);
 }
 
 // call the following functions
@@ -112,24 +117,27 @@ Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện
 Để xem hành động này, hãy dán mã sau vào `send.js`.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 
-const url = "RPC URL"  
+const url = "RPC URL";
 const web3 = new Web3(url);
 
-const privateKey = "Paste private key";
+const senderPrivateKey = "Paste private key";
+const senderAddr = "Paste sender address";
+const recipientAddr = "Paste recipient address";
 
 async function sendTx() {
-    const tx = await web3.eth.tài khoảns.signTransaction({
-        to: "Paste recipient address",
+    const tx = await web3.eth.accounts.signTransaction({
+        from: senderAddr,
+        to: recipientAddr,
         value: 90000000000,
         maxFeePerGas: 250000000000,
         maxPriorityFeePerGas: 250000000000,
         gas: 21000,
-    }, privateKey)
+    }, privateKey);
 
-const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction)
-console.log(receipt);
+    const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction);
+    console.log(receipt);
 }
 
 // call function
@@ -163,7 +171,7 @@ Vì mục đích của hướng dẫn này, một hợp đồng lưu trữ đơn
 Để xem hành động này, hãy dán mã sau vào `interact.js`.
 
 ```js
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 
 const url = "RPC URL"  
 const web3 = new Web3(url);
@@ -213,11 +221,13 @@ const abi = [
     async function setValue() {
 
      // Sign Tx with private key
-    const createTransaction = await web3.eth.tài khoảns.signTransaction(
+    const createTransaction = await web3.eth.accounts.signTransaction(
         {
           to: contractAddress,
           data: storeTx.encodeABI(),
           gas: await storeTx.estimateGas(),
+          maxFeePerGas: 250000000000,
+          maxPriorityFeePerGas: 250000000000,
         },
         privateKey
       );
