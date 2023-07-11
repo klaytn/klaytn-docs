@@ -46,9 +46,6 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`https://public-en-baobab.klaytn.net`|klay,eth,net|Full|
 ||`https://archive-en.baobab.klaytn.net/`|klay,eth,net|Archive|
-|Fantrie|`https://baobab01.fautor.app/`|klay,eth,net|Full|
-||`https://baobab02.fautor.app/`|klay,eth,net|Full|
-||`https://baobab.fautor.app/archive`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-baobab-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn-baobab.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
 
@@ -58,9 +55,6 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-baobab.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
-|Fantrie|`wss://baobab01.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://baobab02.fautor.app/ws/`|klay,eth,net|Full|
-||`wss://baobab.fautor.app/archive/ws`|klay,eth,net|Archive|
 
 ### Useful Resources 
 
