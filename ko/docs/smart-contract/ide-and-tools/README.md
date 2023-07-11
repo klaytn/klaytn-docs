@@ -9,13 +9,17 @@ description: >-
 
 * Remix Online IDE is a powerful toolset for developing, deploying, debugging, and testing EVM-compatible smart contracts. You can write, compile, deploy and execute smart contracts on Klaytn from Remix IDE, using Klaytn Plugin.
 
+#### [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#klaytn-contract-wizard" id="klaytn-contract-wizard"></a>
+
+* Klaytn Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Klaytn Contracts. This is based on OpenZeppelin Wizard.
+
 #### [Truffle](../../toolkit/truffle.md) <a href="#truffle" id="truffle"></a>
 
-* 솔리디티로 작성된 Klaytn 스마트 컨트랙트를 트러플을 통해 컴파일하고 배포할 수 있습니다. 현재, Klaytn은 트러플 v5.0.26까지 지원합니다.
+* Klaytn smart contracts written in Solidity can be compiled and deployed using Truffle. At the moment, Klaytn supports up to Truffle v5.0.26.
 
 #### [Kaikas](../../toolkit/kaikas.md) <a href="#kaikas" id="kaikas"></a>
 
-* Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 KLAY와 Klaytn 기반 토큰을 보관하고 활용하도록 당신을 돕습니다. Kaikas also enables you to sign transactions from web-based Klaytn dApps in realtime.
+* Kaikas is a browser extension wallet for the Klaytn Network. Kaikas empowers you to store and interact with KLAY and your Klaytn-based tokens. Kaikas also enables you to sign transactions from web-based Klaytn dApps in realtime.
 
 #### [Klaytn Wallet](../../toolkit/klaytn-wallet.md) <a href="#klaytn-wallet" id="klaytn-wallet"></a>
 
