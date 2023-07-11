@@ -10,6 +10,10 @@ description: >-
 
 * Remix Online IDE is a powerful toolset for developing, deploying, debugging, and testing EVM-compatible smart contracts. You can write, compile, deploy and execute smart contracts on Klaytn from Remix IDE, using Klaytn Plugin.
 
+#### [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#klaytn-contract-wizard" id="klaytn-contract-wizard"></a>
+
+* Klaytn Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Klaytn Contracts. This is based on OpenZeppelin Wizard.
+
 #### [Truffle](../../toolkit/truffle.md) <a href="#truffle" id="truffle"></a>
 
 * Klaytn smart contracts written in Solidity can be compiled and deployed using Truffle. At the moment, Klaytn supports up to Truffle v5.0.26.
