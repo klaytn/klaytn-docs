@@ -27,3 +27,4 @@
 
 * [Klaytnscope](https://scope.klaytn.com/) - 블록 및 트랜잭션 탐색기
 * [Klaytn Wallet](https://wallet.klaytn.com/) - 브라우저 기반 계정 관리 도구
+* [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Klaytn Contracts.
