@@ -1,178 +1,110 @@
 # Phí giao dịch <a id="transaction-fees"></a>
 
-Phí giao dịch đối với máy ảo Klaytn hiện tại \(KLVM\) được tính toán như sau:
+{% hint style="success" %}
+NOTE: This document contains the transaction fee used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](transaction-fees.md).
+{% endhint %}
 
+The transaction fee of one transaction is calculated as follows:
 ```text
-Phí giao dịch := (tổng lượng gas sử dụng) x (đơn giá)
+Transaction fee := (Gas used) x (GasPrice)
 ```
+As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
-* `tổng lượng gas sử dụng` được KLVM tính toán, dựa trên chi phí gas của mã vận hành và chi phí gas nội tại.
-* `đơn giá` là giá gas do Klaytn xác định.
+Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 ston. If a transaction submitted by `from` account was charged 21000 gas, then 630000 ston = (21000 gas * 30 ston) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
 
-Phí giao dịch tính toán này được trừ từ số dư tài khoản của doanh nghiệp hoặc người gửi, tùy vào giao dịch.
+Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by klay_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
 
-## Tổng quan về gas và đơn giá <a id="gas-and-unit-price-overview"></a>
+This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
 
-### Gas <a id="gas"></a>
+## Unit Price Overview <a id="unit-price-overview"></a>
 
-Mọi hành động làm thay đổi trạng thái của chuỗi khối đều cần đến gas. Khi một nút xử lý giao dịch của người dùng, ví dụ như gửi KLAY, dùng token ERC-20, hoặc thực thi một hợp đồng, người dùng phải trả phí cho việc tính toán và sử dụng dung lượng lưu trữ. Số tiền thanh toán được xác định bằng số `gas` cần dùng.
+`Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
 
-`Gas` là đơn vị đo thể hiện số lượng phép tính cần thiết để xử lý giao dịch của người dùng.
+In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
 
-### Đơn giá <a id="unit-price"></a>
+To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
 
-`Đơn giá` là giá của một đơn vị gas. Đơn giá \(còn được gọi là `giá gas`\) được nhóm quản trị đặt ra trong hệ thống. Hiện tại, giá gas đang được đặt ở mức 250 ston \(_nghĩa là_ 250 x 10^9 peb\) mỗi đơn vị gas và người dùng không thể thay đổi giá trị này. Bạn có thể lấy giá trị hiện tại của đơn giá bằng cách gọi ra API `klay.gasPrice`.
+### Transaction Validation against Unit Price <a id="transaction-validation-against-unit-price"></a>
 
-Trong Ethereum, người dùng đặt giá gas cho mỗi giao dịch và thợ đào chọn các giao dịch để đưa vào khối của họ nhằm tối đa hóa phần thưởng của mình. Việc này cũng giống như mang các nguồn lực hạn chế ra để đấu giá. Hướng tiếp cận này đã và đang có hiệu quả vì nó dựa trên thị trường. Tuy nhiên, chi phí giao dịch có thể biến động và thường sẽ trở nên quá cao, không thể đảm bảo cho việc thực thi.
+Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
 
-Để giải quyết vấn đề này, Klaytn sử dụng đơn giá cố định và giá có thể được điều chỉnh bởi hội đồng quản trị. Chính sách này đảm bảo rằng mọi giao dịch đều sẽ được xử lý công bằng và đảm bảo được thực thi. Vì thế, người dùng không cần phải cố gắng xác định đơn giá phù hợp.
+### Unit Price Error <a id="unit-price-error"></a>
 
-#### Xác thực giao dịch so với Đơn giá <a id="transaction-validation-against-unit-price"></a>
-
-Klaytn chỉ chấp nhận các giao dịch bằng giá gas, giá này có thể do người dùng đặt, ở mức bằng với đơn giá của Klaytn; Klaytn từ chối các giao dịch với giá gas khác với đơn giá của Klaytn.
-
-#### Lỗi đơn giá <a id="unit-price-error"></a>
-
-Thông báo lỗi `invalid unit price` được trả về khi giá gas của một giao dịch không bằng với đơn giá của Klaytn.
+The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
 
 ### Thay thế giao dịch <a id="transaction-replacement"></a>
 
-Klaytn hiện không cung cấp phương pháp thay thế giao dịch bằng đơn giá, nhưng có thể hỗ trợ các phương pháp thay thế giao dịch khác trong tương lai. Xin lưu ý rằng trong Ethereum, một giao dịch với một số dùng một lần nhất định có thể được thay thế bằng một giao dịch mới với giá gas cao hơn.
+Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
 
-## Biểu giá gas của Klaytn  <a id="klaytns-gas-table"></a>
+## Gas Overview <a id="gas-overview"></a>
+Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
-Về cơ bản, Klaytn luôn duy trì khả năng tương thích với Ethereum. Vì thế, biểu giá gas của Klaytn cũng khá tương đồng với biểu giá của Ethereum. Tuy nhiên, do sự tồn tại của những tính năng độc đáo của Klaytn nên sẽ có một số hằng số mới cho những tính năng đó.
+`Gas` required is computed by adding up the next two gases;
+* `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction.
+* `ContractExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution.
 
-{% hint style="success" %}
-LƯU Ý: Tài liệu này chứa biểu giá gas được sử dụng trước khi kích hoạt nâng cấp giao thức. Nếu bạn muốn nhận tài liệu mới nhất, vui lòng tham khảo [tài liệu mới nhất](transaction-fees.md).
-{% endhint %}
+In here, we would focus on how `IntrinsicGas` is organized. For the `ContractExecutionGas`, the klvm documentation describes it in detail, so please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine-previous.md).
 
-### Phí chung <a id="common-fee"></a>
+Coming back to `IntrinsicGas`, a transaction's `intrinsicGas` can be calculated by adding up the next four factors.
+```
+IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
+```
+* `PayloadGas` is calculated based on the size of the data field in the tx.
+* `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
+* `KeyValidationGas` is calculated based on the number of signatures.
+* `TxTypedGas` is defined based on the transaction types.
 
-| Mục               | Gas   | Mô tả                                                                                                                  |
-|:----------------- |:----- |:---------------------------------------------------------------------------------------------------------------------- |
-| G\_zero         | 0     | Không cần thanh toán cho các hoạt động của bộ Wzero                                                                    |
-| G\_base         | 2     | Lượng gas phải trả cho các hoạt động của bộ Wbase                                                                      |
-| G\_verylow      | 3     | Lượng gas phải trả cho các hoạt động của bộ Wverylow                                                                   |
-| G\_low          | 5     | Lượng gas phải trả cho các hoạt động của bộ Wlow                                                                       |
-| G\_mid          | 8     | Lượng gas phải trả cho các hoạt động của bộ Wmid                                                                       |
-| G\_high         | 10    | Lượng gas phải trả cho các hoạt động của bộ Whigh                                                                      |
-| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                                               |
-| G\_extcode      | 700   | Lượng gas phải trả cho các hoạt động của bộ Wextcode                                                                   |
-| G\_balance      | 400   | Lượng gas phải trả cho một hoạt động BALANCE                                                                           |
-| G\_sload        | 200   | Được trả cho một hoạt động SLOAD                                                                                       |
-| G\_jumpdest     | 1     | Được trả cho một hoạt động JUMPDEST                                                                                    |
-| G\_sset         | 20000 | Được trả cho một hoạt động SSTORE khi giá trị lưu trữ được đặt từ số 0 sang số khác 0                                  |
-| G\_sreset       | 5000  | Được trả cho một hoạt động SSTORE khi giá trị bằng không của giá trị không đổi, hoặc được đặt thành số 0               |
-| G\_sclear       | 15000 | Khoản hoàn tiền đã thực hiện \(được thêm vào bộ đếm hoàn tiền\) khi giá trị lưu trữ được đặt từ số khác 0 thành số 0 |
-| R\_selfdestruct | 24000 | Khoản hoàn tiền đã thực hiện \(được thêm vào bộ đếm hoàn tiền\) cho việc tự hủy một tài khoản                        |
-| G\_selfdestruct | 5000  | Lượng gas phải trả cho một hoạt động SELFDESTRUCT                                                                      |
-| G\_create       | 32000 | Được trả cho một hoạt động CREATE                                                                                      |
-| G\_codedeposit  | 200   | Được trả theo byte cho hoạt động CREATE để thành công trong việc đặt mã vào trạng thái                                 |
-| G\_call         | 700   | Được trả cho một hoạt động CALL                                                                                        |
-| G\_callvalue    | 9000  | Được trả cho một giao dịch chuyển giá trị khác 0 như một phần của hoạt động CALL                                       |
-| G\_callstipend  | 2300  | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi Gcallvalue đối với giao dịch chuyển giá trị khác 0               |
-| G\_newtài khoản | 25000 | Được trả cho hoạt động CALL hoặc SELFDESTRUCT để tạo tài khoản                                                         |
-| G\_exp          | 10    | Khoản thanh toán một phần cho hoạt động EXP                                                                            |
-| G\_expbyte      | 50    | Khoản thanh toán một phần khi nhân với dlog256\(exponent\)e cho hoạt động EXP                                        |
-| G\_memory       | 3     | Được trả cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                                     |
-| G\_txcreate     | 32000 | Được trả bởi tất cả các giao dịch tạo hợp đồng                                                                         |
-| G\_transaction  | 21000 | Được trả cho mọi giao dịch                                                                                             |
-| G\_log          | 375   | Khoản thanh toán một phần cho hoạt động LOG                                                                            |
-| G\_logdata      | 8     | Được trả cho mỗi byte trong dữ liệu của hoạt động LOG                                                                  |
-| G\_logtopic     | 375   | Được trả cho từng chủ đề của hoạt động LOG                                                                             |
-| G\_sha3         | 30    | Được trả cho mỗi hoạt động SHA3                                                                                        |
-| G\_sha3word     | 6     | Được trả cho từng từ \(được làm tròn\) cho dữ liệu nhập vào hoạt động SHA3                                           |
-| G\_copy         | 3     | Thanh toán một phần cho các hoạt động \*COPY, nhân lên theo số từ được sao chép, được làm tròn                       |
-| G\_blockhash    | 20    | Khoản thanh toán cho hoạt động BLOCKHASH                                                                               |
-| G\_extcodehash  | 400   | Được trả cho việc nhận hàm băm keccak256 của mã hợp đồng                                                               |
-| G\_create2      | 32000 | Được trả cho mã vận hành CREATE2, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                          |
+Before we get into the detail, keep in mind that not all key types apply the keyGases (`KeyCreationGas` and `KeyValidationGas`).
 
-### Hợp đồng đã lập trước <a id="precompiled-contracts"></a>
+| Key Type  | Are those keyGases applicable?     |
+|:--------- |:---------------------------------- |
+| Nil       | No                                 |
+| Legacy    | No                                 |
+| Fail      | No                                 |
+| Public    | Yes                                |
+| MultiSig  | Yes                                |
+| RoleBased | Depending on key types in the role |
 
-Hợp đồng đã lập trước là loại hợp đồng đặc biệt, thường thực hiện các phép tính toán mã hóa phức tạp và được khởi tạo bởi những hợp đồng khác.
+### KeyCreationGas <a id="keyCreationGas"></a>
+The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`. </br>Please Keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-| Mục                     | Gas                 | Mô tả                                                          |
-|:----------------------- |:------------------- |:-------------------------------------------------------------- |
-| EcrecoverGas            | 3000                | Thực hiện hoạt động ECRecover                                  |
-| Sha256BaseGas           | 60                  | Thực hiện hoạt động hàm băm sha256                             |
-| Sha256PerWordGas        | 12                  |                                                                |
-| Ripemd160BaseGas        | 600                 | Thực hiện hoạt động Ripemd160                                  |
-| Ripemd160PerWordGas     | 120                 |                                                                |
-| IdentityBaseGas         | 15                  |                                                                |
-| IdentityPerWordGas      | 3                   |                                                                |
-| ModExpQuadCoeffDiv      | 20                  |                                                                |
-| Bn256AddGas             | 500                 | Thực hiện hoạt động đường cong elliptic Bn256                  |
-| Bn256ScalarMulGas       | 40000               |                                                                |
-| Bn256PairingBaseGas     | 100000              |                                                                |
-| Bn256PairingPerPointGas | 80000               |                                                                |
-| VMLogBaseGas            | 100                 | Ghi bản ghi vào tập tin bản ghi của nút - chỉ dành cho Klaytn  |
-| VMLogPerByteGas         | 20                  | Chỉ dành cho Klaytn                                            |
-| FeePayerGas             | 300                 | Nhận địa chỉ của feePayer - chỉ dành cho Klaytn                |
-| ValidateSenderGas       | 5000 cho mỗi chữ ký | Xác thực địa chỉ và chữ ký của người gửi - chỉ dành cho Klaytn |
+### KeyValidationGas <a id="keyValidationGas"></a>
+The KeyValidationGas is calculated as `(number of keys - 1) x TxValidationGasPerKey(15000)`. </br>Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
 
-Tổng lượng gas của các mục có XXXBaseGas và XXXPerWordGas \(ví dụ: Sha256BaseGas, Sha256PerWordGas\) được tính như sau
-
-```text
-TotalGas = XXXBaseGas + (số từ * XXXPerWordGas)
+A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+```
+KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
 ```
 
-ValidateSenderGas phải được trả trên cơ sở từng chữ ký.
+### PayloadGas <a id="payloadGas"></a>
+`PayloadGas` is calculated as below.
 
-```text
-TotalGas = số lượng chữ ký * ValidateSenderGas
+```
+# legacy-typed transaction
+PayloadGas = number_of_zero_bytes x TxDataZeroGas (4) + number_of_nonzero_bytes x TxDataNonZeroGas (68)`
+
+# non legacy-typed transaction
+PayloadGas = number_of_bytes * TxDataGas (100)
 ```
 
-### Bảng gas liên quan đến tài khoản <a id="account-related-gas-table"></a>
+### TxTypedGas <a id="txTypedGas"></a>
+There are three types of transactions in klaytn; `base`, `feeDelegated`, and `feeDelegatedWithFeeRatio`.
 
-| Mục                        | Gas   | Mô tả                                                            |
-|:-------------------------- |:----- |:---------------------------------------------------------------- |
-| TxAccountCreationGasPerKey | 20000 | Lượng gas cần thiết để tạo một cặp khóa                          |
-| TxValidationGasPerKey      | 15000 | Lượng gas cần thiết để xác thực khóa                             |
-| TxGasAccountUpdate         | 21000 | Lượng gas cần thiết để cập nhật một tài khoản                    |
-| TxGasFeeDelegated          | 10000 | Lượng gas cần thiết cho một lượt ủy thác phí                     |
-| TxGasFeeDelegatedWithRatio | 15000 | Lượng gas cần thiết để ủy thác phí kèm tỷ lệ                     |
-| TxGasCancel                | 21000 | Lượng gas cần thiết để hủy một giao dịch có cùng số dùng một lần |
-| TxGasValueTransfer         | 21000 | Lượng gas cần thiết để chuyển KLAY                               |
-| TxGasContractExecution     | 21000 | Lượng gas cơ sở để thực thi hợp đồng                             |
-| TxDataGas                  | 100   | Lượng gas cần cho mỗi byte đơn lẻ của giao dịch                  |
+For example,
+* TxTypeValueTransfer is the `base` type of the valueTransaction transaction.
+* TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
+* TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
 
-Lượng gas cần cho dữ liệu tải tin được tính toán như dưới đây
+This is important when calculating TxTypedGas:
+* First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
+    * If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+    * If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+* Second, check the transaction creates contract or not.
+    * If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+    * Otherwise, add `TxGas (21000)` to TxTypedGas.
 
-```text
-GasPayload = number_of_bytes * TxDataGas
-```
+For example,
+* If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
+* If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
+* If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
 
-### Công thức gas cho các loại giao dịch <a id="gas-formula-for-transaction-types"></a>
-
-| TxType                 | Gas                                                    |
-|:---------------------- |:------------------------------------------------------ |
-| LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
-| ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
-| ValueTransferMemo      | TxGasValueTransfer + PayloadGas + KeyValidationGas     |
-| AccountUpdate          | TxGasAccountUpdate + KeyCreationGas + KeyValidationGas |
-| SmartContractDeploy    | TxGasContractCreation + PayloadGas + KeyValidationGas  |
-| SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
-| Cancel                 | TxGasCancel + KeyValidationGas                         |
-
-Dựa theo loại khóa, KeyValidationGas được định nghĩa như sau,
-
-| Loại khóa | Gas                                                                   |
-|:--------- |:--------------------------------------------------------------------- |
-| Nil       | Không có                                                              |
-| Legacy    | 0                                                                     |
-| Fail      | 0                                                                     |
-| Public    | 0                                                                     |
-| MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\)                     |
-| RoleBased | Dựa theo các khóa trong vai trò được sử dụng trong quá trình xác thực |
-
-Dựa theo loại khóa, KeyCreationGas được định nghĩa như sau,
-
-| Loại khóa | Gas                                                                                                                                                                                                                               |
-|:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nil       | Không có                                                                                                                                                                                                                          |
-| Legacy    | 0                                                                                                                                                                                                                                 |
-| Fail      | 0                                                                                                                                                                                                                                 |
-| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                                     |
-| MultiSig  | \(khóa\) \* GasCreationPerKey                                                                                                                                                                                                 |
-| RoleBased | Phí gas được tính toán dựa trên các khóa trong từng vai trò. ví dụ: GasRoleTransaction = \(khóa\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(khóa\)_ GasCreationPerKey GasRoleFeePayer = \(khóa\) \* GasCreationPerKey |
