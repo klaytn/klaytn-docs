@@ -19,12 +19,11 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: Computation costs have changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
-If you want the previous document, please refer to [previous document](computation-cost-previous.md).
+NOTE: Computation costs have changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
+`Kore` hardfork block numbers are as follows.
+* Baobab Testnet: `#111736800`
+* Cypress Mainnet: `#119750400`
 {% endhint %}
 
 | Opcode | ComputationCost |
@@ -76,7 +75,7 @@ If you want the previous document, please refer to [previous document](computati
 | COINBASE | 189 |
 | TIMESTAMP | 265 |
 | NUMBER | 202 |
-| DIFFICULTY | 180 |
+| PREVRANDAO | 1498 |
 | GASLIMIT | 166 |
 | CHAINID | 120 |
 | SELFBALANCE | 374 |
