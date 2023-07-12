@@ -1,23 +1,34 @@
 # Transaction Fees <a id="transaction-fees"></a>
-The transaction fee for the current Klaytn virtual machine \(KLVM\) is calculated as follows:
+{% hint style="success" %}
+NOTE: The transaction fee has changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
 
+`Kore` hardfork block numbers are as follows.
+* Baobab Testnet: `#111736800`
+* Cypress Mainnet: `#119750400`
+{% endhint %}
+
+The transaction fee of one transaction is calculated as follows:
 ```text
-(Transaction Fee) := (Gas Used) * (Base Fee)
+Transaction fee := (Gas used) x (GasPrice)
 ```
+As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
-* The `Gas Used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
-* `Base Fee` is the actual gas price used for the transaction. It has the same meaning as the `Effective Gas Price`.
+Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 ston. If a transaction submitted by `from` account was charged 21000 gas, then 630000 ston = (21000 gas * 30 ston) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
 
-This calculated transaction fee is subtracted from the sender's or fee payer's account balance, depending on the transaction.
+Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by klay_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
 
-## Gas and Base Fee Overview <a id="gas-and-base-fee-overview"></a>
-### Gas <a id="gas"></a>
-Every action that changes the state of the blockchain requires gas. When a node processes a user's transaction, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
+This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
 
-`Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
+## GasPrice Overview <a id="gas-price-overview"></a>
+Unlike the ethereum, Klaytn used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Klaytn started to use dynamic gas price which concept is newly redesined by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
+
+| Network | Before BaseFee | After BaseFee |
+| :--- | :--- | :--- |
+| klaytn | tx parameter gasPrice: network-defined. must be set as the `unitPrice` </br> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay </br> (e.g. suggestGasPrice = 2*latestBlock.baseFee ) </br> gasPrice: dynamic gasPrice, `baseFee`, which is defined by network.|
+| Ethereum | tx parameter gasPrice: user-defined. it means the price the most you can pay. </br> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay. </br> gasPrice: dynamic gasPrice, `baseFee+tip`, which is defined by network. |
 
 ### Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
-Since the Klaytn v1.9.0 hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
+Since the magma hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
 
 1. PREVIOUS_BASE_FEE: Base fee of the previous block
 2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
@@ -41,155 +52,69 @@ The `base fee` is calculated for every block; there could be changes every secon
 
 > NOTE: An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
 
-### Transaction Replacement <a id="transaction-replacement"></a>
+## Gas Overview <a id="gas-overview"></a>
+Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
-Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
+`Gas` required is computed by adding up the next two gases;
+* `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction.
+* `ContractExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution.
 
-## Klaytn's Gas table  <a id="klaytns-gas-table"></a>
+In here, we would focus on how `IntrinsicGas` is organized. For the `ContractExecutionGas`, the klvm documentation describes it in detail, so please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine.md).
 
-Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But there are some features unique to Klaytn that require several new constants.
-
-{% hint style="success" %}
-NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
-If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
-
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
-{% endhint %}
-
-### Common Fee <a id="common-fee"></a>
-
-| Item | Gas | Description |
-| :--- | :--- | :--- |
-| G\_zero | 0 | Nothing paid for operations of the set Wzero |
-| G\_base | 2 | Amount of gas to pay for operations of the set Wbase |
-| G\_verylow | 3 | Amount of gas to pay for operations of the set Wverylow |
-| G\_low | 5 | Amount of gas to pay for operations of the set Wlow |
-| G\_mid | 8 | Amount of gas to pay for operations of the set Wmid |
-| G\_high | 10 | Amount of gas to pay for operations of the set Whigh |
-| G\_blockhash | 20 | Payment for BLOCKHASH operation |
-| G\_extcode | 700 | Amount of gas to pay for operations of the set Wextcode |
-| G\_balance | 700 | Amount of gas to pay for a BALANCE operation |
-| G\_sload | 800 | Paid for a SLOAD operation |
-| G\_jumpdest | 1 | Paid for a JUMPDEST operation |
-| G\_sset | 20000 | Paid for an SSTORE operation when the storage value is set to non-zero from zero |
-| G\_sreset | 5000 | Paid for an SSTORE operation when the storage value’s zeroness remains unchanged or is set to zero |
-| G\_sclear | 15000 | Refund given \(added into refund counter\) when the storage value is set to zero from non-zero |
-| R\_selfdestruct | 24000 | Refund given \(added into refund counter\) for self-destructing an account |
-| G\_selfdestruct | 5000 | Amount of gas to pay for a SELFDESTRUCT operation |
-| G\_create | 32000 | Paid for a CREATE operation |
-| G\_codedeposit | 200 | Paid per byte for a CREATE operation to succeed in placing code into state |
-| G\_call | 700 | Paid for a CALL operation |
-| G\_callvalue | 9000 | Paid for a non-zero value transfer as part of the CALL operation |
-| G\_callstipend | 2300 | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer |
-| G\_newaccount | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account |
-| G\_exp | 10 | Partial payment for an EXP operation |
-| G\_expbyte | 50 | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation |
-| G\_memory | 3 | Paid for every additional word when expanding memory |
-| G\_txcreate | 32000 | Paid by all contract-creating transactions |
-| G\_transaction | 21000 | Paid for every transaction |
-| G\_log | 375 | Partial payment for a LOG operation |
-| G\_logdata | 8 | Paid for each byte in a LOG operation’s data |
-| G\_logtopic | 375 | Paid for each topic of a LOG operation |
-| G\_sha3 | 30 | Paid for each SHA3 operation |
-| G\_sha3word | 6 | Paid for each word \(rounded up\) for input data to a SHA3 operation |
-| G\_copy | 3 | Partial payment for \*COPY operations, multiplied by words copied, rounded up |
-| G\_blockhash | 20 | Payment for BLOCKHASH operation |
-| G\_extcodehash | 700 | Paid for getting keccak256 hash of a contract's code |
-| G\_create2 | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments |
-
-### Precompiled Contracts <a id="precompiled-contracts"></a>
-
-Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
-
-| Item | Gas | Description |
-| :--- | :--- | :--- |
-| EcrecoverGas | 3000 | Perform ECRecover operation |
-| Sha256BaseGas | 60 | Perform sha256 hash operation |
-| Sha256PerWordGas | 12 | ​ |
-| Ripemd160BaseGas | 600 | Perform Ripemd160 operation |
-| Ripemd160PerWordGas | 120 | ​ |
-| IdentityBaseGas | 15 | ​ |
-| IdentityPerWordGas | 3 | ​ |
-| ModExpQuadCoeffDiv | 20 | ​ |
-| Bn256AddGas | 150 | Perform Bn256 elliptic curve operation |
-| Bn256ScalarMulGas | 6000 | ​ |
-| Bn256PairingBaseGas | 45000 | ​ |
-| Bn256PairingPerPointGas | 34000 | ​ |
-| VMLogBaseGas | 100 | Write logs to node's log file - Klaytn only |
-| VMLogPerByteGas | 20 | Klaytn only |
-| FeePayerGas | 300 | Get feePayer's address - Klaytn only |
-| ValidateSenderGas | 5000 per signature | Validate the sender's address and signature - Klaytn only |
-
-Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calculated as
-
-```text
-TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)
+Coming back to `IntrinsicGas`, a transaction's `intrinsicGas` can be calculated by adding up the next four factors.
 ```
-
-ValidateSenderGas have to be paid per signature basis.
-
-```text
-TotalGas = number of signatures * ValidateSenderGas
+IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
+* `PayloadGas` is calculated based on the size of the data field in the tx.
+* `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
+* `KeyValidationGas` is calculated based on the number of signatures.
+* `TxTypedGas` is defined based on the transaction types.
 
-Blake2f gas cost is calculated based on the below formula. `input` is the input of the blake2f call.
-```text
-Gas = uint64(binary.BigEndian.Uint32(input[0:4]))
-```
+Before we get into the detail, keep in mind that not all key types apply the keyGases (`KeyCreationGas` and `KeyValidationGas`).
 
-### Account-related Gas Table <a id="account-related-gas-table"></a>
-
-| Item | Gas | Description |
-| :--- | :--- | :--- |
-| TxAccountCreationGasPerKey | 20000 | Gas required for a key-pair creation |
-| TxValidationGasPerKey | 15000 | Gas required for a key validation |
-| TxGasAccountUpdate | 21000 | Gas required for an account update |
-| TxGasFeeDelegated | 10000 | Gas required for a fee delegation |
-| TxGasFeeDelegatedWithRatio | 15000 | Gas required for a fee delegation with ratio |
-| TxGasCancel | 21000 | Gas required to cancel a transaction which has a same nonce |
-| TxGasValueTransfer | 21000 | Gas required to transfer KLAY |
-| TxGasContractExecution | 21000 | Base gas for contract execution |
-| TxDataGas | 100 | Gas required per transaction's single byte |
-
-Gas for payload data is calculated as below
-
-```text
-GasPayload = number_of_bytes * TxDataGas
-```
-
-### Gas Formula for Transaction Types <a id="gas-formula-for-transaction-types"></a>
-
-| TxType | Gas |
+| Key Type | Are those keyGases applicable? |
 | :--- | :--- |
-| LegacyTransaction | TxGas + PayloadGas + KeyValidationGas |
-| ValueTransfer | TxGasValueTransfer + KeyValidationGas |
-| ValueTransferMemo | TxGasValueTransfer + PayloadGas + KeyValidationGas |
-| AccountUpdate | TxGasAccountUpdate + KeyCreationGas + KeyValidationGas |
-| SmartContractDeploy | TxGasContractCreation + PayloadGas + KeyValidationGas |
-| SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
-| Cancel | TxGasCancel + KeyValidationGas |
+| Nil | No |
+| Legacy | No |
+| Fail | No |
+| Public | Yes |
+| MultiSig | Yes |
+| RoleBased | Depending on key types in the role |
 
-KeyValidationGas is defined as below based on the key type,
+### KeyCreationGas <a id="keyCreationGas"></a>
+The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.
+</br>Please Keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-| Key Type | Gas |
-| :--- | :--- |
-| Nil | N/A |
-| Legacy | 0 |
-| Fail | 0 |
-| Public | 0 |
-| MultiSig | \(number of signatures - 1\) \* GasValidationPerKey \(15000\) |
-| RoleBased | Based on keys in the role used in the validation |
+### KeyValidationGas <a id="keyValidationGas"></a>
+The KeyValidationGas is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.
+</br>Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
 
-KeyCreationGas is defined as below based on the key type,
+A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+```
+KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
+```
 
-| Key Type | Gas |
-| :--- | :--- |
-| Nil | N/A |
-| Legacy | 0 |
-| Fail | 0 |
-| Public | GasCreationPerKey \(20000\) |
-| MultiSig | \(keys\) \* GasCreationPerKey |
-| RoleBased | Gas fee calculated based on keys in each role. e.g., GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
+### PayloadGas <a id="payloadGas"></a>
+Calculating `PayloadGas` is simple. It is calculated as `(number_of_bytes_of_tx_input) x TxDataGas(100)`
+
+### TxTypedGas <a id="txTypedGas"></a>
+There are three types of transactions in klaytn; `base`, `feeDelegated`, and `feeDelegatedWithFeeRatio`.
+
+For example,
+* TxTypeValueTransfer is the `base` type of the valueTransaction transaction. 
+* TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
+* TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
+
+This is important when calculating TxTypedGas:
+* First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
+  * If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+  * If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+* Second, check the transaction creates contract or not.
+  * If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+  * Otherwise, add `TxGas (21000)` to TxTypedGas.
+
+For example,
+* If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
+* If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
+* If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
 
