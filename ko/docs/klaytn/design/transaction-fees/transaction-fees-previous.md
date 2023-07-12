@@ -1,178 +1,110 @@
 # 트랜잭션 수수료 <a id="transaction-fees"></a>
 
-현재 Klaytn 가상머신\(KLVM\)의 트랜잭션 수수료는 다음과 같이 계산됩니다.
+{% hint style="success" %}
+NOTE: This document contains the transaction fee used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](transaction-fees.md).
+{% endhint %}
 
+The transaction fee of one transaction is calculated as follows:
 ```text
-트랜잭션 수수료 : = (총 가스 사용량) x (가스 단가)
+Transaction fee := (Gas used) x (GasPrice)
 ```
+As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
-* `총 가스 사용량`은 opcode의 가스 비용과 intrinsic gas cost을 기준으로 KLVM이 계산합니다.
-* `unit price`는 Klaytn에서 정한 가스 가격입니다.
+Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 ston. If a transaction submitted by `from` account was charged 21000 gas, then 630000 ston = (21000 gas * 30 ston) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
 
-이 계산된 트랜잭션 수수료는 트랜잭션에 따라 발신자 또는 기업 계좌 잔액에서 차감됩니다.
+Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by klay_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
 
-## 가스 및 단가 개요 <a id="gas-and-unit-price-overview"></a>
+This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
 
-### 가스 <a id="gas"></a>
+## Unit Price Overview <a id="unit-price-overview"></a>
 
-블록체인 상태를 변경하는 모든 행동에는 가스가 필요합니다. 노드가 KLAY 전송, ERC-20 토큰 사용 또는 컨트랙트 실행과 같은 사용자의 트랜잭션을 처리할 때 사용자는 연산 및 스토리지 사용 비용을 지불해야 합니다. 지불 금액은 필요한 `가스`양으로 정합니다.
+`Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
 
-`가스`는 사용자의 트랜잭션을 처리하는 데 어느 정도의 연산이 필요한지를 나타내는 측정 단위입니다.
+In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
 
-### 단가(Unit Price)<a id="unit-price"></a>
+To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
 
-`단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. It is currently set to 250 ston \(_i.e._, 250 x 10^9 peb\) per gas and cannot be changed by user. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
+### Transaction Validation against Unit Price <a id="transaction-validation-against-unit-price"></a>
 
-이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 채굴자들은 보상을 극대화하기 위해 특정 트랜잭션을 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 효과가 있습니다. 하지만, 트랜잭션 수수료의 변동이 심하고 실행을 보장할 수 없을 정도로 수수료가 너무 비싸지는 경우가 잦습니다.
+Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
 
-이 문제를 해결하기 위해 Klaytn은 고정된 단가를 사용하고 있으며 가격은 governance council에서 조정할 수 있습니다. 이 정책은 모든 트랜잭션이 동일하게 처리되고 실행되도록 보장합니다. 따라서, 사용자는 적절한 단가를 결정하기 위해 애쓸 필요가 없습니다.
+### Unit Price Error <a id="unit-price-error"></a>
 
-#### 단가에 대한 트랜잭션 검증 <a id="transaction-validation-against-unit-price"></a>
-
-Klaytn은 유저가 Klaytn의 단가와 같도록 설정한 가스비를 포함한 트랜잭션만 받습니다. Klaytn의 단가와 다른 가스 가격의 트랜잭션은 거부됩니다.
-
-#### 단가 오류(Unit Price Error)<a id="unit-price-error"></a>
-
-트랜잭션의 가스 가격이 Klaytn의 단가(Unit price)와 같지 않을 때, 에러 메시지인 `invalid unit price`가 반환됩니다.
+The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
 
 ### 트랜잭션 교체 <a id="transaction-replacement"></a>
 
-Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니다. 하지만 향후 트랜잭션 교체를 위한 방법이 지원될 것입니다. 이더리움에서는 주어진 논스를 가진 트랜잭션이 더 높은 가스 가격으로 설정된 트랜잭션에 의해 교체될 수 있습니다.
+Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
 
-## Klaytn의 가스표  <a id="klaytns-gas-table"></a>
+## Gas Overview <a id="gas-overview"></a>
+Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
-기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
+`Gas` required is computed by adding up the next two gases;
+* `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction.
+* `ContractExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution.
 
-{% hint style="success" %}
-참고: 이 문서에는 프로토콜 업데이트 적용 이전에 사용되던 연산 비용이 포함되어 있습니다. 최신 문서는 [최신 문서](transaction-fees.md)를 참고해주세요.
-{% endhint %}
+In here, we would focus on how `IntrinsicGas` is organized. For the `ContractExecutionGas`, the klvm documentation describes it in detail, so please refer [klvm docs](../computation/klaytn-virtual-machine/klaytn-virtual-machine-previous.md).
 
-### 공통 비용<a id="common-fee"></a>
+Coming back to `IntrinsicGas`, a transaction's `intrinsicGas` can be calculated by adding up the next four factors.
+```
+IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
+```
+* `PayloadGas` is calculated based on the size of the data field in the tx.
+* `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
+* `KeyValidationGas` is calculated based on the number of signatures.
+* `TxTypedGas` is defined based on the transaction types.
 
-| 항목                | Gas   | Description                                                |
-|:----------------- |:----- |:---------------------------------------------------------- |
-| G\_zero         | 0     | Set Wzero 연산을 위해 지불할 금액은 없음                                |
-| G\_base         | 2     | Set Wbase 연산을 위해 지불하는 가스량                                  |
-| G\_verylow      | 3     | Set Wverylow 연산을 위해 지불하는 가스량                               |
-| G\_low          | 5     | Set Wlow 연산을 위해 지불하는 가스량                                   |
-| G\_mid          | 8     | Set Wmid 연산을 위해 지불하는 가스량                                   |
-| G\_high         | 10    | Set Whigh 연산을 위해 지불하는 가스량                                  |
-| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                  |
-| G\_extcode      | 700   | Set Wextcode 연산을 위해 지불하는 가스량                               |
-| G\_balance      | 400   | BALANCE 연산을 위해 지불하는 가스량                                    |
-| G\_sload        | 200   | SLOAD 연산을 위해 지불되는 가스량                                      |
-| G\_jumpdest     | 1     | JUMPDEST 연산을 위해 지불되는 가스량                                   |
-| G\_sset         | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 SSTORE 연산을 위해 지불하는 가스량   |
-| G\_sreset       | 5000  | Storage value가 0이 유지되거나 0으로 바뀐 경우 SSTORE 연산을 위해 지불하는 가스량   |
-| G\_sclear       | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)          |
-| R\_selfdestruct | 24000 | 계정 self-destructing시 반환되는 양(반환 카운터가 추가됨)                   |
-| G\_selfdestruct | 5000  | SELFDESTRUCT 연산을 위해 지불하는 가스량                               |
-| G\_create       | 32000 | CREATE 연산을 위해 지불되는 가스량                                     |
-| G\_codedeposit  | 200   | CREATE 연산이 코드를 상태에 배치하는 데 바이트당 지불하는 가스량                    |
-| G\_call         | 700   | CALL 연산을 위해 지불되는 가스량                                       |
-| G\_callvalue    | 9000  | CALL 연산의 일부로 0이 아닌 값 전송에 대해 지불되는 가스량                       |
-| G\_callstipend  | 2300  | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 Gcallvalue에서 차감된 금액     |
-| G\_newaccount   | 25000 | 계정을 생성하는 SELFDESTRUCT나 CALL 연산을 위해 지불하는 가스량                |
-| G\_exp          | 10    | EXP 연산에 대한 부분 지불                                           |
-| G\_expbyte      | 50    | EXP 연산에서 dlog256\(exponent\)e가 곱해질 때 부분 지불하는 가스량         |
-| G\_memory       | 3     | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                          |
-| G\_txcreate     | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                               |
-| G\_transaction  | 21000 | 모든 트랜잭션에 대해 지불하는 가스량                                       |
-| G\_log          | 375   | LOG 연산에 대한 부분 지불하는 가스량                                     |
-| G\_logdata      | 8     | LOG 연산 데이터의 각 바이트에 대해 지불하는 가스량                             |
-| G\_logtopic     | 375   | LOG 연산의 각 topic마다 지불되는 가스량                                 |
-| G\_sha3         | 30    | SHA3 연산을 위해 지불되는 가스량                                       |
-| G\_sha3word     | 6     | SHA3 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                 |
-| G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                            |
-| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                      |
-| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량. |
+Before we get into the detail, keep in mind that not all key types apply the keyGases (`KeyCreationGas` and `KeyValidationGas`).
 
-### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
+| Key Type  | Are those keyGases applicable?     |
+|:--------- |:---------------------------------- |
+| Nil       | No                                 |
+| Legacy    | No                                 |
+| Fail      | No                                 |
+| Public    | Yes                                |
+| MultiSig  | Yes                                |
+| RoleBased | Depending on key types in the role |
 
-미리 컴파일된 컨트랙트는 일반적으로 복잡한 암호화 연산을 수행하며, 다른 컨트랙트에 의해 실행되는 특수한 유형의 컨트랙트입니다.
+### KeyCreationGas <a id="keyCreationGas"></a>
+The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`. </br>Please Keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-| Item                    | Gas                | Description                  |
-|:----------------------- |:------------------ |:---------------------------- |
-| EcrecoverGas            | 3000               | ECRecover 연산 수행              |
-| Sha256BaseGas           | 60                 | sha256 hash 연산 수행            |
-| Sha256PerWordGas        | 12                 | ​                            |
-| Ripemd160BaseGas        | 600                | Ripemd160 연산 수행              |
-| Ripemd160PerWordGas     | 120                | ​                            |
-| IdentityBaseGas         | 15                 | ​                            |
-| IdentityPerWordGas      | 3                  | ​                            |
-| ModExpQuadCoeffDiv      | 20                 | ​                            |
-| Bn256AddGas             | 500                | Bn256 elliptic curve 연산 수행   |
-| Bn256ScalarMulGas       | 40000              | ​                            |
-| Bn256PairingBaseGas     | 100000             | ​                            |
-| Bn256PairingPerPointGas | 80000              | ​                            |
-| VMLogBaseGas            | 100                | 노드의 로그 파일에 로그 쓰기 - Klaytn 전용 |
-| VMLogPerByteGas         | 20                 | Klaytn 전용                    |
-| FeePayerGas             | 300                | feePayer의 주소 획득 - Klaytn 전용  |
-| ValidateSenderGas       | 5000 per signature | 발신자의 주소와 서명 검증 - Klaytn 전용   |
+### KeyValidationGas <a id="keyValidationGas"></a>
+The KeyValidationGas is calculated as `(number of keys - 1) x TxValidationGasPerKey(15000)`. </br>Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
 
-XXXBaseGas와 XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\)등을 포함한 항목들의 총 가스량은 다음과 같이 계산됩니다.
-
-```text
-TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)
+A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+```
+KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
 ```
 
-ValidateSenderGas는 서명마다 지불해야 합니다.
+### PayloadGas <a id="payloadGas"></a>
+`PayloadGas` is calculated as below.
 
-```text
-TotalGas = number of signatures * ValidateSenderGas
+```
+# legacy-typed transaction
+PayloadGas = number_of_zero_bytes x TxDataZeroGas (4) + number_of_nonzero_bytes x TxDataNonZeroGas (68)`
+
+# non legacy-typed transaction
+PayloadGas = number_of_bytes * TxDataGas (100)
 ```
 
-### 계정 관련 가스 수수료 표 <a id="account-related-gas-table"></a>
+### TxTypedGas <a id="txTypedGas"></a>
+There are three types of transactions in klaytn; `base`, `feeDelegated`, and `feeDelegatedWithFeeRatio`.
 
-| Item                       | Gas   | Description                |
-|:-------------------------- |:----- |:-------------------------- |
-| TxAccountCreationGasPerKey | 20000 | 키 페어 생성에 필요한 가스            |
-| TxValidationGasPerKey      | 15000 | 키 검증(validation)에 필요한 가스   |
-| TxGasAccountUpdate         | 21000 | 계정 업데이트에 필요한 가스            |
-| TxGasFeeDelegated          | 10000 | 트랜잭션 수수료 위임에 필요한 가스        |
-| TxGasFeeDelegatedWithRatio | 15000 | Ratio 트랜잭션 수수료 위임에 필요한 가스  |
-| TxGasCancel                | 21000 | 논스가 같은 트랜잭션을 취소하는 데 필요한 가스 |
-| TxGasValueTransfer         | 21000 | KLAY 전송에 필요한 가스            |
-| TxGasContractExecution     | 21000 | 컨트랙트 실행을 위한 기본 가스          |
-| TxDataGas                  | 100   | 트랜잭션의 단일 바이트 당 필요한 가스      |
+For example,
+* TxTypeValueTransfer is the `base` type of the valueTransaction transaction.
+* TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
+* TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
 
-페이로드 데이터는 아래와 같이 계산됩니다.
+This is important when calculating TxTypedGas:
+* First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
+    * If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+    * If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+* Second, check the transaction creates contract or not.
+    * If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+    * Otherwise, add `TxGas (21000)` to TxTypedGas.
 
-```text
-GasPayload = number_of_bytes * TxDataGas
-```
+For example,
+* If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
+* If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
+* If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
 
-### 트랜잭션 유형에 따른 가스 계산 공식<a id="gas-formula-for-transaction-types"></a>
-
-| 트랜잭션 유형                | Gas                                                    |
-|:---------------------- |:------------------------------------------------------ |
-| LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
-| ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
-| ValueTransferMemo      | TxGasValueTransfer + PayloadGas + KeyValidationGas     |
-| AccountUpdate          | TxGasAccountUpdate + KeyCreationGas + KeyValidationGas |
-| SmartContractDeploy    | TxGasContractCreation + PayloadGas + KeyValidationGas  |
-| SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
-| Cancel                 | TxGasCancel + KeyValidationGas                         |
-
-KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
-
-| 키 유형      | Gas                                               |
-|:--------- |:------------------------------------------------- |
-| Nil       | N/A                                               |
-| Legacy    | 0                                                 |
-| Fail      | 0                                                 |
-| Public    | 0                                                 |
-| MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\) |
-| RoleBased | 검증(validation)에 사용된 역할의 키를 기반으로 함                 |
-
-KeyCreationGas는 키 유형에 따라 아래와 같이 정의됩니다.
-
-| Key Type  | Gas                                                                                                                                                                                             |
-|:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nil       | N/A                                                                                                                                                                                             |
-| Legacy    | 0                                                                                                                                                                                               |
-| Fail      | 0                                                                                                                                                                                               |
-| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                   |
-| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                               |
-| RoleBased | 가스 비용은 각 역할의 키를 기반으로 계산됩니다. e.g., GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
