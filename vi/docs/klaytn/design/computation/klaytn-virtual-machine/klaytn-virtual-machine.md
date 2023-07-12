@@ -1,26 +1,35 @@
 # Máy ảo Klaytn <a id="klaytn-virtual-machine"></a>
 
+{% hint style="success" %}
+NOTE: KLVM has changed with the `Kore` hardfork. If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+
+`Kore` hardfork block numbers are as follows.
+* Baobab Testnet: `#111736800`
+* Cypress Mainnet: `#119750400`
+{% endhint %}
+
 ## Tổng quan <a id="overview"></a>
 
-Phiên bản hiện tại của Máy ảo Klaytn \(KLVM\) có nguồn gốc từ Máy ảo Ethereum \(EVM\). Nội dung của chương này chủ yếu dựa theo [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM liên tục được cải thiện bởi đội ngũ Klaytn, vì thế, tài liệu này có thể được cập nhật thường xuyên. Vui lòng không coi tài liệu này là phiên bản cuối cùng về thông số kỹ thuật của KLVM. Như đã được mô tả trong tuyên bố lập trường, đội ngũ Klaytn cũng có dự định áp dụng các máy ảo khác hoặc môi trường thực thi khác nhằm củng cố khả năng và hiệu suất của nền tảng Klaytn. Chương này đề cập đến thông số kỹ thuật của KLVM và sự khác biệt giữa KLVM và EVM.
+The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
 
-KLVM là một cỗ máy trạng thái ảo, chính thức chỉ định mô hình thực thi của Klaytn. Mô hình thực thi này chỉ định cách thay đổi trạng thái hệ thống dựa trên một loạt chỉ thị bytecode và một tuple dữ liệu môi trường nhỏ. KLVM là một cỗ máy gần giống với Turing Complete, tính chất _gần giống_ này bắt nguồn từ một thực tế là việc tính toán chịu sự ràng buộc nội tại qua một tham số, _gas_, tham số này hạn chế tổng lượng tính toán được thực hiện.
+KLVM is a virtual state machine that formally specifies Klaytn's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
 
-KLVM thực thi mã máy ảo Klaytn \(hoặc bytecode Klaytn\), trong đó có chứa một chuỗi các hướng dẫn KLVM. Mã KLVM là ngôn ngữ lập trình được dùng cho các tài khoản trên chuỗi khối Klaytn có chứa mã. Mã KLVM liên kết với một tài khoản được thực thi mỗi lần có một tin nhắn được gửi đến tài khoản đó; mã này có khả năng đọc/viết dữ liệu từ/vào lưu trữ và gửi tin nhắn.
+KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
 
 ## Thông số kỹ thuật của KLVM <a id="klvm-specification"></a>
 
 ### Các quy tắc <a id="conventions"></a>
 
-Trong tài liệu này, chúng tôi sử dụng các ký hiệu và quy tắc sau.
+We use the following notations and conventions in this document.
 
 * `A := B`
-  * `:=` được dùng để xác định `A` là `B`.
-* Chúng tôi sử dụng thuật ngữ "hợp đồng thông minh" và "hợp đồng" thay thế lẫn nhau.
+  * `:=` is used to define `A` as `B`.
+* We use the terms "smart contract" and "contract" interchangeably.
+* We use the terms "opcode" as the "operation code/operation"
 
 ### Ký hiệu <a id="symbols"></a>
 
-Bảng dưới đây tóm tắt các ký hiệu được dùng trong thông số kỹ thuật của KLVM.
+The following tables summarize the symbols used in the KLVM specification.
 
 #### Các ký hiệu liên quan đến chuỗi khối <a id="blockchain-related-symbols"></a>
 
@@ -74,155 +83,136 @@ Bảng dưới đây tóm tắt các ký hiệu được dùng trong thông số
 
 ### Cơ bản <a id="basics"></a>
 
-KLVM là một kiến trúc dựa trên ngăn xếp dữ liệu đơn giản. Kích thước từ của máy \(cũng là kích thước của các mục trong ngăn xếp dữ liệu\) là 256 bit. Con số này được chọn để tạo điều kiện thuận lợi cho hệ thống hàm băm Keccak-256 và các tính toán đường cong elip. Mô hình bộ nhớ là một mảng byte chứa từ có gắn địa chỉ đơn giản. Ngăn xếp dữ liệu có kích thước tối đa là 1024. Máy cũng có một mô hình lưu trữ độc lập; về khái niệm thì nó cũng giống như bộ nhớ, nhưng thay vì một mảng byte, nó là một mảng từ với khả năng xác định địa chỉ từ. Khác với bộ nhớ mang tính biến động, lưu trữ không biến động và được duy trì như một phần của trạng thái hệ thống. Tất cả các vị trí trong lưu trữ và bộ nhớ đều được xác định bằng 0 ngay từ đầu.
+KLVM is a simple stack-based architecture. The word size of the machine \(and thus the size of stack items\) is 256-bit. This was chosen to facilitate the Keccak-256 hash scheme and the elliptic-curve computations. The memory model is a simple word-addressed byte array. The stack has a maximum size of 1024. The machine also has an independent storage model; this is similar in concept to the memory but rather than a byte array, it is a word-addressable word array. Unlike memory, which is volatile, storage is nonvolatile and is maintained as part of the system state. All locations in both storage and memory are initially well-defined as zero.
 
-Máy không tuân theo kiến trúc von Neumann tiêu chuẩn. Thay vì lưu trữ mã chương trình trong một bộ nhớ hoặc lưu trữ dễ truy cập, mã được lữu trữ riêng trong một bộ nhớ ảo chỉ đọc và chỉ có thể được tương tác qua các chỉ thị chuyên biệt.
+The machine does not follow the standard von Neumann architecture. Rather than storing program code in generally accessible memory or storage, code is stored separately in virtual read-only memory and can be interacted with only through specialized instructions.
 
-Máy có thể thực thi mã ngoại lệ vì một số lí do, bao gồm hiện tượng tràn dưới ngăn xếp và chỉ thị không hợp lệ. Tương tự như trường hợp ngoại lệ hết gas, những ngoại lệ này không giữ nguyên các thay đổi về trạng thái. Thay vào đó, máy ảo sẽ tạm dừng ngay lập tức và báo cáo vấn đề cho tác nhân thực thi \(trình xử lý giao dịch hoặc theo cách đệ quy, môi trường thực thi phát sinh\), việc này sẽ được xử lý riêng biệt.
+The machine can execute exception code for several reasons, including stack underflows and invalid instructions. Similar to an out-of-gas exception, these exceptions do not leave state changes intact. Rather, the virtual machine halts immediately and reports the issue to the execution agent \(either the transaction processor or, recursively, the spawning execution environment\), which will be addressed separately.
 
 ### Tổng quan về phí <a id="fees-overview"></a>
 
-Phí \(được ghi bằng gas\) được tính trong ba trường hợp riêng biệt, cả ba trường hợp đều là điều kiện tiên quyết để thực thi hoạt động. Trường hợp đầu tiên và phổ biến nhất là phí nội tại để tính toán hoạt động. Trường hợp thứ hai, gas có thể được trừ để hình thành một khoản thanh toán cho một cuộc gọi tin nhắn phụ thuộc hoặc tạo hợp đồng; đây là một phần trong khoản thanh toán dành cho `CREATE`, `CALL` và `CALLCODE`. Cuối cùng, gas có thể được tính do có sự tăng lên trong việc sử dụng bộ nhớ.
+Fees \(denominated in gas\) are charged under three distinct circumstances. Sometimes, some policies may be omitted.
+* The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
+* Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
+* Finally, gas may be charged due to an increase in memory usage.
 
-Trong quá trình thực thi tài khoản, tổng phí phải trả cho việc sử dụng bộ nhớ phải trả tỷ lệ thuận với bội số nhỏ nhất của 32 byte cần có để bao gồm tất cả các chỉ báo bộ nhớ \(dù là để đọc hay để ghi\) trong phạm vi. Phí này được thanh toán dựa trên cơ sở kịp thời; do đó, việc tham chiếu một vùng bộ nhớ có kích thước lớn hơn ít nhất 32 byte so với bất kỳ bộ nhớ nào khác được lập chỉ mục trước đó sẽ dẫn đến phí sử dụng bộ nhớ bổ sung. Do phí này, các địa chỉ ít có khả năng vượt quá giới hạn 32 bit. Như vậy nghĩa là việc triển khai phải có khả năng kiểm soát được tình huống này.
+Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
 
-Phí lưu trữ có cách vận hành hơi khác biệt. Để khuyến khích việc giảm thiểu sử dụng bộ nhớ \(tương ứng trực tiếp với một cơ sở dữ liệu trạng thái lớn hơn trên tất cả các nút\), phí thực thi cho một hoạt động xóa mục nhập khỏi lưu trữ sẽ được miễn phí và đủ điều kiện để nhận hoàn phí; trên thực tế, khoản hoàn phí này được thanh toán trước vì chi phí sử dụng ban đầu của một vị trí lưu trữ lại cao hơn đáng kể so với việc sử dụng thông thường.
+Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
 #### Biểu phí <a id="fee-schedule"></a>
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes. For other tables such as `intrinsic gas cost` or `key validation gas cost`, please refer to [this document](./../../transaction-fees/transaction-fees.md)
 
-Biểu phí `G` là một tuple gồm 37 giá trị vô hướng, tương ứng với chi phí tương đối tính bằng gas của một số hoạt động trừu tượng mà một giao dịch có thể làm phát sinh. Để xem các bảng khác như `Precompiled contracts` và `tài khoảns`, vui lòng tham khảo [tài liệu này](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
+##### Scalar values representing `constantGas` of an opcode
+| Tên                           | Giá trị |                                                    Name in code | Opcodes                                                                                                                                                                                                                                                                                                                                |
+|:----------------------------- | -------:| ---------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `G_base`                      |       2 |                                                    GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br>  `PREVRANDAO(originally it was difficulty)`, `GASLIMIT`, </br>`RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, </br> `CHAINID(added at istanbul hardfork)`, </br> `BASEFEE(added at london Hardfork)` |
+| `G_verylow`                   |       3 |                                                  GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, </br> `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, </br> `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`                                                                                                                                                             |
+| `G_low`                       |       5 |                                                     GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, </br> `SELFBALANCE(added at istanbul hardfork)`                                                                                                                                                                                                                                     |
+| `G_mid`                       |       8 |                                                      GasMidStep | `ADDMOD`, `MULMOD`, `JUMP`                                                                                                                                                                                                                                                                                                             |
+| `G_high`                      |      10 |                                                     GasSlowStep | `JUMPI`                                                                                                                                                                                                                                                                                                                                |
+| `G_selfdestruct`              |    5000 |                                                 SelfdestructGas | `SELFDESTRUCT`                                                                                                                                                                                                                                                                                                                         |
+| `G_warmStorageReadCost` </br> |     100 | WarmStorageReadCostEIP2929 </br> (newly added at Kore hardfork) | `EXTCODECOPY`, `EXTCODESIZE`, `EXTCODEHASH`, `BALANCE`, </br> `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL`                                                                                                                                                                                                                         |
+| `G_blockhash`                 |      20 |                                                      GasExtStep | `BLOCKHASH`                                                                                                                                                                                                                                                                                                                            |
+| `G_jumpdest`                  |       1 |                                                     JumpdestGas | `JUMPDEST`                                                                                                                                                                                                                                                                                                                             |
+| `G_sha3`                      |      30 |                                                         Sha3Gas | `SHA3`                                                                                                                                                                                                                                                                                                                                 |
+| `G_create`                    |   32000 |                                                       CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                                                                                                                                                    |
 
-{% hint style="success" %}
-LƯU Ý: Phí đã thay đổi sau việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "hard fork". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](klaytn-virtual-machine-previous.md).
+##### Scalar values used to calculate the gas based on memory and log usage
+| Name         | Value | Name in Code | Description                                                                   |
+|:------------ | -----:| ------------:|:----------------------------------------------------------------------------- |
+| `G_memory`   |     3 |    MemoryGas | Amount of gas paid for every additional word when expanding memory            |
+| `G_copy`     |     3 |      CopyGas | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
+| `G_log`      |   375 |       LogGas | Partial payment for a `LOG` operation                                         |
+| `G_logdata`  |     8 |   LogDataGas | Amount of gas paid for each byte in a `LOG` operation's data                  |
+| `G_logtopic` |   375 |  LogTopicGas | Amount of gas paid for each topic of a `LOG` operation                        |
 
-Số khối nâng cấp giao thức `IstanbulEVM` như sau.
-* Mạng thử nghiệm Baobab: `#75373312`
-* Mạng chính thức Cypress: `#86816005`
-{% endhint %}
+##### Scalar values used to calculate the gas of the particular opcode
+| Name              | Value | Name in Code                      | Description                                                                                                                    |
+|:----------------- | -----:| --------------------------------- |:------------------------------------------------------------------------------------------------------------------------------ |
+| `G_sset`          | 20000 | SstoreSetGas                      | Amount of gas paid when the storage value when set storage                                                                     |
+| `G_sreset`        |  5000 | SstoreResetGas                    | Amount of gas paid when the storage value remains unchanged at zero or is set to zero                                          |
+| `G_coldSloadCost` |  2100 | ColdSloadCostEIP2929              | Amount of gas paid when the storage value is not in accessList                                                                 |
+| `R_sclear`        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                                                            |
+| `G_exp`           |    10 | ExpGas                            | Partial payment                                                                                                                |
+| `G_expbyte`       |    50 | ExpByte                           | Partial payment when multiplied by `ceil(log_256(exponent))`                                                                   |
+| `G_selfdestruct`  |  5000 | SelfdestructGas                   | Amount of gas paid for a `SELFDESTRUCT` operation                                                                              |
+| `G_callvalue`     |  9000 | CallValueTransferGas              | Amount of gas paid for a nonzero value transfer                                                                                |
+| `G_callstipend`   |  2300 | CallStipend                       | Free gas given at beginning of call for a nonzero value transfer                                                               |
+| `G_newaccount`    | 25000 | CallNewAccountGas                 | Amount of gas paid when creating an account. It is also be defined as `CreateBySelfdestructGas` with `SELFDESTRUCT` operation. |
+| `G_codedeposit`   |   200 | CreateDataGas                     | Amount of gas paid per byte for a creating a contract that succeeds in placing code into state                                 |
+| `G_sha3word`      |     6 | Sha3WordGas                       | Amount of gas paid for each word \(rounded up\) for an `SHA3` input data                                                     |
 
-| Tên               | Giá trị | Mô tả                                                                                                                      |
-|:----------------- | -------:|:-------------------------------------------------------------------------------------------------------------------------- |
-| `G_zero`          |       0 | Không cần thanh toán cho các hoạt động của bộ `W_zero`                                                                     |
-| `G_base`          |       2 | Lượng gas thanh toán cho các hoạt động của bộ `W_base`                                                                     |
-| `G_verylow`       |       3 | Lượng gas thanh toán cho các hoạt động của bộ `W_verylow`                                                                  |
-| `G_low`           |       5 | Lượng gas thanh toán cho các hoạt động của bộ `W_low`                                                                      |
-| `G_mid`           |       8 | Lượng gas thanh toán cho các hoạt động của bộ `W_mid`                                                                      |
-| `G_high`          |      10 | Lượng gas thanh toán cho các hoạt động của bộ `W_high`                                                                     |
-| `G_blockhash`     |      20 | Khoản thanh toán cho một hoạt động `BLOCKHASH`                                                                             |
-| `G_extcode`       |     700 | Lượng gas thanh toán cho các hoạt động của bộ `W_extcode`                                                                  |
-| `G_balance`       |     700 | Lượng gas thanh toán cho một hoạt động `BALANCE`                                                                           |
-| `G_sload`         |     800 | Lượng gas thanh toán cho một hoạt động `SLOAD`                                                                             |
-| `G_jumpdest`      |       1 | Lượng gas thanh toán cho một hoạt động `JUMPDEST`                                                                          |
-| `G_sset`          |   20000 | Lượng gas thanh toán cho một hoạt động `SSTORE` khi giá trị lưu trữ được đặt từ số khác 0 sang số 0                        |
-| `G_sreset`        |    5000 | Lượng gas thanh toán cho một hoạt động `SSTORE` khi giá trị lưu trữ giữ nguyên không đổi ở mức 0 hoặc được đặt thành 0     |
-| `R_sclear`        |   15000 | Khoản hoàn tiền đã được thực hiện \(được thêm vào bộ đếm hoàn tiền\) khi giá trị lưu trữ được đặt từ số khác 0 sang số 0 |
-| `R_selfdestruct`  |   24000 | Khoản hoàn tiền đã thực hiện \(được thêm vào bộ đếm hoàn tiền\) cho việc tự hủy một tài khoản                            |
-| `G_selfdestruct`  |    5000 | Lượng gas thanh toán cho một hoạt động `SELFDESTRUCT`                                                                      |
-| `G_create`        |   32000 | Lượng gas thanh toán cho một hoạt động `CREATE`                                                                            |
-| `G_codedeposit`   |     200 | Lượng gas thanh toán cho mỗi byte cho một hoạt động `CREATE` thành công trong việc đặt mã vào trạng thái                   |
-| `G_call`          |     700 | Lượng gas thanh toán cho một hoạt động `CALL`                                                                              |
-| `G_callvalue`     |    9000 | Lượng gas thanh toán một giao dịch chuyển giá trị khác 0 như một phần của hoạt động `CALL`                                 |
-| `G_callstipend`   |    2300 | Khoản trợ cấp cho hợp đồng được gọi ra, được trừ khỏi `G_callvalue` đối với giao dịch chuyển giá trị khác 0                |
-| `G_newtài khoản`  |   25000 | Lượng gas thanh toán cho một hoạt động `CALL` hoặc `SELFDESTRUCT` tạo ra một tài khoản                                     |
-| `G_exp`           |      10 | Khoản thanh toán một phần cho một hoạt động `EXP`                                                                          |
-| `G_expbyte`       |      50 | Khoản thanh toán một phần khi nhân với `ceil(log_256(exponent))` cho một hoạt động `EXP`                                   |
-| `G_memory`        |       3 | Lượng gas thanh toán cho mỗi một từ bổ sung khi mở rộng bộ nhớ                                                             |
-| `G_txcreate`      |   32000 | Lượng gas được trả bởi tất cả các giao dịch tạo hợp đồng                                                                   |
-| `G_txdatazero`    |       4 | Lượng gas thanh toán cho mỗi byte 0 của dữ liệu hoặc mã cho một giao dịch                                                  |
-| `G_txdatanonzero` |      68 | Lượng gas thanh toán cho mỗi byte khác 0 của dữ liệu hoặc mã cho một giao dịch                                             |
-| `G_transaction`   |   21000 | Lượng gas thanh toán cho mỗi giao dịch                                                                                     |
-| `G_log`           |     375 | Khoản thanh toán một phần cho một hoạt động `LOG`                                                                          |
-| `G_logdata`       |       8 | Lượng gas thanh toán cho mỗi byte trong dữ liệu của một hoạt động `LOG`                                                    |
-| `G_logtopic`      |     375 | Lượng gas thanh toán cho mỗi chủ đề của một hoạt động `LOG`                                                                |
-| `G_sha3`          |      30 | Lượng gas thanh toán cho từng hoạt động `SHA3`                                                                             |
-| `G_sha3word`      |       6 | Lượng gas thanh toán cho từng từ \(được làm tròn\) cho dữ liệu nhập vào một hoạt động `SHA3`                             |
-| `G_copy`          |       3 | Thanh toán một phần cho các hoạt động `COPY`, nhân lên theo số từ được sao chép, được làm tròn                             |
-| `G_extcodehash`   |     700 | Được trả cho việc nhận hàm băm `keccak256` của mã hợp đồng                                                                 |
-| `G_create2`       |   32000 | Được trả cho mã vận hành `CREATE2`, hoạt động giống hệt như CREATE nhưng dùng những đối số khác                            |
+##### Items to calculate the precompiled contracts gas
+Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
-Chúng tôi xác định những tập hợp con gồm những chỉ thị sau:
+For example, gas cost can be calculated simply like below, but some gas cost calculation functions are very complex. So I would not explain the exact gas cost calculation function here.
 
-* `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`, `BASEFEE`}
-* `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
-* `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE`}
-* `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}
-* `W_high` = {`JUMPI`}
-* `W_extcode` = {`EXTCODESIZE`}
+```text
+# ecrecover, sha256hash, ripemd160hash, dataCopy
+Gas = XXXBaseGas + (number of words * XXXPerWordGas)
 
-#### Chi phí gas <a id="gas-cost"></a>
+# validateSender
+Gas = number of signatures * ValidateSenderGas
+```
 
-Hàm chi phí gas chung, `C`, được xác định như sau:
+| Address | Precompiled contracts | Item                                         | Value        |
+|:------- |:--------------------- |:-------------------------------------------- |:------------ |
+| 0x01    | ecrecover             | EcrecoverGas                                 | 3000         |
+| 0x02    | sha256hash            | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |
+| 0x03    | ripemd160hash         | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |
+| 0x04    | dataCopy              | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |
+| 0x05    | bigModExp             | ModExpQuadCoeffDiv                           | 20 | ​       |
+| 0x06    | bn256Add              | Bn256AddGas                                  | 150          |
+| 0x07    | bn256ScalarMul        | Bn256ScalarMulGas                            | 6000         |
+| 0x08    | bn256Pairing          | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |
+| 0x09    | blake2f               | -                                            | -            |
+| 0xFD    | vmLog                 | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |
+| 0xFE    | feePayer              | FeePayerGas                                  | 300          |
+| 0xFF    | validateSender        | ValidateSenderGas                            | 5000         |
 
-`C(S_system, S_machine, I) := C_mem(S_machine,i') - C_mem(S_machine, i) +`
+#### Gas calculation during contract execution <a id="gas-calculation-during-contract-execution"></a>
+The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
 
-* `C_SSTORE(S_system, S_machine)`, if `w == SSTORE`
-* `G_exp`, if `(w == EXP) && (S_machine[1] == 0)`
-* `G_exp + G_expbyte x (1 + floor(log_256(S_machine,sp[1])))`,
+Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
 
-  if `(w == EXP) && (S_machine,sp[1] > 0)`
-
-* `G_verylow + G_copy x ceil(S_machine,sp[2] / 32)`,
-
-  if `w == CALLDATACOPY || CODECOPY || RETURNDATACOPY`
-
-* `G_extcode + G_copy x ceil(S_machine,sp[3] / 32)`,
-
-  if `w == EXTCODECOPY`
-
-* `G_log + G_logdata x S_machine,sp[1]`,
-
-  if `w == LOG0`
-
-* `G_log + G_logdata x S_machine,sp[1] + G_logtopic`,
-
-  if `w == LOG1`
-
-* `G_log + G_logdata x S_machine,sp[1] + 2 x G_logtopic`,
-
-  if `w == LOG2`
-
-* `G_log + G_logdata x S_machine,sp[1] + 3 x G_logtopic`,
-
-  if `w == LOG3`
-
-* `G_log + G_logdata x S_machine,sp[1] + 4 x G_logtopic`,
-
-  if `w == LOG4`
-
-* `C_CALL(S_system, S_machine)`,
-
-  if `w == CALL || CALLCODE || DELEGATECALL`
-
-* `C_SELFDESTRUCT(S_system, S_machine)`,
-
-  if `w == SELFDESTRUCT`
-
-* `G_create`, if `w == CREATE`
-* `G_sha3 + G_sha3word x ceil(s[1] / 32)`,
-
-  if `w == SHA3`
-
-* `G_jumpdest`, if `w == JUMPDEST`
-* `G_sload`, if `w == SLOAD`
-* `G_zero`, if `w` in `W_zero`
-* `G_base`, if `w` in `W_base`
-* `G_verylow`, if `w` in `W_verylow`
-* `G_low`, if `w` in `W_low`
-* `G_mid`, if `w` in `W_mid`
-* `G__high</sub>`, if `w` in `W_high`
-* `G_extcode`, if `w` in `W_extcode`
-* `G_balance`, if `w == BALANCE`
-* `G_blockhash`, if `w == BLOCKHASH`
-* where `w` is
-  * `T_code[S_machine,pc]`,
-
-    if `S_machine,pc < length(T_code)`
-
-  * `STOP`, otherwise
-* where `C_mem(a) := G_memory x a + floor(a^2 / 512)`
-
-với `C_CALL`, `C_SELFDESTRUCT` và `C_SSTORE` sẽ được mô tả trong tương lai.
+* add `constantGas` defined in each opcode to gas
+  * e.g. if an opcode is `MUL`, add `G_low` to gas
+  * e.g. if an opcode is `CREATE2`, add `G_create` to gas
+* add the gas which is calculated through additionally defined gas calculation method
+  * For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
+  * For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
+  * For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
+  * For `EXTCODECOPY`,
+    * add `wordSize(stack.back(3)) x G_copy` to gas
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
+  * For `EXTCODESIZE` or `EXTCODEHASH` or `BALANCE`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
+  * For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
+  * For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
+  * For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit` to gas
+  * For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit` to gas
+  * For `SSTORE`,
+    * [**_eip2929_**]  If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * If it just reads the slot (no-op), add `G_warmStorageReadCost` to gas
+    * If it creates a new slot, add `G_sset` to gas
+    * If it deletes the slot, add `G_sreset-G_coldSloadCost` to gas and add `R_sclear` to refund
+    * If it recreates the slot once exists before, add `G_warmStorageReadCost` to gas and subtract `R_sclear` from refund
+    * If it deletes the slot once exists before, add `R_sclear` to refund
+    * If it resets to the original inexistent slot, add `G_warmStorageReadCost` to gas and add `G_sset - G_warmStorageReadCost` to refund
+    * IF it resets to the original existing slot, add `G_warmStorageReadCost` to gas and add `G_sreset - G_coldSloadCost - G_warmStorageReadCost` to refund
+  * For `SLOAD`,
+    * [**_eip2929_**] If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * [**_eip2929_**] If a slot(contractAddr, slot) is in AccessList, add `G_warmStorageReadCost` to gas
+  * For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
+    * if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
+    * if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    * add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
+  * For `SELFDESTRUCT`,
+    * [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    * if it transfers value and if is a new account, add `G_newaccount` to gas
 
 ### Môi trường thực thi <a id="execution-environment"></a>
 
@@ -279,7 +269,7 @@ Do đó, `X` được quay vòng \(ở đây là đệ quy, nhưng việc triể
 
 Trạng thái của máy `S_machine` được định nghĩa là một tuple `(g, pc, memory, i, stack)`, thể hiện lượng gas khả dụng, bộ đếm chương trình `pc` \(số nguyên không dấu 64 bit\), nội dung bộ nhớ, số lượng từ đang hoạt động trong bộ nhớ \(đếm liên tục từ vị trí 0\) và nội dung của ngăn xếp dữ liệu. Nội dung bộ nhớ `S_machine,memory` là một chuỗi các số 0 có kích thước 2^256.
 
-Để dễ đọc, phần thủ thuật ghi nhớ chỉ thị ghi bằng chữ hoa nhỏ \(_ví dụ_: `ADD`\) nên được hiểu là chỉ số đương lượng của chúng; bảng chỉ thị đầy đủ và chi tiết cụ thể của chúng được nêu trong phần [Bộ chỉ thị](klaytn-virtual-machine.md#instruction-set).
+For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine#instruction-set) section.
 
 Để xác định `Z`, `H` và `O`, chúng tôi xác định `w` là hoạt động hiện tại cần được thực thi:
 
