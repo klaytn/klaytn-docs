@@ -1,26 +1,31 @@
 # Klaytn 가상머신 <a id="klaytn-virtual-machine"></a>
 
+{% hint style="success" %}
+NOTE: This document contains the KLVM used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
+{% endhint %}
+
 ## Overview <a id="overview"></a>
 
-Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 쓸 수 있도록 할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점 그리고 KLVM 사양에 대해 설명합니다.
+The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
 
-KLVM은 공식적으로 Klaytn의 실행 모델을 지칭합니다. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM은 준 튜링 완전 머신(quasi-Turing-complete machine)입니다. '준(quasi)'은 KLVM에서의 연산이 총 연산의 양을 제한할 수 있는 가스라는 매개변수의 제한을 받기 때문에 붙입니다.
+KLVM is a virtual state machine that formally specifies Klaytn's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
 
-KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 가상 머신 코드를 실행합니다. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
+KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
 
 ## KLVM 사양 <a id="klvm-specification"></a>
 
 ### 표기 규칙 <a id="conventions"></a>
 
-이 문서에서는 다음과 같은 표기법과 규칙을 사용합니다.
+We use the following notations and conventions in this document.
 
 * `A := B`
   * ` : = ` ` A를 <code> B로 ` 정의하는 데 사용됩니다.</code>
 * "스마트 컨트랙트"와 "컨트랙트"라는 용어를 번갈아 사용합니다.
+* We use the terms "opcode" as the "operation code/operation"
 
 ### 기호 <a id="symbols"></a>
 
-다음 표는 KLVM 사양에 사용된 기호를 요약한 것입니다.
+The following tables summarize the symbols used in the KLVM specification.
 
 #### 블록체인 관련 기호 <a id="blockchain-related-symbols"></a>
 
@@ -74,151 +79,125 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 
 ### 기본 사항 <a id="basics"></a>
 
-KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(또는 스택 항목의 크기)는 256 비트입니다. 이것은 Keccak-256 해시 체계와 타원 곡선 계산을 쉽게 하기 위해 선택되었습니다. 메모리 모델은 간단한 word-addressed byte array입니다. 스택의 최대 크기는 1024입니다. 머신에는 독립 스토리지 모델도 있습니다. 이것은 개념적으로 메모리와 유사하지만 byte array가 아니라 word-addressable word array입니다. 휘발성인 메모리와 달리 스토리지는 비휘발성이며 시스템 상태의 일부로 유지됩니다. 스토리지와 메모리의 모든 위치는 처음에 0으로 정의되어 있습니다.
+KLVM is a simple stack-based architecture. The word size of the machine \(and thus the size of stack items\) is 256-bit. This was chosen to facilitate the Keccak-256 hash scheme and the elliptic-curve computations. The memory model is a simple word-addressed byte array. The stack has a maximum size of 1024. The machine also has an independent storage model; this is similar in concept to the memory but rather than a byte array, it is a word-addressable word array. Unlike memory, which is volatile, storage is nonvolatile and is maintained as part of the system state. All locations in both storage and memory are initially well-defined as zero.
 
-머신은 표준 폰 노이만 아키텍처를 따르지 않습니다. 일반적으로 액세스 가능한 메모리나 스토리지에 프로그램 코드를 저장하는 대신 코드는 가상 읽기 전용 메모리(virtual read-only memory)에 별도로 저장되며 특수한 명령을 통해서만 상호 작용할 수 있습니다.
+The machine does not follow the standard von Neumann architecture. Rather than storing program code in generally accessible memory or storage, code is stored separately in virtual read-only memory and can be interacted with only through specialized instructions.
 
-머신은 스택 언더 플로우와 유효하지 않은 명령어를 포함하여 몇 가지 이유로 예외 코드를 실행할 수 있습니다. Out-of-gas exception과 유사하게, 이런 예외는 상태가 변경된 채로 두지 않습니다. 오히려, 가상 머신이 즉시 정지되고 실행 에이전트 \(트랜잭션 프로세서 또는 재귀적으로 실행 환경에\)에 문제를 보고합니다.
+The machine can execute exception code for several reasons, including stack underflows and invalid instructions. Similar to an out-of-gas exception, these exceptions do not leave state changes intact. Rather, the virtual machine halts immediately and reports the issue to the execution agent \(either the transaction processor or, recursively, the spawning execution environment\), which will be addressed separately.
 
 ### 트랜잭션 수수료 개요 <a id="fees-overview"></a>
 
-세 가지 상황에서 비용(가스로 표시)이 부과되며, 세 가지 모두 연산 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 비용은 연산 자체에 부과되는 비용입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 비용 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
+Fees \(denominated in gas\) are charged under three distinct circumstances.
+* The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
+* Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
+* Finally, gas may be charged due to an increase in memory usage.
 
-계정 실행시 메모리 사용 가능 지불(memory-usage payable)에 대해 지불해야하는 총 비용은 해당 범위의 모든 메모리 인덱스(읽기 또는 쓰기)를 포함하는데 필요한 32 바이트의 최소 배수에 비례합니다. 이 수수료는 실행 시점에 지불됩니다. 따라서 이전에 색인된 메모리보다 최소 32 바이트 더 큰 메모리 영역을 참조하면 추가 메모리 사용 요금이 발생합니다. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
+Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
 
-스토리지 수수료에는 약간의 차이가 있습니다. 스토리지 사용을 최소화하는 것을 장려하기 위해 (스토리지를 많이 사용한다는 것은 모든 노드에 더 큰 상태 데이터베이스가 있어야 한다는 뜻) 스토리지에서 항목을 지우는 작업으로 실행 수수료를 면제 뿐 아니라 정책에 따라 환불을 받을 수도 있습니다. 저장 위치를  최초 사용하는 것이 일반적인 사용보다 실질적으로 많은 비용이 들기 때문에 이 환불은 사실상 사전에 지불됩니다.
+Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
 #### 비용표 <a id="fee-schedule"></a>
+The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes. For other tables such as `intrinsic gas cost` or `key validation gas cost`, please refer to [this document](./../../transaction-fees/transaction-fees.md)
 
-비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](./../../transaction-fees/transaction-fees.md#klaytns-gas-table)
+##### Scalar values representing `constantGas` of an opcode
+| Name            |     값 |   Name in code | Opcodes                                                                                                                                                                                                    |
+|:--------------- | -----:| --------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `G_base`        |     2 |   GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br> `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS` |
+| `G_verylow`     |     3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, </br> `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, </br> `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`                                 |
+| `G_low`         |     5 |    GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`                                                                                                                                                          |
+| `G_mid`         |     8 |     GasMidStep | `ADDMOD`, `MULMOD`, `JUMP`                                                                                                                                                                                 |
+| `G_high`        |    10 |    GasSlowStep | `JUMPI`                                                                                                                                                                                                    |
+| `G_blockhash`   |    20 |     GasExtStep | `BLOCKHASH`                                                                                                                                                                                                |
+| `G_balance`     |   400 |     BalanceGas | `BALANCE`                                                                                                                                                                                                  |
+| `G_sload`       |   200 |       SloadGas | `SLOAD`                                                                                                                                                                                                    |
+| `G_jumpdest`    |     1 |    JumpdestGas | `JUMPDEST`                                                                                                                                                                                                 |
+| `G_sha3`        |    30 |        Sha3Gas | `SHA3`                                                                                                                                                                                                     |
+| `G_call`        |   700 |        CallGas | `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL`                                                                                                                                                           |
+| `G_create`      | 32000 |      CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                        |
+| `G_extcodesize` |   700 | ExtcodeSizeGas | `EXTCODESIZE`                                                                                                                                                                                              |
+| `G_extcodehash` |   400 | ExtcodeHashGas | `EXTCODEHASH`                                                                                                                                                                                              |
 
-{% hint style="success" %}
-NOTE: This document contains the fee schedule used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
-{% endhint %}
+##### Scalar values used to calculate the gas based on memory and log usage
+| Name         | Value | Name in Code | Description                                                                   |
+|:------------ | -----:| ------------:|:----------------------------------------------------------------------------- |
+| `G_memory`   |     3 |    MemoryGas | Amount of gas paid for every additional word when expanding memory            |
+| `G_copy`     |     3 |      CopyGas | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
+| `G_log`      |   375 |       LogGas | Partial payment for a `LOG` operation                                         |
+| `G_logdata`  |     8 |   LogDataGas | Amount of gas paid for each byte in a `LOG` operation's data                  |
+| `G_logtopic` |   375 |  LogTopicGas | Amount of gas paid for each topic of a `LOG` operation                        |
 
-| Name              |     값 | Description                                                 |
-|:----------------- | -----:|:----------------------------------------------------------- |
-| `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                              |
-| `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                |
-| `G_verylow`       |     3 | Set `W_verylow` 연산을 위해 지불하는 가스량                             |
-| `G_low`           |     5 | Set `W_low` 연산을 위해 지불하는 가스량                                 |
-| `G_mid`           |     8 | Set `W_mid` 연산을 위해 지불하는 가스량                                 |
-| `G_high`          |    10 | Set `W_high` 연산을 위해 지불하는 가스량                                |
-| `G_blockhash`     |    20 | `BLOCKHASH` 연산을 위해 지불하는 가스량                                 |
-| `G_extcode`       |   700 | Set `W_extcode` 연산을 위해 지불하는 가스량                             |
-| `G_balance`       |   400 | `BALANCE` 연산을 위해 지불하는 가스량                                   |
-| `G_sload`         |   200 | `SLOAD` 연산을 위해 지불하는 가스량                                     |
-| `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                  |
-| `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량  |
-| `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량   |
-| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)           |
-| `R_selfdestruct`  | 24000 | 계정 self-destructing시 반환되는 가스량(반환 카운터가 추가됨)                  |
-| `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                              |
-| `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                    |
-| `G_codedeposit`   |   200 | 상태에 코드를 삽입하는 `CREATE` 연산 시 바이트당 지불되는 가스량입니다.                |
-| `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                      |
-| `G_callvalue`     |  9000 | 0가 아닌 값을 전송할 때 `CALL` 연산의 일부로 지불되는 가스량                      |
-| `G_callstipend`   |  2300 | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 `G_callvalue`에서 차감된 금액   |
-| `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량             |
-| `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                          |
-| `G_expbyte`       |    50 | `ceil(log_256(exponent))`가 곱해졌을 때 `EXP` 연산에 대한 부분 지불        |
-| `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                           |
-| `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                |
-| `G_txdatazero`    |     4 | 0바이트의 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                           |
-| `G_txdatanonzero` |    68 | 0바이트가 아닌 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                        |
-| `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                           |
-| `G_log`           |   375 | `LOG` 연산에 대한 부분 지불하는 가스량                                    |
-| `G_logdata`       |     8 | `LOG` 연산의 데이터의 각 바이트마다 지불되는 가스량                             |
-| `G_logtopic`      |   375 | `LOG` 연산의 각 topic마다 지불되는 가스량                                |
-| `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                   |
-| `G_sha3word`      |     6 | `SHA3` 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                |
-| `G_copy`          |     3 | `COPY` 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                   |
-| `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                     |
-| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량 |
+##### Scalar values used to calculate the gas of the particular opcode
+| Name             | Value | Name in Code                   | Description                                                                                                                    |
+|:---------------- | -----:| ------------------------------ |:------------------------------------------------------------------------------------------------------------------------------ |
+| `G_sset`         | 20000 | SstoreSetGas                   | Amount of gas paid when the storage value when set storage                                                                     |
+| `G_sreset`       |  5000 | SstoreResetGas, SstoreClearGas | Amount of gas paid when the storage value remains unchanged at zero or is set to zero                                          |
+| `R_sclear`       | 15000 | SstoreRefundGas                | Refund Gas given \(added to the refund counter\) when the storage value is set to zero from nonzero                          |
+| `G_exp`          |    10 | ExpGas                         | Partial payment                                                                                                                |
+| `G_expbyte`      |    50 | ExpByte                        | Partial payment when multiplied by `ceil(log_256(exponent))`                                                                   |
+| `G_selfdestruct` |  5000 | SelfdestructGas                | Amount of gas paid for a `SELFDESTRUCT` operation                                                                              |
+| `R_selfdestruct` | 24000 | SelfdestructRefundGas          | Refund Gas given \(added to the refund counter\) for self-destructing an account                                             |
+| `G_callvalue`    |  9000 | CallValueTransferGas           | Amount of gas paid for a nonzero value transfer                                                                                |
+| `G_callstipend`  |  2300 | CallStipend                    | Free gas given at beginning of call for a nonzero value transfer                                                               |
+| `G_newaccount`   | 25000 | CallNewAccountGas              | Amount of gas paid when creating an account. It is also be defined as `CreateBySelfdestructGas` with `SELFDESTRUCT` operation. |
+| `G_codedeposit`  |   200 | CreateDataGas                  | Amount of gas paid per byte for a creating a contract that succeeds in placing code into state                                 |
+| `G_sha3word`     |     6 | Sha3WordGas                    | Amount of gas paid for each word \(rounded up\) for an `SHA3` input data                                                     |
 
-다음과 같이 명령어의 subset을 정의합니다.
+##### Items to calculate the precompiled contracts gas
+Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
-* `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`}
-* `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
-* `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`}
-* `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}
-* `W_high` = {`JUMPI`}
-* `W_extcode` = {`EXTCODESIZE`}
+For example, gas cost can be calculated simply like below, but some gas cost calculation functions are very complex. So I would not explain the exact gas cost calculation function here.
 
-#### 가스 비용 <a id="gas-cost"></a>
+```text
+# ecrecover, sha256hash, ripemd160hash, dataCopy
+Gas = XXXBaseGas + (number of words * XXXPerWordGas)
 
-일반적인 가스 비용 함수, `C`는 다음과 같이 정의됩니다.
+# validateSender
+Gas = number of signatures * ValidateSenderGas
+```
 
-`C(S_system, S_machine, I) := C_mem(S_machine,i') - C_mem(S_machine, i) +`
+| Address | Precompiled contracts | Item                                         | Value        |
+|:------- |:--------------------- |:-------------------------------------------- |:------------ |
+| 0x01    | ecrecover             | EcrecoverGas                                 | 3000         |
+| 0x02    | sha256hash            | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |
+| 0x03    | ripemd160hash         | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |
+| 0x04    | dataCopy              | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |
+| 0x05    | bigModExp             | ModExpQuadCoeffDiv                           | 20 | ​       |
+| 0x06    | bn256Add              | Bn256AddGas                                  | 150          |
+| 0x07    | bn256ScalarMul        | Bn256ScalarMulGas                            | 6000         |
+| 0x08    | bn256Pairing          | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |
+| 0x09    | vmLog                 | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |
+| 0x10    | feePayer              | FeePayerGas                                  | 300          |
+| 0x11    | validateSender        | ValidateSenderGas                            | 5000         |
 
-* `C_SSTORE(S_system, S_machine)`, if `w == SSTORE`
-* `G_exp`, if `(w == EXP) && (S_machine[1] == 0)`
-* `G_exp + G_expbyte x (1 + floor(log_256(S_machine,sp[1])))`,
+#### Gas calculation during contract execution <a id="gas-calculation-during-contract-execution"></a>
+The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
 
-  if `(w == EXP) && (S_machine,sp[1] > 0)`
+Below is a brief explanation of the gas calculation logic during contract execution using the fee schedule variables defined above. As it assumes a general situation, unusual situations such as revert appears is not considered.
 
-* `G_verylow + G_copy x ceil(S_machine,sp[2] / 32)`,
-
-  if `w == CALLDATACOPY || CODECOPY || RETURNDATACOPY`
-
-* `G_extcode + G_copy x ceil(S_machine,sp[3] / 32)`,
-
-  if `w == EXTCODECOPY`
-
-* `G_log + G_logdata x S_machine,sp[1]`,
-
-  if `w == LOG0`
-
-* `G_log + G_logdata x S_machine,sp[1] + G_logtopic`,
-
-  if `w == LOG1`
-
-* `G_log + G_logdata x S_machine,sp[1] + 2 x G_logtopic`,
-
-  if `w == LOG2`
-
-* `G_log + G_logdata x S_machine,sp[1] + 3 x G_logtopic`,
-
-  if `w == LOG3`
-
-* `G_log + G_logdata x S_machine,sp[1] + 4 x G_logtopic`,
-
-  if `w == LOG4`
-
-* `C_CALL(S_system, S_machine)`,
-
-  if `w == CALL || CALLCODE || DELEGATECALL`
-
-* `C_SELFDESTRUCT(S_system, S_machine)`,
-
-  if `w == SELFDESTRUCT`
-
-* `G_create`, if `w == CREATE`
-* `G_sha3 + G_sha3word x ceil(s[1] / 32)`,
-
-  if `w == SHA3`
-
-* `G_jumpdest`, if `w == JUMPDEST`
-* `G_sload`, if `w == SLOAD`
-* `G_zero`, if `w` in `W_zero`
-* `G_base`, if `w` in `W_base`
-* `G_verylow`, if `w` in `W_verylow`
-* `G_low`, if `w` in `W_low`
-* `G_mid`, if `w` in `W_mid`
-* `G__high</sub>`, if `w` in `W_high`
-* `G_extcode`, if `w` in `W_extcode`
-* `G_balance`, if `w == BALANCE`
-* `G_blockhash`, if `w == BLOCKHASH`
-* where `w` is
-  * `T_code[S_machine,pc]`,
-
-    if `S_machine,pc < length(T_code)`
-
-  * `STOP`, otherwise
-* where `C_mem(a) := G_memory x a + floor(a^2 / 512)`
-
-`C_CALL`, `C_SELFDESTRUCT` 그리고 `C_SSTORE`는 앞으로 설명이 추가될 예정입니다.
+* add `constantGas` defined in each opcode to gas
+  * e.g. if an opcode is `MUL`, add `G_low` to gas
+  * e.g. if an opcode is `CREATE2`, add `G_create` to gas
+* add the gas which is calculated through additionally defined gas calculation method
+  * For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
+  * For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
+  * For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
+  * For `EXTCODECOPY`, add `wordSize(stack.back(3)) x G_copy` to gas
+  * For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
+  * For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
+  * For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit`
+  * For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit` to gas
+  * For `SSTORE`,
+    * From a zero-value address to a non-zero value (NEW VALUE), add `G_sset` to gas
+    * From a non-zero value address to a zero-value address (DELETE), add `G_sreset` to gas and add `R_sclear` to refund
+    * From a non-zero to a non-zero (CHANGE), add `G_sreset` to gas
+  * For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
+    * if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
+    * if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
+    * if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    * add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
+  * For `SELFDESTRUCT`,
+    * if it transfers value and if is a new account, add `G_newaccount` to gas
+    * if the contract has not suicided yet, add `R_selfdestruct` to refund
 
 ### 실행 환경 <a id="execution-environment"></a>
 
@@ -275,7 +254,7 @@ where
 
 머신 상태 `S_machine`는 튜플 `(g, pc, memory, i, stack)`로 정의됩니다. 이는 사용 가능한 가스량, 프로그램 카운터 `pc` \(64-bit unsigned integer\), 메모리 컨텐츠(memory contents,), 현재 메모리에 있는 단어 수(position 0부터 계속 카운팅), 스택 컨텐츠(stack contents)를 의미합니다. 메모리 컨텐츠 `S_machine,memory`는 사이즈가 2^256이며 0으로 이루어진 series입니다.
 
-읽기 쉽도록 작은 대문자로 작성된 명령어 니모닉\(_eg_, `ADD`\)은 동등한 숫자로 해석되어야 합니다. 전체 명령어과 세부 사항은 [명령어 세트(Instruction Set)](klaytn-virtual-machine.md#instruction-set)에 나와 있습니다.
+For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine-previous.md#instruction-set) section.
 
 `Z`, `H`와 `O`를 정의하기 위해, `w`를 실행할 현재 연산으로 정의합니다.
 
