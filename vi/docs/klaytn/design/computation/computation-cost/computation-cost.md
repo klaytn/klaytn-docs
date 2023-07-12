@@ -19,11 +19,11 @@ Vì thế, chúng tôi đã chọn phương án thứ ba cho Klaytn. Hiện tạ
 Bảng dưới đây cho thấy chi phí tính toán của các mã vận hành EVM. Chi phí tính toán được xác định dựa trên các thử nghiệm.
 
 {% hint style="success" %}
-LƯU Ý: Chi phí tính toán đã thay đổi cùng với việc nâng cấp giao thức `IstanbulEVM` hay còn gọi là "hard fork". Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](computation-cost-previous.md).
+NOTE: Computation costs have changed with the `Kore` hardfork. Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](computation-cost-previous.md).
 
-Số khối nâng cấp giao thức `IstanbulEVM` như sau.
-* Mạng thử nghiệm Baobab: `#75373312`
-* Mạng chính thức Cypress: `#86816005`
+`Kore` hardfork block numbers are as follows.
+* Baobab Testnet: `#111736800`
+* Cypress Mainnet: `#119750400`
 {% endhint %}
 
 | Mã vận hành    | ComputationCost |
@@ -75,7 +75,7 @@ Số khối nâng cấp giao thức `IstanbulEVM` như sau.
 | COINBASE       |             189 |
 | TIMESTAMP      |             265 |
 | NUMBER         |             202 |
-| DIFFICULTY     |             180 |
+| PREVRANDAO     |            1498 |
 | GASLIMIT       |             166 |
 | CHAINID        |             120 |
 | SELFBALANCE    |             374 |
