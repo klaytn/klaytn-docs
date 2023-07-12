@@ -74,7 +74,7 @@ Một _hợp đồng thông minh_ bao gồm một tập hợp các mã \(hàm\) 
 
 ### Tạo hợp đồng thông minh <a id="creating-smart-contracts"></a>
 
-Một hợp đồng thông minh có thể được tạo ra trong chuỗi khối Klaytn bằng cách gửi một giao dịch đến một địa chỉ trống với dữ liệu ở dạng nhị phân. Dữ liệu nhị phân có thể có nhiều định dạng; tuy nhiên, hiện tại Klaytn hỗ trợ một định dạng nhị phân là bytecode EVM. Bạn cần lưu ý rằng giao dịch này bắt buộc phải trả phí thực thi. Số dư tài khoản của tài khoản người gửi sẽ bị khấu trừ dựa trên mô hình phí giao dịch sau khi giao dịch được lưu trữ vào một khối. Sau một thời gian, giao dịch sẽ xuất hiện trong một khối, điều này xác nhận rằng trạng thái mà nó cần có đã đạt được sự đồng thuận. Tại thời điểm này, hợp đồng thông minh đã tồn tại trong chuỗi khối Klaytn.
+Một hợp đồng thông minh có thể được tạo ra trong chuỗi khối Klaytn bằng cách gửi một giao dịch đến một địa chỉ trống với dữ liệu ở dạng nhị phân. Dữ liệu nhị phân có thể có nhiều định dạng; tuy nhiên, hiện tại Klaytn hỗ trợ một định dạng nhị phân là bytecode EVM. Bạn cần lưu ý rằng giao dịch này bắt buộc phải trả phí thực thi. Số dư tài khoản của tài khoản người gửi sẽ bị khấu trừ dựa trên mô hình phí giao dịch sau khi giao dịch được lưu trữ vào một khối. Sau một thời gian, giao dịch sẽ xuất hiện trong một khối, điều này xác nhận rằng trạng thái mà nó cần có đã đạt được sự đồng thuận. Tại thời điểm này, hợp đồng thông minh đã tồn tại trong chuỗi khối Klaytn. As [eip-3541](https://eips.ethereum.org/EIPS/eip-3541) is brought at the Kore hardfork, deployment of a new code starting with the 0xEF byte is not allowed.
 
 ### Thực thi hợp đồng thông minh <a id="executing-smart-contracts"></a>
 
