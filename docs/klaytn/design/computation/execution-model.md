@@ -74,7 +74,7 @@ A _smart contract_ consists of a collection of code \(functions\) and data \(sta
 
 ### Creating Smart Contracts <a id="creating-smart-contracts"></a>
 
-A smart contract can be created in the Klaytn blockchain by sending a transaction to an empty address with the binary as data. The binary can be in various formats; however, Klaytn currently supports one binary format, EVM bytecode. It is worth pointing out that this transaction requires a payment for execution. The account balance on the sender's account will be reduced according to the transaction fee model after the transaction has been stored in a block. After some time, the transaction should appear in a block, which confirms that the state it entails reached a consensus. At this point, the smart contract now exists in the Klaytn blockchain.
+A smart contract can be created in the Klaytn blockchain by sending a transaction to an empty address with the binary as data. The binary can be in various formats; however, Klaytn currently supports one binary format, EVM bytecode. It is worth pointing out that this transaction requires a payment for execution. The account balance on the sender's account will be reduced according to the transaction fee model after the transaction has been stored in a block. After some time, the transaction should appear in a block, which confirms that the state it entails reached a consensus. At this point, the smart contract now exists in the Klaytn blockchain. As [eip-3541](https://eips.ethereum.org/EIPS/eip-3541) is brought at the Kore hardfork, deployment of a new code starting with the 0xEF byte is not allowed.
 
 ### Executing Smart Contracts <a id="executing-smart-contracts"></a>
 
