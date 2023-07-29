@@ -4,7 +4,7 @@
 
 KLAY là loại tiền kỹ thuật số chính và có thể chuyển nhượng nội bộ của Klaytn và được dùng để thanh toán phí giao dịch khi tạo hoặc thực thi hợp đồng thông minh, hoặc khi chuyển khoản KLAY.
 
-KLAY là một phần tử cần thiết – một dạng nhiên liệu – để vận hành nền tảng ứng dụng phân tán Klaytn. Đây là một hình thức thanh toán được khách hàng của nền tảng sử dụng để thanh toán cho các nút đồng thuận \(CN\) thực thi các hoạt động được yêu cầu. Nói cách khác, KLAY là một dạng khuyến khích; nó đảm bảo rằng các nhà phát triển viết ra các ứng dụng chất lượng cao \(mã lãng phí tốn nhiều chi phí hơn\) và mạng luôn hoạt động hiệu quả \(CN và RN nhận được thù lao cho các tài nguyên mà họ đóng góp\).
+KLAY là một phần tử cần thiết – một dạng nhiên liệu – để vận hành nền tảng ứng dụng phân tán Klaytn. Đây là một hình thức thanh toán được khách hàng của nền tảng sử dụng để thanh toán cho các nút đồng thuận \(CN\) thực thi các hoạt động được yêu cầu. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
 
 ## Các đơn vị của KLAY <a id="units-of-klay"></a>
 
