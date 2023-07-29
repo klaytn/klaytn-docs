@@ -4,7 +4,7 @@
 
 KLAYはKlaytnの主な社内譲渡可能な暗号通貨であり、スマートコントラクトの作成または実行時またはKLAY転送時に取引手数料を支払うために使用されます。
 
-KLAYは、Klaytn 分散アプリケーションプラットフォームを動作させるために必要な要素である。 これは、要求された操作を実行するコンセンサスノードに対するプラットフォームのクライアントによる支払いの一形態です。 別の言い方をすると、KLAYはインセンティブです。 これにより、開発者は高品質なアプリケーションを書くことができます \(無駄なコードコストを上げる) し、ネットワークが健全な \(CNs、RNs が貢献するリソースに対して補償されます\)。
+KLAYは、Klaytn 分散アプリケーションプラットフォームを動作させるために必要な要素である。 これは、要求された操作を実行するコンセンサスノードに対するプラットフォームのクライアントによる支払いの一形態です。 To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
 
 ## KLAYの単位 <a id="units-of-klay"></a>
 
