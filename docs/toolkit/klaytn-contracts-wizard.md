@@ -1,4 +1,4 @@
-# Klaytn Contracts Wizard.
+# Klaytn Contracts Wizard
 
 # Introduction
 
@@ -17,9 +17,9 @@ Klaytn Contracts Wizard posits itself as the fastest and easiest way to write yo
 
 As it is, the Klaytn contracts wizard supports the following token standards:
 
-* [KIP7](https://kips.klaytn.foundation/KIPs/kip-7) — This is a fungible token standard for Klaytn. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
-* [KIP17](https://kips.klaytn.foundation/KIPs/kip-17) — This is a non-fungible token standard for Klaytn. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
-* [KIP37](https://kips.klaytn.foundation/KIPs/kip-37) — This is known as the multi-token standard for Klaytn, because it can represent both fungible and non-fungible tokens in a single smart contract.
+* [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) — This is a fungible token standard for Klaytn. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
+* [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) — This is a non-fungible token standard for Klaytn. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
+* [KIP-37](https://kips.klaytn.foundation/KIPs/kip-37) — This is known as the multi-token standard for Klaytn, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Klaytn contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/). 
 
@@ -52,11 +52,11 @@ Let’s get started!
 ### Prerequisites
 
 To follow along in this tutorial, the prerequisites are highlighted below:
-Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed. 
-Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
-[MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-.Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed. 
+* Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
+* [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+* RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
+* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 
 ### Getting Started
 This guide walks you through a simple implementation of an airdrop contract for KIP7 and KIP17 token standard. In the airdrop contract, the creator of the project mints each respective tokens directly to a certain selection of wallets. In the next sections, we will be looking at how to customize and deploy each token airdrop contract respectively. 
@@ -66,10 +66,10 @@ This guide walks you through a simple implementation of an airdrop contract for 
 **Customizing KIP7 contract to KIP7 Airdrop contract.** 
 You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below: 
 
-* Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
-* On the **Contracts** tab select **KIP7**
-* Next is to fill the name (KIP7 Token Airdrop) and symbol (KTA) in the **SETTINGS** tab. The pre-mint field is left empty
-* Subsequently on the **FEATURES** tab, tick the **Mintable** feature box, it then automatically selects the Ownable feature in **ACCESS CONTROL** tab. 
+1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
+2. On the **Contracts** tab select **KIP7**
+3. Next is to fill the name (KIP7 Token Airdrop) and symbol (KTA) in the **SETTINGS** tab. The pre-mint field is left empty
+4. Subsequently on the **FEATURES** tab, tick the **Mintable** feature box, it then automatically selects the Ownable feature in **ACCESS CONTROL** tab. 
 
 This is how Klaytn contracts wizard would look like after making these configurations:
 
@@ -143,10 +143,10 @@ Now that we have our KIP7 airdrop contract code ready, the next step is to creat
 
 You need to customize your KIP17 contract before modifying it to an airdrop contract. To do that, follow the steps below: 
 
-* Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/). 
-* On the **Contracts** tab select **KIP17**
-* Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
-* Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 
+1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/). 
+2. On the **Contracts** tab select **KIP17**
+3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
+4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 
  
 This is how Klaytn contracts wizard would look like after making these configurations:
 
@@ -241,10 +241,10 @@ Now that we have our KIP17 airdrop contract code ready, the next step is to crea
 
 Because KIP37 supports batch minting, we will only customize the contract and use it as it is. To customize our KIP37Contract, follow the steps below: 
 
-* Navigate to [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/) 
-On the **Contracts** tab select **KIP37**
-Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
-Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 
+1. Navigate to [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/) 
+2. On the **Contracts** tab select **KIP37**
+3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
+4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 
  
 This is how Klaytn contracts wizard would look like after making these configurations:
 
@@ -391,6 +391,7 @@ contract KIP37MultiTokenDeployScript is Script {
         vm.stopBroadcast();
     }
 }
+```
 
 Let’s go through what each line of code does. 
 
