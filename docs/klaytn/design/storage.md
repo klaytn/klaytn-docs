@@ -1,6 +1,6 @@
 # Storage Layer <a id="storage-layer"></a>
 
-## State Migration <a id="block-archiving"></a>
+## State Migration <a id="state-migration"></a>
 
 As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Klaytn, therefore, provides a feature called State Migration that allows you to reduce the amount of required storage space.
 
@@ -12,4 +12,4 @@ More details on the mechanism of State Migration can be found below:
 [Klaytn v1.5.0 State Migration: Saving Node Storage](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
 [Klaytn State Migration: An Efficient Way to Reduce Blockchain Data](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-To use State Migration, please refer to the documentation on admin APIs.[`admin_startStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_startstatemigration) lets you start State Migration, [`admin_stateMigrationStatus`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_statemigrationstatus) allows you to check the Migration status, and [`admin_stopStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_stopstatemigration) allows you to stop the process.
+To use State Migration, please refer to [`Chaindata Migration`](https://docs.klaytn.foundation/content/operation-guide/chaindata-migration) page of Operation Guide.
