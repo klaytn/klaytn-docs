@@ -1,6 +1,6 @@
 # Lớp lưu trữ <a id="storage-layer"></a>
 
-## Di chuyển trạng thái <a id="block-archiving"></a>
+## Di chuyển trạng thái <a id="state-migration"></a>
 
 Khi càng có nhiều khối được thêm vào chuỗi khối, dữ liệu chuỗi sẽ càng tăng lên. Dữ liệu chuỗi rất cần thiết cho việc vận hành nút, vì thế chúng được lưu trữ trong kho lưu trữ nút dưới dạng cấu trúc dữ liệu, được gọi là trie và sau cùng sẽ đi vào cơ sở dữ liệu, được gọi là LevelDB. Vì thế, với nhiều khối hơn thì sẽ có nhiều dữ liệu chuỗi trong kho lữu trữ hơn, kèm theo đó là chi phí tăng lên. Vì thế, Klaytn hỗ trợ một tính năng gọi là Di chuyển trạng thái cho phép bạn giảm dung lượng lưu trữ cần thiết.
 
@@ -10,4 +10,4 @@ Lưu ý rằng một nút không thể đọc được các trạng thái cũ t�
 
 Bạn có thể đọc thêm thông tin chi tiết về cơ chế của tính năng Di chuyển trạng thái tại: [Di chuyển trạng thái Klaytn v1.5.0: Thiết kiệm dung lượng lưu trữ nút](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a) [Di chuyển trạng thái Klaytn: Cách hiệu quả để giảm dữ liệu chuỗi khối](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-Để dùng tính năng Di chuyển trạng thái, vui lòng xem tài liệu về API quản trị. [`admin_startStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_startstatemigration) cho phép bạn bắt đầu tính năng Di chuyển trạng thái, [`admin_stateMigrationStatus`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_statemigrationtrạng thái) cho phép bạn kiểm tra trạng thái của tính năng này và [`admin_stopStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_stopstatemigration) cho phép bạn dừng quy trình này.
+To use State Migration, please refer to [`Chaindata Migration`](https://docs.klaytn.foundation/content/operation-guide/chaindata-migration) page of Operation Guide.
