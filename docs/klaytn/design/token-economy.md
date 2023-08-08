@@ -8,9 +8,11 @@ Klaytn’s token economy is designed to create sustainable funding structures fo
 
 Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
-* Klaytn Governance Council Reward: 50%
-* Klaytn Growth Fund \(KGF\): 40%
-* Klaytn Improvement Reserve \(KIR\): 10%
+* Klaytn Governance Council (GC) Reward:
+    * GC Block Proposer Reward: 10% 
+    * GC Staking Award: 40%
+* Klaytn Community Fund \(KCF\): 30%
+* Klaytn Foundation Fund \(KFF\): 20%
 
 6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
@@ -43,33 +45,25 @@ Causing Liveness Failure:
 * A Council member selected as Proposer must create a valid block
 * A Council member selected as Validator must validate the block proposed by the Proposer
 
-## Klaytn Growth Fund <a id="klaytn-growth-fund"></a>
+## Klaytn Community Fund <a id="klaytn-community-fund"></a>
+The Klaytn Community Fund (KCF) was established to support Klaytn's sustainable and transparent economic growth. It's important to keep in mind that the former Klaytn Growth Fund (KGF) and Klaytn Improvement Reserve (KIR) have merged to become the new Klaytn Community Fund (KCF). 
 
-### Background
+The Klaytn Community Fund will be used to fund activities that improves the Klaytn ecosystem, such as:
 
-Klaytn's token economy operates and develops through the activities of Klaytn's economic entities. The growth of the economy will help improve the stability of the platform and help the ecosystem last. Therefore, Klaytn has an incentive system that fosters the economic entities' activities in order to help maintain and strengthen the economic growth of Klaytn.
+1. **Rewarding Proof of Contribution**: The KCF will provide follow-up support, such as gas fee support to projects that have made significant on-chain contributions to the Klaytn ecosystem among services that have already been developed.
+2. **Building our Developer Community**: The KCF will support various initiatives including hackathons, development education programs, collaborative research with the industry, and collaboration with various DAOs to foster and grow the Klaytn developer community.
+3. **Fostering Ecosystem Services and Infrastructure**: The KCF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
+4. **Klaytn Eco Fund Indirect Investment**: The KCF will make indirect mid-to long-term investments by entrusting specialized crypto VCs, and most of the profits generated upon subsequent investment recovery will be returned to the Klaytn ecosystem.
 
+The administration of the Klaytn Community Fund follows a process in which the GC reviews and approves the use of funds in public forums on [Klaytn Square](https://square.klaytn.foundation/Home). The Foundation will submit a budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. In the meantime, the KCF is currently being run as a pilot program and interested parties can visit the [Klaytn Governance Forum](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288) for more details about the program. 
 
-### General Concept
-The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of legal contracts, local storage, etc. And KGF is intended to solve these problems. KGF will support various programs for promoting the adoption of Klaytn across all industries, such as rewarding those who show proof-of-contribution on-chain and investing in early-stage dApps. It will be constantly financed through a certain percentage of block rewards (refer to [Funding Structure](token-economy.md#funding-structure)). 
+## Klaytn Foundation Fund <a id="klaytn-foundation-fund"></a>
 
+Klaytn Foundation Fund (KFF) is an operational fund that will focus on this two main categories:
 
-## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
+1. **Ecosystem Support**: This includes providing minor financial assistance, securing new GC members, liquidity provisions, and developing / funding services led by the Foundation.
+2. **Foundation Operations**: This includes operating expenses such as development, accounting, infrastructure operations, marketing, and labor, as well as financial management and investment attraction costs.
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such as:
+The execution of the Klaytn Foundation Fund will follow the process whereby the Foundation will submit budget proposals for each category to the GC for approval in public forums. 
 
-
-
-| Category | Details |
-| :--- | :--- |
-| **Development** | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li> |
-| **Infrastructure** | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li> |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li> |
-| **Monitoring & Analytics** | <ul><li>Monitoring</li><li>Analytics</li> |
-| **Education & Activity** | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
-| **Research** | <ul><li>Security, Scalability, Cryptography, etc.</li></ul> |
-
-
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
-
-For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/).
+For more information, kindly read this [article](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e).
