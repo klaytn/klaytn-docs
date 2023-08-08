@@ -64,6 +64,6 @@ Klaytn Foundation Fund (KFF) is an operational fund that will focus on this two 
 1. **Ecosystem Support**: This includes providing minor financial assistance, securing new GC members, liquidity provisions, and developing / funding services led by the Foundation.
 2. **Foundation Operations**: This includes operating expenses such as development, accounting, infrastructure operations, marketing, and labor, as well as financial management and investment attraction costs.
 
-The execution of the Klaytn Foundation Fund will follow the process whereby the Foundation will submit budget proposals for each category to the GC for approval in public forums. 
+Similar to KCF, KFF will be executed autonomously and transparently after obtaining approval from the GC via on-chain voting. 
 
 For more information, kindly read this [article](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e).
