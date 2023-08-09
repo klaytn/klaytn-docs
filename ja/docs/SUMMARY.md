@@ -165,7 +165,7 @@
   * [Klaytn Command](operation-guide/klaytn-command.md)
   * [チェインダータの変更](operation-guide/chaindata-change.md)
   * [Chaindaの移行](operation-guide/chaindata-migration.md)
-* [dApp開発者](dapp/README.md)
+* [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
@@ -317,6 +317,8 @@
     * [Block Explorers](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
+    * [Klaytn Contracts Wizard](toolkit/klaytn-contracts-wizard.md)
+
 * [Glossary](misc/glossary.md)
 ## --- <a href="#misc" id="misc"></a>
 
