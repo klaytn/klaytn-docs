@@ -317,6 +317,8 @@
     * [Block Explorers](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
+    * [Klaytn Contracts Wizard](toolkit/klaytn-contracts-wizard.md)
+
 * [Glossary](misc/glossary.md)
 ## --- <a href="#misc" id="misc"></a>
 
