@@ -165,7 +165,7 @@
   * [Lệnh Klaytn](operation-guide/klaytn-command.md)
   * [Thay đổi dữ liệu chuỗi](operation-guide/chaindata-change.md)
   * [Di chuyển dữ liệu chuỗi](operation-guide/chaindata-migration.md)
-* [Nhà phát triển dApp](dapp/README.md)
+* [dApp Developers](dapp/README.md)
   * [API JSON-RPC](dapp/json-rpc/README.md)
     * [Tham chiếu API](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
@@ -317,6 +317,8 @@
     * [Trình duyệt khối](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
+    * [Klaytn Contracts Wizard](toolkit/klaytn-contracts-wizard.md)
+
 * [Glossary](misc/glossary.md)
 ## --- <a href="#misc" id="misc"></a>
 
