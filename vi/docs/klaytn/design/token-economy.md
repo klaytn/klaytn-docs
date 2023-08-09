@@ -8,9 +8,11 @@ Nền kinh tế token của Klaytn được thiết kế để tạo ra các c�
 
 Cấu trúc cấp vốn của Klaytn chạy liên tục với việc tạo khối của mạng lưới Klaytn. Với mỗi khối mới, KLAY mới được phát hành và tổng phí giao dịch được dùng trong khối \(được gọi chung là “phần thưởng khối”\) được tổng hợp và phân phối cho ba toài khoản đích sau theo tỷ lệ được xác định trước:
 
-* Phần thưởng cho Hội đồng quản trị của Klaytn: 50%
-* Quỹ tăng trưởng Klaytn \(KGF\): 40%
-* Khoản dự trữ cải tiến của Klaytn \(KIR\): 10%
+* Klaytn Governance Council (GC) Reward:
+    * GC Block Proposer Reward: 10%
+    * GC Staking Award: 40%
+* Klaytn Community Fund \(KCF\): 30%
+* Klaytn Foundation Fund \(KFF\): 20%
 
 6,4 KLAY sẽ được tạo cho mỗi khối mới. Điều này ngụ ý rằng khoảng 200 triệu KLAY sẽ được tạo mỗi năm, tương đương với 2% lạm phát hàng năm so với 10 tỷ KLAY được phát hành vào thời điểm khởi nguyên \(tỷ lệ lạm phát hàng năm có thể thay đổi thông qua Quy trình quản trị của Klaytn\). Phí giao dịch được tính theo mỗi OPCODE và được tính theo biểu phí giao dịch. Để biết thông tin chi tiết về biểu phí giao dịch, vui lòng tham khảo phần [Phí giao dịch](transaction-fees/transaction-fees.md).
 
@@ -43,33 +45,25 @@ Gây ra lỗi về xác định thực thể sống:
 * Một thành viên hội đồng được chọn làm Người đề xuất phải tạo ra một khối hợp lệ
 * Một thành viên hội đồng được chọn làm Người xác thực phải xác thực nút được đề xuất bởi Người đề xuất
 
-## Quỹ tăng trưởng Klaytn <a id="klaytn-growth-fund"></a>
+## Klaytn Community Fund <a id="klaytn-community-fund"></a>
+The Klaytn Community Fund (KCF) was established to support Klaytn's mission of enabling greater transparency and verifiability. It's important to keep in mind that the former Klaytn Growth Fund (KGF) and Klaytn Improvement Reserve (KIR) have merged to become the new Klaytn Community Fund (KCF).
 
-### Thông tin cơ bản
+The Klaytn Community Fund will be used to fund activities that improves the Klaytn ecosystem, such as:
 
-Nền kinh tế token của Klaytn vận hành và phát triển thông qua hoạt động của các thực thể kinh tế của Klaytn. Sự tăng trưởng của nền kinh tế sẽ giúp cải thiện tính bền vững của nền tảng và giúp hệ sinh thái tồn tại. Vì thế, Klaytn có một hệ thống khuyến khích nhằm thúc đẩy hoạt động của các chủ thể kinh tế nhằm giúp duy trì và củng cố cho quá trình tăng trưởng kinh tế của Klaytn.
+1. **Rewarding Proof of Contribution**: The KCF will provide follow-up support, such as gas fee support to projects that have made significant on-chain contributions to the Klaytn ecosystem among services that have already been developed.
+2. **Building our Developer Community**: The KCF will support various initiatives including hackathons, development education programs, collaborative research with the industry, and collaboration with various DAOs to foster and grow the Klaytn developer community.
+3. **Fostering Ecosystem Services and Infrastructure**: The KCF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
+4. **Klaytn Eco Fund Indirect Investment**: The KCF will make indirect mid-to long-term investments by entrusting specialized crypto VCs, and most of the profits generated upon subsequent investment recovery will be returned to the Klaytn ecosystem.
 
+The administration of the Klaytn Community Fund follows a process in which the GC reviews and approves the use of funds in public forums on [Klaytn Square](https://square.klaytn.foundation/Home). The Foundation will submit a budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. In the meantime, the KCF is currently being run as a [pilot program](https://klaytn.foundation/kcf-grant-pilot/) and interested parties can visit the [Klaytn Governance Forum](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288) for more details about the program.
 
-### Khái niệm chung
-Quỹ tăng trưởng của Klaytn (KGF) nhắm đến việc giúp nền kinh tế Klaytn tăng trưởng bằng cách cung cấp các khoản tài trợ và đầu tư vào các tổ chức và cá nhân có đóng góp cho nền kinh tế Klaytn. Công nghệ của Klaytn mang đến những cơ hội to lớn để mọi người có thể lưu trữ, chuyển giao và trao đổi dữ liệu và giá trị trên toàn cầu một cách dễ dàng với chi phí tối thiểu. Và vì đây là một mạng lưới mở, ai cũng có thể tham gia để xây dựng một ứng dụng mà không cần xin phép. Tuy nhiên, việc áp dụng chuỗi khối rộng rãi hơn đã bị cản trở do công nghệ này vẫn còn đang ở giai đoạn đầu và hầu hết các giá trị và dữ liệu vẫn đang được quản lý theo cách truyền thống dưới dạng hợp đồng pháp lý, lưu trữ cục bộ, v.v. Và KGF được dùng với mục đích giải quyết các vấn đề này. KGF sẽ hỗ trợ các chương trình khác nhau nhằm thúc đẩy việc áp dụng Klaytn trên khắp các ngành, ví dụ như tặng thưởng cho những người đưa ra bằng chứng đóng góp trên chuỗi và đầu tư vào các dApp giai đoạn đầu. Quỹ này sẽ liên tục được tài trợ thông qua một tỷ lệ phần thưởng khối nhất định (tham khảo [Cấu trúc cấp vốn](token-economy.md#funding-structure)).
+## Klaytn Foundation Fund <a id="klaytn-foundation-fund"></a>
 
+Klaytn Foundation Fund (KFF) is an operational fund that will focus on this two main categories:
 
-## Khoản dự trữ cải tiến của Klaytn <a id="klaytn-improvement-reserve"></a>
+1. **Ecosystem Support**: This includes providing minor financial assistance, securing new GC members, liquidity provisions, and developing / funding services led by the Foundation.
+2. **Foundation Operations**: This includes operating expenses such as development, accounting, infrastructure operations, marketing, and labor, as well as financial management and investment attraction costs.
 
-Khi công nghệ tiếp tục được cải tiến và nhu cầu của người dùng thay đổi theo thời gian, nền tảng của chúng tôi phải có khả năng thích ứng nhanh chóng với mọi tình huống mới phát sinh. Để đáp ứng những thay đổi như vậy, chúng tôi không chỉ phải cải thiện dịch vụ mà còn phải thực hiện nhiều hoạt động khác nhau để duy trì hệ sinh thái của Klaytn. Ví dụ, việc nghiên cứu và phát triển để có được công nghệ tốt hơn, hoặc các dự án đóng góp vào sự phát triển chung của hệ sinh thái có thể là một phần của các hoạt động này. Các hoạt động này là rất cần thiết để Klaytn có thể phát triển không ngừng. Khoản dự trữ cải tiến của Klaytn (KIR) sẽ được triển khai cho các hoạt động cải thiện hệ sinh thái của Klaytn, ví dụ như:
+Similar to KCF, KFF will be executed autonomously and transparently after obtaining approval from the GC via on-chain voting.
 
-
-
-| Danh mục                           | Chi tiết                                                                                                                           |
-|:---------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
-| **Phát triển**                     | <ul><li>IDE & Các trình biên tập</li><li>Oracle</li><li>Thư viện hợp đồng</li>                             |
-| **Cơ sở hạ tầng**                  | <ul><li>Mạng thử nghiệm cục bộ</li><li>Hệ thống tập tin phi tập trung</li><li>Đa VM</li>                           |
-| **Thử nghiệm, Gỡ lỗi, Triển khai** | <ul><li>Các công cụ thử nghiệm & triển khai</li><li>Các công cụ kiểm toán & bảo mật</li>                                                     |
-| **Giám sát & Phân tích**           | <ul><li>Giám sát</li><li>Phân tích</li>                                                     |
-| **Giáo dục & Hoạt động**           | <ul><li>Tài liệu</li><li>Tài liệu đào tạo</li><li>Xây dựng cộng đồng</li><li>Hoạt động nguồn mở (bao gồm hoạt động săn lỗi nhận thưởng)</li> |
-| **Nghiên cứu**                     | <ul><li>Bảo mật, khả năng mở rộng, mã hóa, v.v.</li></ul>                                                                                                         |
-
-
-Các đề xuất KIR có thể được tạo ra bởi bất kỳ người tham gia nào trong hệ sinh thái Klaytn. Các đề xuất chi tiêu KIR sẽ được xử lý theo Quy trình quản trị KIR. Tham khảo phần [Quy trình đánh giá Khoản dự trữ cải tiến của Klaytn](governance.md#klaytn-improvement-reserve-review-process) để biết thêm thông tin về thủ tục này. Khi một đề xuất chi tiêu đã được thông qua, KLAY sẽ được phân phối định kỳ, từ tổng số tiền được xác định trước, dựa trên mức tiến độ của dự án. Quy trình này có thể thay đổi dựa theo quy mô của dự án, tuy nhiên theo kế hoạch, quy trình này sẽ diễn ra hàng tháng.
-
-Để biết thêm thông tin, hãy truy cập [Diễn đàn Khoản dự trữ cải tiến của Klaytn](https://kir.klaytn.foundation/).
+For more information, kindly read this [article](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e).
