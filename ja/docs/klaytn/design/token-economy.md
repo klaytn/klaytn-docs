@@ -8,9 +8,11 @@ Klaytnのトークンエコノミーは、エコシステム、成長イニシ�
 
 Klaytnの資金調達構造は、Klaytnネットワークのブロック生成によって継続的に実行されます。 すべての新しいブロックで 新しく発行されたKLAYとブロック\（総称して「ブロック報酬」と呼ばれる）で使用される取引手数料の合計は、所定の比率に従って、以下の3つの宛先口座に集約され、分配されます。
 
-* Klaytn Governance Council 報酬: 50%
-* Klaytn Growth Fund\(KGF\): 40%
-* Klaytn改良備蓄\(KIR\): 10%
+* Klaytn Governance Council (GC) Reward:
+    * GC Block Proposer Reward: 10%
+    * GC Staking Award: 40%
+* Klaytn Community Fund \(KCF\): 30%
+* Klaytn Foundation Fund \(KFF\): 20%
 
 6.4 KLAYは新しいブロックごとに発行されます。 これは、年間約2億KLAYが鋳造されることを意味します。 これは、発生時に発行される100億KLAYに対して2%の年間インフレに相当します(クラインガバナンスプロセスを通じて年間インフレ率が変化する可能性があります)。 トランザクション手数料はOPCODEごとに課金され、トランザクション手数料表に従って課金されます。 取引手数料表の詳細については、 [取引手数料](transaction-fees/transaction-fees.md) を参照してください。
 
@@ -43,33 +45,25 @@ Klaytn Governance Councilは、コアセル演算子\(CCOs\)の集団グルー�
 * 提案者として選択された評議会メンバーは有効なブロックを作成する必要があります
 * 検証者として選択された評議会メンバーは、提案者によって提案されたブロックを検証しなければなりません
 
-## Klaytn Growth Fund <a id="klaytn-growth-fund"></a>
+## Klaytn Community Fund <a id="klaytn-community-fund"></a>
+The Klaytn Community Fund (KCF) was established to support Klaytn's mission of enabling greater transparency and verifiability. It's important to keep in mind that the former Klaytn Growth Fund (KGF) and Klaytn Improvement Reserve (KIR) have merged to become the new Klaytn Community Fund (KCF).
 
-### 背景
+The Klaytn Community Fund will be used to fund activities that improves the Klaytn ecosystem, such as:
 
-Klaytnのトークンエコノミーは、Klaytnの経済主体の活動を通じて運営、開発を行っています。 経済の成長は、プラットフォームの安定性を改善し、生態系が最後になるのを助ける。 したがって、Klaytnは、Klaytnの経済成長の維持と強化を支援するために、経済主体の活動を促進するインセンティブシステムを持っています。
+1. **Rewarding Proof of Contribution**: The KCF will provide follow-up support, such as gas fee support to projects that have made significant on-chain contributions to the Klaytn ecosystem among services that have already been developed.
+2. **Building our Developer Community**: The KCF will support various initiatives including hackathons, development education programs, collaborative research with the industry, and collaboration with various DAOs to foster and grow the Klaytn developer community.
+3. **Fostering Ecosystem Services and Infrastructure**: The KCF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
+4. **Klaytn Eco Fund Indirect Investment**: The KCF will make indirect mid-to long-term investments by entrusting specialized crypto VCs, and most of the profits generated upon subsequent investment recovery will be returned to the Klaytn ecosystem.
 
+The administration of the Klaytn Community Fund follows a process in which the GC reviews and approves the use of funds in public forums on [Klaytn Square](https://square.klaytn.foundation/Home). The Foundation will submit a budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. In the meantime, the KCF is currently being run as a [pilot program](https://klaytn.foundation/kcf-grant-pilot/) and interested parties can visit the [Klaytn Governance Forum](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288) for more details about the program.
 
-### 一般コンセプト
-Klaytn Growth Fund(KGF)は、Klaytn経済に貢献する様々な組織や個人に助成金や投資を提供することで、Klaytn経済を前進させることを目指しています。 Klaytnのテクノロジーは、世界中の人々が簡単かつ最小限のコストでデータと価値を保存、転送、交換する巨大な機会を提供します。 オープンネットワークなので、誰でもアクセス権を得ずにアプリケーションを構築することができます。 しかし、この技術はまだ初期段階にあるため、ブロックチェーンのより広範な採用が妨げられています。 価値やデータのほとんどは今でも伝統的な方法で管理されています 法的契約や地域の保管などです そして、KGFはこれらの問題を解決することを意図しています。 KGFは、すべての業界でKlaytnの採用を促進するための様々なプログラムをサポートします。 例えば、チェーン上の貢献の証明や初期段階のdAppsへの投資を示す人々に報酬を与えるなど。 一定の割合のブロック報酬を通じて絶えず融資されます（ [資金調達構造](token-economy.md#funding-structure) を参照）。
+## Klaytn Foundation Fund <a id="klaytn-foundation-fund"></a>
 
+Klaytn Foundation Fund (KFF) is an operational fund that will focus on this two main categories:
 
-## Klaytn Melhoria Reserve <a id="klaytn-improvement-reserve"></a>
+1. **Ecosystem Support**: This includes providing minor financial assistance, securing new GC members, liquidity provisions, and developing / funding services led by the Foundation.
+2. **Foundation Operations**: This includes operating expenses such as development, accounting, infrastructure operations, marketing, and labor, as well as financial management and investment attraction costs.
 
-技術が向上し続けるにつれて、ユーザーのニーズは時間とともに変化します 我々のプラットフォームには新しい状況に素早く適応する能力が必要だ そのような変化に対応するためには、サービスだけでなく、Klaytnのエコシステムを維持するために様々な活動を行う必要があります。 例えば、より良い技術のための研究開発、あるいはエコシステムの全体的な成長に貢献するプロジェクトは、これらの活動の一部である可能性があります。 これらの活動は、Klaytnが継続的に進歩するために必要である。 Klaytn Improvement Reserve (KIR) は、以下のような Klaytn エコシステムを改善する活動に展開されます。
+Similar to KCF, KFF will be executed autonomously and transparently after obtaining approval from the GC via on-chain voting.
 
-
-
-| カテゴリ             | 詳細                                                                                                                                 |
-|:---------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
-| **開発**           | <ul><li>IDE & エディター</li><li>Oracle</li><li>契約ライブラリ</li>                             |
-| **インフラストラクチャ**   | <ul><li>ローカルテストネット</li><li>分散ファイルシステム</li><li>マルチVM</li>                           |
-| **テスト、デバッグ、展開**  | <ul><li>テストおよび展開ツール</li><li>セキュリティ＆監査ツール</li>                                                     |
-| **モニタリング & 分析**  | <ul><li>モニタリング</li><li>分析</li>                                                     |
-| **教育 & アクティビティ** | <ul><li>ドキュメント</li><li>教材について</li><li>コミュニティビル</li><li>オープンソースアクティビティ（バグ・バウンティを含む）</li> |
-| **研究**           | <ul><li>セキュリティ、スケーラビリティ、暗号など。</li></ul>                                                                                                         |
-
-
-KIRの提案は、Klaytnのエコシステムに参加するすべての参加者によって作成できます。 KIR支出の提案はKIRガバナンスプロセスに従って処理されます。 手順の詳細については、 [Klaytn 改善予備審査プロセス](governance.md#klaytn-improvement-reserve-review-process) を参照してください。 支出の提案が合格すると、KLAYはプロジェクトの進捗レベルに基づいて所定の合計金額から定期的に配布されます。 このプロセスは、プロジェクトの規模に応じて変更される場合がありますが、毎月処理される予定です。
-
-詳細については、 [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/) をご覧ください。
+For more information, kindly read this [article](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e).
