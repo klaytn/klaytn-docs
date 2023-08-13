@@ -16,7 +16,7 @@ v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **Lon
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}
 
-Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
+Klaytn의 스마트 컨트랙트 개발을 위해 [Remix](https://remix.ethereum.org/)(브라우저 기반의 IDE) 와 [Truffle](https://github.com/trufflesuite/truffle)(개발 프레임워크) 과 같은 개발 도구를 활용할 수 있습니다. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
 
 It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
 
