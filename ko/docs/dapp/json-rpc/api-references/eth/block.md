@@ -1,13 +1,13 @@
 ## 기본 블록 매개변수 <a id="the-default-block-parameter"></a>
 
-  When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
+  `eth` 네임스페이스를 이용하여 API 요청을 보낼 때, 블록 높이는 `defaultBlock` 매개변수에 의해 결정됩니다.
 
 `defaultBlock` 매개변수를 통해 설정할 수 있는 사항들은 다음과 같습니다.
 
 - `16진수 문자열` - 블록 번호의 정수 형태입니다.
 - `"earliest" 문자열` - 제네시스 블록입니다.
 - `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
-- `String "pending"` - for pending state/transactions
+- `"pending" 문자열` - 트랜잭션의 Pending 상태입니다.
 
 
 ## eth_blockNumber <a id="eth_blocknumber"></a>
@@ -43,7 +43,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 번호를 기준으로 헤더 정보를 반환합니다.
 
-Please check the [Caution-Header](./caution.md#block_header) before using this API.
+해당 API를 사용하기 전에 [주의사항-블록 헤더](./caution.md#block_header) 를 확인하시기 바랍니다.
 
 **Parameters**
 
@@ -92,7 +92,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 해시를 기준으로 헤더의 정보를 반환합니다.
 
-Please check [Caution-Header](./caution.md#block_header) before using this API.
+해당 API를 사용하기 전에 [주의사항-블록 헤더](./caution.md#block_header) 를 확인하시기 바랍니다.
 
 **Parameters**
 
@@ -164,7 +164,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 번호로 조회한 블록의 정보를 반환합니다.
 
-Please check [Caution-Block](./caution.md#block) before using this API.
+해당 API를 사용하기 전에 [주의사항-블록](./caution.md#block) 을 확인하시기 바랍니다.
 
 **Parameters**
 
@@ -223,7 +223,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 블록 해시를 기준으로 블록의 정보를 반환합니다.
 
-Please check [Caution-Block](./caution.md#block) before using this API.
+해당 API를 사용하기 전에 [주의사항-블록](./caution.md#block) 을 확인하시기 바랍니다.
 
 **Parameters**
 
