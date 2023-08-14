@@ -1,13 +1,17 @@
 # Log operation
 
 ## Configure Log Rotation
-You can enable and configure the log rotation by setting next flags.
-- `--log.rotate`: By setting 1, it enables the log rotation and any other related options
+You can enable the log rotation by setting the `--log.rotate` flag, and configure the log rotation settings by the following flags.
+- `--log.rotate`: By setting this flag, it enables the log rotation and applies the other log rotation options
 - `--log.maxsize`: Specifies the file size in MB that triggers backup file creation
 - `--log.maxbackups`: Determines the maximum number of backup files that can be stored. Once this limit is reached, older logs will be deleted.
 - `--log.maxage`: Represents the maximum number of days to retain a log file. For example, if set to 30, a backup file will be deleted after 30 days.
-- `--log.compress`: By setting 1, it compresses the backup logs in gz format.
+- `--log.compress`: By setting this flag, it compresses the backup logs in gz format.
 
+Example
+```
+./bin/ken ... --log.rotate --log.maxsize 100 --log.maxbackups 10 --log.maxage 30 --log.compress
+```
 You can also enable and configure the log rotation by setting next options in configuration file (ex. `kend.conf`).
 ```
 # log rotation related options
