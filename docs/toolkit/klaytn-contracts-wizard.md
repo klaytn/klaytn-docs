@@ -1,5 +1,3 @@
-# Klaytn Contracts Wizard
-
 # Introduction
 
 ![](./img/klaytn-kcw-banner.png)
