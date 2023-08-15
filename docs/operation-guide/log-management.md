@@ -12,7 +12,7 @@ Example
 ```
 ./bin/ken ... --log.rotate --log.maxsize 100 --log.maxbackups 10 --log.maxage 30 --log.compress
 ```
-You can also enable and configure the log rotation by setting next options in configuration file (ex. `kend.conf`).
+You can also enable and configure the log rotation by setting following options in configuration file (e.g., `kend.conf`).
 ```
 # log rotation related options
 LOG_ROTATE=1 # setting 1 to enable the log rotation related options
@@ -21,7 +21,7 @@ LOG_MAXBACKUPS=10
 LOG_MAXAGE=30 # maximum number of days to retain a log file
 LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 ```
-Recommended to download and use the package which version is v1.11.0 or higher. You can download it in Binaries section of the release note(ex. [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.11.0 or later: configuration file, daemon, and binary. Otherwise, it won't work.
+It is recommended to download and use the package which version is v1.11.0 or higher. You can download it in Binaries section of the release note(e.g., [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.11.0 or higher: configuration file, daemon, and binary. Otherwise, it won't work.
 
 ## Normal Log Status
 
