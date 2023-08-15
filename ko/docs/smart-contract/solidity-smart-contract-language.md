@@ -30,7 +30,7 @@ Note that there are two command-line Solidity compilers:
   * [solc-js](https://github.com/ethereum/solc-js)라는 별도의 프로젝트로 있습니다.
   * _solcjs_의 커맨드라인 옵션은 _solc_의 옵션과 호환되지 않습니다.
 
-Other materials that are useful for getting started with Solidity include the following:
+솔리디티를 시작하기에 유용한 기타 자료는 아래를 참고해주세요.
 
 * [최고의 솔리디티 튜토리얼](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
 
