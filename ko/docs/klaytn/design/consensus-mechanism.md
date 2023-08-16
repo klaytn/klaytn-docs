@@ -12,9 +12,9 @@ Klaytn 메인넷 Cypress은 다음과 같은 성능을 보여줍니다.
 
 ## 배경 <a id="background"></a>
 
-[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin) is using [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (Proof-of-Work), whereas Ethereum has recently shifted to [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (Proof-of-Stake), which decides on the block generating nodes by the stake of the node. Usually, these algorithms involve no communication between nodes in determining the validities of blocks.
+[비트코인](https://en.wikipedia.org/wiki/Bitcoin)은 [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (작업증명) 을 사용하고 있으며, 최근에 이더리움은 [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (지분증명) 로 전환되어 블록 생성 노드를 노드의 지분에 따라 결정합니다. 일반적으로 이러한 알고리즘은 블록의 유효성을 결정하는 과정에서 노드 간의 통신이 없습니다.
 
-따라서 이러한 시스템에서는 포크가 발생할 수 있습니다. 즉, 같은 높이에서 둘 이상의 서로 다른 블록이 만들어질 수 있습니다. Usually, the "Longest chain wins" rule is applied to solve the fork condition. 포크가 일어난 체인이 결국 하나의 체인으로 병합되지만, 특정 기간 동안에 짧은 체인에 속한 블록들은 되돌려질 수 있다는 의미이기도 합니다. 그러므로 이러한 알고리즘에서는 블록 및 트랜잭션의 완결성을 즉시 보장 할 수 없습니다. The finality can only be achieved probabilistically after a period of time, which is still can't be 100% guaranteed.
+따라서 이러한 시스템에서는 포크가 발생할 수 있습니다. 즉, 같은 높이에서 둘 이상의 서로 다른 블록이 만들어질 수 있습니다. Usually, the "Longest chain wins" rule is applied to solve the fork condition. 포크가 일어난 체인이 결국 하나의 체인으로 병합되지만, 특정 기간 동안에 짧은 체인에 속한 블록들은 되돌려질 수 있다는 의미이기도 합니다. 그러므로 이러한 알고리즘에서는 블록 및 트랜잭션의 완결성을 즉시 보장 할 수 없습니다. 완결성은 일정 기간이 지난 후에만 확률적으로 달성될 수 있으며, 100% 보장되지 않을 수 있습니다.
 
 This lack of finality is a very difficult issue in customer-facing services that use blockchain platforms. 포크가 해결되고, 블록이 충분히 쌓여서 트랜잭션을 되돌릴 수 없게 될 때까지 기다려야 하기 때문입니다. This has a negative effect both on users and service providers.
 
