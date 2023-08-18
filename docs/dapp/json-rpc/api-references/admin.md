@@ -440,7 +440,7 @@ The `exportChain` is an administrative method that exports the blockchain to a f
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
 | Console | `admin.exportChain(fileName)`             |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
+|   RPC   | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
 **Parameters**
 
