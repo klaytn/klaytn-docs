@@ -60,7 +60,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
 - [klay_signTransactionAsFeePayer](./klay/transaction.md#klay_signtransactionasfeepayer)
 - [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
-
+- [klay_resend](./eth/transaction.md#klay_resend)
 
 ### [Configuration](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
