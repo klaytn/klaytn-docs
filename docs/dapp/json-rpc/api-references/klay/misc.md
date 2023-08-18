@@ -44,7 +44,7 @@ If the recovery failed, it returns 0x0 address.
 | Name | Type | Description |
 | --- | --- | --- |
 | data | DATA | RLP encoded transaction bytes |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -77,9 +77,9 @@ Validates that the message is signed by one of the keys in the given account.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | string | The address of the signer account. |
-| data | DATA | Message bytes |
-| 65-byte data | DATA | Signature bytes |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| message | DATA | Message bytes |
+| signature | 65-byte DATA | Signature bytes |
+| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
