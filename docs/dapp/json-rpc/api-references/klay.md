@@ -90,4 +90,5 @@ The list below enumerates the API functions that are currently supported in Klay
 
 ### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
-
+- [klay_recoverFromTransaction](./klay/misc.md#klay_recoverFromTransaction)
+- [klay_recoverFromMessage](./klay/misc.md#klay_recoverFromMessage)
