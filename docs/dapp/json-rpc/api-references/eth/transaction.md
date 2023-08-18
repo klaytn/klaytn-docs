@@ -617,8 +617,8 @@ transaction to Klaytn network.
 | from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                             |
 | to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                               |
 | gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                      |
-| maxFeePerGas         | QUANTITY        | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).|
-| maxPriorityFeePerGas | QUANTITY        | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).           |
+| maxFeePerGas         | QUANTITY        | (optional) The maximum amount to pay for the transaction's execution. |
+| maxPriorityFeePerGas | QUANTITY        | (optional) Gas tip cap for dynamic fee transaction in peb. |
 | input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.   |
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
 | nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
@@ -666,8 +666,8 @@ Signs a transaction that can be submitted to the network at a later time using w
 | from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                     |
 | to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                       |
 | gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                         |
-| maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                      |
-| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                                 |
+|  maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. |
+| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb.  |
 | input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.  |
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                        |
 | nonce                | QUANTITY        | The integer of a nonce.                                                                                                                                             |
@@ -839,6 +839,8 @@ It will remove the given transaction from the pool and reinsert it with the new 
 | Name            | Type   | Description                                                                          |
 |-----------------|--------|--------------------------------------------------------------------------------------|
 | transactionArgs | Object | An object of transaction arguments. See the table below for the object's properties. |
+| gas price         | QUANTITY        | Integer of the gasPrice to change |
+| gas                  | QUANTITY        | (optional) Integer of the gas to change |
 
 `transactionArgs` has the following properties:
 
