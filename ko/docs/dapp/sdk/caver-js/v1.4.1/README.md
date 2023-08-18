@@ -1,20 +1,20 @@
 # Introduction <a id="introduction"></a>
 
-`caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
+`caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
 
 ## Features <a id="features"></a>
 
-* Complete implementation of Klaytn’s JSON-RPC client API over HTTP and Websocket
-* Support of Klaytn transaction, account, and account key types
-* JavaScript smart contract package to deploy and execute a smart contract on the Klaytn network
-* In-memory wallet for managing Klaytn accounts
-* Support of fee-delegation
-* Support of the Klaytn wallet key format
-* Encoding/decoding of a transaction object in RLP
-* Signing of a transaction object
-* Easy to port web3-js application to caver-js
+* HTTP 및 웹소켓을 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
+* Klaytn 트랜잭션, 계정 및 계정 키 유형 지원
+* Klaytn 네트워크에서 스마트 컨트랙트를 배포하고 실행하기 위한 자바스크립트 스마트 컨트랙트 패키지
+* Klaytn 계정 관리를 위한 인메모리 지갑
+* 수수료 위임 지원
+* Klaytn Wallet 키 형식 지원
+* RLP에서 트랜잭션 오브젝트의 인코딩/디코딩
+* 트랜잭션 객체의 서명
+* web3-js 애플리케이션을 caver-js로 쉽게 포팅
 
-## Packages in caver-js <a id="packages-in-caver-js"></a>
+## caver-js의 패키지 <a id="packages-in-caver-js"></a>
 
 Below are packages provided in `caver-js`.
 
@@ -25,7 +25,7 @@ Below are packages provided in `caver-js`.
 * [caver.klay.abi](api-references/caver.klay.abi.md)
 * [caver.utils](api-references/caver.utils_1.4.1.md)
 
-## Error Code Improvement <a id="error-code-improvement"></a>
+## 오류 코드 개선 <a id="error-code-improvement"></a>
 
 The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
