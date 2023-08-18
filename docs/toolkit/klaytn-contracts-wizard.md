@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 
 ![](./img/klaytn-kcw-banner.png)
 
