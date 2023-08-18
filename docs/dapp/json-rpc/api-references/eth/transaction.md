@@ -824,3 +824,32 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
   ]
 }
 ```
+
+
+## eth_resend <a id="eth_resend"></a>
+
+Resends a transaction.
+
+It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+| Name            | Type   | Description                                                                          |
+|-----------------|--------|--------------------------------------------------------------------------------------|
+| transactionArgs | Object | An object of transaction arguments. See the table below for the object's properties. |
+
+`transactionArgs` has the following properties:
+
+| Name                 | Type            | Description                                                                                                                                                                 |
+|----------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                             |
+| to                   | 20-byte DATA    | The address to which the transaction is directed.                                                                               |
+| gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                      |
+| maxFeePerGas         | QUANTITY        | (optional) The maximum amount to pay for the transaction's execution. |
+| maxPriorityFeePerGas | QUANTITY        | (optional) Gas tip cap for dynamic fee transaction in peb.          |
+| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility.   |
+| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
+| nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
+
