@@ -853,3 +853,18 @@ It will remove the given transaction from the pool and reinsert it with the new 
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
 | nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
 
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | The transaction hash |
+
+
+**Example**
+
+```shell
+> var tx = eth.pendingTransactions()[0]
+> eth.resend(tx, 750000000000, 300000)
+```
+
+
