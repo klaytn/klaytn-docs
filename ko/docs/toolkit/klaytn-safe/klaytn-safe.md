@@ -4,14 +4,14 @@ This makes EOAs unsuitable for organisational use, as a compromised private key 
 
 This is where multisig wallets like Klaytn Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
 
-# What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
+# 멀티 시그 월렛이란? <a id="What are Multisig Wallets"></a>
 
 As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
 
 
 For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
 
-Here are the main benefits of multisig wallets:
+멀티시그 월렛의 장점은 다음과 같습니다.
 
 
 * **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
@@ -25,9 +25,9 @@ Here are the main benefits of multisig wallets:
 
 Next, we will dive into Klaytn Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
 
-# What is Klaytn Safe? <a id="What is Klaytn Safe"></a>
+# Klaytn Safe는 무엇인가요?<a id="What is Klaytn Safe"></a>
 
-Klaytn Safe is a multisig wallet for the Klaytn ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
+Klaytn Safe는 Klaytn 생태계를 위한 멀티시그 월렛입니다. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
 
 
 # Benefits <a id="Benefits of Klaytn Safe"></a>
