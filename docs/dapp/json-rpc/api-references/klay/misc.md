@@ -35,7 +35,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_recoverFromTransaction <a id="klay_recoverFromTransaction"></a>
 
-Returns recovered the sender address from RLP encoded transaction bytes.
+Returns the recovered sender address from RLP encoded transaction bytes.
 If the sender address of the tx has composite accountKey type, it will return the sender address, not the addresses extracted from signatures.
 If the recovery failed, it returns 0x0 address.
 
