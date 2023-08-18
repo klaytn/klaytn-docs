@@ -1,18 +1,18 @@
 # FAQ <a id="faq"></a>
 
-- [What is Klaytn?](#what-is-klaytn)
-- [What is Klaytn 2.0?](#what-is-klaytn-2.0)
+- [Klaytn은 무엇인가요?](#what-is-klaytn)
+- [Klaytn 2.0은 무엇인가요?](#what-is-klaytn-2.0)
 - [How does Klaytn support Ethereum equivalence?](#how-ethereum-equivalence)
-- [What is Klaytn’s gas policy?](#klaytn-gas-policy)
+- [Klaytn의 가스 정책은 무엇인가요?](#klaytn-gas-policy)
 - [What is special about Klaytn’s account structure?](#klaytn-account-structure)
 - [Where can I start dApp development with Klaytn?](#dapp-development)
-- [Is Klaytn Open Source?](#is-klaytn-open-source)
+- [Klaytn은 오픈 소스인가요?](#is-klaytn-open-source)
 - [How can I initially fund my account?](#fund-my-acconut)
 - [Any Klaytn’s Public Node Providers for testing and development?](#node-providers)
 - [Are there faucets to get test KLAY?](#are-there-faucets)
 - [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
-- [Which wallets support Klaytn?](#which-wallets)
-- [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
+- [어떤 지갑이 Klaytn을 지원하나요?](#which-wallets)
+- [Cypress, Baobab이 무엇인가요?](#what-is-cypress-what-is-baobab)
 - [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
 - [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
 - [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
@@ -67,13 +67,13 @@ You can get test KLAY for development and testing purposes here: [Klay Faucet](h
 Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status [here](https://www.allthatnode.com/klaytn.dsrv).
 
 
-## Which wallets support Klaytn? <a id="which-wallets"></a>
+## 어떤 지갑이 Klaytn을 지원하나요? <a id="which-wallets"></a>
 Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
 
-## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
+## Cypress, Baobab이 무엇인가요? <a id="what-is-cypress-what-is-baobab"></a>
 
-Cypress is the Klaytn mainnet, Baobab is a testnet. Below is information relating to each network.
+Cypress는 Klaytn의 메인넷이고, Baobab은 테스트넷입니다. Below is information relating to each network.
 
 Cypress mainnet:
 - EN 다운로드 : [다운로드 페이지](../node/endpoint-node/installation-guide/download.md)에서 Cypress 패키지를 선택하십시오.
