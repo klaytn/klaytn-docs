@@ -10,7 +10,7 @@
 * [6. Deploying Frontend code on IPFS using Fleek](6.-deploying-frontend-to-fleek.md)
 * [7. Conclusion](7.-conclusion.md)
 
-## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
+## Introduction <a href="#1-introduction" id="1-introduction"></a>
 Buy Me a Coffee (BMC) is a platform where creators get monetary support and donations from their fans or audience. These creators could be writers, artists, musicians, video creators, et al. With the help of this platform, fans may play a significant role in the success stories of creators, audiences can express their appreciation for the job that creators accomplish, and creators can monetize their work.
 
 On a high level, Buy-me-a-Coffee simplifies the process of accepting payments for creators and enhances interactions between creators and audiences. These and more are some of the exciting features on the BMC platform. On the bright side, imagine this platform on the blockchain. Creators will now get access to more benefits, such as:
@@ -28,7 +28,7 @@ By the end of this guide, you will have used the following to create this dApp:
 - Web3Onboard: to enable multiple wallet connections to Klaytn Testnet Baobab.
 - Fleek: with Fleek we can host our BMC dApp on IPFS.
 
-## 2. Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
+## Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
 To complete this tutorial, you will need:
 - [Node.js](https://nodejs.org/en/download/package-manager) 
 - Familiarity with Javascript and React basics such as hooks etc
