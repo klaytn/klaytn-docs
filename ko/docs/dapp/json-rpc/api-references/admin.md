@@ -415,16 +415,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `exportChain` 관리 메서드는 블록체인을 파일로 내보냅니다.
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.exportChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| Client  | Method invocation                                                                    |
+|:-------:| ------------------------------------------------------------------------------------ |
+| Console | `admin.exportChain(fileName)`                                                        |
+|   RPC   | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
 **Parameters**
 
-| Name     | Type   | Description              |
-| -------- | ------ | ------------------------ |
-| fileName | string | 블록체인을 내보낼 파일의 명확한 경로입니다. |
+| Name          | Type   | Description                                               |
+| ------------- | ------ | --------------------------------------------------------- |
+| fileName      | string | 블록체인을 내보낼 파일의 명확한 경로입니다.                                  |
+| startBlockNum | int    | (optional) The first block number of the range to export. |
+| endBlockNum   | int    | (optional) The last block number of the range.            |
 
 **Return Value**
 
@@ -438,6 +440,10 @@ Console
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
+true
+> admin.exportChain("/tmp/chain.txt", 555)
+true
+> admin.exportChain("/tmp/chain.txt", 1, 1000)
 true
 ```
 HTTP RPC
