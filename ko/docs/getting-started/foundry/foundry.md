@@ -1,9 +1,9 @@
 ![](./klaytn-foundry.png)
 
 # Introduction
-Foundry is a smart contract development framework written in Rust that enables developers to manage and compile contracts, run tests, deploy contracts, and interact with the network from the command line via solidity scripts.
+Foundry는 Rust로 작성된 스마트 계약 개발 프레임워크로, 개발자들이 계약을 관리하고 컴파일하고, 테스트를 실행하고, 계약을 배포하며, 커맨드 라인을 통해 솔리디티 스크립트로 네트워크와 상호 작용할 수 있게 해줍니다.
 
-Foundry consists of four main CLI tools that allow for fast and modular smart contract development, namely:
+Foundry는 다음과 같이 네 가지 주요 CLI 도구로 구성되어 있으며, 이를 통해 빠르고 모듈식 스마트 계약 개발이 가능합니다:
 
 * [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  You can deploy, test, and compile smart contracts using Forge.
 * [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast has made it simple to interact with EVM smart contracts. This includes obtaining chain data, sending transactions, and other things.
