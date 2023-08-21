@@ -440,13 +440,15 @@ The `exportChain` is an administrative method that exports the blockchain to a f
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
 | Console | `admin.exportChain(fileName)`             |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+|   RPC   | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
 | fileName | string | the fully qualified path to the file where the blockchain must be exported. |
+| startBlockNum | int | (optional) The first block number of the range to export. |
+| endBlockNum | int | (optional) The last block number of the range. |
 
 **Return Value**
 
@@ -460,6 +462,10 @@ Console
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
+true
+> admin.exportChain("/tmp/chain.txt", 555)
+true
+> admin.exportChain("/tmp/chain.txt", 1, 1000)
 true
 ```
 HTTP RPC
