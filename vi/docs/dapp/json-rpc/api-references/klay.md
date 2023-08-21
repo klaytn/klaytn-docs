@@ -58,7 +58,7 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
 - [klay_signTransactionAsFeePayer](./klay/transaction.md#klay_signtransactionasfeepayer)
 - [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
-
+- [klay_resend](./eth/transaction.md#klay_resend)
 
 ### [Cấu hình](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
@@ -88,4 +88,5 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 
 ### [Khác](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
-
+- [klay_recoverFromTransaction](./klay/misc.md#klay_recoverFromTransaction)
+- [klay_recoverFromMessage](./klay/misc.md#klay_recoverFromMessage)
