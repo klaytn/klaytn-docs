@@ -53,6 +53,7 @@ Danh sách dưới đây liệt kê các hàm API. Tất cả các API không gi
 - [eth_signTransaction](./eth/transaction.md#eth_signtransaction)
 - [eth_fillTransaction](./eth/transaction.md#eth_filltransaction)
 - [eth_pendingTransactions](./eth/transaction.md#eth_pendingtransactions)
+- [eth_resend](./eth/transaction.md#eth_resend)
 
 ### [Cấu hình](./eth/config.md) <a id="configuration"></a>
 - [eth_coinbase](./eth/config.md#eth_coinbase)
