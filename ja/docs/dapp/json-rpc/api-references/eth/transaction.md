@@ -596,16 +596,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 `transactionArgs` には以下のプロパティがあります:
 
-| Name                 | Type         | Description                                                                                                                      |
-| -------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| from                 | 20-byte DATA | トランザクションが送信されたアドレス                                                                                                               |
-| to                   | 20-byte DATA | (新規コントラクトを作成する際に必須ではありません) トランザクションが指示されるアドレス。                                                                                   |
-| gas                  | QUANTITY     | (オプション) トランザクションの実行に提供されるガスの整数。 未使用のガスを返却します。                                                                                    |
-| maxFeePerGas         | QUANTITY     | (オプション、デフォルト: 250 ston) トランザクションの実行に支払う最大額。 Klaytnは固定のガス価格を使用するため、250ston(EthereumではGpeb)に設定する必要があります。                           |
-| maxPriorityFeePerGas | QUANTITY     | (オプション、デフォルト:250個) ペブ内の動的手数料取引のためのガスチップキャップ。 Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
-| input                | DATA         | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 It replaces `data` field, but 'data` field is still supported for backward compatibility.    |
-| value                | QUANTITY     | (オプション) このトランザクションで送信された値の整数。                                                                                                    |
-| nonce                | QUANTITY     | (オプション) nonce の整数。                                                                                                               |
+| Name                 | Type         | Description                                                                                                                   |
+| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| from                 | 20-byte DATA | トランザクションが送信されたアドレス                                                                                                            |
+| to                   | 20-byte DATA | (新規コントラクトを作成する際に必須ではありません) トランザクションが指示されるアドレス。                                                                                |
+| gas                  | QUANTITY     | (オプション) トランザクションの実行に提供されるガスの整数。 未使用のガスを返却します。                                                                                 |
+| maxFeePerGas         | QUANTITY     | (optional) The maximum amount to pay for the transaction's execution.                                                         |
+| maxPriorityFeePerGas | QUANTITY     | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                    |
+| input                | DATA         | (オプション) メソッド署名とエンコードされたパラメータのハッシュ。 It replaces `data` field, but 'data` field is still supported for backward compatibility. |
+| value                | QUANTITY     | (オプション) このトランザクションで送信された値の整数。                                                                                                 |
+| nonce                | QUANTITY     | (オプション) nonce の整数。                                                                                                            |
 
 
 
@@ -650,8 +650,8 @@ eth_sendRawTransaction を使用して、後でネットワークに送信でき
 | from                 | 20-byte DATA | The address from which the transaction is sent.                                                                                                                   |
 | to                   | 20-byte DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                                     |
 | gas                  | QUANTITY     | トランザクションの実行に提供されるガスの整数。 It will return unused gas.                                                                                                                |
-| maxFeePerGas         | QUANTITY     | トランザクションの実行に支払う最大額。 Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                                                           |
-| maxPriorityFeePerGas | QUANTITY     | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                               |
+| maxFeePerGas         | QUANTITY     | The maximum amount to pay for the transaction's execution.                                                                                                        |
+| maxPriorityFeePerGas | QUANTITY     | Gas tip cap for dynamic fee transaction in peb.                                                                                                                   |
 | input                | DATA         | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
 | value                | QUANTITY     | (optional) The integer of values sent with this transaction.                                                                                                      |
 | nonce                | QUANTITY     | nonce の整数。                                                                                                                                                        |
@@ -806,3 +806,49 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
   ]
 }
 ```
+
+
+## eth_resend <a id="eth_resend"></a>
+
+Resends a transaction.
+
+It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+| Name            | Type     | Description                                                                          |
+| --------------- | -------- | ------------------------------------------------------------------------------------ |
+| transactionArgs | Object   | An object of transaction arguments. See the table below for the object's properties. |
+| gas price       | QUANTITY | Integer of the gasPrice to change                                                    |
+| gas             | QUANTITY | (optional) Integer of the gas to change                                              |
+
+`transactionArgs` has the following properties:
+
+| Name                 | Type         | Description                                                                                                                                                       |
+| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from                 | 20-byte DATA | The address from which the transaction is sent.                                                                                                                   |
+| to                   | 20-byte DATA | The address to which the transaction is directed.                                                                                                                 |
+| gas                  | QUANTITY     | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                            |
+| maxFeePerGas         | QUANTITY     | (optional) The maximum amount to pay for the transaction's execution.                                                                                             |
+| maxPriorityFeePerGas | QUANTITY     | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                                                        |
+| input                | DATA         | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
+| value                | QUANTITY     | (optional) The integer of values sent with this transaction.                                                                                                      |
+| nonce                | QUANTITY     | (optional) The integer of a nonce.                                                                                                                                |
+
+**Return Value**
+
+| Type         | Description          |
+| ------------ | -------------------- |
+| 32-byte DATA | The transaction hash |
+
+
+**Example**
+
+```shell
+> var tx = eth.pendingTransactions()[0]
+> eth.resend(tx, 750000000000, 300000)
+```
+
+
