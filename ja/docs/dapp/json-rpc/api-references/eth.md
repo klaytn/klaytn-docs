@@ -53,6 +53,7 @@ And due to the fundamental design differences between Klaytn and Ethereum, Klayt
 - [eth_signTransaction](./eth/transaction.md#eth_signtransaction)
 - [eth_fillTransaction](./eth/transaction.md#eth_filltransaction)
 - [eth_pendingTransaction](./eth/transaction.md#eth_pendingtransactions)
+- [eth_resend](./eth/transaction.md#eth_resend)
 
 ### [構成](./eth/config.md) <a id="configuration"></a>
 - [eth_coinbase](./eth/config.md#eth_coinbase)
