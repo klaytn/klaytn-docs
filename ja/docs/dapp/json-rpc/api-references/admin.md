@@ -415,16 +415,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `exportChain` は、ブロックチェーンをファイルにエクスポートする管理方法です。
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.exportChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| Client  | Method invocation                                                                    |
+|:-------:| ------------------------------------------------------------------------------------ |
+| Console | `admin.exportChain(fileName)`                                                        |
+|   RPC   | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
 **Parameters**
 
-| Name     | Type   | Description                           |
-| -------- | ------ | ------------------------------------- |
-| fileName | string | ブロックチェーンをエクスポートする必要があるファイルへの完全修飾パスです。 |
+| Name          | Type   | Description                                               |
+| ------------- | ------ | --------------------------------------------------------- |
+| fileName      | string | ブロックチェーンをエクスポートする必要があるファイルへの完全修飾パスです。                     |
+| startBlockNum | int    | (optional) The first block number of the range to export. |
+| endBlockNum   | int    | (optional) The last block number of the range.            |
 
 **Return Value**
 
@@ -438,6 +440,10 @@ Console
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
+true
+> admin.exportChain("/tmp/chain.txt", 555)
+true
+> admin.exportChain("/tmp/chain.txt", 1, 1000)
 true
 ```
 HTTP RPC
