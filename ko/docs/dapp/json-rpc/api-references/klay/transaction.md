@@ -898,3 +898,37 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   TxHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
 }
 ```
+
+
+## klay_resend <a id="klay_resend"></a>
+
+Resends a transaction.
+
+It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+| Name            | Type     | Description                                                                          |
+| --------------- | -------- | ------------------------------------------------------------------------------------ |
+| transactionArgs | Object   | An object of transaction arguments. See the table below for the object's properties. |
+| gas price       | QUANTITY | Integer of the gasPrice to change                                                    |
+| gas             | QUANTITY | (optional) Integer of the gas to change                                              |
+
+The required parameters for transactionArgs depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+
+**Return Value**
+
+| Type         | Description          |
+| ------------ | -------------------- |
+| 32-byte DATA | The transaction hash |
+
+
+**Example**
+
+```shell
+> var tx = klay.pendingTransactions()[0]
+> klay.resend(tx, 750000000000, 300000)
+```
+
