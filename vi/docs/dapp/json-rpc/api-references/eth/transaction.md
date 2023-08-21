@@ -596,16 +596,16 @@ Tạo giao dịch với các tham số cho trước, ký giao dịch bằng khó
 
 `transactionArgs` có các thuộc tính như sau:
 
-| Tên                  | type            | Mô tả                                                                                                                                                                                                       |
-| -------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                           |
-| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                                                                    |
-| gas                  | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của đơn vị gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                                                                           |
-| maxFeePerGas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 250 ston) Số phí tối đa cần thanh toán để thực thi giao dịch. Vì Klaytn sử dụng giá gas cố định, giá trị phải được đặt là 250 ston (Gpeb trong Ethereum).                              |
-| maxPriorityFeePerGas | SỐ LƯỢNG        | (tùy chọn, mặc định: 250 ston) Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb. Vì Klaytn sử dụng giá gas cố định, giá trị phải được đặt là 250 ston (Gpeb trong Ethereum). |
-| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.                                              |
-| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                                                                          |
-| nonce                | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                              |
+| Tên                  | type            | Mô tả                                                                                                                                                          |
+| -------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                              |
+| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                       |
+| gas                  | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của đơn vị gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                              |
+| maxFeePerGas         | SỐ LƯỢNG        | (optional) The maximum amount to pay for the transaction's execution.                                                                                          |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                                                     |
+| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
+| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                             |
+| nonce                | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                 |
 
 
 
@@ -645,16 +645,16 @@ Ký một giao dịch mà sau này có thể được gửi đến mạng bằng
 
 `transactionArgs` có các thuộc tính như sau:
 
-| Tên                  | Loại           | Mô tả                                                                                                                                                                        |
-| -------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                            |
-| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                                     |
-| gas                  | SỐ LƯỢNG        | Giá trị nguyên chỉ lượng gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                                                        |
-| maxFeePerGas         | SỐ LƯỢNG        | Số tiền tối đa chi trả cho việc thực thi giao dịch. Vì Klaytn sử dụng giá gas cố định, giá trị phải được đặt là 250 ston (Gpeb trong Ethereum).                              |
-| maxPriorityFeePerGas | SỐ LƯỢNG        | Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb. Vì Klaytn sử dụng giá gas cố định, giá trị phải được đặt là 250 ston (Gpeb trong Ethereum). |
-| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.               |
-| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                                           |
-| nonce                | SỐ LƯỢNG        | Giá trị nguyên chỉ số dùng một lần.                                                                                                                                          |
+| Tên                  | Loại           | Mô tả                                                                                                                                                          |
+| -------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                              |
+| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                       |
+| gas                  | SỐ LƯỢNG        | Giá trị nguyên chỉ lượng gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                                          |
+| maxFeePerGas         | SỐ LƯỢNG        | The maximum amount to pay for the transaction's execution.                                                                                                     |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | Gas tip cap for dynamic fee transaction in peb.                                                                                                                |
+| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
+| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                             |
+| nonce                | SỐ LƯỢNG        | Giá trị nguyên chỉ số dùng một lần.                                                                                                                            |
 
 **Giá trị trả về**
 
@@ -806,3 +806,49 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
   ]
 }
 ```
+
+
+## eth_resend <a id="eth_resend"></a>
+
+Resends a transaction.
+
+It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+| Name            | Type     | Description                                                                          |
+| --------------- | -------- | ------------------------------------------------------------------------------------ |
+| transactionArgs | Object   | An object of transaction arguments. See the table below for the object's properties. |
+| gas price       | QUANTITY | Integer of the gasPrice to change                                                    |
+| gas             | QUANTITY | (optional) Integer of the gas to change                                              |
+
+`transactionArgs` has the following properties:
+
+| Name                 | Type         | Description                                                                                                                                                       |
+| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from                 | 20-byte DATA | The address from which the transaction is sent.                                                                                                                   |
+| to                   | 20-byte DATA | The address to which the transaction is directed.                                                                                                                 |
+| gas                  | QUANTITY     | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                            |
+| maxFeePerGas         | QUANTITY     | (optional) The maximum amount to pay for the transaction's execution.                                                                                             |
+| maxPriorityFeePerGas | QUANTITY     | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                                                        |
+| input                | DATA         | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data` field is still supported for backward compatibility. |
+| value                | QUANTITY     | (optional) The integer of values sent with this transaction.                                                                                                      |
+| nonce                | QUANTITY     | (optional) The integer of a nonce.                                                                                                                                |
+
+**Return Value**
+
+| Type         | Description          |
+| ------------ | -------------------- |
+| 32-byte DATA | The transaction hash |
+
+
+**Example**
+
+```shell
+> var tx = eth.pendingTransactions()[0]
+> eth.resend(tx, 750000000000, 300000)
+```
+
+
