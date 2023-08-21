@@ -1,32 +1,32 @@
 ![](./klaytn-foundry.png)
 
 # Introduction
-Foundry는 Rust로 작성된 스마트 계약 개발 프레임워크로, 개발자들이 계약을 관리하고 컴파일하고, 테스트를 실행하고, 계약을 배포하며, 커맨드 라인을 통해 솔리디티 스크립트로 네트워크와 상호 작용할 수 있게 해줍니다.
+Foundry는 Rust로 작성된 스마트 컨트랙트 개발 프레임워크로, 개발자들이 계약을 관리하고 컴파일하고, 테스트를 실행하고, 계약을 배포하며, 커맨드 라인을 통해 솔리디티 스크립트로 네트워크와 상호 작용할 수 있게 해줍니다.
 
 Foundry는 다음과 같이 네 가지 주요 CLI 도구로 구성되어 있으며, 이를 통해 빠르고 모듈식 스마트 계약 개발이 가능합니다:
 
-* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  You can deploy, test, and compile smart contracts using Forge.
-* [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast has made it simple to interact with EVM smart contracts. This includes obtaining chain data, sending transactions, and other things.
-* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): Do you need to spin up a local node? Anvil is a local node environment offered by Foundry.
-* [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): Fast, useful, and verbose solidity REPL.
+* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge): Forge를 사용하여 스마트 컨트랙트를 배포하고, 테스트하고, 컴파일할 수 있습니다.
+* [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast는 EVM 스마트 컨트랙트와 상호 작용하는 것을 간단하게 만들었습니다. Cast는 체인 데이터를 얻는 것, 트랜잭션을 보내는 것과 그 외의 것들도 포함합니다.
+* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): 로컬 노드를 구동해야 하나요? Anvil은 Foundry에서 제공하는 로컬 노드 환경입니다.
+* [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): 빠르고 유용하며 자세한 솔리디티 REPL입니다.
 
-In this guide, you will:
-* Create a simple foundry project.
-* Compile and test a sample smart contract using Foundry.
-* Deploy smart contracts using Foundry to the Klaytn Baobab Network.
-* Explore forking mainnet with cast and anvil.
+여러분은 가이드를 통해서 아래 사항을 진행할 수 있습니다:
+* 간단한 Foundry 프로젝트를 생성합니다.
+* Foundry를 사용하여 샘플 스마트 컨트랙트를 컴파일하고 테스트합니다.
+* Foundry를 사용하여 Klaytn Baobab 네트워크에 스마트 컨트랙트를 배포합니다.
+* Cast와 Anvil을 사용하여 메인넷을 포크하는 방법을 탐색합니다.
 
 # Pre-requisites
-To follow this tutorial, the following are the prerequisites:
+아래 내용은 튜토리얼을 따르기 위한 필수 요구 사항입니다:
 
-* Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-* [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
+* 코드 에디터: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 에디터
+* [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
+* RPC Endpoint: 지원되는 [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) 중 하나에서 이를 얻을 수 있습니다.
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY 받기: 충분한 KLAY로 계정에 자금을 입금합니다.
+* [Rust](https://www.rust-lang.org/tools/install)와 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
 
 # Setting Up Your Development Environment
-To check if your foundry installation was successful, run the command below:
+Foundry 설치가 성공적인지 확인하려면 아래 명령어를 실행하세요:
 
 ```bash
 forge -V
@@ -35,28 +35,28 @@ forge -V
 
 ![](./../images/foundry/forge-version.png)
 
-After successfully installing foundry, you now have access to the CLI tools (forge, cast, anvil, chisel) available in foundry. Let's set up a foundry project in the following steps:
+Foundry를 성공적으로 설치한 후, 이제 foundry에서 사용 가능한 CLI 도구 (forge, cast, anvil, chisel)에 접근할 수 있습니다. 다음 단계로 foundry 프로젝트를 설정해봅시다:
 
-**Step 1**: To start a new project, run the command below:
+**1 단계**: 새 프로젝트를 시작하려면 아래 명령어를 실행하세요:
 
 ```bash
 forge init foundry_example 
 ```
-**Step 2**: Navigate into your project folder.
+**2 단계**: 프로젝트 폴더로 이동하세요.
 
 ```bash 
 cd foundry_example
 ls   
 ```
-After initializing a foundry project, your current directory should include:
-* **src**: the default directory for your smart contracts.
-* **tests**: the default directory for tests.
-* **foundry.toml**: the default project configuration file.
-* **lib**:  the default directory for project dependencies.
-* **script**: the default directory for solidity scripting files.
+Foundry 프로젝트를 초기화한 후, 현재 디렉토리에는 아래 내용이 포함되어야 합니다:
+* **src**: 스마트 컨트랙트를 위한 기본 디렉토리입니다.
+* **tests**: 테스트를 위한 기본 디렉토리입니다.
+* **foundry.toml**: 기본 프로젝트 구성 파일입니다.
+* **lib**: 프로젝트 종속성을 위한 기본 디렉토리입니다.
+* **script**: Solidity 스크립팅 파일을 위한 기본 디렉토리입니다.
 
-# Sample smart contract
-In this section, we will be using the sample counter contract in the initialized foundry project. The `counter.sol` file in the `src/` folder should look like this:
+# 스마트 컨트랙트의 예시
+이번 장에서는 초기화된 Foundry 프로젝트에서 샘플 카운터 컨트랙트를 사용할 것입니다. `src/` 폴더 안의 `counter.sol` 파일은 다음과 같아야 합니다:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -71,12 +71,12 @@ contract Counter {
     }
 }
 ```
-**Code Walkthrough**
+**코드 설명**
 
-This is your smart contract. **Line 1** shows it uses the Solidity version 0.8.13 or greater. From **lines 4-12**, a smart contract `Counter` is created. This contract simply stores a new number using the **setNumber** function and increments it by calling the **increment** function.
+이것이 여러분이 작성한 스마트 컨트랙트입니다. **1행**은 솔리디티 버전 0.8.13 이상을 사용함을 보여줍니다. **4행에서 12행**까지, `Counter`라는 스마트 컨트랙트가 생성됩니다. 이 컨트랙트는 단순히 **setNumber** 함수를 사용하여 새 숫자를 저장하고, **increment** 함수를 호출하여 그 숫자를 증가시킵니다.
 
 # Testing smart contract
-Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. In our initialized foundry project, the `test/Counter.t.sol` is an example of a test written in solidity. The code looks like this:
+Foundry는 다른 스마트 컨트랙트 개발 프레임워크에서 자바스크립트로 테스트를 작성하는 것과 달리, 솔리디티로 테스트를 작성할 수 있게 해줍니다. 우리가 초기화한 Foundry 프로젝트에서, `test/Counter.t.sol`은 솔리디티로 작성된 테스트의 예시입니다. 코드는 다음과 같습니다:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -99,13 +99,13 @@ contract CounterTest is Test {
     }
 }
 ```
-The code above shows you imported forge standard library and Counter.sol.
+위의 코드는 forge의 표준 라이브러리와 Counter.sol을 가져왔음을 보여줍니다.
 
-The tests above check the following:
-* Is the number increasing?
-* Is the number equal to the set number?
+위의 테스트들은 아래 내용을 확인합니다:
+* 숫자가 증가하고 있나요?
+* 숫자가 설정된 숫자와 같나요?
 
-To check if your test works fine, run the following command:
+테스트가 잘 작동하는지 확인하려면 다음 명령어를 실행하세요:
 
 ```bash
 forge test
@@ -114,38 +114,38 @@ forge test
 
 ![](./../images/foundry/forge-test.png)
 
-To learn more about writing tests, advanced testing, and other features, refer to [Foundry's documentation](https://book.getfoundry.sh/forge/tests).
+테스트 작성, 고급 테스팅 및 기타 기능에 대해 자세히 알고 싶다면, [Foundry의 문서](https://book.getfoundry.sh/forge/tests)를 참조하세요.
 
-# Compiling your contracts
-Compile your contract with this command:
+# 스마트 컨트랙트 컨트랙트 컴파일하기
+아래 명령어를 통해 여러분의 컨트랙트를 컴파일하세요:
 
 ```bash
 forge build 
 ```
 
-# Deploying your contracts
+# 스마트 컨트랙트 배포하기
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) on Klaytn to find your rpc-url, and create an account using [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask).
+Foundry를 사용하여 컨트랙트를 배포하려면, 계약을 배포할 계정의 RPC URL과 개인 키를 제공해야 합니다. Klaytn의 [rpc-provider](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) 목록을 확인하여 rpc-url을 찾고, [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask)를 사용하여 계정을 생성하세요.
 
-**Step 1**: To deploy your contract to the Klaytn Baobab network, run the command below:
+**1단계**: Klaytn Baobab 네트워크에 계약을 배포하려면 아래의 명령어를 실행하세요:
 
 ```bash
 $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
 ```
 
-**Example**
+**예시**
 
 ```bash
 forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
 ```
 
-**WARNING: Replace the private key argument with your private key from MetaMask. Be very careful not to expose your private key.**
+**주의 사항: private key 인수를 MetaMask에서의 귀하의 개인 키로 교체하세요. 개인 키를 노출하지 않도록 매우 주의하세요.**
 
 **Output**
 
 ![](./../images/foundry/foundry-create.png)
 
-**Step 2**: Open [Klaytnscope](https://baobab.scope.klaytn.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
+**2단계**: 카운터 컨트랙트가 성공적으로 배포되었는지 확인하기 위해 [Klaytnscope](https://baobab.scope.klaytn.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx)를 엽니다.
 
 **Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
 
