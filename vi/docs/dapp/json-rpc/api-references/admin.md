@@ -415,16 +415,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `exportChain` là một phương pháp quản trị xuất chuỗi khối thành một tệp.
 
-|    Máy khách    | Gọi phương pháp                                          |
-|:---------------:| -------------------------------------------------------- |
-| Bảng điều khiển | `admin.exportChain(fileName)`                            |
-|       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
+|    Máy khách    | Gọi phương pháp                                                                      |
+|:---------------:| ------------------------------------------------------------------------------------ |
+| Bảng điều khiển | `admin.exportChain(fileName)`                                                        |
+|       RPC       | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
 **Tham số**
 
-| Tên         | type  | Mô tả                                                        |
-| ----------- | ----- | ------------------------------------------------------------ |
-| tên tệp tin | chuỗi | đường dẫn đủ điều kiện đến tệp mà chuỗi khối phải được xuất. |
+| Tên           | type  | Mô tả                                                        |
+| ------------- | ----- | ------------------------------------------------------------ |
+| tên tệp tin   | chuỗi | đường dẫn đủ điều kiện đến tệp mà chuỗi khối phải được xuất. |
+| startBlockNum | int   | (optional) The first block number of the range to export.    |
+| endBlockNum   | int   | (optional) The last block number of the range.               |
 
 **Giá trị trả về**
 
@@ -438,6 +440,10 @@ Bảng điều khiển
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
+true
+> admin.exportChain("/tmp/chain.txt", 555)
+true
+> admin.exportChain("/tmp/chain.txt", 1, 1000)
 true
 ```
 HTTP RPC
