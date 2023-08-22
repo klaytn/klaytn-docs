@@ -722,6 +722,10 @@ Note that the order of all addresses and the staking amounts are matched.
 ## governance_ getRewardsAccumulated<a id="governance_getRewardsAccumulated"></a>
 Returns the rewards information accumulated within the given block range `[first, last]`.
 
+{% hint style="success" %}
+NOTE: The block range should be less than 604800 (about 7 days) to protect endpoints from the resource exhaustion.
+{% endhint %}
+
 **Parameters**
 
 | Type          | Description                                                  |
