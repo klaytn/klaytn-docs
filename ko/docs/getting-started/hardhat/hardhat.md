@@ -1,110 +1,110 @@
 ![](./Klaytn-hardhat.png)
 
-# Introduction
+# 소개
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/).
+이번 장에서는 [Hardhat](https://hardhat.org/)을 사용하여 Klaytn Baobab 네트워크에 Soulbound 토큰을 배포하는 과정을 안내해 드리겠습니다.
 
-Hardhat is a smart-contract development environment that will help you:
-* Develop and compile smart contracts.
-* Debug, test, and deploy smart contracts and dApps.
+Hardhat은 다음을 도와줄 스마트 컨트랙트 개발 환경입니다:
+* 스마트 컨트랙트를 개발하고 컴파일합니다.
+* 스마트 컨트랙트와 dApps를 디버그, 테스트, 배포합니다.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soul-bound 토큰(SBTs) 은 전송할 수 없는 NFTs(비대체 가능 토큰) 입니다. 즉, 한 번 획득하면 다른 사용자에게 팔거나 전송할 수 없습니다. SBT에 대해 더 자세히 알고 싶으시면, 어떻게 작동하는지 및 사용 사례에 대해 Vitalik Buterin이 발표한 이 [참고 문서](https://vitalik.ca/general/2022/01/26/soulbound.html)를 확인하실 수 있습니다.
 
-By the end of this guide you will be able to:
-* Set up a Hardhat project on Klaytn.
-* Create a simple soul-bound token.
-* Compile your smart contract using Hardhat.
-* Test, deploy, and interact with your smart contract using Hardhat.
-* Explore Hardhat forking feature.
+이 가이드를 마치면 다음을 수행할 수 있게 됩니다:
+* Klaytn에서 Harthat 프로젝트 설정.
+* 간단한 Soul-bound 토큰 생성.
+* Hardhat을 사용하여 스마트 컨트랙트 컴파일.
+* Hardhat을 사용하여 스마트 컨트랙트 테스트, 배포 및 상호 작용.
+* Hardhat의 포크 기능 탐색.
 
 
-# Pre-requisites
+# 사전 요구 사항
 
-To follow this tutorial, the following are the prerequisites:
+이 튜토리얼을 따르려면 아래 조건이 필요합니다:
 
-* Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* [NodeJS and NPM](https://nodejs.org/en/)
+* 코드 에디터: VS-Code와 같은 소스 [코드 에디터](https://code.visualstudio.com/download).
+* [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
+* RPC Endpoint: 지원되는 [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) 중 하나에서 이를 얻을 수 있습니다.
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY: 충분한 KLAY로 계정을 충전합니다.
+* [NodeJS 및 NPM](https://nodejs.org/en/)
 
-# Setting Up Your Development Environment
+# 개발 환경 설정
 
-To make use of hardhat, we need to set up our development environment and get hardhat installed. Let's do this in the following steps:
+Hardhat을 사용하기 위해서는 개발 환경을 설정하고 Hardhat을 설치해야 합니다. 다음 단계로 이 작업을 수행해봅시다:
 
-**Step 1**: Create a project directory
+**1 단계**: 프로젝트 디렉토리 생성
 
 ```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
 
-**Step 2**: Initialize an npm project
+**2 단계**: npm 프로젝트 초기화
 
-Paste this command in your terminal to create a package.json file
+터미널에 다음 명령어를 붙여넣어 package.json 파일을 생성하세요.
 
 ```bash
 npm init -y
 ```
 
-**Step 3**: Install hardhat and other dependencies:
+**3 단계**: Hardhat과 기타 종속성 설치:
 
-* Paste the code below in your terminal to install hardhat
+* Hardhat을 설치하려면 아래의 코드를 터미널에 붙여넣으세요.
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-* Paste the code below to install other dependencies
+* 다른 의존성을 설치하려면 아래 코드를 터미널에 붙여넣으세요.
 
 ```bash
 npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` et al.
+> 참고: 이것은 이 프로젝트에 필요한 다른 의존성을 설치합니다. `hardhat`, `hardhat-toolbox`, `klaytn/contract`, `dotenv` 등이 포함됩니다.
 
 
-**Step 4**: Initialise a hardhat project:
+**4 단계**: Hardhat 프로젝트 초기화:
 
-Run the command below to initiate an hardhat project
+아래 명령어를 실행하여 Hardhat 프로젝트를 시작하세요.
 
 ```bash
 npx hardhat
 ```
-For this guide, you'll be selecting a typescript project as seen below:
+이 가이드에서는 아래와 같이 typescript 프로젝트를 선택하게 될 것입니다:
 
 ![](./../images/hardhat/hardhat-init.png)
 
-After initializing a hardhat project, your current directory should include:
+Hardhat프로젝트를 초기화한 후 현재 디렉토리에는 다음과 같은 내용이 포함되어야 합니다:
 
-**contracts/** – this folder contains smart contract code.
+**contracts/** – 이 폴더에는 스마트 컨트랙트 코드가 포함되어 있습니다.
 
-**scripts/** – this folder contains code that deploys your contracts on the blockchain network.
+**scripts/** – 이 폴더에는 블록체인 네트워크에 컨트랙트를 배포하는 코드가 포함되어 있습니다.
 
-**test/** – this folder contains all unit tests that test your smart contract.
+**test/** – 이 폴더에는 스마트 컨트랙트를 테스트하는 모든 유닛 테스트가 포함되어 있습니다.
 
-**hardhat.config.ts** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.ts** – 이 파일에는 Hardhat의 작동과 소울 바운드 토큰의 배포에 중요한 환경 설정이 포함되어 있습니다.
 
-**Step 5**: Create a .env file
+**5 단계**: .env 파일을 생성합니다.
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
+이제 프로젝트 폴더에 .env 파일을 생성하세요. 이 파일은 .env 파일에서 process.env로 환경 변수를 로드하는 데 도움이 됩니다.
 
-* Paste this command in your terminal to create a .env file
+* 터미널에 다음 명령어를 붙여넣어 .env 파일을 생성하세요.
 
 ```bash
 touch .env
 ```
 
-* After creating our file, let's configure our .env file to look like this:
+* 파일을 생성한 후, .env 파일을 다음과 같이 구성합시다:
 
 ```js
  KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
-**Step 6**: Setup Hardhat Configs
+**6 단계**: Hardhat 설정하기
 
-Modify your `hardhat.config.ts` with the following configurations:
+다음과 같은 환경 설정으로 `hardhat.config.ts` 파일을 수정하세요:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -125,17 +125,17 @@ module.exports = {
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+이제 개발 환경이 모두 설정되었으므로, 소울 바운드 토큰 스마트 컨트랙트를 작성해봅시다.
 
-# Creating SBT Smart Contract
+# SBT 스마트 컨트랙트 생성
 
-In this section, you will use the [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
+이번 장에서는 커뮤니티에서 검증된 코드의 견고한 기반 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Klaytn 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. Klaytn 컨트랙트는 오픈 제플린 컨트랙트으로부터 포크한 라이브러이입니다.
 
-> Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
+> 참고: `개발 환경 설정` 장의 **3 단계**에서 이미 이 라이브러리를 설치했습니다.
 
-**Step 1**: Select the contracts folder in the Explorer pane, click the New File button and create a new file named `SBT.sol`
+**1 단계**: 탐색기 창에서 contracts 폴더를 선택하고, 새 파일 버튼을 클릭하여 `SBT.sol`이라는 새 파일을 생성합니다.
 
-**Step 2**: Open the file and paste the following code:
+**2 단계**: 파일을 열고 아래의 코드를 붙여넣습니다:
 
 ```js
 // SPDX-License-Identifier: MIT
