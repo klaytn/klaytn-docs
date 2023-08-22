@@ -121,7 +121,7 @@ getEthUsdtPrice()
 ```
 
 
-## S-Value Feeds With ethers.js
+## ethers.js를 이용한 S-값 피드
 
 ```javascript
 // example assumes that the ethers library has been imported and is accessible within your scope
