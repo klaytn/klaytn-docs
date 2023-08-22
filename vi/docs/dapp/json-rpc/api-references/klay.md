@@ -90,3 +90,4 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_sha3](./klay/misc.md#klay_sha3)
 - [klay_recoverFromTransaction](./klay/misc.md#klay_recoverFromTransaction)
 - [klay_recoverFromMessage](./klay/misc.md#klay_recoverFromMessage)
+- [klay_forkStatus](./klay/misc.md#klay_forkStatus)
