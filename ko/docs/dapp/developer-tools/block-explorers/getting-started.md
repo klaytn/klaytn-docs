@@ -1,9 +1,9 @@
 
-# Block Explorers
+# 블록 탐색기
 
-This blockchain tool enables users and enthusiasts to search for real-time and historical information about the blockchain. Block explorers on Klaytn contain information about Klaytn, and as such, users can search for blocks, transactions, balances, addresses, and contracts on Klaytn.
+이 블록체인 도구를 통해 블록체인에 대한 실시간 및 과거 정보를 검색할 수 있습니다. 클레이튼의 블록 탐색기에는 클레이튼에 대한 정보가 포함되어 있으며, 사용자는 클레이튼의 블록, 트랜잭션, 잔액, 주소, 컨트랙트 등을 검색할 수 있습니다.
 
-The list of explorers supported by Klaytn is provided below:
+클레이튼이 지원하는 탐색기 목록은 아래와 같습니다:
 
 * [Klaytnscope](https://scope.klaytn.com/)
 * [Klaytnfinder](https://www.klaytnfinder.io/)
