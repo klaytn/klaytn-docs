@@ -110,3 +110,42 @@ curl -H "Content-Type: application/json" --data '{
 }
 ```
 
+
+## klay_forkStatus <a id="klay_forkStatus"></a>
+
+Returns the whole list of hardforks and their effectiveness at the given block.
+
+**Parameters**
+
+| Name         | Type                | Description                                                                                                                                                   |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+
+**Return Value**
+
+| Type | Description                           |
+| ---- | ------------------------------------- |
+| JSON | List of forks and their effectiveness |
+
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_forkStatus","params":["latest"],"id":1}' https://public-en-baobab.klaytn.net
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "EthTxType": true,
+    "Istanbul": true,
+    "KIP103": false,
+    "Kore": true,
+    "London": true,
+    "Magma": true,
+    "Shanghai": false
+  }
+}
+```
