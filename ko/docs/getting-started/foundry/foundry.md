@@ -147,20 +147,20 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 **2단계**: 카운터 컨트랙트가 성공적으로 배포되었는지 확인하기 위해 [Klaytnscope](https://baobab.scope.klaytn.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx)를 엽니다.
 
-**Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
+**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. 정상적으로 작동했다면, 최근에 배포된 계약을 볼 수 있어야 합니다.
 
 ![](./../images/foundry/forge-scope.png)
 
-# Interacting with the contract
+# 컨트랙트와 상호작용
 
-After successfully deploying your smart contract, you will want to call and execute functions right. Let's get to interact with the deployed contracts on Klaytn Baobab Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+스마트 컨트랙트를 성공적으로 배포한 후에는 함수를 호출하고 실행하길 원하게 될 것입니다. Klaytn Baobab 네트워크에서 배포된 컨트랙트와 상호 작용해 보겠습니다. [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하면 됩니다.  이번 장에서는 `read-only` 함수를 실행하기 위해 [cast call](https://book.getfoundry.sh/reference/cast/cast-call)을 사용하는 방법과 `write` 함수를 실행하기 위해 [cast send](https://book.getfoundry.sh/reference/cast/cast-send)를 사용하는 방법을 배우게 될 것입니다.
 
-**A. cast call**: To get the number stored in the contract, you will be calling the `number` function. Run the command below to see this in action.
+**1. cast call**: 계약에 저장된 숫자를 가져오려면 `number` 함수를 호출해야 합니다. 실제로 작동하는 것을 보시려면, 아래의 명령어를 실행하세요.
 
 ```bash
 cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 ```
-**Example**
+**예시**
 
 ```bash
 cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
@@ -170,12 +170,12 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 
 ![](./../images/foundry/cast-call-number.png)
 
-You should get this data in hexadecimal format:
+데이터를 16진수 형식으로 받아야 합니다:
 
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
-However to get your desired result, use cast to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 0:
+그러나 원하는 결과를 얻으려면 위의 결과를 변환하기 위해 cast를 사용하세요. 이 경우, 데이터는 숫자이므로 이를 10진수로 변환하여 결과 0을 얻을 수 있습니다:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
@@ -184,12 +184,12 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 
 ![](./../images/foundry/cast-call-0.png)
 
-**B. cast send**: To sign and publish a transaction such as executing a `setNumber` function in the counter contract, run the command below:
+**2. cast send**: 카운터 컨트랙트에서 `setNumber` 함수와 같은 트랜잭션을 실행하여 서명하고 발행하려면 아래의 명령어를 실행하세요:
 
 ```bash
 cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
 ```
-**Example**
+**예시**
 
 ```bash
 cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
@@ -198,7 +198,7 @@ cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2
 
 ![](./../images/foundry/cast-send-setNum.png)
 
-**Crosscheck Number**
+**번호 교차 확인**
 
 ```bash
 cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
@@ -208,12 +208,12 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 
 ![](./../images/foundry/cast-call-10.png)
 
-You should get this data in hexadecimal format:
+이 데이터를 16진수 형식으로 받아야 합니다:
 
 ```bash
 0x000000000000000000000000000000000000000000000000000000000000000a
 ```
-However to get your desired result, use cast to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 10:
+원하는 결과를 얻으려면 위의 결과를 변환하기 위해 cast를 사용해야합니다. 이 경우, 데이터는 숫자이므로 이를 10진수로 변환하여 결과 10을 얻을 수 있습니다:
 
 ```bash
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
@@ -222,17 +222,17 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 
 ![](./../images/foundry/cast-call-result-10.png)
 
-# Forking Mainnet with Cast and Anvil
-Foundry allows us to fork the mainnet to a local development network ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Also, you can interact and test with contracts on a real network using [Cast](https://book.getfoundry.sh/reference/cast/).
+# Cast와 Anvil로 메인넷 포크하기
+Foundry는 메인넷을 로컬 개발 네트워크 ([Anvil](https://book.getfoundry.sh/reference/anvil/)) 로 포크할 수 있게 해줍니다. 또한, [Cast](https://book.getfoundry.sh/reference/cast/)를 사용하여 실제 네트워크에서 컨트랙트와 상호 작용하고 테스트할 수 있습니다.
 
-## Getting Started
+## 시작하기
 
-Now that you have your Foundry project up and running, you can fork the mainnet (cypress) by running the command below:
+이제 Foundry 프로젝트를 성공적으로 시작했으니, 아래의 명령어를 실행하여 메인넷(Cypress) 을 포크할 수 있습니다:
 
 ```bash
 anvil --fork-url rpc-url
 ```
-**Example**
+**예시**
 ```bash
 anvil --fork-url https://archive-en.cypress.klaytn.net
 ```
@@ -240,30 +240,30 @@ anvil --fork-url https://archive-en.cypress.klaytn.net
 
 ![](./../images/foundry/anvil-localnode.png)
 
-After successfully running this command, your terminal looks like the above image. You'll have 10 accounts created with their public and private keys as well 10,000 prefunded tokens. The forked chain's RPC server is listening at `127.0.0.1:8545`.
+이 명령어를 성공적으로 실행한 후, 당신의 터미널은 위의 이미지와 같이 보일 것입니다. 당신은 10개의 계정이 생성되고, 각각의 공개키와 개인키가 있으며, 또한 10,000개의 선불 토큰이 있을 것입니다. 포크된 체인의 RPC 서버는 `127.0.0.1:8545`에서 수신하고 있습니다.
 
-To verify you have forked the network, you can query the latest block number:
+네트워크를 포크한 것을 확인하기 위해, 최신 블록 번호를 요청할 수 있습니다:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
-You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList).
+위의 작업에서 얻은 결과를 [16진수에서 10진수](https://www.rapidtables.com/convert/number/hex-to-decimal.html)로 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 이를 검증하려면 [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList)에서 블록 번호를 참조하여 대조하십시오.
 
 ## Illustration
-In this section, you will learn how to transfer oUSDC tokens from someone who holds oUSDC to an account created by Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
+이번 장에서는 oUSDC를 보유한 사람으로부터 Anvil에 의해 생성된 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob) 으로 oUSDC 토큰을 전송하는 방법을 배울 예정입니다.
 
-**Transferring oUSDC**
+**oUSDC 전송하기**
 
-Go to Klaytnscope and search for holders of oUSDC tokens (here). Let's pick a random account. In this example, we will be using `0x8e61241e0525bd45cfc43dd7ba0229b422545bca`.
+Klaytnscope로 가서 oUSDC 토큰의 보유자를 검색하세요 (여기). 무작위 계정을 선택합니다. 이 예시에서는 `0x8e61241e0525bd45cfc43dd7ba0229b422545bca`를 사용하게 됩니다.
 
-Let's export our contracts and accounts as environment variables:
+컨트랙트와 계정을 환경 변수로 내보냅시다:
 
 ```bash
 export BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
 export oUSDC=0x754288077d0ff82af7a5317c7cb8c444d421d103
 export oUSDCHolder=0x8e61241e0525bd45cfc43dd7ba0229b422545bca
 ```
-We can check Bob’s balance using cast call:
+Bob의 잔액을 cast 호출을 사용하여 확인할 수 있습니다:
 
 ```bash
 cast call $oUSDC \
@@ -274,7 +274,7 @@ cast call $oUSDC \
 
 ![](./../images/foundry/oUsdcBob4.png)
 
-Similarly, we can also check our oUSDC holder’s balance using cast call:
+마찬가지로, cast 호출을 사용하여 oUSDC 보유자의 잔액도 확인할 수 있습니다:
 
 ```bash
 cast call $oUSDC \
@@ -285,7 +285,7 @@ cast call $oUSDC \
 
 ![](./../images/foundry/oUsdcHolder4.png)
 
-Let's transfer some tokens from the lucky user to Alice using cast send:
+cast send를 사용하여 운좋은 사용자로부터 앨리스에게 일부 토큰을 전송해봅시다:
 
 ```bash
 cast rpc anvil_impersonateAccount $oUSDCHolder
@@ -299,7 +299,7 @@ cast send $oUSDC \
 
 ![](./../images/foundry/cast-send.png)
 
-Let's check that the transfer worked:
+전송이 제대로 작동했는지 확인해봅시다:
 
 ```bash
 cast call $oUSDC \
@@ -319,5 +319,5 @@ cast call $oUSDC \
 
 ![](./../images/foundry/oUsdcHolderAfter.png)
 
-For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/foundry).
+더 깊이 있는 가이드를 원하시면, [Foundry 문서](https://book.getfoundry.sh/)를 참조해주세요. 또한, 이 가이드에 대한 코드의 자세한 내용은 [GitHub](https://github.com/klaytn/examples/tree/main/foundry)에서 찾을 수 있습니다.
 
