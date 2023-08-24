@@ -50,10 +50,10 @@ $ sudo kcn attach klay.ipc
 
 ```jsx
 # execute the command below in the Klaytn DATA_DIR Path
-$ sudo kcn attach klay.ipc --exec API
+$ sudo kcn attach --exec <statement> klay.ipc
 
 e.g.
 # Check my dode address
-  $sudo kcn attach klay.ipc --exec governance.nodeAddress
-   "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
+$ sudo kcn attach --exec "governance.nodeAddress" klay.ipc
+"0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```
