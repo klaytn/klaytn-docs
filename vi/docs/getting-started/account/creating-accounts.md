@@ -51,8 +51,8 @@ Tập tin này nhập một khóa riêng tư chưa được mã hóa từ tập 
 ### ken <a id="ken-1"></a>
 
 ```bash
-$ ken tài khoản import <keyfile> --datadir <DATADIR>
-$ ken tài khoản import --password <passwordfile> <keyfile> --datadir <DATADIR>
+$ ken account import --datadir <datadir> <keyfile>
+$ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 ```
 
 ### Bảng điều khiển JavaScript <a id="javascript-console-1"></a>
