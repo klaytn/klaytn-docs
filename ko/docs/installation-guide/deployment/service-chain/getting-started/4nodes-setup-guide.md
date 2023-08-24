@@ -65,10 +65,10 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-`bin` 폴더로 가서 파일 생성을 위해 다음의 옵션과 함께 `homi`를 실행하세요. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Baobab의 `chainID`는 1001이기 때문에, 편의 상 본 예제에서는 서비스 체인의 `chainID`를 1002로 하겠습니다. 실제 서비스를 출시하기 위해 블록체인을 운영하는 경우, 다른 서비스 체인과 겹치지 않도록 https://chainlist.defillama.com/에서 새로운 chainID를 등록한 뒤에 사용할 것을 권장합니다. 서비스체인의 포트는 기본값이 22323으로 설정되어 있습니다.
+`bin` 폴더로 가서 파일 생성을 위해 다음의 옵션과 함께 `homi`를 실행하세요. `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Since Baobab's `chainID` is 1001, for convenience, the `chainID` of the ServiceChain constructed in this example is set to 1002. 실제 서비스를 출시하기 위해 블록체인을 운영하는 경우, 다른 서비스 체인과 겹치지 않도록 https://chainlist.defillama.com/에서 새로운 chainID를 등록한 뒤에 사용할 것을 권장합니다. 서비스체인의 포트는 기본값이 22323으로 설정되어 있습니다.
 
 ```console
-$ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
+$ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/keys/passwd2
 Created :  homi-output/keys/passwd3
