@@ -15,7 +15,7 @@ Giống như khi định cấu hình ServiceChain L2, hãy thực thi lệnh `ho
 
 
 ```console
-$ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
+$ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/keys/passwd2
 Created :  homi-output/keys/passwd3
