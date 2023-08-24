@@ -65,10 +65,10 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-Chuyển đến thư mục `bin` và thực thi `homi` với các tùy chọn sau để tạo tập tin. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Vì `chainID` của Baobab là 1001, để thuận tiện, `chainID` của ServiceChain trong ví dụ này được đặt là 1002. Khi vận hành một blockchain bằng cách khởi chạy một dịch vụ thực tế, bạn nên sử dụng dịch vụ đó sau khi đăng ký giá trị chainID mới tại https://chainlist.defillama.com/ để chainID không trùng lặp với các ServiceChain khác. Cổng ServiceChain được đặt là 22323 hay chính là cổng mặc định.
+Chuyển đến thư mục `bin` và thực thi `homi` với các tùy chọn sau để tạo tập tin. `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Since Baobab's `chainID` is 1001, for convenience, the `chainID` of the ServiceChain constructed in this example is set to 1002. Khi vận hành một blockchain bằng cách khởi chạy một dịch vụ thực tế, bạn nên sử dụng dịch vụ đó sau khi đăng ký giá trị chainID mới tại https://chainlist.defillama.com/ để chainID không trùng lặp với các ServiceChain khác. Cổng ServiceChain được đặt là 22323 hay chính là cổng mặc định.
 
 ```console
-$ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
+$ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/keys/passwd2
 Created :  homi-output/keys/passwd3
