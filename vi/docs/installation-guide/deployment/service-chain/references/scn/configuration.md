@@ -15,7 +15,7 @@ Trong hướng dẫn này, không phải lúc nào chúng ta cũng chỉ định
 
 Trước tiên, bạn nên tạo tập tin khởi nguyên và tập tin khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
 ```bash
-$ homi setup local --cn-num 1 --servicechain -o ./homi-output
+$ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
