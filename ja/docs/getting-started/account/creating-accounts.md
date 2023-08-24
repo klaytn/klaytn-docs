@@ -51,8 +51,8 @@ $ cat > /path/to/password
 ### ken <a id="ken-1"></a>
 
 ```bash
-$ ken account import <keyfile> --datadir <DATADIR>
-$ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
+$ ken account import --datadir <datadir> <keyfile>
+$ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 ```
 
 ### JavaScript Console <a id="javascript-console-1"></a>
