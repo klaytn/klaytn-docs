@@ -3,6 +3,7 @@
 ## Tải xuống các gói <a id="get-the-packages"></a>
 Bạn có thể tải về các gói cho CN, PN, EN, SCN, SPN và SEN.
 
+* [v1.11.0](v1.11.0.md)
 * [v1.10.2](v1.10.2.md)
 * [v1.10.1](v1.10.1.md)
 * [v1.10.0](v1.10.0.md)
