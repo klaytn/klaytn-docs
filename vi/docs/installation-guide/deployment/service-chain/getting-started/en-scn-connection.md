@@ -31,7 +31,7 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 Bây giờ, chúng ta sẽ khởi tạo nút EN bằng tệp khởi nguyên. Thực thi các lệnh sau. Điều này sẽ tạo thư mục dữ liệu lưu trữ dữ liệu chuỗi và bản ghi trên thư mục chủ của bạn. Bạn có thể thay đổi thư mục dữ liệu bằng lệnh dẫn hướng `--datadir`.
 
 ```
-EN-01$ ken --datadir ~/data init ~/genesis.json
+EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
 ## Bước 3: Định cấu hình nút EN <a id="step-3-configure-the-en-node"></a>
