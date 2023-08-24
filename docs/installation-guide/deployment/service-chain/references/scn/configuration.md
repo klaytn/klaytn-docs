@@ -15,7 +15,7 @@ In this tutorial, we will not always specify the full path to the command.
 
 First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
 ```bash
-$ homi setup local --cn-num 1 --servicechain -o ./homi-output
+$ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1

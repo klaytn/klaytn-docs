@@ -15,7 +15,7 @@ As when configuring ServiceChain L2, execute the `homi` command to create script
 
 
 ```console
-$ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
+$ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/keys/passwd2
 Created :  homi-output/keys/passwd3
