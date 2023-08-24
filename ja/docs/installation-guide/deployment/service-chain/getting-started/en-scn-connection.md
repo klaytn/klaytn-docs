@@ -31,7 +31,7 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 ここで、genesisファイルを使用してENノードを初期化します。 以下のコマンドを実行します。 It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
 
 ```
-EN-01$ ken --datadir ~/data init ~/genesis.json
+EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
 ## ステップ 3: ENノードの設定 <a id="step-3-configure-the-en-node"></a>
