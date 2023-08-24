@@ -31,7 +31,7 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 다운로드 받은 제네시스 파일을 사용해서 EN을 초기화합니다. 아래의 명령어를 실행하시면, It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
 
 ```
-EN-01$ ken --datadir ~/data init ~/genesis.json
+EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
 ## 3 단계 : EN 노드 설정<a id="step-3-configure-the-en-node"></a>
