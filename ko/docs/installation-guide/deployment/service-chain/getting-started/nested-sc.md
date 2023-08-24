@@ -15,7 +15,7 @@ L3 빌드를 위한 스크립트와 구성 파일을 생성하기 위해, Servic
 
 
 ```console
-$ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
+$ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/keys/passwd2
 Created :  homi-output/keys/passwd3
