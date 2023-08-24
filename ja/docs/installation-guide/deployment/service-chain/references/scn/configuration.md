@@ -15,7 +15,7 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 
 まず、独自のサービスチェーンのためのジェネシスファイルとnodekeyファイルを作成する必要があります。 homiを使って以下のように作成できます。
 ```bash
-$ homi setup local --cn-num 1 --servicechain -o ./homi-output
+$ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
 Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
