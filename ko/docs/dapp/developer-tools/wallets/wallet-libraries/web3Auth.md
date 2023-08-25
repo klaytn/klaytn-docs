@@ -8,7 +8,7 @@
 
 지갑 인프라로서 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑 및 기타 키 관리 기능을 기본으로 지원합니다. 본 가이드를 통해 여러분은 클레이튼 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합할 수 있게 됩니다. 이 외 다른 플랫폼(Android, iOS, React Native, Flutter, Unity)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참조하세요.
 
-# 필요 사항
+# 준비 사항
 
 * 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트명` 실행)
 * 필요한 지갑이 설치됨([코인베이스 지갑](https://www.coinbase.com/wallet/downloads), [메타마스크](https://metamask.io/download/)).
