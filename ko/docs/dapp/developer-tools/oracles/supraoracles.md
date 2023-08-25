@@ -6,7 +6,7 @@
 
 SupraOracles를 사용하면, 스마트 컨트랙트가 가격 데이터 피드에 접근하여 다양한 탈중앙화 금융(DeFi) 사용 사례를 구축할 수 있습니다. 본 튜토리얼에서, 우리는 SupraOracles를 사용하여 Remix IDE를 통해 Klaytn 블록체인 위에서 쉽게 가격 피드를 가져올 것입니다.
 
-# 준비 사항
+# 준비사항
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
 * [Remix의 Klaytn 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
