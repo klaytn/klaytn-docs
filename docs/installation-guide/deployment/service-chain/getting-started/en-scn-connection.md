@@ -34,7 +34,7 @@ It will create the data folder storing the chain data and logs on your home dire
 You can change the data folder using the `--datadir` directive.
 
 ```
-EN-01$ ken --datadir ~/data init ~/genesis.json
+EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
 ## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
