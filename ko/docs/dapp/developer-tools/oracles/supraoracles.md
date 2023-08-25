@@ -2,7 +2,7 @@
 
 ![](../images/klaytnXsupraOracles.png)
 
-[SupraOracles](https://supraoracles.com/)는 모든 퍼블릭(L1 및 L2) 또는 프라이빗(기업용) 블록체인을 상호 연결하는 크로스체인 솔루션(데이터 오라클, 자산 브릿지, 자동화 네트워크 등) 의 수직 통합 툴킷인 새로운 고성능 오라클 & 인트라레이어(IntraLayer) 입니다. 데이터 정확성, 속도, 확장성 및 보안성이 뛰어난 차세대 크로스 체인 오라클 솔루션을 탑재한 스마트 컨트랙트를 제공합니다.
+[SupraOracles](https://supraoracles.com/)는 새로운 고성능 오라클 & 인트라레이어(IntraLayer)로서 모든 퍼블릭(L1 및 L2) 또는 프라이빗(기업용) 블록체인을 상호 연결하는 크로스체인 솔루션(데이터 오라클, 자산 브릿지, 자동화 네트워크 등)의 수직 통합 툴킷입니다. 데이터 정확성, 속도, 확장성 및 보안성이 뛰어난 차세대 크로스 체인 오라클 솔루션을 탑재한 스마트 컨트랙트를 제공합니다.
 
 SupraOracles를 사용하면, 스마트 컨트랙트가 가격 데이터 피드에 접근하여 다양한 탈중앙화 금융(DeFi) 사용 사례를 구축할 수 있습니다. 본 튜토리얼에서, 우리는 SupraOracles를 사용하여 Remix IDE를 통해 Klaytn 블록체인 위에서 쉽게 가격 피드를 가져올 것입니다.
 
@@ -62,7 +62,7 @@ return price;
 **Remix IDE**
 
 * [Remix IDE](https://remix.ethereum.org/)로 이동합니다
-* File Explorer 탭을 클릭하고 컨트랙트 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 새 파일을 만듭니다
+* File Explorer 탭을 클릭하고 contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 새 파일을 만듭니다
 * 새로 생성한 파일에 아래 코드를 붙여넣습니다
 * Remix에서 **Compile contract**를 클릭합니다.
 * Klaytn 플러그인을 설치한 후 왼쪽의 Klaytn 탭을 클릭합니다
@@ -93,15 +93,15 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-## 스마트 컨트랙트와 상호작용
+## 스마트 컨트랙트와의 상호작용
 
 선택한 통화 쌍의 가격 피드를 가져오려면 `getEthUsdtPrice()` 함수를 실행해야 합니다.
 
 ![](../images/sPriceFeed.png)
 
-짜잔 🎉! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT) 를 요청하셨습니다.
+짜잔 🎉! 이제 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT) 요청이 완료되었습니다.
 
-이 글을 작성하는 시점을 기준으로, getEthUsdtPrice()는 소수점 8자리의 정확도를 가지는 "185795966200"을 반환했습니다. 실제 ETH/USD 가격을 얻기위해 이 반환값을 10^8로 나누면 $1857.95966200이 됩니다.
+글 작성 시점에서, getEthUsdtPrice()는 소수점 8자리의 정확도를 가지는 "185795966200"을 반환했습니다. 실제 ETH/USD 가격을 얻기위해 이 반환값을 10^8로 나누면 $1857.95966200이 됩니다.
 
 # SupraOracles 암호화폐 가격 피드를 사용하는 다양한 방법
 
@@ -141,4 +141,4 @@ getEthUsdtPrice()
 
 # 결론
 
-본 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles와 함께라면, 스마트 컨트랙트에서 난수도 생성할 수 있습니다. 이 과정이 궁금하다면 Klaytn에 SupraVRF를 통합하는 방법에 대한 [가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참조하세요. SupraOracles에 대한 자세한 가이드는 [SupraOracles 문서](https://supraoracles.com/docs/development-guides)를 참조하세요.
+본 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. 덧붙여 SupraOracles를 이용해 스마트 컨트랙트에서 난수도 생성할 수 있습니다. 이 과정이 궁금하다면 Klaytn에 SupraVRF를 통합하는 방법에 대한 [가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참조하세요. SupraOracles에 대한 자세한 가이드는 [SupraOracles 문서](https://supraoracles.com/docs/development-guides)를 참조하세요.
