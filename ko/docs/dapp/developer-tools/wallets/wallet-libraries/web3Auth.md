@@ -6,14 +6,14 @@
 
 [Web3Auth](https://web3auth.io/docs/)는 dApp이나 지갑에 연결되는 지갑 인프라입니다. 웹3.0 지갑과 애플리케이션에 접속 가능한 인증 인프라 역할을 합니다. Web3Auth의 뛰어난 사용자 편의성을 통해 주류 사용자 및 암호화폐 네이티브 모두를 단 몇 분 만에 온보딩할 수 있습니다.
 
-지갑 인프라로서 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑 및 기타 키 관리 기능을 기본으로 지원합니다. 본 가이드를 통해 여러분은 클레이튼 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합할 수 있게 됩니다. 이 외 다른 플랫폼(Android, iOS, React Native, Flutter, Unity)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참조하세요.
+지갑 인프라로서 Web3Auth는 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑 및 기타 키 관리 기능을 기본으로 지원합니다. 본 가이드를 통해 여러분은 클레이튼 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합할 수 있게 됩니다. 이 외 다른 플랫폼(Android, iOS, React Native, Flutter, Unity)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참조하세요.
 
-# 준비 사항
+# 준비사항
 
 * 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트명` 실행)
 * 필요한 지갑이 설치됨([코인베이스 지갑](https://www.coinbase.com/wallet/downloads), [메타마스크](https://metamask.io/download/)).
 * RPC 엔드포인트: 지원되는 [엔드포인트 공급자](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) 중 하나에서 가져올 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY 확보: 계정에 충분한 KLAY 충전
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 얻은 테스트 KLAY: 충분한 KLAY를 계정에 충전
 * [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID 획득
 
 # 설치하기
@@ -160,7 +160,7 @@ return (
 
 # 지갑 연결 해제하기
 
-지갑에서 연결을 끊으려면 Web3Auth 인스턴스에서 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 메서드를 사용하면 됩니다. 또한 상태 새로고침을 하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
+지갑 연결을 끊으려면 Web3Auth 인스턴스에서 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 메서드를 사용하면 됩니다. 또한 상태 새로고침을 하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
 
 ```js
 function App() {
