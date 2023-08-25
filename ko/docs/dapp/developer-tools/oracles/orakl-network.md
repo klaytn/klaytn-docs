@@ -10,7 +10,7 @@ Orakl Network를 통해 사용자는 스마트 컨트랙트에서 예측 불가�
 오라클 네트워크는 개발자에게 두 가지 결제 방법을 통해 VRF 서비스에 대한 액세스를 제공합니다: [선불](https://docs.orakl.network/docs/developers-guide/readme#prepayment) 또는 [직접 결제](https://docs.orakl.network/docs/developers-guide/readme#direct-payment). 이 튜토리얼에서는 오라클 네트워크의 VRF 기능을 활용하여 스마트 컨트랙트에서 난수를 요청해볼 것입니다.
 
 
-# 준비 사항
+# 준비사항
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
 * [Remix의 Klaytn 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
