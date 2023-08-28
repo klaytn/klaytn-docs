@@ -10,11 +10,11 @@
 
 # 준비사항
 
-* 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트명` 실행)
-* 필요한 지갑이 설치됨([코인베이스 지갑](https://www.coinbase.com/wallet/downloads), [메타마스크](https://metamask.io/download/)).
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) 중 하나에서 가져올 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 얻은 테스트 KLAY: 충분한 KLAY를 계정에 충전
-* [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID 획득
+* 작동하는 React 프로젝트(`npx create-react-app 프로젝트명` 실행).
+* 필요한 지갑이 설치됨([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
+* RPC 엔드포인트: 지원되는 [엔드포인트 공급자 중 하나](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en)에서 가져올 수 있음.
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 얻은 테스트 KLAY: 충분한 KLAY를 계정에 충전.
+* [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID 획득.
 
 # 설치하기
 
@@ -416,7 +416,7 @@ return (
 
 Web3Auth 공급자 및 서명자 객체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
-2. **계약서 쓰기**
+2. **컨트랙트 작성하기**
 
 ```js
   // add to existing useState hook
@@ -505,7 +505,7 @@ return (
 );
 ```
 
-3. **계약서 읽기**
+3. **컨트랙트 읽기**
 
 ```js
 // add to existing useState hook
@@ -589,7 +589,7 @@ return (
 ```js
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
-이 오류는 웹팩 버전 5를 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
+이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
 
 # 다음 단계
 Web3Auth에 대한 자세한 가이드는 [Web3Auth 문서](https://web3auth.io/docs/connect-blockchain/klaytn) 및 [Web3Auth Github 리포지토리](https://github.com/web3auth)에서 확인할 수 있습니다. 또한 이 가이드에 대한 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample)에서 확인할 수 있습니다.
