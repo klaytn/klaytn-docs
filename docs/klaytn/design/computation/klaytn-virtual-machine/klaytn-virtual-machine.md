@@ -106,7 +106,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 ##### Scalar values representing `constantGas` of an opcode
 | Name | Value | Name in code | Opcodes |
 | :--- | ---: | ---: | :--- |
-| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br>  `PREVRANDAO(originally it was difficulty)`, `GASLIMIT`, </br>`RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, </br> `CHAINID(added at istanbul hardfork)`, </br> `BASEFEE(added at london Hardfork)` |
+| `G_base` | 2 | GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, </br> `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, </br>  `PREVRANDAO(originally it was difficulty)`, `GASLIMIT`, </br>`RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, </br> `CHAINID(added at istanbul hardfork)`, </br> `BASEFEE(added at london Hardfork)`, </br> `PUSH0(added at shanghai Hardfork)` |
 | `G_verylow` | 3 | GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, </br> `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, </br> `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP` |
 | `G_low` | 5 | GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, </br> `SELFBALANCE(added at istanbul hardfork)` |
 | `G_mid` | 8 | GasMidStep | `ADDMOD`, `MULMOD`, `JUMP` |
