@@ -91,6 +91,7 @@ NOTE: Computation costs have changed with the `Kore` hardfork. Nếu bạn muố
 | MSIZE          |             137 |
 | GAS            |             230 |
 | JUMPDEST       |              10 |
+| PUSH0          |              80 |
 | PUSH1          |             120 |
 | PUSH2          |             120 |
 | PUSH3          |             120 |
@@ -164,7 +165,7 @@ NOTE: Computation costs have changed with the `Kore` hardfork. Nếu bạn muố
 | DUP            |               0 |
 | SWAP           |               0 |
 | CREATE         |            2094 |
-| LỆNH GỌI       |            5000 |
+| CALL           |            5000 |
 | CALLCODE       |            4000 |
 | RETURN         |               0 |
 | DELEGATECALL   |             696 |
