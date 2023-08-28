@@ -1,34 +1,34 @@
-# Integrate Web3-Onboard into a dApp
+# Web3-Onboard를 dApp에 통합하기
 
 ![](../../images/klaytnXweb3Onboard.png)
 
-# Introduction
+# 소개
 
-Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3-Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
+프로젝트와 개발자는 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)와 같은 도구를 활용하여 다양한 지갑을 탈중앙화 애플리케이션(dApp)에 빠르게 통합할 수 있습니다. Web3-Onboard의 도움으로 사용자 온보딩이 간소화되었습니다. Web3-Onboard는 여러 종류의 지갑을 지원하는 기능 뿐 아니라 사용자가 계정을 다른 체인이나 네트워크에 연결하고 실시간 거래 알림을 받을 수 있는 기능 등 다양한 기능을 제공합니다.
 
-In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Klaytn Network.
+본 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, Metamask, WalletConnect)을 클레이튼 네트워크에서 구축한 dApp에 통합하는 방법을 설명합니다.
 
-# Prerequisite
+# 준비사항
 
-* A working react project (by executing `npx create-react-app project-name`)
-* Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* 작동하는 React 프로젝트(`npx create-react-app 프로젝트명` 실행)
+* 필요한 지갑이 설치됨([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
+* RPC 엔드포인트: 지원되는 [엔드포인트 공급자 중 하나](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en)에서 가져올 수 있음.
+* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 얻은 테스트 KLAY: 충분한 KLAY를 계정에 충전.
 
-# Getting Started
+# 시작하기
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Klaytn Network.
+체인에 구애받지 않는 지갑 라이브러리인 Web3-Onboard는 모든 EVM 호환 네트워크를 지원하며, 라이브러리에 새로운 네트워크를 추가할 수 있는 유연성도 제공합니다. 본 가이드에서는 Web3-Onboard를 사용하여 Klaytn 메인넷인 Cypress와 클레이튼 테스트넷인 Baobab을 dApp에 추가해 보겠습니다. 이제 Web3-Onboard를 사용해 다중지갑 호환성을 클레이튼 네트워크에 구축된 dApp에 통합해 보겠습니다.
 
-# Setting up Onboard and Wallet Modules
+# 온보드 및 지갑 모듈 설정하기
 
-**Step 1**: Install @web3-onboard/core
+**1단계**: @web3-onboard/core 설치
 
 ```bash
 npm i @web3-onboard/core 
 ```
-**Step 2**: Import and Instantiate Wallet Modules
+**2단계**: 지갑 모듈 가져오기 및 인스턴스화
 
-In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation. Refer to this [docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) for a list of wallet modules that can be added to your dApp using Web3-Onboard.
+이 단계에서 지갑 모듈을 사용하여 dApp에서 지원할 지갑을 원하는 만큼 추가할 수 있습니다. 하지만 본 가이드에서는 Web3-Onboard 구현에 Coinbase Wallet, WalletConnect, Injected Wallets을 추가해 보도록 하겠습니다. Web3-Onboard를 사용하여 dApp에 추가할 수 있는 지갑 모듈 목록은 이 [docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules)을 참조하세요.
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -36,7 +36,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-In your `App.js` file, instantiate the wallet modules to integrate with your dApp. Note that each module has its own unique options parameters to pass in, such as a fallback JSON RPC URL or default chain ID.
+`App.js` 파일에서 지갑 모듈을 인스턴스화하여 dApp과 통합합니다. 각 모듈에는 대체 JSON RPC URL 또는 기본 체인 ID와 같이 전달할 고유한 옵션 매개변수가 있다는 점에 유의하세요.
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -49,22 +49,22 @@ const injected = injectedModule();
 
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
-**Step 3**: Install and import ethers
+**3단계**: 에테르 설치 및 가져오기
 
-The Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+Web3-Onboard 공급자는 [ethers.js](https://docs.ethers.org/v6/) 및 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있습니다. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 클레이튼 블록체인 호출을 수행하겠습니다.
 
 ```bash
 npm install --save ethers
 ```
-In your `App.js` file, import the ethers package like this:
+`App.js` 파일에서 다음과 같이 에테르 패키지를 임포트합니다:
 
 ```js
 import { ethers } from "ethers";
 ```
 
-**Step 4**: Import and Setup Web3ReactProvider
+**4단계**: Web3ReactProvider 가져오기 및 설정하기
 
-In this step, you will instantiate Onboard with the created modules and a list of chains to be compatible with the library. Open up your `App.js` file and paste the code below:
+이 단계에서는 생성된 모듈과 라이브러리와 호환될 체인 목록으로 Onboard를 인스턴스화합니다. `App.js` 파일을 열고 아래 코드를 붙여넣습니다:
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -111,13 +111,13 @@ const onboard = Onboard({
 });
 ```
 
-# Setting up Utils function
+# 유틸리티 함수 설정하기
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. While the toHex() function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+이 가이드에서는 `truncateAddress()` 및 `toHex()`와 같은 유틸리티 함수를 사용하겠습니다. truncateAddress() 함수는 유효한 주소를 받아 전달된 주소의 읽기 쉬운 형식을 반환합니다. toHex() 함수는 숫자를 16진수로 변환합니다.  아래 단계는 프로젝트에서 유틸리티 기능을 설정하고 사용하는 방법을 보여줍니다.
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**단계 1**: `src` 루트 폴더에 `utils.js` 파일을 생성합니다.
 
-Paste the following code in the newly created utils.js file.
+새로 만든 utils.js 파일에 다음 코드를 붙여넣습니다.
 
 ```js
 export const truncateAddress = (address) => {
@@ -134,14 +134,14 @@ export const truncateAddress = (address) => {
     return "0x" + val.toString(16);
   };
 ```
-**Step 2**: Import the functions in your `App.js` file.
+**2단계**: `App.js` 파일에서 함수를 가져옵니다.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
-# Connecting Wallet
+# 지갑 연결
 
-Inside your App function in your `App.js` file, call the `connectWallet()` method on the onboard instance to initiate the onboard popup modal.
+`App.js` 파일의 앱 함수 내에서 온보드 인스턴스에서 `connectWallet()` 메서드를 호출하여 온보드 팝업 모달을 시작하세요.
 
 ```js
 function App() {
@@ -160,12 +160,12 @@ function App() {
   );
 }
 ```
-Once you click your Connect Wallet button, you should see a modal that allows you to seamlessly connect to Coinbase Wallet and other instantiated wallets from your dApp.
+지갑 연결 버튼을 클릭하면 dApp에서 코인베이스 지갑 및 기타 인스턴스화된 지갑에 원활하게 연결할 수 있는 모달이 표시됩니다.
 
 ![](../../images/web3-Onboard.png)
 
-# Disconnecting Wallet
-Disconnecting a connected wallet can be achieved by calling the `disconnectWallet()` method on the onboard instance along with the label of the user's primary wallet. Also, one good practice is to refresh the state to clear any previously stored connection data.
+# 지갑 연결 해제하기
+연결된 지갑의 연결을 끊으려면 사용자의 기본 지갑 레이블과 함께 온보드 인스턴스에서 `disconnectWallet()` 메서드를 호출하면 됩니다. 또한 상태를 새로 고침하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
 
 ```js
 function App() {
@@ -200,16 +200,16 @@ function App() {
 }
 ```
 
-# Accessing connection, account, network information
+# 연결, 계정, 네트워크 정보에 엑세스하기
 
-After successfully connecting your wallet, you can use the [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) method to fetch the state of your connection stored through the onboard instance. You can also fetch the state during the initial connection. Now you can modify the  connectWallet() method to return a list of wallet states that you can store in your state and use throughout the application.
+지갑 연결에 성공하면 [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) 메서드를 사용하여 온보드 인스턴스를 통해 저장된 연결 상태를 가져올 수 있습니다. 초기 연결 중에 상태를 가져올 수도 있습니다. 이제 연결 지갑() 메서드를 수정하여 내 상태에 저장하고 애플리케이션 전체에서 사용할 수 있는 지갑 상태 목록을 반환할 수 있습니다.
 
-**Step 1**:  import React's useState
+**1단계**: React의 사용 상태 가져오기
 
 ```js
 import { useState } from 'react';
 ```
-**Step 2**: Modify code within your App function
+**스텝 2**: 앱 함수 내에서 코드 수정
 
 ```js
 function App() {
@@ -242,14 +242,14 @@ function App() {
 
         <div>Wallet Address: ${truncateAddress(account)}</div>
         <div>Network Chain ID: ${chainId}</div>
-    </div>
+    </3>
   );
 }
 ```
 
-# Switching Networks
+# 네트워크 전환하기
 
-In order to prompt the user to switch networks in your dApps, Web3-Onboard provides a `setChain` method on an initialized instance of Onboard. Note that the target network must have been initialized with the onboard instance at the start of your application.
+사용자에게 디앱에서 네트워크를 전환하라는 메시지를 표시하기 위해 Web3-Onboard는 초기화된 Onboard 인스턴스에서 `setChain` 메서드를 제공합니다. 애플리케이션을 시작할 때 대상 네트워크가 온보드 인스턴스로 초기화되어 있어야 합니다.
 
 ```js
 const switchNetwork = async () => {
@@ -263,9 +263,9 @@ return (
 )
 ```
 
-# Sending Native Transaction
+# 네이티브 트랜잭션 보내기
 
-After successfully connecting to a wallet, you can store the provider object returned from the wallet connection in a state variable as done in connectWallet() function. You can therefore use this provider and signer object to send transactions to the blockchain.
+지갑에 성공적으로 연결한 후 지갑 연결에서 반환된 공급자 객체를 connectWallet() 함수에서 수행한 것처럼 상태 변수에 저장할 수 있습니다. 따라서 이 공급자 및 서명자 개체를 사용하여 트랜잭션을 블록체인으로 전송할 수 있습니다.
 
 ```js
  // add to the existing useState hook.
@@ -308,9 +308,9 @@ return (
 
 ```
 
-# Interacting with Smart Contracts
+# 스마트 컨트랙트와의 상호작용하기
 
-With the Web3-Onboard provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed on the blockchain.
+Web3-Onboard 공급자 및 서명자 개체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
 ```js
 // add to existing useState hook
@@ -469,18 +469,18 @@ With the Web3-Onboard provider and signer object, you can make contract interact
   )
 ```
 
-## Troubleshooting
+## 문제 해결
 
 **Polyfill node core module error**
 
 ```js
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
 
-# Next Step
+# 다음 단계
 
-For more in-depth guides on Web3-Onboard, please refer to [Blocknative Docs](https://docs.blocknative.com/onboard) and [Blocknative Github repository](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample).
+웹3-온보드에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 Github 리포지토리](https://github.com/blocknative/onboard)에서 확인할 수 있습니다. 또한 이 가이드에 대한 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample)에서 확인할 수 있습니다.
 
 
 
