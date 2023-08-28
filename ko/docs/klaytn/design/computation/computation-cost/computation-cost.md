@@ -91,6 +91,7 @@ NOTE: Computation costs have changed with the `Kore` hardfork. 이전 문서는 
 | MSIZE          |             137 |
 | GAS            |             230 |
 | JUMPDEST       |              10 |
+| PUSH0          |              80 |
 | PUSH1          |             120 |
 | PUSH2          |             120 |
 | PUSH3          |             120 |
