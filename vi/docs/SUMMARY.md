@@ -315,7 +315,7 @@
             * [Trình xây dựng giao dịch](toolkit/klaytn-safe/tx-builder.md)
             * [Các điểm đến nút](toolkit/klaytn-safe/points.md)
             * [Câu hỏi thường gặp](toolkit/klaytn-safe/faqs.md)
-        * [Thư Viện Ví]()
+        * [Thư Viện Ví](dapp/developer-tools/wallets/wallet-libraries/README.md)
             * [Web3Auth](dapp/developer-tools/wallets/wallet-libraries/web3Auth.md)
             * [Web3Modal](dapp/developer-tools/wallets/wallet-libraries/web3Modal.md)
             * [Web3-Onboard](dapp/developer-tools/wallets/wallet-libraries/web3Onboard.md)
