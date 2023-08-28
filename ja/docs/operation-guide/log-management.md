@@ -1,20 +1,27 @@
 # Log operation
 
 ## ログの回転を設定
+You can enable the log rotation by setting the `--log.rotate` flag, and configure the log rotation settings by the following flags.
+- `--log.rotate`: By setting this flag, it enables the log rotation and applies the other log rotation options
+- `--log.maxsize`: Specifies the file size in MB that triggers backup file creation
+- `--log.maxbackups`: Determines the maximum number of backup files that can be stored. Once this limit is reached, older logs will be deleted.
+- `--log.maxage`: Represents the maximum number of days to retain a log file. For example, if set to 30, a backup file will be deleted after 30 days.
+- `--log.compress`: By setting this flag, it compresses the backup logs in gz format.
 
-```bash
-export LOG_DIR=$(cat /etc/k*nd/conf/k*nd.conf | grep LOG_DIR | cut -d '=' -f 2)
-cat <<EOF > /etc/logrotate.d/klaytn
-$LOG_DIR/*.out {
-    daily
-    copytruncate
-    compress
-    rotate 7
-    dateext
-    create 0644 root root
-}
-EOF
+Example
 ```
+./bin/ken ... --log.rotate --log.maxsize 100 --log.maxbackups 10 --log.maxage 30 --log.compress
+```
+You can also enable and configure the log rotation by setting following options in configuration file (e.g., `kend.conf`).
+```
+# log rotation related options
+LOG_ROTATE=1 # setting 1 to enable the log rotation related options
+LOG_MAXSIZE=100 # the unit is MB
+LOG_MAXBACKUPS=10
+LOG_MAXAGE=30 # maximum number of days to retain a log file
+LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
+```
+It is recommended to download and use the package which version is v1.11.0 or higher. You can download it in Binaries section of the release note(e.g., [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.11.0 or higher: configuration file, daemon, and binary. Otherwise, it won't work.
 
 ## 通常のログステータス
 
