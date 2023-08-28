@@ -1,12 +1,12 @@
-# Integrate Web3Modal into a dApp
+# Web3Modal을 dApp에 통합하기
 
 ![](../../images/klaytnXwebModal.png)
 
-# Introduction
+# 소개
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy.
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)은 개발자가 간단하고 사용자 정의 가능한 구성으로 디앱에 여러 공급자에 대한 지원을 추가할 수 있도록 도와주는 사용하기 쉬운 라이브러리입니다. 지갑을 연결하고, 거래를 수행하고, 계정을 쉽게 관리할 수 있습니다.
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaikas, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Klaytn Network.
+이 가이드에서는 웹3모달 라이브러리를 사용해 카이카스, 클립, 메타마스크, 코인베이스 월렛 등 여러 지갑을 클레이튼 네트워크에 구축한 디앱에 통합하는 방법을 설명합니다.
 
 # Prerequisite
 
