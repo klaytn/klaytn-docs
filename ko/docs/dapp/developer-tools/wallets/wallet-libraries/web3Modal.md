@@ -560,7 +560,7 @@ Node fs error, add browser {fs: false} to package.json
 ```js
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
-이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
+이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
 
 # 다음 단계
 
