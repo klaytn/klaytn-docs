@@ -308,7 +308,7 @@ return (
 
 ```
 
-# 스마트 컨트랙트와의 상호작용하기
+# 스마트 컨트랙트와 상호작용하기
 
 Web3-Onboard 공급자 및 서명자 개체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
@@ -476,11 +476,11 @@ Web3-Onboard 공급자 및 서명자 개체를 사용하면 블록체인에 배�
 ```js
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
-이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
+이 오류는 Webpack 5 버전을 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본으로 지원되지 않습니다. 이 문제를 해결하려면 해당 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
 
 # 다음 단계
 
-웹3-온보드에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 Github 리포지토리](https://github.com/blocknative/onboard)에서 확인할 수 있습니다. 또한 이 가이드에 대한 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample)에서 확인할 수 있습니다.
+Web3-Onboard에 대한 자세한 가이드는 [Blocknative 문서](https://docs.blocknative.com/onboard) 및 [Blocknative Github 리포지토리](https://github.com/blocknative/onboard)에서 확인할 수 있습니다. 또한 이 가이드에 대한 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample)에서 확인할 수 있습니다.
 
 
 
