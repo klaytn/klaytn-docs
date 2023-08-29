@@ -49,22 +49,22 @@ const injected = injectedModule();
 
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
-**3단계**: 에테르 설치 및 가져오기
+**3단계**: Ethers 설치 및 불러오기
 
-Web3-Onboard 공급자는 [ethers.js](https://docs.ethers.org/v6/) 및 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있습니다. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 클레이튼 블록체인 호출을 수행하겠습니다.
+Web3-Onboard 공급자는 [ethers.js](https://docs.ethers.org/v6/) 및 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있습니다. 본 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Klaytn 블록체인 호출을 수행하겠습니다.
 
 ```bash
 npm install --save ethers
 ```
-`App.js` 파일에서 다음과 같이 에테르 패키지를 임포트합니다:
+`App.js` 파일에서 다음과 같이 ethers 패키지를 불러옵니다.
 
 ```js
 import { ethers } from "ethers";
 ```
 
-**4단계**: Web3ReactProvider 가져오기 및 설정하기
+**4단계**: Web3ReactProvider 불러오기 및 설정하기
 
-이 단계에서는 생성된 모듈과 라이브러리와 호환될 체인 목록으로 Onboard를 인스턴스화합니다. `App.js` 파일을 열고 아래 코드를 붙여넣습니다:
+이 단계에서는 생성된 모듈 및 라이브러리와 호환될 체인 목록으로 Onboard를 인스턴스화합니다. `App.js` 파일을 열고 아래 코드를 붙여넣습니다:
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -113,9 +113,9 @@ const onboard = Onboard({
 
 # 유틸리티 함수 설정하기
 
-이 가이드에서는 `truncateAddress()` 및 `toHex()`와 같은 유틸리티 함수를 사용하겠습니다. truncateAddress() 함수는 유효한 주소를 받아 전달된 주소의 읽기 쉬운 형식을 반환합니다. toHex() 함수는 숫자를 16진수로 변환합니다.  아래 단계는 프로젝트에서 유틸리티 기능을 설정하고 사용하는 방법을 보여줍니다.
+이 가이드에서는 `truncateAddress()` 및 `toHex()`와 같은 유틸리티 함수를 사용하겠습니다. truncateAddress() 함수는 유효한 주소를 전달 받아 읽기 쉬운 형식으로 반환합니다. toHex() 함수는 숫자를 16진수로 변환합니다.  다음은 프로젝트에서 유틸리티 함수를 설정하고 사용하는 방법을 단계별로 보여줍니다.
 
-**단계 1**: `src` 루트 폴더에 `utils.js` 파일을 생성합니다.
+**1단계**: `src` 루트 폴더에 `utils.js` 파일을 생성합니다.
 
 새로 만든 utils.js 파일에 다음 코드를 붙여넣습니다.
 
@@ -134,14 +134,14 @@ export const truncateAddress = (address) => {
     return "0x" + val.toString(16);
   };
 ```
-**2단계**: `App.js` 파일에서 함수를 가져옵니다.
+**2단계**: `App.js` 파일에서 함수를 불러옵니다.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
-# 지갑 연결
+# 지갑 연결하기
 
-`App.js` 파일의 앱 함수 내에서 온보드 인스턴스에서 `connectWallet()` 메서드를 호출하여 온보드 팝업 모달을 시작하세요.
+`App.js` 파일의 앱 함수 내에서 onboard 인스턴스에서 `connectWallet()` 메서드를 호출하여 onboard 팝업 모달을 초기화합니다.
 
 ```js
 function App() {
@@ -160,12 +160,12 @@ function App() {
   );
 }
 ```
-지갑 연결 버튼을 클릭하면 dApp에서 코인베이스 지갑 및 기타 인스턴스화된 지갑에 원활하게 연결할 수 있는 모달이 표시됩니다.
+Connect Wallet 버튼을 클릭하면 dApp에서 Coinbase Wallet 및 기타 인스턴스화된 지갑에 원활하게 연결할 수 있는 모달이 표시됩니다.
 
 ![](../../images/web3-Onboard.png)
 
 # 지갑 연결 해제하기
-연결된 지갑의 연결을 끊으려면 사용자의 기본 지갑 레이블과 함께 온보드 인스턴스에서 `disconnectWallet()` 메서드를 호출하면 됩니다. 또한 상태를 새로 고침하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
+지갑 연결을 끊으려면 사용자의 primary wallet 레이블과 함께 onboard 인스턴스에서 `disconnectWallet()` 메서드를 호출하면 됩니다. 또한 상태 새로고침을 하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
 
 ```js
 function App() {
@@ -202,14 +202,14 @@ function App() {
 
 # 연결, 계정, 네트워크 정보에 엑세스하기
 
-지갑 연결에 성공하면 [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) 메서드를 사용하여 온보드 인스턴스를 통해 저장된 연결 상태를 가져올 수 있습니다. 초기 연결 중에 상태를 가져올 수도 있습니다. 이제 연결 지갑() 메서드를 수정하여 내 상태에 저장하고 애플리케이션 전체에서 사용할 수 있는 지갑 상태 목록을 반환할 수 있습니다.
+지갑 연결에 성공하면 [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) 메서드를 사용하여 onboard 인스턴스를 통해 저장된 연결 상태를 가져올 수 있습니다. 초기 연결 중에 상태를 가져올 수도 있습니다. 이제 수정된 connectWallet() 메서드로 상태 목록을 반환할 수 있으며 이를 내 상태에 저장하고 애플리케이션 전체에서 사용할 수 있습니다.
 
-**1단계**: React의 사용 상태 가져오기
+**1단계**: React의 useState 불러오기
 
 ```js
 import { useState } from 'react';
 ```
-**스텝 2**: 앱 함수 내에서 코드 수정
+**2단계**: 앱 함수 내에서 코드 수정
 
 ```js
 function App() {
@@ -249,7 +249,7 @@ function App() {
 
 # 네트워크 전환하기
 
-사용자에게 디앱에서 네트워크를 전환하라는 메시지를 표시하기 위해 Web3-Onboard는 초기화된 Onboard 인스턴스에서 `setChain` 메서드를 제공합니다. 애플리케이션을 시작할 때 대상 네트워크가 온보드 인스턴스로 초기화되어 있어야 합니다.
+사용자에게 네트워크를 전환하라는 메시지를 dApp에 표시할 수 있도록 Web3-Onboard는 초기화된 onboard 인스턴스에서 `setChain` 메서드를 제공합니다. 다만 애플리케이션을 시작할 때 대상 네트워크가 onboard 인스턴스로 초기화되어 있어야 합니다.
 
 ```js
 const switchNetwork = async () => {
@@ -265,7 +265,7 @@ return (
 
 # 네이티브 트랜잭션 보내기
 
-지갑에 성공적으로 연결한 후 지갑 연결에서 반환된 공급자 객체를 connectWallet() 함수에서 수행한 것처럼 상태 변수에 저장할 수 있습니다. 따라서 이 공급자 및 서명자 개체를 사용하여 트랜잭션을 블록체인으로 전송할 수 있습니다.
+지갑에 성공적으로 연결한 후 지갑 연결에서 반환된 공급자 객체를 connectWallet() 함수에서 수행한 것처럼 상태 변수에 저장할 수 있습니다. 따라서 이 공급자 및 서명자 객체를 사용하여 트랜잭션을 블록체인으로 전송할 수 있습니다.
 
 ```js
  // add to the existing useState hook.
