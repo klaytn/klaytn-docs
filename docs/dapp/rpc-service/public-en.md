@@ -29,6 +29,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://archive-en.cypress.klaytn.net`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
+|[DRPC](https://drpc.org/)|`https://klaytn.drpc.org`|klay,eth,net|Full|
 
 **WebSocket** 
 
@@ -36,6 +37,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.cypress.klaytn.net/ws`|klay,eth,net|Archive|
+|[DRPC](https://drpc.org/)|`wss://klaytn.drpc.org`|klay,eth,net|Full|
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
@@ -48,6 +50,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://archive-en.baobab.klaytn.net/`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-baobab-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn-baobab.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
+|[DRPC](https://drpc.org/)|`https://klaytn-baobab.drpc.org`|klay,eth,net|Full|
 
 **WebSocket** 
 
@@ -55,6 +58,8 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Klaytn Foundation](https://www.klaytn.foundation)|`wss://public-en-baobab.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
+|[DRPC](https://drpc.org/)|`wss://klaytn-baobab.drpc.org`|klay,eth,net|Full|
+
 
 ### Useful Resources 
 
