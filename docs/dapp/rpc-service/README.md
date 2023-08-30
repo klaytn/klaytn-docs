@@ -140,3 +140,27 @@ NodeReal is a blockchain infrastructure and services provider. NodeReal helps d
 * [Docs](https://docs.nodereal.io/docs/getting-started)
 * [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
 * [Website](https://nodereal.io)
+
+## DRPC
+
+DRPC is a reliable, scalable & cost-efficient Decentralized RPC network of independent third-party partners and public nodes.
+
+### Features
+
+- Decentralized RPC nodes
+- 15+ Node providers
+- Node balancing
+- Unlimited compute units per month on the free tier
+- Data verification
+- Custom endpoints
+- http and WSS endpoints
+- Unlimited keys (free and paid tier)
+- Flexible fallback options
+- Public Endpoints
+
+### References
+
+* [Website](https://drpc.org/)
+* [Docs](https://docs.drpc.org/)
+* [Public endpoint](https://drpc.org/public-endpoints/klaytn)
+
