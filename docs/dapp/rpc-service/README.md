@@ -153,7 +153,6 @@ DRPC is a reliable, scalable & cost-efficient Decentralized RPC network of indep
 - Unlimited compute units per month on the free tier
 - Data verification
 - Custom endpoints
-- http and WSS endpoints
 - Unlimited keys (free and paid tier)
 - Flexible fallback options
 - Public Endpoints
