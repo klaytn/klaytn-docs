@@ -48,13 +48,13 @@ SCN은 탈중앙화 애플리케이션(dApp)에 의해 독립적으로 운영되
 클레이튼 메인체인 네트워크 토폴로지를 살펴보기 전에 다양한 유형의 클레이튼 노드를 알아보겠습니다.
 
 #### 코어 셀(CC): 컨센서스 노드(CN) + 프록시 노드(PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
-A Core Cell (CC) is composed of a single <strong>Consensus Node (CN)<strong> and two <strong>Proxy Nodes (PNs)<strong>. 합의 노드는 블록 생성 프로세서에 참여하고, 프록시 노드는 네트워크에 인터페이스를 제공합니다. PN은 트랜잭션 요청을 합의 노드로 전송하고 블록을 엔드포인트 노드로 전파합니다.
+코어 셀 (CC) 은 하나의 <strong>컨센서스 노드 (CN)<strong>와 두 개의 <strong>프록시 노드 (PNs)<strong>로 구성됩니다. 합의 노드는 블록 생성 프로세서에 참여하고, 프록시 노드는 네트워크에 인터페이스를 제공합니다. PN은 트랜잭션 요청을 합의 노드로 전송하고 블록을 엔드포인트 노드로 전파합니다.
 
-> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
+> Core Cell Operator가 되기에 관심이 있다면, [Core Cell의 설치 및 운영 가이드를 읽어보세요](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
 
-#### Endpoint Node (EN) <a id="endpoint-node-en"></a>
+#### 엔드포인트 노드 (EN) <a id="endpoint-node-en"></a>
 
-ENs serve as endpoints for Klaytn network handling RPC API requests and processing data sent to and from service chains.
+Klaytn 네트워크의 엔드포인트로서, RPC API 요청을 처리하고 서비스 체인과의 데이터 전송을 담당합니다.
 
 > To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](./../installation-guide/deployment/endpoint-node/README.md).
 
