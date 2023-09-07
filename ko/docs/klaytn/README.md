@@ -37,7 +37,7 @@ SCN은 탈중앙화 애플리케이션(dApp)에 의해 독립적으로 운영되
 
 **코어 셀 네트워크**와 **엔드포인트 노드 네트워크**은 클레이튼 메인체인과 메인넷을 구성합니다. 블록체인 애플리케이션은 클레이튼 메인 체인인 Cypress에서 실행하거나 자체적인 블록체인인 **서비스체인**에서 작동할 수 있습니다. 높은 TPS와 설정 변경이 가능한 네트워크 정책을 가진 전용 실행 환경을 원한다면 서비스체인을 사용하는 것을 추천합니다.
 
-> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](./../installation-guide/deployment/service-chain/getting-started/README.md).
+> 애플리케이션을 위한 서비스 체인을 설정하려면 [서비스 체인의 설치 및 운영 가이드](./../installation-guide/deployment/service-chain/getting-started/README.md)를 읽어보세요.
 
 ## 클레이튼 네트워크 토폴로지 <a id="klaytn-network-topology"></a>
 
@@ -56,64 +56,64 @@ SCN은 탈중앙화 애플리케이션(dApp)에 의해 독립적으로 운영되
 
 Klaytn 네트워크의 엔드포인트로서, RPC API 요청을 처리하고 서비스 체인과의 데이터 전송을 담당합니다.
 
-> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](./../installation-guide/deployment/endpoint-node/README.md).
+> 애플리케이션을 위한 엔드포인트 노드를 설정하려면, [엔드포인트 노드의 설치 및 운영 가이드](./../installation-guide/deployment/endpoint-node/README.md)를 읽어보세요.
 
-#### Bootnode <a id="bootnode"></a>
+#### 부트노드 <a id="bootnode"></a>
 
-Bootnodes are special-type nodes operated by Klaytn to help newly joining nodes register to the network and to discover other nodes to connect with. CN bootnodes reside within the CNN and are not exposed to the public, while PN and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to be registered, and let eligible PNs connect with ENs.  EN bootnodes provide ENs with information on which PNs to connect to.
+부트노드는 Klaytn이 새로운 노드가 네트워크에 등록하고 다른 노드와 연결할 수 있도록 도와주는 특별한 유형의 노드입니다. CN 부트노드는 CNN 내부에 위치해 있고 공개되지 않은 반면, PN과 EN 부트노드는 공개적으로 볼 수 있습니다.  PN 부트노드는 허가된 PN만 등록할 수 있게 하고, 적합한 PN들이 EN과 연결될 수 있도록 합니다.  EN 부트노드는 EN들에게 어떤 PN에 연결해야 하는지에 대한 정보를 제공합니다. <0>
 
-### Tiered Networks <a id="tiered-networks"></a>
+### 계층화된 네트워크 <a id="tiered-networks"></a>
 
-CNs, PNs, and ENs form logical networks, Consensus Node Network (CNN), Proxy Node Network (PNN), and Endpoint Node Network (ENN), respectively.
+CN, PN, 그리고 EN은 각각 논리적 네트워크를 형성하며, 이는 컨센서스 노드 네트워크 (CNN), 프록시 노드 네트워크 (PNN), 그리고 엔드포인트 노드 네트워크 (ENN) 입니다.
 
-Below figure shows the overall topology of Klaytn mainnet, where Core Cell Network (CCN) is further broken down into Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node Network (ENN) is also shown as the surrounding network connected directly to PNN.
+아래의 그림은 Klaytn 메인넷의 전체 토폴로지를 보여주며, 여기에서 코어 셀 네트워크 (CCN) 은 컨센서스 노드 네트워크 (CNN) 과 프록시 노드 네트워크 (PNN) 으로 더 세분화됩니다. 엔드포인트 노드 네트워크 (ENN) 는 PNN에 직접 연결된 주변 네트워크로도 표시됩니다.
 
 ![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
 
 
-#### Consensus Node Network (CNN) <a id="consensus-node-network-cnn"></a>
+#### 컨센서스 노드 네트워크<a id="consensus-node-network-cnn"></a>
 
-CNs form a full-mesh network among themselves called CNN. CNN applies BFT over a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../installation-guide/deployment/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level.
+CN들은 CNN이라고 불리는 자체적으로 완전 연결망(full-mesh network) 을 형성합니다. CNN은 WAN(wide area network) 상에서 BFT를 적용하고, 각 CN이 충분한 성능 수준에서 BFT 합의를 수행하기 위해 [엄격한 하드웨어와 네트워크 리소스 요구 사항](./../installation-guide/deployment/core-cell/system-requirements.md)을 충족해야 합니다.
 
-#### Proxy Node Network (PNN) <a id="proxy-node-network-pnn"></a>
+#### 프록시 노드 네트워크 (PNN) <a id="proxy-node-network-pnn"></a>
 
-PNN consists of PNs. Typically, PNs maintain just one connection with a PN in a neighboring Core Cell. The number of peer connections is subject to change depending on the network configuration.
+PNN은 PN(프록시 노드) 들로 구성됩니다. 일반적으로, PN들은 이웃하는 코어 셀에 있는 하나의 PN과만 연결을 유지합니다. 피어 연결의 수는 네트워크 구성에 따라 변경될 수 있습니다.
 
-#### Endpoint Node Network (ENN) <a id="endpoint-node-network-enn"></a>
+#### 엔드포인트 노드 네트워크 (ENN) <a id="endpoint-node-network-enn"></a>
 
-The outermost subnetwork, ENN, is solely composed of ENs connected to each other and also to a number of PNs.
+가장 바깥쪽의 하위 네트워크인 ENN은 서로 연결된 EN(엔드포인트 노드) 들만으로 구성되며, 일부 PN에도 연결됩니다.
 
 
-## Block Generation and Propagation <a id="block-generation-and-propagation"></a>
+## 블록 생성 및 전파 <a id="block-generation-and-propagation"></a>
 
-Block generation and propagation design, along with the consensus algorithm used, plays an important role in reducing the latency of a blockchain platform.
+블록 생성과 전파 설계는 사용되는 합의 알고리즘과 함께 블록체인 플랫폼의 지연 시간을 줄이는 데 중요한 역할을 합니다.
 
-### Block Generation Cycle <a id="block-generation-cycle"></a>
+### 블록 생성 주기 <a id="block-generation-cycle"></a>
 
-A 'round' is a block generation cycle in Klaytn. Each round generates a new block, and is immediately followed by the start of a new round. Klaytn targets each round to be approximately one second, although block generation interval may be influenced by network traffic and node operation conditions.
+클레이튼에서의 '라운드'는 블록 생성 주기입니다.</3> 각 라운드마다 새로운 블록을 생성하며, 바로 다음에 새로운 라운드가 시작됩니다. Klaytn은 각 라운드가 대략 1초가 되도록 목표를 설정하고 있지만, 블록 생성 간격은 네트워크 트래픽과 노드 운영 상태에 영향을 받을 수 있습니다.
 
-#### Proposer and Committee Selection <a id="proposer-and-committee-selection"></a>
+#### 제안자와 위원회 선택 <a id="proposer-and-committee-selection"></a>
 
-In each round, Klaytn randomly but deterministically selects a Consensus Node (CN) as the proposer for the block to be created, and then selects a group of CNs as the committee for the given round. Klaytn is not directly involved in the selection of either the proposer or committee; instead, each CN uses a random number derived from the most recent block header to run a cryptographic operation which yields proof that the CN has (or has not) been selected for this round. The committee size should be Byzantine resistant; if the size of the CNN is small, all CNs (except the proposer) are eligible to be selected as committee members.
+각 라운드에서 Klaytn은 무작위로 하지만 결정론적으로 블록을 생성할 제안자로 컨센서스 노드 (CN) 를 선택하고, 그 라운드에 대한 위원회로 CN 그룹을 선택합니다. Klaytn은 제안자나 위원회의 선택에 직접 관여하지 않습니다. 대신 각 CN은 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 이 라운드에 대해 선택되었는지(또는 선택되지 않았는지) 증명하는 암호화 작업을 수행합니다. 위원회의 크기는 비잔틴 공격에 대한 저항력이 있어야 합니다. 만약 CNN의 크기가 작다면, 모든 CN(제안자 제외)은 위원회 멤버로 선택될 자격이 있습니다.
 
-#### Block Proposal and Validation <a id="block-proposal-and-validation"></a>
+#### 블록 제안 및 검증 <a id="block-proposal-and-validation"></a>
 
-Once selected, the proposer broadcasts its proof of selection for the round (i.e., a cryptographic proof verifiable by the public key of the proposer) to all CNs. Thereafter, the CNs selected as committee for the given round responds to the proposer with their own proofs of selection, notifying the proposer to whom to broadcast the new block to be proposed. The proposer then selects a set of transactions from its transaction pool and creates a block by ordering them. Lastly, the proposer executes consensus with the committee to agree upon and finalize the newly created block. Note that Klaytn plans to continuously improve its consensus algorithm to achieve higher security and efficiency.
+선택되면 제안자는 모든 CN에게 그 라운드의 선택 증명(즉, 제안자의 공개 키로 검증 가능한 암호화 증명)을 전송합니다. 그 후에는, 해당 라운드의 위원회로 선택된 CN들이 제안자에게 자신의 선택 증명을 응답하여 새로 제안될 블록을 누구에게 전송할지 알립니다. 제안자는 그 후에 자신의 트랜잭션 풀에서 트랜잭션들을 선택하고 이를 정렬하여 블록을 생성합니다. 마지막으로, 제안자는 위원회와 합의를 실행하여 새롭게 생성된 블록을 승인하고 확정합니다. Klaytn은 계속해서 더 높은 보안성과 효율성을 달성하기 위해 합의 알고리즘을 개선할 계획입니다.
 
-### Block Propagation <a id="block-propagation"></a>
+### 블록 전파 <a id="block-propagation"></a>
 
-A proposed block must receive signatures from more than two-thirds of the committee members to be successfully finalized. When the committee reaches consensus, the new block is propagated to all CNs and the consensus round ends. Once the new block is propagated to all CNs, the information of the newly created block can be made available to all Klaytn network participants by delivering block header and body data to ENN through PNN.
+제안된 블록은 위원회 구성원의 3분의 2 이상으로부터 서명을 받아야만 성공적으로 확정됩니다.</3> 위원회가 합의에 도달하면, 새로운 블록은 모든 CN에게 전파되고 컨센서스 라운드가 종료됩니다. 새로운 블록이 모든 CN에게 전파되면, 새롭게 생성된 블록의 정보는 PNN을 통해 ENN에 블록 헤더와 바디 데이터를 전달함으로써 모든 Klaytn 네트워크 참가자에게 제공될 수 있습니다.
 
-## Public Disclosure and Open Validation <a id="public-disclosure-and-open-validation"></a>
+## 공개 및 공개 검증 <a id="public-disclosure-and-open-validation"></a>
 
-Service providers and end-users on Klaytn network can freely validate block generation results and check if the CN committee have generated the block according to proper procedures. Such validation includes checking if the block header contains more than two-thirds of the committee signatures. All CNs must support open validation and are required to post their public keys (used to sign blocks) in a publicly accessible space (e.g., block headers). Open validation promotes transparency, deter censorship, and prevent malicious behaviors.
+Klaytn 네트워크의 서비스 제공자와 사용자는 블록 생성 결과를 자유롭게 검증하고 CN 위원회가 적절한 절차에 따라 블록을 생성했는지 확인할 수 있습니다. 이러한 검증에는 블록 헤더에 위원회 서명의 3분의 2 이상을 포함하는지 확인하는 작업이 포함됩니다. 모든 CN들은 공개 검증을 지원해야 하며, 그들의 공개 키(블록에 서명하는 데 사용됨)를 공개적으로 접근 가능한 공간(예: 블록 헤더)에 게시해야 합니다. 공개 검증은 투명성을 증진시키고 검열을 방지하며 악의적인 행동을 예방합니다.
 
-## Separated Propagation Channels for Blocks and Transactions (Multichannel Propagation) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
+## 블록과 트랜잭션을 위한 분리된 전파 채널 (멀티채널 전파) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
 
-A network's latency is heavily affected by its degree of congestion. Assuming the network's throughput remains constant, increased number of transactions will cause the network's latency to be proportionately delayed. Latency delay is a critical issue in dApps; typical users of legacy mobile apps or web services will not tolerate response time that takes more than a few seconds, and blockchain services have no reason to assume a higher user tolerance.
+네트워크의 지연 시간은 그 정체도에 크게 영향을 받습니다. 네트워크의 처리량이 일정하다고 가정할 때, 트랜잭션의 증가는 네트워크의 지연 시간이 비례적으로 지연됩니다. 지연 시간은 dApps에서 중요한 문제입니다. 레거시 모바일 앱이나 웹 서비스의 일반적인 사용자들은 몇 초 이상의 응답 시간을 참을 수 없으며, 블록체인 서비스도 더 높은 사용자 인내를 가정할 이유가 없습니다.
 
-Klaytn adopts a multichannel approach in order to handle network congestion issues. By assigning separate propagation channels for transactions and blocks, Klaytn network is able to propagate newly created blocks in a timely manner even when the network faces heavy congestion with high number of transactions. In this way, Klaytn ensures that dApps on its network can stay responsive to end-user requests regardless of intermittent network traffic spikes.
+Klaytn은 네트워크의 지연 문제를 처리하기 위해 멀티 접근 방식을 채택합니다. 트랜잭션과 블록에 대한 별도의 전파 채널을 할당함으로써, Klaytn 네트워크는 높은 트랜잭션 수로 인한 심각한 정체 상황에서도 새로 생성된 블록을 적시에 전파할 수 있습니다. 이렇게 함으로써 Klaytn은 그 네트워크의 dApps이 간헐적인 네트워크 트래픽 급증에도 불구하고 최종 사용자의 요청에 신속하게 응답할 수 있도록 보장합니다.
 
-## Block Rewards <a id="block-rewards"></a>
+## 블록 보상 <a id="block-rewards"></a>
 
-For each round, block reward (which is the sum of 6.4 newly minted KLAY and transaction fees paid to process the block) will be distributed to the network participants according to preset distribution ratios. The proposer of the newly created block will receive 100% of the reward to be awarded to CNs, whereas the committee will receive none. Note that the probability of being selected as the proposer is influenced by the amount of KLAY staked by the CN, implying that a CN with more KLAY invested in the platform will probabilistically receive more rewards. Details of block reward distribution can be found in the [Klaytn Token Economy](design/token-economy.md) section.
+각 라운드마다 블록 보상(6.4개의 새로 생성된 KLAY와 블록을 처리하기 위해 지불된 트랜잭션 수수료의 합계) 이 미리 설정된 분배 비율에 따라 네트워크 참가자에게 분배됩니다. 새로 생성된 블록의 제안자는 CN에게 주어질 보상의 100%를 받을 것이며, 위원회는 보상을 받지 않을 것입니다. 제안자로 선택될 확률은 CN이 플랫폼에 스테이킹한 KLAY의 양에 영향을 받는다는 것에 유의해야 합니다. 즉, 더 많은 KLAY를 투자한 CN은 확률적으로 더 많은 보상을 받을 것입니다. 블록 보상 분배의 자세한 내용은 [Klaytn Token Economy](design/token-economy.md) 섹션에서 찾을 수 있습니다.
