@@ -302,7 +302,7 @@
     * [Migrating Ethereum App to Klaytn](dapp/tutorials/migrating-ethereum-app-to-klaytn.md)
     * [Connecting MetaMask](dapp/tutorials/connecting-metamask.md)
     * [Connecting Remix](dapp/tutorials/connecting-remix.md)
-    * [How to verify Smart Contracts Using Block Explorers](dapp/tutorials/verifying-contracts.md)
+    * [Verifying Smart Contracts Using Block Explorers](dapp/tutorials/verifying-contracts.md)
   * [Developer Tools](dapp/developer-tools/README.md)
     * [Wallets](dapp/developer-tools//wallets/getting-started.md)
         * [Kaikas](toolkit/kaikas.md)

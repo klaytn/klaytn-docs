@@ -198,7 +198,7 @@ To verify a single contract and multi-part contracts on Klaytnfinder, navigate t
 1. Observe the **Is this contract for a token** field? This field is needed when trying to verify a token contract with its official website URL, official email address, and token logo image. For the sake of this guide, select **No** as we are not verifying a commercial token contract.
 2. Fill in the **contract address** for the deployed contract (Counter.sol)
 3. Make sure to download `Counter.sol` from Remix IDE and upload in the **Source Code (Solidity File)** field
-4. Select the **compiler versio**n used for the `Counter.sol` example
+4. Select the **compiler version** used for the `Counter.sol` example
 5. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**
 6. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
 7. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
