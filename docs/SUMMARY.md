@@ -125,6 +125,7 @@
         * [Upgrade & Hard Fork](installation-guide/deployment/service-chain/references/upgrade-and-hard-fork.md)
       * [How-To Guides](installation-guide/deployment/service-chain/howto/README.md)
     * [Download Node Packages](installation-guide/download/README.md)
+      * [v1.11.1](installation-guide/download/v1.11.1.md)
       * [v1.11.0](installation-guide/download/v1.11.0.md)
       * [v1.10.2](installation-guide/download/v1.10.2.md)
       * [v1.10.1](installation-guide/download/v1.10.1.md)
