@@ -125,6 +125,7 @@
         * [Nâng cấp & Nâng cấp căn bản](installation-guide/deployment/service-chain/references/upgrade-and-hard-fork.md)
       * [Hướng dẫn sử dụng](installation-guide/deployment/service-chain/howto/README.md)
     * [Tải Về Các Gói Dịch Vụ](installation-guide/download/README.md)
+      * [v1.11.1](installation-guide/download/v1.11.1.md)
       * [v1.11.0](installation-guide/download/v1.11.0.md)
       * [v1.10.2](installation-guide/download/v1.10.2.md)
       * [v1.10.1](installation-guide/download/v1.10.1.md)
