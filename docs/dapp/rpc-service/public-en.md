@@ -29,6 +29,8 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://archive-en.cypress.klaytn.net`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
+|[Pokt Network](https://www.pokt.network/)|`https://klaytn-rpc.gateway.pokt.network/`|klay,eth,net|Full|
+
 
 **WebSocket** 
 
