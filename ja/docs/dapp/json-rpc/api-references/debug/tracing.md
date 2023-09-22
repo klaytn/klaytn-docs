@@ -407,6 +407,35 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op","return","gas":865278,"gasCost":0,"depth":1,"stack":["00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c5760000000000000000000000000000000000000000000000000","0000000000000000000000000000000000009003ffffffffffffffffff16806341c0e1b514610051","578063cfae32171468575b680fd5b3480fd57680fd580fd5506f506f5061",
 ```
 
+## debug_traceCall <a id="debug_tracecall"></a>
+The `traceCall` returns the tracing result by executing a klay call within the context of the given block execution.
+
+**Parameters**
+
+| Name              | Type                            | Description                                                                                                                                                                            |
+| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                          | The transaction call object.  See the next table for the object's properties.                                                                                                          |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| options           | object                          | See [tracing options](#tracing-options).                                                                                                                                               |
+
+**Return Value**
+
+| Type        | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| JSON string | The structured logs created during the execution of KLVM. |
+
+**Example** Console
+```javascript
+> debug.traceCall({from: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", to: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", input: "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {tracer:"revertTracer"})
+"this is the revert reason for this tracecall" 
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "to": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "input": "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {"tracer":"revertTracer"}],"id":1}' http://localhost:8551
+"this is the revert reason for this tracecall" 
+```
+
 ## debug_traceChain <a id="debug_tracechain"></a>
 
 Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
@@ -432,7 +461,7 @@ wscat -c ws://localhost:8552
 >
 ```
 
-## トレースオプション <a id="tracing-options"></a>
+## Tracing Options <a id="tracing-options"></a>
 
 You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
@@ -442,19 +471,19 @@ You may give trace API function a secondary optional argument, which specifies t
 - `timeout`: `STRING`. JavaScriptベースのトレース呼び出しでデフォルトのタイムアウト時間5秒を上書きします。 有効な値はこちら [](https://golang.org/pkg/time/#ParseDuration) に記述されています。
 - `tracer`: `STRING`. これを設定すると、JavaScriptベースのトランザクショントレースが有効になります。 [次のセクション](#javascript-based-tracing) で説明されています。 設定されている場合、直前の 4 つの引数は無視されます。 定義済みトレーサーは次の表としても使用できます。
 
-| トレーサー名         | Description                                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 4byteTracer    | 4byteTracerは4バイト識別子を検索し、後処理のためにそれらを収集します。 指定されたデータのサイズとともにメソッド識別子を収集します。 データのサイズと照合することができます                                                                       |
-| callTracer     | callTracerは、トランザクションによって行われたすべての内部コールを、有益な情報とともに抽出し、報告する本格的なトランザクショントレーサーです。                                                                                       |
-| fastCallTracer | fastCallTracerは、callTracerのGoネイティブバージョンです。 JavaScript VM では実行されないため、callTracer に比べて 10倍以上の高速化を示します。 パフォーマンスが最初に重要である場合は、callTracer の代わりに fastCallTracer を使用してください。 |
-| evmdisTracer   | evmdisTracer はトレースから evmdisスタイルの逆アセンブリを実行するのに十分な情報を返します。                                                                                                           |
-| noopTracer     | noopTracerはトランザクショントレーサーとして使用するためにJavaScriptオブジェクトから必要とされるベアボイラプレートコードです。                                                                                          |
-| opcountTracer  | opcountTracerは、KLVMによって実行される命令の数だけをトランザクションが終了する前にカウントするサンプルトレーサーです。                                                                                               |
-| prestateTracer | prestateTracerは、カスタムアセンブリジェネシスブロックからトランザクションをローカルで実行するのに十分な情報を出力します。                                                                                               |
-| revertTracer   | revertTracerはREVERTのエラー文字列を出力します。 実行が元に戻されない場合は、空文字列を出力します。                                                                                                        |
-| unigramTracer  | unigramTracer は各オペコードの出現回数を返します。                                                                                                                                   |
-| bigramTracer   | bigramTracer は、連続した 2 つのオペコードの発生回数を返します。                                                                                                                           |
-| trigramTracer  | trigramTracerは3つの連続したオペコードの発生回数を返します。                                                                                                                              |
+| Tracer Name    | Description                                                                                                                                                                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.                            |
+| callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                                                         |
+| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
+| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
+| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
+| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
+| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
+| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
+| unigramTracer  | unigramTracer returns the number of occurrences of each opcode.                                                                                                                                                                                                  |
+| bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                                                                                                                       |
+| trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                                                                                                                    |
 
 
 **Example**
@@ -487,7 +516,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## JavaScript ベースのトレース <a id="javascript-based-tracing"></a>
+## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 
 **NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 
@@ -497,17 +526,17 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 
 `log` has the following fields:
 
-| フィールド名     | Type        | Description                   |
-| ---------- | ----------- | ----------------------------- |
-| `pc`       | Number      | 現在のプログラムカウンター。                |
-| `op`       | Object      | 現在の opcode を表す OpCode オブジェクト。 |
-| `gas`      | Number      | 残りのガスの量。                      |
-| `gasPrice` | Number      | ガスの各ユニットのペブのコスト。              |
-| `メモリ`      | Object      | 契約のメモリ空間を表す構造。                |
-| `スタック`     | 配列[big.Int] | KLVM実行スタック。                   |
-| `深さ`       | Number      | 実行の深さ。                        |
-| `account`  | String      | 現在の操作を実行しているアカウントのアドレス。       |
-| `err`      | String      | エラーが発生した場合、エラーに関する情報です。       |
+| Field Name | Type           | Description                                                 |
+| ---------- | -------------- | ----------------------------------------------------------- |
+| `pc`       | Number         | The current program counter.                                |
+| `op`       | Object         | An OpCode object representing the current opcode.           |
+| `gas`      | Number         | The amount of gas remaining.                                |
+| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
+| `memory`   | Object         | A structure representing the contract's memory space.       |
+| `stack`    | array[big.Int] | The KLVM execution stack.                                   |
+| `depth`    | Number         | The execution depth.                                        |
+| `account`  | String         | The address of the account executing the current operation. |
+| `err`      | String         | If an error occurred, information about the error.          |
 
 If `err` is non-null, all other fields should be ignored.
 
@@ -529,35 +558,35 @@ function(log) {
 
 `log.op` has the following methods:
 
-| メソッド名        | Description                     |
-| ------------ | ------------------------------- |
-| `isPush()`   | オペコードが `PUSHn` の場合は true を返します。 |
-| `toString()` | オペコードの文字列表現を返します。               |
-| `toNumber()` | オペコードの番号を返します。                  |
+| Method Name  | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `isPush()`   | Returns true if the opcode is a `PUSHn`.         |
+| `toString()` | Returns the string representation of the opcode. |
+| `toNumber()` | Returns the opcode's number.                     |
 
 `log.memory` has the following methods:
 
-| Method Name          | Description                   |
-| -------------------- | ----------------------------- |
-| `slice(start, stop)` | 指定したメモリのセグメントをバイトスライスとして返します。 |
-| `length()`           | メモリの長さを返します。                  |
+| Method Name          | Description                                              |
+| -------------------- | -------------------------------------------------------- |
+| `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
+| `length()`           | Returns the length of the memory.                        |
 
 `log.stack` has the following methods:
 
-| Method Name | Description                                             |
-| ----------- | ------------------------------------------------------- |
-| `peek(idx)` | スタックの先頭から idx 番目の要素を返します(0 が最上位の要素です)。 `big.Int` を返します。 |
-| `length()`  | スタック内の要素数を返します。                                         |
+| Method Name | Description                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
+| `length()`  | Returns the number of elements in the stack.                                                    |
 
 `db` has the following methods:
 
-| Method Name               | Description                   |
-| ------------------------- | ----------------------------- |
-| `getBalance(address)`     | 指定した口座残高を持つ `big.Int` を返します。  |
-| `getNonce(address)`       | 指定した口座の nonce の数値を返します。       |
-| `getCode(address)`        | 指定したアカウントのコードを含むバイトスライスを返します。 |
-| `getState(address, hash)` | 指定した口座と指定したハッシュの状態値を返します。     |
-| `exists(address)`         | 指定されたアドレスが存在する場合は true を返します。 |
+| Method Name               | Description                                                               |
+| ------------------------- | ------------------------------------------------------------------------- |
+| `getBalance(address)`     | Returns a `big.Int` with the specified account's balance.                 |
+| `getNonce(address)`       | Returns a Number with the specified account's nonce.                      |
+| `getCode(address)`        | Returns a byte slice with the code for the specified account.             |
+| `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
+| `exists(address)`         | Returns true if the specified address exists.                             |
 
 The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
@@ -568,5 +597,5 @@ Note that several values are Golang `big.Int` objects, not JavaScript numbers or
 As an usage example below, it returns the top element of the stack at each CALL opcode only:
 
 ```javascript
-debug.traceTransaction(txh, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
+debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
 ```
