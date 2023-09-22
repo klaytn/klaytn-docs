@@ -421,7 +421,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 ## debug_traceCall <a id="debug_tracecall"></a>
-The `traceCall` Returns the tracing result by executing a klay call within the context of the given block execution.
+The `traceCall` returns the tracing result by executing a klay call within the context of the given block execution.
 
 **Parameters**
 
