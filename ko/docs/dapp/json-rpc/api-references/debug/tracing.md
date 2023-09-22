@@ -407,6 +407,35 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}
 ```
 
+## debug_traceCall <a id="debug_tracecall"></a>
+The `traceCall` returns the tracing result by executing a klay call within the context of the given block execution.
+
+**Parameters**
+
+| Name              | Type                            | Description                                                                                                                                                                            |
+| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                          | The transaction call object.  See the next table for the object's properties.                                                                                                          |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| options           | object                          | See [tracing options](#tracing-options).                                                                                                                                               |
+
+**Return Value**
+
+| Type        | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| JSON string | The structured logs created during the execution of KLVM. |
+
+**Example** Console
+```javascript
+> debug.traceCall({from: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", to: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", input: "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {tracer:"revertTracer"})
+"this is the revert reason for this tracecall" 
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "to": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "input": "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {"tracer":"revertTracer"}],"id":1}' http://localhost:8551
+"this is the revert reason for this tracecall" 
+```
+
 ## debug_traceChain <a id="debug_tracechain"></a>
 
 Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
@@ -432,7 +461,7 @@ wscat -c ws://localhost:8552
 >
 ```
 
-## 추적 옵션 <a id="tracing-options"></a>
+## Tracing Options <a id="tracing-options"></a>
 
 You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
@@ -442,19 +471,19 @@ You may give trace API function a secondary optional argument, which specifies t
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
 - `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 장](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
-| 추적 툴 이름        | Description                                                                                                                                               |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다.                                               |
-| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                                                               |
-| fastCallTracer | fallCallTracer는 callTracer의 go네이티브 버전입니다. 자바스크립트 VM에서는 실행되지 않기 때문에 callTracer에 비해 10배 향상된 성능을 보입니다. 만약 성능이 최우선시될 경우 callTracer 대신 fastCallTracer를 사용해주세요. |
-| evmdisTracer   | evmdisTracer는 evmdis 형식의 디스어셈블리를 실행하기에 충분한 정보를 반환합니다.                                                                                                     |
-| noopTracer     | noopTracer는 자바스크립트 객체에서 트랜잭션 추적 시 사용하기 위해 필요한 기본 상용구 코드입니다.                                                                                               |
-| opcountTracer  | opcountTracer는 트랜잭션이 종료되기 전에 KLVM이 실행한 연산 수를 세는 샘플 추적 툴입니다.                                                                                               |
-| prestateTracer | prestateTracer는 맞춤 조립된 제네시스 블록으로부터 트랜잭션 로컬 실행을 생성하기에 충분한 정보를 출력합니다.                                                                                       |
-| revertTracer   | revertTracer는 REVERT의 오류 문자열을 출력합니다. 실행이 번복되지 않으면 빈 문자열을 출력합니다.                                                                                           |
-| unigramTracer  | unigramTracer는 각 opcode의 발생 횟수를 반환합니다.                                                                                                                    |
-| bigramTracer   | bigramTracer는 연속되는 두 opcode의 발생 횟수를 반환합니다.                                                                                                                |
-| trigramTracer  | trigramTracer는 연속되는 세 opcode의 발생 횟수를 반환합니다.                                                                                                               |
+| Tracer Name    | Description                                                                                                                                                                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.                            |
+| callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                                                         |
+| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
+| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
+| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
+| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
+| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
+| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
+| unigramTracer  | unigramTracer returns the number of occurrences of each opcode.                                                                                                                                                                                                  |
+| bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                                                                                                                       |
+| trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                                                                                                                    |
 
 
 **Example**
@@ -487,7 +516,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
+## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 
 **NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 
@@ -497,17 +526,17 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 
 `log` has the following fields:
 
-| 필드명        | Type           | Description                   |
-| ---------- | -------------- | ----------------------------- |
-| `pc`       | Number         | 현재 프로그램 카운터입니다.               |
-| `op`       | Object         | 현재 Opcode를 나타내는 Opcode 객체입니다. |
-| `gas`      | Number         | 남은 가스양입니다.                    |
-| `gasPrice` | Number         | peb에서 가스당 가격입니다.              |
-| `memory`   | Object         | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
-| `stack`    | array[big.Int] | KLVM 실행 스택입니다.                |
-| `depth`    | Number         | 실행 뎁스입니다.                     |
-| `account`  | String         | 현재 연산을 실행하는 계정의 주소입니다.        |
-| `err`      | String         | 발생한 오류에 대한 정보입니다.             |
+| Field Name | Type           | Description                                                 |
+| ---------- | -------------- | ----------------------------------------------------------- |
+| `pc`       | Number         | The current program counter.                                |
+| `op`       | Object         | An OpCode object representing the current opcode.           |
+| `gas`      | Number         | The amount of gas remaining.                                |
+| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
+| `memory`   | Object         | A structure representing the contract's memory space.       |
+| `stack`    | array[big.Int] | The KLVM execution stack.                                   |
+| `depth`    | Number         | The execution depth.                                        |
+| `account`  | String         | The address of the account executing the current operation. |
+| `err`      | String         | If an error occurred, information about the error.          |
 
 If `err` is non-null, all other fields should be ignored.
 
@@ -529,35 +558,35 @@ function(log) {
 
 `log.op` has the following methods:
 
-| 메서드 이름       | Description                    |
-| ------------ | ------------------------------ |
-| `isPush()`   | Opcode가 `PUSHn`이면 true를 반환합니다. |
-| `toString()` | Opcode의 문자열 표현을 반환합니다.         |
-| `toNumber()` | Opcode의 번호를 반환합니다.             |
+| Method Name  | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `isPush()`   | Returns true if the opcode is a `PUSHn`.         |
+| `toString()` | Returns the string representation of the opcode. |
+| `toNumber()` | Returns the opcode's number.                     |
 
 `log.memory` has the following methods:
 
-| Method Name          | Description                |
-| -------------------- | -------------------------- |
-| `slice(start, stop)` | 지정된 메모리 부분을 바이트 단위로 반환합니다. |
-| `length()`           | 메모리의 길이를 반환합니다.            |
+| Method Name          | Description                                              |
+| -------------------- | -------------------------------------------------------- |
+| `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
+| `length()`           | Returns the length of the memory.                        |
 
 `log.stack` has the following methods:
 
-| Method Name | Description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| `peek(idx)` | idx번째 요소를 스택의 맨 위에서 가져와 `big.Int`로 반환합니다. (0이 가장 위에 있는 요소입니다.) |
-| `length()`  | 스택에 있는 요소의 수를 반환합니다.                                           |
+| Method Name | Description                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
+| `length()`  | Returns the number of elements in the stack.                                                    |
 
 `db` has the following methods:
 
-| Method Name               | Description                       |
-| ------------------------- | --------------------------------- |
-| `getBalance(address)`     | 입력으로 받은 계정의 잔액을 `big.Int`로 반환합니다. |
-| `getNonce(address)`       | 입력으로 받은 계정의 논스를 Number로 반환합니다.    |
-| `getCode(address)`        | 입력으로 받은 계정의 코드를 바이트 단위로 반환합니다.    |
-| `getState(address, hash)` | 입력으로 받은 계정과 해시의 상태 값을 반환합니다.      |
-| `exists(address)`         | 입력으로 받은 계정이 존재하면 true를 반환합니다.     |
+| Method Name               | Description                                                               |
+| ------------------------- | ------------------------------------------------------------------------- |
+| `getBalance(address)`     | Returns a `big.Int` with the specified account's balance.                 |
+| `getNonce(address)`       | Returns a Number with the specified account's nonce.                      |
+| `getCode(address)`        | Returns a byte slice with the code for the specified account.             |
+| `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
+| `exists(address)`         | Returns true if the specified address exists.                             |
 
 The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
