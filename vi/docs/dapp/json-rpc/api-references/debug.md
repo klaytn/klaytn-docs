@@ -65,6 +65,7 @@ Không gian tên `debug` cung cấp cho bạn quyền truy cập vào một số
 - [debug_traceBlockByNumberRange](./debug/tracing.md#debug_traceblockbynumberrange)
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
+- [debug_traceCall](./debug/tracing.md#debug_tracecall)
 - [debug_traceChain](./debug/tracing.md#debug_tracechain)
 - [Tracing Options](./debug/tracing.md#tracing-options)
 - [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
