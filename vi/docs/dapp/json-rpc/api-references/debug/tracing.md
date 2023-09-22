@@ -407,6 +407,35 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}
 ```
 
+## debug_traceCall <a id="debug_tracecall"></a>
+The `traceCall` returns the tracing result by executing a klay call within the context of the given block execution.
+
+**Parameters**
+
+| Tên               | type                            | Mô tả                                                                                                                                                                                  |
+| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                          | The transaction call object.  See the next table for the object's properties.                                                                                                          |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| tùy chọn          | đối tượng                       | Xem [các tùy chọn theo dõi](#tracing-options).                                                                                                                                         |
+
+**Return Value**
+
+| Type        | Mô tả                                                     |
+| ----------- | --------------------------------------------------------- |
+| JSON string | The structured logs created during the execution of KLVM. |
+
+**Example** Console
+```javascript
+> debug.traceCall({from: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", to: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", input: "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {tracer:"revertTracer"})
+"this is the revert reason for this tracecall" 
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "to": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "input": "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {"tracer":"revertTracer"}],"id":1}' http://localhost:8551
+"this is the revert reason for this tracecall" 
+```
+
 ## debug_traceChain <a id="debug_tracechain"></a>
 
 Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
@@ -415,11 +444,11 @@ Returns the structured logs created during the execution of EVM between two bloc
 
 **Parameters**
 
-| Tên      | type      | Mô tả                                          |
-| -------- | --------- | ---------------------------------------------- |
-| số       | int       | Theo dõi số khối bắt đầu.                      |
-| số       | int       | Theo dõi số khối kết thúc.                     |
-| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
+| Name    | type   | Mô tả                                    |
+| ------- | ------ | ---------------------------------------- |
+| number  | int    | Tracing start block number.              |
+| number  | int    | Tracing end block number.                |
+| options | object | See [tracing options](#tracing-options). |
 
 **Example**
 ```
@@ -432,7 +461,7 @@ wscat -c ws://localhost:8552
 >
 ```
 
-## Các tùy chọn theo dõi <a id="tracing-options"></a>
+## Tracing Options <a id="tracing-options"></a>
 
 You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
@@ -442,19 +471,19 @@ You may give trace API function a secondary optional argument, which specifies t
 - `hết thời gian chờ`: `CHUỖI`. Ghi đè thời gian chờ mặc định là 5 giây cho các lệnh gọi theo dõi dựa trên JavaScript. Các giá trị hợp lệ được mô tả [tại đây](https://golang.org/pkg/time/#ParseDuration).
 - `trình theo dõi`: `CHUỖI`. Thiết lập cài đặt này sẽ kích hoạt theo dõi giao dịch dựa trên JavaScript, được mô tả trong [phần tiếp theo](#javascript-based-tracing). Nếu được thiết lập, bốn đối số trước đó sẽ bị bỏ qua. Các trình theo dõi được xác định trước cũng có thể được sử dụng như trong bảng sau.
 
-| Tên trình theo dõi | Mô tả                                                                                                                                                                                                                                                  |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 4byteTracer        | 4byteTracer tìm kiếm các mã định danh 4byte và thu thập chúng để xử lý hậu kỳ. Phương thức này sẽ thu thập các mã định danh phương pháp cùng với kích thước của dữ liệu được cung cấp, do đó, chữ ký đảo ngược có thể khớp với kích thước của dữ liệu. |
-| callTracer         | callTracer là một công cụ theo dõi giao dịch toàn diện trích xuất và báo cáo tất cả các lệnh gọi nội bộ được thực hiện bởi một giao dịch cũng như các thông tin hữu ích khác.                                                                          |
-| fastCallTracer     | fastCallTracer là phiên bản Go-native của callTracer. Do nó không được thực thi trên máy ảo JavaScript nên nó sẽ hiển thị tốc độ gấp 10 lần so với callTracer. Hãy sử dụng fastCallTracer thay vì callTracer nếu ưu tiên hiệu suất.                    |
-| evmdisTracer       | evmdisTracer trả về đầy đủ thông tin theo dõi để thực hiện quá trình phân giải kiểu evmdis.                                                                                                                                                            |
-| noopTracer         | noopTracer là mã soạn sẵn cơ bản được yêu cầu từ một đối tượng JavaScript để sử dụng làm công cụ theo dõi giao dịch.                                                                                                                                   |
-| opcountTracer      | opcountTracer là công cụ theo dõi mẫu chỉ đếm số lượng lệnh được KLVM thực thi trước khi giao dịch kết thúc.                                                                                                                                           |
-| prestateTracer     | prestateTracer cung cấp thông tin đầy đủ để thực thi cục bộ một giao dịch từ một khối khởi nguyên được kết hợp tùy chỉnh.                                                                                                                              |
-| revertTracer       | revertTracer cung cấp chuỗi lỗi REVERT. Nếu quá trình thực thi không được hoàn nguyên, nó sẽ xuất ra một chuỗi trống.                                                                                                                                  |
-| unigramTracer      | unigramTracer trả về số lần xuất hiện của mỗi mã vận hành.                                                                                                                                                                                             |
-| bigramTracer       | bigramTracer trả về số lần xuất hiện của hai mã vận hành liên tiếp.                                                                                                                                                                                    |
-| trigramTracer      | trigramTracer trả về số lần xuất hiện của ba mã vận hành liên tiếp.                                                                                                                                                                                    |
+| Tracer Name    | Mô tả                                                                                                                                                                                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.                            |
+| callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                                                         |
+| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
+| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
+| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
+| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
+| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
+| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
+| unigramTracer  | unigramTracer returns the number of occurrences of each opcode.                                                                                                                                                                                                  |
+| bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                                                                                                                       |
+| trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                                                                                                                    |
 
 
 **Example**
@@ -487,7 +516,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## Theo dõi dựa trên JavaScript <a id="javascript-based-tracing"></a>
+## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 
 **NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 
@@ -497,17 +526,17 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 
 `log` has the following fields:
 
-| Tên trường  | type           | Mô tả                                                        |
-| ----------- | -------------- | ------------------------------------------------------------ |
-| `pc`        | Số             | Bộ đếm chương trình hiện tại.                                |
-| `op`        | Đối tượng      | Một đối tượng Mã vận hành đại diện cho mã vận hành hiện tại. |
-| `gas`       | Số             | Lượng gas còn lại.                                           |
-| `giá gas`   | Số             | Chi phí tính bằng peb của mỗi đơn vị gas.                    |
-| `bộ nhớ`    | Đối tượng      | Một cấu trúc đại diện cho không gian bộ nhớ của hợp đồng.    |
-| `ngăn xếp`  | array[big.Int] | Ngăn xếp thực thi KLVM.                                      |
-| `độ sâu`    | Số             | Độ sâu thực thi.                                             |
-| `tài khoản` | Chuỗi          | Địa chỉ của tài khoản thực hiện thao tác hiện tại.           |
-| `lỗi`       | Chuỗi          | Nếu xảy ra lỗi, thông tin về lỗi đó.                         |
+| Field Name | Type           | Description                                                 |
+| ---------- | -------------- | ----------------------------------------------------------- |
+| `pc`       | Number         | The current program counter.                                |
+| `op`       | Object         | An OpCode object representing the current opcode.           |
+| `gas`      | Number         | The amount of gas remaining.                                |
+| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
+| `memory`   | Object         | A structure representing the contract's memory space.       |
+| `stack`    | array[big.Int] | The KLVM execution stack.                                   |
+| `depth`    | Number         | The execution depth.                                        |
+| `account`  | String         | The address of the account executing the current operation. |
+| `err`      | String         | If an error occurred, information about the error.          |
 
 If `err` is non-null, all other fields should be ignored.
 
@@ -515,7 +544,7 @@ For efficiency, the same `log` object is reused on each execution step, updated 
 
 ```javascript
 function(log) {
-  this.nhật ký.append(log);
+  this.logs.append(log);
 }
 ```
 
@@ -523,41 +552,41 @@ But this step function will:
 
 ```javascript
 function(log) {
-  this.nhật ký.append({gas: log.gas, pc: log.pc, ...});
+  this.logs.append({gas: log.gas, pc: log.pc, ...});
 }
 ```
 
 `log.op` has the following methods:
 
-| Tên phương pháp | Mô tả                                   |
-| --------------- | --------------------------------------- |
-| `isPush()`      | Trả về true nếu mã vận hành là `PUSHn`. |
-| `toString()`    | Trả về chuỗi đại diện của mã vận hành.  |
-| `toNumber()`    | Trả về số của mã vận hành.              |
+| Tên phương pháp | Mô tả                                            |
+| --------------- | ------------------------------------------------ |
+| `isPush()`      | Returns true if the opcode is a `PUSHn`.         |
+| `toString()`    | Returns the string representation of the opcode. |
+| `toNumber()`    | Returns the opcode's number.                     |
 
 `log.memory` has the following methods:
 
-| Tên phương pháp      | Mô tả                                                       |
-| -------------------- | ----------------------------------------------------------- |
-| `slice(start, stop)` | Trả về phân đoạn bộ nhớ đã chỉ định dưới dạng lát cắt byte. |
-| `length()`           | Trả về độ dài của bộ nhớ.                                   |
+| Tên phương pháp      | Mô tả                                                    |
+| -------------------- | -------------------------------------------------------- |
+| `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
+| `length()`           | Returns the length of the memory.                        |
 
 `log.stack` has the following methods:
 
-| Tên phương pháp | Mô tả                                                                                |
-| --------------- | ------------------------------------------------------------------------------------ |
-| `peek(idx)`     | Trả về phần tử thứ idx từ đầu ngăn xếp (0 là phần tử trên cùng) dưới dạng `big.Int`. |
-| `length()`      | Trả về số phần tử trong ngăn xếp.                                                    |
+| Method Name | Description                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
+| `length()`  | Returns the number of elements in the stack.                                                    |
 
 `db` has the following methods:
 
-| Tên phương pháp           | Mô tả                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| `getBalance(address)`     | Trả về `big.Int` với số dư của tài khoản được chỉ định.                         |
-| `getNonce(address)`       | Trả về một số với số dùng một lần của tài khoản được chỉ định.                  |
-| `getCode(address)`        | Trả về một lát byte có mã cho tài khoản đã chỉ định.                            |
-| `getState(address, hash)` | Trả về giá trị trạng thái cho tài khoản được chỉ định và hàm băm được chỉ định. |
-| `exists(address)`         | Trả về true nếu địa chỉ được chỉ định tồn tại.                                  |
+| Method Name               | Description                                                               |
+| ------------------------- | ------------------------------------------------------------------------- |
+| `getBalance(address)`     | Returns a `big.Int` with the specified account's balance.                 |
+| `getNonce(address)`       | Returns a Number with the specified account's nonce.                      |
+| `getCode(address)`        | Returns a byte slice with the code for the specified account.             |
+| `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
+| `exists(address)`         | Returns true if the specified address exists.                             |
 
 The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 
