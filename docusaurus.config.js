@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Klaytn Docs',
-  tagline: 'Welcome to the Klaytn Docs',
-  
+  tagline: 'Welcome to the Klaytn Docs Sample',
+
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -16,7 +16,7 @@ const config = {
 
   baseUrl: '/klaytn-docs/',
   url: 'https://localhost:3000',
-  
+
   organizationName: 'klaytn',
   projectName: 'klaytn-docs',
   deploymentBranch: 'migration-deploy',
@@ -50,7 +50,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         blog: {
-          showReadingTime: true
+          showReadingTime: true,
         },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
@@ -68,11 +68,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-          contextualSearch: true,
-          appId: 'YOUR_APP_ID',
-          apiKey: 'YOUR_SEARCH_API_KEY',
-          indexName: 'YOUR_INDEX_NAME',
-        },
+        contextualSearch: true,
+        appId: 'YOUR_APP_ID',
+        apiKey: 'YOUR_SEARCH_API_KEY',
+        indexName: 'YOUR_INDEX_NAME',
+      },
       navbar: {
         title: 'Klaytn Docs',
         logo: {
@@ -86,7 +86,7 @@ const config = {
             position: 'left',
             label: 'Documents',
           },
-          {to: 'blog', label:'Blog', position: 'left'},
+          { to: 'blog', label: 'Blog', position: 'left' },
           {
             href: 'https://forum.klaytn.foundation',
             label: 'Dev Forum',
@@ -98,10 +98,12 @@ const config = {
             position: 'left',
           },
           {
-            type: 'docsVersionDropdown', position: 'right'
+            type: 'docsVersionDropdown',
+            position: 'right',
           },
           {
-            type: 'localeDropdown', position: 'right'
+            type: 'localeDropdown',
+            position: 'right',
           },
         ],
       },
