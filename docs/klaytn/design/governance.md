@@ -37,15 +37,6 @@ Those who have the right to introduce proposals can make sure each proposal is v
 
 During the initial phase of Klaytn governance, the Klaytn Governance Council members will have the right to vote on the introduced proposals and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. In its initial phase, the voting process may be replaced by a discussion process facilitated by the Klaytn foundation. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term. 
 
-### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
-
-
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
-
-![kir_process](../images/kir_process.png)
-
-For more information, visit [KIR Forum](https://kir.klaytn.foundation/).
-
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
 The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
