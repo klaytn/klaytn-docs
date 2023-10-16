@@ -37,8 +37,8 @@ Helping the pioneers to easily build the applications and organize the community
 - Ability to transfer user's transaction fee to the application
 - See [Fee Delegation][]. Application operator can adjust the amount of subsidy for each transaction and implement more flexible business models such as freemium or subscription. Fee delegation will effectively lower user acquisition barriers. ​ ​
 ### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
-- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 66% of the newly minted tokens are reinvested in the ecosystem.
-- See [Klaytn Improvement Reserve][] and [Klaytn Growth Fund][]. ​ ​
+- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 50% of the newly minted tokens are reinvested in the ecosystem.
+- See [Klaytn Community Fund](./design/token-economy.md#klaytn-community-fund) and [Klaytn Foundation Fund](./design/token-economy.md#klaytn-foundation-fund). ​ ​
 ### Community Co-Building <a id="community-co-building"></a>
 - In addition to the protocol design, Klaytn will expand its territory through community co-building; it includes kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc. ​ Lastly, the ground rules: ​
 {% hint style="success" %}
@@ -58,5 +58,3 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Migrating Ethereum App to Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Klaytn Improvement Reserve]: design/token-economy.md#klaytn-improvement-reserve
-[Klaytn Growth Fund]: design/token-economy.md#klaytn-growth-fund
