@@ -37,18 +37,9 @@ Những người có quyền đưa ra đề xuất có thể đảm bảo mỗi 
 
 Trong giai đoạn đầu của hoạt động quản trị Klaytn, các thành viên của Hội đồng quản trị của Klaytn sẽ có quyền biểu quyết bình chọn cho các đề xuất được đưa ra và họ sẽ tham khảo tuyên bố quan điểm của các nhà cố vấn đề bình chọn những đề xuất mà họ tin là lựa chọn tốt nhất. Nếu số phiếu bình chọn vượt qua ngưỡng, thì đề xuất sẽ được thông qua; ngược lại, đề xuất sẽ bị bác bỏ. Trong giai đoạn đầu, quy trình biểu quyết có thể được thay thế bằng quy trình thảo luận do quỹ Klaytn hỗ trợ điều phối. Các biện pháp tiếp theo đối với một đề xuất được phê duyệt sẽ được chủ tịch phụ trách và chủ tịch có trách nhiệm thực thi tất cả các đề xuất được hội đồng thông qua trong nhiệm kỳ của mình.
 
-### Quy trình đánh giá khoản dự trữ cải tiến của Klaytn <a id="klaytn-improvement-reserve-review-process"></a>
-
-
-Việc đánh giá Đề xuất KIR sẽ được quyết định thông qua phiếu bình chọn của các thành viên Hội đồng quản trị và đề xuất sẽ bị bác bỏ nếu có từ hơn một nửa thành viên ủy ban biểu quyết từ chối (bác bỏ) đề xuất đó. Để biết thêm thông tin chi tiết về việc đánh giá Đề xuất KIR, hãy tham khảo các tài liệu sau.
-
-![kir_process](../images/kir_process.png)
-
-Để biết thêm thông tin, hãy truy cập [Diễn đàn KIR](https://kir.klaytn.foundation/).
-
 ## Lộ trình quản trị <a id="governance-roadmap"></a>
 
-Các cơ quan tham gia vào hoạt động quản trị phải hành động vì lợi ích lâu dài của Klaytn thay vì chỉ chăm lo cho lợi ích cá nhân và họ phải tích cực tham gia vào quá trình quản trị. Ngoài ra, tất cả những người tham gia đóng góp vào mạng với tư cách là thành viên Hội đồng quản trị của Klaytn phải đảm bảo được tài nguyên máy tính lớn hơn yêu cầu của nền tảng, đồng thời nắm giữ một lượng KLAY nhất định của riêng mình hoặc từ một bên thứ ba. Để hoạt động trơn tru trong việc phát triển và ổn định nền tảng, Klaytn Foundation sẽ đảm nhận nhiều vai trò trong những việc liên quan đến quản trị trong giai đoạn phát triển ban đầu. Tuy nhiên, trong tương lai, các cơ quan khác sẽ dần dần đảm nhận những vai trò lớn hơn trong quy trình đưa ra quyết định và họ sẽ có quyền để tham gia độc lập.
+The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
 
 * **Giai đoạn phát triển**: Trong giai đoạn phát triển ban đầu sau khi khởi chạy mạng chính thức, việc điều chỉnh về tham số, phát triển tính năng mới, v.v. phải nhanh chóng được thực hiện. Để làm được như vậy, nhiều vấn đề sẽ được quyết định thông qua việc thu thập ý kiến của các thành viên Hội đồng quản trị của Klaytn, nhà cung cấp dịch vụ và thành viên cộng đồng. Để đảm bảo khả năng ổn định ban đầu, Klaytn Foundation sẽ dẫn dắt quy trình đưa ra quyết định. Ngoài ra, tất cả các vấn đề đã được quyết định cũng sẽ được chia sẻ công khai một cách minh bạch.
 * **Giai đoạn ổn định**: Hội đồng quản trị của Klaytn có quyền quản lý đối với nhiều đề xuất và giai đoạn này sẽ bắt đầu dần dần kể từ tháng 1 năm 2021. Đối với các vấn đề đặc biệt, ví dụ như liên quan đến việc phát triển nền tảng, cũng như các sự việc trực tiếp ảnh hưởng đến toàn bộ hệ sinh thái Klaytn, Klaytn Foundation có thể sẽ phải tổ chức thảo luận và thực thi.
