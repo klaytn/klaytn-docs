@@ -51,8 +51,8 @@ perspective, to the existing Ethereum stack. New tooling created in the Klaytn e
 ​
 ​
 ### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
-- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 66% of the newly minted tokens are reinvested in the ecosystem.
-- See [Klaytn Improvement Reserve] and [Klaytn Growth Fund].
+- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 50% of the newly minted tokens are reinvested in the ecosystem.
+- See [Klaytn Community Fund](./design/token-economy.md#klaytn-community-fund) and [Klaytn Foundation Fund](./design/token-economy.md#klaytn-foundation-fund).
 ​
 ​
 ### Community Co-Building <a id="community-co-building"></a>
