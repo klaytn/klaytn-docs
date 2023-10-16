@@ -37,8 +37,8 @@ Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng nh�
 - Khả năng chuyển phí giao dịch của người dùng vào ứng dụng
 - Xem phần [Ủy thác phí][]. Người vận hành ứng dụng có thể điều chỉnh số tiền tài trợ cho mỗi giao dịch và triển khai các mô hình kinh doanh linh hoạt hơn, ví dụ như freemium (chỉ miễn phí các tính năng cơ bản) hoặc đăng ký trả phí định kỳ. Việc ủy thác phí sẽ gỡ bỏ bớt các rào cản thu hút người dùng một cách hiệu quả.
 ### Quỹ sinh thái cấp giao thức trọn bộ <a id="contribution-reward"></a>
-- Klaytn là ví dụ tiên phong lớn nhất về các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một nền kinh tế token theo giao thức chuỗi. 66% số token mới được tái đầu tư vào hệ sinh thái.
-- Xem phần [Khoản dự trữ cải tiến của Klaytn][] và [Quỹ tăng trưởng của Klaytn][].
+- Klaytn là ví dụ tiên phong lớn nhất về các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một nền kinh tế token theo giao thức chuỗi. 50% of the newly minted tokens are reinvested in the ecosystem.
+- See [Klaytn Community Fund](./design/token-economy.md#klaytn-community-fund) and [Klaytn Foundation Fund](./design/token-economy.md#klaytn-foundation-fund).
 ### Cùng xây dựng cộng đồng <a id="community-co-building"></a>
 - Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lĩnh vực của mình thông việc cùng xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, v.v. Cuối cùng là các quy tắc cơ bản:
 {% hint style="success" %}
@@ -58,5 +58,3 @@ Klaytn không đánh đổi các đặc tính cốt lõi của chuỗi khối đ
 [Chuỗi dịch vụ]: scaling-solutions.md#service-chain
 [Solidity-Ngôn ngữ hợp đồng thông minh]: ../smart-contract/solidity-smart-contract-language.md
 [Chuyển ứng dụng Ethereum sang Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Khoản dự trữ cải tiến của Klaytn]: design/token-economy.md#klaytn-improvement-reserve
-[Quỹ tăng trưởng của Klaytn]: design/token-economy.md#klaytn-growth-fund
