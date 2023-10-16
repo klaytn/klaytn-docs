@@ -37,18 +37,9 @@ Klaytnは主にプロトコル(オンチェーン)内で発生するガバナン
 
 Klaytn ガバナンスの初期フェーズの間に Klaytnガバナンス評議会のメンバーは、導入された提案に投票する権利を有し、彼らが最良の選択肢であると信じるものに投票するための意見のアドバイザーの声明を参照します。 投票数がしきい値を超えると、提案は通過します。そうでなければ、提案は却下されます。 最初の段階では、投票プロセスをKlaytn財団によって促進された議論プロセスに置き換えることができます。 承認された提案のためのフォローアップ措置は、会長が主導する。 議長は任期中に評議会が可決した全ての提案を実行する責任があります
 
-### Klaytn改良予備調査プロセス <a id="klaytn-improvement-reserve-review-process"></a>
-
-
-KIR提案審査は、ガバナンス・カウンシルの議決を通じて決定される。 委員会の半分以上の投票があれば提案は却下されます(却下されます)。 KIR Proposal レビューの詳細については、以下を参照してください。
-
-![kir_process](../images/kir_process.png)
-
-詳細については、 [KIR フォーラム](https://kir.klaytn.foundation/) をご覧ください。
-
 ## ガバナンスのロードマップ <a id="governance-roadmap"></a>
 
-ガバナンスに参加する団体は、個人的な利益のためだけではなく、Klaytnの長期的な利益を考慮して行動しなければなりません。 ガバナンスプロセスに積極的に参加しなければなりません さらに、 Klaytn Governance Council メンバーとしてネットワークに貢献するすべての参加者は、プラットフォーム要件を超えるコンピューティングリソースを確保し、自社または第三者からの一定量のKLAYに投資する必要があります。 プラットフォームの開発と安定化の円滑な操作のために。 Klaytn Foundationは、当初の開発段階においてガバナンス関連の事項において多くの役割を担います。 しかし、将来的には、他の機関が次第に意思決定プロセスにおいてより大きな役割を果たし、独立して参加する権利を有することになります。
+The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
 
 * **開発フェーズ**: メインネット打ち上げ後の初期開発フェーズでは、パラメータ調整や新機能の開発などを迅速に確認する必要があります。 これを可能にするために、多くの問題は、Klaytn Governance Councilのメンバー、サービスプロバイダー、コミュニティメンバーの意見を集めることによって決定されます。 初期の安定化を確保するため、Klaytn Foundationは意思決定プロセスを主導します。 また、決定された事項はすべて透明性を持って公開されます。
 * **安定化フェーズ**: クラインガバナンス評議会は多くの提案に関する権利を統治しており、この段階は2021年1月から徐々に開始される予定である。 プラットフォーム開発などの特別な事項について そして、Klaytn基金全体に直接影響を与える問題は、議論と実行を促進する可能性があります。
