@@ -37,18 +37,9 @@
 
 클레이튼 거버넌스 초기 단계에서 클레이튼 거버넌스 카운슬 멤버들은 도입된 제안에 대해 투표권을 가지며, 자문위원들의 의견서를 참고하여 최선의 선택이라고 생각되는 사항에 투표하게 될 것입니다. 투표 수가 임계치를 넘으면 제안이 통과되고, 그렇지 않으면 제안이 기각됩니다. 초기 단계에서는 투표 정차가 클레이튼 재단에서 진행하는 토론 절차로 대체될 수 있습니다. 승인된 제안에 대한 후속 조치는 의장이 주도하며, 의장은 임기 동안 협의회에서 통과된 모든 제안을 실행할 책임이 있습니다.
 
-### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
-
-
-KIR 제안서 심사는 거버넌스 카운슬 위원들의 투표를 통해 결정되며, 위원 과반수 이상이 반대(부결)하면 제안서는 부결됩니다. For more details on the KIR Proposal review, refer to the following.
-
-![kir_process](../images/kir_process.png)
-
-자세한 내용은 [KIR 포럼](https://kir.klaytn.foundation/)에서 확인하세요.
-
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
-거버넌스에 참여하는 주체들은 개인의 이익보다는 클레이튼의 장기적인 이익을 고려하여 행동해야 하며, 거버넌스 프로세스에 적극적으로 참여해야 합니다. 또한 클레이튼 거버넌스 카운슬 멤버로서 네트워크에 기여하는 모든 참여자는 플랫폼 요구 사항보다 더 많은 컴퓨팅 자원(computing resources)을 확보해야 하며, 자체적으로 또는 제3자로부터 일정량의 KLAY를 스테이킹해야 합니다. 클레이튼 재단은 플랫폼 개발과 안정화의 원활한 운영을 위해 초기 개발 단계에서 거버넌스와 관련된 많은 역할을 맡게 될 것입니다. 그러나 앞으로는 의사 결정 과정에서 다른 기관의 역할이 점차 커질 것이며, 독립적으로 참여할 수 있는 권리를 갖게 될 것입니다.
+The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
 
 * **개발 단계(Development Phase)**: 메인넷 출시 후 초기 개발 단계에서는 매개변수 조정, 새로운 기능 개발 등이 신속하게 이루어져야 합니다. 이를 위해 클레이튼 거버넌스 카운슬 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 이슈를 결정할 것입니다. 초기 안정화를 위해 클레이튼 재단이 의사결정 과정을 주도할 것입니다. 또한 결정된 모든 사안은 대중과 투명하게 공유됩니다.
 * **안정화 단계(Stabilization Phase)**: 클레이튼 거버넌스 카운슬은 많은 제안에 대한 관리 권한을 가지고 있으며, 이 단계는 2021년 1월부터 점진적으로 시작될 예정입니다. 플랫폼 개발에 관한 사항이나 클레이튼 생태계 전반에 직접적인 영향을 미치는 사항과 같은 특별한 사안의 경우, 클레이튼 재단이 논의와 실행을 독려할 수 있습니다.
