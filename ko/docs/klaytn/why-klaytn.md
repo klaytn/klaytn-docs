@@ -37,8 +37,8 @@ description: >-
 - 사용자의 트랜잭션 수수료를 서비스 운영자가 대신 지불할 수 있습니다.
 - See [Fee Delegation][]. 애플리케이션 운영자는 각 트랜잭션에 대한 보조금의 양을 설정할 수 있어서 프리미엄(freemium)이나 구독 모델 같이 더욱 유연한 비즈니스 모델을 사용할 수 있습니다. 수수료 위임 기능은 사용자 유입 장벽을 낮출 수 있습니다. ​ ​
 ### 프로토콜 수준의 전체 포괄 에코 펀드<a id="contribution-reward"></a>
-- 클레이튼은 생태계를 지원하는 인센티브들이 온체인 프로토콜 토크노믹스에 인코딩된 최초이자 최대 규모의 사례입니다. 신규 발행 토큰의 66%가 생태계에 재투자됩니다.
-- See [Klaytn Improvement Reserve][] and [Klaytn Growth Fund][]. ​ ​
+- 클레이튼은 생태계를 지원하는 인센티브들이 온체인 프로토콜 토크노믹스에 인코딩된 최초이자 최대 규모의 사례입니다. 50% of the newly minted tokens are reinvested in the ecosystem.
+- See [Klaytn Community Fund](./design/token-economy.md#klaytn-community-fund) and [Klaytn Foundation Fund](./design/token-economy.md#klaytn-foundation-fund). ​ ​
 ### 커뮤니티 공동 구축<a id="community-co-building"></a>
 - In addition to the protocol design, Klaytn will expand its territory through community co-building; it includes kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc. ​ Lastly, the ground rules: ​
 {% hint style="success" %}
@@ -58,5 +58,3 @@ description: >-
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Migrating Ethereum App to Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Klaytn Improvement Reserve]: design/token-economy.md#klaytn-improvement-reserve
-[Klaytn Growth Fund]: design/token-economy.md#klaytn-growth-fund
