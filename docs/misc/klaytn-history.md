@@ -72,9 +72,20 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
-| Date | Nov 17, 2021 23:42:13 / UTC+9 |  Mar 31, 2022 12:14:39 / UTC+ |
+| Date | Nov 17, 2021 23:42:13 / UTC+9 |  Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number  | `#75,373,312`  | `#86,816,005` |
 
 ### Summary
 
 Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from [EIP-152](https://eips.ethereum.org/EIPS/eip-152), [EIP-1108](https://eips.ethereum.org/EIPS/eip-1108), [EIP-1344](https://eips.ethereum.org/EIPS/eip-1344), [EIP-1844](https://eips.ethereum.org/EIPS/eip-1844), and [EIP-2200](https://eips.ethereum.org/EIPS/eip-2200).
+
+## Shanghai EVM
+
+| ` ` | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Aug 28, 2023 10:30AM / UTC+9 |  Oct 16, 2023 10:00 AM / UTC+9 |
+| Block number  | `#131,608,000`  | `#135,456,000` |
+
+### Summary
+
+Ethereum's Shanghai hard fork items were introduced with the [v1.11.1 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.1) and [v1.11.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.0), which includes changes from [EIP-3651](https://eips.ethereum.org/EIPS/eip-3651), [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855), and [EIP-3860](https://eips.ethereum.org/EIPS/eip-3860)
