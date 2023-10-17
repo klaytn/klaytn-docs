@@ -6,7 +6,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
-| Date | Sep 01, 2023 13:06:22 / UTC+9 |  Oct 16, 2023 02:50:24 / UTC+9 |
+| Date | Aug 28, 2023 10:30:31 / UTC+9 |  Oct 16, 2023 10:50:24 / UTC+9 |
 | Block number  | `#131,608,000`  | `#135,456,000` |
 
 ### Summary
