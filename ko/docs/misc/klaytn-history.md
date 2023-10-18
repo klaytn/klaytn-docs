@@ -2,6 +2,17 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
+## Shanghai EVM
+
+| ``           | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Aug 28, 2023 10:30:31 / UTC+9 | Oct 16, 2023 10:50:24 / UTC+9 |
+| Block number | `#131,608,000`                | `#135,456,000`                |
+
+### 정리
+
+Ethereum's Shanghai hard fork items were introduced with the [v1.11.1 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.1) and [v1.11.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.0), which includes changes from [EIP-3651](https://eips.ethereum.org/EIPS/eip-3651), [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855), and [EIP-3860](https://eips.ethereum.org/EIPS/eip-3860)
+
 ## KIP-103
 
 | ``           | Baobab                        | Cypress                       |
@@ -9,7 +20,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 | Date         | Apr 06, 2023 04:25:03 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
 | Block number | `#119,145,600`                | `#119,750,400`                |
 
-### 정리
+### Summary
 
 KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
@@ -70,10 +81,10 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ## Istanbul EVM
 
-| ``           | Baobab                        | Cypress                      |
-| ------------ | ----------------------------- | ---------------------------- |
-| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+ |
-| Block number | `#75,373,312`                 | `#86,816,005`                |
+| ``           | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
+| Block number | `#75,373,312`                 | `#86,816,005`                 |
 
 ### Summary
 
