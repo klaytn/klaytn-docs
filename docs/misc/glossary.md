@@ -9,7 +9,7 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](https://docs.klaytn.foundation/content/installation-guide/deployment/service-chain/references/anchoring)).
 
 ### Baobab
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the mainnet. 
+The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Klaytn Cypress mainnet. 
 
 See also [Cypress](#cypress).
 
@@ -33,7 +33,7 @@ A node that is responsible for generating and propagating blocks, and for reachi
 ### Cypress
 The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services. 
 
-See also [Baobab](#baobab).
+See also Klaytn Testnet [Baobab](#baobab).
 
 ### endpoint node (EN)
 A node that serves as an entry point for service chains and DApps to interact with the Klaytn blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
