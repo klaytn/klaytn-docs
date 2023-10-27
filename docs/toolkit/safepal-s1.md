@@ -1,22 +1,22 @@
-## Introduction
+## Introduction <a id="introduction"></a>
 
 Hardware wallets reinvented the wheel by keeping private keys (needed for signing transactions) in an offline environment separate from internet connections, avoiding the numerous hacks or threats that arise from software wallets reliant on internet connectivity. This way, users' crypto assets are more secured and shielded from internet dangers brought on by software wallets.
 
-One of such hardware wallets that has integrated with Klaytn is **Safepal S1 Hardware Wallet**. SafePal S1 is a cryptocurrency hardware wallet that aims to provide a secure, simple, and enjoyable crypto management solution for the populace. SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KLAY, Klaytn Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
+One of such hardware wallets that has integrated with Klaytn is **SafePal S1 Hardware Wallet**. SafePal S1 is a cryptocurrency hardware wallet that aims to provide a secure, simple, and enjoyable crypto management solution for the populace. SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KLAY, Klaytn Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
 
 In this guide, you will:
 
 * Add, Receive and Send Klay, and any Klaytn Compatible Tokens(KCT)  with SafePal S1 Hardware Wallet
 
-## Prerequisites
+## Prerequisites <a id="prerequisites"></a>
 
 * [SafePal Hardware Wallet Set-Up](https://safepalsupport.zendesk.com/hc/en-us/articles/360046051752)
 
-## Getting Started
+## Getting Started <a id="getting-started"></a>
 
 After you must have successfully set up your wallet, next is to see the wallet in action. In this tutorial we will be adding, receiving and sending KLAY native coin, and any Klaytn Compatible Tokens(KCT) using the SafePal S1 Hardware Wallet.
 
-### Adding KLAY native coin
+### Adding KLAY native coin <a id="adding-klay-native-coin"></a>
 
 To add the KLAY native coin to your hardware wallet, kindly follow the steps below:
 
@@ -36,7 +36,7 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 Kindly note that the steps above are applicable for adding any Klaytn Compatible Tokens. 
 
-### Receiving KLAY native coin
+### Receiving KLAY native coin  <a id="receiving-klay-native-coin"></a> 
 
 Once the coins (KLAY, KCTs) are successfully added, you can view them in the **Asset Management** tab on the S1 device. You can receive KLAY native coin using the following approach: 
 
@@ -62,7 +62,7 @@ Once the coins (KLAY, KCTs) are successfully added, you can view them in the **A
 Kindly note that the steps above are applicable for receiving any Klaytn Compatible Tokens.
 
 
-### Sending KLAY native coin
+### Sending KLAY native coin  <a id="sending-klay-native-coin"></a>
 
 To send KLAY native coin from your hardware wallet, kindly follow the steps below:
 
@@ -99,7 +99,7 @@ Doing this ensures the App receives the signature contained in the QR codes and 
 Kindly note that the steps above are applicable for sending any Klaytn Compatible Tokens. 
 
 
-## Further References
+## Further References  <a id="further-references"></a>
 
 * [SafePal S1 Upgrade Instructions](https://www.safepal.com/en/upgrade/s1)
 * [SafePal S1 User Manual](https://docs.safepal.io/safepal-hardware-wallet/user-manual)
