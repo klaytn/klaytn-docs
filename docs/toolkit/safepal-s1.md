@@ -1,5 +1,7 @@
 ## Introduction <a id="introduction"></a>
 
+![](./img/safepalS1/klaytnXsafepal.png)
+
 Hardware wallets reinvented the wheel by keeping private keys (needed for signing transactions) in an offline environment separate from internet connections, avoiding the numerous hacks or threats that arise from software wallets reliant on internet connectivity. This way, users' crypto assets are more secured and shielded from internet dangers brought on by software wallets.
 
 One of such hardware wallets that has integrated with Klaytn is **SafePal S1 Hardware Wallet**. SafePal S1 is a cryptocurrency hardware wallet that aims to provide a secure, simple, and enjoyable crypto management solution for the populace. SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KLAY, Klaytn Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
