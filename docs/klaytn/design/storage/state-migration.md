@@ -1,6 +1,4 @@
-# Storage Layer <a id="storage-layer"></a>
-
-## State Migration <a id="state-migration"></a>
+# State Migration <a id="state-migration"></a>
 
 As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Klaytn, therefore, provides a feature called State Migration that allows you to reduce the amount of required storage space.
 
