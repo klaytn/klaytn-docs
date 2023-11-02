@@ -21,7 +21,7 @@ StateDB Live Pruning deletes data 48 hours (default) after the information has c
 
 To use StateDB Live Pruning, the following environment must be set up:
 
-1. Use a binary of klaytn v1.12.0 or higher.
+1. Use a binary of klaytn v1.11.0 or higher.
 2. Only the method of downloading and syncing the DB with the ExtHash structure exists. Please download the DB from this [link](https://packages.klaytn.net/cypress/pruning-chaindata/).
 3. (Optional) Add the flag `--state.live-pruning-retention <value>` for how long recent states are retained. Default value is 172800 (48 hours)
 3. Refer to the following link to set the DB location and restart the node with `--state.live-pruning` added [https://ko.docs.klaytn.foundation/content/operation-guide/chaindata-change].
