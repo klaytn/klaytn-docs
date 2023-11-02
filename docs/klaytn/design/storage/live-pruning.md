@@ -1,12 +1,12 @@
 # StateDB Live Pruning <a id="state-pruning"></a>
 
-StateDB Live Pruning is a technology created to solve the same problem as [State Migration](state-migration.md) (data in the state trie keeps accumulating).
+StateDB Live Pruning is a new technique to resolve the same problem as [State Migration](state-migration.md) (data in the state trie keeps accumulating).
 
-In StateDB, data is stored in a StateTrie structure. Every time a block changes state information, multiple nodes in the Trie also change, and newly created or moified data is stored. As the Klaytn network continues to grow, the amount of data is increasing significantly. We have solved this problem by continuously deleting past data through State Migration, thereby saving storage. However, there are disadvantages in that the entire Trie must be traversed and must be run manually. To compensate for this, StateDB Live Pruning technology was introduced.
+In StateDB, data is stored in a data structure known as StateTrie. When state data is altered in a block, multiple nodes within the Trie are modified, and the new or updated data is then stored. As the Klaytn network continues to expand, the volume of data corresondingly increases. This challenge has been mitigated through State Migration, which involves the continuous deletion of old data, thereby conserving storage spaces. Nonetheless, State Migration has its own drawbacks, as it requires traversing the entire Trie and must be triggered manually. To counteract these limitations, the StateDB Live Pruning technique was introduced.
 
-In order to efficiently delete past data without traversing the entire StateTrie, it is necessary to determine whether TrieNode is used based on a specific point (block) in time. However, in the existing StateTrie structure, one TrieNode can be included in multiple StateTries. Therefore, even if the state of a specific block changes at a specific point in time, some TrieNodes can be used redundantly and cannot be easily deleted. This is referred to as the hash duplication problem.
+To effectively eliminate historical data without having to traverse the entire StateTrie, it is imperative to ascertain whether a TrieNode is outdated or not at a specific time. In the original StateTrie structure, a single TrieNode could be part of multiple StateTries. Consequently, even if the state of a specific block is updated at a given point in time, some TrieNodes may be redundantly used and cannot be readily deleted. This issue is referred to as the hash duplication problem.
 
-StateDB Live Pruning resolves the internal hash duplication problem of State Trie by adding a unique 7-byte serial index after the 32-byte Hash, thus solving this challenge. This ensures that all nodes are unique and can safely delete StateTrie before a specific point in time.
+StateDB Live Pruning resolves this problem of State Trie by adding a unique 7-byte serial index after the 32-byte Hash, thus solving this challenge. This ensures that all nodes of any state trie are unique and can safely delete StateTrie before a specific block.
 
 ```
 Hash: Keccak256 - 32-byte Hash key
@@ -17,7 +17,7 @@ Furthermore, the StateRoot is not be changed in a block since we still calculate
 
 For more information, see [https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91].
 
-StateDB Live Pruning deletes data 48 hours (default) after the information has changed, so features related to querying StateDB are not supported such as account balance, contract execution in the past, etc. Please carefully consider the purpose of the node you are operating before deciding to activate the StateDB Live Pruning feature.
+StateDB Live Pruning deletes data 48 hours (default) after the information has changed, so features related to querying StateDB are not supported such as past accounts balance, contract execution on outdated blocks, etc. Please carefully consider the purpose of the node you are operating before deciding to activate the StateDB Live Pruning feature.
 
 To use StateDB Live Pruning, the following environment should be set up:
 
