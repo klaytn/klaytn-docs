@@ -24,17 +24,17 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 **Step 1**: Open the SafePal App and in your Wallet tab, click the ellipsis icon and then click the Manage Coins button as shown in the picture below:
 
-[](./img/safepalS1/step1-add-klay.png)
+![](./img/safepalS1/step1-add-klay.png)
 
 **Step 2**: Select the coins you want to add (in our case KLAY), and click **Add Coin** at the bottom
 
-[](./img//safepalS1/step2-add-klay.png)
+![](./img/safepalS1/step2-add-klay.png)
 
 **Step 3**:  Scan back and forth between the App and the S1 hardware wallet so that the data is correctly synchronized between the App and the device.
 
 **Step 4**: After the coin has been added successfully, you can now view them in the **Asset Management** tab on the S1 device. 
 
-[](./img//safepalS1/step4-add-klay.png)
+![](./img/safepalS1/step4-add-klay.png)
 
 Kindly note that the steps above are applicable for adding any Klaytn Compatible Tokens. 
 
@@ -59,7 +59,7 @@ Once the coins (KLAY, KCTs) are successfully added, you can view them in the **A
  
 **Step 5** Then you can see the QR code of your coin address, and show it to others so that they can scan and send the coin to you.
 
-[](./img/safepalS1/sphw-rec-banner.png)
+![](./img/safepalS1/sphw-rec-banner.png)
 
 Kindly note that the steps above are applicable for receiving any Klaytn Compatible Tokens.
 
@@ -70,23 +70,23 @@ To send KLAY native coin from your hardware wallet, kindly follow the steps belo
 
 **Step 1** On the SafePal App, choose the coin you want to send(in our case KLAY)and click **Send**.
 
-[](./img//safepalS1//step1-send-klay.png)
+![](./img//safepalS1/step1-send-klay.png)
 
 **Step 2** Enter the destination address, amount, and click 'Next' to confirm the details again. Ensure to verify your transfer details in this step.
 
-[](./img/safepalS1/step2-send-klay.png)
+![](./img/safepalS1/step2-send-klay.png)
 
 **Step 3** Initiate the signing process of the S1 device.
 
 In this step, a QR code (as shown below) containing the transfer details will be displayed on the SafePal App. Start your S1 hardware wallet, and enter the **Scan** tab. Next is to scan the QR code on the SafePal App. Doing this ensures that the S1 device receives the transfer details in an offline environment. 
 
-[](./img/safepalS1/step3-send-klay.png)
+![](./img/safepalS1/step3-send-klay.png)
 
 **Step 4** Sign the transfer on S1 Device
 
 After successfully scanning the transfer details, you will then see the transfer details(amount, fee, gas limit, etc) on your S1 device. Next is to verify the details and enter the PIN code. 
 
-[](./img/safepalS1/step4-send-klay.png)
+![](./img/safepalS1/step4-send-klay.png)
 
 **Step 5** Synchronize the signature back to the SafePal App
 
@@ -96,7 +96,7 @@ Doing this ensures the App receives the signature contained in the QR codes and 
 
 **Step 6** Click **Broadcast** on the App and wait for the transfer to go through
 
-[](./img/safepalS1/step6-send-klay.png)
+![](./img/safepalS1/step6-send-klay.png)
 
 Kindly note that the steps above are applicable for sending any Klaytn Compatible Tokens. 
 
