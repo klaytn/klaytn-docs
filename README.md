@@ -1,5 +1,3 @@
-# Branch name will be changed
-
 This website is built using Gitbook.
 
 ### Installation
