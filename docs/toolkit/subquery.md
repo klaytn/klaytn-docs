@@ -6,14 +6,6 @@ Another one of SubQuery's competitive advantages is the ability to aggregate dat
 
 Other advantages include superior performance with multiple RPC endpoint configurations, multi-worker capabilities and a configurable caching architecture. To find out more, visit our [documentation](https://academy.subquery.network/).
 
-##Useful resources 
-
-* SubQuery Docs: [SubQuery Academy (Documentation)](https://academy.subquery.network/)
-* Intro Quick Start Guide: 1. [Create a New Project ](https://academy.subquery.network/quickstart/quickstart.html)
-* [Klayton Quick Start Guide](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html)
-* [Klaytn Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
-* [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14)
-
 ## Getting started
 Take a look at this [SubQuery Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter) that introduces SubQuery's Klaytn support by indexing all transfers and approval events from the Orbit ETH on Klaytn Network .
 
@@ -30,8 +22,9 @@ You can publish it to the decentralised SubQuery Network, the most open, perform
 
 ## Resources
 Here are some additional resources to help you get started with the Covalent API:
-- [SubQuery Website](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-- [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
-- [Documentation](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-- [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
-
+* [SubQuery Website](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
+* [Documentation](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
+* [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn&utm_medium=partner-docs)
+* [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
+* [Klaytn Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
+* [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
