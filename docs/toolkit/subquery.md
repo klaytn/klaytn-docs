@@ -9,7 +9,7 @@ Other advantages include superior performance with multiple RPC endpoint configu
 ## Getting started
 Take a look at this [SubQuery Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter) that introduces SubQuery's Klaytn support by indexing all transfers and approval events from the Orbit ETH on Klaytn Network .
 
-You can also follow along this [step by step guide](https://academy.subquery.network/quickstart/quickstart.html) to get familiar with SubQuery.
+You can also follow along this [step by step guide](https://academy.subquery.network/quickstart/quickstart.html) to get familiar with SubQuery or check out the [Klaytn x SubQuery workshop](https://www.youtube.com/watch?v=40R5O1kL3v4) to see an actual demo.
 
 ## Running and Hosting your Klaytn SubQuery APIs
 SubQuery is open-source, meaning you have the freedom to run it in the following three ways:
