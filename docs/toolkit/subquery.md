@@ -21,7 +21,7 @@ You can publish it to SubQuery's enterprise-level [Managed Service](https://mana
 You can publish it to the decentralised SubQuery Network, the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way and supports Klaytn from launch.
 
 ## Resources
-Here are some additional resources to help you get started with the Covalent API:
+Here are some additional resources to help you get started:
 * [SubQuery Website](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
 * [Documentation](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
 * [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn&utm_medium=partner-docs)
