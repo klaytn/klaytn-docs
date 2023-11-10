@@ -328,6 +328,8 @@
         * [Orakl Network](dapp/developer-tools/oracles/orakl-network.md)
         * [Witnet](dapp/developer-tools/oracles/witnet.md)
         * [SupraOracles](dapp/developer-tools/oracles/supraoracles.md)
+    * [Indexers](dapp/developer-tools/indexers/getting-started.md)
+        * [SubQuery](dapp/developer-tools/indexers/subquery.md)
     * [Block Explorers](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
