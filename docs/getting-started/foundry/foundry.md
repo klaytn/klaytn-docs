@@ -21,7 +21,7 @@ To follow this tutorial, the following are the prerequisites:
 
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
+* RPC Endpoint: you can get this from one of the supported [endpoint providers](https://docs.klaytn.foundation/content/dapp/rpc-service/public-en).
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 * Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
 
@@ -125,7 +125,7 @@ forge build
 
 # Deploying your contracts
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en) on Klaytn to find your rpc-url, and create an account using [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](https://docs.klaytn.foundation/content/dapp/rpc-service/public-en) on Klaytn to find your rpc-url, and create an account using [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask).
 
 **Step 1**: To deploy your contract to the Klaytn Baobab network, run the command below: 
 
@@ -288,12 +288,13 @@ cast call $oUSDC \
 Let's transfer some tokens from the lucky user to Alice using cast send:
 
 ```bash
-cast rpc anvil_impersonateAccount $oUSDCHolder
+cast rpc anvil_impersonateAccount $oUSDCHolder    
 cast send $oUSDC \
+--unlocked \
 --from $oUSDCHolder\
-  "transfer(address,uint256)(bool)" \
-  $BOB \
- 1000000
+ "transfer(address,uint256)(bool)" \
+ $BOB 
+ 1000
 ```
 **Output**
 
