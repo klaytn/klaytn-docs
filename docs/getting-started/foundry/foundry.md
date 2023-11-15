@@ -294,7 +294,7 @@ cast send $oUSDC \
 --from $oUSDCHolder\
  "transfer(address,uint256)(bool)" \
  $BOB \
- 1000
+ 1000000
 ```
 **Output**
 
