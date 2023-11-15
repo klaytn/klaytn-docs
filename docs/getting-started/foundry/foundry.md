@@ -293,7 +293,7 @@ cast send $oUSDC \
 --unlocked \
 --from $oUSDCHolder\
  "transfer(address,uint256)(bool)" \
- $BOB 
+ $BOB \
  1000
 ```
 **Output**
