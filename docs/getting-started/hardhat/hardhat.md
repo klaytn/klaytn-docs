@@ -361,7 +361,7 @@ npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
 npx hardhat node --fork https://archive-en.cypress.klaytn.net
 ```
-You can also configure `hardhat.config.ts` - Hardhat Network to always do this:
+You can also configure `hardhat.config.js` - Hardhat Network to always do this:
 
 ```
 networks: {
