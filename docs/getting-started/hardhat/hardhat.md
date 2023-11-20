@@ -24,7 +24,7 @@ To follow this tutorial, the following are the prerequisites:
 
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en).
+* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](https://docs.klaytn.foundation/content/dapp/rpc-service/public-en).
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 * [NodeJS and NPM](https://nodejs.org/en/)
 
@@ -58,11 +58,10 @@ npm install --save-dev hardhat
 * Paste the code below to install other dependencies
 
 ```bash
-npm install dotenv @nomicfoundation/hardhat-toolbox @klaytn/contracts
+npm install dotenv @klaytn/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `hardhat-toolbox`,  `klaytn/contract`, `dotenv` et al. 
-
+> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al. 
 
 **Step 4**: Initialise a hardhat project:
 
@@ -75,6 +74,10 @@ For this guide, you'll be selecting a typescript project as seen below:
 
 ![](./../images/hardhat/hardhat-init.png) 
 
+![](./../images/hardhat/hardhat-init-ii.png)
+
+> Note: While initializing the project, you will get a prompt to install `hardhat-toolbox` plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+
 After initializing a hardhat project, your current directory should include:
 
 **contracts/** – this folder contains smart contract code.
@@ -83,7 +86,7 @@ After initializing a hardhat project, your current directory should include:
 
 **test/** – this folder contains all unit tests that test your smart contract.
 
-**hardhat.config.ts** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
 
 **Step 5**: Create a .env file
 
@@ -102,9 +105,12 @@ touch .env
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
+> Note: You can also choose to use the [configuration variable](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) functionality provided by hardhat to configure variables that shouldn't be included in the code repository.
+
+
 **Step 6**: Setup Hardhat Configs
 
-Modify your `hardhat.config.ts` with the following configurations:
+Modify your `hardhat.config.js` with the following configurations:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -122,7 +128,6 @@ module.exports = {
     }
   }
 };
-
 ```
 
 Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
@@ -181,9 +186,9 @@ One major thing in this contract is that it prohibits token transfer, which make
 
 In this section, we would be testing some of our contract functionalities.
 
-**Step 1**: In the Explorer pane, select the test folder and click the New File button to create a new file named `sbtTest.ts`
+**Step 1**: In the Explorer pane, select the test folder and click the New File button to create a new file named `sbtTest.js`
 
-**Step 2**: Copy the code below in the `sbtTest.ts` file.
+**Step 2**: Copy the code below in the `sbtTest.js` file.
 
 ```js
 // This is an example test file. Hardhat will run every *.ts file in `test/`,
@@ -212,15 +217,15 @@ describe("Token contract", function () {
   // Network to that snapshot in every test.
   async function deployTokenFixture() {
     // Get the ContractFactory and Signers here.
-    const sbt = await ethers.getContractFactory("SoulBoundToken");
     const [owner, addr1, addr2] = await ethers.getSigners();
 
-    // To deploy our contract, we just have to call Token.deploy() and await
-    // its deployed() method, which happens onces its transaction has been
+    // To deploy our contract, we just have to call ethers.deployContract() and call the 
+    // waitForDeployment() method, which happens onces its transaction has been
     // mined.
-    const sbtContract = await sbt.deploy();
 
-    await sbtContract.deployed();
+    const sbtContract = await ethers.deployContract("SoulBoundToken");
+
+    await sbtContract.waitForDeployment();
 
     // Fixtures can return anything you consider useful for your tests
     return { sbtContract, owner, addr1, addr2 };
@@ -295,25 +300,26 @@ For more in-depth guide on testing, please check [Hardhat testing](https://hardh
 
 Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
 
-**Step 1**: In the Explorer pane, select the “scripts” folder and click the New File button to create a new file named `sbtDeploy.ts`.
+**Step 1**: In the Explorer pane, select the "scripts" folder and click the New File button to create a new file named `sbtDeploy.js`.
 
 **Step 2**: Copy and paste the following code inside the file.
 
 > Note: input your MetaMask wallet address in the `deployerAddr` variable.
 
 ```js
-import { ethers } from "hardhat";
+const { ethers } = require("hardhat");
 
 async function main() {
 
-    const deployerAddr = "Your Metamask wallet address";
-    const deployer = await ethers.getSigner(deployerAddr);
+  const deployerAddr = "Your Metamask wallet address";
+  const deployer = await ethers.getSigner(deployerAddr);
 
-    console.log(`Deploying contracts with the account: ${deployer.address}`);
-    console.log(`Account balance: ${(await deployer.getBalance()).toString()}`);
+  console.log(`Deploying contracts with the account: ${deployer.address}`);
+  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
 
-  const sbt = await ethers.getContractFactory("SoulBoundToken");
-  const sbtContract = await sbt.deploy();
+
+  const sbtContract = await ethers.deployContract("SoulBoundToken");
+  await sbtContract.waitForDeployment();
 
 
   await sbtContract.deployed();
@@ -333,7 +339,7 @@ main().catch((error) => {
 **Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab) 
 
 ```bash
-npx hardhat run scripts/sbtDeploy.ts --network baobab
+npx hardhat run scripts/sbtDeploy.js --network baobab
 ```
 
 ![](../images/hardhat/sbtDeploy.png)
