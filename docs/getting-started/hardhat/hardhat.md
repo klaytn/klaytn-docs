@@ -321,11 +321,8 @@ async function main() {
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-
-  await sbtContract.deployed();
-
 console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.address}. You can verify on https://baobab.scope.klaytn.com/account/${sbtContract.address}`);
+console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.scope.klaytn.com/account/${sbtContract.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -364,7 +361,7 @@ npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
 npx hardhat node --fork https://archive-en.cypress.klaytn.net
 ```
-You can also configure `hardhat.config.ts` - Hardhat Network to always do this:
+You can also configure `hardhat.config.js` - Hardhat Network to always do this:
 
 ```
 networks: {
