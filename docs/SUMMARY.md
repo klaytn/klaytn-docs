@@ -330,6 +330,8 @@
         * [SupraOracles](dapp/developer-tools/oracles/supraoracles.md)
     * [Indexers](dapp/developer-tools/indexers/getting-started.md)
         * [SubQuery](dapp/developer-tools/indexers/subquery.md)
+    * [Cross-chain](dapp/developer-tools/cross-chain/getting-started.md)
+        * [LayerZero](dapp/developer-tools/cross-chain/layerzero.md)
     * [Block Explorers](dapp/developer-tools/block-explorers/getting-started.md)
         * [Klaytnscope](toolkit/klaytnscope.md)
         * [Klaytnfinder](https://www.klaytnfinder.io/)
