@@ -2,7 +2,7 @@
 
 # Introduction <a id="introduction"></a>
 
-This section will guide you through deploying a Marketplace contract and a corresponding nft collection contract to Klaytn Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
+This section will guide you through deploying a Marketplace contract and a corresponding NFT collection contract to Klaytn Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
 
 Marketplace contract allows users to list NFTs for direct sale or auction, thus enhancing the buying and selling of NFTs, just like it’s done on OpenSea.
 
@@ -11,8 +11,8 @@ By the end of this guide, you will be able to:
 * compile, deploy, and interact with your smart contract using thirdweb.
 
 # Getting Started <a id="getting-started"></a>
-In this article, we will be exploring the different means to create, customize, and deploy contracts using thirdweb, viz.
-* Using the third-web dashboard
+In this article, we will explore the different means to create, customize, and deploy contracts using thirdweb, viz.
+* Using the thirdweb dashboard
 * Using the thirdweb CLI
 
 For this guide, we will be demonstrating how to deploy a MarketPlace contract using the thirdweb dashboard and also deploying a corresponding nft collection to be listed on the marketplace using the thirdweb CLI.
@@ -21,7 +21,7 @@ For this guide, we will be demonstrating how to deploy a MarketPlace contract us
 
 # Creating and deploying marketplace contract using thirdweb dashboard <a id="creating-and-deploying-thirdweb-dashboard"></a>
 
-In this section, we will be creating and deploying a marketplace contract using thirdweb dashboard. To do this, follow the steps below:
+In this section, we will create and deploy a marketplace contract using thirdweb dashboard. To do this, follow the steps below:
 
 1. Head over to [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com) and select the **MarketPlace** contract from the list of contracts.
 
@@ -35,14 +35,14 @@ In this section, we will be creating and deploying a marketplace contract using 
 
 ![](../images/thirdweb/marketplace-contract-details.png)
 
-4. Click **Deploy Now** as seen in the image above and wait for the transaction to be successfully executed.
+4. Click **Deploy Now** as seen in the image above and wait for the transaction to complete.
 
 ![](../images/thirdweb/marketplace-deployed.png)
 
 Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Klaytnscope](https://klaytnscope.com/).
 
 # Creating and deploying an NFT collection contract using thirdweb CLI <a id="creating-deploying-using-thirdweb-cli"></a>
-In this section, we will be creating and deploying the NFT collection to be listed in our Marketplace using [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com). To do this, follow the steps below:
+In this section, we will create and deploy the NFT collection to be listed in our Marketplace using [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com). To do this, follow the steps below:
 
 ## Creating the contract <a id="creating-the-contract"></a>
 
@@ -59,7 +59,7 @@ npx thirdweb create --contract
 
     iii. Name your smart contract.
 
-    iv. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**. Add any desired **extensions**. For this tutorial, we will be selecting ERC721 and setting the extension to none. 
+    iv. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**. Add any desired **extensions**. For this tutorial, we will select ERC721 and setting the extension to none. 
 
 ![](../images/thirdweb/thirdweb-cli-info.png)
 
@@ -122,7 +122,7 @@ You can learn more about thirdweb deploy command in this [deploy guide](https://
 
 # Interacting with deployed contracts <a id="interacting-with-deployed-contracts"></a>
 
-In this section, we will be minting an NFT and also transferring it to another account using the **mint** and **transferfrom** function respectively. Let's go over it in the following steps:
+In this section, we will mint an NFT and also transferring it to another account using the **mint** and **transferfrom** function respectively. Let's go over it in the following steps:
 
 ## Minting the NFT <a id="minting-nft"></a>
 
@@ -136,7 +136,7 @@ In this section, we will be minting an NFT and also transferring it to another a
 ![](../images/thirdweb/puppy-mint-details.png)
 
 4. Verify your input and click the **Mint NFT** button.
-5. Confirm the transaction and wait for it to be successfully executed. Once done, you should see your NFT added to the dashboard, like below:
+5. Confirm the transaction and wait for it to complete. Once done, you should see your NFT added to the dashboard, like below:
 
 ![](../images/thirdweb/puppy-minted.png)
 
@@ -148,7 +148,7 @@ In this section, we will be minting an NFT and also transferring it to another a
 
 ![](../images/thirdweb/puppy-transferfrom.png)
 
-4. Confirm the transaction and wait for it to be successfully executed.
+4. Confirm the transaction and wait for it to complete.
 
 # Conclusion <a id="conclusion"></a>
 
