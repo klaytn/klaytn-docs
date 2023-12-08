@@ -87,7 +87,6 @@ export const App = () => {
 	return <ConnectButton />;
 };
 ```
-- image goes here
 
 
 # Getting Account and Balance
