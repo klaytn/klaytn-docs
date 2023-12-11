@@ -324,6 +324,7 @@
             * [Web3Auth](dapp/developer-tools/wallets/wallet-libraries/web3Auth.md)
             * [Web3Modal](dapp/developer-tools/wallets/wallet-libraries/web3Modal.md)
             * [Web3-Onboard](dapp/developer-tools/wallets/wallet-libraries/web3Onboard.md)
+            * [Particle Network](dapp/developer-tools/wallets/wallet-libraries/particle.md)
     * [Oracles](dapp/developer-tools/oracles/getting-started.md)
         * [Orakl Network](dapp/developer-tools/oracles/orakl-network.md)
         * [Witnet](dapp/developer-tools/oracles/witnet.md)
