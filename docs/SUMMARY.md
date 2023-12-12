@@ -35,6 +35,7 @@
 * [Getting Started](getting-started/README.md)
   * [Deploying Smart Contract Using Foundry](getting-started/foundry/foundry.md)
   * [Deploying Smart Contract Using Hardhat](getting-started/hardhat/hardhat.md)
+  * [Deploying Smart Contract Using Thirdweb](getting-started/thirdweb/thirdweb.md)
   * [Deploying Smart Contract Using KEN](getting-started/quick-start/README.md)
     * [Launch an Endpoint Node](getting-started/quick-start/launch-an-en.md)
     * [Top up your Account](getting-started/quick-start/top-up-your-account.md)

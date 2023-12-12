@@ -17,6 +17,7 @@
 * [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 * [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - A development environment for smart contracts and dApps.
 * [Foundry](https://book.getfoundry.sh/) - Foundry is a smart contract development toolchain.
+* [Thirdweb](https://portal.thirdweb.com/) - Thirdweb is a complete web3 development framework that provides services to build, manage, and analyze web3 applications
 
 **Klaytn SDKs**
 
