@@ -1,1 +1,0 @@
-# Storage Layer <a id="storage-layer"></a>
