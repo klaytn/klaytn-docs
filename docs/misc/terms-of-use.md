@@ -1,4 +1,4 @@
-# Terms of Use <a id="terms-of-use"></a>
+# Terms of Use
 
 ## 1. Your Use of Open Source Software <a id="1-your-use-of-open-source-software"></a>
 
