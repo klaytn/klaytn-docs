@@ -98,5 +98,5 @@ jobs:
           S3_BUCKET_DEV: ${{ secrets.S3_BUCKET_DEV }}
           CLOUDFRONT_ID_DEV: ${{ secrets.CLOUDFRONT_ID_DEV }}
         run: |
-          aws s3 sync ./build/ $S3_BUCKET_DEV/klaytn-docs --delete
+          aws s3 sync ./build/ $S3_BUCKET_DEV --delete
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_DEV --paths "/*"
