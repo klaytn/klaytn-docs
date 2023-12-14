@@ -14,7 +14,7 @@ accounts (including storage and code).
 numbers.  Retrieving older block state is restricted depending on the value set for the command-line
 option `--state.block-interval` (default: 128).  This means that the function
 performs the state retrieval against only the block numbers that are
-multiples of state.block-interval.  For example, when 
+multiples of state.block-interval.  For example, when
 state.block-interval is 128, this function returns the state for the
 block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block
 number is not a multiple of state.block-interval, it returns 'missing
@@ -31,7 +31,7 @@ trie node' error.
 | --- | --- | --- |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
-{% hint style="success" %} 
+{% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
 {% endhint %}
 
@@ -134,7 +134,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 | --- | --- | --- |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
-{% hint style="success" %} 
+{% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 {% endhint %}
 
@@ -323,7 +323,7 @@ Retrieves a block and returns its pretty printed form.
 | --- | --- | --- |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
-{% hint style="success" %} 
+{% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
 {% endhint %}
 
@@ -365,7 +365,7 @@ Use with *extreme* caution.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 
