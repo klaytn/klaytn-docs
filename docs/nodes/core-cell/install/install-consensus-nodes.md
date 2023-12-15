@@ -150,7 +150,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../nodes/references/configuration-files.md) section.
+Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
 
 ### Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
 
@@ -174,7 +174,7 @@ $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 After the data is extracted, you may start the CN normally.
 
-You can refer to detailed information in the [Chaindata change](../../node-migration.md)
+You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
 
 ## Startup the CN <a id="startup-the-cn"></a>
 
@@ -218,6 +218,18 @@ reload the systemd manager configuration with the following command.
 ```bash
 $ systemctl daemon-reload
 ```
+
+### Export BLS public key info <a id="export-bls-public-key-info"></a>
+
+If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.klaytn.foundation/KIPs/kip-113).
+
+The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
+
+```
+$ kcn account bls-info --datadir /var/kcnd/data
+```
+
+As a result, `bls-publicinfo-NODEID.json` file will be created.
 
 ## Testing the Core Cell <a id="testing-the-core-cell"></a>
 
