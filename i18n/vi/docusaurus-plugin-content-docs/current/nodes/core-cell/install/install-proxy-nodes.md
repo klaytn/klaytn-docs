@@ -160,7 +160,7 @@ $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu PN như bình thường.
 
-Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../node-migration.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../misc/operation/chaindata-change.md)
 
 ## Khởi động PN <a id="startup-the-pn"></a>
 
