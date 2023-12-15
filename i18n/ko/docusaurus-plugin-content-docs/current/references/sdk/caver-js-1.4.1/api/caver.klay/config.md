@@ -191,7 +191,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-현재 노드의 보상베이스를 반환합니다. Rewardbase는 블록 보상이 전달되는 계정의 주소입니다. 클레이튼 컨센서스 노드(CN)만이 리워드베이스를 구성에 가지고 있습니다. [구성 파일](../../../../../nodes/references/configuration-files.md)을 참조하세요.
+현재 노드의 보상베이스를 반환합니다. Rewardbase는 블록 보상이 전달되는 계정의 주소입니다. 클레이튼 컨센서스 노드(CN)만이 리워드베이스를 구성에 가지고 있습니다. [구성 파일](../../../../../misc/operation/configuration.md)을 참조하세요.
 
 
 **매개변수**

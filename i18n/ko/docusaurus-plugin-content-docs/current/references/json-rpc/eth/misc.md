@@ -161,3 +161,43 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "result": false
 }
 ```
+
+## eth_createAccessList <a id="eth_createaccesslist"></a>
+
+이 메서드는 주어진 '트랜잭션'을 기반으로 'accessList'를 생성합니다.
+`accessList`에는 발신자 계정과 사전 컴파일을 제외한 트랜잭션이 읽고 쓴 모든 스토리지 슬롯과 주소가 포함됩니다.
+이 메서드는 [`eth_call`](./transaction.md#eth_call)과 동일한 트랜잭션 호출 객체 및 `blockNumberOrTag` 객체를 사용합니다.
+accessList는 가스비 증가로 인해 접근이 불가능해진 컨트랙트를 해제하는 데 사용할 수 있습니다.
+트랜잭션에 `accessList`를 추가한다고 해서 액세스 목록이 없는 트랜잭션에 비해 가스 사용량이 감소하는 것은 아닙니다.
+
+**Parameters**
+
+| 이름             | 유형                | 설명                                                                                              |
+|------------------|---------------------|----------------------------------------------------------------------------------------------------------|
+| callObject       | Object              | 트랜잭션 호출 객체입니다. 객체의 속성은 [`eth_call`](./transaction.md#eth_call)을 참조하세요. |
+| blockNumberOrTag | QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)의 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. 블록 번호는 필수이며 지정된 트랜잭션이 실행되어야 하는 컨텍스트(상태)를 정의합니다. |
+
+**리턴 값**
+
+| 유형      | 설명                                                              |
+|-----------|--------------------------------------------------------------------------|
+| Object    | 트랜잭션에 사용된 주소 및 저장 키 목록과 액세스 목록이 추가될 때 소비된 가스를 반환합니다. |
+
+**예시**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_createAccessList", "params": [{"from": "0x8cd02c6cbd8375b39b06577f8d50c51d86e8d5cd", "data": "0x608060806080608155"}, "latest"], "id":1}' http://localhost:8551
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": {
+    "accessList": [{
+      "address": "0xa02457e5dfd32bda5fc7e1f1b008aa5979568150",
+      "storageKeys": ["0x0000000000000000000000000000000000000000000000000000000000000081"]
+    }],
+    "gasUsed": "0x128ee"
+  }
+}
+```

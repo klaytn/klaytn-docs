@@ -163,8 +163,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
 
-**NOTE**: This API has different behavior from Ethereum's and
-returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**NOTE**: This API has different behavior from Ethereum's.
+Before Magma hardfork, it returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+After Magma hardfork, it just returns 0.
 
 **Parameters**
 
@@ -185,7 +186,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 // Result
 {
   "jsonrpc": "2.0",
-  "id":1)
+  "id": 1,
   "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```

@@ -355,8 +355,6 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`경고`**: 이 API는 아직 구현되지 않았으며 항상 "not yet implemented API" 오류를 반환합니다.
-
 블록 번호별로 로컬 체인의 현재 헤드를 설정합니다.
 
 **참고**: 이는 파괴적인 행동이며 체인이 심각하게 손상될 수 있습니다.
@@ -372,7 +370,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | String | 16진수 문자열의 블록 번호입니다. |
+| number | QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
