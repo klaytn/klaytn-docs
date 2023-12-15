@@ -1,4 +1,4 @@
-# Tools
+# Dụng Cụ
 
 Trang này bao gồm danh sách những công cụ phát triển giúp bạn xây dựng các ứng dụng phi tập trung trên Klaytn.
 
