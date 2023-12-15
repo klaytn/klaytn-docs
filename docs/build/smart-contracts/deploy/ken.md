@@ -44,7 +44,7 @@ $ mkdir -p ~/kend_home
 
 ### Configuring the EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../../nodes/references/configuration-files.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../../misc/operation/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -88,7 +88,7 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ### Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 
-Please refer to the [Troubleshooting](../../../nodes/references/troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Please refer to the [Troubleshooting](../../../misc/operation/troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
 
 ## Top up your Account <a id="top-up-your-account"></a>
 

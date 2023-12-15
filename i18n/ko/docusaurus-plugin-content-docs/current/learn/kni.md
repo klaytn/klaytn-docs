@@ -36,4 +36,4 @@ kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel 
 ```
 
 노드의 KNI를 생성하는 방법은 [노드 키 및 노드 URI 생성](../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation)을 참고하시기 바랍니다.
-KNI 체계는 노드 검색 프로토콜, [`static-nodes.json` 파일 설정](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json), [addPeer API](../references/json-rpc/admin.md#admin_addpeer), [bootnodes 옵션](../nodes/references/configuration-files.md#properties) 등에 사용됩니다.
+KNI 체계는 노드 검색 프로토콜, [`static-nodes.json` 파일 설정](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json), [addPeer API](../references/json-rpc/admin.md#admin_addpeer), [bootnodes 옵션](../misc/operation/configuration.md#properties) 등에 사용됩니다.

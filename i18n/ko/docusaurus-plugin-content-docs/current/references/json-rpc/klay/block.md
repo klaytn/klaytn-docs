@@ -287,12 +287,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
-블록 해시로 식별된 블록에 포함된 영수증을 반환합니다.
+블록에 포함된 영수증을 반환합니다.
 
 **매개변수**
 | 유형 | 설명
 | --- | --- |
-| 32-byte DATA | blockHash |
+| Number &#124; 32-byte DATA &#124; TAG  | 블록 번호 또는 해시입니다. 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
@@ -303,34 +303,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30"],"id":73}' https://public-en-baobab.klaytn.net
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1"],"id":1}' https://public-en-baobab.klaytn.net
 
 // Result
 {
-  "jsonrpc":"2.0",
-  "id":73,
-  "result":[{
-    "blockHash":"0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30",
-    "blockNumber":"0x3ba38",
-    "contractAddress":null,
-    "effectiveGasPrice":"0x5d21dba00",
-    "from":"0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5",
-    "gas":"0x30d40",
-    "gasPrice":"0xba43b7400",
-    "gasUsed":"0x1886c",
-    "logs":[],
-    "logsBloom":"0x00000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000040000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "nonce":"0x58e",
-    "senderTxHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
-    "signatures":["0x7f6","0x50b2b0f95b8a6d7018369b1933d6cebb52ef119463d1840a6181d05bf8fc29d8","0x329630f88d9d06c5f1bd7644dbf6bd6b92e4ab0e3d47122972f8294c9289e7bb"],
-    "status":"0x1",
-    "to":"0xdbb98c72e9818ad2c93a09e35ad43ada0d4223f0",
-    "transactionHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
-    "transactionIndex":"0x0",
-    "type":"TxTypeValueTransfer",
-    "typeInt":8,
-    "value":"0x21e19e0c9bab2400000"
-  }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1",
+      "blockNumber": "0x85ef20d",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x23b6e",
+      "effectiveGasPrice": "0x5d21dba00",
+      "from": "0x60d690e4d5db4025f4781c6cf3bff8669500823c",
+      "gasUsed": "0x23b6e",
+      "logs": [
+        ...
+      ],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000220000000400000000000000000000000000000000000002000000000010001000000000040000000000000000000000000000000000000000000000000000400000080000000100000000000000000000000000000000000000000000480000000000000000000000010000000001000000000000000000000000000000000000000000009000000000000000000000000000000000000000008000000000000000004000000000004000000000000000000000000000000000000000000000000000000000000000200",
+      "status": "0x1",
+      "to": "0x27e1255f2a0ea596992158a0bc838f43be34b99d",
+      "transactionHash": "0xafd15213b06144a85dd02adf88c32efb3d395e784f153c213a40b7ea25de1942",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    }
+  ]
 }
 ```
 
