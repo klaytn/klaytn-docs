@@ -328,6 +328,50 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
+## eth_getBlockReceipts <a id="eth_getblockreceipts"></a>
+
+블록에 포함된 영수증을 반환합니다.
+
+**파라미터**
+| 유형 | 설명 |
+| --- | --- |
+| Number &#124; 32-byte DATA &#124; TAG | 블록 번호 또는 해시입니다. 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+
+**반환 값**
+
+블록에 포함된 영수증.  대상 블록에 트랜잭션이 없는 경우 빈 배열 `[]`가 반환됩니다.
+
+**예시**
+
+```shell
+// Request
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_getBlockReceipts", "params":["0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1"],"id":1}' https://public-en-baobab.klaytn.net
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1",
+      "blockNumber": "0x85ef20d",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x23b6e",
+      "effectiveGasPrice": "0x5d21dba00",
+      "from": "0x60d690e4d5db4025f4781c6cf3bff8669500823c",
+      "gasUsed": "0x23b6e",
+      "logs": [
+        ...
+      ],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000220000000400000000000000000000000000000000000002000000000010001000000000040000000000000000000000000000000000000000000000000000400000080000000100000000000000000000000000000000000000000000480000000000000000000000010000000001000000000000000000000000000000000000000000009000000000000000000000000000000000000000008000000000000000004000000000004000000000000000000000000000000000000000000000000000000000000000200",
+      "status": "0x1",
+      "to": "0x27e1255f2a0ea596992158a0bc838f43be34b99d",
+      "transactionHash": "0xafd15213b06144a85dd02adf88c32efb3d395e784f153c213a40b7ea25de1942",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    }
+  ]
+}
+```
 
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
  <a id="eth_getunclebyblocknumberandindex"></a>

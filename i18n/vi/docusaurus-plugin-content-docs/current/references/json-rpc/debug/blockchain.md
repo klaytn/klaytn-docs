@@ -341,10 +341,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":"(*types.Block)(0xc4355b05a0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:       e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:  ... 0000000000000000000000000000000000000000\n\tRoot:             4fd68a8f550cbd9ad665bc1a8021882ced5e1859fd9e28a48cb2910532b6ef27\n\tTxSha:            e3dbb8245038adcdc849de54af1d05f0c36c4c20d2710e31d525bd012d20a193\n\tReceiptSha:       212d4f453a897e2a486c86a4b120c1a850e89753865fe7f1aafa4"}
 ```
 
-
 ## debug_setHead <a id="debug_sethead"></a>
-
-**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
 
 Sets the current head of the local chain by block number.
 
@@ -360,7 +357,7 @@ Sets the current head of the local chain by block number.
 
 | Tên | type  | Mô tả                              |
 | --- | ----- | ---------------------------------- |
-| số  | chuỗi | Số khối trong chuỗi thập lục phân. |
+| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 
