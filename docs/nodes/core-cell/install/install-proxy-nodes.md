@@ -160,7 +160,7 @@ $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 After the data is extracted, you may start the PN normally.
 
-You can refer to detailed information in the [Chaindata change](../../node-migration.md)
+You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
 
 ## Startup the PN <a id="startup-the-pn"></a>
 
