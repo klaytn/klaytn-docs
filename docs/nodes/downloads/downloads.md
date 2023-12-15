@@ -8,6 +8,7 @@ sidebar_label: Node Package Downloads
 
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
+* [v1.12.0](./v1.12.0.md)
 * [v1.11.1](./v1.11.1.md)
 * [v1.11.0](./v1.11.0.md)
 * [v1.10.2](./v1.10.2.md)

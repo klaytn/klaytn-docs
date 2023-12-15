@@ -151,6 +151,12 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
+          {
+            href: 'https://github.com/klaytn',
+            position: 'right',
+            alt: 'GitHub repository',
+            className: 'header-github-link',
+          },          
         ],
       },
       docs: {
