@@ -356,8 +356,6 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
-
 Sets the current head of the local chain by block number.
 
 **NOTE**: This is a destructive action and may severely damage your chain.
@@ -373,7 +371,7 @@ Use with *extreme* caution.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | string | The block number in hexadecimal string. |
+| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 
