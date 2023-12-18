@@ -1,4 +1,4 @@
-# Test Smart Contracts
+# Testing Guide
 
 In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract.
 
@@ -7,11 +7,11 @@ In this section, we'll introduce how to test smart contracts. Because any transa
 Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:
 
 * In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
-* In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
+* In `Solidity`, for exercising your contracts in advanced, bare-to-the-metal scenarios.
 
 ### 1) Getting started <a href="#1-getting-started" id="1-getting-started"></a>
 
-We will follow the [Deployment Guide using Truffle](./deploy/deploy.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
+We will follow the [Deployment Guide using Truffle](deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purposes. The source code is given below.
 
 **NOTE:** We have made some modifications to the contract for testing.
 
@@ -52,7 +52,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
+We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it sets new greeting message properly and reverts when non-owner account attempts to update the greeting.
 
 First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
 
@@ -166,7 +166,6 @@ Congratulations! Your test has passed.
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
 
 Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.\
-
 The test code is:
 
 ```javascript
@@ -212,19 +211,14 @@ contract("KlaytnGreeter", async(accounts) => {
 
 If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
 
-* Use `contract()` instead of `describe()`
-
-  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.
-
+* Use `contract()` instead of `describe()`\
+  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.\
   **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
-* Contract abstractions within your tests
-
+* Contract abstractions within your tests\
   Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method.
-* `it` syntax
-
+* `it` syntax\
   This represents each test case with description. The description will print on the console on test-run.
-* `truffle-assertion` library
-
+* `truffle-assertion` library\
   This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
 
 The output should like the following:

@@ -1,16 +1,18 @@
-# Deploy Smart Contracts
+# Deploy Guide <a id="deploy-guide"></a>
 
-There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../../tools/wallets/klaytn-wallet.md).
+There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
 Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
 
-1. Add a new file.
 
-![](/img/build/smart-contracts/01_deployment_ide.png)
+- Add a new file.
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+![](img/deploy-with-ide/01_deployment_ide.png)
+
+
+- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
 
 ```
 pragma solidity 0.5.12;
@@ -38,42 +40,40 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
 
-![](/img/build/smart-contracts/02_deployment_compile.png)
+![](img/deploy-with-ide/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
-![](/img/build/smart-contracts/05_deployment_account.png)
+![](img/deploy-with-ide/05_deployment_account.png)
 
-5. Set Gas limit and Value to send. 
-
+- Set Gas limit and Value to send. 
   - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
   - Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
+- Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
 
-6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+![](img/deploy-with-ide/03_deployment_hello.png)
 
-![](/img/build/smart-contracts/03_deployment_hello.png)
+- If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal. 
 
-7. If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal. 
+- You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue buttons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
 
-8. You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+![](img/deploy-with-ide/06_deployment_functions.png)
 
-![](/img/build/smart-contracts/06_deployment_functions.png)
-
-For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
+For more details, please refer to this [link](../toolkit/klaytn-ide.md).
 
 ## Truffle  <a id="truffle"></a>
 
 Truffle is the most popular framework for smart contract deployment and execution. 
 
-1. Install via the following command.  
+- Install via the following command.  
 
 ```
 $ sudo npm install -g truffle
 ```
 
-2. Set up a project directory, and install .`truffle-hdwallet-provider-klaytn` 
+- Set up a project directory, and install .`truffle-hdwallet-provider-klaytn` 
 
 ```
 $ mkdir hello-klaytn
@@ -82,7 +82,7 @@ $ truffle init
 $ npm install truffle-hdwallet-provider-klaytn
 ```
 
-3. Create `KlaytnGreeter.sol` under `/contracts` directory and copy the following code.  
+- Create `KlaytnGreeter.sol` under `/contracts` directory and copy the following code.  
 
 ```
 pragma solidity 0.5.6;
@@ -110,7 +110,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-4. Modify `/migrations/1_initial_migration.js` as in the following.  
+- Modify `/migrations/1_initial_migration.js` as in the following.  
 
 ```
 const Migrations = artifacts.require("./Migrations.sol");
@@ -121,7 +121,7 @@ module.exports = function(deployer) {
 };
 ```
 
-5. Set `truffle-config.js` as below. Make sure you enter the private key of an account that has enough `KLAY` to deploy the contract. 
+- Set `truffle-config.js` as below. Make sure you enter the private key of an account that has enough `KLAY` to deploy the contract. 
 
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -155,33 +155,31 @@ module.exports = {
   }
 };
 ```
-
 *NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.  
 
-6. Deploying on Klaytn testnet.
+- Deploying on Klaytn testnet.
 
 ```
 $ truffle deploy --network testnet
 ```
 
-7. Deploying on Klaytn mainnet.
+- Deploying on Klaytn mainnet.
 
 ```
 $ truffle deploy --network mainnet
 ```
 
-For more details refer to this [link](../ide-and-tools/truffle.md).
+For more details refer to this [link](../toolkit/truffle.md).
 
 ## VVISP <a id="vvisp"></a>
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details.
-
+vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details. 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
-1. Create `KlaytnGreeter.sol` and write the following code.  
+- Create `KlaytnGreeter.sol` and write the following code.  
 
 ```
 pragma solidity 0.5.6;
@@ -209,25 +207,25 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-2. Install solc 0.5.6.  
+- Install solc 0.5.6.  
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Compile the contract.  
+- Compile the contract.  
 
 ```
 $ solcjs KlaytnGreeter.sol --bin
 ```
 
-4. Install caver-js.  
+- Install caver-js.  
 
 ```
 $ npm install caver-js.
 ```
 
-5. Create `deploy.js` in the same directory with the following code.  
+- Create `deploy.js` in the same directory with the following code.  
 
 ```
 const Caver = require("caver-js");
@@ -258,11 +256,11 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
-
 *NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.  
 
-6. Deploy the contract using node environment.  
+- Deploy the contract using node environment.  
 
 ```
 $ node deploy.js
 ```
+
