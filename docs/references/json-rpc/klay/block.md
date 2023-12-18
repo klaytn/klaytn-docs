@@ -1,5 +1,3 @@
-# Block
-
 ## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
 When requests are made that act on the state of Klaytn, the last default block
@@ -53,7 +51,7 @@ This API works only on RPC call, not on JavaScript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -164,14 +162,12 @@ This API works only on RPC call, not on JavaScript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -292,7 +288,7 @@ Returns receipts included in a block.
 **Parameters**
 | Type | Description |
 | --- | --- |
-| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| Number &#124; 32-byte DATA &#124; TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -341,13 +337,11 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -408,13 +402,11 @@ Returns a block with consensus information that matches the given block number.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -608,13 +600,11 @@ Returns a list of all validators in the committee at the specified block. If the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  \| TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -649,13 +639,11 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  \| TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -688,13 +676,11 @@ Returns a list of all validators of the council at the specified block. If the p
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  \| TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -729,13 +715,11 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  \| TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
 **Return Value**
 
@@ -769,13 +753,11 @@ Returns the value from a storage position at a given address.
 | --- | --- |
 | 20-byte DATA | Address of the storage. |
 | QUANTITY | Integer of the position in the storage. |
-| QUANTITY \| TAG \| HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter), or block hash.|
+| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
 
-:::note
- 
+{% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-
-:::
+{% endhint %}
 
  **Return Value**
 
@@ -813,22 +795,17 @@ keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
 This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
-
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-
-The Klaytn console which comes with the `klay` library can be used to make the calculation.
-
+The Klaytn console which comes with the `klay` library can be used to make the calculation
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-
 Now to fetch the storage:
-
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
@@ -891,7 +868,7 @@ If the parameter is not set, it returns the reward distribution at the latest bl
 
 | Type | Description |
 | --- | --- |
-| QUANTITY  \| TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 

@@ -1,8 +1,6 @@
-# Block
-
 ## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
-When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
+  When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
 
 The following options are possible for the `defaultBlock` parameter:
 
@@ -51,7 +49,7 @@ Please check the [Caution-Header](./caution.md#block_header) before using this A
 
 | Type                | Description                                                                                                                                                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -172,7 +170,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 | Type                | Description                                                                                                                                                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 | Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
 
 
@@ -306,17 +304,19 @@ Returns receipts included in a block.
 **Parameters**
 | Type | Description |
 | --- | --- |
-| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| Number &#124; 32-byte DATA &#124; TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
-Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
+Receipts included in a block.  If the target block contains no transaction, an
+empty array `[]` is returned.
 
 **Example**
 
 ```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_getBlockReceipts", "params":["0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1"],"id":1}' https://public-en-baobab.klaytn.net
+
 // Result
 {
   "jsonrpc": "2.0",
@@ -382,7 +382,7 @@ As there are no uncles in Klaytn, it always returns `null`.
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 | QUANTITY            | The uncle's index position.                                                                                                                                           |
 
 **Return Value**
@@ -410,7 +410,7 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -473,7 +473,7 @@ Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if ther
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -540,7 +540,7 @@ Returns the value from a storage position at a given address.
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address of the storage.                                                                                                                                                              |
 | QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
-| QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter), or block hash. |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 
@@ -573,26 +573,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 ```
 
 Retrieving an element of the map is harder. The position of an element in the map is calculated with:
-
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
 This means to retrieve the storage on `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]` we need to calculate the position with:
-
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-
 The Klaytn console which comes with the `klay` library can be used to make the calculation
-
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-
 Now to fetch the storage:
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' http://localhost:8551
@@ -677,3 +672,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "result": false
 }
 ```
+
+
+

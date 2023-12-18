@@ -1,5 +1,3 @@
-# Miscellaneous
-
 ## eth_hashrate <a id="eth_hashrate"></a>
 
 Returns the number of hashes per second that the node is mining with.
@@ -58,7 +56,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "id":1,
   "result": 0
 }
-```
+``
 
 ## eth_getWork <a id="eth_getwork"></a>
 
@@ -175,7 +173,7 @@ Adding an `accessList` to your transaction does not necessary result in lower ga
 | Name             | Type                | Description                                                                                              |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------|
 | callObject       | Object              | The transaction call object. Refer to [`eth_call`](./transaction.md#eth_call) for the object's properties. |
-| blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
+| blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 
 **Return Value**
 
@@ -188,6 +186,7 @@ Adding an `accessList` to your transaction does not necessary result in lower ga
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_createAccessList", "params": [{"from": "0x8cd02c6cbd8375b39b06577f8d50c51d86e8d5cd", "data": "0x608060806080608155"}, "latest"], "id":1}' http://localhost:8551
+
 // Result
 {
   "jsonrpc": "2.0",
