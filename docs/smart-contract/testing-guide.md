@@ -7,11 +7,11 @@ In this section, we'll introduce how to test smart contracts. Because any transa
 Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:
 
 * In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
-* In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
+* In `Solidity`, for exercising your contracts in advanced, bare-to-the-metal scenarios.
 
 ### 1) Getting started <a href="#1-getting-started" id="1-getting-started"></a>
 
-We will follow the [Deployment Guide using Truffle](deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
+We will follow the [Deployment Guide using Truffle](deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purposes. The source code is given below.
 
 **NOTE:** We have made some modifications to the contract for testing.
 
@@ -52,7 +52,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
+We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it sets new greeting message properly and reverts when non-owner account attempts to update the greeting.
 
 First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
 
