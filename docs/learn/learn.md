@@ -1,4 +1,4 @@
-# Overview
+# Overview <a id="overview"></a>
 
 Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability.
 Key design goals are;
@@ -22,7 +22,7 @@ Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/201
 
 Klaytn can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn ecosystem.
 
-![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](/img/learn/klaytn_network_overview.png)
+![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
 
 ### Core Cell Network (CCN) <a id="core-cell-network-ccn"></a>
 
@@ -40,7 +40,7 @@ SCNs are Klaytn subnetworks composed of auxiliary blockchains independently oper
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
 Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
 
-> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../nodes/service-chain/quick-start/quick-start.md).
+> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](./../installation-guide/deployment/service-chain/getting-started/README.md).
 
 ## Klaytn Network Topology <a id="klaytn-network-topology"></a>
 
@@ -54,10 +54,10 @@ we need to get familiar with the different types of Klaytn nodes.
 
 #### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
 
-A Core Cell (CC) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
+A Core Cell (CC) is composed of a single <strong>Consensus Node (CN)</strong> and two <strong>Proxy Nodes (PNs)</strong>.
 Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
 
-> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../nodes/core-cell/install/before-you-install.md).
+> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](./../installation-guide/deployment/core-cell/installation-guide/before-you-install.md).
 
 #### Endpoint Node (EN) <a id="endpoint-node-en"></a>
 
@@ -65,7 +65,7 @@ ENs serve as endpoints for Klaytn
 network handling RPC API requests and processing data sent to and from service
 chains. 
 
-> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../nodes/endpoint-node/endpoint-node.md).
+> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](./../installation-guide/deployment/endpoint-node/README.md).
 
 #### Bootnode <a id="bootnode"></a>
 
@@ -84,13 +84,13 @@ Below figure shows the overall topology of Klaytn mainnet, where Core Cell Netwo
 (CCN) is further broken down into Consensus Node Network (CNN) and Proxy Node Network (PNN). 
 Endpoint Node Network (ENN) is also shown as the surrounding network connected directly to PNN.
 
-![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
+![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
 
 
 #### Consensus Node Network (CNN) <a id="consensus-node-network-cnn"></a>
 
 CNs form a full-mesh network among themselves called CNN. CNN applies BFT over
-a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../nodes/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level. 
+a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../installation-guide/deployment/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level. 
 
 #### Proxy Node Network (PNN) <a id="proxy-node-network-pnn"></a>
 
@@ -188,4 +188,4 @@ CNs, whereas the committee will receive none. Note that the probability of
 being selected as the proposer is influenced by the amount of KLAY staked by
 the CN, implying that a CN with more KLAY invested in the platform will
 probabilistically receive more rewards. Details of block reward distribution
-can be found in the [Klaytn Token Economy](./token-economy.md) section.
+can be found in the [Klaytn Token Economy](design/token-economy.md) section.
