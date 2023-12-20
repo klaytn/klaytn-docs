@@ -29,7 +29,7 @@ trie node' error.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
+| block number or hash | QUANTITY \| TAG \| HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
 :::note
  
@@ -134,7 +134,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
+| block number or hash | QUANTITY \| TAG \| HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
 :::note
  
@@ -325,7 +325,7 @@ Retrieves a block and returns its pretty printed form.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
+| block number or hash | QUANTITY \| TAG \| HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash.|
 
 :::note
  
@@ -371,7 +371,7 @@ Use with *extreme* caution.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
+| number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 

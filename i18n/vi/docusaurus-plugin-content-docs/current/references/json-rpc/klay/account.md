@@ -9,7 +9,7 @@ Trả về `true` nếu tài khoản được liên kết với địa chỉ đ�
 | Tên                  | Loại                              | Mô tả                                                                                                                                                                                |
 | -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | tài khoản            | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -235,7 +235,7 @@ Trả về thông tin tài khoản của một địa chỉ nhất định. Có 
 | Tên                  | Loại                              | Mô tả                                                                                                                                                                                |
 | -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address              | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -312,7 +312,7 @@ Trả về khóa tài khoản của Tài khoản sở hữu bên ngoài (EOA) c�
 | Loại                              | Mô tả                                                                                                                                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -402,7 +402,7 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 | Tên                  | type                               | Mô tả                                                                                                                                                                                |
 | -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                           |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -439,7 +439,7 @@ Trả về mã ở địa chỉ đã cho.
 | Loại                              | Mô tả                                                                                                                                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -477,7 +477,7 @@ Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
 | Loại                              | Mô tả                                                                                                                                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -517,7 +517,7 @@ Trả về `true` nếu tài khoản đầu vào có codeHash không trống và
 | Tên                  | type                               | Mô tả                                                                                                                                                                                |
 | -------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | tài khoản            | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                              |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 

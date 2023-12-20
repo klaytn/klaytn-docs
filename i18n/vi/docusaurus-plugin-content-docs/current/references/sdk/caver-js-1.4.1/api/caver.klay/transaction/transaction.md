@@ -12,7 +12,7 @@ Thực thi một giao dịch lệnh gọi thông điệp, được thực thi tr
 | Tên          | type            | Mô tả                                                                                                                                                                                                                       |
 | ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | Đối tượng       | Một đối tượng giao dịch khác biệt ở chỗ đối với các lệnh gọi, thuộc tính "from" là tùy chọn. [Một lệnh gọi hàm mã hóa](../../caver.klay.abi.md#encodefunctioncall) phải được đặt trong trường dữ liệu của đối tượng giao dịch. |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock).                                                            |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock).                                                            |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                             |
 
 **Giá trị trả về**
@@ -73,7 +73,7 @@ Tạo và trả về chi phí tính toán ước tính sẽ được sử dụng
 | Tên          | type            | Mô tả                                                                                                                                                                                                                       |
 | ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | Đối tượng       | Một đối tượng giao dịch khác biệt ở chỗ đối với các lệnh gọi, thuộc tính "from" là tùy chọn. [Một lệnh gọi hàm mã hóa](../../caver.klay.abi.md#encodefunctioncall) phải được đặt trong trường dữ liệu của đối tượng giao dịch. |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock) sẽ được sử dụng.                                                                            |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock) sẽ được sử dụng.                                                                            |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                             |
 
 **Giá trị trả về**
@@ -584,7 +584,7 @@ Gửi giao dịch đã ký trước đó, được tạo bằng hàm `caver.klay
 
 | Tên                   | Loại                  | Mô tả                                                                                                                                                                                                                      |
 | --------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signedTransactionData | Chuỗi &#124; Đối tượng | Một chuỗi giao dịch đã ký được mã hóa RLP, một đối tượng có chuỗi giao dịch đã ký được mã hóa RLP nằm trong thuộc tính `rawTransaction` hoặc một đối tượng giao dịch chưa mã hóa chữ ký/chữ ký của người trả phí đính kèm. |
+| signedTransactionData | Chuỗi \| Đối tượng | Một chuỗi giao dịch đã ký được mã hóa RLP, một đối tượng có chuỗi giao dịch đã ký được mã hóa RLP nằm trong thuộc tính `rawTransaction` hoặc một đối tượng giao dịch chưa mã hóa chữ ký/chữ ký của người trả phí đính kèm. |
 | callback              | Hàm                    | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                            |
 
 **Giá trị trả về**

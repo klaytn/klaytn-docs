@@ -23,7 +23,7 @@ A transaction object of type `SMART_CONTRACT_EXECUTION` has the following struct
 | type | String | Transaction Type. "SMART_CONTRACT_EXECUTION" |
 | from | String | Address of this transaction sender. |
 | to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
+| value | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -101,7 +101,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` has the fo
 | type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" |
 | from | String | Address of this transaction sender. |
 | to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
+| value | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -197,7 +197,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO`
 | type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO" |
 | from | String | Address of this transaction sender. |
 | to | String | The address of the deployed smart contract. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
+| value | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
