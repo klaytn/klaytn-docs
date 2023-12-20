@@ -15,7 +15,7 @@ Gửi một phiếu bầu mới. Nếu nút có quyền biểu quyết dựa tr�
 | Tên      | type                           | Mô tả                                                                                                          |
 | -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | khóa     | chuỗi                          | Tên của tùy chọn cài đặt cấu hình sẽ được thay đổi. Khóa có dạng "domain.field".                               |
-| giá trị  | chuỗi &#124; số &#124; boolean | Các loại giá trị khác nhau cho từng khóa.                                                                      |
+| giá trị  | chuỗi \| số \| boolean | Các loại giá trị khác nhau cho từng khóa.                                                                      |
 | callback | hàm                            | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 Để biết thêm chi tiết về `khóa` và `giá trị` cho `caver.rpc.governance.vote`, vui lòng tham khảo [governance_vote](../../../../json-rpc/governance.md#governance_vote).
@@ -260,7 +260,7 @@ Trả về các mục quản trị tại một khối cụ thể. Đây là kế
 
 | Tên              | Loại           | Mô tả                                                                                                          |
 | ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | số &#124; chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| blockNumberOrTag | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
 | callback         | hàm             | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -404,7 +404,7 @@ Trả về thông tin quản trị được lưu trữ trên khối đã cho. N�
 
 | Tên         | type            | Mô tả                                                                             |
 | ----------- | --------------- | --------------------------------------------------------------------------------- |
-| blockNumber | số &#124; chuỗi | Số khối hoặc chuỗi số hex để truy vấn thay đổi quản trị được thực hiện trên khối. |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi số hex để truy vấn thay đổi quản trị được thực hiện trên khối. |
 
 **Giá trị trả về**
 
@@ -492,7 +492,7 @@ Trả về thông tin nắm giữ tại một khối cụ thể.
 
 | Tên              | Loại           | Mô tả                                                                                                          |
 | ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | số &#124; chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| blockNumberOrTag | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
 | callback         | hàm             | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**

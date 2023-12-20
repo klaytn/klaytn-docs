@@ -175,7 +175,7 @@ Adding an `accessList` to your transaction does not necessary result in lower ga
 | Name             | Type                | Description                                                                                              |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------|
 | callObject       | Object              | The transaction call object. Refer to [`eth_call`](./transaction.md#eth_call) for the object's properties. |
-| blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
+| blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 
 **Return Value**
 

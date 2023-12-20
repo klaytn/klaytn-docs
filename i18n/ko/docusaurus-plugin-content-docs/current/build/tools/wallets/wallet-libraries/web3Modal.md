@@ -543,7 +543,7 @@ return (
 
 ## 문제 해결
 
-**Node fs error, add browser {fs: false} to package.json**
+**Node fs error, add browser \{fs: false\} to package.json**
 
 ```bash
 Node fs error, add browser {fs: false} to package.json

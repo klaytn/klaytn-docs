@@ -72,7 +72,7 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
+| blockHashOrBlockNumber | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
 | returnTransactionObjects | Boolean | (선택 사항, 기본값 ``false``) ``true``이면 반환된 블록에 모든 트랜잭션이 오브젝트로 포함되고, ``false``이면 트랜잭션 해시만 포함됩니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
@@ -195,7 +195,7 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | block number or hash입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
+| blockHashOrBlockNumber | String \| Number | block number or hash입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -222,7 +222,7 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 `"genesis"` 또는 `"latest"`입니다. |
+| blockHashOrBlockNumber | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 `"genesis"` 또는 `"latest"`입니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -323,7 +323,7 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
@@ -354,7 +354,7 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -381,7 +381,7 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -412,7 +412,7 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -440,7 +440,7 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 | --- | --- | --- |
 | address | String | 저장소를 가져올 주소입니다. |
 | location | Number | 스토리지의 인덱스 위치입니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**

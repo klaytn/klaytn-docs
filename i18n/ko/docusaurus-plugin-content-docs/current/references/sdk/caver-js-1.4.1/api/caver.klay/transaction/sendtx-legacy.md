@@ -24,7 +24,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | --- | --- | --- |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | (선택 사항) 컨트랙트 생성 트랜잭션에 대해 정의되지 않은 메시지의 대상 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(컨트랙트 생성 트랜잭션인 경우 엔다우먼트도 포함). |
+| value | number \| string \| BN \| BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(컨트랙트 생성 트랜잭션인 경우 엔다우먼트도 포함). |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 peb 단위로 제공한 가스 가격입니다. 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | data | String | (선택 사항) 컨트랙트에서 함수 호출 데이터를 포함하는 [ABI 바이트 문자열](http://solidity.readthedocs.io/en/latest/abi-spec.html) 또는 컨트랙트 생성 트랜잭션의 경우 초기화 코드입니다. |

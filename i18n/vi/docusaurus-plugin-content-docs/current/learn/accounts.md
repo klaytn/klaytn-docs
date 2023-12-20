@@ -151,7 +151,7 @@ Nếu tài khoản có một đối tượng AccountKeyPublic, thì quy trình x
 
 `0x02 + encode(CompressedPubKey)`
 
-**LƯU Ý**: CompressedPubKey là mã khóa công khai ở định dạng nén được định nghĩa trong [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). Tóm lại, dùng 0x02{PubkeyX} nếu PubkeyY là số chẵn, hoặc dùng 0x03{PubkeyX} trong trường hợp còn lại.
+**LƯU Ý**: CompressedPubKey là mã khóa công khai ở định dạng nén được định nghĩa trong [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). Tóm lại, dùng 0x02`{PubkeyX}` nếu PubkeyY là số chẵn, hoặc dùng 0x03`{PubkeyX}` trong trường hợp còn lại.
 
 #### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
 
@@ -202,7 +202,7 @@ Số khối nâng cấp giao thức `IstanbulEVM` như sau.
 |:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------------------------------- |
 | Loại              | uint8 \(Go\)                      | Loại AccountKeyWeightedMultiSig. Giá trị này phải là **0x04**.                                                                  |
 | Ngưỡng             | uint \(Go\)                       | Ngưỡng xác thực. Để được coi là giao dịch hợp lệ thì tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng này.            |
-| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và trọng số của nó. |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và trọng số của nó. |
 
 #### Mã hóa RLP <a id="rlp-encoding"></a>
 
@@ -237,7 +237,7 @@ AccountKeyRoleBased tương ứng với một khóa theo vai trò. Các vai trò
 | Thuộc tính | Loại                       | Mô tả                                                                                                                                                            |
 |:---------- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Loại      | uint8 \(Go\)              | Loại AccountKeyRoleBased. Giá trị này phải là **0x05**.                                                                                                          |
-| Khóa       | \[\]{AccountKey} \(Go\) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
+| Khóa       | \[\]\{AccountKey\} \(Go\) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
 
 #### Vai trò <a id="roles"></a>
 

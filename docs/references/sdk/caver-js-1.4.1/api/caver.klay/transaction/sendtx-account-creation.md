@@ -15,7 +15,7 @@ Sends an [Account Creation](../../../../../../learn/transactions/basic.md) trans
 | transactionObject.type | String | The type of "ACCOUNT_CREATION" transaction. |
 | transactionObject.from | String | The sender address of the transaction. |
 | transactionObject.to | String | The address which will be created newly. |
-| transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the newly-created account in peb. |
+| transactionObject.value | Number \| String \| BN \| BigNumber | The value transferred for the newly-created account in peb. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |

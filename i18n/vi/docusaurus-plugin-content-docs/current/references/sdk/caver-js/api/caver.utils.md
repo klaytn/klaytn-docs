@@ -211,7 +211,7 @@ Tính toán sha3 của các tham số đầu vào đã cho theo cách tương t�
 
 | Tên    | Loại   | Mô tả                     |
 | ------ | ------- | ------------------------- |
-| paramX | Hỗn hợp | <p>Bất kỳ loại hoặc đối tượng nào có <code>{type: 'uint', value: '123456'}</code> hoặc <code>{t: 'bytes', v: '0xfff456'}</code>. Các loại cơ bản được tự động phát hiện như sau:<br/>- <code>string</code> chuỗi UTF-8 không phải là số được hiểu là <code>string</code>.<br/>- `string</p> |
+| paramX | Hỗn hợp | <p>Bất kỳ loại hoặc đối tượng nào có <code>`{type: 'uint', value: '123456'}`</code> hoặc <code>`{t: 'bytes', v: '0xfff456'}`</code>. Các loại cơ bản được tự động phát hiện như sau:<br/>- <code>string</code> chuỗi UTF-8 không phải là số được hiểu là <code>string</code>.<br/>- `string</p> |
 
 **Giá trị trả về**
 

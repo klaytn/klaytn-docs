@@ -132,8 +132,8 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 | Name | Type | Description |
 | --- | --- | --- |
 | address | string | The address of account to be updated. |
-| accountKey | string &#124; Array | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options | [WeightedMultiSigOptions] &#124; Array | (optional) Options for AccountKeyWeigthedMultiSig. |
+| accountKey | string \| Array | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
+| options | [WeightedMultiSigOptions] \| Array | (optional) Options for AccountKeyWeigthedMultiSig. |
 
 
 **Return Value**
@@ -551,7 +551,7 @@ Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#a
 
 | Type | Description |
 | --- | --- |
-| [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
+| [AccountKeyLegacy](#accountkeylegacy) \| [AccountKeyPublic](#accountkeypublic) \| [AccountKeyFail](#accountkeyfail) \| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \| [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
 
 **Example**
 

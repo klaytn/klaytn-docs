@@ -12,7 +12,7 @@ caver.klay.gasPriceAt([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**

@@ -23,7 +23,7 @@ A transaction object of type `VALUE_TRANSFER` has the following structure:
 | type | String | Transaction Type. "VALUE_TRANSFER" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -96,7 +96,7 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER` has the following st
 | type | String | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -188,7 +188,7 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` has the f
 | type | String | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |

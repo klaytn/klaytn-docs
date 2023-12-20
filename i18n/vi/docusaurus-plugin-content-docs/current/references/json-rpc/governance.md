@@ -223,7 +223,7 @@ Không có
 
 | type                | Mô tả                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -364,7 +364,7 @@ Không có
 
 | Loại               | Mô tả                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -449,7 +449,7 @@ Không có
 
 | type                | Mô tả                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -506,7 +506,7 @@ API `governance_itemsAt` sẽ không còn được dùng kể từ Klaytn v1.11 
 
 | Loại               | Mô tả                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -697,7 +697,7 @@ Lưu ý rằng thứ tự của tất cả các địa chỉ và số lượng n
 
 | type                | Mô tả                                                                                                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số nguyên của số khối hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số nguyên của số khối hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
 
 **Giá trị trả về**
 
@@ -735,8 +735,8 @@ NOTE: The block range should be less than 604800 (about 7 days) to protect endpo
 
 | Type                | Description                                                                                                                                                                                                             |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
-| QUANTITY &#124; TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).    |
+| QUANTITY \| TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).    |
 
 **Return Value**
 

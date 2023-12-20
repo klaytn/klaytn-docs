@@ -106,9 +106,9 @@ Gets past logs, matching the given options.
 | Name | Type | Description |
 | --- | --- | --- |
 | options | Object | The filter options. |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`. |
-| options.toBlock | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`. |
-| options.address | String &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
+| options.fromBlock | Number \| String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`. |
+| options.toBlock | Number \| String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`. |
+| options.address | String \| Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
 | options.topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -196,9 +196,9 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 | Name | Type | Description |
 | --- | --- | --- |
 | options | Object | The filter options. |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block). The default value is `"latest"`. |
-| options.toBlock | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block). The default value is `"latest"`. |
-| options.address | String &#124; Array | (optional) An address or a list of addresses to get logs generated inside the given contract(s). |
+| options.fromBlock | Number \| String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block). The default value is `"latest"`. |
+| options.toBlock | Number \| String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block). The default value is `"latest"`. |
+| options.address | String \| Array | (optional) An address or a list of addresses to get logs generated inside the given contract(s). |
 | options.topics | Array | (optional) An array of values to search for in the log entries. The order is important. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array to match one of them.  *e.g.,* ``[null, ['option1', 'option2']]``. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 

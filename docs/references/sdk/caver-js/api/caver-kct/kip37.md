@@ -24,7 +24,7 @@ After successful deployment, the promise will be resolved with a new KIP37 insta
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string &#124; object | The address in the keyring instance to deploy the KIP-37 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
+| deployer | string \| object | The address in the keyring instance to deploy the KIP-37 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
 
 The tokenInfo object must contain the following:
 
@@ -296,14 +296,14 @@ kip37.uri(id)
 ```
 Returns distinct Uniform Resource Identifier (URI) of the given token.
 
-If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
+If the string `{id}` exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
 Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to get uri. |
+| id | BigNumber \| string \| number | The token id to get uri. |
 
 **NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -330,7 +330,7 @@ Returns the total token supply of the specific token.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to see the total supply. |
+| id | BigNumber \| string \| number | The token id to see the total supply. |
 
 **NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -358,7 +358,7 @@ Returns the amount of tokens of token type `id` owned by `account`.
 | Name | Type | Description |
 | --- | --- | --- |
 | account | string | The address of the account for which you want to see balance. |
-| id | BigNumber &#124; string &#124; number | The token id to see balance. |
+| id | BigNumber \| string \| number | The token id to see balance. |
 
 **NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -469,7 +469,7 @@ If id parameter is not defined, return whether the token contract's transaction 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
+| id | BigNumber \| string \| number | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
 
 **NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -537,8 +537,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to create. |
-| initialSupply | BigNumber &#124; string &#124; number | The amount of tokens being minted. |
+| id | BigNumber \| string \| number | The token id to create. |
+| initialSupply | BigNumber \| string \| number | The amount of tokens being minted. |
 | uri | string | (optional) The token URI of the created token. |
 | sendParam | object | (optional) An object holding parameters that are required for sending a transaction. |
 
@@ -549,9 +549,9 @@ The `sendParam` object contains the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip37.options.from`. If neither of `from` in the `sendParam` object nor `kip37.options.from` were not provided, an error would occur. |
-| gas | number &#124; string | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip37.methods.approve(spender, amount).estimateGas({from})`. |
-| gasPrice | number &#124; string | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
+| gas | number \| string | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip37.methods.approve(spender, amount).estimateGas({from})`. |
+| gasPrice | number \| string | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
+| value | number \| string \| BN \| BigNumber | (optional) The value to be transferred in peb. |
 | feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip37.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
 | feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip37.options.feePayer` will be used. If both omitted, throws an error. |
 | feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip37.options.feeRatio` will be used. |
@@ -716,9 +716,9 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | from | string | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | string | The address of the account to receive the token. |
-| id | BigNumber &#124; string &#124; number | The token id to transfer. |
-| amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
-| data | Buffer &#124; string &#124; number | (optional) The optional data to send along with the call. |
+| id | BigNumber \| string \| number | The token id to transfer. |
+| amount | BigNumber \| string \| number | The amount of token you want to transfer. |
+| data | Buffer \| string \| number | (optional) The optional data to send along with the call. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -811,7 +811,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | recipient | string | The address of the account to receive the token. |
 | ids | Array | An array of the token ids to transfer. |
 | amounts | Array | An array of the token amounts you want to transfer. |
-| data | Buffer &#124; string &#124; number | (optional) The optional The data to send along with the call. |
+| data | Buffer \| string \| number | (optional) The optional The data to send along with the call. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -895,9 +895,9 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| to | string &#124; Array | An address of the account or an array of addresses to which the minted token will be issued. |
-| id | BigNumber &#124; string &#124; number | The token id to mint. |
-| value | BigNumber &#124; string &#124; number &#124; Array | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array. |
+| to | string \| Array | An address of the account or an array of addresses to which the minted token will be issued. |
+| id | BigNumber \| string \| number | The token id to mint. |
+| value | BigNumber \| string \| number \| Array | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `id` and `value` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1287,8 +1287,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | account | string | The address of the account that owns the token to be destroyed. |
-| id | BigNumber &#124; string &#124; number | The id of token to be destroyed. |
-| value | BigNumber &#124; string &#124; number | The amount of token to be destroyed. |
+| id | BigNumber \| string \| number | The id of token to be destroyed. |
+| value | BigNumber \| string \| number | The amount of token to be destroyed. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1603,7 +1603,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract. |
+| id | BigNumber \| string \| number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
@@ -1714,7 +1714,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
+| id | BigNumber \| string \| number | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 

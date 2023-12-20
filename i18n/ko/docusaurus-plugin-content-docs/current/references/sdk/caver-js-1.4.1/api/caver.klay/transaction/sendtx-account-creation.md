@@ -16,7 +16,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 | transactionObject.type | String | "ACCOUNT_CREATION" 트랜잭션의 유형입니다. |
 | transactionObject.from | String | 트랜잭션의 발신자 주소입니다. |
 | transactionObject.to | String | 새로 생성될 주소입니다. |
-| transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | 새로 생성된 계정에 대해 이체된 값입니다(단위: peb). |
+| transactionObject.value | Number \| String \| BN \| BigNumber | 새로 생성된 계정에 대해 이체된 값입니다(단위: peb). |
 | transactionObject.gas | Number | 거래에 사용할 가스 양(사용하지 않은 가스는 환불됩니다). |
 | transactionObject.gasPrice | Number | (선택 사항) 발신자가 peb으로 제공한 가스 가격. 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | transactionObject.nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, `caver.klay.getTransactionCount` 호출을 통해 caver-js가 설정합니다. |

@@ -14,7 +14,7 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 
 | Tên               | type                   | Mô tả                                                                                                                                                                                    |
 | ----------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | chuỗi &#124; đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| functionSignature | chuỗi \| đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
 
@@ -56,7 +56,7 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 
 | Tên            | type                   | Mô tả                                                                                                                                                                                     |
 | -------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | chuỗi &#124; đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| eventSignature | chuỗi \| đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
 
@@ -98,7 +98,7 @@ Mã hóa một tham số dưới dạng ABI dựa trên loại của tham số �
 
 | Tên       | Loại                  | Mô tả                                                                                                             |
 | --------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| type      | chuỗi &#124; đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| type      | chuỗi \| đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | parameter | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
@@ -150,7 +150,7 @@ Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của 
 
 | Tên        | Loại                 | Mô tả                                                                                                                                                        |
 | ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Mảng &#124; đối tượng | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Mảng \| đối tượng | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | Tham số    | Mảng                  | Các tham số để mã hóa.                                                                                                                                       |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
@@ -296,7 +296,7 @@ Giải mã tham số được mã hóa dưới dạng ABI thành loại JavaScri
 
 | Tên       | Loại                | Mô tả                                                                                                            |
 | --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| type      | chuỗi&#124;đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| type      | chuỗi\|đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexstring | Mảng                 | Mã byte ABI để giải mã.                                                                                          |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
@@ -346,7 +346,7 @@ Giải mã các tham số được mã hóa dưới dạng ABI thành loại Jav
 **Tham số**
 | Tên        | Loại                 | Mô tả                                                                                                                                                                                  |
 | ---------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Mảng &#124; đối tượng | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Mảng \| đối tượng | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexstring  | chuỗi                 | Mã byte ABI để giải mã.                                                                                                                                                                |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
