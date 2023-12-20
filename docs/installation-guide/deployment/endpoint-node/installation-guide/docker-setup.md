@@ -1,35 +1,74 @@
 # Serving a node with docker container <a id="docker-setup"></a>
 
-## In this tutorial, you learn how to setup EN node via docker container. Follow the each steps.
+## Download the image
 
-### Run the klytn dokcer image with the following command.
-`docker run -it -p 8551:8551 -v /opt/klaytn:/klaytn-docker-pkg/data klaytn/klaytn /bin/bash`
-Chaindata directory is mounted from host `/opt/klaytn` to container `/klaytn-docker-pkg/data`.
+Choose an image tag from https://hub.docker.com/r/klaytn/klaytn/tags. `klaytn/klaytn:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
 
-### Edit a configuration file
 ```
-cd /klaytn-docker-pkg
-open `conf/kend,conf` (e.g., vi conf/kend.conf)
-edit the `DATA_DIR` line as follows
-DATA_DIR=/klaytn-docker-pkg/data
+docker pull klaytn/klaytn:latest
+```
+```
+docker pull klaytn/klaytn:v1.12.0
 ```
 
-### Chain initialization
-Download a genesis confgiuration of Cypress network.
-`wget https://packages.klaytn.net/cypress/genesis.json` (For baobab network, replace the URL with `https://packages.klaytn.net/cypress/genesis.json`)
+## Prepare configuration file
 
-Now you that fetched it, intiailization can be fired by the following command.
-`cd bin; ./ken init --datadir ../data ../genesis.json`
+You can start from the existing configuration file. To obtain the template `kend.conf` configuration file,
 
-All the prepration is done. You can sync the Cypress network blocks.
-```
-./ken attach --datadir ../data
-> klay.blockNumber
-384
+```sh
+mkdir -p conf
+docker run --rm klaytn/klaytn:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
 ```
 
-### (Optional) Chaindata snapshot
-Synching from genesis block is time-consuming. Klaytn officially provides a chaindata snapshot.
-1. Go `https://packages.klaytn.net/cypress/chaindata/` and download chaindata.
-2. Decompress the downloded one
-3. Replace the decompressed one with `/klaytn-docker-pkg/data`
+Then edit the configuration. At least the `DATA_DIR` and `LOG_DIR` has to be specified. This guide will assume `/var/kend/data`.
+
+```sh
+echo "DATA_DIR=/var/kend/data" >> conf/kend.conf
+echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
+```
+
+## Fast Sync from chaindata snapshot (Optional)
+
+Synching from the genesis block is time-consuming. You may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on the first startup.
+
+Download the latest chaindata snapshot from the following links
+- [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/)
+- [Cypress live-pruning snapshot archive](https://packages.klaytn.net/cypress/pruning-chaindata/)
+- [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/)
+- [Baobab live-pruning snapshot archive](http://packages.klaytn.net/baobab/pruning-chaindata/)
+
+Then uncompress:
+
+```sh
+tar -C data -xvf klaytn-cypress-chaindata-latest.tar.gz
+```
+
+## Start the container
+
+Expose the RPC port, which is 8551 unless you have modified in the `kend.conf`. Mount the configuration directory `conf/` and chaindata directory `data/`. Then run `kend start` to start the daemon and `tail -f` to print the logs.
+
+```sh
+mkdir -p data
+docker run -d --name ken \
+  -p 8551:8551 \
+  -v $(pwd)/conf:/klaytn-docker-pkg/conf \
+  -v $(pwd)/data:/var/kend/data \
+  klaytn/klaytn:latest \
+  /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
+```
+
+## Attaching to the console
+
+```
+docker exec -it ken ken attach --datadir /var/kend/data
+```
+
+## Stopping the container
+
+To prevent chaindata corruption, gracefully shut down the `ken`.
+
+```
+docker exec -it ken kend stop
+docker stop ken
+docker rm ken
+```
