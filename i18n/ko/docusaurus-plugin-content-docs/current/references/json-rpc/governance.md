@@ -232,7 +232,7 @@ description: >-
 
 | 유형 | 설명
 | --- | --- |
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 :::note
 
@@ -380,7 +380,7 @@ description: >-
 
 | 유형 | 설명
 | --- | --- |
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 :::note
 
@@ -465,7 +465,7 @@ description: >-
 
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 :::note
 
@@ -523,7 +523,7 @@ description: >-
 
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 :::note
  
@@ -715,7 +715,7 @@ description: >-
 
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | 블록 번호의 정수 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
+| QUANTITY \| TAG | 블록 번호의 정수 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
 
 **리턴 값**
 
@@ -753,8 +753,8 @@ description: >-
 
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | 누적 시작(첫 번째) 블록 번호(포함). 블록 번호의 정수 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
-| QUANTITY &#124; TAG | 누적 종료(마지막) 블록 번호, 포함. 블록 번호의 정수, 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
+| QUANTITY \| TAG | 누적 시작(첫 번째) 블록 번호(포함). 블록 번호의 정수 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
+| QUANTITY \| TAG | 누적 종료(마지막) 블록 번호, 포함. 블록 번호의 정수, 또는 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.
 
 **리턴 값**
 

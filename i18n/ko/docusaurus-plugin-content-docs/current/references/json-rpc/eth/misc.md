@@ -175,7 +175,7 @@ accessList는 가스비 증가로 인해 접근이 불가능해진 컨트랙트�
 | 이름             | 유형                | 설명                                                                                              |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------|
 | callObject       | Object              | 트랜잭션 호출 객체입니다. 객체의 속성은 [`eth_call`](./transaction.md#eth_call)을 참조하세요. |
-| blockNumberOrTag | QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)의 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. 블록 번호는 필수이며 지정된 트랜잭션이 실행되어야 하는 컨텍스트(상태)를 정의합니다. |
+| blockNumberOrTag | QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)의 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. 블록 번호는 필수이며 지정된 트랜잭션이 실행되어야 하는 컨텍스트(상태)를 정의합니다. |
 
 **리턴 값**
 

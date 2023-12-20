@@ -132,8 +132,8 @@ accountKey가 공개 키 문자열인 경우, [AccountKeyPublic](#accountkeypubl
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | address | String | 업데이트할 계정의 주소입니다. |
-| accountKey | String &#124; Array | 공개 키 문자열, 공개 키 배열 또는 각 요소에 각 역할에 사용할 키 배열이 포함된 2D 배열입니다. |
-| options | [WeightedMultiSigOptions] &#124; Array | (선택 사항) 계정 키 가중 다중 서명에 대한 옵션입니다. |
+| accountKey | String \| Array | 공개 키 문자열, 공개 키 배열 또는 각 요소에 각 역할에 사용할 키 배열이 포함된 2D 배열입니다. |
+| options | [WeightedMultiSigOptions] \| Array | (선택 사항) 계정 키 가중 다중 서명에 대한 옵션입니다. |
 
 
 **리턴 값**
@@ -551,7 +551,7 @@ caver.account.accountKey.decode(rlpEncodedAccountKey)
 
 | 유형 | 설명 |
 | --- | --- |
-| [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | 계정 키 인스턴스가 반환됩니다. |
+| [AccountKeyLegacy](#accountkeylegacy) \| [AccountKeyPublic](#accountkeypublic) \| [AccountKeyFail](#accountkeyfail) \| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \| [AccountKeyRoleBased](#accountkeyrolebased) | 계정 키 인스턴스가 반환됩니다. |
 
 **예시**
 

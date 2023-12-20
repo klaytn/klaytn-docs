@@ -51,7 +51,7 @@ Vui lòng xem phần [Caution-Header](./caution.md#block_header) trước khi s�
 
 | Loại               | Mô tả                                                                                                                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
@@ -172,7 +172,7 @@ Vui lòng xem phần [Caution-Block](./caution.md#block) trước khi sử dụn
 
 | type                | Mô tả                                                                                                                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 | Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.ịch.                                                           |
 
 
@@ -306,7 +306,7 @@ Returns receipts included in a block.
 **Parameters**
 | Type | Description |
 | --- | --- |
-| Number &#124; 32-byte DATA &#124; TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -379,7 +379,7 @@ Trả về thông tin về một khối chú theo số và vị trí chỉ mục
 
 | Loại               | Mô tả                                                                                                                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 | SỐ LƯỢNG            | Vị trí chỉ mục của mảng chú.                                                                                                                                                          |
 
 **Giá trị trả về** `null`
@@ -406,7 +406,7 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 | Loại               | Mô tả                                                                                                                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
@@ -468,7 +468,7 @@ Trả về số lượng mảng chú trong một khối từ một khối khớp
 
 | Loại               | Mô tả                                                                                                                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
@@ -534,7 +534,7 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DỮ LIỆU 20 byte                    | Địa chỉ kho lưu trữ.                                                                                                                                                                  |
 | SỐ LƯỢNG                           | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                                    |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 

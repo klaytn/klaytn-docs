@@ -9,7 +9,7 @@
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | account | 20-byte DATA | address |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시입니다. |
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시입니다. |
 
 :::note
  
@@ -235,7 +235,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | 이름 | 유형 | 설명
 | ------- | ------------- | ------------------------------------------------------------ |
 | address | 20-byte DATA | 주소
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``보류중`` 문자열 또는 블록 해시입니다. |
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``보류중`` 문자열 또는 블록 해시입니다. |
 
 :::note
  
@@ -312,7 +312,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | 주소 |
-| QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|
+| QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|
 
 :::note
  
@@ -402,7 +402,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 이름 | 유형 | 설명
 | ---- | -------------- | ------------------------------------------------------------ |
 | address | 20-byte DATA | 잔액을 확인할 주소.                               |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
 
 :::note
  
@@ -439,7 +439,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | address |
-| QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
+| QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
 
 :::note
  
@@ -477,7 +477,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 유형 | 설명
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | 주소
-| QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시.|
+| QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시.|
 
 :::note
  
@@ -517,7 +517,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | account | 20-byte DATA | address |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시입니다. |
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시입니다. |
 
 :::note
  

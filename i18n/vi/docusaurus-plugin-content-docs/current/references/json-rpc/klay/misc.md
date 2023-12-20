@@ -42,7 +42,7 @@ Returns the recovered sender address from RLP encoded transaction bytes. If the 
 | Name         | Type                | Description                                                                                                                                                   |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | data         | DATA                | RLP encoded transaction bytes                                                                                                                                 |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -77,7 +77,7 @@ Returns signer address from message signature. It validates if the message is si
 | address      | string              | The address of the signer account.                                                                                                                            |
 | message      | DATA                | Message bytes                                                                                                                                                 |
 | signature    | 65-byte DATA        | Signature bytes                                                                                                                                               |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -120,7 +120,7 @@ Returns the whole list of hardforks and their effectiveness at the given block.
 
 | Name         | Type                | Description                                                                                                                                                   |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -164,7 +164,7 @@ Adding an `accessList` to your transaction does not necessary result in lower ga
 | Name             | Type                | Description                                                                                              |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------|
 | callObject       | Object              | The transaction call object. Refer to [`klay_call`](./transaction.md#klay_call) for the object's properties. |
-| blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
+| blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 
 **Return Value**
 

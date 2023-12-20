@@ -27,7 +27,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
 | data | String | 배포할 스마트 컨트랙트의 바이트코드입니다. 스마트 컨트랙트 생성자에 인자를 전달해야 하는 경우, '컴파일된 바이트 코드 + 인자' 형식으로 데이터를 설정해야 합니다. 컴파일된 바이트코드가 '0x123 ... 321'이고 생성자에 1을 전달해야 하는 경우 '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'를 설정해야 합니다. [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy)를 사용하여 매개변수와 함께 바이트 코드의 인코딩된 값을 가져옵니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
+| value | number \| string \| BN \| BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
 | codeFormat | String | (선택 사항, 기본값: `"EVM"`) 스마트 컨트랙트의 코드 형식입니다. |
 
 **리턴 값**
@@ -145,7 +145,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
 | data | String | 배포할 스마트 컨트랙트의 바이트코드입니다. 스마트 컨트랙트 생성자에 인자를 전달해야 하는 경우, '컴파일된 바이트 코드 + 인자' 형식으로 데이터를 설정해야 합니다. 컴파일된 바이트코드가 '0x123 ... 321'이고 생성자에 1을 전달해야 하는 경우 '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'를 설정해야 합니다. [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy)를 사용하여 매개변수와 함께 바이트 코드의 인코딩된 값을 가져옵니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
+| value | number \| string \| BN \| BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
 | codeFormat | String | (선택 사항, 기본값: `"EVM"`) 스마트 컨트랙트의 코드 형식입니다. |
 
 위와 같은 구조의 `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` 타입의 트랜잭션 오브젝트 또는 `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` 타입의 `RLP 인코딩된 트랜잭션`을 발신자의 경우 [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction)에, 수수료 납부자의 경우 [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction)에서 매개변수로 사용할 수 있습니다.
@@ -261,7 +261,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
 | data | String | 배포할 스마트 컨트랙트의 바이트코드입니다. 스마트 컨트랙트 생성자에 인자를 전달해야 하는 경우, '컴파일된 바이트 코드 + 인자' 형식으로 데이터를 설정해야 합니다. 컴파일된 바이트코드가 '0x123 ... 321'이고 생성자에 1을 전달해야 하는 경우 '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'를 설정해야 합니다. [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy)를 사용하여 매개변수와 함께 바이트 코드의 인코딩된 값을 가져옵니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
+| value | number \| string \| BN \| BigNumber | 이 배포를 통해 컨트랙트로 전송될 값입니다. 밸류 전송을 수락하려면 컨트랙트 생성자가 '지불 가능'이어야 합니다. 컨트랙트 생성자가 지불 가능하지 않은 경우, 값은 0이어야 합니다. |
 | codeFormat | String | (선택 사항, 기본값: `"EVM"`) 스마트 컨트랙트의 코드 형식입니다. |
 | feeRatio | Number | 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%는 수수료 지불자가 지불합니다. 70이면 70%는 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 범위를 벗어나면 트랜잭션이 승인되지 않습니다. |
 

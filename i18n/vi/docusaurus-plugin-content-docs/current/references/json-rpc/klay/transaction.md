@@ -9,7 +9,7 @@ Thực thi lệnh gọi thông báo ngay mà không tạo giao dịch trên chu�
 | Tên               | type                               | Mô tả                                                                                                                                                                                |
 | ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | callObject        | Đối tượng                          | Đối tượng lệnh gọi giao dịch.  Xem bảng tiếp theo để biết thuộc tính của đối tượng.                                                                                                  |
-| blockNumberOrHash | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| blockNumberOrHash | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -176,7 +176,7 @@ Trả về thông tin về giao dịch theo số khối và vị trí chỉ mụ
 
 | Loại               | Mô tả                                                                                                                                                             |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
 | SỐ LƯỢNG            | Vị trí chỉ mục của giao dịch.                                                                                                                                     |
 
 :::note

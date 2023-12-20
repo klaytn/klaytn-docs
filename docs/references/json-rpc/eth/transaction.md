@@ -9,7 +9,7 @@ Executes a new message call immediately, without creating a transaction on the b
 | Name             | Type                | Description                                                                                                                                                                                                                                                                                       |
 |------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | callObject       | Object              | The transaction call object. See the next table for the object's properties.                                                                                                                                                                                                                     |
-| blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
+| blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 | stateOverrideSet | Object              | The state override set is an optional address-to-state mapping, where each entry specifies some state to be ephemerally overridden prior to executing the call.                                                                                                                                   |
 
 `callObject` has the following properties:
@@ -251,7 +251,7 @@ Please check the [Caution-Transaction](./caution.md#transaction) before using th
 
 | Type                | Description                                                                                                                                                              |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
 | QUANTITY            | The transaction index position.                                                                                                                                          |
 
 **Return Value**

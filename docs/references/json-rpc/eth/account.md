@@ -38,7 +38,7 @@ Returns the balance of the account of given address.
 | Name                 | Type                            | Description                                                                                                                                                                            |
 |----------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| block number or hash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 
@@ -69,7 +69,7 @@ Returns code at a given address.
 | Type                            | Description                                                                                                                                                                            |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 
@@ -101,7 +101,7 @@ Returns the number of transactions *sent* from an address.
 | Type                            | Description                                                                                                                                                                            |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address                                                                                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 

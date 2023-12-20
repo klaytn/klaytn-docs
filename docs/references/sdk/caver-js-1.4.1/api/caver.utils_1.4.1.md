@@ -82,7 +82,7 @@ See the [BN.js documentation](https://github.com/indutny/bn.js/) for details.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| mixed | String &#124; Number| A number, number string or HEX string to convert to a BN object. |
+| mixed | String \| Number| A number, number string or HEX string to convert to a BN object. |
 
 **Return Value**
 
@@ -283,7 +283,7 @@ Checks if a given string is a HEX string.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-|hex | String &#124; HEX | The given HEX string. |
+|hex | String \| HEX | The given HEX string. |
 
 **Return Value**
 
@@ -326,7 +326,7 @@ Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ish
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| hex | String &#124; HEX | The given HEX string. |
+| hex | String \| HEX | The given HEX string. |
 
 **Return Value**
 
@@ -468,7 +468,7 @@ Text strings will be interpreted as UTF-8 strings.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| mixed | String &#124; Number &#124; BN &#124; BigNumber | The input to convert to HEX. |
+| mixed | String \| Number \| BN \| BigNumber | The input to convert to HEX. |
 
 **Return Value**
 
@@ -510,7 +510,7 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | String &#124; Number &#124; HEX| Number to convert to a big number. |
+| number | String \| Number \| HEX| Number to convert to a big number. |
 
 **Return Value**
 
@@ -599,7 +599,7 @@ Returns the HEX representation of a given number value.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN &#124; BigNumber | A number as string or number. |
+| number | String \| Number \| BN \| BigNumber | A number as string or number. |
 
 **Return Value**
 
@@ -797,14 +797,14 @@ Converts any KLAY value into peb.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN | The value. |
+| number | String \| Number \| BN | The value. |
 | unit | String | (optional, defaults to ``"KLAY"``) KLAY to convert from. Possible units are:- ``peb``: '1'  - ``kpeb``: '1000'  - ``Mpeb``: '1000000'  - ``Gpeb``: '1000000000'  - ``Ston``: '1000000000'  - ``uKLAY``: '1000000000000'  - ``mKLAY``: '1000000000000000'  - ``KLAY``: '1000000000000000000'  - ``kKLAY``: '1000000000000000000000'  - ``MKLAY``: '1000000000000000000000000'  - ``GKLAY``: '1000000000000000000000000000'  |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
+| String \| BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Examples**
 
@@ -826,14 +826,14 @@ caver.utils.fromPeb(number [, unit])
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN | The value in peb. |
+| number | String \| Number \| BN | The value in peb. |
 | unit | String | (optional, defaults to ``"KLAY"``) KLAY to convert to. Possible units are:- ``peb``: '1'  - ``kpeb``: '1000'  - ``Mpeb``: '1000000'  - ``Gpeb``: '1000000000'  - ``Ston``: '1000000000'  - ``uKLAY``: '1000000000000'  - ``mKLAY``: '1000000000000000'  - ``KLAY``: '1000000000000000000'  - ``kKLAY``: '1000000000000000000000'  - ``MKLAY``: '1000000000000000000000000'  - ``GKLAY``: '1000000000000000000000000000'  |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
+| String \| BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Examples**
 
@@ -968,7 +968,7 @@ Converts a negative number into a two's complement.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | Number &#124; String &#124; BigNumber | The number to convert. |
+| number | Number \| String \| BigNumber | The number to convert. |
 
 **Return Value**
 
@@ -1201,7 +1201,7 @@ This function converts the input to a [Buffer](https://nodejs.org/api/buffer.htm
 
 | Name | Type | Description |
 | --- | --- | --- |
-| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
+| input | Buffer \| String \| Number \| Array \| BN \| Object | The value to be converted to a Buffer. |
 
 **Return Value**
 
@@ -1253,7 +1253,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
-| input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
+| input | String \| Number \| BN | A number to be converted to a Buffer. |
 
 **Return Value**
 | Type | Description |

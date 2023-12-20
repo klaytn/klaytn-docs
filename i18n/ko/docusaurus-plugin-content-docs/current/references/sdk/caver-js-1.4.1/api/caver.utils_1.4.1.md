@@ -82,7 +82,7 @@ JavaScript에서 큰 숫자로 계산하기 위한 [BN.js](https://github.com/in
 
 | 이름 | 유형 | 설명
 | ---- | ---- | ----------- |
-| Mixed | String &#124; Number| 숫자, 숫자 문자열 또는 HEX 문자열을 BN 개체로 변환합니다. |
+| Mixed | String \| Number| 숫자, 숫자 문자열 또는 HEX 문자열을 BN 개체로 변환합니다. |
 
 **리턴 값**
 
@@ -283,7 +283,7 @@ caver.utils.isHex(hex)
 
 | 이름 | 유형 | 설명
 | ---- | ---- | ----------- |
-| hex | string &#124; HEX | 주어진 HEX 문자열입니다. |
+| hex | string \| HEX | 주어진 HEX 문자열입니다. |
 
 **리턴 값**
 
@@ -326,7 +326,7 @@ caver.utils.isHexStrict(hex)
 
 | 이름 | 유형 | 설명
 | ---- | ---- | ----------- |
-| hex | string &#124; HEX | 주어진 HEX 문자열입니다. |
+| hex | string \| HEX | 주어진 HEX 문자열입니다. |
 
 **리턴 값**
 
@@ -468,7 +468,7 @@ caver.utils.toHex(mixed)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| Mixed | String &#124; Number &#124; BN &#124; BigNumber | HEX로 변환할 입력입니다. |
+| Mixed | String \| Number \| BN \| BigNumber | HEX로 변환할 입력입니다. |
 
 **리턴 값**
 
@@ -510,7 +510,7 @@ JavaScript에서 큰 숫자를 처리하기 위해 주어진 값([BigNumber.js](
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | String &#124; Number &#124; HEX| 큰 숫자로 변환할 숫자입니다. |
+| number | String \| Number \| HEX| 큰 숫자로 변환할 숫자입니다. |
 
 **리턴 값**
 
@@ -599,7 +599,7 @@ caver.utils.numberToHex(number)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN &#124; BigNumber | string 또는 숫자로 된 숫자입니다. |
+| number | String \| Number \| BN \| BigNumber | string 또는 숫자로 된 숫자입니다. |
 
 **리턴 값**
 
@@ -797,14 +797,14 @@ caver.utils.toPeb(number [, unit])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN | 값입니다. |
+| number | String \| Number \| BN | 값입니다. |
 | unit | String | (선택 사항, 기본값은 ``"KLAY"``) 변환할 KLAY입니다. 가능한 단위는 다음과 같습니다: - ``peb``: '1' - ``kpeb``: '1000' - ``Mpeb``: '1000000' - ``Gpeb``: '1000000000' - ``Ston``: '1000000000' - ``uKLAY``: '1000000000000' - ``mKLAY``: '1000000000000000' - ``KLAY``: '1000000000000000000' - ``kKLAY``: '1000000000000000000000' - ``MKLAY``: '1000000000000000000000000' - ``GKLAY``: '1000000000000000000000000000' |
 
 **리턴 값**
 
 | 유형 | 설명 |
 | --- | --- |
-| string &#124; BN | 숫자 또는 문자열이 지정되면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
+| string \| BN | 숫자 또는 문자열이 지정되면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
 
 **예시**
 
@@ -826,14 +826,14 @@ caver.utils.fromPeb(number [, unit])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | String &#124; Number &#124; BN | 단위 값입니다. |
+| number | String \| Number \| BN | 단위 값입니다. |
 | unit | String | (선택 사항, 기본값은 ``"KLAY"``) 변환할 KLAY입니다. 가능한 단위는 다음과 같습니다: - ``peb``: '1' - ``kpeb``: '1000' - ``Mpeb``: '1000000' - ``Gpeb``: '1000000000' - ``Ston``: '1000000000' - ``uKLAY``: '1000000000000' - ``mKLAY``: '1000000000000000' - ``KLAY``: '1000000000000000000' - ``kKLAY``: '1000000000000000000000' - ``MKLAY``: '1000000000000000000000000' - ``GKLAY``: '1000000000000000000000000000' |
 
 **리턴 값**
 
 | 유형 | 설명 |
 | --- | --- |
-| string &#124; BN | 숫자 또는 문자열이 지정되면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
+| string \| BN | 숫자 또는 문자열이 지정되면 숫자 문자열을 반환하고, 그렇지 않으면 [BN.js](https://github.com/indutny/bn.js/) 인스턴스를 반환합니다. |
 
 **예시**
 
@@ -968,7 +968,7 @@ caver.utils.toTwosComplement(number)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | number &#124; string &#124; BigNumber | 변환할 숫자입니다. |
+| number | number \| string \| BigNumber | 변환할 숫자입니다. |
 
 **리턴 값**
 
@@ -1201,7 +1201,7 @@ caver.utils.toBuffer(input)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| input | Buffer &#124; string &#124; number &#124; Array &#124; BN &#124; Object | 버퍼로 변환할 값입니다. |
+| input | Buffer \| string \| number \| Array \| BN \| Object | 버퍼로 변환할 값입니다. |
 
 **리턴 값**
 
@@ -1253,7 +1253,7 @@ caver.utils.numberToBuffer(input)
 **매개변수**
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| input | String &#124; Number &#124; BN | 버퍼로 변환할 숫자입니다. |
+| input | String \| Number \| BN | 버퍼로 변환할 숫자입니다. |
 
 **리턴 값**
 | 유형 | 설명 |

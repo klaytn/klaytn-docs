@@ -9,7 +9,7 @@
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | callObject | Object | 트랜잭션 호출 개체입니다.  객체의 속성은 다음 표를 참조하세요. |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에 있는 ``earliest``, ``latest`` 또는 ``pending`` 문자열 또는 블록 해시입니다.
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에 있는 ``earliest``, ``latest`` 또는 ``pending`` 문자열 또는 블록 해시입니다.
 
 :::note
  
@@ -182,7 +182,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 유형 | 설명
 | --- | --- |
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 | QUANTITY | 트랜잭션 인덱스 위치입니다. |
 
 :::note
