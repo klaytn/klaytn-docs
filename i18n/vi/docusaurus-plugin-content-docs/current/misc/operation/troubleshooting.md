@@ -106,4 +106,4 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Trả lời** Do vấn đề tương thích, chúng tôi khuyên bạn nên cập nhật nhị phân của EN lên v0.9.6 nếu bạn vẫn đang chạy EN ở các phiên bản cũ (<= v0.8.2). Nếu đây là lần đầu bạn cập nhật EN lên v0.9.x và muốn di chuyển dữ liệu từ phiên bản cũ hơn, bạn phải chỉ định tùy chọn `ADDITIONAL="--db.num-statetrie-partitions 1"` trong tập tin cấu hình khi cài đặt phiên bản mới hơn.
+**Trả lời** Do vấn đề tương thích, chúng tôi khuyên bạn nên cập nhật nhị phân của EN lên v0.9.6 nếu bạn vẫn đang chạy EN ở các phiên bản cũ (`<=` v0.8.2). Nếu đây là lần đầu bạn cập nhật EN lên v0.9.x và muốn di chuyển dữ liệu từ phiên bản cũ hơn, bạn phải chỉ định tùy chọn `ADDITIONAL="--db.num-statetrie-partitions 1"` trong tập tin cấu hình khi cài đặt phiên bản mới hơn.

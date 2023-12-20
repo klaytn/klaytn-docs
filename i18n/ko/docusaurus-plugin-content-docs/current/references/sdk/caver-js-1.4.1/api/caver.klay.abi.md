@@ -141,7 +141,7 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| typesArray | Array<string &#124; object>&#124;Object| 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| typesArray | Array\<String &#124; object\>&#124;Object| 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | parameter | Array | 인코딩할 매개변수입니다. |
 
 **리턴 값**
@@ -240,7 +240,7 @@ ABI 인코딩된 매개변수를 해당 JavaScript 유형으로 디코딩합니�
 **매개변수**
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| typesArray | Array<string &#124; object>&#124;Object | 유형이 있는 배열 또는 JSON 인터페이스가 배열을 출력합니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| typesArray | Array\<String &#124; object\>&#124;Object | 유형이 있는 배열 또는 JSON 인터페이스가 배열을 출력합니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexstring | String | 디코딩할 ABI 바이트 코드입니다. |
 
 **리턴 값**

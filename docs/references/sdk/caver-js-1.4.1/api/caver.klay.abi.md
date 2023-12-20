@@ -141,7 +141,7 @@ Encodes function parameters based on its JSON interface object.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| typesArray | Array<String&#124;Object>&#124;Object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| typesArray | Array\<String&#124;Object\>&#124;Object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | parameters | Array | The parameters to encode. |
 
 **Return Value**
@@ -240,7 +240,7 @@ Decodes ABI encoded parameters to its JavaScript types.
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
-| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| typesArray | Array\<String&#124;Object\>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | String | The ABI byte code to decode. |
 
 **Return Value**

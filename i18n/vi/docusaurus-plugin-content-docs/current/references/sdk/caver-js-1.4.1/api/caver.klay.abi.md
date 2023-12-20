@@ -141,7 +141,7 @@ Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của 
 
 | Tên        | Loại                                 | Mô tả                                                                                                                                                        |
 | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Array\<String&#124;Object\>&#124;Object | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | tham số    | Mảng                                  | Các tham số cần mã hóa.                                                                                                                                      |
 
 **Giá trị trả về**
@@ -240,7 +240,7 @@ Giải mã các tham số được mã hóa ABI thành loại JavaScript của c
 **Tham số**
 | Tên        | Loại                                 | Mô tả                                                                                                                                                                                  |
 | ---------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Array\<String&#124;Object\>&#124;Object | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexString  | Chuỗi                                 | Mã byte ABI cần giải mã.                                                                                                                                                               |
 
 **Giá trị trả về**

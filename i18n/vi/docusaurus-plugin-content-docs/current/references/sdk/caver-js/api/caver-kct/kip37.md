@@ -296,7 +296,7 @@ kip37.uri(id)
 ```
 Trả về Mã định danh tài nguyên thống nhất (URI) riêng biệt của token đã cho.
 
-Nếu chuỗi "{id}" tồn tại trong bất kỳ URI nào, hàm này sẽ thay thế chuỗi này bằng ID token thực ở dạng thập lục phân. Vui lòng tham khảo [Siêu dữ liệu KIP-34](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
+Nếu chuỗi `{id}` tồn tại trong bất kỳ URI nào, hàm này sẽ thay thế chuỗi này bằng ID token thực ở dạng thập lục phân. Vui lòng tham khảo [Siêu dữ liệu KIP-34](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Tham số**
 

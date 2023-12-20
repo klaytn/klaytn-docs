@@ -296,7 +296,7 @@ kip37.uri(id)
 ```
 Returns distinct Uniform Resource Identifier (URI) of the given token.
 
-If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
+If the string `{id}` exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
 Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Parameters**
