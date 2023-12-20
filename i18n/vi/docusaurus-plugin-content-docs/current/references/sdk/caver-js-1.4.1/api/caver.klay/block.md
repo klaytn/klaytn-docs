@@ -71,7 +71,7 @@ Trả về khối khớp với hàm băm của khối hoặc số khối.
 
 | Tên                      | Loại           | Mô tả                                                                                                                                                                   |
 | ------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber   | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                                                                  |
+| blockHashOrBlockNumber   | Chuỗi \| Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                                                                  |
 | returnTransactionObjects | Boolean         | (tùy chọn, mặc định là `false`) Nếu giá trị là `true`, khối trả về sẽ chứa tất cả các giao dịch dưới dạng đối tượng, nếu là `false` thì chỉ chứa các hàm băm giao dịch. |
 | callback                 | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                         |
 
@@ -194,7 +194,7 @@ Trả về số lượng giao dịch trong một khối đã cho.
 
 | Tên                    | Loại           | Mô tả                                                                                                           |
 | ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | Chuỗi &#124; Số | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                   |
+| blockHashOrBlockNumber | Chuỗi \| Số | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                   |
 | callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -221,7 +221,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 
 | Tên                    | type            | Mô tả                                                                                                           |
 | ---------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | Chuỗi &#124; Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                          |
+| blockHashOrBlockNumber | Chuỗi \| Số | Hàm băm của khối hoặc số khối. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                          |
 | callback               | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -321,7 +321,7 @@ Trả về danh sách tất cả các nút xác thực của ủy ban tại kh�
 
 | Tên          | Loại           | Mô tả                                                                                                                                                  |
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
@@ -352,7 +352,7 @@ Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tha
 
 | Tên          | Loại           | Mô tả                                                                                                                                                  |
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
@@ -379,7 +379,7 @@ Trả về danh sách tất cả các nút xác thực của hội đồng tại
 
 | Tên          | type            | Mô tả                                                                                                                                                  |
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
@@ -410,7 +410,7 @@ Trả về quy mô của hội đồng tại khối được chỉ định. Nế
 
 | Tên          | Loại           | Mô tả                                                                                                                                                  |
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**
@@ -438,7 +438,7 @@ Nhận bộ nhớ lưu trữ tại một vị trí cụ thể của địa chỉ
 | ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address      | Chuỗi           | Địa chỉ để nhận bộ nhớ lưu trữ từ đó.                                                                                                                  |
 | vị trí       | Số              | Vị trí chỉ mục của bộ nhớ lưu trữ.                                                                                                                     |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                        |
 
 **Giá trị trả về**

@@ -67,7 +67,7 @@ $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -
 현재 다른 패키지 관리자는 지원하지 않습니다. 다른 해결책으로 아래에서 CLI를 빌드하는 방법을 제공합니다.
 
 * caver-java를 다운로드하거나 포크합니다.
-* Gradle을 사용하여 콘솔 모듈에서 'shadowDistZip' 작업을 수행합니다. 그 결과 console/build/distributions/console-shadow-{version}.zip이 생성됩니다.
+* Gradle을 사용하여 콘솔 모듈에서 'shadowDistZip' 작업을 수행합니다. 그 결과 `console/build/distributions/console-shadow-{version}.zip`이 생성됩니다.
 
   ```text
   $ ./gradlew :console:shadowDistZip

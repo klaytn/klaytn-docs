@@ -132,8 +132,8 @@ Nếu tài khoảnKey là một chuỗi khóa công khai, một Đối tượng 
 | Tên          | Loại                                   | Mô tả                                                                                                                                              |
 | ------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | chuỗi                                   | Địa chỉ của tài khoản được cập nhật.                                                                                                               |
-| tài khoảnKey | chuỗi &#124; Mảng                       | Một chuỗi khóa công khai, một mảng các khóa công khai hoặc một mảng 2D trong đó mỗi phần tử chứa một mảng (các) khóa được sử dụng cho mỗi vai trò. |
-| tùy chọn     | [WeightedMultiSigOptions][] &#124; Mảng | (tùy chọn) Tùy chọn cho AccountKeyWeigthedMultiSig.                                                                                                |
+| tài khoảnKey | chuỗi \| Mảng                       | Một chuỗi khóa công khai, một mảng các khóa công khai hoặc một mảng 2D trong đó mỗi phần tử chứa một mảng (các) khóa được sử dụng cho mỗi vai trò. |
+| tùy chọn     | [WeightedMultiSigOptions][] \| Mảng | (tùy chọn) Tùy chọn cho AccountKeyWeigthedMultiSig.                                                                                                |
 
 
 **Giá trị trả về**
@@ -551,7 +551,7 @@ Giải mã chuỗi được mã hóa RLP của AccountKey và trả về [Accoun
 
 | type                                                                                                                                                                                                                                                      | Mô tả                             |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | Đối tượng AccountKey được trả về. |
+| [AccountKeyLegacy](#accountkeylegacy) \| [AccountKeyPublic](#accountkeypublic) \| [AccountKeyFail](#accountkeyfail) \| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \| [AccountKeyRoleBased](#accountkeyrolebased) | Đối tượng AccountKey được trả về. |
 
 **Ví dụ**
 

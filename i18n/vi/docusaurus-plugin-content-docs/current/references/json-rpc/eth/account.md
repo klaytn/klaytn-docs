@@ -38,7 +38,7 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 | Tên                  | type                               | Mô tả                                                                                                                                                                                   |
 | -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                              |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
@@ -69,7 +69,7 @@ Trả về mã ở địa chỉ đã cho.
 | type                               | Mô tả                                                                                                                                                                                   |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 
@@ -101,7 +101,7 @@ Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
 | Loại                              | Mô tả                                                                                                                                                                                   |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
 

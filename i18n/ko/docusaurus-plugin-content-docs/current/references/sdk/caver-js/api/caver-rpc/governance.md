@@ -15,7 +15,7 @@ caver.rpc.governance.vote(key, value [, callback])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | key | String | 변경할 구성 설정의 이름입니다. 키의 형식은 "domain.field"입니다. |
-| value | string &#124; number &#124; boolean | 각 키에 대한 다양한 유형의 값입니다. |
+| value | string \| number \| boolean | 각 키에 대한 다양한 유형의 값입니다. |
 | callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
 
 `caver.rpc.governance.vote`의 `key`와 `value`에 대한 자세한 내용은 [governance_vote](../../../../json-rpc/governance.md#governance_vote)를 참고하시기 바랍니다.
@@ -260,7 +260,7 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockNumberOrTag | Number &#124; String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
+| blockNumberOrTag | Number \| String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
 | callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
 
 **리턴 값**
@@ -404,7 +404,7 @@ caver.rpc.governance.getItemCacheFromDb([callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockNumber | Number &#124; String | 블록 번호 또는 블록에 적용된 거버넌스 변경 사항을 쿼리하기 위한 16진수 문자열입니다. |
+| blockNumber | Number \| String | 블록 번호 또는 블록에 적용된 거버넌스 변경 사항을 쿼리하기 위한 16진수 문자열입니다. |
 
 **리턴 값**
 
@@ -492,7 +492,7 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| blockNumberOrTag | Number &#124; String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
+| blockNumberOrTag | Number \| String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
 | callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
 
 **리턴 값**

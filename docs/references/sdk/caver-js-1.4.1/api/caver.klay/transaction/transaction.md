@@ -13,7 +13,7 @@ Virtual Machine of the node, but never mined into the blockchain.
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](../block.md#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](../block.md#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -76,7 +76,7 @@ The transaction will not be added to the blockchain.
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](../block.md#defaultblock) will be used. |
+| defaultBlock | Number \| String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](../block.md#defaultblock) will be used. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -592,7 +592,7 @@ Sends an already signed transaction, generated using `caver.klay.accounts.signTr
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signedTransactionData | String &#124; Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
+| signedTransactionData | String \| Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

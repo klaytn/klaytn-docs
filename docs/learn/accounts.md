@@ -151,7 +151,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
 `0x02 + encode(CompressedPubKey)`
 
-**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02{PubkeyX} if PubkeyY is an even number or 0x03{PubkeyX} otherwise.
+**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02`{PubkeyX}` if PubkeyY is an even number or 0x03`{PubkeyX}` otherwise.
 
 #### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
@@ -204,7 +204,7 @@ If you want the previous document, please refer to [previous document](./transac
 | :--- | :--- | :--- |
 | Type | uint8 \(Go\) | The type of AccountKeyWeightedMultiSig. This must be **0x04**. |
 | Threshold | uint \(Go\) | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | \[\]\{uint, \[33\]byte} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight. |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight. |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
@@ -239,7 +239,7 @@ AccountKeyRoleBased represents a role-based key. The roles are specified at [Rol
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
 | Type | uint8 \(Go\) | The type of AccountKeyRoleBased. It must be **0x05**. |
-| Keys | \[\]{AccountKey} \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
+| Keys | \[\]`{AccountKey}` \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
 
 #### Roles <a id="roles"></a>
 

@@ -84,7 +84,7 @@ Creates an instance of Account with the given AccountKey. Account is for managin
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 
 **Return Value**
@@ -97,10 +97,10 @@ Creates an instance of Account with the given AccountKey. Account is for managin
 | privateKey | String | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
 | accountKeyType | String | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
 | accountKey | Object | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
-| keys | String &#124; Array &#124; Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
-| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
-| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
-| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| keys | String \| Array \| Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String \| Array | Key used for the [RoleTransaction](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String \| Array | Key used for the [RoleAccountUpdate](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String \| Array | Key used for [RoleFeePayer](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 | signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
 | sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
 | encrypt | Function | The function to encrypt an Account with given password. |
@@ -164,7 +164,7 @@ Creates an instance of Account with AccountKeyPublic.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string.  |
+| accountKey | String \| Object | An AccountKeyPublic instance or a private key string.  |
 
 
 **Return Value**
@@ -200,7 +200,7 @@ Creates an instance of Account with AccountKeyMultiSig.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings.  |
+| accountKey | String \| Object | An AccountKeyMultiSig instance or an array of private key strings.  |
 
 
 **Return Value**
@@ -236,7 +236,7 @@ Creates an instance of Account with AccountKeyRoleBased.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
+| accountKey | String \| Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
 
 
 **Return Value**
@@ -277,7 +277,7 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | String &#124; Array &#124; Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
+| key | String \| Array \| Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
 
 
 **Return Value**
@@ -288,10 +288,10 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 | --- | --- | --- |
 | type | String | The type of AccountKey instance. |
 | defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey.  |
-| keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
-| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
-| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
-| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| keys | String \| Array \| Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String \| Array | Key used for the [RoleTransaction](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String \| Array | Key used for the [RoleAccountUpdate](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String \| Array | Key used for [RoleFeePayer](../../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 
 **Example**
 
@@ -460,13 +460,13 @@ This function converts the private key of AccountKey to public key.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| String &#124; Array &#124; Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
+| String \| Array \| Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
 
 
 **Example**
@@ -577,7 +577,7 @@ You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#crea
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
+| accountKey | String \| Array \| Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
 | options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below. |
 
 **Return Value**
@@ -680,7 +680,7 @@ Creates an instance of `AccountForUpdate` with the public key of the new key to 
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased. |
+| keyForUpdate | String \| Array \| Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased. |
 | options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
 
 **Return Value**
@@ -836,8 +836,8 @@ See [Sending a Transaction with multiple signer](../get-started-1.4.1.md#sending
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). |
-| privateKey | String &#124; Array  | (optional) The private key to sign with. |
+| tx | String \| Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). |
+| privateKey | String \| Array  | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
@@ -1029,8 +1029,8 @@ Signs a Klaytn transaction with the given transaction hash and private key.
 | Name | Type | Description |
 | --- | --- | --- |
 | txHash | String | The hash of the transaction to sign. |
-| privateKeys | String &#124; Array  | The private key to sign with. |
-| chainId | String &#124; Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](./caver.klay/config.md#getchainid) |
+| privateKeys | String \| Array  | The private key to sign with. |
+| chainId | String \| Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](./caver.klay/config.md#getchainid) |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1121,9 +1121,9 @@ See [Sending a Transaction with multiple signer](../get-started-1.4.1.md#sending
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). |
+| tx | String \| Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). |
 | feePayerAddress | String | The address of fee payer.  |
-| privateKey | String &#124; Array | (optional) The private key to sign with. |
+| privateKey | String \| Array | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1380,7 +1380,7 @@ Recovers the Klaytn address that was used to sign the given data.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| message &#124; signatureObject | String &#124; Object | Either signed message or hash. For the details of the signature object, see the table below. |
+| message \| signatureObject | String \| Object | Either signed message or hash. For the details of the signature object, see the table below. |
 | messageHash | String | The hash of the given message. |
 | signature | String | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values. |
 | preFixed | Boolean | (optional, default: ``false``) If the last parameter is ``true``, the given message will NOT automatically be prefixed with ``"\x19Klaytn Signed Message:\n" + message.length + message``, and assumed to be already prefixed. |
@@ -1663,7 +1663,7 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
+| encryptTarget | String \| Array \| Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
 
@@ -1899,7 +1899,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encryptTarget | String &#124; Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
+| encryptTarget | String \| Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
@@ -2227,7 +2227,7 @@ If you want to change the private key associated to an account in the wallet, pl
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
+| account | String \| Object | A private key or account object created with [caver.klay.accounts.create](#create). |
 | targetAddress | String | A target address which will be used with a given private key. |
 
 **NOTE**: caver-js supports two types of private key formats.
@@ -2307,7 +2307,7 @@ Returns the account corresponding to the address in `caver.klay.accounts.wallet`
 
 | Name | Type | Description |
 | --- | --- | --- |
-| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| addressOrIndex | String \| Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 **Return Value**
 
@@ -2358,7 +2358,7 @@ Removes an account from the wallet.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String &#124; Number | The account address or the index in the wallet. |
+| account | String \| Number | The account address or the index in the wallet. |
 
 
 **Return Value**
@@ -2579,7 +2579,7 @@ Return the Klaytn wallet key for the account on the wallet of caver-js.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| indexOrAddress | Number&#124;String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| indexOrAddress | Number\|String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 
 **Return Value**
@@ -2670,7 +2670,7 @@ If the accountKey parameter is a single private key string, the account's accoun
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | The account address in the wallet. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+| accountKey | String \| Array \| Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 
 **Return Value**

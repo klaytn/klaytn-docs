@@ -24,7 +24,7 @@ KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.k
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | tokenInfo | Object | 클레이튼 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요. |
-| deployer | String &#124; Object | KIP-7 토큰 컨트랙트를 배포할 Keyring의 주소입니다. 이 Keyring에는 배포하기에 충분한 KLAY가 있어야 합니다. 트랜잭션을 전송할 때 사용할 고유한 필드를 정의하려면 객체 유형을 파라미터로 전달할 수 있습니다. 또한 KIP-7 컨트랙트를 배포할 때 수수료 위임을 사용하려면 오브젝트에서 수수료 위임과 관련된 필드를 정의할 수 있습니다. 오브젝트에서 정의할 수 있는 필드는 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
+| deployer | String \| Object | KIP-7 토큰 컨트랙트를 배포할 Keyring의 주소입니다. 이 Keyring에는 배포하기에 충분한 KLAY가 있어야 합니다. 트랜잭션을 전송할 때 사용할 고유한 필드를 정의하려면 객체 유형을 파라미터로 전달할 수 있습니다. 또한 KIP-7 컨트랙트를 배포할 때 수수료 위임을 사용하려면 오브젝트에서 수수료 위임과 관련된 필드를 정의할 수 있습니다. 오브젝트에서 정의할 수 있는 필드는 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
 
 토큰 정보 객체에는 다음이 포함되어야 합니다:
 
@@ -33,7 +33,7 @@ KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.k
 | name | String | 토큰의 이름입니다. |
 | symbol | String | 토큰의 기호입니다. |
 | decimals | Number | 토큰이 사용하는 소수점 이하 자릿수입니다. |
-| initialSupply | BigNumber &#124; string &#124; number | 처음에 공급할 토큰의 총 금액입니다. |
+| initialSupply | BigNumber \| string \| number | 처음에 공급할 토큰의 총 금액입니다. |
 
 **참고** `initialSupply` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
@@ -527,7 +527,7 @@ kip7.approve(spender, amount [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | spender | String | 소유자 대신 토큰을 소비하는 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 지출자가 사용할 수 있는 토큰의 양입니다. |
+| amount | BigNumber \| string \| number | 지출자가 사용할 수 있는 토큰의 양입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션을 전송하는 데 필요한 매개변수가 포함된 객체입니다. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -537,9 +537,9 @@ kip7.approve(spender, amount [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | from | String | (선택 사항) 트랜잭션을 전송할 주소입니다. 생략하면 `kip7.options.from`으로 설정됩니다. `sendParam` 객체의 `from`이나 `kip7.options.from` 중 어느 것도 제공되지 않으면 오류가 발생합니다. |
-| gas | Number &#124; String | (선택 사항) 이 트랜잭션에 제공되는 최대 가스 개수(가스 한도). 생략할 경우, `kip7.methods.approve(spender, amount).estimateGas({from})`를 호출하여 caver-js에서 설정합니다. |
-| gasPrice | Number &#124; String | (선택 사항) 이 트랜잭션의 가스 가격(peb 단위)입니다. 생략할 경우, `caver.klay.getGasPrice` 호출을 통해 caver-js에서 설정합니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb 단위로 전송할 값입니다. |
+| gas | Number \| String | (선택 사항) 이 트랜잭션에 제공되는 최대 가스 개수(가스 한도). 생략할 경우, `kip7.methods.approve(spender, amount).estimateGas({from})`를 호출하여 caver-js에서 설정합니다. |
+| gasPrice | Number \| String | (선택 사항) 이 트랜잭션의 가스 가격(peb 단위)입니다. 생략할 경우, `caver.klay.getGasPrice` 호출을 통해 caver-js에서 설정합니다. |
+| value | number \| string \| BN \| BigNumber | (선택 사항) peb 단위로 전송할 값입니다. |
 | feeDelegation | boolean | (선택 사항, 기본값 `false`) 수수료 대납 트랜잭션 사용 여부. 생략하면 `kip7.options.feeDelegation`이 사용됩니다. 둘 다 생략하면 수수료 위임이 사용되지 않습니다. |
 | feePayer | String | (선택 사항) 트랜잭션 수수료를 지불하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`인 경우, 이 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 생략하면 `kip7.options.feePayer`가 사용됩니다. 둘 다 생략하면 오류가 발생합니다. |
 | feeRatio | String | (선택 사항) 수수료 납부자가 부담하게 될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이고 `feeRatio`가 유효한 값으로 설정되면 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이이며, 0 또는 100 이상의 비율은 허용되지 않습니다. 생략하면 `kip7.options.feeRatio`가 사용됩니다. |
@@ -620,7 +620,7 @@ kip7.transfer(recipient, amount [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | recipient | String | 토큰을 받을 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 송금할 토큰의 금액입니다. |
+| amount | BigNumber \| string \| number | 송금할 토큰의 금액입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -701,8 +701,8 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | recipient | String | 토큰을 받을 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 송금하려는 토큰의 금액입니다. |
-| data | Buffer &#124; string &#124; number | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다. |
+| amount | BigNumber \| string \| number | 송금하려는 토큰의 금액입니다. |
+| data | Buffer \| string \| number | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -785,7 +785,7 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 | --- | --- | --- |
 | sender | String | 허용 메커니즘으로 전송할 토큰을 소유한 계정의 주소입니다. |
 | recipient | String | 토큰을 받을 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 송금할 토큰 금액입니다. |
+| amount | BigNumber \| string \| number | 송금할 토큰 금액입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -890,8 +890,8 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 | --- | --- | --- |
 | sender | String | 허용 메커니즘으로 전송할 토큰을 소유한 계정의 주소입니다. |
 | recipient | String | 토큰을 받을 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 송금할 토큰 금액입니다. |
-| data | Buffer &#124; string &#124; number | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다. |
+| amount | BigNumber \| string \| number | 송금할 토큰 금액입니다. |
+| data | Buffer \| string \| number | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -996,7 +996,7 @@ kip7.mint(account, amount [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | account | String | 발행된 토큰이 발급될 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 발행할 토큰의 금액입니다. |
+| amount | BigNumber \| string \| number | 발행할 토큰의 금액입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -1223,7 +1223,7 @@ kip7.burn(amount [, sendParam])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| amount | BigNumber &#124; string &#124; number | 소멸할 토큰의 양입니다. |
+| amount | BigNumber \| string \| number | 소멸할 토큰의 양입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
@@ -1302,7 +1302,7 @@ kip7.burnFrom(account, amount [, sendParam])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | account | String | 허용 메커니즘으로 소각할 토큰을 소유한 계정의 주소입니다. |
-| amount | BigNumber &#124; string &#124; number | 소각할 토큰의 금액입니다. |
+| amount | BigNumber \| string \| number | 소각할 토큰의 금액입니다. |
 | sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
 **참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.

@@ -13,7 +13,7 @@ caver.klay.call(callObject [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | callObject | Object | 호출에 대해 from 속성이 선택 사항이라는 차이점이 있는 트랜잭션 객체입니다. 트랜잭션 객체의 데이터 필드에 [인코딩된 함수 호출](../../caver.klay.abi.md#encodefunctioncall)을 설정해야 합니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](../block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](../block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -76,7 +76,7 @@ caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | callObject | Object | 호출의 경우 FROM 속성이 선택 사항이라는 차이점이 있는 트랜잭션 객체입니다. 트랜잭션 객체의 데이터 필드에 [인코딩된 함수 호출](../../caver.klay.abi.md#encodefunctioncall)을 설정해야 합니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](../block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](../block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
@@ -592,7 +592,7 @@ caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| signedTransactionData | String &#124; Object | RLP 인코딩된 서명된 트랜잭션 문자열, `rawTransaction` 속성에 RLP 인코딩된 서명된 트랜잭션 문자열이 있는 객체, 또는 서명/수수료 지불자 서명이 첨부된 인코딩되지 않은 트랜잭션 객체입니다. |
+| signedTransactionData | String \| Object | RLP 인코딩된 서명된 트랜잭션 문자열, `rawTransaction` 속성에 RLP 인코딩된 서명된 트랜잭션 문자열이 있는 객체, 또는 서명/수수료 지불자 서명이 첨부된 인코딩되지 않은 트랜잭션 객체입니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
