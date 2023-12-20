@@ -1,77 +1,13 @@
-<<<<<<<< HEAD:docs/nodes/endpoint-node/ken-cli-commands.md
 # ken CLI Commands
-========
-# Klaytn Command
-
-## How to find the Klaytn Directory (Normally “Klaytn DIR”)
-
----
-You can check Klaytn directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
-
-```bash
-cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
-
-# Find DATA_DIR and LOG_DIR path as below example
-DATA_DIR=/var/kcnd/data/
-LOG_DIR=/var/kcnd/logs/
-```
-
-## How to connect to Klaytn Console
-
----
-Connect to Klaytn API to check node and network status.
-
-```bash
-# execute the command below in the Klaytn DATA_DIR Path
-$ sudo kcn attach klay.ipc
-> 
-```
-
-## Useful APIs
-
-```bash
-# Check current block Number
-  > klay.blockNumber
-
-# Check my kni address
-  > admin.nodeInfo
-
-# Check my dode address
-  > governance.nodeAddress
-
-# Check other connected nodes
-  > admin.peers
-
-# Add or remove nodes
-  > admin.addPeer("kni")
-  > admin.removePeer("kni")
-```
-
-## How to get the API Result only
-
-```jsx
-# execute the command below in the Klaytn DATA_DIR Path
-$ sudo kcn attach --exec <statement> klay.ipc
-
-e.g.
-# Check my dode address
-$ sudo kcn attach --exec "governance.nodeAddress" klay.ipc
-"0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
-```
-
-## ken CLI commands <a id="ken-cli-commands"></a>
->>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/references/klaytn-command.md
-
-`ken` is a command-line interface for Klaytn Endpoint Node.
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-### Commands <a id="commands"></a>
+## Commands
 
-`ken` has the following commands. 
+`ken`has the following commands.
 
 ```bash
 COMMANDS:
@@ -86,7 +22,7 @@ COMMANDS:
    help, h     Shows a list of commands or help for one command
 ```
 
-To get a detailed usage guideline for each command, give `-h` option.
+To get a detailed usage guideline for each command, give -h option.
 
 ```bash
 $ ken account -h
@@ -119,7 +55,7 @@ participating.
  ...
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+## JavaScript Console
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
@@ -134,14 +70,14 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.  
+attach command connects to the running node, while console command launches a node and connects to it.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
 ```
 
-#### Module APIs <a id="module-apis"></a>
+### Module APIs
 
 If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../references/json-rpc/json-rpc.md).  
 
@@ -162,4 +98,4 @@ If you type the module name on the console prompt, you will see the available pr
 > personal.listAccounts
 ["0x960dba2500ab529693ef8e299210768aa0d55ec8", "0x09a04dc9ac3cd92de5ff0d45ae50ff1b618305d9", "0x36662211c072dadbf5fc1e087ddebd36df986abd", "0xbf9683cf04520eeba6d936a3478de29437c5d048"]
 > 
-```  
+```
