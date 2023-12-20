@@ -20,7 +20,7 @@ Retrieves the state that corresponds to the block number and returns a list of a
 
 | Tên                  | type                               | Mô tả                                                                                                                                                                                         |
 | -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -125,7 +125,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 | Tên                  | Loại                              | Mô tả                                                                                                                                                                                         |
 | -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -313,7 +313,7 @@ Retrieves a block and returns its pretty printed form.
 
 | Tên                  | type                               | Mô tả                                                                                                                                                                                         |
 | -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| số khối hoặc hàm băm | SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../klay/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -357,7 +357,7 @@ Sets the current head of the local chain by block number.
 
 | Tên | type  | Mô tả                              |
 | --- | ----- | ---------------------------------- |
-| number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
+| number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 

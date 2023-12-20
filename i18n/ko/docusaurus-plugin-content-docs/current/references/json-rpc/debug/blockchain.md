@@ -28,7 +28,7 @@ state.block-interval이 128이면 이 함수는 블록 번호
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
+| block number 또는 hash | QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
 
 :::note
  
@@ -133,7 +133,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
+| block number 또는 hash | QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
 
 :::note
  
@@ -324,7 +324,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
+| block number 또는 hash | QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시.|.
 
 :::note
  
@@ -370,7 +370,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| number | QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| number | QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 

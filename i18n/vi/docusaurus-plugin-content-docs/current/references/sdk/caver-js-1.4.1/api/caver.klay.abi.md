@@ -20,7 +20,7 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 
 | Tên               | type                   | Mô tả                                                                                                                                                                             |
 | ----------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | Chuỗi &#124; Đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì nó phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| functionSignature | Chuỗi \| Đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì nó phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
 
@@ -62,7 +62,7 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 
 | Tên            | type                   | Mô tả                                                                                                                                                                           |
 | -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | Chuỗi &#124; Đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi, nó phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| eventSignature | Chuỗi \| Đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi, nó phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
 
@@ -104,7 +104,7 @@ Mã hóa một tham số dựa trên loại của tham số đó thành biểu d
 
 | Tên     | Loại                  | Mô tả                                                                                                             |
 | ------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| loại   | Chuỗi &#124; Đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| loại   | Chuỗi \| Đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | tham số | Hỗn hợp                | Tham số thực tế cần mã hóa.                                                                                       |
 
 **Giá trị trả về**
@@ -141,7 +141,7 @@ Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của 
 
 | Tên        | Loại                                 | Mô tả                                                                                                                                                        |
 | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Array\<String\|Object\>\|Object | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | tham số    | Mảng                                  | Các tham số cần mã hóa.                                                                                                                                      |
 
 **Giá trị trả về**
@@ -210,7 +210,7 @@ Giải mã tham số được mã hóa ABI thành loại JavaScript của nó.
 
 | Tên       | Loại              | Mô tả                                                                                                            |
 | --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| loại     | String&#124;Object | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| loại     | String\|Object | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexString | Mảng               | Mã byte ABI cần giải mã.                                                                                         |
 
 **Giá trị Trả về**
@@ -240,7 +240,7 @@ Giải mã các tham số được mã hóa ABI thành loại JavaScript của c
 **Tham số**
 | Tên        | Loại                                 | Mô tả                                                                                                                                                                                  |
 | ---------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array<String&#124;Object>&#124;Object | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| typesArray | Array\<String\|Object\>\|Object | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
 | hexString  | Chuỗi                                 | Mã byte ABI cần giải mã.                                                                                                                                                               |
 
 **Giá trị trả về**

@@ -110,4 +110,4 @@ Fatal: Error starting protocol stack: rewound to block number 0, but repair fail
 
 **답변**
 
-호환성 문제로 인해 이전 버전(<= v0.8.2)으로 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드할 것을 강력히 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전의 데이터를 마이그레이션하려는 경우, 최신 버전을 설치할 때 구성 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
+호환성 문제로 인해 이전 버전(`<=` v0.8.2)으로 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드할 것을 강력히 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전의 데이터를 마이그레이션하려는 경우, 최신 버전을 설치할 때 구성 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.

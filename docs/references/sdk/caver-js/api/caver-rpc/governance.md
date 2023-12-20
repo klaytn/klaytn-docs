@@ -15,7 +15,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | Name | Type | Description |
 | --- | --- | --- |
 | key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
-| value | string &#124; number &#124; boolean | Various types of value for each key. |
+| value | string \| number \| boolean | Various types of value for each key. |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
@@ -260,7 +260,7 @@ Returns governance items at a specific block. It is the result of previous votin
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| blockNumberOrTag | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -404,7 +404,7 @@ Returns the governance information stored on the given block. If no changes are 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockNumber | number &#124; string | A block number, or the hex number string to query the governance change made on the block. |
+| blockNumber | number \| string | A block number, or the hex number string to query the governance change made on the block. |
 
 **Return Value**
 
@@ -492,7 +492,7 @@ Returns the staking information at a specific block.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| blockNumberOrTag | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

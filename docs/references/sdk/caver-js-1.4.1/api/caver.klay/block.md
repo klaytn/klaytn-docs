@@ -72,7 +72,7 @@ Returns a block matching the block hash or block number.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string ``"genesis"``, or ``"latest"``. |
+| blockHashOrBlockNumber | String \| Number | The block hash or block number. Or the string ``"genesis"``, or ``"latest"``. |
 | returnTransactionObjects | Boolean | (optional, default ``false``) If ``true``, the returned block will contain all transactions as objects, if ``false`` it will only contains the transaction hashes. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -195,7 +195,7 @@ Returns the number of transaction in a given block.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string ``"genesis"``, or ``"latest"``. |
+| blockHashOrBlockNumber | String \| Number | The block number or hash. Or the string ``"genesis"``, or ``"latest"``. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -222,7 +222,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
+| blockHashOrBlockNumber | String \| Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -323,7 +323,7 @@ Returns a list of all validators in the committee at the specified block. If the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -354,7 +354,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 | Name | Type | Description |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -381,7 +381,7 @@ Returns a list of all validators of the council at the specified block. If the p
 
 | Name | Type | Description |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -412,7 +412,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -440,7 +440,7 @@ Gets the storage at a specific position of an address.
 | --- | --- | --- |
 | address | String | The address to get the storage from. |
 | position | Number | The index position of the storage. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

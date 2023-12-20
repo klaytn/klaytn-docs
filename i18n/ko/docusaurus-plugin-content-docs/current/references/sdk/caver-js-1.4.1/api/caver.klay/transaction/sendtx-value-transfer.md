@@ -23,7 +23,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | Type | String | 트랜잭션 유형. "VALUE_TRANSFER" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 트랜잭션의 받는 사람 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 트랜잭션에 대해 전송된 값(peb 단위)입니다. |
+| value | number \| string \| BN \| BigNumber | 트랜잭션에 대해 전송된 값(peb 단위)입니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(단위: peb). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략하면 caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
@@ -96,7 +96,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | Type | String | 트랜잭션 유형. "FEE_DELEGATED_VALUE_TRANSFER" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 트랜잭션의 받는 사람 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 트랜잭션에 대해 이체된 값(peb 단위)입니다. |
+| value | number \| string \| BN \| BigNumber | 트랜잭션에 대해 이체된 값(peb 단위)입니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(단위: peb). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
@@ -188,7 +188,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | type | String | 트랜잭션 유형. "FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 트랜잭션의 목적지 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | 트랜잭션에 대해 이체된 값(peb 단위)입니다. |
+| value | number \| string \| BN \| BigNumber | 트랜잭션에 대해 이체된 값(peb 단위)입니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(단위: peb). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략하면 caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |

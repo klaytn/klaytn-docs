@@ -1767,7 +1767,7 @@ myContract.getPastEvents(event [, options] [, callback])
 | event | String | 이벤트 이름.                                                                                                                                                                                               |
 | signature | string \| `null` | 이벤트 서명, 익명 이벤트인 경우 `null`입니다.                                                                                                                                                       |
 | address | String | 이 이벤트가 발생한 주소입니다.                                                                                                                                                                           |
-| returnValues | Object | 이벤트에서 반환되는 반환값(예: {myVar: 1, myVar2: '0x234...'}).                                                                                                                                 |
+| returnValues | Object | 이벤트에서 반환되는 반환값(예: `{myVar: 1, myVar2: '0x234...'}`).                                                                                                                                 |
 | logIndex | Number | 블록 내 이벤트 인덱스 위치.                                                                                                                                                                        |
 | transactionIndex | Number | 이벤트가 생성된 트랜잭션의 인덱스 위치.                                                                                                                                                    |
 | transactionHash | String | 이 이벤트가 생성된 트랜잭션의 해시입니다.                                                                                                                                                        |

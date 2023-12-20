@@ -21,9 +21,9 @@ TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KLAY를 전송하고자
 | value | \*big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]을 참고하세요. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -172,9 +172,9 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | input | \[\]byte \(Go\) | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -328,9 +328,9 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio는 스마트 컨트랙트를 배�
 | humanReadable | bool \(Go\) | 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 false이어야 합니다. true이면 트랜잭션이 거부됩니다. |
 | feeRatio | uint8 \(Go\) | 수수료 지불자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
 | codeFormat | uint8 \(Go\) | 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM\(0x00\)입니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -486,9 +486,9 @@ TxTypeFeeDelegatedSmartContractExecution은 `input`에 지정된 데이터로 �
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | input | \[\]byte \(Go\) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -634,9 +634,9 @@ TxTypeFeeDelegatedAccountUpdateWithRatio는 지정된 계정의 키를 업데이
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | key | AccountKey \(Go\) | 계정에 업데이트할 [계정 키]입니다. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -777,9 +777,9 @@ TxTypeFeeDelegatedCancelWithRatio는 트랜잭션 풀에서 동일한 nonce를 �
 | gas | uint64 \(Go\) | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -923,9 +923,9 @@ TxTypeFeeDelegatedChainDataAnchoringWithRatio는 서비스 체인 데이터를 �
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feeRatio | uint8 \(Go\) | 수수료 납부자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0\(0\)은 허용되지 않습니다. 100 이상도 허용되지 않습니다. |
 | input | \[\]byte \(Go\) | 서비스 체인의 데이터. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요. |
 | feePayer | common.Address \(Go\) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 

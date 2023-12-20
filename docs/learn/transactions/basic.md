@@ -137,7 +137,7 @@ TxTypeValueTransfer is used when a user wants to send KLAY. As Klaytn provides m
 | to | common.Address \(Go\) | The account address that will receive the transferred value. |
 | value | \*big.Int \(Go\) | The amount of KLAY in `peb` to be transferred. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
@@ -254,7 +254,7 @@ TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific m
 | value | \*big.Int \(Go\) | The amount of KLAY in `peb` to be transferred. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | input | \[\]byte \(Go\) | Data attached to the transaction. The message should be passed to this attribute. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
@@ -376,7 +376,7 @@ TxTypeSmartContractDeploy deploys a smart contract to the given address. The fol
 | input | \[\]byte \(Go\) | Data attached to the transaction, used for transaction execution. |
 | humanReadable | bool \(Go\) | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected. |
 | codeFormat | uint8 \(Go\) | The code format of smart contract code. The supported value for now is EVM\(0x00\) only. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
@@ -500,7 +500,7 @@ TxTypeSmartContractExecution executes a smart contract with the given data in `i
 | value | \*big.Int \(Go\) | The amount of KLAY in `peb` to be transferred. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | input | \[\]byte \(Go\) | Data attached to the transaction, used for transaction execution. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
@@ -618,7 +618,7 @@ TxTypeAccountUpdate updates the key of the given account. The following changes 
 | gas | uint64 \(Go\) | The maximum amount of transaction fee the transaction is allowed to use. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | key | AccountKey \(Go\) | [AccountKey] to be updated to the account. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
@@ -738,7 +738,7 @@ The following changes can occur by this transaction type. 1. The sender's balanc
 | gasPrice | \*big.Int \(Go\) | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY]. |
 | gas | uint64 \(Go\) | The maximum amount of transaction fee the transaction is allowed to use. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 Outcome:
 
@@ -851,7 +851,7 @@ TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain 
 | gas | uint64 \(Go\) | The maximum amount of transaction fee the transaction is allowed to use. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | input | \[\]byte \(Go\) | Data of the service chain. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 
 ### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 

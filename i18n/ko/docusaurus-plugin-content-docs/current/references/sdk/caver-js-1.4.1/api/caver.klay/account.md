@@ -44,7 +44,7 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 네트워크에서 생성되었는지 확인하기 위해 쿼리하려는 계정의 주소입니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**
@@ -76,7 +76,7 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 계정 정보를 가져올 계정의 주소입니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**
@@ -153,7 +153,7 @@ caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 계정키를 가져올 계정의 주소입니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**
@@ -258,7 +258,7 @@ caver.klay.getBalance(address [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 잔액을 가져올 주소입니다.
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**
@@ -286,7 +286,7 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 코드를 가져올 주소입니다.
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**
@@ -315,7 +315,7 @@ caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 트랜잭션 수를 가져올 주소입니다.
-| blockNumber | Number &#124; String | (선택 사항) 블록 번호, 보류 중인 nonce에 대한 문자열 `pending` 또는 [기본 블록 매개변수](./block.md#defaultblock)에서와 같이 `earliest` 또는 `latest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
+| blockNumber | Number \| String | (선택 사항) 블록 번호, 보류 중인 nonce에 대한 문자열 `pending` 또는 [기본 블록 매개변수](./block.md#defaultblock)에서와 같이 `earliest` 또는 `latest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환합니다.
 
 **리턴 값**
@@ -345,7 +345,7 @@ caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 | 이름 | 유형 | 설명
 | --- | --- | --- |
 | address | String | 확인하려는 계정의 주소는 isContractAccount입니다. |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
 
 **리턴 값**

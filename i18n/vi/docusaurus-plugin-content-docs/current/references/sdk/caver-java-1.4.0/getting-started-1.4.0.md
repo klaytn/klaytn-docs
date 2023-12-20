@@ -67,7 +67,7 @@ $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -
 Hiện tại, chúng tôi không hỗ trợ các trình quản lý gói khác. Một giải pháp khác mà chúng tôi cung cấp là một phương pháp để xây dựng CLI như bên dưới.
 
 * Tải xuống hoặc tách luồng caver-java.
-* Dùng Gradle thực hiện tác vụ "shadowDistZip" trong mô-đun bảng điều khiển. Kết quả là console/build/distributions/console-shadow-{version}.zip được tạo ra.
+* Dùng Gradle thực hiện tác vụ "shadowDistZip" trong mô-đun bảng điều khiển. Kết quả là `console/build/distributions/console-shadow-{version}.zip` được tạo ra.
 
   ```text
   $ ./gradlew :console:shadowDistZip

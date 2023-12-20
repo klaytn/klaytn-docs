@@ -24,7 +24,7 @@ Sau khi triển khai thành công, promise sẽ được giải quyết bằng p
 | Tên              | type                   | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tokenInfo        | đối tượng              | Thông tin cần thiết để triển khai hợp đồng token KIP-37 trên chuỗi khối Klaytn. Xem bảng dưới đây để biết thông tin chi tiết.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| trình triển khai | chuỗi &#124; đối tượng | Địa chỉ trong phiên bản keyring để triển khai hợp đồng mã thông báo KIP-37. Địa chỉ này phải có đủ KLAY để triển khai. Xem [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) để biết thêm chi tiết. Nếu bạn muốn xác định các trường của mình sẽ sử dụng khi gửi giao dịch, bạn có thể chuyển loại đối tượng làm tham số. Tương tự, nếu bạn muốn sử dụng Ủy thác phí khi triển khai các hợp đồng KIP-37, bạn có thể xác định các trường liên quan đến ủy thác phí trong đối tượng. Đối với các trường có thể được xác định trong đối tượng, hãy tham khảo mô tả tham số của [tạo](#kip37-create). |
+| trình triển khai | chuỗi \| đối tượng | Địa chỉ trong phiên bản keyring để triển khai hợp đồng mã thông báo KIP-37. Địa chỉ này phải có đủ KLAY để triển khai. Xem [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) để biết thêm chi tiết. Nếu bạn muốn xác định các trường của mình sẽ sử dụng khi gửi giao dịch, bạn có thể chuyển loại đối tượng làm tham số. Tương tự, nếu bạn muốn sử dụng Ủy thác phí khi triển khai các hợp đồng KIP-37, bạn có thể xác định các trường liên quan đến ủy thác phí trong đối tượng. Đối với các trường có thể được xác định trong đối tượng, hãy tham khảo mô tả tham số của [tạo](#kip37-create). |
 
 Đối tượng tokenInfo phải chứa các thông tin sau:
 
@@ -296,13 +296,13 @@ kip37.uri(id)
 ```
 Trả về Mã định danh tài nguyên thống nhất (URI) riêng biệt của token đã cho.
 
-Nếu chuỗi "{id}" tồn tại trong bất kỳ URI nào, hàm này sẽ thay thế chuỗi này bằng ID token thực ở dạng thập lục phân. Vui lòng tham khảo [Siêu dữ liệu KIP-34](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
+Nếu chuỗi `{id}` tồn tại trong bất kỳ URI nào, hàm này sẽ thay thế chuỗi này bằng ID token thực ở dạng thập lục phân. Vui lòng tham khảo [Siêu dữ liệu KIP-34](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Tham số**
 
 | Tên | type                             | Mô tả                 |
 | --- | -------------------------------- | --------------------- |
-| id  | BigNumber &#124; chuỗi &#124; số | Id token để nhận uri. |
+| id  | BigNumber \| chuỗi \| số | Id token để nhận uri. |
 
 **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
@@ -329,7 +329,7 @@ Trả về tổng nguồn cung token của token cụ thể.
 
 | Tên | Loại                            | Mô tả                            |
 | --- | -------------------------------- | -------------------------------- |
-| id  | BigNumber &#124; chuỗi &#124; số | Id token để xem tổng nguồn cung. |
+| id  | BigNumber \| chuỗi \| số | Id token để xem tổng nguồn cung. |
 
 **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
@@ -357,7 +357,7 @@ Trả về số lượng token loại token `id` thuộc sở hữu của `tài 
 | Tên       | type                             | Mô tả                                        |
 | --------- | -------------------------------- | -------------------------------------------- |
 | tài khoản | chuỗi                            | Địa chỉ của tài khoản mà bạn muốn xem số dư. |
-| id        | BigNumber &#124; chuỗi &#124; số | Id token để xem số dư.                       |
+| id        | BigNumber \| chuỗi \| số | Id token để xem số dư.                       |
 
 **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
@@ -468,7 +468,7 @@ Nếu tham số id không được xác định, hãy trả về xem giao dịch
 
 | Tên | Loại                            | Mô tả                                                                                                                                                                |
 | --- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id  | BigNumber &#124; chuỗi &#124; số | (tùy chọn) Id token để kiểm tra thời tiết có bị tạm dừng hay không. Nếu tham số này bị bỏ qua, hàm `paused` trả về liệu hợp đồng có ở trạng thái tạm dừng hay không. |
+| id  | BigNumber \| chuỗi \| số | (tùy chọn) Id token để kiểm tra thời tiết có bị tạm dừng hay không. Nếu tham số này bị bỏ qua, hàm `paused` trả về liệu hợp đồng có ở trạng thái tạm dừng hay không. |
 
 **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
@@ -536,8 +536,8 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 
 | Tên           | type                             | Mô tả                                                                 |
 | ------------- | -------------------------------- | --------------------------------------------------------------------- |
-| id            | BigNumber &#124; chuỗi &#124; số | Id token để tạo.                                                      |
-| initialSupply | BigNumber &#124; chuỗi &#124; số | Số lượng token được tạo.                                              |
+| id            | BigNumber \| chuỗi \| số | Id token để tạo.                                                      |
+| initialSupply | BigNumber \| chuỗi \| số | Số lượng token được tạo.                                              |
 | uri           | chuỗi                            | (tùy chọn) URI token của token đã tạo.                                |
 | sendParam     | đối tượng                        | (tùy chọn) Một đối tượng chứa các tham số cần thiết để gửi giao dịch. |
 
@@ -548,9 +548,9 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 | Tên           | Loại                                   | Mô tả                                                                                                                                                                                                                                                                                                                                  |
 | ------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | từ            | chuỗi                                   | (tùy chọn) Địa chỉ mà giao dịch sẽ được gửi từ đó. Nếu bỏ qua tham số này thì sẽ được thiết lập bởi `kip37.options.from`. Nếu không cung cấp `from` trong đối tượng `sendParam` cũng như `kip37.options.from` thì sẽ xảy ra lỗi.                                                                                                       |
-| gas           | số &#124; chuỗi                         | (tùy chọn) Lượng gas tối đa được cung cấp cho giao dịch này (giới hạn gas). Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `kip37.methods.approve(spender,mount).estimateGas({from})`.                                                                                                                                 |
-| giá gas       | số &#124; chuỗi                         | (tùy chọn) Giá gas tính bằng peb cho giao dịch này. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getGasPrice`.                                                                                                                                                                                           |
-| giá trị       | Số &#124; Chuỗi &#124; BN &#124; Số lớn | (tùy chọn) Giá trị được chuyển trong peb.                                                                                                                                                                                                                                                                                              |
+| gas           | số \| chuỗi                         | (tùy chọn) Lượng gas tối đa được cung cấp cho giao dịch này (giới hạn gas). Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `kip37.methods.approve(spender,mount).estimateGas({from})`.                                                                                                                                 |
+| giá gas       | số \| chuỗi                         | (tùy chọn) Giá gas tính bằng peb cho giao dịch này. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getGasPrice`.                                                                                                                                                                                           |
+| giá trị       | Số \| Chuỗi \| BN \| Số lớn | (tùy chọn) Giá trị được chuyển trong peb.                                                                                                                                                                                                                                                                                              |
 | feeDelegation | boolean                                 | (tùy chọn, mặc định `sai`) Có sử dụng giao dịch ủy thác phí hay không. Nếu bỏ qua, `kip37.options.feeDelegation` sẽ được sử dụng. Nếu cả hai bị bỏ qua, ủy thác phí không được sử dụng.                                                                                                                                                |
 | feePayer      | chuỗi                                   | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch. Nếu bỏ qua, `kip37.options.feePayer` sẽ được sử dụng. Nếu cả hai bị bỏ qua, sẽ đưa ra một lỗi.                                                                              |
 | feeRatio      | chuỗi                                   | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. Nếu bỏ qua, `kip37.options.feeRatio` sẽ được sử dụng. |
@@ -715,9 +715,9 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 | ---------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | từ         | chuỗi                            | Địa chỉ của tài khoản sở hữu token sẽ được gửi với cơ chế trợ cấp.                                                                                                 |
 | người nhận | chuỗi                            | Địa chỉ tài khoản nhận token.                                                                                                                                      |
-| id         | BigNumber &#124; chuỗi &#124; số | Id token để chuyển.                                                                                                                                                |
-| số lượng   | BigNumber &#124; chuỗi &#124; số | Số lượng token bạn muốn chuyển.                                                                                                                                    |
-| data       | Bộ đệm &#124; chuỗi &#124; số    | (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              |
+| id         | BigNumber \| chuỗi \| số | Id token để chuyển.                                                                                                                                                |
+| số lượng   | BigNumber \| chuỗi \| số | Số lượng token bạn muốn chuyển.                                                                                                                                    |
+| data       | Bộ đệm \| chuỗi \| số    | (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              |
 | sendParam  | đối tượng                        | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
 **LƯU Ý** Các tham số `id` và `số lượng` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
@@ -810,7 +810,7 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 | người nhận | chuỗi                         | Địa chỉ tài khoản nhận token.                                                                                                                                      |
 | id         | Mảng                          | Một mảng id token để chuyển.                                                                                                                                       |
 | số lượng   | Mảng                          | Một mảng số lượng token bạn muốn chuyển.                                                                                                                           |
-| data       | Bộ đệm &#124; chuỗi &#124; số | (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              |
+| data       | Bộ đệm \| chuỗi \| số | (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              |
 | sendParam  | đối tượng                     | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
 **LƯU Ý** Các tham số mảng `ids` và `số lượng` chấp nhận loại `số` làm phần tử trong mảng, nhưng nếu giá trị được cung cấp là nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều này có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
@@ -894,9 +894,9 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 
 | Tên       | Loại                                        | Mô tả                                                                                                                                                              |
 | --------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| đến       | chuỗi &#124; Mảng                            | Địa chỉ của tài khoản hoặc một dãy địa chỉ mà token tạo sẽ được phát hành.                                                                                         |
-| id        | BigNumber &#124; chuỗi &#124; số             | Id token để tạo.                                                                                                                                                   |
-| giá trị   | BigNumber &#124; chuỗi &#124; số &#124; Mảng | Số lượng token sẽ được tạo. Nếu một mảng chứa nhiều địa chỉ được gửi đến tham số `to`, giá trị phải được gửi ở dạng mảng.                                          |
+| đến       | chuỗi \| Mảng                            | Địa chỉ của tài khoản hoặc một dãy địa chỉ mà token tạo sẽ được phát hành.                                                                                         |
+| id        | BigNumber \| chuỗi \| số             | Id token để tạo.                                                                                                                                                   |
+| giá trị   | BigNumber \| chuỗi \| số \| Mảng | Số lượng token sẽ được tạo. Nếu một mảng chứa nhiều địa chỉ được gửi đến tham số `to`, giá trị phải được gửi ở dạng mảng.                                          |
 | sendParam | đối tượng                                    | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
 **LƯU Ý** Các tham số `id` và `value` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
@@ -1286,8 +1286,8 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 | Tên       | Loại                            | Mô tả                                                                                                                                                              |
 | --------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | tài khoản | chuỗi                            | Địa chỉ của tài khoản sở hữu token sẽ bị hủy.                                                                                                                      |
-| id        | BigNumber &#124; chuỗi &#124; số | Id của token sẽ bị phá hủy.                                                                                                                                        |
-| giá trị   | BigNumber &#124; chuỗi &#124; số | Số lượng token sẽ bị phá hủy.                                                                                                                                      |
+| id        | BigNumber \| chuỗi \| số | Id của token sẽ bị phá hủy.                                                                                                                                        |
+| giá trị   | BigNumber \| chuỗi \| số | Số lượng token sẽ bị phá hủy.                                                                                                                                      |
 | sendParam | đối tượng                        | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
 **LƯU Ý** Các tham số `id` và `số lượng` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
@@ -1602,7 +1602,7 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 
 | Tên       | Loại                            | Mô tả                                                                                                                                                              |
 | --------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| id        | BigNumber &#124; chuỗi &#124; số | (tùy chọn) Id token để tạm dừng. Nếu tham số này bị bỏ qua, chức năng `tạm dừng` sẽ tạm dừng hợp đồng token.                                                       |
+| id        | BigNumber \| chuỗi \| số | (tùy chọn) Id token để tạm dừng. Nếu tham số này bị bỏ qua, chức năng `tạm dừng` sẽ tạm dừng hợp đồng token.                                                       |
 | sendParam | đối tượng                        | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
 **LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole.
@@ -1713,7 +1713,7 @@ Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng l�
 
 | Tên | Loại                            | Mô tả                                                                                                                  |
 | --- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| id  | BigNumber &#124; chuỗi &#124; số | (tùy chọn) Id token để bỏ tạm dừng. Nếu tham số này bị bỏ qua, chức năng `bỏ tạm dừng` sẽ hủy tạm dừng hợp đồng token. |
+| id  | BigNumber \| chuỗi \| số | (tùy chọn) Id token để bỏ tạm dừng. Nếu tham số này bị bỏ qua, chức năng `bỏ tạm dừng` sẽ hủy tạm dừng hợp đồng token. |
 
 **LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole.
 

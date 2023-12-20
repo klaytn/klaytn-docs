@@ -51,7 +51,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 유형 | 설명
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
@@ -172,7 +172,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 유형 | 설명
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 | bool | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다.                                                            |
 
 
@@ -335,7 +335,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 **파라미터**
 | 유형 | 설명 |
 | --- | --- |
-| Number &#124; 32-byte DATA &#124; TAG | 블록 번호 또는 해시입니다. 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| Number \| 32-byte DATA \| TAG | 블록 번호 또는 해시입니다. 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **반환 값**
 
@@ -383,7 +383,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 | 유형 | 설명
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 | QUANTITY | 엉클의 인덱스 위치.                                                                                                                                           |
 
 **리턴 값**
@@ -411,7 +411,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 유형 | 설명
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
@@ -474,7 +474,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 유형 | 설명
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
@@ -541,7 +541,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA | 저장소 주소.                                                                                                                                                              |
 | QUANTITY | 스토리지 내 위치의 정수입니다.                                                                                                                                              |
-| QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
+| QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
 
 **리턴 값**
 
