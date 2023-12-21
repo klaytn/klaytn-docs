@@ -43,6 +43,7 @@ const commonSidebar = [
   'misc/opensource',
   'misc/terms-of-use',
   'misc/internationalization',
+  'misc/test',
 ];
 
 const sidebars = {
