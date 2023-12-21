@@ -1,3 +1,3 @@
-# Test
+# 테스트
 
-This is a text file for crowndin test.
+crowndin 테스트용 파일입니다.
