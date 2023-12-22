@@ -60,7 +60,7 @@ MAIN_BRIDGE_INDEXING=1
 
 #### EN 콘솔 열기 <a id="open-en-console"></a>
 
-EN 프로세스에 연결하는 방법은 여러 가지가 있습니다. 사용 가능한 명령어는 [ken CLI 명령어](../../references/klaytn-command.md#ken-cli-commands)에서 확인할 수 있습니다. 이 페이지는 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 방법을 설명합니다. 노드의 데이터 디렉터리에 `klay.ipc`라는 IPC 파일이 있습니다.
+EN 프로세스에 연결하는 방법은 여러 가지가 있습니다. 사용 가능한 명령어는 [ken CLI 명령어](../../../nodes/endpoint-node/ken-cli-commands.md)에서 확인할 수 있습니다. 이 페이지는 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 방법을 설명합니다. 노드의 데이터 디렉터리에 `klay.ipc`라는 IPC 파일이 있습니다.
 
 다음 명령어를 실행하여 결과를 확인해 주세요. (RPC에 `mainbridge` API를 추가한 경우 아래와 같이 브리지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN 설정 - 메인 브리지 활성화](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
