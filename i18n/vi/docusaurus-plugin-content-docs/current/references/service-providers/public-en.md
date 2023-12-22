@@ -28,7 +28,8 @@ Hãy nhớ rằng những điểm cuối này được cung cấp cho cộng đ�
 |                                             | `https://archive-en.cypress.klaytn.net`           | klay,eth,net   | Lưu trữ |
 | [All That Node](www.allthatnode.com)        | `https://klaytn-mainnet-rpc.allthatnode.com:8551` | klay,eth,net   | Đầy đủ  |
 | [Mạng lưới BlockPI](https://blockpi.io/)    | `https://klaytn.blockpi.network/v1/rpc/public`    | klay,eth,net   | Đầy đủ  |
-| [Pokt Network](https://pokt.network/)       | `https://klaytn-rpc.gateway.pokt.network/)`       | klay,eth,net   | Đầy đủ  |
+|[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|klay,eth,net|Full|
+| [Pokt Network](https://pokt.network/)       | `https://klaytn-rpc.gateway.poktnetwork/)`       | klay,eth,net   | Đầy đủ  |
 
 **WebSocket**
 
@@ -36,7 +37,7 @@ Hãy nhớ rằng những điểm cuối này được cung cấp cho cộng đ�
 | ------------------------------------------- | ---------------------------------------- | -------------- | ------- |
 | [Quỹ Klaytn](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`  | klay,eth,net   | Đầy đủ  |
 |                                             | `wss://archive-en.cypress.klaytn.net/ws` | klay,eth,net   | Lưu trữ |
-
+|[OnFinality](https://onfinality.io/)|`wss://klaytn.api.onfinality.io/public-ws`|klay,eth,net|Full|
 
 ### Testnet (Baobab) điểm cuối JSON-RPC công khai
 
