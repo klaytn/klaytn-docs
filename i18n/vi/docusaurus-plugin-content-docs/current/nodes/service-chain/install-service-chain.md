@@ -137,7 +137,7 @@ $ cat homi-output/keys/nodekey1
 
 Hãy thay đổi chainID trong tập tin khởi nguyên. Dùng số của chính bạn để đề phòng tấn công phát lại. (Không sử dụng chainID giống nhau với Klaytn Cypress (8217) và Baobab (1001))
 
-Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [JSON KHỞI NGUYÊN](../references/genesis.md).)
+Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [JSON KHỞI NGUYÊN](../service-chain/configure/genesis.md).)
 
 ### Tạo thư mục dữ liệu SCN <a id="scn-data-directory-creation"></a>
 

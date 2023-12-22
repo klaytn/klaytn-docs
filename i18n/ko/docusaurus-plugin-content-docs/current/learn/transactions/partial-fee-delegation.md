@@ -1050,6 +1050,6 @@ SenderTxHash 0xa0670c01fe39feb2d2442adf7df1957ade3c5abcde778fb5edf99c80c06aa53c
 }
 ```
 
-[KLAY 단위]: ./klaytn-native-coin-klay.md#units-of-klay
+[KLAY 단위]: ../klaytn-native-coin-klay.md#units-of-klay
 [트랜잭션 서명 유효성 검사]: ./transactions.md#signature-validation-of-transactions
-[계정 키]: ./accounts.md#account-key
+[계정 키]: ../accounts.md#account-key

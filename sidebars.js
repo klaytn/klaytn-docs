@@ -301,6 +301,7 @@ const sidebars = {
       items: [
         'nodes/endpoint-node/system-requirements',
         'nodes/endpoint-node/install-endpoint-nodes',
+        'nodes/endpoint-node/docker-setup',
         'nodes/endpoint-node/ken-cli-commands',
         'nodes/endpoint-node/json-rpc-apis',
       ],

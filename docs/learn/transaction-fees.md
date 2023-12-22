@@ -25,7 +25,7 @@ Summing it up again, this calculated transaction fee is subtracted from the send
 This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
 
 ## GasPrice Overview <a id="gas-price-overview"></a>
-Unlike the ethereum, Klaytn used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Klaytn started to use dynamic gas price which concept is newly redesined by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
+Unlike the ethereum, Klaytn used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Klaytn started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
 
 | Network | Before BaseFee | After BaseFee |
 | :--- | :--- | :--- |
