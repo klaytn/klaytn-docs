@@ -14,7 +14,7 @@ TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 전송하고자 할 때 
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | TxTypeFeeDelegatedValueTransfer의 유형입니다. 0x09여야 합니다.
 | nonce | uint64 \(Go\) | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다. |
-| gasPrice | *big.Int \(Go\) | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위](./klaytn-native-coin-klay.md#units-of-klay)를 참고하세요. |
+| gasPrice | *big.Int \(Go\) | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고하세요. |
 | gas | uint64 \(Go\) | 트랜잭션이 사용할 수 있는 최대 가스 양입니다. |
 | to | common.Address \(Go\) | 이체된 값을 받을 계정 주소입니다. |
 | value | \*big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. |
@@ -1023,6 +1023,6 @@ SenderTxHash 0x4f5c00ea8f6346baa7d4400dfefd72efa5ec219561ebcebed7be8a2b79d52bcd
 }
 ```
 
-[KLAY 단위]: ./klaytn-native-coin-klay.md#units-of-klay
+[KLAY 단위]: ../klaytn-native-coin-klay.md#units-of-klay
 [트랜잭션 서명 검증]: ./transactions.md#signature-validation-of-transactions
-[계정 키]: ./accounts.md#account-key
+[계정 키]: ../accounts.md#account-key
