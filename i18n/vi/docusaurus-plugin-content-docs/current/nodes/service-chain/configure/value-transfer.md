@@ -260,6 +260,13 @@ Người dùng có thể thực hiện giao dịch "yêu cầu chuyển giá tr�
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
+### onERC721Received() <a id="unsupported-onERC721Received"></a>
+
+The ERC-721 standard has the [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) callback function.
+The `onERC721Received()` works with `safeTransferFrom()` function, but the current bridge contract implementation uses `transferFrom()`, which means the `onERC721Recieved()` is not expected to be called.
+
+Alternatively, a further action like `onERC721Recieved()` should be implemented in another way such as event listening (e.g., `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
+
 ## Khôi phục chuyển giá trị
 Yêu cầu chuyển giá trị có thể không thành công vì nhiều lý do. Ví dụ, bạn đã yêu cầu chuyển KLAY từ cầu nối phụ đến cầu nối chính hoặc từ cầu nối chính đến cầu nối phụ. Trong trường hợp đó, hợp đồng cầu nối ở bên nhận phải có đủ KLAY hơn số lượng KLAY được yêu cầu. Nếu không, lệnh chuyển sẽ thất bại mà không có thông báo lỗi về giá trị trả về. Một tính năng của lệnh khôi phục chuyển giá trị là lệnh này tìm ra những sự kiện chưa được xử lý, đồng thời thêm chúng vào bể sự kiện trong một khoảng thời gian nhất định, nghĩa là giao dịch không thành công có thể được thực hiện lại thành công khi cầu nối đối ứng có thể thành công xử lý sự kiện đó. Trong trường hợp như ở ví dụ trên, giao dịch không thành công cuối cùng sẽ được xử lý bởi lệnh khôi phục chuyển giá trị khi cầu nối đối ứng có đủ KLAY. Để thiết lập lệnh khôi phục chuyển giá trị làm mặc định, bạn cần thiết lập hai thuộc tính:
 ```
