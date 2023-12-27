@@ -539,7 +539,7 @@ return (
 
 ## Khắc phục sự cố
 
-1. **Node fs error, add browser {fs: false} to package.json**
+1. **Node fs error, add browser \{fs: false\} to package.json**
 
 ```bash
 Node fs error, add browser {fs: false} to package.json

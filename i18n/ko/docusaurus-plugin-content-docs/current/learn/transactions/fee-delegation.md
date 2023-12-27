@@ -14,14 +14,14 @@ TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 전송하고자 할 때 
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | TxTypeFeeDelegatedValueTransfer의 유형입니다. 0x09여야 합니다.
 | nonce | uint64 \(Go\) | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다. |
-| gasPrice | *big.Int \(Go\) | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위](./klaytn-native-coin-klay.md#units-of-klay)를 참고하세요. |
+| gasPrice | *big.Int \(Go\) | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고하세요. |
 | gas | uint64 \(Go\) | 트랜잭션이 사용할 수 있는 최대 가스 양입니다. |
 | to | common.Address \(Go\) | 이체된 값을 받을 계정 주소입니다. |
 | value | \*big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
@@ -166,9 +166,9 @@ SenderTxHash 40f8c94e01e07eb5353f6cd4cd3eabd5893215dd53a50ba4b8ff9a447ac51731
 | value | *big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. | |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 검증]을 참고하세요. | |
 | input | \[\]byte \(Go\) | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다. | |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. | |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. | |
 | feePayer | common.Address \(Go)|수수료 납부자의 주소입니다. | |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. | |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. | |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
@@ -319,9 +319,9 @@ SenderTxHash fffaa2b38d4e684ea70a89c78fc7b2659000d130c76ad721d68175cbfc77c550
 | input | \[\]byte \(Go\) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. |
 | humanReadable | bool \(Go\) | 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 false이어야 합니다. true이면 트랜잭션이 거부됩니다. |
 | codeFormat | uint8 \(Go\) | 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM\(0x00)만입니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
@@ -473,9 +473,9 @@ TxTypeFeeDelegatedSmartContractExecution은 `input`에 주어진 데이터로 �
 | value | \*big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 검증]을 참고하세요. |
 | input | \[\]byte \(Go\) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명입니다. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
@@ -622,9 +622,9 @@ TxTypeFeeDelegatedAccountUpdate는 지정된 계정의 키를 업데이트합니
 | gas | uint64 \(Go\) | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 검증]을 참고하세요. |
 | key | AccountKey \(Go\) | 계정에 업데이트할 [계정 키]입니다. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
@@ -762,9 +762,9 @@ TxTypeFeeDelegatedCancel은 트랜잭션 풀에서 동일한 nonce를 가진 트
 | gasPrice | \*big.Int \(Go\) | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위]를 참고하세요. |
 | gas | uint64 \(Go\) | 거래에서 사용할 수 있는 최대 트랜잭션 수수료 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go\) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -899,9 +899,9 @@ TxTypeFeeDelegatedChainDataAnchoring은 서비스 체인 데이터를 클레이�
 | gas | uint64 \(Go\) | 거래에서 사용할 수 있는 최대 트랜잭션 수수료 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | input | \[\]byte \(Go\) | 서비스 체인의 데이터. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go\) | 수수료 납부자의 주소입니다. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 수수료 납부자의 서명. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명. |
 
 ### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -1023,6 +1023,6 @@ SenderTxHash 0x4f5c00ea8f6346baa7d4400dfefd72efa5ec219561ebcebed7be8a2b79d52bcd
 }
 ```
 
-[KLAY 단위]: ./klaytn-native-coin-klay.md#units-of-klay
+[KLAY 단위]: ../klaytn-native-coin-klay.md#units-of-klay
 [트랜잭션 서명 검증]: ./transactions.md#signature-validation-of-transactions
-[계정 키]: ./accounts.md#account-key
+[계정 키]: ../accounts.md#account-key

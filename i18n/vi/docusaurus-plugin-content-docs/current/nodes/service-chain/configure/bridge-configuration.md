@@ -60,7 +60,7 @@ Bạn cần chạy EN của chuỗi chính như cầu nối chính. Đồng th�
 
 #### Mở Bảng điều khiển EN <a id="open-en-console"></a>
 
-Có nhiều cách khác nhau để gắn vào quy trình EN. Bạn có thể kiểm tra các lệnh có thể sử dụng trên [lệnh ken CLI](../../references/klaytn-command.md#ken-cli-commands). Trang này giải thích cách gắn vào quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục dữ liệu trên nút.
+Có nhiều cách khác nhau để gắn vào quy trình EN. Bạn có thể kiểm tra các lệnh có thể sử dụng trên [lệnh ken CLI](../../../nodes/endpoint-node/ken-cli-commands.md). Trang này giải thích cách gắn vào quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục dữ liệu trên nút.
 
 Hãy thực hiện lệnh sau và kiểm tra kết quả. (Nếu bạn đã thêm API `mainbridge` cho RPC, bạn có thể kiểm tra API cầu nối như bên dưới. Nếu không có API `mainbridge`, bạn nên kiểm tra lại [Cấu hình EN - Kích hoạt cầu nối chính](#en-configuration-enable-main-bridge). )
 

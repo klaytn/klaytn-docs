@@ -51,7 +51,7 @@ Trả về thông tin tiêu đề theo số. API này chỉ hoạt động trên
 
 | Loại               | Mô tả                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**
 
@@ -160,7 +160,7 @@ Trả về thông tin của một khối theo số khối. API này chỉ hoạt
 
 | Loại               | Mô tả                                                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 | Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.                                         |
 
 :::note
@@ -282,12 +282,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
-Trả về các biên lai được gộp vào khối được xác định bằng hàm băm khối.
+Trả lại biên lai bao gồm trong một khối.
 
 **Tham số**
 | Loại           | Mô tả        |
 | --------------- | ------------ |
-| DỮ LIỆU 32 byte | Hàm băm khối |
+| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Giá trị trả về**
 
@@ -297,34 +297,32 @@ Biên lai có trong một khối.  Nếu khối mục tiêu không chứa giao d
 
 ```shell
 // Request
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30"],"id":73}' https://public-en-baobab.klaytn.net
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1"],"id":1}' https://public-en-baobab.klaytn.net
 
 // Result
 {
-  "jsonrpc":"2.0",
-  "id":73,
-  "result":[{
-    "blockHash":"0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30",
-    "blockNumber":"0x3ba38",
-    "contractAddress":null,
-    "effectiveGasPrice":"0x5d21dba00",
-    "from":"0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5",
-    "gas":"0x30d40",
-    "gasPrice":"0xba43b7400",
-    "gasUsed":"0x1886c",
-    "nhật ký":[],
-    "nhật kýBloom":"0x00000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000040000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "nonce":"0x58e",
-    "senderTxHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
-    "signatures":["0x7f6","0x50b2b0f95b8a6d7018369b1933d6cebb52ef119463d1840a6181d05bf8fc29d8","0x329630f88d9d06c5f1bd7644dbf6bd6b92e4ab0e3d47122972f8294c9289e7bb"],
-    "trạng thái":"0x1",
-    "to":"0xdbb98c72e9818ad2c93a09e35ad43ada0d4223f0",
-    "transactionHash":"0x234469b3d3222657c98904deaba7ec6613161ea9405275025f4784a4d9918af5",
-    "transactionIndex":"0x0",
-    "type":"TxTypeValueTransfer",
-    "typeInt":8,
-    "value":"0x21e19e0c9bab2400000"
-  }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "blockHash": "0xb14e8716f732186f2c99bb7a215a7cb1ec40e91e8d83739bfb593ed4b9047aa1",
+      "blockNumber": "0x85ef20d",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x23b6e",
+      "effectiveGasPrice": "0x5d21dba00",
+      "from": "0x60d690e4d5db4025f4781c6cf3bff8669500823c",
+      "gasUsed": "0x23b6e",
+      "logs": [
+        ...
+      ],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000220000000400000000000000000000000000000000000002000000000010001000000000040000000000000000000000000000000000000000000000000000400000080000000100000000000000000000000000000000000000000000480000000000000000000000010000000001000000000000000000000000000000000000000000009000000000000000000000000000000000000000008000000000000000004000000000004000000000000000000000000000000000000000000000000000000000000000200",
+      "status": "0x1",
+      "to": "0x27e1255f2a0ea596992158a0bc838f43be34b99d",
+      "transactionHash": "0xafd15213b06144a85dd02adf88c32efb3d395e784f153c213a40b7ea25de1942",
+      "transactionIndex": "0x0",
+      "type": "0x0"
+    }
+  ]
 }
 ```
 
@@ -337,7 +335,7 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 | Loại               | Mô tả                                                                                                                                                           |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -404,7 +402,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 
 | Loại               | Mô tả                                                                                                                                              |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -604,7 +602,7 @@ Trả về danh sách tất cả các nút xác thực của ủy ban tại kh�
 
 | Tên                 | Loại   | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -645,7 +643,7 @@ Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tha
 
 | Tên                 | type    | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -684,7 +682,7 @@ Trả về danh sách tất cả những nút xác thực của hội đồng t�
 
 | Tên                 | type    | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -725,7 +723,7 @@ Trả về quy mô của hội đồng tại khối được chỉ định. Nế
 
 | Tên                 | Loại   | Mô tả                                                                                                                                                         |
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
 
@@ -765,7 +763,7 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DỮ LIỆU 20 byte                    | Địa chỉ kho lưu trữ.                                                                                                                                                               |
 | SỐ LƯỢNG                           | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                                 |
-| SỐ LƯỢNG &#124; THẺ &#124; HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
 
@@ -881,7 +879,7 @@ Trả về kết quả phân phối phần thưởng về một khối theo số
 
 | Loại               | Mô tả                                                                                                                                                                   |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG &#124; THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
+| SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**
 

@@ -42,7 +42,7 @@ Hàm sẽ trả về giá trị `true` nếu tài khoản liên kết với đ�
 | Tên          | type            | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ của tài khoản mà bạn muốn truy vấn xem tài khoản đã được tạo trong mạng hay chưa.                                                                        |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**
@@ -74,7 +74,7 @@ Trả về thông tin tài khoản của một địa chỉ cho trước. Có ha
 | Tên          | Loại           | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ của tài khoản mà bạn muốn có thông tin tài khoản.                                                                                                        |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**
@@ -151,7 +151,7 @@ Trả về mã khóa tài khoản của Tài khoản sở hữu bên ngoài (EOA
 | Tên          | Loại           | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ của tài khoản mà bạn muốn có mã khóa tài khoản.                                                                                                          |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**
@@ -256,7 +256,7 @@ Lấy số dư của một địa chỉ tại một khối nhất định.
 | Tên          | Loại           | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ để nhận số dư.                                                                                                                                           |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**
@@ -284,7 +284,7 @@ Lấy mã tại một địa chỉ cụ thể.
 | Tên          | type            | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ để nhận số dư từ đó.                                                                                                                                     |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**
@@ -313,7 +313,7 @@ Nhận số lượng giao dịch đã gửi từ địa chỉ này.
 | Tên         | Loại           | Mô tả                                                                                                                                                                                                                       |
 | ----------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address     | Chuỗi           | Địa chỉ để nhận số lượng giao dịch từ đó.                                                                                                                                                                                   |
-| blockNumber | số &#124; chuỗi | (tùy chọn) Số khối, chuỗi `pending` để lấy số dùng một lần đang chờ xử lý hoặc chuỗi `earliest` hoặc `latest` giống như trong [tham số khối mặc định](./block.md#defaultblock). Nếu bỏ qua, chuỗi `latest` sẽ được sử dụng. |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối, chuỗi `pending` để lấy số dùng một lần đang chờ xử lý hoặc chuỗi `earliest` hoặc `latest` giống như trong [tham số khối mặc định](./block.md#defaultblock). Nếu bỏ qua, chuỗi `latest` sẽ được sử dụng. |
 | callback    | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                             |
 
 **Giá trị trả về**
@@ -343,7 +343,7 @@ Trả về `true` nếu tài khoản đầu vào có codeHash không trống và
 | Tên          | Loại           | Mô tả                                                                                                                                                            |
 | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | Chuỗi           | Địa chỉ của tài khoản mà bạn muốn kiểm tra thuộc tính isContractAccount.                                                                                         |
-| defaultBlock | Số &#124; Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Hàm             | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
 **Giá trị trả về**

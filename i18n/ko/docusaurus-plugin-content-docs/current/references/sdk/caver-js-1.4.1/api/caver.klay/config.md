@@ -12,7 +12,7 @@ caver.klay.gasPriceAt([defaultBlock] [, callback])
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| defaultBlock | Number &#124; String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
+| defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에서 설정한 기본 블록이 사용됩니다. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
@@ -191,7 +191,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-현재 노드의 보상베이스를 반환합니다. Rewardbase는 블록 보상이 전달되는 계정의 주소입니다. 클레이튼 컨센서스 노드(CN)만이 리워드베이스를 구성에 가지고 있습니다. [구성 파일](../../../../../nodes/references/configuration-files.md)을 참조하세요.
+현재 노드의 보상베이스를 반환합니다. Rewardbase는 블록 보상이 전달되는 계정의 주소입니다. 클레이튼 컨센서스 노드(CN)만이 리워드베이스를 구성에 가지고 있습니다. [구성 파일](../../../../../misc/operation/configuration.md)을 참조하세요.
 
 
 **매개변수**

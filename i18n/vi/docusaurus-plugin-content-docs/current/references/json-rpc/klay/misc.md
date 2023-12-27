@@ -42,7 +42,7 @@ Returns the recovered sender address from RLP encoded transaction bytes. If the 
 | Name         | Type                | Description                                                                                                                                                   |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | data         | DATA                | RLP encoded transaction bytes                                                                                                                                 |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -77,7 +77,7 @@ Returns signer address from message signature. It validates if the message is si
 | address      | string              | The address of the signer account.                                                                                                                            |
 | message      | DATA                | Message bytes                                                                                                                                                 |
 | signature    | 65-byte DATA        | Signature bytes                                                                                                                                               |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -120,7 +120,7 @@ Returns the whole list of hardforks and their effectiveness at the given block.
 
 | Name         | Type                | Description                                                                                                                                                   |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| block number | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -147,6 +147,47 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "London": true,
     "Magma": true,
     "Shanghai": false
+  }
+}
+```
+
+## klay_createAccessList <a id="klay_createaccesslist"></a>
+
+This method creates an `accessList` based on a given `Transaction`.
+The `accessList` contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles.
+This method uses the same transaction call object and `blockNumberOrTag` object as [`klay_call`](./transaction.md#klay_call).
+An accessList can be used to unstuck contracts that became inaccessible due to gas cost increases.
+Adding an `accessList` to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+
+**Parameters**
+
+| Name             | Type                | Description                                                                                              |
+|------------------|---------------------|----------------------------------------------------------------------------------------------------------|
+| callObject       | Object              | The transaction call object. Refer to [`klay_call`](./transaction.md#klay_call) for the object's properties. |
+| blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
+
+**Return Value**
+
+| Type      | Description                                                              |
+|-----------|--------------------------------------------------------------------------|
+| Object    | Returns list of addresses and storage keys used by the transaction, plus the gas consumed when the access list is added. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_createAccessList", "params": [{"from": "0x8cd02c6cbd8375b39b06577f8d50c51d86e8d5cd", "data": "0x608060806080608155"}, "latest"], "id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": {
+    "accessList": [{
+      "address": "0xa02457e5dfd32bda5fc7e1f1b008aa5979568150",
+      "storageKeys": ["0x0000000000000000000000000000000000000000000000000000000000000081"]
+    }],
+    "gasUsed": "0x128ee"
   }
 }
 ```

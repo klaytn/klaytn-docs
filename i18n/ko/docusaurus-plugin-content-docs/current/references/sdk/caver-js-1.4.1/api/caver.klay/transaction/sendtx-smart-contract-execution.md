@@ -23,7 +23,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | Type | String | 트랜잭션 유형. "SMART_CONTRACT_EXECUTION" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 배포된 스마트 컨트랙트의 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb)입니다. 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
+| value | number \| string \| BN \| BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb)입니다. 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략하면 caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
@@ -101,7 +101,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | type | String | 트랜잭션 유형. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 배포된 스마트 컨트랙트의 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb)입니다. 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
+| value | number \| string \| BN \| BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb)입니다. 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
@@ -198,7 +198,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | type | String | 트랜잭션 유형. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO" |
 | from | String | 이 트랜잭션 발신자의 주소입니다. |
 | to | String | 배포된 스마트 컨트랙트의 주소입니다. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb). 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
+| value | number \| string \| BN \| BigNumber | (선택 사항) 트랜잭션에 대해 전송된 값(peb). 밸류 전송을 수락하려면 이 트랜잭션에 의해 실행될 컨트랙트 함수가 '지불 가능'이어야 합니다. 생략하면 0으로 설정됩니다. |
 | gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
 | gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
 | nonce | Number | (선택 사항) nonce의 정수입니다. 생략하면 caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |

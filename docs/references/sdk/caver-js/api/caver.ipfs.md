@@ -45,7 +45,7 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 
 | Name | Type | Description |
 | --- | --- | --- |
-| data | string &#124; Buffer &#124; ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
+| data | string \| Buffer \| ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
 
 **NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 

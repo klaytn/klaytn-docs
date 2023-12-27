@@ -21,9 +21,9 @@ TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY.
 | value | \*big.Int \(Go\) | The amount of KLAY in `peb` to be transferred. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -172,9 +172,9 @@ TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send K
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | input | \[\]byte \(Go\) | Data attached to the transaction. The message should be passed to this attribute. |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -328,9 +328,9 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 | humanReadable | bool \(Go\) | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected. |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
 | codeFormat | uint8 \(Go\) | The code format of smart contract code. The supported value for now is EVM\(0x00\) only. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -486,9 +486,9 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | input | \[\]byte \(Go\) | Data attached to the transaction, used for transaction execution. |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -634,9 +634,9 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | key | AccountKey \(Go\) | [AccountKey](../accounts.md#account-key) to be updated to the account. |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -777,9 +777,9 @@ The following changes will apply by this transaction type. 1. The fee payer's ba
 | gas | uint64 \(Go\) | The maximum amount of transaction fee the transaction is allowed to use. |
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
@@ -923,9 +923,9 @@ This transaction does not change the state of the Klaytn blockchain except the s
 | from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
 | input | \[\]byte \(Go\) | Data of the service chain. |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions). |
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures. |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 

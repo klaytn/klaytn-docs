@@ -140,7 +140,7 @@ $ cat homi-output/keys/nodekey1
 (클레이튼 Cypress(8217), Baobab(1001)과 같은 체인ID를 사용하지 마세요).
 
 원하는 경우 제네시스 파일에서 `"alloc"`을 편집하여 미리 펀딩된 주소를 변경할 수 있습니다.
-(자세한 내용은 [Genesis JSON](../references/genesis.md)에서 확인할 수 있습니다.)
+(자세한 내용은 [Genesis JSON](../service-chain/configure/genesis.md)에서 확인할 수 있습니다.)
 
 ### SCN 데이터 디렉터리 생성 <a id="scn-data-directory-creation"></a>
 

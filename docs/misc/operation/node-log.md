@@ -1,4 +1,4 @@
-# Node Logs
+# Node Log
 
 This page details some important or frequently asked logs from Klaytn nodes.
 If the Klaytn log is modified or newly added/deleted, please edit this page as well.
@@ -18,7 +18,6 @@ If you encounter any abnormal situation, please report it to the klaytn team via
 | NodeCN | CN | **fail to SendNewBlock** peer=d35220eccdb0de7b err="shutting down" | same as `Protocol istanbul/64 failed` | same as `Protocol istanbul/64 failed` | 
 | NetworksRPC | EN (mostly) | **FastWebsocketHandler fail to upgrade message** error="websocket: version != 13" | Version issue of WebSocket connection | The header of the request should contain `Sec-Websocket-Version` field with the value set at 13. You may not have used klaytn rpc client. |
 
-
 ## Warn Logs
 
 | Log Type | Node Type | Log Message | Description | Suggested Guide |
@@ -30,7 +29,6 @@ If you encounter any abnormal situation, please report it to the klaytn team via
 | NodeCN | PN/EN | **Failed to filter bodies** peer=c02e4b4d471c56b9 lenTxs=1 | A node received the unwanted block header of body when fetching.  - lenTxs: non-requested number of txs | You don't need to handle this. |
 | Work | CN | **Transaction aborted due to time limit** hash= | The block execution time when mining should not exceed 250ms, so the last transaction can be aborted due to this time limit. | Confirm that the transaction enters the block. |
 | Work | CN | **Transaction failed, account skipped** hash=b1b26c...6b220a err="insufficient balance for transfer"<br/><br/>Error(before v1.6.2)<br/>Warn(after v1.6.2) | When a transaction cannot be executed during mining due to an insufficient balance in the `from` account  (Theoretically, it occurs when the balance was sufficient at the time when the transaction was created and entered the txpool, but not at the actual execution time.) | Check if the `from` account is really out of balance. |
-
 
 ## Info Logs
 
@@ -50,65 +48,3 @@ If you encounter any abnormal situation, please report it to the klaytn team via
 | Work | CN | **Successfully wrote mined block** num=14 hash=13cbfc…f007fc txs=0 elapsed=617.709µs | [Only Proposer] If the node is a proposer, and consensus is succeed, the proposer needs to store the block execution result in the db. This log means the storing was successful. | 
 | Work | CN | **Mining too far in the future** wait=1s | In order to maintain 1 second block creation period, the node sleeps for "1s - previous block generation/propagation/execution time".  - wait: how much time the node sleeps|
 | VM | CN/PN/EN | **Returning since the addr is not a program account** addr= | Somebody tries to call a non-existent contract.  Tip. In Klaytn, program account is equivalent to contract account. |
-
-## Log operations
-
-### Configure Log Rotation
-
-You can enable the log rotation by setting the `--log.rotate` flag, and configure the log rotation settings by the following flags.
-- `--log.rotate`: By setting this flag, it enables the log rotation and applies the other log rotation options
-- `--log.maxsize`: Specifies the file size in MB that triggers backup file creation
-- `--log.maxbackups`: Determines the maximum number of backup files that can be stored. Once this limit is reached, older logs will be deleted.
-- `--log.maxage`: Represents the maximum number of days to retain a log file. For example, if set to 30, a backup file will be deleted after 30 days.
-- `--log.compress`: By setting this flag, it compresses the backup logs in gz format.
-
-Example
-```
-./bin/ken ... --log.rotate --log.maxsize 100 --log.maxbackups 10 --log.maxage 30 --log.compress
-```
-You can also enable and configure the log rotation by setting following options in configuration file (e.g., `kend.conf`).
-```
-# log rotation related options
-LOG_ROTATE=1 # setting 1 to enable the log rotation related options
-LOG_MAXSIZE=100 # the unit is MB
-LOG_MAXBACKUPS=10
-LOG_MAXAGE=30 # maximum number of days to retain a log file
-LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
-```
-It is recommended to download and use the package which version is v1.11.0 or higher. You can download it in Binaries section of the release note(e.g., [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.11.0 or higher: configuration file, daemon, and binary. Otherwise, it won't work.
-
-### Normal Log Status
-
-| Type                                        | Message                                                                                                          | Description                                                                                                                                                                                                                                                                                                                       |     |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| Error                                       | FastWebsocketHandler fail to upgrade message                                                                     | Version issue of WebSocket connection                                                                                                                                                                                                                                                                                             | low |
-| Error                                       | invalid index of the proposer                                                                                    | The error that occurs when EN receives transactions from CN                                                                                                                                                                                                                                                                       | low |
-| WARN                                        | ProtocolManager failed to read msg                                                                               |                                                                                                                                                                                                                                                                                                                                   | low |
-| WARN                                        | Failed doConnTypeHandshake                                                                                       |                                                                                                                                                                                                                                                                                                                                   | low |
-| Error                                   | Protocol istanbul/64 failed                                                                                      | Peer disconnected                                                                                                                                                                                                                                                                                                                 | low |
-| Error                                       | Fasthttp Err                                                                                                     | Error when serving connection: read timeout with nothing read                                                                                                                                                                                                                                                                     | low |
-| Error                                       | Fasthttp Err                                                                                                     | Error when serving connection: error when reading request headers: cannot find http request method in "\x16…                                                                                                                                                                                                                      | low |
-|  Warn                                       | hash=b1b26c…6b220a err="insufficient balance for transfer"                                                       | This log occurs when the transaction processed (usually mining) cannot be executed due to insufficient balance in the "from account”(Theoretically, it occurs when the balance was sufficient at the time when the transaction was created and entered the txpool, but there was no balance at the time of the actual execution.) | low |
-| ERROR                                       | ERROR\[06/06,23:23:46 Z] \[7] decode anchor payload err="rlp: expected input list for types.AnchoringDataLegacy" | Any type of value may be included in the data field of Anchoring tx. However, an error log is the output to the node when an incorrect type of value is entered                                                                                                                                                                   |     |
-| Proposer : `Successfully wrote mined block` |                                                                                                                  |                                                                                                                                                                                                                                                                                                                                   |     |
-
-Non Proposer `Inserted a new block`
-
-### Log Level Change (0~5)
-
-Go to Klaytn Console
-
-```
-#default Value
-> debug.verbosity(3)
-# hight detail logs Value
-> debug.verbosity(5)
-# No Logs Value
-> debug.verbosity(0)
-
-# Default Value for Blockchain log
-> debug.vmodule("blockchain=3")
-# High detail Value for Blockchain Log
-> debug.vmodule("blockchain=5")
-
-```

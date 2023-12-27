@@ -433,7 +433,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | callObject | Object | 트랜잭션 호출 객체. 객체의 속성은 다음 표를 참조하세요.
-| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../eth/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시.
+| blockNumberOrHash | QUANTITY \| TAG \| HASH| 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../eth/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시.
 | options | Object | [추적 옵션](#tracing-options)을 참조하세요.
 
 **리턴 값**

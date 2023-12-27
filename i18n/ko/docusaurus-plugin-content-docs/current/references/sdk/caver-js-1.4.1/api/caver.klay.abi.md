@@ -20,7 +20,7 @@ caver.klay.abi.encodeFunctionSignature(functionSignature)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| functionSignature | String &#124; Object | 인코딩할 함수의 함수 서명 또는 JSON 인터페이스 객체. String인 경우 `function(type,type,...)` 형식이어야 합니다(예: ``myFunction(uint256,uint32[],bytes10,bytes)``).
+| functionSignature | String \| Object | 인코딩할 함수의 함수 서명 또는 JSON 인터페이스 객체. String인 경우 `function(type,type,...)` 형식이어야 합니다(예: ``myFunction(uint256,uint32[],bytes10,bytes)``).
 
 **리턴 값**
 
@@ -62,7 +62,7 @@ caver.klay.abi.encodeEventSignature(eventSignature)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| eventSignature | String &#124; Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 ``event(type,type,...)`` 형식이어야 합니다(예: ``myEvent(uint256,uint32[],bytes10,bytes)`` |).
+| eventSignature | String \| Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 ``event(type,type,...)`` 형식이어야 합니다(예: ``myEvent(uint256,uint32[],bytes10,bytes)`` |).
 
 **리턴 값**
 
@@ -104,7 +104,7 @@ caver.klay.abi.encodeParameter(type, parameter)
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| type | String &#124; Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| type | String \| Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | parameter | Mixed | 인코딩할 실제 매개변수입니다. |
 
 **리턴 값**
@@ -141,7 +141,7 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| typesArray | Array<string &#124; object>&#124;Object| 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| typesArray | Array\<String \| object\>\|Object| 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | parameter | Array | 인코딩할 매개변수입니다. |
 
 **리턴 값**
@@ -210,7 +210,7 @@ ABI로 인코딩된 매개변수를 해당 JavaScript 유형으로 디코딩합�
 
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| type | String&#124;Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| type | String\|Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexstring | Array | 디코딩할 ABI 바이트 코드입니다. |
 
 **리턴 값**
@@ -240,7 +240,7 @@ ABI 인코딩된 매개변수를 해당 JavaScript 유형으로 디코딩합니�
 **매개변수**
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
-| typesArray | Array<string &#124; object>&#124;Object | 유형이 있는 배열 또는 JSON 인터페이스가 배열을 출력합니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| typesArray | Array\<String \| object\>\|Object | 유형이 있는 배열 또는 JSON 인터페이스가 배열을 출력합니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexstring | String | 디코딩할 ABI 바이트 코드입니다. |
 
 **리턴 값**
