@@ -1,8 +1,12 @@
 <<<<<<<< HEAD:docs/misc/operation/configuration.md
+<<<<<<<< HEAD:docs/misc/operation/configuration.md
 # Configuration
 ========
 # Configuration Files
 >>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/references/configuration-files.md
+========
+# Configuration Files
+>>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/references/configuration-files.md
 
 This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
@@ -184,10 +188,14 @@ The configuration file has the following configurable properties. CN and PN conf
 | --- | --- |
 | NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab") |
 <<<<<<<< HEAD:docs/misc/operation/configuration.md
+<<<<<<<< HEAD:docs/misc/operation/configuration.md
 | NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br/>8217 : Cypress (Main network) <br/>1000 : Aspen test network <br/>1001 : Baobab test network |
 ========
 | NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. 8217 : Cypress (Main network) 1000 : Aspen test network 1001 : Baobab test network |
 >>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/references/configuration-files.md
+========
+| NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. 8217 : Cypress (Main network) 1000 : Aspen test network 1001 : Baobab test network |
+>>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/references/configuration-files.md
 | PORT | P2P port. (Default: "32323") |
 | SERVER_TYPE | JSON RPC server type.  ("http", "fasthttp") |
 | SYNCMODE | Blockchain sync mode.  ("fast", "full") |

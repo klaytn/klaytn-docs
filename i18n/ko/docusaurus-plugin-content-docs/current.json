@@ -206,25 +206,5 @@
   "sidebar.refSidebar.link.API References": {
     "message": "API 레퍼런스",
     "description": "The label for link API References in sidebar refSidebar, linking to https://javadoc.io/doc/com.klaytn.caver/core/"
-  },
-  "sidebar.learnSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar learnSidebar"
-  },
-  "sidebar.buildSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar buildSidebar"
-  },
-  "sidebar.nodeSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar nodeSidebar"
-  },
-  "sidebar.refSidebar.category.caver": {
-    "message": "caver",
-    "description": "The label for category caver in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar refSidebar"
   }
 }

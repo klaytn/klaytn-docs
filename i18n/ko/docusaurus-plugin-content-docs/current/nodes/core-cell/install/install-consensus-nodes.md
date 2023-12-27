@@ -150,7 +150,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. [구성 파일](../../../misc/operation/configuration.md) 섹션에서 `kcnd.conf`에 대한 자세한 내용을 참조하세요.
+생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. [구성 파일](../../../nodes/references/configuration-files.md) 섹션에서 `kcnd.conf`에 대한 자세한 내용을 참조하세요.
 
 ### 빠른 동기화 \(선택 사항\) <a id="fast-sync-optional"></a>
 
@@ -174,7 +174,7 @@ $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 데이터 추출이 완료되면 CN을 정상적으로 시작할 수 있습니다.
 
-자세한 정보는 [체인데이터 변경](../../../misc/operation/chaindata-change.md)에서 확인할 수 있습니다.
+자세한 정보는 [체인데이터 변경](../../node-migration.md)에서 확인할 수 있습니다.
 
 ## CN 시작하기 <a id="startup-the-cn"></a>
 
@@ -218,18 +218,6 @@ Failed to start kcnd.service: Unit not found.
 ```bash
 $ systemctl daemon-reload
 ```
-
-### BLS 공개키 정보 내보내기 <a id="export-bls-public-key-info"></a>
-
-네트워크가 Randao 하드포크를 활성화했거나 활성화할 예정이라면, 각 CN 관리자는 BLS 공개키 정보를 [KIP-113 스마트 컨트랙트](https://kips.klaytn.foundation/KIPs/kip-113)에 제출해야 합니다.
-
-BLS 공개키 정보는 노드키에서 계산할 수 있습니다. 이를 추출하려면 먼저 노드를 시작합니다. 그리고 다음 명령을 사용합니다:
-
-```
-kcn account bls-info --datadir /var/kcnd/data
-```
-
-결과적으로 `bls-publicinfo-NODEID.json` 파일이 생성됩니다.
 
 ## 코어 셀 테스트 <a id="testing-the-core-cell"></a>
 

@@ -43,7 +43,7 @@ $ mkdir -p ~/kend_home
 
 ### Cấu hình EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-Tập tin cấu hình, `kend.conf`, trong `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem phần [Hướng dẫn cấu hình EN](../../../misc/operation/configuration.md). Để khởi chạy một EN của mạng thử nghiệm Baobab, hãy cập nhật tập tin `kend.conf` phù hợp như sau.
+Tập tin cấu hình, `kend.conf`, trong `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem phần [Hướng dẫn cấu hình EN](../../../nodes/references/configuration-files.md). Để khởi chạy một EN của mạng thử nghiệm Baobab, hãy cập nhật tập tin `kend.conf` phù hợp như sau.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -87,7 +87,7 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ### Khắc phục sự cố <a href="#troubleshooting" id="troubleshooting"></a>
 
-Xem phần mục [Khắc phục sự cố](../../../misc/operation/troubleshooting.md) nếu bạn gặp vấn đề trong việc khởi chạy Nút điểm cuối Klaytn.
+Xem phần mục [Khắc phục sự cố](../../../nodes/references/troubleshooting.md) nếu bạn gặp vấn đề trong việc khởi chạy Nút điểm cuối Klaytn.
 
 ## Nạp tiền vào tài khoản <a id="top-up-your-account"></a>
 
