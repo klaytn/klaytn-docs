@@ -1,10 +1,16 @@
 <<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
+<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
 # Change Chaindata
 ========
 # Node Migration
 
 ## Change Chaindata <a id="disk-management-1"></a>
 >>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/node-migration.md
+========
+# Node Migration
+
+## Change Chaindata <a id="disk-management-1"></a>
+>>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/node-migration.md
 
 <aside>
 💡 THIS GUIDE IS BASED ON Amazon Linux 2
@@ -98,9 +104,12 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
     1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN 
 
 <<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
+<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
     💡 You can get packages for EN in the [Startup the CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
     
 ========
+========
+>>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/node-migration.md
     💡 You can get packages for EN in the [Startup the CN](core-cell/install/install-consensus-nodes.md).
 
 

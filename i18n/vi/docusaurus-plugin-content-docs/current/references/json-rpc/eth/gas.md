@@ -163,9 +163,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Trả về đề xuất giới hạn tối đa phí gas trả thêm cho giao dịch phí biến đổi theo đơn vị peb.
 
-**LƯU Ý**: This API has different behavior from Ethereum's.
-Before Magma hardfork, it returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
-After Magma hardfork, it just returns 0.
+**LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
 
 **Tham số**
 
@@ -186,7 +184,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 // Kết quả
 {
   "jsonrpc": "2.0",
-  "id": 1,
+  "id":1)
   "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```

@@ -1,8 +1,12 @@
 <<<<<<<< HEAD:docs/misc/operation/troubleshooting.md
+<<<<<<<< HEAD:docs/misc/operation/troubleshooting.md
 # Troubleshooting
 ========
 # Errors & Troubleshooting
 >>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/references/troubleshooting.md
+========
+# Errors & Troubleshooting
+>>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/references/troubleshooting.md
 
 ## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 

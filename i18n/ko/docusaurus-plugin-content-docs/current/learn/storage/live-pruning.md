@@ -24,4 +24,4 @@ StateDB 라이브 프루닝을 사용하려면 다음과 같은 환경이 설정
 1. klaytn v1.11.0 이상의 바이너리를 사용합니다.
 2. 제네시스 블록의 모든 블록을 동기화하지 않으려면 이 [링크](https://packages.klaytn.net/cypress/pruning-chaindata/)에서 정리된 DB 스냅샷을 다운로드하세요.
 3. (선택 사항) 최근 상태가 유지되는 기간에 대한 플래그 `--state.live-pruning-retention <value>`를 추가합니다. 기본값은 172800(48시간)입니다.
-4. [체인데이터 변경](../../misc/operation/chaindata-change.md) 섹션을 참고하여 DB 위치를 설정하고 여기에 `--state.live-pruning`을 추가하여 노드를 재시작합니다.
+4. [체인데이터 변경](../../nodes/node-migration.md#disk-management-1) 섹션을 참고하여 DB 위치를 설정하고 여기에 `--state.live-pruning`을 추가하여 노드를 재시작합니다.

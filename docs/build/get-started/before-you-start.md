@@ -8,7 +8,7 @@
 **Endpoint Node**
 
 * Your [Endpoint Node](../../nodes/endpoint-node/endpoint-node.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
-* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../references/json-rpc/json-rpc.md). `ken` runs on Linux and MacOS.
+* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../../nodes/references/klaytn-command.md) and the [JSON-RPC APIs](../../references/json-rpc/json-rpc.md). `ken` runs on Linux and MacOS.
 * `ken` CLI comes with several utility and node management functions.
 
 **Smart Contract Development**
@@ -17,7 +17,6 @@
 * [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 * [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - A development environment for smart contracts and dApps.
 * [Foundry](https://book.getfoundry.sh/) - Foundry is a smart contract development toolchain.
-* [Thirdweb](https://portal.thirdweb.com/) - Thirdweb is a complete web3 development framework that provides services to build, manage, and analyze web3 applications.
 
 **Klaytn SDKs**
 

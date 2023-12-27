@@ -10,4 +10,4 @@
 [클레이튼 v1.5.0 상태 마이그레이션: 노드 스토리지 절약](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
 [클레이튼 상태 마이그레이션: 블록체인 데이터를 줄이는 효율적인 방법](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-상태 마이그레이션을 사용하려면 운영 가이드의 [`체인데이터 마이그레이션`](../../misc/operation/chaindata-migration.md) 페이지를 참고하세요.
+상태 마이그레이션을 사용하려면 운영 가이드의 [`체인데이터 마이그레이션`](../../nodes/node-migration.md#disk-management-2) 페이지를 참고하세요.

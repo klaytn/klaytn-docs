@@ -149,7 +149,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Hãy nhớ rằng lưu trữ khóa và mật khẩu mà bạn đã tạo là vô cùng quan trọng. Do đó, bạn phải quản lý chúng thật cẩn thận. Xem thêm thông tin về `kcnd.conf` trên phần [Tập tin cấu hình](../../../misc/operation/configuration.md).
+Hãy nhớ rằng lưu trữ khóa và mật khẩu mà bạn đã tạo là vô cùng quan trọng. Do đó, bạn phải quản lý chúng thật cẩn thận. Xem thêm thông tin về `kcnd.conf` trên phần [Tập tin cấu hình](../../../nodes/references/configuration-files.md).
 
 ### Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
 
@@ -173,7 +173,7 @@ $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu CN như bình thường.
 
-Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../misc/operation/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../node-migration.md)
 
 ## Khởi động CN <a id="startup-the-cn"></a>
 
@@ -217,18 +217,6 @@ tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
 ```bash
 $ systemctl daemon-reload
 ```
-
-### Export BLS public key info <a id="export-bls-public-key-info"></a>
-
-If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.klaytn.foundation/KIPs/kip-113).
-
-The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
-
-```
-$ kcn account bls-info --datadir /var/kcnd/data
-```
-
-As a result, `bls-publicinfo-NODEID.json` file will be created.
 
 # Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 

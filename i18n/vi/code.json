@@ -6,40 +6,40 @@
     "message": "{tagline}"
   },
   "Klaytn Overview": {
-    "message": "Klaytn Tổng quan"
+    "message": "Klaytn Overview"
   },
   "Want to know about Klaytn?": {
-    "message": "Anh có muốn biết về Klaytn không?"
+    "message": "Want to know about Klaytn?"
   },
   "Getting Started": {
-    "message": "Bắt đầu"
+    "message": "Getting Started"
   },
   "Want to start building on Klaytn?": {
-    "message": "Anh có muốn bắt đầu xây dựng ở Klaytn không?"
+    "message": "Want to start building on Klaytn?"
   },
   "Node Operators": {
-    "message": "Các nút điều hành"
+    "message": "Node Operators"
   },
   "Instructions on running Klaytn's nodes": {
-    "message": "Hướng dẫn chạy các nút Klaytn"
+    "message": "Instructions on running Klaytn's nodes"
   },
   "API references": {
-    "message": "Tham chiếu API"
+    "message": "API references"
   },
   "APIs and libraries": {
-    "message": "API và Thư viện"
+    "message": "APIs and libraries"
   },
   "Klaytn Developer Hub": {
-    "message": "Trung tâm phát triển Klaytn"
+    "message": "Klaytn Developer Hub"
   },
   "Klaytn's Developer portal": {
-    "message": "Cổng thông tin nhà phát triển Klaytn"
+    "message": "Klaytn's Developer portal"
   },
   "Klaytn Developer Forum": {
-    "message": "Diễn đàn Lập trình Klaytn"
+    "message": "Klaytn Developer Forum"
   },
   "Got a question? Visit our forum!": {
-    "message": "Bạn có câu hỏi? Ghé thăm diễn đàn của chúng tôi!"
+    "message": "Got a question? Visit our forum!"
   },
   "theme.ErrorPageContent.title": {
     "message": "Trang này đã bị lỗi.",
