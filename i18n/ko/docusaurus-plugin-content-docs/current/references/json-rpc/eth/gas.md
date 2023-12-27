@@ -163,8 +163,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 동적 수수료 트랜잭션의 가스 팁 상한에 대한 제안을 peb 단위로 반환합니다.
 
-**참고**: 이 API는 이더리움과는 다른 동작을 합니다.
-Magma 하드포크 이전에는 이더리움처럼 가스 가격을 제시하는 대신 Klaytn의 가스 가격을 반환합니다. Magma 하드포크 이후에는 그냥 0을 반환합니다.
+**참고**: 이 API는 이더리움과 동작 방식이 다르며
+은 이더리움처럼 가스 가격을 제안하는 대신 클레이튼의 가스 가격을 반환합니다.
 
 **매개변수**
 
@@ -185,7 +185,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 // Result
 {
   "jsonrpc": "2.0",
-  "id": 1,
+  "id":1)
   "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```

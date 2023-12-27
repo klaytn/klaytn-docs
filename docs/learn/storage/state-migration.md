@@ -10,4 +10,4 @@ More details on the mechanism of State Migration can be found below:
 [Klaytn v1.5.0 State Migration: Saving Node Storage](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
 [Klaytn State Migration: An Efficient Way to Reduce Blockchain Data](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-To use State Migration, please refer to [`Chaindata Migration`](../../misc/operation/chaindata-migration.md) page of Operation Guide.
+To use State Migration, please refer to [`Chaindata Migration`](../../nodes/node-migration.md#disk-management-2) page of Operation Guide.

@@ -72,53 +72,6 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 "protocols":{"istanbul":{"network":1000,"difficulty":1,"genesis":"0x06806bd8b1e086dfb7098a289da07037a3af58e793d205d20f61c88eeea9351d","config":{"chainId":1000,"istanbul":{"epoch":30000,"policy":0,"sub":7},"isBFT":true,"unitPrice":25000000000,"deriveShaImpl":0},"head":"0x06806bd8b1e086dfb7098a289da07037a3af58e793d205d20f61c88eeea9351d"}}}}
 ```
 
-## admin_nodeConfig <a id="admin_nodeconfig"></a>
-
-The `nodeConfig` administrative property can be queried for all the configuration set for the running Klaytn node.
-
-| Client  | Method invocation                         |
-|:-------:|-------------------------------------------|
-| Console | `admin.nodeConfig`                          |
-| RPC     | `{"method": "admin_nodeConfig"}`            |
-
-**Parameters**
-
-None
-
-**Return Value**
-
-| Type | Description |
-| --- | --- |
-| JSON string | The node configuration. |
-
-**Example**
-
-Console
-```javascript
-> admin.nodeConfig
-{
-  AnchoringPeriod: 0,
-  AutoRestartFlag: false,
-  DBType: "LevelDB",
-  DaemonPathFlag: "/klaytn-docker-pkg/bin/kend",
-  DisableUnsafeDebug: false,
-
-  ...
-
-  TxResendCount: 1000,
-  TxResendInterval: 4,
-  TxResendUseLegacy: false,
-  WorkerDisable: false,
-  WsEndpoint: "0.0.0.0:8552"
-}
-```
-
-HTTP RPC
-
-```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeConfig","id":1}' https://public-en-baobab.klaytn.net
-{"jsonrpc":"2.0","id":1,"result":{"Genesis":null,"NetworkId":1001,"SyncMode":"full","NoPruning":false,"WorkerDisable":false,"DownloaderDisable":false,"FetcherDisable":false,"ParentOperatorAddr":null,"AnchoringPeriod":0,"SentChainTxsLimit":0,"OverwriteGenesis":false,"StartBlockNumber":0,"DBType":"LevelDB","SkipBcVersionCheck":false,"SingleDB":false,"NumStateTrieShards":4,"EnableDBPerfMetrics":true,"LevelDBCompression":0,"LevelDBBufferPool":true,"LevelDBCacheSize":768,"DynamoDBConfig":{"TableName":"","Region":"ap-northeast-2","Endpoint":"","S3Endpoint":"","IsProvisioned":false,"ReadCapacityUnits":10000,"WriteCapacityUnits":10000,"ReadOnly":false,"PerfCheck":false},"RocksDBConfig":{"Secondary":false,"DumpMallocStat":false,"DisableMetrics":false,"CacheSize":768,"CompressionType":"lz4","BottommostCompressionType":"zstd","FilterPolicy":"ribbon","MaxOpenFiles":1024,"CacheIndexAndFilter":false},"TrieCacheSize":512,"TrieTimeout":300000000000,"TrieBlockInterval":128,"TriesInMemory":128,"LivePruning":false,"LivePruningRetention":172800,"SenderTxHashIndexing":false,"ParallelDBWrite":true,"TrieNodeCacheConfig":{"CacheType":"LocalCache","NumFetcherPrefetchWorker":32,"UseSnapshotForPrefetch":false,"LocalCacheSizeMiB":1024,"FastCacheFileDir":"/home/ubuntu/klaytn/data/fastcache","FastCacheSavePeriod":0,"RedisEndpoints":null,"RedisClusterEnable":false,"RedisPublishBlockEnable":false,"RedisSubscribeBlockEnable":false},"SnapshotCacheSize":0,"SnapshotAsyncGen":false,"ServiceChainSigner":"0x0000000000000000000000000000000000000000","ExtraData":null,"GasPrice":25000000000,"Rewardbase":"0x0000000000000000000000000000000000000000","TxPool":{"NoLocals":false,"AllowLocalAnchorTx":false,"DenyRemoteTx":false,"Journal":"/home/ubuntu/klaytn/data/klay/transactions.rlp","JournalInterval":3600000000000,"PriceLimit":1,"PriceBump":10,"ExecSlotsAccount":4096,"ExecSlotsAll":4096,"NonExecSlotsAccount":4096,"NonExecSlotsAll":4096,"KeepLocals":false,"Lifetime":300000000000,"NoAccountCreation":false,"EnableSpamThrottlerAtRuntime":false},"GPO":{"Blocks":20,"Percentile":60,"MaxHeaderHistory":1024,"MaxBlockHistory":1024,"Default":null},"EnablePreimageRecording":false,"EnableInternalTxTracing":false,"EnableOpDebug":false,"Istanbul":{"Timeout":10000,"BlockPeriod":1,"ProposerPolicy":0,"Epoch":30000,"SubGroupSize":21},"DocRoot":"","WsEndpoint":"0.0.0.0:8652","TxResendInterval":4,"TxResendCount":1000,"TxResendUseLegacy":false,"NoAccountCreation":false,"IsPrivate":false,"AutoRestartFlag":false,"RestartTimeOutFlag":900000000000,"DaemonPathFlag":"/home/ubuntu/klaytn/bin/kend","RPCGasCap":null,"RPCEVMTimeout":5000000000,"RPCTxFeeCap":0,"DisableUnsafeDebug":false,"StateRegenerationTimeLimit":60000000000}}
-```
 
 ## admin_datadir <a id="admin_datadir"></a>
 

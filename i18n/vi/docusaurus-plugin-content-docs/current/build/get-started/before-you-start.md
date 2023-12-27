@@ -8,7 +8,7 @@
 **Nút điểm cuối**
 
 * Bạn cần có [Nút điểm cuối](../../nodes/endpoint-node/endpoint-node.md) để kết nối với mạng lưới Klaytn và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
-* `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` hiển thị hai giao diện, [giao diện dòng lệnh](../../nodes/endpoint-node/ken-cli-commands.md) và [JSON-RPC API](../../references/json-rpc/json-rpc.md). `ken` chạy trên Linux và MacOS.
+* `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` hiển thị hai giao diện, [giao diện dòng lệnh](../../nodes/references/klaytn-command.md) và [JSON-RPC API](../../references/json-rpc/json-rpc.md). `ken` chạy trên Linux và MacOS.
 * `ken` CLI đi kèm với một số chức năng quản lý nút và tiện ích.
 
 **Phát triển hợp đồng thông minh**
@@ -17,7 +17,6 @@
 * [Truffle](https://github.com/trufflesuite/truffle) - Một công cụ mã nguồn mở dùng để phát triển các hợp đồng thông minh bằng Solidity.
 * [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - Môi trường phát triển cho hợp đồng thông minh và dApps.
 * [Foundry](https://book.getfoundry.sh/) - Foundry là một chuỗi công cụ phát triển hợp đồng thông minh.
-* [Thirdweb](https://portal.thirdweb.com/) - Thirdweb là một khung phát triển web3 hoàn chỉnh cung cấp các dịch vụ để xây dựng, quản lý và phân tích các ứng dụng web3.
 
 **Klaytn SDK**
 
