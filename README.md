@@ -1,4 +1,4 @@
-This website is built using Gitbook.
+This website is built using Docusaurus.
 
 ### Installation
 
