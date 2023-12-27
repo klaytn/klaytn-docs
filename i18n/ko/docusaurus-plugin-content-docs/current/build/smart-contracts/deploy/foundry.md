@@ -1,4 +1,4 @@
-# Foundry를 사용하여 스마트 컨트랙트 배포
+# Foundry로 스마트 컨트랙트 배포하기
 
 ![](/img/build/get-started/klaytn-foundry.png)
 

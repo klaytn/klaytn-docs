@@ -429,7 +429,7 @@ The `traceCall` returns the tracing result by executing a klay call within the c
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | The transaction call object.  See the next table for the object's properties. |
-| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash.|
+| blockNumberOrHash | QUANTITY \| TAG \| HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash.|
 | options  | object | See [tracing options](#tracing-options). |
 
 **Return Value**

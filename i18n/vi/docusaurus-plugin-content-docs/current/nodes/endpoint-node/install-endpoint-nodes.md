@@ -6,7 +6,7 @@ Bạn có thể tải về các gói cho EN tại [trang tải về](../download
 
 ## Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-Bạn có thể tải về phiên bản mới nhất của `ken` trên trang [Tải xuống](../node-migration.md).
+Bạn có thể tải về phiên bản mới nhất của `ken` trên trang [Tải xuống](../../misc/operation/chaindata-change.md).
 
 ### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
@@ -115,7 +115,7 @@ Mỗi EN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nế
 
 Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu EN. Điều này giúp giảm đáng kể thời gian EN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](../node-migration.md) hoặc[Lưu trữ thu thập dữ liệu Baobab](../node-migration.md). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kend.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kend.conf`.
 
 Ví dụ:
 

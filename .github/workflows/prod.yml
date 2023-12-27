@@ -5,65 +5,8 @@ on:
       - main
 
 jobs:
-#  check_link:
-#    name: check_link
-#    runs-on: ubuntu-latest
-#
-#    container:
-#      image: kjhman21/liche
-#      options: --user root
-#
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Check links
-#        run: |
-#          ls -la
-#          cd ..
-#          ls -la
-#          /liche -c 1 -t 10 -x "http[s]?://localhost" -r klaytn-docs/ --document-root klaytn-docs/docs
-
-  check_readability:
-    name: check_readability
-    runs-on: ubuntu-latest
-
-    container:
-      image: groundx/ci-readability:alpha
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Check readability
-        run: |
-          mkdir -p test-results/readability
-          export pr_only_changed=true
-          export check_regular_commits=false
-          export path_regex="\.(md|txt)$"
-          export path_exclude_regex=SUMMARY.md
-          echo ${{ github.event_name }}
-          echo $path_regex
-          if [ "$pr_only_changed" = "true" ] && [ "${{ github.event_name }}" == "pull_request" ]; then
-            echo "This is a pull request. Limiting readability test to changed files." >&2
-            PR_NUMBER=$(echo "${{ github.ref }}" | sed -n 's/refs\/pull\/\([0-9]*\)\/merge/\1/p')
-            echo "PR number is $PR_NUMBER"
-            PR_FILES_URL="https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER/files"
-            CHANGED_FILES=$(curl -s -u "${{ secrets.GITHUB_BASIC_AUTH }}" "$PR_FILES_URL" | jq -r '.[].filename')
-          elif [ "$check_regular_commits" = "true" ]; then
-            echo "Testing all files." >&2
-            git ls-files
-          else
-            echo "This is not a PR. Readability test skipped." >&2
-          fi | \
-            (grep -E '$path_regex' ||:) | \
-            (grep -vE '$path_exclude_regex' ||:) | \
-            xargs testrunner.py > test-results/readability/result.xml
-          cat test-results/readability/result.xml
-
   deploy:
     name: deploy
-    needs: [check_readability]
     permissions:
       id-token: write
       contents: read

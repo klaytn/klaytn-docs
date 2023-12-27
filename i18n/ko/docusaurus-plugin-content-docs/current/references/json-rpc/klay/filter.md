@@ -114,9 +114,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 이름 | 유형 | 설명
 | --- | --- | --- |
-| fromBlock | QUANTITY &#124; TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``pending`` 문자열입니다. |
-| toBlock | QUANTITY &#124; TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| address | 20-byte DATA &#124; Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.
+| fromBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``pending`` 문자열입니다. |
+| toBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| address | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.
 | topics | DATA Array | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다. |
 | blockHash | 32-byte DATA | (선택 사항) 반환되는 로그를 32바이트 해시 블록Hash를 사용하여 단일 블록으로 제한하는 필터 옵션입니다. 블록해시를 사용하는 것은 블록해시가 블록해시인 블록 번호를 fromBlock = toBlock으로 사용하는 것과 동일합니다. 필터 조건에 blockHash가 있으면 fromBlock이나 toBlock 모두 허용되지 않습니다. |
 
@@ -298,9 +298,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 이름 | 유형 | 설명
 | --- | --- | --- |
-| fromBlock | QUANTITY &#124; TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``pending`` 문자열입니다. |
-| toBlock | QUANTITY &#124; TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 ``earliest``, ``latest`` 또는 ``pending`` 문자열입니다. |
-| address | 20-byte DATA &#124; Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.
+| fromBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 ``pending`` 문자열입니다. |
+| toBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 ``earliest``, ``latest`` 또는 ``pending`` 문자열입니다. |
+| address | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.
 | topics | DATA Array | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다. |
 
 :::note

@@ -150,7 +150,7 @@ AccountKeyPublic은 공개 키가 하나뿐인 계정에 사용됩니다.
 
 `0x02 + encode(CompressedPubKey)`
 
-**참고**: CompressedPubKey는 [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf)에 정의된 압축 형식의 공개키입니다. 즉, PubkeyY가 짝수인 경우 0x02{PubkeyX}, 그렇지 않은 경우 0x03{PubkeyX}입니다.
+**참고**: CompressedPubKey는 [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf)에 정의된 압축 형식의 공개키입니다. 즉, PubkeyY가 짝수인 경우 0x02`{PubkeyX}`, 그렇지 않은 경우 0x03`{PubkeyX}`입니다.
 
 #### RLP 인코딩 \(예제\) <a id="rlp-encoding-example"></a>
 
@@ -203,7 +203,7 @@ AccountKeyWeightedMultiSig와 연결된 계정에 대해 트랜잭션이 유효�
 | :--- | :--- | :--- |
 | Type | uint8 \(Go\) | 계정키 가중 다중서명의 유형입니다. 이 값은 **0x04**여야 합니다. |
 | Threshold | uint \(Go\) | 유효성 검사 임계값입니다. 유효한 트랜잭션이 되려면 서명의 가중치 합이 임계값보다 크거나 같아야 합니다. |
-| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | 가중 공개 키 목록입니다. 가중 공개 키에는 압축된 공개 키와 가중치가 포함됩니다. |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | 가중 공개 키 목록입니다. 가중 공개 키에는 압축된 공개 키와 가중치가 포함됩니다. |
 
 #### RLP 인코딩 <a id="rlp-encoding"></a>
 
@@ -238,7 +238,7 @@ AccountKeyRoleBased는 역할 기반 키를 나타냅니다. 역할은 [Roles](#
 | 속성 | 유형 | 설명 |
 | :--- | :--- | :--- |
 | Type | uint8 \(Go\) | AccountKeyRoleBased 유형입니다. 0x05**여야 합니다. |
-| Keys | \[\]{AccountKey} \(Go\) | 키 목록입니다. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나 일 수 있습니다. |
+| Keys | \[\]\{AccountKey\} \(Go\) | 키 목록입니다. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나 일 수 있습니다. |
 
 #### 역할 <a id="roles"></a>
 

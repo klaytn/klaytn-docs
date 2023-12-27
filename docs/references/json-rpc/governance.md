@@ -233,7 +233,7 @@ If the parameter is not set, it returns the chain configuration at the latest bl
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -381,7 +381,7 @@ Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -466,7 +466,7 @@ The `getParams` returns governance parameters at a specific block.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
@@ -524,7 +524,7 @@ Use <a href="#governance_getparams">`governance_getParams`</a> instead.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
  
@@ -715,7 +715,7 @@ Note that the order of all addresses and the staking amounts are matched.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
+| QUANTITY \| TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
 
 **Return Value**
 
@@ -753,8 +753,8 @@ NOTE: The block range should be less than 604800 (about 7 days) to protect endpo
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
-| QUANTITY &#124; TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
+| QUANTITY \| TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
+| QUANTITY \| TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).
 
 **Return Value**
 

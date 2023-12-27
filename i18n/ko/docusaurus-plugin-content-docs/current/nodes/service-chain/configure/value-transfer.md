@@ -290,6 +290,13 @@ function requestERC721Transfer(address _tokenAddress, address _to, uint256 _toke
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
+### onERC721Received() <a id="unsupported-onERC721Received"></a>
+
+ERC-721 표준에는 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 콜백 함수가 있습니다.
+`onERC721Received()`는 `safeTransferFrom()` 함수와 함께 작동하지만, 현재 브리지 컨트랙트 구현은 `transferFrom()`을 사용하므로 `onERC721Recieved()`는 호출되지 않을 것으로 예상됩니다.
+
+아니면 `onERC721Recieved()`와 같은 추가 작업은 이벤트 수신과 같은 다른 방식으로 구현해야 합니다(예: `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
+
 ## 밸류 전송 복구
 여러 가지 이유로 밸류 전송 요청이 실패할 수 있습니다. 서브 브리지에서 메인 브리지로 또는 메인 브리지에서 서브 브리지로 KLAY 전송을 요청했다고 가정해 봅시다.
 이 경우 수신자 측의 브리지 컨트랙트에 요청된 KLAY 수량보다 충분한 KLAY가 있어야 합니다. 그렇지 않으면 반환 값에 오류 알림 없이 전송이 실패합니다.

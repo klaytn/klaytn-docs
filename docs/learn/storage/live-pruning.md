@@ -24,4 +24,4 @@ To use StateDB Live Pruning, the following environment should be set up:
 1. Use a binary of klaytn v1.11.0 or higher.
 2. Please download the pruned DB snapshot from this [link](https://packages.klaytn.net/cypress/pruning-chaindata/) if you don't want to synchronize all blocks from the genesis block.
 3. (Optional) Add the flag `--state.live-pruning-retention <value>` for how long recent states are retained. Default value is 172800 (48 hours)
-4. Refer to the following link to set the DB location and restart the node with `--state.live-pruning` added [chaindata-change](../../nodes/node-migration.md#disk-management-1) section.
+4. Refer to the following link to set the DB location and restart the node with `--state.live-pruning` added [chaindata-change](../../misc/operation/chaindata-change.md) section.

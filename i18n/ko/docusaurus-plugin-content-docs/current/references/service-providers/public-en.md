@@ -27,7 +27,8 @@
 ||`https://archive-en.cypress.klaytn.net`|klay,eth,net|Archive|
 |[AllThatNode](www.allthatnode.com)|`https://klaytn-mainnet-rpc.allthatnode.com:8551`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
-|[Pokt Network](https://pokt.network/)|`https://klaytn-rpc.gateway.pokt.network/)`|klay,eth,net|Full|
+|[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|klay,eth,net|Full|
+|[Pokt Network](https://pokt.network/)|`https://klaytn-rpc.gateway.pokt.network/`|klay,eth,net|Full|
 
 **웹소켓**
 
@@ -35,7 +36,7 @@
 |---|---|---|---|
 |[Klaytn 재단](https://www.klaytn.foundation)|`wss://public-en-cypress.klaytn.net/ws`|klay,eth,net|Full|
 ||`wss://archive-en.cypress.klaytn.net/ws`|klay,eth,net|Archive|
-
+|[OnFinality](https://onfinality.io/)|`wss://klaytn.api.onfinality.io/public-ws`|klay,eth,net|Full|
 
 ## 테스트넷(Baobab) 퍼블릭 JSON-RPC 엔드포인트
 

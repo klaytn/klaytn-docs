@@ -1,25 +1,13 @@
-<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
-<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
 # Change Chaindata
-========
-# Node Migration
-
-## Change Chaindata <a id="disk-management-1"></a>
->>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/node-migration.md
-========
-# Node Migration
-
-## Change Chaindata <a id="disk-management-1"></a>
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/node-migration.md
 
 <aside>
 💡 THIS GUIDE IS BASED ON Amazon Linux 2
 
 </aside>
 
-### CN Node Migration STEP
+## CN Node **Migration STEP**
 
-#### Create new disk
+### Create new disk
 
 1. Preparing new disk (3,500GB disk) or creating new path on the current disk (It must have 3,500GB available.)
 
@@ -28,7 +16,7 @@
 
 </aside>
 
-##### Option 1 - New disk (more than 2500GB)
+#### Option 1 - New disk (more than 2500GB)
 
 1. Attach the disk to EC2 and run the command below
 
@@ -53,7 +41,7 @@ $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-##### Option 2 - Current Disk (not recommended)
+#### Option 2 - Current Disk (not recommended)
 
 1. Create New Folder
 
@@ -62,7 +50,7 @@ $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-#### Download the latest chaindata
+### Download the latest chaindata
 
 Download Chain Data to the data of the new Klaytn Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
 
@@ -91,9 +79,11 @@ $ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
-### Configure DATA_DIR & LOG_DIR
 
-#### Option 1 - Swap the old & new path
+
+## Configure DATA_DIR & LOG_DIR
+
+### Option 1 - Swap the old & new path
 
 <aside>
 🚨 TBD
@@ -103,17 +93,8 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 1. Stop klaytn daemon process before swap
     1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN 
 
-<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
-<<<<<<<< HEAD:docs/misc/operation/chaindata-change.md
     💡 You can get packages for EN in the [Startup the CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
     
-========
-========
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/node-migration.md
-    💡 You can get packages for EN in the [Startup the CN](core-cell/install/install-consensus-nodes.md).
-
-
->>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/node-migration.md
 2. Swap the old and new path
     1. New Disk
 
@@ -133,7 +114,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 3. (Optional) Delete the old path if it is not required anymore
 
-#### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
+### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
 
 1. Klaytn DIR Path Change
     - Option 1 - New disk
@@ -141,7 +122,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
     - Option 2 - Current disk
         - change the DIR Path from `kcnd.conf`
 
-### Restart Process(or Reboot Instance)
+## Restart Process(or Reboot Instance)
 
 <aside>
 💡 If reboot is required to add an additional disk, reboot the instance.
@@ -150,36 +131,3 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
 2. Restart process or reboot instance
-
-
-## Migrate Chaindata <a id="disk-management-2"></a>
-
-
-<aside>
-💡 Run migration only for PN and EN nodes (not CN)
-
-</aside>
-
-### Things to know before this job <a id="things-to-know-before-this-job"></a>
-- It needs m6i.8xlarge spec (32 cores and 128GB memory) or higher
-- 7 days for full progress (Migration is divided in 2 parts)
-    - Part 1 - Migrate DB to a new directory (The message “State migration is completed”  appears)
-    - Part 2 - New Block generation on new directory (old directory will be deleted after this)
-- 500GB free space should be available
-
-### Go to Klaytn Console
-
-```bash
-$ kpn attach klay.ipc
-
-#start chain data Migration
-> admin.startStateMigration()
-null
-
-# Check Status
-> admin.stateMigrationStatus
-
-#stop Migration
-> admin.stopStateMigration()
-
-```

@@ -23,7 +23,7 @@ A transaction object of type `VALUE_TRANSFER_MEMO` has the following structure:
 | type | String | Transaction Type. "VALUE_TRANSFER_MEMO" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | data | String | The message to send with. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
@@ -99,7 +99,7 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` has the followi
 | type | String | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | data | String | The message to send with. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
@@ -195,7 +195,7 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO` has 
 | type | String | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO" |
 | from | String | Address of this transaction sender. |
 | to | String | The destination address of the transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb. |
+| value | Number \| String \| BN \| BigNumber | The value transferred for the transaction in peb. |
 | data | String | The message to send with. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |

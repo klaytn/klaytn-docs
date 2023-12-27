@@ -1,8 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const lightCodeTheme = require('prism-react-renderer').themes.github
+const darkCodeTheme = require('prism-react-renderer').themes.dracula
+
+const {
+  remarkCodeHike,
+} = require("@code-hike/mdx")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -60,6 +64,9 @@ const config = {
           showReadingTime: true,
         },
         docs: {
+          beforeDefaultRemarkPlugins: [
+            [remarkCodeHike, { theme: "nord" }],
+          ],
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: true,
           showLastUpdateTime: true,
@@ -71,12 +78,47 @@ const config = {
           },
           editUrl:
             'https://github.com/klaytn/klaytn-docs/tree/main/',
+          
+          // TODO-Klaytn : it will be activated after dacusaurus-openapi bugfix
+          // docLayoutComponent: "@theme/DocPage",
+          // docItemComponent: "@theme/ApiItem"
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve("@code-hike/mdx/styles.css"),
+          ]
         },
       }),
     ],
+  ],
+
+  plugins: [
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "openapi", // plugin id
+        docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
+        config: {
+          web3rpc: {
+            // template: "api.mustache",
+            specPath: "web3rpc.yaml",
+            outputDir: "docs/klaytn-json-rpc",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          }
+        }
+      },
+    ]
+  ],
+  themes: ["docusaurus-theme-openapi-docs"], // export theme components
+  stylesheets: [
+    {
+      href: "https://use.fontawesome.com/releases/v5.11.0/css/all.css",
+      type: "text/css",
+    },
   ],
 
   themeConfig:
@@ -98,25 +140,25 @@ const config = {
           {
             to: "docs/learn",
             position: 'left',
-            sidebarId: 'learnSidebar',
+            sidebarid: 'learnSidebar',
             label: 'Learn',
           },
           {
             to: "docs/build",
             position: 'left',
-            sidebarId: 'buildSidebar',
+            sidebarid: 'buildSidebar',
             label: 'Build',
           },
           {
             to: "docs/nodes",
             position: 'left',
-            sidebarId: 'nodeSidebar',
+            sidebarid: 'nodeSidebar',
             label: 'Nodes',
           },
           {
             to: "docs/references",
             position: 'left',
-            sidebarId: 'refSidebar',
+            sidebarid: 'refSidebar',
             label: 'References',
           },
 /*          {
@@ -151,6 +193,12 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
+          {
+            href: 'https://github.com/klaytn',
+            position: 'right',
+            alt: 'GitHub repository',
+            className: 'header-github-link',
+          },          
         ],
       },
       docs: {
@@ -158,6 +206,31 @@ const config = {
           autoCollapseCategories: true,
         },
       },
+      languageTabs: [
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+          variant: "requests",
+        },
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+          variant: "axios",
+        },
+        {
+          highlight: "java",
+          language: "java",
+          logoClass: "java",
+          variant: "unirest",
+        },
+      ],
       footer: {
         style: 'dark',
         links: [

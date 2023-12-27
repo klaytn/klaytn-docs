@@ -20,7 +20,7 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 
 | Name | Type | Description |
 | --- | --- | --- |
-| functionSignature | String &#124; Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form ``function(type,type,...)``, e.g: ``myFunction(uint256,uint32[],bytes10,bytes)``
+| functionSignature | String \| Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form ``function(type,type,...)``, e.g: ``myFunction(uint256,uint32[],bytes10,bytes)``
 
 **Return Value**
 
@@ -62,7 +62,7 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| eventSignature | String &#124; Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form ``event(type,type,...)``, e.g: ``myEvent(uint256,uint32[],bytes10,bytes)`` |
+| eventSignature | String \| Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form ``event(type,type,...)``, e.g: ``myEvent(uint256,uint32[],bytes10,bytes)`` |
 
 **Return Value**
 
@@ -104,7 +104,7 @@ Encodes a parameter based on its type to its ABI representation.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| type | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| type | String \| Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
 | parameter | Mixed | The actual parameter to encode. |
 
 **Return Value**
@@ -141,7 +141,7 @@ Encodes function parameters based on its JSON interface object.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| typesArray | Array<String&#124;Object>&#124;Object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| typesArray | Array\<String\|Object\>\|Object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | parameters | Array | The parameters to encode. |
 
 **Return Value**
@@ -210,7 +210,7 @@ Decodes an ABI encoded parameter to its JavaScript type.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| type | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| type | String\|Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | Array | The ABI byte code to decode. |
 
 **Return Value**
@@ -240,7 +240,7 @@ Decodes ABI encoded parameters to its JavaScript types.
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
-| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| typesArray | Array\<String\|Object\>\|Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | String | The ABI byte code to decode. |
 
 **Return Value**

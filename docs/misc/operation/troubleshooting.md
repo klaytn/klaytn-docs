@@ -1,12 +1,4 @@
-<<<<<<<< HEAD:docs/misc/operation/troubleshooting.md
-<<<<<<<< HEAD:docs/misc/operation/troubleshooting.md
 # Troubleshooting
-========
-# Errors & Troubleshooting
->>>>>>>> 31ce2f2cd5fcc796babd79cabbac2387501e569a:docs/nodes/references/troubleshooting.md
-========
-# Errors & Troubleshooting
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):docs/nodes/references/troubleshooting.md
 
 ## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
@@ -117,5 +109,4 @@ Fatal: Error starting protocol stack: rewound to block number 0, but repair fail
 ```
 
 **Answer**
-
-Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (<= v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.
+Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.

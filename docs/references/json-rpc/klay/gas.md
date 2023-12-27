@@ -15,7 +15,7 @@ Returns base fee per gas and transaction effective priority fee per gas history 
 | Name               | Type                | Description                                                                                                                                                                                                                  |
 |--------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | blockCount         | QUANTITY            | Number of blocks in the requested range in hexadecimal. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.  |
-| lastBlock          | QUANTITY &#124; TAG | Highest numbered block of the requested range as block number or block tag.                                                                                                                                                  |
+| lastBlock          | QUANTITY \| TAG | Highest numbered block of the requested range as block number or block tag.                                                                                                                                                  |
 | rewardPercentiles  | Array of FLOAT      | An array of floating point values between 0 and 100.                                                                                                                                                                             |
 
 

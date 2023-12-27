@@ -1,4 +1,4 @@
-# KEN을 사용하여 스마트 컨트랙트 배포
+# KEN으로 스마트 컨트랙트 배포하기
 
 ![](/img/build/get-started/klaytnXken.png)
 
@@ -44,7 +44,7 @@ $ mkdir -p ~/kend_home
 
 ### EN 구성하기 <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/` 아래에 있습니다. 설정 가능한 파라미터에 대한 자세한 내용은 [EN 구성 가이드](../../../nodes/references/configuration-files.md)를 참고하시기 바랍니다. Baobab 테스트넷의 EN을 실행하려면 아래와 같이 `kend.conf` 파일을 업데이트합니다.
+구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/` 아래에 있습니다. 설정 가능한 파라미터에 대한 자세한 내용은 [EN 구성 가이드](../../../misc/operation/configuration.md)를 참고하시기 바랍니다. Baobab 테스트넷의 EN을 실행하려면 아래와 같이 `kend.conf` 파일을 업데이트합니다.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -88,7 +88,7 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ### 문제 해결 <a href="#troubleshooting" id="troubleshooting"></a>
 
-클레이튼 엔드포인트 노드 실행에 문제가 있는 경우 [문제 해결](../../../nodes/references/troubleshooting.md)을 참고하시기 바랍니다.
+클레이튼 엔드포인트 노드 실행에 문제가 있는 경우 [문제 해결](../../../misc/operation/troubleshooting.md)을 참고하시기 바랍니다.
 
 ## 계정 충전하기 <a id="top-up-your-account"></a>
 

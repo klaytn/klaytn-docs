@@ -45,7 +45,7 @@ Nếu đường dẫn của tập tin được thông qua, nội dung của tậ
 
 | Tên  | Loại                                  | Mô tả                                                     |
 | ---- | -------------------------------------- | --------------------------------------------------------- |
-| data | chuỗi &#124; Bộ đệm &#124; ArrayBuffer | Chuỗi đường dẫn của tập tin hoặc bộ đệm để thêm vào IPFS. |
+| data | chuỗi \| Bộ đệm \| ArrayBuffer | Chuỗi đường dẫn của tập tin hoặc bộ đệm để thêm vào IPFS. |
 
 **LƯU Ý** `Buffer` được hỗ trợ kể từ caver-js phiên bản [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 

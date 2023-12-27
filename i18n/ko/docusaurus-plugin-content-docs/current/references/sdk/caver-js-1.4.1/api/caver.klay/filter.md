@@ -105,9 +105,9 @@ caver.klay.getPastLogs(options [, callback])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | options | Object | 필터 옵션입니다. |
-| options.fromBlock | Number &#124; String | (선택 사항) 로그를 가져올 가장 빠른 블록의 번호입니다. (``latest``은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. |
-| options.toBlock | Number &#124; String | (옵션) 로그를 가져올 마지막 블록의 번호입니다. (`latest`은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. |
-| options.address | String &#124; Array | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정과 관련된 로그만 반환됩니다. |
+| options.fromBlock | Number \| String | (선택 사항) 로그를 가져올 가장 빠른 블록의 번호입니다. (``latest``은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. |
+| options.toBlock | Number \| String | (옵션) 로그를 가져올 마지막 블록의 번호입니다. (`latest`은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. |
+| options.address | String \| Array | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정과 관련된 로그만 반환됩니다. |
 | options.topics | Array | (선택 사항) 로그 항목에 표시되어야 하는 값의 배열입니다. 순서가 중요합니다. 토픽을 생략하려면 `null`, *예:*, `[null, '0x12...']`을 사용하세요. 각 주제에 대한 옵션이 포함된 배열을 전달할 수도 있습니다(예:,* `[null, ['option1', 'option2']]`). |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 개체를 반환하고 두 번째 매개 변수로 결과를 반환합니다. |
 
@@ -195,9 +195,9 @@ caver.klay.newFilter(options [, callback])
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | options | Object | 필터 옵션입니다. |
-| options.fromBlock | Number &#124; String | (선택 사항) 이벤트를 쿼리할 가장 최근 블록 높이의 번호입니다. (특수 태그가 있으며, ``latest``은 가장 최근 블록을 의미함). 기본값은 ``latest``입니다. |
-| options.toBlock | Number &#124; String | (선택 사항) 이벤트를 쿼리할 마지막 블록 높이의 번호입니다(특수 태그가 있으며, `latest`는 가장 최근에 확인된 블록을 의미함). 기본값은 ``latest``입니다. |
-| options.address | String &#124; Array | (선택 사항) 지정된 컨트랙트 내에서 생성된 로그를 가져올 주소 또는 주소 목록입니다. |
+| options.fromBlock | Number \| String | (선택 사항) 이벤트를 쿼리할 가장 최근 블록 높이의 번호입니다. (특수 태그가 있으며, ``latest``은 가장 최근 블록을 의미함). 기본값은 ``latest``입니다. |
+| options.toBlock | Number \| String | (선택 사항) 이벤트를 쿼리할 마지막 블록 높이의 번호입니다(특수 태그가 있으며, `latest`는 가장 최근에 확인된 블록을 의미함). 기본값은 ``latest``입니다. |
+| options.address | String \| Array | (선택 사항) 지정된 컨트랙트 내에서 생성된 로그를 가져올 주소 또는 주소 목록입니다. |
 | options.topics | Array | (선택 사항) 로그 항목에서 검색할 값의 배열입니다. 순서가 중요합니다. 주어진 위치의 모든 항목을 일치시키려면 `null`, *예: *, `[null, '0x12...']`을 사용하세요. 배열을 전달하여 그 중 하나를 일치시킬 수도 있습니다.  *예:,* ``[null, ['option1', 'option2']]``. |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
