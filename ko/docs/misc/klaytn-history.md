@@ -2,20 +2,9 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
-## Shanghai EVM
-
-| ``           | Baobab                        | Cypress                       |
-| ------------ | ----------------------------- | ----------------------------- |
-| Date         | Aug 28, 2023 10:30:31 / UTC+9 | Oct 16, 2023 10:50:24 / UTC+9 |
-| Block number | `#131,608,000`                | `#135,456,000`                |
-
-### 정리
-
-Ethereum's Shanghai hard fork items were introduced with the [v1.11.1 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.1) and [v1.11.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.0), which includes changes from [EIP-3651](https://eips.ethereum.org/EIPS/eip-3651), [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855), and [EIP-3860](https://eips.ethereum.org/EIPS/eip-3860)
-
 ## KIP-103
 
-| ``           | Baobab                        | Cypress                       |
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Apr 06, 2023 04:25:03 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
 | Block number | `#119,145,600`                | `#119,750,400`                |
@@ -24,19 +13,18 @@ Ethereum's Shanghai hard fork items were introduced with the [v1.11.1 release](h
 
 KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
-
 ### Treasury Rebalance
 
-| ``                                 | Baobab                                     | Cypress                                    |
+| ` `                                | Baobab                                     | Cypress                                    |
 | ---------------------------------- | ------------------------------------------ | ------------------------------------------ |
 | TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
 | KCV address                        | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
 | KFF address                        | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
 | KCF address                        | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 
-
 ## Kore
-| ``           | Baobab                        | Cypress                       |
+
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Jan 10, 2023 10:20:50 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
 | Block number | `#111,736,800`                | `#119,750,400`                |
@@ -45,10 +33,9 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
 
-
-
 ## Magma
-| ``           | Baobab                        | Cypress                       |
+
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
 | Block number | `#98,347,376`                 | `#99,841,497`                 |
@@ -59,7 +46,7 @@ Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klayt
 
 ## EthTxType
 
-| ``           | Baobab                        | Cypress                       |
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number | `#86,513,895`                 | `#86,816,005`                 |
@@ -70,7 +57,7 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 ## London EVM
 
-| ``           | Baobab                        | Cypress                       |
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number | `#80,295,291`                 | `#86,816,005`                 |
@@ -81,10 +68,10 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ## Istanbul EVM
 
-| ``           | Baobab                        | Cypress                       |
-| ------------ | ----------------------------- | ----------------------------- |
-| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
-| Block number | `#75,373,312`                 | `#86,816,005`                 |
+| ` `          | Baobab                        | Cypress                      |
+| ------------ | ----------------------------- | ---------------------------- |
+| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+ |
+| Block number | `#75,373,312`                 | `#86,816,005`                |
 
 ### Summary
 
