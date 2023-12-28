@@ -1,21 +1,10 @@
 ---
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-sidebar_label: Particle Network
----
-
-# Integrate Particle Network into a dApp
-
-![](/img/build/tools/particle.png)
-
-## Introduction
-========
 sidebar_label: Web3Auth
 ---
 
 # Web3Auth를 dApp에 통합하기
 
 ![](/img/build/tools/klaytnXweb3Auth.png)
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 ## 소개
 
@@ -23,11 +12,7 @@ sidebar_label: Web3Auth
 
 지갑 인프라로서 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑, 기타 키 관리 방법을 즉시 지원합니다. 이 가이드가 끝날 때쯤이면, 여러분은 클레이튼 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합하게 될 것입니다. 다른 플랫폼(안드로이드, iOS, 리액트 네이티브, 플러터, 유니티)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참고하시기 바랍니다.
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Prerequisites
-========
 ## 전제 조건
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 * 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 * 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
@@ -35,11 +20,7 @@ sidebar_label: Web3Auth
 * [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
 * [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID를 받습니다.
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Installation
-========
 ## 설치
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 dApp에서 Web3Auth를 사용하려면 먼저 필요한 라이브러리와 SDK를 설치해야 합니다. 따라서 ethers.js와 Web3Auth 웹 SDK를 설정해야 합니다. [ethers.js](https://docs.ethers.org/v6/) 또는 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 라이브러리와 함께 Web3Auth를 사용하여 Klaytn 블록체인과 통신할 수 있습니다. 이 가이드에서는 ethers.js를 사용하겠습니다.
 
@@ -48,11 +29,7 @@ npm install --save @web3auth/modal
 npm install --save ethers	
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Initializing Particle Connect
-========
 ## Web3Auth 및 공급자 인스턴스 초기화하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 필요한 라이브러리를 성공적으로 설치한 다음에는 Web3Auth 인스턴스를 초기화하고, Web3Auth 공급자 인스턴스를 useState() 훅에 설정하고, useState() 훅에 init() 함수를 설정합니다.
 
@@ -94,39 +71,11 @@ useEffect(() => {
 }, []);
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Connecting Wallet
-========
 ## 지갑 연결하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 `App.js` 파일의 앱 함수 내에서 web3Auth 인스턴스의 [connect()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-in-the-user) 메서드를 호출하여 지갑 연결을 시작합니다.
 
 ```js
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-import '@particle-network/connectkit/dist/index.css';
-import { ConnectButton } from '@particle-network/connectkit';
-
-export const App = () => {
-	return <ConnectButton />;
-};
-```
-
-
-## Getting Account and Balance
-
-With a wallet now successfully connected through `ConnectButton`, you can retrieve the users associated Klaytn address. Additionally, you can retrieve its current balance (in KLAY) through ethers.js, passing in the corresponding EIP-1193 provider object retrieved from `useParticleProvider` within `@particle-network/connectkit`.
-
-```js
-import { useParticleProvider } from '@particle-network/connectkit';
-
-const provider = useParticleProvider();
-
-const [address, setAddress] = useState("");
-const [balance, setBalance] = useState("");
-
-========
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 const connectWallet = async() => {
     if (!web3auth) {
       console.log("web3auth not initialized yet");
@@ -215,11 +164,7 @@ return (
 }
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Disconnecting Wallet
-========
 ## 지갑 연결 해제하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 지갑과의 연결 해제는 Web3Auth 인스턴스에서 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 메서드를 사용하여 수행할 수 있습니다. 또한 상태를 새로고침하여 이전에 저장된 연결 데이터를 모두 지우는 것도 좋은 방법 중 하나입니다.
 
@@ -250,13 +195,9 @@ return (
 }
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Getting User Info
-========
 ## 체인 전환하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
-Web3Auth를 사용하여 체인을 전환하려면 먼저 [addChain()](https://web3auth.io/docs/sdk/web/no-modal/usage#add-chain) 메서드를 호출하여 연결된 어댑터에 원하는 체인 구성을 추가한 다음 [switchChain()](https://web3auth.io/docs/sdk/web/no-modal/usage#switch-chain) 메서드를 호출해야 합니다.  
+Web3Auth를 사용하여 체인을 전환하려면 먼저 [addChain()](https://web3auth.io/docs/sdk/web/no-modal/usage#add-chain) 메서드를 호출하여 연결된 어댑터에 원하는 체인 구성을 추가한 다음 [switchChain()](https://web3auth.io/docs/sdk/web/no-modal/usage#switch-chain) 메서드를 호출해야 합니다.
 
 ```js
 const switchChain = async () => {
@@ -311,11 +252,7 @@ Web3Auth의 고유한 기능은 소셜 로그인입니다. 사용자가 소셜 �
   );
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Signing Messages
-========
 ## 메시지 서명하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 공급자 및 서명자 객체를 초기화하면 사용자는 임의의 문자열에 서명할 수 있습니다.
 
@@ -355,11 +292,7 @@ return (
 
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Sending Native Transaction
-========
 ## 네이티브 트랜잭션 보내기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 한 사용자에서 다른 사용자로 KLAY를 보내는 것과 같은 네이티브 트랜잭션을 수행할 수 있습니다.
 
@@ -404,11 +337,7 @@ return (
 
 ```
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Working with a Smart Contract
-========
 ## 스마트 컨트랙트로 작업하기
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
 
 1. **컨트랙트 배포하기**
 
@@ -660,10 +589,6 @@ return (
 
 ## 문제 해결
 
-<<<<<<<< HEAD:i18n/vi/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/particle.md
-## Next Steps
-For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://docs.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample).
-========
 **Polyfill node core module error**
 
 ```js
@@ -674,4 +599,3 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 
 ## 다음 단계
 Web3Auth에 대한 자세한 가이드는 [Web3Auth 문서](https://web3auth.io/docs/connect-blockchain/klaytn) 및 [Web3Auth Github 리포지토리](https://github.com/web3auth)를 참조하세요. 또한 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample)에서 확인할 수 있습니다.
->>>>>>>> 57b3cf827 (Replaced with Docusaurus platform and restructured content):i18n/ko/docusaurus-plugin-content-docs/current/build/tools/wallets/wallet-libraries/web3Auth.md
