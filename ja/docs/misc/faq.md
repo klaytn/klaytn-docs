@@ -1,152 +1,158 @@
-# FAQ <a id="faq"></a>
+# FAQ
 
-- [Klaytnとは？](#what-is-klaytn)
-- [Klaytn 2.0とは?](#what-is-klaytn-2.0)
-- [KlaytnはEthereumと同等のものをどのようにサポートしていますか?](#how-ethereum-equivalence)
-- [Klaytnのガスポリシーとは何ですか？](#klaytn-gas-policy)
-- [Klaytnのアカウント構造の特別な点は何ですか？](#klaytn-account-structure)
-- [KlaytnからdApp開発を開始するには?](#dapp-development)
-- [Klaytn はオープンソースですか?](#is-klaytn-open-source)
-- [アカウントに入金するにはどうすればいいですか?](#fund-my-acconut)
-- [テストと開発のためのKlaytnの公共ノードプロバイダーはありますか？](#node-providers)
-- [KLAYテストを受けるための蛇口はありますか?](#are-there-faucets)
-- [Public RPCのエンドポイントステータスを確認するにはどうすればいいですか?](#rpc-endpoint-status)
-- [どのウォレットがKlaytnに対応していますか？](#which-wallets)
-- [ヒノキとは何か、バオバブとは何か?](#what-is-cypress-what-is-baobab)
-- [Klaytn SDK はありますか? どの言語で？](#klaytn-sdks)
-- [Klaytn を使用するには、EN (エンドポイント ノード) をインストールして実行する必要がありますか?](#must-i-install-and-run-en)
-- [ENを実行しています。ノードデータの同期が遅すぎます。](#node-data-sync-is-too-slow)
-- [KlaytnでERC-20とERC-721契約を使用できますか?](#can-i-use-erc-20-and-erc-721)
-- [TruffleはKlaytnのスマートコントラクト開発に使用できますか?](#can-i-use-truffle)
-- [Metamaskのようなブラウザ拡張ウォレットはどこで入手できますか?](#where-can-i-get-a-browser-extension-wallet)
-- [手数料支払い者のアカウントアドレスは、提供されたキーから取得されていないのはなぜですか?](#account-address-is-not-derived-from-the-key)
-- [手数料委任の完全な作業サンプルはどこで見つけることができますか?](#fee-delegation-samples)
+- [What is Klaytn?](#what-is-klaytn)
+- [What is Klaytn 2.0?](#what-is-klaytn-2.0)
+- [How does Klaytn support Ethereum equivalence?](#how-ethereum-equivalence)
+- [What is Klaytn’s gas policy?](#klaytn-gas-policy)
+- [What is special about Klaytn’s account structure?](#klaytn-account-structure)
+- [Where can I start dApp development with Klaytn?](#dapp-development)
+- [Is Klaytn Open Source?](#is-klaytn-open-source)
+- [How can I initially fund my account?](#fund-my-acconut)
+- [Any Klaytn’s Public Node Providers for testing and development?](#node-providers)
+- [Are there faucets to get test KLAY?](#are-there-faucets)
+- [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
+- [Which wallets support Klaytn?](#which-wallets)
+- [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
+- [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
+- [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
+- [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
+- [Can I use ERC-20 and ERC-721 contracts on Klaytn?](#can-i-use-erc-20-and-erc-721)
+- [Can I use Truffle for the smart contract development on Klaytn?](#can-i-use-truffle)
+- [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
+- [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
+- [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
 
+## What is Klaytn? <a id="what-is-klaytn"></a>
 
-## Klaytnとは？ <a id="what-is-klaytn"></a>
-Klaytnは、低遅延、高TPS、即時の最終性を備えたレイヤ1ブロックチェーンプラットフォームです。 これは、ゲームを構築し、 [メタバース](https://docs.klaytn.foundation/klaytn2/metaverse-package)を実現するための最適なブロックチェーンです。
+Klaytn is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](../learn/klaytn2/metaverse-package).
 
+## What is Klaytn 2.0? <a id="what-is-klaytn-2.0"></a>
 
-## Klaytn 2.0とは? <a id="what-is-klaytn-2.0"></a>
-Klaytn 2.0は、ブロックチェーン構築体験を促進するために、Ethereum Equivalenceと包括的なMetaverseパッケージをサポートし、メタバーに焦点を当てるようKlaytnの移行をマークします。 Klaytn 2.0 をよりよく理解するには、私たちの [ライトペーパー](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf) を参照してください。
+Klaytn 2.0 marks Klaytn’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf).
 
+## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
 
-## KlaytnはEthereumと同等のものをどのようにサポートしていますか? <a id="how-ethereum-equivalence"></a>
-KlaytnはEVM互換で、すべてのEthereum London EVM機能をサポートしています。 私たちの `eth` 名前空間は、Ethereumと互換性があるように改められています。 Ethereumツールはシームレスに使用でき、EthereumのdAppsの移行も最小限の労力で可能になりました。 トランザクションの種類とフィールドもEthereumのものと同等です。
+Klaytn is EVM compatible, and supports all Ethereum London EVM features. Our `eth` namespace has been amended to be compatible with Ethereum’s. Ethereum toolings can be used seamlessly, and migration of Ethereum dApps have also become possible with minimal effort. Transaction types and fields are also equivalent to Ethereum’s.
 
+## What is Klaytn’s gas policy? <a id="klaytn-gas-policy"></a>
 
-## Klaytnのガスポリシーとは何ですか？ <a id="klaytn-gas-policy"></a>
-Klaytnは、裁定ボットと戦うために動的なガス料金メカニズムを採用するために、一定のガス料金ポリシーから移行しました。 詳細については、こちらの [記事](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) を参照してください。
+Klaytn transitioned from a fixed gas fee policy to adopt a dynamic gas fee mechanism in order to combat arbitrage bots. Please refer to this [article](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) for more information.
 
+## What is special about Klaytn’s account structure? <a id="klaytn-account-structure"></a>
 
-## Klaytnのアカウント構造の特別な点は何ですか？ <a id="klaytn-account-structure"></a>
-To provide maximum convenience for dApp developers, Klaytn has devised a way to [decouple private keys from addresses](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744). その結果、 [multig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01)を簡単に実装できます。 1つのアカウントに複数の秘密鍵を作成し、それぞれの鍵には異なる重みがあります。 各キーは、 [個の異なる役割](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b) で割り当てることができます。
+To provide maximum convenience for dApp developers, Klaytn has devised a way to [decouple private keys from addresses](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744). As a result, you can easily implement [multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01), whereby you create multiple private keys for a single account, with each key having different weights. Each key can be assigned with [different roles](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b) as well.
 
+## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
 
-## KlaytnからdApp開発を開始するには? <a id="dapp-development"></a>
-Ethereumから移行する場合でも、Klaytnをゼロから構築する場合でも、必要なすべてのツールとインフラストラクチャをサポートしています。 スマートコントラクトは [Remix IDE](https://docs.klaytn.foundation/dapp/tutorials/connecting-remix) で Klaytn プラグインを使用するか、 [MetaMask](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask) ウォレットと [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi) に接続することができます。 Klaytnのsdk `caver` は [caver-js](https://github.com/klaytn/caver-js) として利用できます。Klaytn で dApp を構築するには、 [チュートリアル](https://docs.klaytn.foundation/dapp/tutorials) を参照してください。
+Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Klaytn Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Klaytn’s sdk `caver` is available as [caver-js](https://github.com/klaytn/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Klaytn.
 
+## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
 
-## Klaytn はオープンソースですか? <a id="is-klaytn-open-source"></a>
-Klaytnは間違いなくオープンソースです！ [Github Organisation](https://github.com/klaytn) をご覧いただければ、Klaytn Documentationに [貢献](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md) することができます。 オープンソースポリシーの詳細はこちら [](https://docs.klaytn.foundation/misc/opensource) をご覧ください。
+Klaytn is most certainly open source! Take a look at our [Github Organisation](https://github.com/klaytn) and you can start [contributing](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md) to our Klaytn Documentation. Read more about our open-source policies [here](opensource).
 
+## How can I initially fund my account? <a id="fund-my-acconut"></a>
 
-## アカウントに入金するにはどうすればいいですか? <a id="fund-my-acconut"></a>
-交換でKLAYを購入することができます。 利用可能な取引所のリストはここにあります: [Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/) または [Coingecko](https://www.coingecko.com/en/coins/klay#markets)
+You may purchase KLAY on the exchange. The list of available exchanges can be found here:
+[Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/) or [Coingecko](https://www.coingecko.com/en/coins/klay#markets)
 
+## Any Klaytn’s Public Node Providers for testing and development? <a id="node-providers"></a>
 
-## テストと開発のためのKlaytnの公共ノードプロバイダーはありますか？ <a id="node-providers"></a>
-Klaytnのパブリックノードプロバイダーとネットワークドメインについては、こちらの [リスト](https://docs.klaytn.foundation/dapp/json-rpc/public-en#public-json-rpc-endpoint-providers) を参照してください。
+Refer to this [list](../references/service-providers/public-en#public-json-rpc-endpoint-providers) for Klaytn’s Public Node Providers and the network domains.
 
+## Are there faucets to get test KLAY? <a id="are-there-faucets"></a>
 
-## KLAYテストを受けるための蛇口はありますか? <a id="are-there-faucets"></a>
-開発とテストの目的のためにKLAYテストを受けることができます: [Klay Faucet](https://baobab.wallet.klaytn.foundation/faucet) [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
+You can get test KLAY for development and testing purposes here:
+[Klay Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+[AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
+## How do I check for Public RPC endpoint status? <a id="rpc-endpoint-status"></a>
 
-## Public RPCのエンドポイントステータスを確認するにはどうすればいいですか? <a id="rpc-endpoint-status"></a>
-エンドポイントの稼働時間と安定性を保証することはできませんので、ノードプロバイダの状態を [こちら](https://www.allthatnode.com/klaytn.dsrv) でいつでも確認できます。
+Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status [here](https://www.allthatnode.com/klaytn.dsrv).
 
+## Which wallets support Klaytn? <a id="which-wallets"></a>
 
-## どのウォレットがKlaytnに対応していますか？ <a id="which-wallets"></a>
-KlaytnはコールドウォレットD'centだけでなく、Kaikas、MetaMaskなどの多数のホットウォレットでサポートされています。 リストはこちら [](http://klaytn.foundation/ecosystem)をご覧ください。
+Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
+## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
 
-## ヒノキとは何か、バオバブとは何か? <a id="what-is-cypress-what-is-baobab"></a>
+Cypress is the Klaytn mainnet, Baobab is a testnet.
+Below is information relating to each network.
 
-ヒノキはKlaytnメインネットで、バオバブはテストネットです。 以下は、各ネットワークに関する情報です。
+Cypress mainnet:
 
-ヒノキ主電源:
-- ENダウンロード : [ダウンロードページ](../node/endpoint-node/installation-guide/download.md)から、サイプレスパッケージを選択します。
-- Klaytnscope : https://scope.klaytn.com
-- Klaytn Wallet: https://wallet.klaytn.com
+- EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
+- Klaytnscope : https\://scope.klaytn.com
+- Klaytn Wallet : https\://wallet.klaytn.com
 
 Baobab testnet:
-- ENダウンロード : [ダウンロードページ](../node/endpoint-node/installation-guide/download.md)からBaobabパッケージを選択します。
-- Klaytnscope : https://baobab.scope.klaytn.com
-- Klaytn Wallet: https://baobab.wallet.klaytn.found
-- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
+- EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
+- Klaytnscope : https\://baobab.scope.klaytn.com
+- Klaytn Wallet : https\://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https\://baobab.wallet.klaytn.foundation/faucet
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 
-JavaScriptとJavaで公式のKlaytn SDKが提供されています。 [caver-js](../dapp/sdk/caver-js/README.md) と [caver-Java](../dapp/sdk/caver-java/README.md) を参照してください。 コミュニティの貢献は、他の言語で [Klaytn API](../dapp/json-rpc/README.md) を提供することで常に歓迎されます。
+Official Klaytn SDKs are provided in JavaScript and Java.
+See [caver-js](../references/sdk/caver-js/caver-js.md) and [caver-java](../references/sdk/caver-java/caver-java.md). Community contributions are always welcome in providing [Klaytn APIs](../references/json-rpc/json-rpc.md) in other languages.
 
-Klaytn SDK を使用して dApps をビルドする方法については、 [チュートリアル](../dapp/tutorials/README.md) を参照してください。
+To learn about how to build dApps using Klaytn SDK, see [Tutorials](../build/tutorials/tutorials.md).
 
-また、web3.js [と](../dapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) web3j [から移植ガイドライン](../dapp/sdk/caver-java/v1.4.0/porting-from-web3j.md) を確認してください。 caver-jsとcaver-javaの構文はweb3.jsやweb3jと非常に似ているため、portingは最小限で非常に簡単でなければなりません。 しかし、いいえ、web3.jsやweb3jを使用して、Klaytnに対するリクエストを行うことはできません。
+Also, check the porting guidelines [from web3.js](../references/sdk/caver-js-1.4.1/porting-from-web3.js.md) and [from web3j](../references/sdk/caver-java-1.4.0/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.
 
+## Must I install and run an EN (Endpoint Node) to use Klaytn? <a id="must-i-install-and-run-en"></a>
 
-## Klaytn を使用するには、EN (エンドポイント ノード) をインストールして実行する必要がありますか? <a id="must-i-install-and-run-en"></a>
+Yes and No.
+Endpoint node validates the blocks and exposes RPC APIs to the outer world. EN is always needed for your application to interact with the Klaytn network.
+For those who simply want to try Klaytn APIs, you can try [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+KAS provides Klaytn Node API service that exposes RPC APIs of Klaytn networks (both Baobab and Cypress) as well as other useful API services.
+Note that KAS serves free API requests after user registration. For pricing plans, please refer to [KAS pricing page](https://www.klaytnapi.com/landing/pricing).
 
-はい、いいえ。 エンドポイントノードはブロックを検証し、RPCAPIを外部世界に公開します。 アプリケーションがKlaytnネットワークと相互作用するためには、常にENが必要です。 単純に Klaytn API を試してみたい方は、 [KAS (Klaytn API Service)](https://www.klaytnapi.com) を試してみてください。 KASはKlaytn Node APIサービスを提供しており、Klaytnネットワーク(バオバブとサイプレスの両方)のRPCAPIやその他の便利なAPIサービスを公開しています。 KASは、ユーザー登録後に無料のAPIリクエストを提供することに注意してください。 料金プランについては、 [KAS価格ページ](https://www.klaytnapi.com/landing/pricing) をご覧ください。
+## I am running an EN, and node data sync is too slow. <a id="node-data-sync-is-too-slow"></a>
 
+First, check if your HW specification meets the [system requirements](../nodes/endpoint-node/system-requirements.md).
 
-## ENを実行しています。ノードデータの同期が遅すぎます。 <a id="node-data-sync-is-too-slow"></a>
+Check the [fast sync](../nodes/endpoint-node/install-endpoint-nodes.md#fast-sync-optional).
+Klaytn publishes the chain data every day. Chain data is a database snapshot that stores all blocks generated since the genesis. Download the latest chain data for the fast sync.
 
-まず、あなたのHW仕様が [システム要件](../node/endpoint-node/system-requirements.md)を満たしているかどうかを確認してください。
+## Can I use ERC-20 and ERC-721 contracts on Klaytn? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-[高速同期](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional)を確認してください。 Klaytnは毎日チェーンデータを公開しています。 チェーンデータは、ジェネシスから生成されたすべてのブロックを保存するデータベーススナップショットです。 高速同期のために最新のチェーンデータをダウンロードします。
+Yes. Klaytn supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/samples/erc-20.md) and [ERC-721](../build/smart-contracts/samples/erc-721.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
 
+Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.foundation) and join the discussion.
 
-## KlaytnでERC-20とERC-721契約を使用できますか? <a id="can-i-use-erc-20-and-erc-721"></a>
+## Can I use Truffle for the smart contract development on Klaytn? <a id="can-i-use-truffle"></a>
 
-はい Klaytnはスマートコントラクト言語としてSolidityをサポートしています。 [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) と [Ethereum用にSolidityで書かれたERC-721](../smart-contract/sample-contracts/erc-721/README.md) をKlaytnで展開して実行することができます。
+Yes. Truffle can be used in developing smart contracts on Klaytn with [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
+See [Truffle](../build/smart-contracts/ide-and-tools/truffle.md) and follow the configuration guideline.
 
-さらにKlaytn固有のトークン標準を定義することができます。 [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.foundation) に従い、ディスカッションに参加します。
+If you are new to Truffle, see [Testing Guide](../build/smart-contracts/testing-guide.md) and [Deployment Guide](../build/smart-contracts/deploy/deploy.md) to get a rough idea on what you can do with Truffle.
 
+## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-## TruffleはKlaytnのスマートコントラクト開発に使用できますか? <a id="can-i-use-truffle"></a>
+Klaytn's web browser extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KLAY transactions and create accounts.
 
-Yes. Truffleは、 [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn) を使用して、Klaytn でスマートコントラクトを開発する際に使用できます。 [Truffle](../toolkit/truffle.md) を参照し、設定ガイドラインに従ってください。
+## Why is my fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
 
-Truffleを初めて使用する場合 Truffleで何ができるかについては、 [Testing Guide](../smart-contract/testing-guide.md) と [Deployment Guide](../smart-contract/deploy-guide.md) を参照してください。
+In Klaytn, [the account address can be decoupled from the key pair](../learn/accounts.md#decoupling-key-pairs-from-addresses).
 
+Common use cases are as follows.
 
-## Metamaskのようなブラウザ拡張ウォレットはどこで入手できますか? <a id="where-can-i-get-a-browser-extension-wallet"></a>
+- The account owner wants to change the key for security reasons.
+- The account has a weighted-multisig or a role-based key that allows having multiple key pairs to control the account.
 
-Klaytn web brower extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikasは管理外のウォレットで、KLAY取引を行い、アカウントを作成することができます。
+Fee-payer accounts usually have a [role-based key](../learn/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
+## Where can I find complete working samples of fee-delegation? <a id="fee-delegation-samples"></a>
 
+Check [fee-delegation-example](../build/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
 
-## 手数料支払い者のアカウントアドレスは、提供されたキーから取得されていないのはなぜですか? <a id="account-address-is-not-derived-from-the-key"></a>
+See the [JavaScript code snippet](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8) for deploying a contract with fee-delegation. Note that you can not use Truffle for the contract deployment with fee-delegation.
 
-Klaytn [では、アカウントアドレスをキーペア](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) から切り離すことができます。
+[Sending a transaction with multiple signer](../references/sdk/caver-js-1.4.1/get-started-1.4.1.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
+Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
 
-一般的な使用例は以下のとおりです。
-- アカウントの所有者は、セキュリティ上の理由からキーを変更したいと考えています。
-- 口座には重み付きマルチシグまたはロールベースの鍵があり、複数の鍵ペアでアカウントを制御できます。
-
-手数料支払い口座には通常、 [ロールベースのキー](../klaytn/design/accounts.md#accountkeyrolebased) があります。 ほとんどの場合、アカウントアドレスは RoleFeePayer キーから取得されていません。
-
-
-## 手数料委任の完全な作業サンプルはどこで見つけることができますか? <a id="fee-delegation-samples"></a>
-
-値転送の完全な動作コードを取得するには、 [手数料委任例](../dapp/tutorials/fee-delegation-example.md) をチェックしてください。
-
-手数料委任を含むコントラクトをデプロイするには、 [JavaScriptコードスニペット](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8) を参照してください。 手数料委任を伴うコントラクト展開に Truffle を使用することはできません。
-
-[複数の署名者によるトランザクションの送信](../dapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) は署名の収集方法について2つの異なる方法について良い説明を与える。 関連するcaver-js APIは以下の通りです。 APIの説明のコード例を見てみましょう。
-- [caver.klay.accounts.signTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay/transaction.md#sendsignedtransaction)
+- [caver.klay.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction)
+- [caver.klay.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#feepayersigntransaction)
+- [caver.klay.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#combinesignatures)
+- [caver.klay.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/transaction.md#sendsignedtransaction)
