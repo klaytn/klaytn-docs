@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Klaytn Tài liệu",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Klaytn Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Learn": {
+    "message": "Giới thiệu",
+    "description": "Navbar item with label Learn"
+  },
+  "item.label.Build": {
+    "message": "Xây Dựng",
+    "description": "Navbar item with label Build"
+  },
+  "item.label.Nodes": {
+    "message": "Nodes",
+    "description": "Navbar item with label Nodes"
+  },
+  "item.label.References": {
+    "message": "Tham khảo",
+    "description": "Navbar item with label References"
+  }
+}

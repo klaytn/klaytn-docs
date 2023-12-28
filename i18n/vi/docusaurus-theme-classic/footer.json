@@ -1,0 +1,42 @@
+{
+  "link.title.Sites": {
+    "message": "Trang web",
+    "description": "The title of the footer links column with title=Sites in the footer"
+  },
+  "link.title.Community": {
+    "message": "Cộng đồng",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "Thêm",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Klaytn Square": {
+    "message": "Klaytn Square",
+    "description": "The label of footer link with label=Klaytn Square linking to https://square.klaytn.foundation/Home"
+  },
+  "link.item.label.Klaytn Online Toolkit": {
+    "message": "Klaytn Online Toolkit",
+    "description": "The label of footer link with label=Klaytn Online Toolkit linking to https://toolkit.klaytn.foundation/"
+  },
+  "link.item.label.Medium": {
+    "message": "Medium",
+    "description": "The label of footer link with label=Medium linking to https://medium.com/klaytn"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/klaytn_official"
+  },
+  "link.item.label.KIPs": {
+    "message": "KIPs",
+    "description": "The label of footer link with label=KIPs linking to https://kips.klaytn.foundation/"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/klaytn"
+  },
+  "copyright": {
+    "message": "© Klaytn Foundation 2023. All rights reserved.",
+    "description": "The footer copyright"
+  }
+}
