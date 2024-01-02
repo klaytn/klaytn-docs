@@ -126,9 +126,9 @@ const config = {
     ({
       algolia: {
         contextualSearch: true,
-        appId: '8CTSIJ444T', // For test only. To be replaced with that of klaytn account
-        apiKey: '5d557e0c45ed20f53b1464a9e8bea5a2', // For test only. To be replaced with that of klaytn account
-        indexName: 'my-first-index', // For test only. To be replaced with that of klaytn account
+        appId: '3JXBTKO6ZU',
+        apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
+        indexName: 'klaytn',
       },
       navbar: {
         title: 'Klaytn Docs',
@@ -184,7 +184,7 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                href: 'https://klaytn.gitbook.io/',
+                href: 'https://archive-docs.klaytn.foundation/',
                 label: 'Legacy',
               },
             ],
