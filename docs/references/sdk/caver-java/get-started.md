@@ -44,7 +44,7 @@ caver.utils provides utility functions.
 
 ## Prerequisites <a id="prerequisites"></a>
 
-### Adding a Repository<a id="adding-a-repository"></a>
+### Adding a Repository <a id="adding-a-repository"></a>
 A library repository should be added before using IPFS. Please add the following repository first.
 
 **maven**
