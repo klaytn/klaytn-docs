@@ -127,7 +127,7 @@ const config = {
       algolia: {
         contextualSearch: true,
         appId: '3JXBTKO6ZU',
-        apiKey: 'c5a3c4844a6489a8bf5be1e045adef6d',
+        apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
       },
       navbar: {
