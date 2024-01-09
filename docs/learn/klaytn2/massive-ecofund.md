@@ -7,16 +7,9 @@ Initially issued reserve tokens will also be used as a resource for investment
 in the ecosystem expansion.
 
 ## Grant <a id="grant"></a>
-
-### Klaytn Improvement Reserve (KIR) Grant Program <a id="kir-program"></a>
-• Our grant program that supports public goods such as infrastructure, tools and services that improve the quality of Klaytn L1
-
-• 12% of the newly issued tokens are the main financial resource
-
-### Klaytn Growth Fund (KGF) Grant Program <a id="kgf-program"></a>
-• Faucet resources for initial service testing and marketing - quickly applied and easily approved
-
-• Paid cumulative $9M in 4Q of 2021
+Klaytn currently runs two major grant programs which are: 
+* [Klaytn Community Fund (KCF)](../token-economy.md#klaytn-community-fund)
+* [Klaytn Foundation Fund (KFF)](../token-economy.md#klaytn-foundation-fund). 
 
 ## Invest <a id="invest"></a>
 

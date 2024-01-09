@@ -131,14 +131,14 @@ const sidebars = {
       link: {type: 'doc', id: 'build/smart-contracts/smart-contracts'},
       items: [
         'build/smart-contracts/solidity-smart-contract-language',
-        {
-          type: 'category',
-          label: 'IDE and Tools',
-          link: {type: 'doc', id: 'build/smart-contracts/ide-and-tools/ide-and-tools'},
-          items: [
-            'build/smart-contracts/ide-and-tools/truffle',
-          ],
-        },
+        // {
+        //   type: 'category',
+        //   label: 'IDE and Tools',
+        //   link: {type: 'doc', id: 'build/smart-contracts/ide-and-tools/ide-and-tools'},
+        //   items: [
+        //     'build/smart-contracts/ide-and-tools/truffle',
+        //   ],
+        // },
         {
           type: 'category',
           label: 'Deploy Smart Contracts',
@@ -149,7 +149,7 @@ const sidebars = {
             'build/smart-contracts/deploy/ken',
           ],
         },
-        'build/smart-contracts/testing-guide',
+        // 'build/smart-contracts/testing-guide',
         {
           type: 'category',
           label: 'Sample Contracts',

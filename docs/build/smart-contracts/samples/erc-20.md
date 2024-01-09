@@ -552,7 +552,7 @@ After deploying, you can invoke `balanceOf` with your account, which was used to
 
 `MyERC20` is now live !
 
-### 2.2 Deploying smart contract using truffle <a id="2-2-deploying-smart-contract-using-truffle"></a>
+<!-- ### 2.2 Deploying smart contract using truffle <a id="2-2-deploying-smart-contract-using-truffle"></a>
 
 You should have installed [node.js](https://nodejs.org/) in your environment. Please take a look at [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager/) to install node.js using package manager in various environment.
 
@@ -646,7 +646,7 @@ Saving artifacts...
 
 It shows that the transaction hash for deploying `MyERC20` is `0x1571e80552dab1d67260e8914e06d9b16ccae16fb698c750f6a09aab12517bc1` and the address of `MyERC20` is `0xc4c8257ED9B4eB6422fDe29B1eCe5Ce301e637e1`.
 
-Now `MyERC20` is live !
+Now `MyERC20` is live ! -->
 
 ## 3. Interacting with ERC-20 token from Klaytn Wallet <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
 
