@@ -131,14 +131,7 @@ const sidebars = {
       link: {type: 'doc', id: 'build/smart-contracts/smart-contracts'},
       items: [
         'build/smart-contracts/solidity-smart-contract-language',
-        {
-          type: 'category',
-          label: 'IDE and Tools',
-          link: {type: 'doc', id: 'build/smart-contracts/ide-and-tools/ide-and-tools'},
-          items: [
-            'build/smart-contracts/ide-and-tools/ide-and-tools',
-          ],
-        },
+        'build/smart-contracts/ide-and-tools/ide-and-tools',
         {
           type: 'category',
           label: 'Deploy Smart Contracts',
