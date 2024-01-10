@@ -133,6 +133,14 @@ const sidebars = {
         'build/smart-contracts/solidity-smart-contract-language',
         {
           type: 'category',
+          label: 'IDE and Tools',
+          link: {type: 'doc', id: 'build/smart-contracts/ide-and-tools/ide-and-tools'},
+          items: [
+            'build/smart-contracts/ide-and-tools/ide-and-tools',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Deploy Smart Contracts',
           link: {type: 'doc', id: 'build/smart-contracts/deploy/deploy'},
           items: [
@@ -323,7 +331,7 @@ const sidebars = {
       label: 'Service Chain',
       link: {type: 'doc', id: 'nodes/service-chain/service-chain'},
       items: [
-      	'nodes/service-chain/system-requirements',
+        'nodes/service-chain/system-requirements',
         {
           type: 'category',
           label: 'Quick Start',
@@ -337,7 +345,7 @@ const sidebars = {
             'nodes/service-chain/quick-start/value-transfer-between-sibling',            
           ],
         },
-      	'nodes/service-chain/install-service-chain',        
+        'nodes/service-chain/install-service-chain',        
         {
           type: 'category',
           label: 'Configure Service Chain',
