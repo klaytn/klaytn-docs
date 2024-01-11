@@ -50,6 +50,7 @@ const sidebars = {
     'learn/learn',
     'learn/why-klaytn',
     'learn/consensus-mechanism',
+    'learn/accounts',
     {
       type: 'category',
       label: 'Transactions',
