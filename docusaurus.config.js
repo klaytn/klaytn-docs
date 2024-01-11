@@ -204,6 +204,7 @@ const config = {
       docs: {
         sidebar: {
           autoCollapseCategories: true,
+          hideable: true,
         },
       },
       languageTabs: [
@@ -280,6 +281,9 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        defaultMode: 'dark',
+      }
     }),
 }
 
