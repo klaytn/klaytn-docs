@@ -10,9 +10,9 @@ Remix Online IDE is a powerful toolset for developing, deploying, debugging, and
 
 Klaytn Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Klaytn Contracts. This is based on OpenZeppelin Wizard.
 
-#### [Truffle](./truffle.md) <a href="#truffle" id="truffle"></a>
+#### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
-Klaytn smart contracts written in Solidity can be compiled and deployed using Truffle. At the moment, Klaytn supports up to Truffle v5.0.26.
+Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
 
 #### [Kaikas](../../tools/wallets/kaikas.md) <a href="#kaikas" id="kaikas"></a>
 
