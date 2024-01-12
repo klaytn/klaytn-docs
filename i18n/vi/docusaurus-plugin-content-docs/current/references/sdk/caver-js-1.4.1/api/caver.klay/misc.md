@@ -1,4 +1,4 @@
-# Linh tinh
+# Miscellaneous
 
 ## sha3 <a id="sha3"></a>
 
@@ -6,21 +6,20 @@
 caver.klay.sha3(data[, callback])
 ```
 
-Trả về hàm băm Keccak-256 (không phải là hàm băm SHA3-256 chuẩn hóa) của dữ liệu đã cho.
+Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
+**Parameters**
 
-**Tham số**
+| Name     | Type     | Description                                                                                                                   |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| data     | String   | The data to convert into a SHA3 hash.                                                                                         |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| Tên      | type  | Mô tả                                                                                                           |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| data     | Chuỗi | Dữ liệu cần chuyển đổi thành hàm băm SHA3.                                                                      |
-| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+**Return Value**
 
-**Giá trị trả về**
+`Promise` returns `String` - The SHA3 result of the given data.
 
-`Promise` trả về `String` - Kết quả SHA3 của dữ liệu đã cho.
-
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.klay.sha3("0x11223344").then(console.log);
