@@ -1,70 +1,73 @@
-# Nhà cung cấp JSON-RPC
+# Public JSON RPC Endpoints
 
-## Điểm cuối JSON RPC công khai
+Publicly exposed JSON-RPC endpoints allow you to test and run your blockchain products by providing interaction with the Klaytn network without running your own node.
 
-Điểm cuối JSON-RPC công khai cho phép bạn thử nghiệm và chạy các sản phẩm blockchain của mình thông qua việc tương tác với mạng lưới Klaytn mà không phải chạy nút riêng.
+Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical expertise, monitoring and computing resources. It comes with a cost of maintaining storage, network bandwidth as well as having to divert engineering time and resources; nodes must be kept up to date and health checked regularly. Hence, the main benefit of using an existing Public EN is that it allows you to solely focus on building and testing your blockchain product without the distraction of maintaining infrastructure to connect and interact with the Klaytn network.
 
-Chạy nút điểm cuối (EN) Klaytn không đơn giản. Việc này yêu cầu chuyên môn kỹ thuật cũng như nguồn lực theo dõi và tính toán. Việc này làm phát sinh chi phí duy trì lưu trữ, băng thông mạng cũng như vấn đề phải chuyển hướng thời gian và tài nguyên kỹ thuật; các nút phải luôn được cập nhật và kiểm tra tình trạng thường xuyên. Do đó, lợi ích chính khi sử dụng EN công khai hiện có là bạn chỉ cần tập trung vào việc xây dựng và thử nghiệm sản phẩm blockchain của mình, không bị phân tâm bởi việc duy trì hạ tầng để kết nối và tương tác với mạng lưới Klaytn.
+## Things to Consider
 
-### Những điều cần cân nhắc
+- The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes.
+- If traffic is concentrated on certain nodes, you may experience service delay.
+- To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
 
-- Các nhà cung cấp nút không chịu trách nhiệm cho bất cứ tổn thất hay mất mát nào xảy ra do lưu lượng hoặc việc tương tác với các nút.
-- Nếu lưu lượng được tập trung trên những nút nhất định, dịch vụ của bạn có thể bị trì hoãn.
-- Để ngăn ngừa việc có quá nhiều yêu cầu, các giới hạn tỷ lệ có thể áp dụng với từng nút. Những giới hạn này có thể thay đổi mà không có thông báo trước.
+## Public JSON-RPC Endpoint Providers
 
-### Nhà cung cấp điểm cuối JSON-RPC công khai
+Below is the list of Klaytn’s Public Node Providers and the network domains.
 
-Dưới đây là danh sách các nhà cung cấp nút công khai của Klaytn và các miền mạng.
+### Mainnet (Cypress) Public JSON-RPC Endpoints
 
-#### Mainnet (Cybress) điểm cuối JSON-RPC công khai
-
-Hãy nhớ rằng những điểm cuối này được cung cấp cho cộng đồng vì mục đích thử nghiệm và phát triển. Không sử dụng điểm cuối vì mục đích thương mại do chúng tôi không thể đảm bảo thời gian hoạt động và độ ổn định của nút.
-
-**HTTPS**
-
-| Nhà cung cấp dịch vụ                        | Điểm cuối                                         | Không gian tên | Loại   |
-| ------------------------------------------- | ------------------------------------------------- | -------------- | ------- |
-| [Quỹ Klaytn](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`            | klay,eth,net   | Đầy đủ  |
-|                                             | `https://archive-en.cypress.klaytn.net`           | klay,eth,net   | Lưu trữ |
-| [All That Node](www.allthatnode.com)        | `https://klaytn-mainnet-rpc.allthatnode.com:8551` | klay,eth,net   | Đầy đủ  |
-| [Mạng lưới BlockPI](https://blockpi.io/)    | `https://klaytn.blockpi.network/v1/rpc/public`    | klay,eth,net   | Đầy đủ  |
-|[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|klay,eth,net|Full|
-| [Pokt Network](https://pokt.network/)       | `https://klaytn-rpc.gateway.poktnetwork/)`       | klay,eth,net   | Đầy đủ  |
-
-**WebSocket**
-
-| Nhà cung cấp dịch vụ                        | Điểm cuối                                | Không gian tên | Loại   |
-| ------------------------------------------- | ---------------------------------------- | -------------- | ------- |
-| [Quỹ Klaytn](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`  | klay,eth,net   | Đầy đủ  |
-|                                             | `wss://archive-en.cypress.klaytn.net/ws` | klay,eth,net   | Lưu trữ |
-|[OnFinality](https://onfinality.io/)|`wss://klaytn.api.onfinality.io/public-ws`|klay,eth,net|Full|
-
-### Testnet (Baobab) điểm cuối JSON-RPC công khai
+Please keep in mind that these endpoints are provided to the community for testing and development purposes.
+Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
 
 **HTTPS**
 
-| Nhà cung cấp dịch vụ                        | Điểm cuối                                             | Không gian tên | Loại   |
-| ------------------------------------------- | ----------------------------------------------------- | -------------- | ------- |
-| [Quỹ Klaytn](https://www.klaytn.foundation) | `https://public-en-baobab.klaytn.net`                 | klay,eth,net   | Đầy đủ  |
-|                                             | `https://archive-en.baobab.klaytn.net/`               | klay,eth,net   | Lưu trữ |
-| [All That Node](www.allthatnode.com)        | `https://klaytn-baobab-rpc.allthatnode.com:8551`      | klay,eth,net   | Full    |
-| [Mạng lưới BlockPI](https://blockpi.io/)    | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net   | Đầy đủ  |
+| Service Provider                                   | Endpoints                                         | Namespaces   | Type    |
+| -------------------------------------------------- | ------------------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`            | klay,eth,net | Full    |
+|                                                    | `https://archive-en.cypress.klaytn.net`           | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551` | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/)             | `https://klaytn.blockpi.network/v1/rpc/public`    | klay,eth,net | Full    |
+| [OnFinality](https://onfinality.io/)               | `https://klaytn.api.onfinality.io/public`         | klay,eth,net | Full    |
+| [Pokt Network](https://pokt.network/)              | `https://klaytn-rpc.gateway.pokt.network/`        | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Nhà cung cấp dịch vụ                        | Điểm cuối                               | Không gian tên | Loại   |
-| ------------------------------------------- | --------------------------------------- | -------------- | ------- |
-| [Quỹ Klaytn](https://www.klaytn.foundation) | `wss://public-en-baobab.klaytn.net/ws`  | klay,eth,net   | Full    |
-|                                             | `wss://archive-en.baobab.klaytn.net/ws` | klay,eth,net   | Lưu trữ |
+| Service Provider                                   | Endpoints                                  | Namespaces   | Type    |
+| -------------------------------------------------- | ------------------------------------------ | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`    | klay,eth,net | Full    |
+|                                                    | `wss://archive-en.cypress.klaytn.net/ws`   | klay,eth,net | Archive |
+| [OnFinality](https://onfinality.io/)               | `wss://klaytn.api.onfinality.io/public-ws` | klay,eth,net | Full    |
 
-### Tài nguyên hữu ích
+## Testnet (Baobab) Public JSON-RPC Endpoints
 
-- Ví: Kaikas là ví tiện ích của trình duyệt cho Mạng lưới Klaytn. [Kaikas](../../build/tools/wallets/kaikas.md)
+**HTTPS**
 
-- Faucet: Bạn có thể nhận được KLAY thử cho mạng lưới thử nghiệm Baobab. [Faucet](../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)
+| Service Provider                                   | Endpoints                                             | Namespaces   | Type    |
+| -------------------------------------------------- | ----------------------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-baobab.klaytn.net`                 | klay,eth,net | Full    |
+|                                                    | `https://archive-en.baobab.klaytn.net/`               | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`      | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/)             | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net | Full    |
 
-- Trình khám phá: Klaytnscope là trình khám phá khối của mạng lưới Klaytn. [Klaytnscope](../../build/tools/block-explorers/klaytnscope.md)
+**WebSocket**
+
+| Service Provider                                   | Endpoints                               | Namespaces   | Type    |
+| -------------------------------------------------- | --------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-baobab.klaytn.net/ws`  | klay,eth,net | Full    |
+|                                                    | `wss://archive-en.baobab.klaytn.net/ws` | klay,eth,net | Archive |
+
+## Useful Resources
+
+- Wallet: Kaikas is a browser extension wallet for the Klaytn Network.
+  [Kaikas](../../build/tools/wallets/kaikas.md)
+
+- Faucet: You can obtain test KLAY for the Baobab test network.
+  [Faucet](../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)
+
+- Explorer: Klaytnscope is the block explorer for the Klaytn Network.
+  [Klaytnscope](../../build/tools/block-explorers/klaytnscope.md)
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Giá gas: được điều chỉnh linh hoạt trong khoảng [25, 750]. Phạm vi có thể được thay đổi qua quản trị trên chuỗi. Để biết thêm thông tin, hãy tham khảm [governance](../json-rpc/governance.md). [Phí giao dịch](../../learn/transaction-fees.md)
+- Gas price: dynamically adjusted within the range [25, 750]. The range can be changed via on-chain governance. For more information, refer to [governance](../json-rpc/governance.md).
+  [Transaction Fees](../../learn/transaction-fees.md)
