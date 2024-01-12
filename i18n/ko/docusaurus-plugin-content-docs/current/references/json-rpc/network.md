@@ -1,29 +1,26 @@
 ---
-설명: >-
-  네트워크 구성을 쿼리하는 데 사용되는 API입니다.
-
+description: APIs used to query network configuration.
 ---
 
 # net
 
-네임스페이스 `net`은 클레이튼 네트워크와 관련된 함수를 제공합니다.
-
+The namespace `net` provides functions related to the Klaytn networks.
 
 ## net_networkID <a id="net_networkid"></a>
 
-네트워크 식별자(네트워크 ID)를 반환합니다.
+Returns the network identifier (network ID).
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| --- | --- |
-| QUANTITY | 네트워크 식별자의 정수입니다. <br />- `"1001"`: 클레이튼 Baobab 테스트넷입니다. <br />- `"8217"`: 클레이튼 Cypress 메인넷.|
+| Type     | Description                                                                                                             |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the network identifier. <br/>- `"1001"`: Klaytn Baobab testnet. <br/>- `"8217"`: Klaytn Cypress mainnet. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -37,22 +34,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-
 ## net_listening <a id="net_listening"></a>
 
-클라이언트가 네트워크 연결을 적극적으로 수신 대기 중이면 `true`를 반환합니다.
+Returns `true` if the client is actively listening for network connections.
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| --- | --- |
-| bool | 들을 때 `true`, 그렇지 않으면 `false`. |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` when listening, otherwise `false`. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -66,22 +62,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-
 ## net_peerCount <a id="net_peercount"></a>
 
-현재 클라이언트에 연결된 피어 수를 반환합니다.
+Returns the number of peers currently connected to the client.
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| --- | --- |
-| QUANTITY | 연결된 피어 수의 정수입니다.
+| Type     | Description                               |
+| -------- | ----------------------------------------- |
+| QUANTITY | Integer of the number of connected peers. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -97,19 +92,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCountByType <a id="net_peercountbytype"></a>
 
-유형별로 연결된 노드 수와 키/값 쌍으로 연결된 노드의 총 수를 반환합니다.
+Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| --- | --- |
-| JSON string | 유형별 연결된 피어 수와 연결된 총 피어 수입니다. |
+| Type        | Description                                                                           |
+| ----------- | ------------------------------------------------------------------------------------- |
+| JSON string | The number of connected peers by type as well as the total number of connected peers. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -125,19 +120,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_version <a id="net_version"></a>
 
-현재 클레이튼 프로토콜 버전을 반환합니다.
+Return the current klaytn protocol version.
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| --- | --- |
-| QUANTITY | 클레이튼 프로토콜 버전의 정수입니다. <br />- `"1001"`: 클레이튼 Baobab 테스트넷 <br />- `"8217"`: 클레이튼 Cypress 메인넷|
+| Type     | Description                                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the klaytn protocol version. <br/>- `"1001"`: Klaytn Baobab testnet. <br/>- `"8217"`: Klaytn Cypress mainnet. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -149,4 +144,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
     "result":"1001"
 }
 ```
-
