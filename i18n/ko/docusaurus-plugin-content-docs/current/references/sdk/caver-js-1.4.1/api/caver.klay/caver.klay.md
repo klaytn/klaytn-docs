@@ -1,16 +1,14 @@
 ---
-설명: >-
-  네임스페이스 `klay`를 둘러싼 Klaytn API에 대한 JavaScript 래퍼입니다.
-
+description: A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
 ---
 
 # caver.klay
 
-`caver-klay` 패키지를 사용하면 클레이튼 노드와 상호작용할 수 있습니다.  아래 목록은
-는 현재 `caver-js`에서 지원되는 API 함수를 열거한 것입니다.
-
+The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below
+enumerates the API functions that are currently supported in `caver-js`.
 
 ## [Account](./account.md) <a id="account"></a>
+
 - [defaultAccount](./account.md#defaultaccount)
 - [accountCreated](./account.md#accountcreated)
 - [getAccount](./account.md#getaccount)
@@ -22,8 +20,8 @@
 - [isContractAccount](./account.md#iscontractaccount)
 - [sign](./account.md#sign)
 
-
 ## [Block](./block.md) <a id="block"></a>
+
 - [defaultBlock](./block.md#defaultblock)
 - [getBlockNumber](./block.md#getblocknumber)
 - [getBlock](./block.md#getblock)
@@ -37,7 +35,6 @@
 - [getStorageAt](./block.md#getstorageat)
 - [isMining](./block.md#ismining)
 - [isSyncing](./block.md#issyncing)
-
 
 ## [Transaction](./transaction/transaction.md) <a id="transaction"></a>
 
@@ -72,8 +69,8 @@
 - [sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO)](./transaction/sendtx-cancel.md#sendtransaction-fee_delegated_cancel_with_ratio)
 - [signTransaction](./transaction/transaction.md#signtransaction)
 
-
 ## [Configuration](./config.md) <a id="configuration"></a>
+
 - [gasPriceAt](./config.md#gaspriceat)
 - [getChainId](./config.md#getchainid)
 - [getGasPrice](./config.md#getgasprice)
@@ -83,8 +80,8 @@
 - [isParallelDBWrite](./config.md#isparalleldbwrite)
 - [rewardbase](./config.md#rewardbase)
 
-
 ## [Filter](./filter.md) <a id="filter"></a>
+
 - [getFilterChanges](./filter.md#getfilterchanges)
 - [getFilterLogs](./filter.md#getfilterlogs)
 - [getPastLogs](./filter.md#getpastlogs)
@@ -93,5 +90,6 @@
 - [newPendingTransactionFilter](./filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./filter.md#uninstallfilter)
 
-## [기타](./misc.md) <a id="miscellaneous"></a>
+## [Miscellaneous](./misc.md) <a id="miscellaneous"></a>
+
 - [sha3](./misc.md#sha3)
