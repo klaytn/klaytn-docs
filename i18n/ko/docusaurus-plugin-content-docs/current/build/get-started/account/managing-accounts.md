@@ -32,7 +32,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 ### ken <a id="ken"></a>
 
-쉼표로 구분된 계정 목록 \(16진수 또는 인덱스\)를 인수로 받는 `--unlock "{address},{address}"` 옵션을 사용하여 명령줄에서 EN을 시작하면 한 세션에 대해 프로그래밍 방식으로 계정 잠금을 해제할 수 있습니다. 이 옵션은 RPC를 통해 dApp에서 계정을 사용하고자 할 때 유용합니다. `--unlock`은 목록에서 첫 번째 계정을 잠금 해제합니다. 프로그래밍 방식으로 계정을 만들었을 때 유용하며, 실제 계정을 몰라도 잠금을 해제할 수 있습니다.
+쉼표로 구분된 계정 목록 (16진수 또는 인덱스)를 인수로 받는 `--unlock "{address},{address}"` 옵션을 사용하여 명령줄에서 EN을 시작하면 한 세션에 대해 프로그래밍 방식으로 계정 잠금을 해제할 수 있습니다. 이 옵션은 RPC를 통해 dApp에서 계정을 사용하고자 할 때 유용합니다. `--unlock`은 목록에서 첫 번째 계정을 잠금 해제합니다. 프로그래밍 방식으로 계정을 만들었을 때 유용하며, 실제 계정을 몰라도 잠금을 해제할 수 있습니다.
 
 계정을 만들고 계정을 잠금 해제하여 노드를 시작합니다:
 
@@ -41,7 +41,7 @@ $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-특정 계정이 잠금 해제된 상태에서 노드를 시작하려면 계정 목록에서 주소 위치를 참조하는 주소 또는 인덱스 \(생성 순서에 해당\)를 사용하면 됩니다.
+특정 계정이 잠금 해제된 상태에서 노드를 시작하려면 계정 목록에서 주소 위치를 참조하는 주소 또는 인덱스 (생성 순서에 해당)를 사용하면 됩니다.
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -59,13 +59,13 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 
 ### JavaScript 콘솔 <a id="javascript-console"></a>
 
-콘솔에서 \(초 단위\) 기간 동안 \(한 번에 하나씩\) 계정을 잠금 해제할 수도 있습니다.
+콘솔에서 (초 단위) 기간 동안 (한 번에 하나씩) 계정을 잠금 해제할 수도 있습니다.
 
 ```javascript
 > personal.unlockAccount(address, "password", 300)
 ```
 
-콘솔 기록이 기록되므로 계정이 노출될 수 있으므로 비밀번호 인수를 사용하지 않는 것이 좋습니다. 주의하십시오.
+콘솔 기록이 기록되므로 계정이 노출될 수 있으므로 비밀번호 인수를 사용하지 않는 것이 좋습니다. You have been warned.
 
 ## 계정 잔액 확인 <a id="check-account-balance"></a>
 
