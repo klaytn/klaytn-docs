@@ -30,27 +30,27 @@
 
 `src/klaytn`: 클레이튼 블록체인과 상호작용하는 데 도움이 되는 파일들이 들어 있습니다.
 
-* `src/klaytn/caver.js`: 설정된 설정 내에서 caver를 인스턴스화합니다.  
+- `src/klaytn/caver.js`: 설정된 설정 내에서 caver를 인스턴스화합니다.
 
-  cf\) caver-js는 클레이튼 노드에 연결하여 노드 또는 클레이튼에 배포된 스마트 컨트랙트와 상호작용하는 RPC 라이브러리입니다.
+  cf) caver-js는 클레이튼 노드에 연결하여 노드 또는 클레이튼에 배포된 스마트 컨트랙트와 상호작용하는 RPC 라이브러리입니다.
 
-* `src/klaytn/Klaystagram.js`: caver-js API를 사용하여 컨트랙트 인스턴스를 생성합니다. 인스턴스를 통해 컨트랙트와 상호작용할 수 있습니다.
+- `src/klaytn/Klaystagram.js`: caver-js API를 사용하여 컨트랙트 인스턴스를 생성합니다. 인스턴스를 통해 컨트랙트와 상호작용할 수 있습니다.
 
 `src/redux`: 컨트랙트와 상호작용하는 API 함수를 생성하고 결과 데이터를 추적합니다.
 
-* `redux/actions/auth.js`
-* `redux/actions/photos.js`
+- `redux/actions/auth.js`
+- `redux/actions/photos.js`
 
 `src/pages`: Klaystagram 앱을 구성하는 두 개의 페이지 파일을 포함합니다.
 
-* `src/pages/AuthPage.js`: 가입 및 로그인 양식을 포함합니다. 가입 양식에서 개인키를 생성하여 앱 로그인 시 사용할 수 있습니다.
-* `src/pages/FeedPage.js`: 컨트랙트에서 읽은 사진을 표시하고 사용자에게 보여주며 업로드 기능을 제공합니다.
+- `src/pages/AuthPage.js`: 가입 및 로그인 양식을 포함합니다. 가입 양식에서 개인키를 생성하여 앱에서 로그인할 때 사용할 수 있습니다.
+- `src/pages/FeedPage.js`: 컨트랙트에서 읽은 사진을 표시하고 사용자에게 보여주며 업로드 기능을 제공합니다.
 
 `src/components`: 페이지를 구성하는 컴포넌트 파일을 포함합니다.
 
-* `src/components/Feed.js`: 컨트랙트에서 데이터를 읽어와 사진을 표시합니다.
-* `src/components/UploadPhoto.js`: 컨트랙트에 트랜잭션을 전송하여 사진을 업로드합니다. 
-* `src/components/TransferOwnership.js`: 트랜잭션을 전송하여 사진의 소유권을 이전합니다.
+- `src/components/Feed.js`: 컨트랙트에서 데이터를 읽어와 사진을 표시합니다.
+- `src/components/UploadPhoto.js`: 컨트랙트에 트랜잭션을 전송하여 사진을 업로드합니다.
+- `src/components/TransferOwnership.js`: 트랜잭션을 전송하여 사진의 소유권을 이전합니다.
 
 `src/App.js`: 튜토리얼 앱의 전체 컴포넌트를 위한 루트 컴포넌트 파일입니다.
 
@@ -58,7 +58,7 @@
 
 `App.js`는 전체 컴포넌트의 루트 컴포넌트 파일입니다. 사용자의 로그인 상태에 따라 두 개의 페이지를 렌더링합니다. 각 페이지에는 컨트랙트와 상호작용하는 함수가 있습니다. 트랜잭션을 블록체인에 전송하려면 caver에 지갑 인스턴스를 추가해야 합니다. 코드를 간략하게 살펴보며 개요를 살펴봅시다.
 
-참고) caver-js\(또는 코드에서 `cav`)는 클레이튼 블록체인과 상호작용하기 위한 라이브러리입니다. 다음 챕터인 [7-1. 컨트랙트를 프론트엔드에 연결하기](./feedpage.md#7-1-connect-contract-to-frontend)에서 자세히 알아보겠습니다.
+참고) caver-js(또는 코드에서 `cav`)는 클레이튼 블록체인과 상호작용하기 위한 라이브러리입니다. 다음 챕터인 [7-1. 컨트랙트를 프론트엔드에 연결하기](./feedpage.md#7-1-connect-contract-to-frontend)에서 자세히 알아보겠습니다.
 
 ```javascript
 // src/App.js
@@ -140,14 +140,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 참고) `walletInstance` 세션이 JSON string로 저장되므로 `JSON.parse`가 필요합니다.
 
-**1. `isLoggedIn` 상태 초기화하기**  
+**1. `isLoggedIn` 상태 초기화하기**\
 `isLoggedIn` 상태를 초기화하기 위해 앱 컴포넌트에서 `constructor` 생명주기 메서드를 사용합니다. 컴포넌트가 마운트되기 전에 브라우저의 세션스토리지에 `walletInstance` 세션이 있는지 확인합니다.
 
-**2. 지갑 삽입/제거**  
+**2. 지갑 삽입/제거**\
 한 번도 로그인한 적이 없다면 `walletInstance` 세션이 존재하지 않을 수 있습니다. 그렇지 않은 경우, 세션스토리지에 `walletInstance` 세션이 JSON string로 존재할 수 있습니다.
 
-1. 삽입 - 세션스토리지에 지갑 인스턴스가 존재한다면, caver와 리덕스 스토어에 지갑 인스턴스를 추가해 보세요.  
-2. 제거 - 세션스토리지에 있는 지갑 인스턴스가 유효하지 않으면 caver의 지갑과 리덕스 스토어에서 제거합니다.  
+1. 삽입 - 세션스토리지에 지갑 인스턴스가 존재한다면, caver와 리덕스 스토어에 지갑 인스턴스를 추가해 보세요.
+2. 제거 - 세션스토리지에 있는 지갑 인스턴스가 유효하지 않으면 caver의 지갑과 리덕스 스토어에서 제거합니다.
 
 ```javascript
 // redux/actions/auth.js
@@ -191,22 +191,23 @@ export const removeWallet = () => (dispatch) => {
 
 [위](#1-overview)에서 설명한 것처럼 `src/pages`에는 두 개의 페이지 파일이 포함되어 있습니다. 이 두 페이지 중 하나는 사용자의 로그인 여부에 따라 앱에서 렌더링됩니다.
 
-* `AuthPage.js`: 가입 및 로그인 양식을 포함합니다. 가입 양식에서 개인키를 생성하여 앱에서 로그인할 때 사용할 수 있습니다.
-* `FeedPage.js`: 컨트랙트에서 사진 데이터를 읽어와 사용자에게 보여줍니다. 사용자가 사진을 업로드할 수도 있습니다.
+- `AuthPage.js`: 가입 및 로그인 양식을 포함합니다. 가입 양식에서 개인키를 생성하여 앱 로그인 시 사용할 수 있습니다.
+- `FeedPage.js`: 컨트랙트에서 사진 데이터를 읽어와 사용자에게 보여줍니다. 사용자가 사진을 업로드할 수도 있습니다.
 
 ## 무엇을 배울까요? <a id="3-what-we-are-going-to-learn"></a>
 
 블록체인 기반 앱에서 컨트랙트와 상호작용하는 방법에는 두 가지가 있습니다.
 
 1\) 컨트랙트에서 데이터 **읽기**\
-2\) 컨트랙트에 데이터 **쓰기**
+2\) 컨트랙트에 데이터 **쓰기**\
+컨트랙트에서 데이터를 읽는 것은 비용이 들지 않습니다.
 
-컨트랙트에서 데이터를 읽는 것은 비용이 들지 않습니다.  
-반면에 컨트랙트에 데이터를 쓰는 \(트랜잭션 보내기\) 작업에는 비용이 발생합니다. 따라서 데이터를 쓰기 위해서는 반드시 KLAY를 보유하고 있는 클레이튼 계정이 있어야 합니다.
+Reading data from contract is cost-free.\
+반면에 컨트랙트에 데이터를 쓰는 (트랜잭션 보내기) 작업에는 비용이 발생합니다. 따라서 데이터를 쓰기 위해서는 반드시 KLAY를 보유하고 있는 클레이튼 계정이 있어야 합니다.
 
-AuthPage에서 `SignupForm`을 통해 클레이튼 계정 \(개인키\)를 생성할 수 있습니다. 그 후 개인키로 로그인하고 트랜잭션 수수료를 결제할 수 있습니다.
+AuthPage에서 `SignupForm`을 통해 클레이튼 계정 (개인키)를 생성할 수 있습니다. 그 후 개인키로 로그인하고 트랜잭션 수수료를 결제할 수 있습니다.
 
-두 가지 로그인 방법 \(개인키/키스토어\)에 대해 더 자세히 알고 싶으시다면,  
+두 가지 로그인 방법 (개인키/키스토어)에 대해 더 자세히 알고 싶으시다면,\
 [5.2. Auth 컴포넌트](../count-dapp/code-overview/auth-component.md) 페이지를 참고하시기 바랍니다.
 
 이 튜토리얼에서는 애플리케이션이 컨트랙트와 **데이터를 어떻게 읽고 쓰는지** 알아볼 수 있도록 `FeedPage`에 집중하겠습니다.
