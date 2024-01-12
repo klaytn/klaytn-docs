@@ -2,54 +2,53 @@
 
 ## eth_coinbase <a id="eth_coinbase"></a>
 
-Trả về địa chỉ coinbase của khách hàng.
+Returns the client coinbase address.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type            | Mô tả                            |
-| --------------- | -------------------------------- |
-| DỮ LIỆU 20 byte | Địa chỉ coinbase của khách hàng. |
+| Type         | Description                   |
+| ------------ | ----------------------------- |
+| 20-byte DATA | The current coinbase address. |
 
-**Ví dụ**
+**Example**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
-
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
-Trả về địa chỉ etherbase của khách hàng.
+Returns the client etherbase address.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại           | Mô tả                             |
-| --------------- | --------------------------------- |
-| DỮ LIỆU 20 byte | Địa chỉ etherbase của khách hàng. |
+| Type         | Description                    |
+| ------------ | ------------------------------ |
+| 20-byte DATA | The current etherbase address. |
 
-**Ví dụ**
+**Example**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_etherbase","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -57,28 +56,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_chainId <a id="eth_chainid"></a>
 
-Trả về chainId hiện tại được đặt trên nút yêu cầu.
+Return current chainId set on the requested node.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type     | Mô tả                               |
+| Type     | Description                         |
 | -------- | ----------------------------------- |
-| SỐ LƯỢNG | Mã chuỗi được đặt trên nút yêu cầu. |
+| QUANTITY | Chain id set on the requested node. |
 
-**Ví dụ**
+**Example**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -86,30 +84,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_gasPrice <a id="eth_gasprice"></a>
 
-Trả về mức giá hiện tại cho mỗi gas tính bằng peb.
+Returns the current price per gas in peb.
 
-**LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
+**NOTE**: This API has different behavior from Ethereum's and
+returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type     | Mô tả                                              |
-| -------- | -------------------------------------------------- |
-| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**Ví dụ**
+**Example**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
