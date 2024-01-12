@@ -18,13 +18,13 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 클레이튼 노드를 중지하고 데이터 디렉터리를 제거해주세요. 그런 다음 아래와 같이 올바른 `genesis.json`을 사용하여 `ken init`을 다시 실행합니다.
 
 예를 들어, 데이터 디렉터리가 `/var/kend/data`인 경우.
+
 ```
 sudo kend stop
 sudo rm -rf /var/kend/data
 sudo ken init --datadir /var/kend/data genesis.json
 sudo kend start
 ```
-
 
 ## 다음 오류 메시지와 함께 Truffle을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
@@ -50,8 +50,8 @@ Error: Returned error: The method net_version does not exist/is not available
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
-kend.conf`를 업데이트한 후 클레이튼 노드를 재시작합니다.
 
+kend.conf\`를 업데이트한 후 클레이튼 노드를 재시작합니다.
 
 ## 바이너리 패키지 설치 후 아래와 같이 `Unit not found` 에러가 발생하여 클레이튼 노드를 시작할 수 없습니다. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
@@ -90,7 +90,6 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 
 로그 파일에 위의 프로토콜 스택 오류 메시지가 표시된다면, 현재 작업 디렉터리의 전체 경로 이름이 너무 길어서 클레이튼을 시작하지 못했다는 뜻입니다. 더 짧은 전체 데이터 디렉터리로 클레이튼 노드를 시작하세요. 경로 이름의 최대 허용 길이는 운영체제에 따라 다릅니다.
 
-
 ## 다음 로그 메시지와 함께 EN이 CC에 연결할 수 없습니다. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
@@ -107,7 +106,5 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
-
-**답변**
 
 호환성 문제로 인해 이전 버전(`<=` v0.8.2)으로 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드할 것을 강력히 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전의 데이터를 마이그레이션하려는 경우, 최신 버전을 설치할 때 구성 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
