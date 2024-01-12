@@ -1,6 +1,6 @@
-# Tham khảo API chuỗi dịch vụ
+# Service Chain API Reference
 
-Không gian tên liên quan đến "Chuỗi dịch vụ".
+Namespaces related to "Service Chain".
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
