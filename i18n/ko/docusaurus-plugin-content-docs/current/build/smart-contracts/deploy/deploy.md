@@ -42,7 +42,7 @@ contract KlaytnGreeter is Mortal {
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
+4. 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -107,7 +107,7 @@ contract KlaytnGreeter is Mortal {
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Compile the contract.
+3. 컨트랙트를 컴파일합니다.
 
 ```
 $ solcjs KlaytnGreeter.sol --bin
