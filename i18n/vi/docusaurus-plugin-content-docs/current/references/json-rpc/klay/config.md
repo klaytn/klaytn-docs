@@ -1,20 +1,20 @@
-# Config
+# Configuration
 
 ## klay_chainID <a id="klay_chainid"></a>
 
-Trả về mã chuỗi của chuỗi.
+Returns the chain ID of the chain.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại    | Mô tả                              |
-| -------- | ---------------------------------- |
-| SỐ LƯỢNG | Giá trị nguyên ID chuỗi của chuỗi. |
+| Type     | Description                           |
+| -------- | ------------------------------------- |
+| QUANTITY | Integer of the chain ID of the chain. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -28,22 +28,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_clientVersion <a id="klay_clientversion"></a>
 
-Trả về phiên bản máy khách hiện tại của nút Klaytn.
+Returns the current client version of a Klaytn node.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type  | Mô tả                                        |
-| ----- | -------------------------------------------- |
-| Chuỗi | Phiên bản máy khách hiện tại của nút Klaytn. |
+| Type   | Description                                  |
+| ------ | -------------------------------------------- |
+| String | The current client version of a Klaytn node. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -57,22 +56,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-Trả về gợi ý cho giá gas tính bằng peb.
+Returns a suggestion for a gas price in peb.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại    | Mô tả                                              |
-| -------- | -------------------------------------------------- |
-| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -88,26 +86,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-Trả về các giá trị khác nhau dựa trên điều kiện được mô tả bên dưới. Đơn vị của giá trị trả về là peb.
+Returns different values based on the condition described below. The unit of the return value is peb.
 
-- Nếu `baseFee` không được xác định trong tiêu đề, nó sẽ trả về đơn giá từ tham số quản trị
-- Nếu khối là một khối đang chờ xử lý, nó sẽ trả về giá gas của txpool.
-- Nếu không, nó trả về phí cơ bản của khối đã cho.
+- If `baseFee` is undefined in the header, it returns the unit price from the governance parameter
+- If the block is a pending block, it returns the gas price of the txpool.
+- Otherwise, it returns the base fee of the given block.
 
+**Parameters**
 
-**Tham số**
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
+| NUMBER | Block number. If omitted, latest unit price will be returned. |
 
-| type | Mô tả                                                        |
-| ---- | ------------------------------------------------------------ |
-| SỐ   | Số khối. Nếu bị bỏ qua, hệ thống sẽ trả về đơn giá mới nhất. |
+**Return Value**
 
-**Giá trị trả về**
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
+| QUANTITY | Integer of the current gas price in peb. |
 
-| Loại    | Mô tả                                              |
-| -------- | -------------------------------------------------- |
-| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
-
-**Ví dụ**
+**Example**
 
 ```javascript
 // Request
@@ -123,19 +120,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
-Trả về `true` nếu nút đang ghi dữ liệu chuỗi khối theo cách song song. Nút được kích hoạt theo mặc định.
+Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại   | Mô tả                                                                                                                                      |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Boolean | `true` có nghĩa là nút đang ghi dữ liệu chuỗi khối theo cách song song. Giá trị sẽ là `false` nếu nút đang ghi dữ liệu theo cách nối tiếp. |
+| Type    | Description                                                                                                                          |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -149,22 +146,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
+Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
+It is disabled by default and can be enabled by `--sendertxhashindexing`.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type    | Mô tả                                                                                                             |
-| ------- | ----------------------------------------------------------------------------------------------------------------- |
-| Boolean | `true` có nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. |
+| Type    | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
+| Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -178,22 +175,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_protocolVersion <a id="klay_protocolversion"></a>
 
-Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`.
+Returns the Klaytn protocol version of the node.
+The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                               |
-| ----- | ----------------------------------- |
-| Chuỗi | Phiên bản giao thức Klaytn của nút. |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
+| String | The Klaytn protocol version of the node. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -207,22 +204,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. Chỉ yêu cầu đối với CN.
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại           | Mô tả    |
-| --------------- | -------- |
-| DỮ LIỆU 20 byte | Địa chỉ. |
+| Type         | Description |
+| ------------ | ----------- |
+| 20-byte DATA | Address.    |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -245,4 +241,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "result":"0x96Fd91f34Cc8da9f6338C106Ba37aA8B48FB4Fa5"
 }
 ```
-
