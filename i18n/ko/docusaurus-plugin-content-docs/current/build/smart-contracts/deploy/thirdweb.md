@@ -10,19 +10,19 @@
 
 이 가이드가 끝나면 다음을 수행할 수 있습니다:
 
-* Thirdweb을 사용해 컨트랙트를 생성하고 사용자 정의할 수 있습니다.
-* Thirdweb을 사용하여 스마트 컨트랙트를 컴파일, 배포, 상호작용할 수 있습니다.
+- Thirdweb을 사용해 컨트랙트를 생성하고 사용자 정의할 수 있습니다.
+- Thirdweb을 사용하여 스마트 컨트랙트를 컴파일, 배포, 상호작용할 수 있습니다.
 
 ## 시작하기 <a id="getting-started"></a>
 
 이 문서에서는 thirdweb을 사용하여 컨트랙트를 생성, 사용자 정의 및 배포하는 다양한 방법을 살펴보겠습니다.
 
-* thirdweb 대시보드 사용
-* thirdweb CLI 사용
+- thirdweb 대시보드 사용
+- thirdweb CLI 사용
 
 이 가이드에서는 셋째웹 대시보드를 사용하여 마켓플레이스 컨트랙트를 배포하는 방법과 셋째웹 CLI를 사용하여 마켓플레이스에 상장할 해당 NFT 컬렉션을 배포하는 방법을 보여드리겠습니다.
 
-> 참고: 스마트 컨트랙트 생성, 배포, 상호작용을 위한 thirdweb 대시보드와 CLI를 살펴보는 데 중점을 두었으므로 마켓플레이스 컨트랙트의 메커니즘은 설명하지 않겠습니다.  
+> 참고: 스마트 컨트랙트 생성, 배포, 상호작용을 위한 thirdweb 대시보드와 CLI를 살펴보는 데 중점을 두었으므로 마켓플레이스 컨트랙트의 메커니즘은 설명하지 않겠습니다.
 
 ## Thirdweb 대시보드를 사용하여 마켓플레이스 컨트랙트 만들기 및 배포하기 <a id="creating-and-deploying-thirdweb-dashboard"></a>
 
@@ -60,13 +60,13 @@ npx thirdweb create --contract
 
 2. 명령줄 프롬프트에 원하는 값을 입력합니다:
 
-    i. 프로젝트 이름을 지정합니다.
+   i. 프로젝트 이름을 지정합니다.
 
-    ii. 선호하는 프레임워크를 선택합니다: **Hardhat** 또는 **Foundry**.
+   ii. 선호하는 프레임워크를 선택합니다: **Hardhat** 또는 **Foundry**.
 
-    iii. 스마트 컨트랙트의 이름을 지정합니다.
+   iii. Name your smart contract.
 
-    iv. 기본 컨트랙트 유형을 선택합니다: **Empty**, **ERC20**, **ERC721**, 또는 **ERC1155**. 원하는 **extensions**을 추가합니다. 이 튜토리얼에서는 ERC721을 선택하고 확장을 없음으로 설정하겠습니다. 
+   iv. 기본 컨트랙트 유형을 선택합니다: **Empty**, **ERC20**, **ERC721**, 또는 **ERC1155**. 원하는 **extensions**을 추가합니다. 이 튜토리얼에서는 ERC721을 선택하고 확장을 없음으로 설정하겠습니다.
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
@@ -110,16 +110,20 @@ npx thirdweb deploy
 ```
 
 이 명령을 실행하면 다음 작업이 트리거됩니다:
-  * 프레임워크(hardhat, foundry)를 감지합니다.
-  * 현재 디렉토리에 있는 모든 컨트랙트를 컴파일합니다.
-  * 배포할 컨트랙트를 선택할 수 있습니다.
-  * 컴파일된 스마트 컨트랙트 코드(애플리케이션 바이너리 인터페이스 또는 ABI 형태)를 IPFS에 업로드합니다.
+
+- 프레임워크(hardhat, foundry)를 감지합니다.
+- 현재 디렉토리에 있는 모든 컨트랙트를 컴파일합니다.
+- allows you to select which contract(s) you wish to deploy.
+- 컴파일된 스마트 컨트랙트 코드(애플리케이션 바이너리 인터페이스 또는 ABI 형태)를 IPFS에 업로드합니다.
 
 2. 배포가 완료되면 대시보드 인터페이스가 열리고 나머지 파라미터를 입력할 수 있습니다.
-    **_name**: 컨트랙트 이름
-    **_symbol**: 심볼 또는 "티커"
-    **_royaltyRecipient**: 2차 판매에서 로열티를 받을 지갑 주소
-    **_royaltyBps**: 각 2차 판매에 대해 로열티 수령자에게 지급할 베이시스 포인트(bps)(예: 500 = 5%)
+   - **_name**: contract name
+   - **_symbol**: symbol or "ticker"
+   - 배포할 컨트랙트를 선택할 수 있습니다.
+   - **_name**: 컨트랙트 이름
+     **_symbol**: 심볼 또는 "티커"
+     **_royaltyRecipient**: 2차 판매에서 로열티를 받을 지갑 주소
+     **_royaltyBps**: 각 2차 판매에 대해 로열티 수령자에게 지급할 베이시스 포인트(bps)(예: 500 = 5%)
 
 3. 컨트랙트를 배포할 네트워크로 `Klaytn Mainnet Cypress`를 선택합니다.
 
@@ -161,9 +165,8 @@ Thirdweb 배포 명령에 대한 자세한 내용은 [배포 가이드](https://
 
 ## 결론 <a id="conclusion"></a>
 
-이 가이드를 끝까지 읽어보셨다면 축하드립니다. 궁금한 점이 있으시다면, [클레이튼 포럼](https://forum.klaytn.foundation/)을 방문하시거나 [공식 thirdweb 지원](https://support.thirdweb.com/)으로 문의해 주세요. 하지만 아래는 클레이튼에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
+Congratulations! 이 가이드를 끝까지 읽어보셨다면 축하드립니다. 궁금한 점이 있으시다면, [클레이튼 포럼](https://forum.klaytn.foundation/)을 방문하시거나 [공식 thirdweb 지원](https://support.thirdweb.com/)으로 문의해 주세요. 하지만 아래는 클레이튼에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
 
-* [Thirdweb 문서](https://portal.thirdweb.com/)
-* [Thirdweb을 사용해 dApp을 구축하는 방법](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
-* [NextJS와 TypeScript로 나만의 NFT 마켓플레이스 만들기](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
-
+- [Thirdweb 문서](https://portal.thirdweb.com/)
+- [Thirdweb을 사용해 dApp을 구축하는 방법](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
+- [NextJS와 TypeScript로 나만의 NFT 마켓플레이스 만들기](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
