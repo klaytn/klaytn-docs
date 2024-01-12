@@ -1,44 +1,37 @@
 # Klaytn Safe
 
-Trong một nền tảng blockchain điển hình như Klaytn, hầu hết người dùng đều quen thuộc với các hệ thống ví khóa duy nhất như Kaikas và MetaMask, còn được gọi là tài khoản sở hữu bên ngoài (EOA). Các tài khoản này sử dụng các cặp khóa truyền thống, tức là khóa công khai và khóa riêng tư, điều này không phải là giải pháp lý tưởng vì khóa riêng tư tạo ra một điểm lỗi duy nhất.
+In a typical blockchain platform like Klaytn, most users are familiar with single key wallet systems such as Kaikas and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
 
-Điều này làm cho các EOA không phù hợp để sử dụng trong tổ chức vì khóa riêng tư bị xâm phạm có thể dẫn đến việc tổ chức mất tất cả tiền điện tử của mình—chẳng hạn như trường hợp trong [vụ tấn công Wintermute](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) làm mất 162,5 triệu USD.
+This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
 
-Đây là lý do ra đời của các ví đa chữ ký như Klaytn Safe. Không giống như ví khóa duy nhất, ví đa chữ ký cần khóa riêng tư của nhiều bên để ký và thực hiện giao dịch, loại bỏ điểm lỗi duy nhất và cung cấp bảo mật cao hơn cho các trường hợp sử dụng của tổ chức.
+This is where multisig wallets like Klaytn Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
 
-## Ví đa chữ ký là gì? <a id="What are Multisig Wallets"></a>
+## What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
 
-Đúng như tên gọi, ví đa chữ ký là ví kỹ thuật số yêu cầu hai, ba hoặc nhiều khóa riêng tư từ các nguồn khác nhau để xác nhận và thực hiện giao dịch tiền điện tử.
+As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
 
+For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
 
-Ví dụ, bạn có thể tưởng tượng ví đa chữ ký giống như một chiếc két an toàn có ba ổ khóa. Ba chìa khóa cần thiết để mở két là của ba cá nhân khác nhau, do đó cần có sự đồng thuận của họ để có thể mở.
+Here are the main benefits of multisig wallets:
 
-Dưới đây là những lợi ích chính của ví đa chữ ký:
+- **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
 
+- **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
 
-* **Lưu trữ tài sản/tiền một cách an toàn:** Các công ty và giao thức có thể lưu trữ tiền của họ một cách an toàn mà không phải lo lắng về việc rò rỉ khóa riêng tư hoặc một kẻ xấu chuyển tiền mà không được phép.
+- **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
 
+Next, we will dive into Klaytn Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
 
-* **Cho phép ra quyết định phi tập trung:** Các công ty và giám đốc điều hành doanh nghiệp có thể đưa ra quyết định trực tuyến về những giao dịch sẽ thực hiện.
+## What is Klaytn Safe? <a id="What is Klaytn Safe"></a>
 
+Klaytn Safe is a multisig wallet for the Klaytn ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
 
-* **Xác thực hai yếu tố:** Với sự trợ giúp của ví đa chữ ký, các doanh nghiệp và cá nhân có thể đảm bảo rằng chỉ những người có quyền truy cập vào các khóa cần thiết mới có thể thực hiện giao dịch.
+## Benefits <a id="Benefits of Klaytn Safe"></a>
 
+- **Store and transfer KLAY and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KLAY) and tokens (fungible or non-fungible).
 
-Tiếp theo, chúng ta sẽ đi sâu vào Klaytn Safe, ví đa chữ ký dành cho Klatyn và cách sử dụng ví này để quản lý tiền và giao dịch của bạn.
+- **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
 
-# Klaytn Safe là gì? <a id="What is Klaytn Safe"></a>
+- **Safe apps:** Klaytn Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
 
-Klaytn Safe là ví đa chữ ký dành cho hệ sinh thái Klaytn. Đây là một nhánh của ví đa chữ ký được nhiều người biết đến [Gnosis Safe](https://gnosis-safe.io/).
-
-
-## Lợi ích <a id="Benefits of Klaytn Safe"></a>
-
-* **Lưu trữ và chuyển KLAY và KCT (KIP7, KIP17)**: Người dùng có thể gửi và chuyển tiền điện tử (KLAY) và token (fungible hoặc non-fungible).
-
-* **Linh hoạt và bảo mật:** Ngưỡng xác nhận mang đến cho người dùng khả năng kiểm soát và linh hoạt hơn đối với các giao dịch sẽ được thực hiện, đồng thời loại bỏ điểm lỗi duy nhất.
-
-* **Ứng dụng Safe:** Chức năng của Klaytn Safe được mở rộng bằng cách bổ sung các ứng dụng tùy chỉnh cho phép giao dịch hàng loạt và tương tác với các dApp khác. Một ví dụ về ứng dụng Safe này là **Trình tạo giao dịch** kết hợp và thực hiện nhiều giao dịch dưới dạng giao dịch theo lô.
-
-* **Khôi phục tài khoản:** Trong trường hợp mất khóa, tài khoản Klaytn Safe có thể được khôi phục miễn là các khóa còn lại vẫn có thể đáp ứng ngưỡng xác nhận.
-
+- **Account recovery:** In the event of lost keys, Klaytn Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
