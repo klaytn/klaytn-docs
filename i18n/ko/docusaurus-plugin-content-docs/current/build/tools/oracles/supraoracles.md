@@ -10,10 +10,10 @@ SupraOracles을 사용하면 스마트 컨트랙트가 가격 데이터 피드�
 
 ## 전제 조건
 
-* [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
-* [Remix IDE](https://remix.ethereum.org/)
-* [Remix 클레이튼 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY 얻기
+- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Remix IDE](https://remix.ethereum.org/)
+- [Remix 클레이튼 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY 얻기
 
 ## 시작하기
 
@@ -41,6 +41,7 @@ contract ISupraSValueFeedExample {
     }
 }
 ```
+
 이 예제에서는 Klaytn Baobab 테스트넷에서 S-Value Feed를 구현하고 있습니다. 클레이튼 Baobab S-Value 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
 
 ### 3단계: S-Value 암호화폐 가격 확인하기
@@ -65,14 +66,14 @@ return price;
 
 **Remix IDE**
 
-* [Remix IDE](https://remix.ethereum.org/)로 이동합니다.
-* 파일 탐색기 탭을 클릭하고, contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 파일을 새로 생성합니다.
-* 새로 생성한 파일에 아래 코드를 붙여넣습니다.
-* Remix에서 **Compile contract**을 클릭합니다.
-* 플러그인을 설치한 후 왼쪽의 Klaytn 탭을 클릭합니다.
-* **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
-* **Contract**에서 원하는 컨트랙트를 선택합니다. (예: ISupraSValueFeedExample)
-* **Deploy**를 클릭합니다..
+- [Remix IDE](https://remix.ethereum.org/)로 이동합니다.
+- 파일 탐색기 탭을 클릭하고, contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 파일을 새로 생성합니다.
+- 새로 생성한 파일에 아래 코드를 붙여넣습니다.
+- Remix에서 **Compile contract**을 클릭합니다.
+- 플러그인을 설치한 후 왼쪽의 Klaytn 탭을 클릭합니다.
+- **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
+- **Contract**에서 원하는 컨트랙트를 선택합니다. (예: ISupraSValueFeedExample)
+- **Deploy**를 클릭합니다..
 
 **샘플 코드**
 
@@ -103,7 +104,7 @@ contract ISupraSValueFeedExample {
 
 ![](/img/build/tools/sPriceFeed.png)
 
-축하합니다🎉! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT)를 요청하셨습니다.
+Tada 🎉! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT)를 요청하셨습니다.
 
 이 글을 쓰는 시점을 기준으로 getEthUsdtPrice()는 8포인트 정밀도 수치인 "185795966200"를 반환했습니다. 실제 ETH/USD 값을 얻으려면 이 수치를 10^8로 나누면 $1857.95966200가 됩니다.
 
