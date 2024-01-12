@@ -1,42 +1,43 @@
-# 취소
+# Cancel
 
 ## sendTransaction (CANCEL) <a id="sendtransaction-cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-[Cancel](../../../../../../learn/transactions/basic.md#txtypecancel) 트랜잭션을 네트워크로 전송합니다.
 
-**매개변수**
+Sends a [Cancel](../../../../../../learn/transactions/basic.md#txtypecancel) transaction to the network.
 
-sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니다.
+**Parameters**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| transactionObject | Object | 전송할 트랜잭션 오브젝트입니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 개체를 반환하고 두 번째 매개 변수로 결과를 반환합니다. |
+The parameters of sendTransaction are a transaction object and a callback function.
 
-`Cancel` 타입의 트랜잭션 객체는 다음과 같은 구조를 가집니다:
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| type | String | 트랜잭션 유형. "CANCEL" |
-| from | String | 이 트랜잭션 발신자의 주소입니다. |
-| gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(사용하지 않은 가스는 환불됨). |
-| gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
-| nonce | Number | (선택 사항) nonce의 정수입니다. 이를 통해 동일한 nonce를 가진 자신의 보류 중인 트랜잭션을 대체할 수 있습니다. 생략할 경우, caver-js에서 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
+A transaction object of type `CANCEL` has the following structure:
 
-**리턴 값**
+| Name     | Type   | Description                                                                                                                                                                                                        |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type     | String | Transaction Type. "CANCEL"                                                                                                                                                                                         |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+**Return Value**
 
-`PromiEvent`: 프로미스 결합 이벤트 이미터입니다. 트랜잭션 영수증을 사용할 수 있을 때 해결됩니다. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+The `callback` will return the 32-byte transaction hash.
 
-- ``"transactionHash"``는 ``String``을 반환합니다: 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 발생합니다.
-- ``"receipt"``는 ``Object``를 반환합니다: 트랜잭션 영수증을 사용할 수 있을 때 발생합니다.
-- ``"error"``는 ``Error``를 반환합니다: 전송 중 에러가 발생하면 발생합니다. 가스 부족 오류에서 두 번째 매개 변수는 영수증입니다.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-**예시**
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
@@ -68,54 +69,53 @@ caver.klay.sendTransaction({
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-
 ## sendTransaction (FEE_DELEGATED_CANCEL) <a id="sendtransaction-fee_delegated_cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-[수수료 위임 취소](../../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel) 트랜잭션을 네트워크에 전송합니다.
+Sends a [Fee Delegated Cancel](../../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel) transaction to the network.
 
-**매개변수**
+**Parameters**
 
-sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니다.
+The parameters of sendTransaction are a transaction object and a callback function.
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| transactionObject | Object | 전송할 트랜잭션 오브젝트입니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 개체를 반환하고 두 번째 매개 변수로 결과를 반환합니다. |
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-`FEE_DELEGATED_CANCEL` 타입의 트랜잭션 객체는 다음과 같은 구조를 가집니다:
+A transaction object of type `FEE_DELEGATED_CANCEL` has the following structure:
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| type | String | 트랜잭션 유형. "FEE_DELEGATED_CANCEL" |
-| from | String | 이 트랜잭션 발신자의 주소입니다. |
-| gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(사용하지 않은 가스는 환불됨). |
-| gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
-| nonce | Number | (선택 사항) nonce의 정수입니다. 이를 통해 동일한 nonce를 가진 자신의 보류 중인 트랜잭션을 대체할 수 있습니다. 생략할 경우, caver-js에서 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
+| Name     | Type   | Description                                                                                                                                                                                                        |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type     | String | Transaction Type. "FEE_DELEGATED_CANCEL"                                                                                                                                 |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
-위의 구조를 가진 `FEE_DELEGATED_CANCEL` 타입의 트랜잭션 객체 또는 `FEE_DELEGATED_CANCEL` 타입의 `RLP 인코딩된 트랜잭션`을 발산자의 경우 [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction)에서, 수수료 납부자의 경우 [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction)에서 매개변수로 사용할 수 있습니다.
+A transaction object of type `FEE_DELEGATED_CANCEL` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_CANCEL` can be used as a parameters in [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
-수수료 납부자가 발신자가 서명한 RLP 인코딩 트랜잭션에 서명하고 네트워크에 전송하려면 다음 구조의 객체를 정의하고 `caver.klay.sendTransaction`을 호출합니다.
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| feePayer | String | 트랜잭션의 수수료 납부자 주소입니다. |
-| senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션입니다. |
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-**리턴 값**
+**Return Value**
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스 결합 이벤트 이미터입니다. 트랜잭션 영수증을 사용할 수 있을 때 해결됩니다. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-- ``"transactionHash"``는 ``String``을 반환합니다: 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 발생합니다.
-- ``"receipt"``는 ``Object``를 반환합니다: 트랜잭션 영수증을 사용할 수 있을 때 발생합니다.
-- ``"error"``는 ``Error``를 반환합니다: 전송 중 에러가 발생하면 발생합니다. 가스 부족 오류에서 두 번째 매개 변수는 영수증입니다.
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**예시**
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -157,55 +157,55 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
 
 ## sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO) <a id="sendtransaction-fee_delegated_cancel_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-[비율에 따른 수수료 위임 취소](../../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) 트랜잭션을 네트워크에 전송합니다.
 
-**매개변수**
+Sends a [Fee Delegated Cancel With Ratio](../../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) transaction to the network.
 
-sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니다.
+**Parameters**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| transactionObject | Object | 전송할 트랜잭션 오브젝트입니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 개체를 반환하고 두 번째 매개 변수로 결과를 반환합니다. |
+The parameters of sendTransaction are a transaction object and a callback function.
 
-`FEE_DELEGATED_CANCEL_WITH_RATIO` 유형의 트랜잭션 객체는 다음과 같은 구조를 가집니다:
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| type | String | 트랜잭션 유형. "FEE_DELEGATED_CANCEL_WITH_RATIO" |
-| from | String | 이 트랜잭션 발신자의 주소입니다. |
-| gas | Number | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨). |
-| gasPrice | Number | (선택 사항) 발신자가 제공한 가스 가격(peb 단위). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
-| nonce | Number | (선택 사항) nonce의 정수입니다. 이를 통해 동일한 nonce를 가진 자신의 보류 중인 트랜잭션을 대체할 수 있습니다. 생략할 경우, caver-js에서 `caver.klay.getTransactionCount`를 호출하여 설정합니다. |
-| feeRatio | Number | 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%는 수수료 지불자가 부담합니다. 70%는 발신자가 부담합니다. 수수료 비율의 범위는 1~99이며, 범위를 벗어나면 트랜잭션이 승인되지 않습니다. |
+A transaction object of type `FEE_DELEGATED_CANCEL_WITH_RATIO` has the following structure:
 
-위와 같은 구조의 `FEE_DELEGATED_CANCEL_WITH_RATIO` 타입의 트랜잭션 객체 또는 `FEE_DELEGATED_CANCEL_WITH_RATIO` 타입의 `RLP 인코딩된 트랜잭션`을 발신자의 경우 [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction)에서, 수수료 납부자의 경우 [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction)에서 매개변수로 사용할 수 있습니다.
+| Name     | Type   | Description                                                                                                                                                                                                            |
+| -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | String | Transaction Type. "FEE_DELEGATED_CANCEL_WITH_RATIO"                                                                                |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                    |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                              |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.     |
+| feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 \~ 99, if it is out of range, the transaction will not be accepted. |
 
-수수료 납부자가 발신자가 서명한 RLP 인코딩 트랜잭션에 서명하고 네트워크에 전송하려면 다음 구조의 객체를 정의하고 `caver.klay.sendTransaction`을 호출합니다.
+A transaction object of type `FEE_DELEGATED_CANCEL_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_CANCEL_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| feePayer | String | 트랜잭션의 수수료 납부자 주소입니다. |
-| senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션입니다. |
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-**리턴 값**
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-`callback`은 32바이트 트랜잭션 해시를 반환합니다.
+**Return Value**
 
-`PromiEvent`: 프로미스 결합 이벤트 이미터. 트랜잭션 영수증을 사용할 수 있을 때 해결됩니다. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+The `callback` will return the 32-byte transaction hash.
 
-- ``"transactionHash"``는 ``String``을 반환합니다: 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 발생합니다.
-- ``"receipt"``는 ``Object``를 반환합니다: 트랜잭션 영수증을 사용할 수 있을 때 발생합니다.
-- ``"error"``는 ``Error``를 반환합니다: 전송 중 에러가 발생하면 발생합니다. 가스 부족 오류에서 두 번째 매개 변수는 영수증입니다.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-**예시**
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -249,5 +249,3 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
-
