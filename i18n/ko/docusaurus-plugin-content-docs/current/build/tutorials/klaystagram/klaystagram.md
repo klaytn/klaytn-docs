@@ -2,24 +2,24 @@
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [환경 설정](./setup-environment.md)
-* [스마트 컨트랙트 배포](./deploy-contracts.md)
-* [디렉터리 구조](./directory-structure.md)
-* [코드 개요](./code-overview.md)
-* [FeedPage 구성 요소](./feedpage.md)
-  * [7-1. 프론트엔드에 컨트랙트 연결](./feedpage.md#1-connect-contract-to-frontend)
-  * [7-2. 사진 컴포넌트 업로드](./feedpage.md#2-uploadphoto-component)
-  * [7-3. 피드 컴포넌트](./feedpage.md#3-feed-component)
-  * [7-4. 소유권 이전 컴포넌트](./feedpage.md#4-transferownership-component)
+- [환경 설정](./setup-environment.md)
+- [스마트 컨트랙트 배포](./deploy-contracts.md)
+- [디렉터리 구조](./directory-structure.md)
+- [코드 개요](./code-overview.md)
+- [FeedPage 구성 요소](./feedpage.md)
+  - 프론트엔드에 컨트랙트 연결](./feedpage.md#1-connect-contract-to-frontend)
+  - 사진 컴포넌트 업로드](./feedpage.md#2-uploadphoto-component)
+  - 피드 컴포넌트](./feedpage.md#3-feed-component)
+  - 소유권 이전 컴포넌트](./feedpage.md#4-transferownership-component)
 
 ## 테스트 환경 <a href="#testing-environment" id="testing-environment"></a>
 
 Klaystagram dApp은 다음 환경에서 테스트되었습니다.
 
-* MacOS Mojave 10.14.5
-* Node 10.16.0(LTS)
-* npm 6.9.0
-* Python 2.7.10
+- MacOS Mojave 10.14.5
+- Node 10.16.0(LTS)
+- npm 6.9.0
+- Python 2.7.10
 
 ## 소개 <a href="#introduction" id="introduction"></a>
 
@@ -44,6 +44,6 @@ Klaystagram dApp은 다음 환경에서 테스트되었습니다.
 
 스마트 컨트랙트와 상호작용하는 웹 애플리케이션을 구축하겠습니다. 이 튜토리얼을 완료하려면 다음 개념에 익숙해야 합니다.
 
-* [React](https://reactjs.org/) 및 [Redux](https://redux.js.org/)에 대한 기본 지식이 있다고 가정합니다. 이 강좌는 완전 초보자를 위한 강좌가 아닙니다.
-* [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) 개발에 대한 기본 지식과 경험이 있는 분을 권장합니다. 하지만, 본 튜토리얼의 단계별 가이드를 따라 진행하면 숙련된 SW 개발자라면 누구나 완성할 수 있습니다.
-* [ERC-721 토큰](http://erc721.org/)에 관심이 있는 분이라면 누구나 가능합니다.
+- [React](https://reactjs.org/) 및 [Redux](https://redux.js.org/)에 대한 기본 지식이 있다고 가정합니다. 이 강좌는 완전 초보자를 위한 강좌가 아닙니다.
+- [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) 개발에 대한 기본 지식과 경험이 있는 분을 권장합니다. 하지만, 본 튜토리얼의 단계별 가이드를 따라 진행하면 숙련된 SW 개발자라면 누구나 완성할 수 있습니다.
+- [ERC-721 토큰](http://erc721.org/)에 관심이 있는 분이라면 누구나 가능합니다.
