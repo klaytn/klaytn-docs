@@ -1,13 +1,11 @@
 # ken CLI 명령어
 
-'켄'은 클레이튼 엔드포인트 노드를 위한 명령줄 인터페이스입니다.
-
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## 명령어 <a id="commands"></a>
+## Commands
 
 `ken`에는 다음과 같은 명령이 있습니다.
 
@@ -72,7 +70,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` 명령은 실행 중인 노드에 연결하고, `console` 명령은 노드를 시작하여 노드에 연결합니다.  
+`attach` 명령은 실행 중인 노드에 연결하고, `console` 명령은 노드를 시작하여 노드에 연결합니다.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
@@ -81,7 +79,7 @@ Welcome to the Klaytn JavaScript console
 
 ### 모듈 API <a id="module-apis"></a>
 
-콘솔 프롬프트에 모듈 이름을 입력하면 해당 모듈의 사용 가능한 프로퍼티와 함수를 확인할 수 있습니다. 함수에 대한 자세한 내용은 [Klaytn API](../../references/json-rpc/json-rpc.md)를 참고하세요.  
+콘솔 프롬프트에 모듈 이름을 입력하면 해당 모듈의 사용 가능한 프로퍼티와 함수를 확인할 수 있습니다. 함수에 대한 자세한 내용은 [Klaytn API](../../references/json-rpc/json-rpc.md)를 참고하세요.
 
 ```javascript
 > personal
