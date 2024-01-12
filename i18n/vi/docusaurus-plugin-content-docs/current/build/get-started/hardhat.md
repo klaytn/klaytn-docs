@@ -4,31 +4,32 @@
 
 ## Introduction
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/). 
+This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/).
 
 Hardhat is a smart-contract development environment that will help you:
-* Develop and compile smart contracts.
-* Debug, test, and deploy smart contracts and dApps.
+
+- Develop and compile smart contracts.
+- Debug, test, and deploy smart contracts and dApps.
 
 Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
-By the end of this guide you will be able to: 
-* Set up a Hardhat project on Klaytn.
-* Create a simple soul-bound token.
-* Compile your smart contract using Hardhat.
-* Test, deploy, and interact with your smart contract using Hardhat.
-* Explore Hardhat forking feature.
+By the end of this guide you will be able to:
 
+- Set up a Hardhat project on Klaytn.
+- Create a simple soul-bound token.
+- Compile your smart contract using Hardhat.
+- Test, deploy, and interact with your smart contract using Hardhat.
+- Explore Hardhat forking feature.
 
 ## Pre-requisites
 
 To follow this tutorial, the following are the prerequisites:
 
-* Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
-* [NodeJS and NPM](https://nodejs.org/en/)
+- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
+- [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/service-providers/public-en.md).
+- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+- [NodeJS and NPM](https://nodejs.org/en/)
 
 ## Setting Up Your Development Environment
 
@@ -51,20 +52,19 @@ npm init -y
 
 **Step 3**: Install hardhat and other dependencies:
 
-* Paste the code below in your terminal to install hardhat
+- Paste the code below in your terminal to install hardhat
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-* Paste the code below to install other dependencies
+- Paste the code below to install other dependencies
 
 ```bash
 npm install dotenv @klaytn/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al. 
-
+> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al.
 
 **Step 4**: Initialise a hardhat project:
 
@@ -73,9 +73,10 @@ Run the command below to initiate an hardhat project
 ```bash
 npx hardhat
 ```
+
 For this guide, you'll be selecting a typescript project as seen below:
 
-![](/img/build/get-started/hardhat-init.png) 
+![](/img/build/get-started/hardhat-init.png)
 
 ![](/img/build/get-started/hardhat-init-ii.png)
 
@@ -93,15 +94,15 @@ After initializing a hardhat project, your current directory should include:
 
 **Step 5**: Create a .env file
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env. 
+Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
 
-* Paste this command in your terminal to create a .env file
+- Paste this command in your terminal to create a .env file
 
 ```bash
 touch .env
 ```
 
-* After creating our file, let's configure our .env file to look like this:
+- After creating our file, let's configure our .env file to look like this:
 
 ```js
  KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
@@ -137,7 +138,7 @@ Now that we have our development environment all set, let's get into writing our
 
 ## Creating SBT Smart Contract
 
-In this section, you will use the [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts. 
+In this section, you will use the [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
 
 > Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
 
@@ -286,8 +287,8 @@ In the code you just copied, line 7 & 12 shows you imported expect from [Chai](h
 
 The tests above check the following:
 
-* Is the owner of a particular token id the same as who it was minted to?
-* Did it prohibit transfer of tokens between accounts?
+- Is the owner of a particular token id the same as who it was minted to?
+- Did it prohibit transfer of tokens between accounts?
 
 **Step 3**: To run your test, run the command below:
 
@@ -297,7 +298,7 @@ npx hardhat test test/sbtTest.ts
 
 ![](/img/build/get-started/sbtTest.png)
 
-For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts). 
+For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
 
 ## Deploying the smart contract
 
@@ -336,7 +337,7 @@ main().catch((error) => {
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab) 
+**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab)
 
 ```bash
 npx hardhat run scripts/sbtDeploy.js --network baobab
@@ -352,9 +353,9 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ## Hardhat Forking
 
-Hardhat provides developers the functionality of simulating the mainnet (at any given block) to a local development network. One of the major benefit of this feature is that it enables developers to interact with deployed contract and also write test for complex cases.  
- 
-For this feature to work effectively, you need to connect to an archive node. You can read more about this feature [here](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 
+Hardhat provides developers the functionality of simulating the mainnet (at any given block) to a local development network. One of the major benefit of this feature is that it enables developers to interact with deployed contract and also write test for complex cases.
+
+For this feature to work effectively, you need to connect to an archive node. You can read more about this feature [here](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
 
 ### Forking Mainnet
 
@@ -384,8 +385,7 @@ networks: {
 
 After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
 
-
-The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command: 
+The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -407,7 +407,7 @@ npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 npx hardhat node --fork https://archive-en.cypress.klaytn.net --fork-block-number 105701850
 ```
 
-To confirm the forked chain at the stated block, open a new terminal window and use the following command: 
+To confirm the forked chain at the stated block, open a new terminal window and use the following command:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -416,6 +416,5 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 ![](/img/build/get-started/hardhat-fork-bnII.png)
 
 The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
-
 
 For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)
