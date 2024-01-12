@@ -10,9 +10,9 @@
 
 **리턴 값**
 
-| 유형 | 설명
-|----------------|---------------------------------|
-| 20-byte DATA | 현재 코인베이스 주소입니다.
+| 유형           | 설명              |
+| ------------ | --------------- |
+| 20-byte DATA | 현재 코인베이스 주소입니다. |
 
 **예시**
 
@@ -28,7 +28,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_etherbase <a id="eth_etherbase"></a>
 
 클라이언트 이더베이스 주소를 반환합니다.
@@ -39,9 +38,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **리턴 값**
 
-| 유형 | 설명
-|----------------|--------------------------------|
-| 20-byte DATA | 현재 이더베이스 주소입니다.
+| 유형           | 설명              |
+| ------------ | --------------- |
+| 20-byte DATA | 현재 이더베이스 주소입니다. |
 
 **예시**
 
@@ -57,7 +56,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_chainId <a id="eth_chainid"></a>
 
 요청된 노드에 설정된 현재 체인아이디를 반환합니다.
@@ -68,8 +66,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **리턴 값**
 
-| 유형 | 설명
-|-----------|-------------------------------------|
+| 유형       | 설명                     |
+| -------- | ---------------------- |
 | QUANTITY | 요청된 노드에 설정된 체인 아이디입니다. |
 
 **예시**
@@ -86,7 +84,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_gasPrice <a id="eth_gasprice"></a>
 
 현재 가스당 가격을 peb 단위로 반환합니다.
@@ -99,9 +96,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **리턴 값**
 
-| 유형 | 설명
-|------------|--------------------------------------------|
-| QUANTITY | 현재 가스 가격(peb)의 정수입니다.   |
+| 유형       | 설명                                       |
+| -------- | ---------------------------------------- |
+| QUANTITY | 현재 가스 가격(peb)의 정수입니다. |
 
 **예시**
 
@@ -116,4 +113,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```
-
