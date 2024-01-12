@@ -1,25 +1,20 @@
-# Nút điểm cuối
+# Endpoint Node
 
-## Đối tượng mục tiêu <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
-- Bất kỳ ai muốn gửi giao dịch hoặc truy vấn trạng thái của mạng lưới Klaytn bằng cách sử dụng [API Klaytn](../../references/json-rpc/json-rpc.md) đều phải thực hiện điều đó thông qua Nút điểm cuối.
-- Nút điểm cuối là giao diện của Mạng lưới Klaytn.
+- Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../references/json-rpc/json-rpc.md) needs to do so via an Endpoint Node.
+- Endpoint Nodes are the interface to the Klaytn Network.
 
-## Tổng quan về Nút điểm cuối <a id="endpoint-node-overview"></a>
+## Endpoint Node Overview <a id="endpoint-node-overview"></a>
 
-Nút điểm cuối có các vai trò và chức năng như sau.
+An Endpoint Node has the following roles and functions.
 
-- Đồng bộ hóa dữ liệu blockchain.
-- Xác thực các khối mới nhận được.
-- Xử lý các yêu cầu truy vấn.
-- Truyền các yêu cầu giao dịch đến các Nút Proxy.
+- Synchronize the blockchain data.
+- Validate the blocks newly received.
+- Handles query requests.
+- Transmits transaction requests to the Proxy Nodes.
 
-Nhị phân cài đặt Nút điểm cuối đi kèm với các giao diện và tiện ích như sau.
+The Endpoint Node install binary comes with the following interfaces and utilities.
 
-- API JSON-RPC: Máy chủ JSON-RPC chạy bên trong nút và cung cấp [API](../../references/json-rpc/json-rpc.md) để phát triển Ứng dụng Blockchain. Nó cũng có API quản lý nút.
-- Giao diện dòng lệnh: Cung cấp chức năng quản lý tài khoản và cấu hình nút. Bảng điều khiển JavaScript tương tác cũng được cung cấp và đính kèm nút. Bảng điều khiển JavaScript triển khai hầu hết các [API caver-js](../../references/sdk/caver-js/caver-js.md). 
-
-
-
-
-
+- JSON-RPC APIs: JSON-RPC server runs inside the node, and it exposes [APIs](../../references/json-rpc/json-rpc.md) for Blockchain Application development. It has several node management APIs as well.
+- Command-line Interface: Provides account management and node configuration functions. An interactive JavaScript console is also provided, that is attached to the node. JavaScript console implements most of the [caver-js APIs](../../references/sdk/caver-js/caver-js.md).
