@@ -1,4 +1,4 @@
-# Cấu trúc thư mục
+# Directory structure
 
 ```
 |-- contracts
@@ -18,32 +18,30 @@
     |-- routes.js
 ```
 
-`contracts/`: Chứa tập tin nguồn Solidity của hợp đồng thông minh.
+`contracts/`: Contains Solidity source files of the smart contract.
 
-`migrations/`: Chứa tập tin JavaScript thực hiện việc triển khai hợp đồng thông minh.
+`migrations/`: Contains JavaScript files that handle smart contract deployment.
 
-`truffle-config.js`: Tập tin cấu hình Truffle.
+`truffle-config.js`: Truffle configuration file.
 
-`static/`: Chứa các tập tin tĩnh như tập tin ảnh.
+`static/`: Contains static files such as images.
 
-`src/styles`: Tập tin định nghĩa CSS.
+`src/styles`: CSS definition files.
 
-`src/index.js`: Tập tin index của ứng dụng hướng dẫn của chúng tôi. Logic ReactDOM.render nằm ở đây.
+`src/index.js`: Our tutorial app's index file. ReactDOM.render logic is here.
 
-`src/App.js`: Tập tin thành phần gốc của ứng dụng hướng dẫn của chúng tôi.
+`src/App.js`: Our tutorial app's root component file.
 
-`src/routes.js`: Chứa các định nghĩa định tuyến.
+`src/routes.js`: Contains route definitions.
 
-`src/components`: Chứa các tập tin thành phần frontend.
+`src/components`: Contains frontend component files.
 
-* `src/components/BlockNumber.js`: Hiển thị số khối hiện tại.
+- `src/components/BlockNumber.js`: Shows the current block number.
 
-* `src/components/Auth.js`: Xử lý quá trình đăng nhập của người dùng bằng khóa riêng tư hoặc lưu trữ khóa với mật khẩu.
+- `src/components/Auth.js`: Handles user login using either private key or a keystore with password.
 
-* `src/components/Count.js`: Xử lý tương tác với hợp đồng Count đã triển khai. Gọi các hàm hợp đồng bằng caver.js.
+- `src/components/Count.js`: Handles interaction with the deployed Count contract. Invokes contract functions using caver.js.
 
-`src/klaytn`: Chứa các tập tin hỗ trợ tương tác với Klaytn.
+`src/klaytn`: Contains files that support interactions with the Klaytn.
 
-* `src/klaytn/caver.js`: Tạo caver-js. caver-js là thư viện gọi RPC Javascript giúp cho việc kết nối với nút Klaytn và tương tác với nút hoặc hợp đồng thông minh được triển khai trên Klaytn.
-
-
+- `src/klaytn/caver.js`: Instantiates caver-js. caver-js is a JavaScript RPC call library that helps connect to a Klaytn node and interact with the node or smart contracts deployed on Klaytn.
