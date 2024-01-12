@@ -4,4 +4,4 @@ Cross-chain messaging protocols seek to connect chains that are originally isola
 
 The cross-chain messaging protocols that are compatible with the Klaytn network are listed below.
 
-* [LayerZero](https://layerzero.gitbook.io/docs/)
+- [LayerZero](https://layerzero.gitbook.io/docs/)
