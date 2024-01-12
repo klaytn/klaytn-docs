@@ -14,10 +14,10 @@ sidebar_label: Web3Modal
 
 ## 전제 조건
 
-* 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트 이름`을 실행하여)
-* 필요한 지갑([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)) 설치.
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 받을 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트 이름`을 실행하여)
+- 필요한 지갑([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)) 설치.
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 받을 수 있습니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
 
 ## Web3Modal 및 지갑 공급자 옵션 설정하기
 
@@ -543,18 +543,18 @@ return (
 
 ## 문제 해결
 
-**Node fs error, add browser \{fs: false\} to package.json**
+**Node fs error, add browser {fs: false} to package.json**
 
 ```bash
 Node fs error, add browser {fs: false} to package.json
 ```
 
-이 문제는 Klip-web3-provider를 설치할 때 발생합니다. 이 문제를 해결하려면 다음 단계를 따르세요:
+이 문제는 Klip-web3-provider를 설치할 때 발생합니다.  이 문제를 해결하려면 다음 단계를 따르세요:
 
 **1단계**: node_modules 폴더를 열고 탐색합니다. 아래와 같이 @Klaytn/klip-web3-provider 폴더를 찾아 패키지.json 파일로 이동합니다:
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
- 
+
 **2단계**: 아래 코드를 @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json 파일에 붙여넣습니다.
 
 ```js
@@ -574,6 +574,3 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 ## 다음 단계
 
 Web3Modal에 대한 자세한 가이드는 [Web3Modal 문서](https://docs.walletconnect.com/2.0/web3modal/about) 및 [Web3Modal GitHub 리포지토리](https://github.com/WalletConnect/web3modal)를 참조하시기 바랍니다. 또한 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Modal-sample)에서 확인할 수 있습니다.
-
-
-
