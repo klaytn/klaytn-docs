@@ -20,7 +20,7 @@ You can also follow along this [step by step guide](https://academy.subquery.net
 
 SubQuery is open-source, meaning you have the freedom to run it in the following three ways:
 
-* Locally on your own computer, or a cloud provider of your choosing. View the instructions on how to run SubQuery locally [here](https://academy.subquery.network/run_publish/run.html).
+- Locally on your own computer, or a cloud provider of your choosing. View the instructions on how to run SubQuery locally [here](https://academy.subquery.network/run_publish/run.html).
 
 You can publish it to SubQuery's enterprise-level [Managed Service](https://managedservice.subquery.network/login), where we'll host your SubQuery project in production ready services for mission critical data with zero-downtime blue/green deployments. There even is a generous free tier. [Find out how](https://academy.subquery.network/run_publish/publish.html).
 
@@ -30,9 +30,9 @@ You can publish it to the decentralized SubQuery Network, the most open, perform
 
 Here are some additional resources to help you get started with the Covalent API:
 
-* [SubQuery Website](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-* [Documentation](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-* [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn&utm_medium=partner-docs)
-* [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
-* [Klaytn Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
-* [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
+- [SubQuery Website](https://subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
+- [Documentation](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
+- [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\&utm_medium=partner-docs)
+- [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\&utm_medium=partner-docs)
+- [Klaytn Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
+- [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn\&utm_medium=partner-docs)
