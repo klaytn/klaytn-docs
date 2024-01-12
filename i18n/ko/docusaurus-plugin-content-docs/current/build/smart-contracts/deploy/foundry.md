@@ -85,7 +85,7 @@ contract Counter {
 
 **코드 연습**
 
-This is your smart contract. **1행**은 Solidity 버전 0.8.13 이상을 사용함을 보여줍니다. 4줄부터 12줄까지는 스마트 컨트랙트 `Counter`가 생성됩니다. 이 컨트랙트는 **setNumber** 함수를 사용하여 새로운 숫자를 저장하고 **increment** 함수를 호출하여 숫자를 증가시킵니다.
+이것이 여러분의 스마트 컨트랙트입니다. **1행**은 Solidity 버전 0.8.13 이상을 사용함을 보여줍니다. 4줄부터 12줄까지는 스마트 컨트랙트 `Counter`가 생성됩니다. 이 컨트랙트는 **setNumber** 함수를 사용하여 새로운 숫자를 저장하고 **increment** 함수를 호출하여 숫자를 증가시킵니다.
 
 ## 스마트 컨트랙트 테스트
 
@@ -132,7 +132,7 @@ forge test
 
 테스트 작성, 고급 테스트 및 기타 기능에 대해 자세히 알아보려면 [Foundry 문서](https://book.getfoundry.sh/forge/tests)를 참조하세요.
 
-## Compiling your contracts
+## 컨트랙트 컴파일하기
 
 이 명령으로 컨트랙트를 컴파일합니다:
 
@@ -140,7 +140,7 @@ forge test
 forge build 
 ```
 
-## Deploying your contracts
+## 컨트랙트 배포하기
 
 Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. 클레이튼의 [rpc 제공자](../../../references/service-providers/public-en.md) 목록을 참고하여 rpc-url을 찾고, [MetaMask](../../tutorials/connecting-metamask#install-metamask)를 사용하여 계정을 생성합니다.
 
@@ -164,7 +164,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 **2단계**: [Klaytnscope](https://baobab.scope.klaytn.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx)를 열어 카운터 컨트랙트가 성공적으로 배포되었는지 확인합니다.
 
-**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. You should see the recently deployed contract.
+**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 컨트랙트가 표시됩니다.
 
 ![](/img/build/get-started/forge-scope.png)
 
@@ -210,7 +210,7 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
 ```
 
-**예제**
+**예시**
 
 ```bash
 cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
@@ -258,7 +258,7 @@ Foundry를 사용하면 메인넷을 로컬 개발 네트워크([Anvil](https://
 anvil --fork-url rpc-url
 ```
 
-**예시**
+**예제**
 
 ```bash
 anvil --fork-url https://archive-en.cypress.klaytn.net
@@ -278,7 +278,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 이를 확인하려면 [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList)에서 블록 번호를 상호 참조하세요.
 
-### Illustration
+### 따라하기
 
 이 섹션에서는 oUSDC 토큰을 보유한 사람으로부터 Anvil이 생성한 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)으로 토큰을 전송하는 방법을 알아보세요.
 
