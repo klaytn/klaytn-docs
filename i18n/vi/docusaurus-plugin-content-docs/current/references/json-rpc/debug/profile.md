@@ -1,67 +1,75 @@
-# Tạo hồ sơ
+# Profiling
 
 ## debug_blockProfile <a id="debug_blockprofile"></a>
 
-Bật hồ sơ khối trong khoảng thời gian nhất định và ghi dữ liệu hồ sơ vào đĩa. Nó sử dụng tốc độ tạo hồ sơ là 1 để có thông tin chính xác nhất. Nếu yêu cầu một tốc độ khác, hãy thiết lập tỷ lệ và ghi theo cách thủ công bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
+Turns on block profiling for the given duration and writes profile data to
+disk. It uses a profile rate of 1 for most accurate information. If a different
+rate is desired, set the rate and write the profile manually using
+[debug_writeBlockProfile](#debug_writeblockprofile).
 
-|    Máy khách    | Gọi phương pháp                                                |
-|:---------------:| -------------------------------------------------------------- |
-| Bảng điều khiển | `debug.blockProfile(file, seconds)`                            |
-|       RPC       | `{"method": "debug_blockProfile", "params": [string, number]}` |
+|  Client | Method Invocation                                              |
+| :-----: | -------------------------------------------------------------- |
+| Console | `debug.blockProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                                     |
-| ------- | ----- | ----------------------------------------- |
-| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.             |
-| giây    | int   | Khoảng thời gian cấu hình tính bằng giây. |
+| Name    | Type   | Description                            |
+| ------- | ------ | -------------------------------------- |
+| file    | string | The filename for the profiling result. |
+| seconds | int    | The profiling duration in seconds.     |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.blockProfile("block.profile", 10)
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_cpuProfile <a id="debug_cpuprofile"></a>
 
-Bật cấu hình CPU trong khoảng thời gian nhất định và ghi dữ liệu hồ sơ vào đĩa.
+Turns on CPU profiling for the given duration and writes profile data to disk.
 
-|    Máy khách    | Gọi phương pháp                                              |
-|:---------------:| ------------------------------------------------------------ |
-| Bảng điều khiển | `debug.cpuProfile(file, seconds)`                            |
-|       RPC       | `{"method": "debug_cpuProfile", "params": [string, number]}` |
+|  Client | Method Invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.cpuProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                                     |
-| ------- | ----- | ----------------------------------------- |
-| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.             |
-| giây    | int   | Khoảng thời gian cấu hình tính bằng giây. |
+| Name    | Type   | Description                            |
+| ------- | ------ | -------------------------------------- |
+| file    | string | The filename for the profiling result. |
+| seconds | int    | The profiling duration in seconds.     |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.cpuProfile("block.profile", 10)
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
@@ -69,306 +77,329 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_mutexProfile <a id="debug_mutexprofile"></a>
 
-Bật cấu hình mutex trong nsec (nano giây) và ghi dữ liệu hồ sơ vào tệp. Nó sử dụng tốc độ tạo hồ sơ là 1 để có thông tin chính xác nhất. Nếu muốn một tốc độ khác, hãy thiết lập tốc độ và ghi theo cách thủ công.
+Turns on mutex profiling for nsec (nanosecond) and writes profile data to file.
+It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually.
 
-|    Máy khách    | Gọi phương pháp                                                |
-|:---------------:| -------------------------------------------------------------- |
-| Bảng điều khiển | `debug.mutexProfile(file, seconds)`                            |
-|       RPC       | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+|  Client | Method Invocation                                              |
+| :-----: | -------------------------------------------------------------- |
+| Console | `debug.mutexProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | Loại | Mô tả                                     |
-| ------- | ----- | ----------------------------------------- |
-| tệp tin | chuỗi | Tên tệp cho kết quả cấu hình.             |
-| giây    | int   | Khoảng thời gian cấu hình tính bằng giây. |
+| Name    | Type   | Description                            |
+| ------- | ------ | -------------------------------------- |
+| file    | string | The filename for the profiling result. |
+| seconds | int    | The profiling duration in seconds.     |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.mutexProfile("mutex.profile", 10)
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
-Trả về `true` nếu máy chủ HTTP pprof đang chạy và ngược lại sẽ là `false`.
+Returns `true` if the pprof HTTP server is running and `false` otherwise.
 
-|    Máy khách    | Gọi phương pháp                                    |
-|:---------------:| -------------------------------------------------- |
-| Bảng điều khiển | `debug.isPProfRunning()`                           |
-|       RPC       | `{"method": "debug_isPProfRunning", "params": []}` |
+|  Client | Method Invocation                                  |
+| :-----: | -------------------------------------------------- |
+| Console | `debug.isPProfRunning()`                           |
+|   RPC   | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type | Mô tả                                                               |
-| ---- | ------------------------------------------------------------------- |
-| bool | `true` nếu máy chủ HTTP pprof đang chạy và ngược lại sẽ là `false`. |
+| Type | Description                                                       |
+| ---- | ----------------------------------------------------------------- |
+| bool | `true` if the pprof HTTP server is running and `false` otherwise. |
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.isPProfRunning()
 false
 ```
 
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Đặt tốc độ (tính bằng mẫu/giây) thu thập dữ liệu hồ sơ khối goroutine. Một tốc độ khác 0 cho phép tạo hồ sơ khối, đặt thành 0 sẽ dừng cấu hình. Dữ liệu hồ sơ được thu thập có thể được ghi bằng cách sử dụng [debug_writeBlockProfile](#debug_writeblockprofile).
+Sets the rate (in samples/sec) of goroutine block profile data collection. A
+non-zero rate enables block profiling, setting it to zero stops the profile.
+Collected profile data can be written using
+[debug_writeBlockProfile](#debug_writeblockprofile).
 
-|    Máy khách    | Gọi phương pháp                                               |
-|:---------------:| ------------------------------------------------------------- |
-| Bảng điều khiển | `debug.setBlockProfileRate(rate)`                             |
-|       RPC       | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
+|  Client | Method Invocation                                             |
+| :-----: | ------------------------------------------------------------- |
+| Console | `debug.setBlockProfileRate(rate)`                             |
+|   RPC   | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên    | Loại | Mô tả                               |
-| ------ | ----- | ----------------------------------- |
-| tốc độ | int   | Tốc độ cấu hình tính bằng mẫu/giây. |
+| Name | Type | Description                        |
+| ---- | ---- | ---------------------------------- |
+| rate | int  | The profiling rate in samples/sec. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.setBlockProfileRate(1)
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_startCPUProfile <a id="debug_startcpuprofile"></a>
 
-Bật cấu hình CPU vô thời hạn, ghi vào tệp đã cho.
+Turns on CPU profiling indefinitely, writing to the given file.
 
-|    Máy khách    | Gọi phương pháp                                           |
-|:---------------:| --------------------------------------------------------- |
-| Bảng điều khiển | `debug.startCPUProfile(file)`                             |
-|       RPC       | `{"method": "debug_startCPUProfile", "params": [string]}` |
+|  Client | Method Invocation                                         |
+| :-----: | --------------------------------------------------------- |
+| Console | `debug.startCPUProfile(file)`                             |
+|   RPC   | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                        |
-| ------- | ----- | ---------------------------- |
-| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
 
 ```javascript
 > debug.startCPUProfile("cpu.profile")
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_stopCPUProfile <a id="debug_stopcpuprofile"></a>
 
-Tắt cấu hình CPU.
+Turns off CPU profiling.
 
-|    Máy khách    | Gọi phương pháp                                    |
-|:---------------:| -------------------------------------------------- |
-| Bảng điều khiển | `debug.stopCPUProfile()`                           |
-|       RPC       | `{"method": "debug_stopCPUProfile", "params": []}` |
+|  Client | Method Invocation                                  |
+| :-----: | -------------------------------------------------- |
+| Console | `debug.stopCPUProfile()`                           |
+|   RPC   | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.stopCPUProfile()
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_startPProf <a id="debug_startpprof"></a>
 
-Khởi động máy chủ HTTP pprof.  Máy chủ pprof đang chạy có thể được truy cập bởi (khi cấu hình mặc định, ví dụ như localhost: 6060 được sử dụng):
-- http://localhost:6060/debug/pprof (đối với kết quả pprof)
-- http://localhost:6060/memsize/ (đối với các báo cáo dung lượng bộ nhớ)
-- http://localhost:6060/debug/vars (đối với các số liệu)
+Starts the pprof HTTP server.  The running pprof server can be accessed by
+(when the default configuration, i.e., localhost:6060, is used):
 
-|    Máy khách    | Gọi phương pháp                                              |
-|:---------------:| ------------------------------------------------------------ |
-| Bảng điều khiển | `debug.startPProf(address, port)`                            |
-|       RPC       | `{"method": "debug_startPProf", "params": [string, number]}` |
+- http\://localhost:6060/debug/pprof (for the pprof results)
+- http\://localhost:6060/memsize/ (for the memory size reports)
+- http\://localhost:6060/debug/vars (for the metrics)
 
-**Tham số**
+|  Client | Method Invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startPProf(address, port)`                            |
+|   RPC   | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-| Tên     | Loại | Mô tả                                                                 |
-| ------- | ----- | --------------------------------------------------------------------- |
-| address | chuỗi | (tùy chọn) giao diện nghe máy chủ HTTP pprof (mặc định: "127.0.0.1"). |
-| cổng    | int   | (tùy chọn) cổng nghe máy chủ HTTP pprof (mặc định: 6060).             |
+**Parameters**
 
-**Giá trị trả về**
+| Name    | Type   | Description                                                                                                    |
+| ------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
+| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
 
-Không có
+**Return Value**
 
-**Ví dụ**
+None
 
-Bảng điều khiển
+**Example**
+
+Console
+
 ```javascript
-# Để khởi động máy chủ pprof tại 127.0.0.1:6060
+# To start the pprof server at 127.0.0.1:6060
 > debug.startPProf()
 null
 
-# Để khởi động máy chủ pprof tại localhost:12345
+# To start the pprof server at localhost:12345
 > debug.startPProf("localhost", 12345)
 null
 ```
 
 HTTP RPC
+
 ```shell
-# Để khởi động máy chủ pprof tại localhost:6060
+# To start the pprof server at localhost:6060
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_stopPProf <a id="debug_stoppprof"></a>
 
-Dừng máy chủ HTTP pprof.
+Stops the pprof HTTP server.
 
-|    Máy khách    | Gọi phương pháp                               |
-|:---------------:| --------------------------------------------- |
-| Bảng điều khiển | `debug.stopPProf()`                           |
-|       RPC       | `{"method": "debug_stopPProf", "params": []}` |
+|  Client | Method Invocation                             |
+| :-----: | --------------------------------------------- |
+| Console | `debug.stopPProf()`                           |
+|   RPC   | `{"method": "debug_stopPProf", "params": []}` |
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.stopPProf()
 null
 ```
 
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_writeBlockProfile <a id="debug_writeblockprofile"></a>
 
-Ghi hồ sơ khối goroutine vào tệp đã cho.
+Writes a goroutine blocking profile to the given file.
 
-|    Máy khách    | Gọi phương pháp                                             |
-|:---------------:| ----------------------------------------------------------- |
-| Bảng điều khiển | `debug.writeBlockProfile(file)`                             |
-|       RPC       | `{"method": "debug_writeBlockProfile", "params": [string]}` |
+|  Client | Method Invocation                                           |
+| :-----: | ----------------------------------------------------------- |
+| Console | `debug.writeBlockProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                        |
-| ------- | ----- | ---------------------------- |
-| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.writeBlockProfile("block.profile")
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-
 ## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
-Ghi cấu hình phân bổ vào tệp đã cho.  Lưu ý rằng tốc độ tạo hồ sơ không thể được đặt thông qua API, mà phải được đặt trên dòng lệnh bằng cách sử dụng cờ `--memprofilerate`.
+Writes an allocation profile to the given file.  Note that the profiling rate
+cannot be set through the API, it must be set on the command line using the
+`--memprofilerate` flag.
 
-|    Máy khách    | Gọi phương pháp                                           |
-|:---------------:| --------------------------------------------------------- |
-| Bảng điều khiển | `debug.writeMemProfile(file)`                             |
-|       RPC       | `{"method": "debug_writeMemProfile", "params": [string]}` |
+|  Client | Method Invocation                                         |
+| :-----: | --------------------------------------------------------- |
+| Console | `debug.writeMemProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                        |
-| ------- | ----- | ---------------------------- |
-| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.writeMemProfile("mem.profile")
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
@@ -376,31 +407,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
 
-Ghi hồ sơ khối goroutine vào tệp đã cho.
+Writes a goroutine blocking profile to the given file.
 
-|    Máy khách    | Gọi phương pháp                                             |
-|:---------------:| ----------------------------------------------------------- |
-| Bảng điều khiển | `debug.writeMutexProfile(file)`                             |
-|       RPC       | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+|  Client | Method Invocation                                           |
+| :-----: | ----------------------------------------------------------- |
+| Console | `debug.writeMutexProfile(file)`                             |
+|   RPC   | `{"method": "debug_writeMutexProfile", "params": [string]}` |
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                        |
-| ------- | ----- | ---------------------------- |
-| tệp tin | chuỗi | Tên tệp cho đầu ra cấu hình. |
+| Name | Type   | Description                            |
+| ---- | ------ | -------------------------------------- |
+| file | string | The filename for the profiling output. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
-Bảng điều khiển
+Console
+
 ```javascript
 > debug.writeMutexProfile("mutex.profile")
 null
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":null}
