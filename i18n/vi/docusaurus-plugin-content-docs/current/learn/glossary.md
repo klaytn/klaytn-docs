@@ -3,24 +3,28 @@
 This glossary provides explanation on technical terms specific to the Klaytn Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Klaytn documentation, guides and tutorials.
 
 ### anchor
+
 A cryptographically secure reference to data stored outside of a blockchain. Anchors can be used to link data from different systems together, or to provide tamper-proof evidence of the existence of data at a specific point in time.
 
 ### anchoring
+
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
 ### Baobab
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet. 
+
+The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
 
 See also [Cypress](#cypress).
 
 ### block explorer
-A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
+
+A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
 
 The block explorers available in Klaytn are [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) and [Klayfinder](https://www.klaytnfinder.io/).
 
 ### core cell (CC)
 
-An entity in the Klaytn blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes. 
+An entity in the Klaytn blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
 
 See also [consensus node (CN)](#consensus-node-cn), [proxy node (PN)](#proxy-node-pn).
 
@@ -34,7 +38,7 @@ A node that is responsible for generating and propagating blocks, and for reachi
 
 ### Cypress
 
-The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services. 
+The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services.
 
 See also Klaytn Testnet [Baobab](#baobab).
 
@@ -48,7 +52,7 @@ A group of endpoint nodes that are interconnected
 
 ### externally owned account (EOA)
 
-An account on a blockchain that is controlled by a private key. The private key is held by the user and is used to sign transactions. EOAs are the most common type of account on blockchains and are used by individuals and businesses to interact with the blockchain. 
+An account on a blockchain that is controlled by a private key. The private key is held by the user and is used to sign transactions. EOAs are the most common type of account on blockchains and are used by individuals and businesses to interact with the blockchain.
 
 See also [smart contract account (SCA)](#smart-contract-account-sca).
 
@@ -86,7 +90,7 @@ A council of organizations that are responsible for governing the Klaytn blockch
 
 ### Klaytn Improvement Proposal (KIP)
 
-A design document providing information to Klaytn stakeholders regarding new features or processes for the Klaytn blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Klaytn community to refine any potential protocol upgrades before being considered for inclusion in the software. 
+A design document providing information to Klaytn stakeholders regarding new features or processes for the Klaytn blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Klaytn community to refine any potential protocol upgrades before being considered for inclusion in the software.
 
 Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
 
@@ -120,7 +124,7 @@ A non-transferable token that represents a person's identity and achievements in
 
 ### smart contract account (SCA)
 
-An account on a blockchain that is controlled by a smart contract. A smart contract is a self-executing contract with the terms of the agreement between buyer and seller directly written into lines of code. SCAs are used to automate transactions and agreements on the blockchain. 
+An account on a blockchain that is controlled by a smart contract. A smart contract is a self-executing contract with the terms of the agreement between buyer and seller directly written into lines of code. SCAs are used to automate transactions and agreements on the blockchain.
 
 See also [externally owned account (EOA)](#externally-owned-account-eoa).
 
@@ -130,13 +134,13 @@ A sidechain or auxiliary blockchain that is connected to the Klaytn mainnet. Ser
 
 ### service chain consensus node (SCN)
 
-A node that is responsible for participating in the consensus process in a Klaytn service chain. 
+A node that is responsible for participating in the consensus process in a Klaytn service chain.
 
 See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-chain).
 
 ### service chain endpoint node (SEN)
 
-A node in a Klaytn service chain that provides a public interface for interacting with the service chain. 
+A node in a Klaytn service chain that provides a public interface for interacting with the service chain.
 
 See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
 
