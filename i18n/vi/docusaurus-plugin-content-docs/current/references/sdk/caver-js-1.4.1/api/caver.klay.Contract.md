@@ -1,46 +1,45 @@
 ---
-description: Một đối tượng caver-js được sử dụng để tương tác với một hợp đồng thông minh.
-
+description: A caver-js object used to interact with a smart contract.
 ---
 
 # caver.klay.Contract
 
-Đối tượng `caver.klay.Contract` giúp dễ dàng tương tác với các hợp đồng thông minh trên blockchain Klaytn. Khi tạo một phiên bản hợp đồng mới, bạn cung cấp cho hợp đồng này giao diện JSON của hợp đồng thông minh tương ứng và caver sẽ tự động chuyển đổi tất cả lệnh gọi thành lệnh gọi ABI cấp thấp qua RPC cho bạn.
+The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
 
-Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
+This allows you to interact with smart contracts as if they were JavaScript objects.
 
-## hợp đồng mới <a id="new-contract"></a>
+## new contract <a id="new-contract"></a>
 
 ```javascript
-caver.klay.Contract mới(jsonInterface [, address] [, options])
+new caver.klay.Contract(jsonInterface [, address] [, options])
 ```
 
-Tạo một phiên bản hợp đồng mới với tất cả các phương pháp và sự kiện được xác định trong đối tượng giao diện JSON của hợp đồng đó.
+Creates a new contract instance with all its methods and events defined in its JSON interface object.
 
-**Tham số**
+**Parameters**
 
-| Tên           | type      | Mô tả                                                                                                                                  |
-|:------------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Đối tượng | Giao diện JSON để khởi tạo hợp đồng                                                                                                    |
-| address       | Chuỗi     | \(tùy chọn\) Địa chỉ của hợp đồng thông minh cần gọi ra. Có thể thêm sau bằng cách sử dụng `myContract.options.address = '0x1234..'` |
-| tùy chọn      | Đối tượng | \(tùy chọn\) Các tùy chọn của hợp đồng.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
+| Name          | Type   | Description                                                                                                                                 |
+| :------------ | :----- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| jsonInterface | Object | The JSON interface for the contract to instantiate                                                                                          |
+| address       | String | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
+| options       | Object | (optional) The options of the contract.  See the table below for the details.                                            |
 
-Đối tượng tùy chọn chứa các mục sau:
+The options object contains the following:
 
-| Tên     | Loại | Mô tả                                                                              |
-|:------- |:----- |:---------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ mà từ đó các giao dịch sẽ được thực hiện.                   |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch.                     |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho một giao dịch \(hạn mức gas\). |
-| data    | Chuỗi | \(tùy chọn\) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.    |
+| Name     | Type   | Description                                                                                              |
+| :------- | :----- | :------------------------------------------------------------------------------------------------------- |
+| from     | String | (optional) The address from which transactions should be made.                        |
+| gasPrice | String | (optional) The gas price in peb to use for transactions.                              |
+| gas      | Number | (optional) The maximum gas provided for a transaction (gas limit). |
+| data     | String | (optional) The byte code of the contract. Used when the contract gets deployed.       |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                            |
-|:--------- |:---------------------------------------------------------------- |
-| Đối tượng | Đối tượng hợp đồng với tất cả các phương pháp và sự kiện của nó. |
+| Type   | Description                                            |
+| :----- | :----------------------------------------------------- |
+| Object | The contract instance with all its methods and events. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 var myContract = new caver.klay.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
@@ -54,26 +53,26 @@ var myContract = new caver.klay.Contract([...], 'myContract', {
 });
 ```
 
-## tùy chọn <a id="options"></a>
+## options <a id="options"></a>
 
 ```javascript
 myContract.options
 ```
 
-Đối tượng `options` cho phiên bản hợp đồng. `from`, `gas` và `gasPrice` được sử dụng làm giá trị dự phòng khi gửi giao dịch.
+The `options` object for the contract instance. `from`, `gas` and `gasPrice` are used as fallback values when sending transactions.
 
-**Thuộc tính**
+**Properties**
 
-| Tên           | Loại | Mô tả                                                                                   |
-|:------------- |:----- |:--------------------------------------------------------------------------------------- |
-| address       | Chuỗi | Địa chỉ triển khai hợp đồng.  Xem thêm [options.address](#options-address).             |
-| jsonInterface | Mảng  | Giao diện JSON của hợp đồng.  Xem thêm [options.jsonInterface](#options-jsoninterface). |
-| data          | Chuỗi | Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                        |
-| từ            | Chuỗi | Địa chỉ mà từ đó các giao dịch sẽ được thực hiện.                                       |
-| giá gas       | Chuỗi | Giá gas tính bằng peb để sử dụng cho giao dịch.                                         |
-| gas           | Số    | Lượng gas tối đa được cung cấp cho một giao dịch \(hạn mức gas\).                     |
+| Name          | Type   | Description                                                                                    |
+| :------------ | :----- | :--------------------------------------------------------------------------------------------- |
+| address       | String | The address where the contract is deployed.  Also see [options.address](#options-address).     |
+| jsonInterface | Array  | The JSON interface of the contract.  Also see [options.jsonInterface](#options-jsoninterface). |
+| data          | String | The byte code of the contract. Used when the contract gets deployed.                           |
+| from          | String | The address from which transactions should be made.                                            |
+| gasPrice      | String | The gas price in peb to use for transactions.                                                  |
+| gas           | Number | The maximum gas provided for a transaction (gas limit).                     |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.options;
@@ -96,22 +95,22 @@ myContract.options
 myContract.options.address
 ```
 
-Địa chỉ được sử dụng cho phiên bản hợp đồng `myContract` này. Tất cả các giao dịch do caver-js tạo ra từ hợp đồng này sẽ chứa địa chỉ này dưới dạng "địa chỉ đến". Địa chỉ được lưu trữ ở dạng chữ thường.
+The address used for this contract instance `myContract`. All transactions generated by caver-js from this contract will contain this address as the "to". The address is stored in lowercase.
 
-**Thuộc tính**
+**Property**
 
-| Tên     | Loại    | Mô tả                                                                    |
-|:------- |:-------- |:------------------------------------------------------------------------ |
-| address | Chuỗi \ | `null` | Địa chỉ cho hợp đồng này hoặc `null` nếu địa chỉ chưa được đặt. |
+| Name    | Type             | Description                                                   |
+| :------ | :--------------- | :------------------------------------------------------------ |
+| address | String \| `null` | The address for this contract or `null` if it is not yet set. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
-> myContract.options.address;
+>  myContract.options.address;
 '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
 
-// đặt địa chỉ mới
-> myContract.options.address = '0x1234FFDD...';
+// set a new address
+>  myContract.options.address = '0x1234FFDD...';
 ```
 
 ## options.jsonInterface <a id="options-jsoninterface"></a>
@@ -120,15 +119,15 @@ myContract.options.address
 myContract.options.jsonInterface
 ```
 
-Đối tượng giao diện JSON bắt nguồn từ ABI của hợp đồng này `myContract`.
+The JSON interface object derived from the ABI of this contract `myContract`.
 
-**Thuộc tính**
+**Property**
 
-| Tên           | type | Mô tả                                                                                                           |
-|:------------- |:---- |:--------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Mảng | Giao diện JSON cho hợp đồng này. Đặt lại điều này sẽ tạo lại các phương pháp và sự kiện của đối tượng hợp đồng. |
+| Name          | Type  | Description                                                                                                            |
+| :------------ | :---- | :--------------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.options.jsonInterface;
@@ -143,29 +142,29 @@ myContract.options.jsonInterface
       "inputs": [{"name":"a","type":"uint256","indexed":true},{"name":"b","type":"bytes32","indexed":false}],
  }]
 
-// đặt giao diện mới
+// set a new interface
 > myContract.options.jsonInterface = [...];
 ```
 
-## sao chép <a id="clone"></a>
+## clone <a id="clone"></a>
 
 ```javascript
 myContract.clone()
 ```
 
-Sao chép phiên bản hợp đồng hiện tại.
+Clones the current contract instance.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type      | Mô tả                                 |
-|:--------- |:------------------------------------- |
-| Đối tượng | Phiên bản hợp đồng được sao chép mới. |
+| Type   | Description                       |
+| :----- | :-------------------------------- |
+| Object | The new cloned contract instance. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > var contract1 = new caver.klay.Contract(abi, address, {gasPrice: '12345678', from: fromAddress});
@@ -175,35 +174,35 @@ Không có
 true
 ```
 
-## triển khai <a id="deploy"></a>
+## deploy <a id="deploy"></a>
 
 ```javascript
 myContract.deploy(options)
 ```
 
-Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành công, promise sẽ được giải quyết bằng một phiên bản hợp đồng mới.
+Deploys the contract to the Klaytn blockchain. After successful deployment, the promise will be resolved with a new contract instance.
 
-**Tham số**
+**Parameters**
 
-`options`: đối tượng tùy chọn được sử dụng cho việc triển khai:
+`options`: the options object used for deployment:
 
-| Tên    | Loại | Mô tả                                                             |
-|:------ |:----- |:----------------------------------------------------------------- |
-| data   | Chuỗi | Mã byte của hợp đồng.                                             |
-| đối số | Mảng  | \(tùy chọn\) Các đối số được chuyển đến hàm tạo khi triển khai. |
+| Name      | Type   | Description                                                                                   |
+| :-------- | :----- | :-------------------------------------------------------------------------------------------- |
+| data      | String | The byte code of the contract.                                                                |
+| arguments | Array  | (optional) The arguments that get passed to the constructor on deployment. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Đối tượng`: Đối tượng giao dịch:
+`Object`: The transaction object:
 
-| Loại | Mô tả                                                                                                                            |
-|:----- |:-------------------------------------------------------------------------------------------------------------------------------- |
-| Mảng  | đối số: Các đối số được chuyển cho phương pháp trước đó. Chúng có thể được thay đổi.                                             |
-| Hàm   | [send](#methods-mymethod-send): Sẽ triển khai hợp đồng. Promise sẽ được giải quyết với phiên bản hợp đồng mới, thay vì biên lai. |
-| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas sử dụng cho việc triển khai.                                 |
-| Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI của quá trình triển khai, là dữ liệu hợp đồng + tham số hàm tạo.            |
+| Type     | Description                                                                                                                                    |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Array    | arguments: The arguments passed to the method before. They can be changed.                                                                     |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                                   |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters.                  |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.deploy({
@@ -224,7 +223,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
       console.log(newContractInstance.options.address) // instance with the new contract address
   });
 
-// Khi dữ liệu đã được đặt làm tùy chọn cho chính hợp đồng
+// When the data is already set as an option to the contract itself
 > myContract.options.data = '0x12345...';
 
 > myContract.deploy({
@@ -239,7 +238,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
       console.log(newContractInstance.options.address) // instance with the new contract address
   });
 
-// Mã hóa đơn giản
+// Simply encoding
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My String']
@@ -247,7 +246,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
   .encodeABI();
 '0x12345...0000012345678765432'
 
-// Ước tính gas
+// Gas estimation
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My String']
@@ -257,32 +256,33 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
   });
 ```
 
-## phương pháp <a id="methods"></a>
+## methods <a id="methods"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2 [, ...]]])
 ```
 
-Tạo một đối tượng giao dịch cho phương pháp đó, sau đó có thể gọi, gửi, ước tính hoặc mã hóa dưới dạng ABI.
+Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
 
-Các phương pháp của hợp đồng thông minh này có sẵn thông qua:
+The methods of this smart contract are available through:
 
-* Tên: `myContract.methods.myMethod(123)`
-* Tên có tham số: `myContract.methods['myMethod(uint256)'](123)`
-* Chữ ký\*: `myContract.methods['0x58cf5f10'](123)`
+- The name: `myContract.methods.myMethod(123)`
+- The name with parameters: `myContract.methods['myMethod(uint256)'](123)`
+- The signature\*: `myContract.methods['0x58cf5f10'](123)`
 
-Điều này cho phép gọi ra các hàm có cùng tên nhưng khác tham số từ phiên bản hợp đồng JavaScript.
+This allows calling functions with the same name but different parameters from the JavaScript contract object.
 
-## cf\) \*Chữ ký hàm \(Bộ chọn hàm\) <a id="cf-function-signature-function-selector"></a>
+## cf) \*Function signature (Function selector) <a id="cf-function-signature-function-selector"></a>
 
-Bốn byte đầu tiên của dữ liệu lệnh gọi cho một lệnh gọi hàm chỉ định hàm sẽ được gọi ra.  
-Đây là bốn byte \(left, high-order in big-endian\) đầu tiên của hàm băm Keccak-256 \(SHA-3\) của chữ ký của hàm.
+The first four bytes of the call data for a function call specifies the function to be called.\
+It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
-Chữ ký hàm có thể được tạo bằng 2 phương pháp khác nhau.  
-`1. caver.klay.abi.encodeFunctionSignature('funcName(paramType1,paramType2,...)')`  
-`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+The function signature can be made by 2 different methods.
 
-ex\)
+1. `caver.klay.abi.encodeFunctionSignature('funcName(paramType1,paramType2,...)')`
+2. `caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+
+ex)
 
 ```javascript
 caver.klay.abi.encodeFunctionSignature('myMethod(uint256)')
@@ -292,37 +292,37 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**Tham số**
+**Parameters**
 
-Các tham số của bất kỳ phương pháp nào phụ thuộc vào các phương pháp hợp đồng thông minh, được xác định trong giao diện JSON.
+Parameters of any method depend on the smart contracts methods, defined in the JSON interface.
 
-**Giá trị trả về**
+**Return Value**
 
-`Đối tượng`: Đối tượng giao dịch:
+`Object`: The transaction object:
 
-| Loại | Mô tả                                                                                                                                                                                                                        |
-|:----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mảng  | đối số: Các đối số được chuyển cho phương pháp trước đó. Chúng có thể được thay đổi.                                                                                                                                         |
-| Hàm   | [gọi](#methods-mymethod-call): Sẽ gọi ra phương pháp "hằng số" và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi giao dịch \(không thể thay đổi trạng thái hợp đồng thông minh\).        |
-| Hàm   | [send](#methods-mymethod-send): Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương pháp \(có thể thay đổi trạng thái hợp đồng thông minh\).                                                                  |
-| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas được sử dụng khi phương pháp sẽ được thực thi trên blockchain.                                                                                           |
-| Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI cho phương pháp này. Điều này có thể được gửi bằng cách sử dụng một giao dịch, gọi ra phương pháp hoặc chuyển sang một phương pháp hợp đồng thông minh khác làm đối số. |
+| Type     | Description                                                                                                                                                                                                                   |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Array    | arguments: The arguments passed to the method before. They can be changed.                                                                                                                                                    |
+| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method (can alter the smart contract state).                                                                 |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain.                                                                                                 |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument.                                |
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// gọi ra một phương pháp
+// calling a method
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
       ...
   });
 
-// hoặc gửi và sử dụng promise
+// or sending and using a promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
-    // biên lai cũng có thể là một phiên bản hợp đồng mới, khi đến từ một "contract.deploy({...}).send()"
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   });
 
-// hoặc gửi và sử dụng các sự kiện
+// or sending and using the events
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .on('transactionHash', function(hash) {
       ...
@@ -339,36 +339,36 @@ Các tham số của bất kỳ phương pháp nào phụ thuộc vào các phư
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Sẽ gọi ra một phương pháp "hằng số" và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi bất kỳ giao dịch nào. Lưu ý rằng việc gọi không thể thay đổi trạng thái hợp đồng thông minh.
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                                                                                                                                                    |
-|:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                          |
-| callback | Hàm       | \(tùy chọn\) Lần gọi lại này sẽ được kích hoạt với kết quả thực thi phương pháp hợp đồng thông minh làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Name     | Type     | Description                                                                                                                                                                             |
+| :------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | Object   | (optional) The options used for calling.  See the table below for the details.                                                                                       |
+| callback | Function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên     | type  | Mô tả                                                                                         |
-|:------- |:----- |:--------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ nơi lệnh gọi “giao dịch” được thực hiện.                               |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho lệnh gọi "giao dịch" này.                 |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này \(hạn mức gas\). |
+| Name     | Type   | Description                                                                                                        |
+| :------- | :----- | :----------------------------------------------------------------------------------------------------------------- |
+| from     | String | (optional) The address the call “transaction” should be made from.                              |
+| gasPrice | String | (optional) The gas price in peb to use for this call "transaction".                             |
+| gas      | Number | (optional) The maximum gas provided for this call "transaction" (gas limit). |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Mixed`: Giá trị trả về\(s\) của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu có nhiều giá trị trả về, chúng sẽ được trả về dưới dạng một đối tượng có thuộc tính và chỉ số.
+`Promise` returns `Mixed`: The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, they are returned as an object with properties and indices.
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// sử dụng hàm callback
+// using the callback
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
       ...
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -376,7 +376,7 @@ Sẽ gọi ra một phương pháp "hằng số" và thực thi phương pháp h
 ```
 
 ```text
-// Tính vững chắc: TRẢ LẠI MULTI-ARGUMENT
+// Solidity: MULTI-ARGUMENT RETURN
 contract MyContract {
     function myFunction() returns(uint256 myNumber, string myString) {
         return (23456, "Hello!%");
@@ -396,7 +396,7 @@ Result {
 ```
 
 ```text
-// Tính vững chắc: TRẢ LẠI MỘT ĐỐI SỐ
+// Solidity: SINGLE-ARGUMENT RETURN
 contract MyContract {
     function myFunction() returns(string myString) {
         return "Hello!%";
@@ -416,52 +416,52 @@ contract MyContract {
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương pháp của nó. Lưu ý rằng điều này có thể thay đổi trạng thái hợp đồng thông minh.
+Will send a transaction to the smart contract and execute its method. Note that this can alter the smart contract state.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                                                                                                         |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | Các tùy chọn được sử dụng để gửi.  Xem bảng dưới đây để biết thông tin chi tiết.                                              |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Name     | Type     | Description                                                                                                                                |
+| :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | Object   | The options used for sending.  See the table below for the details.                                                                        |
+| callback | Function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên     | Loại | Mô tả                                                                                        |
-|:------- |:----- |:-------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | Địa chỉ mà từ đó giao dịch sẽ được gửi.                                                      |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch này.                           |
-| gas     | Số    | Lượng gas tối đa được cung cấp cho giao dịch này \(hạn mức gas\).                          |
-| giá trị | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển cho giao dịch tính bằng peb. |
+| Name     | Type                                | Description                                                                     |
+| :------- | :---------------------------------- | :------------------------------------------------------------------------------ |
+| from     | String                              | The address from which the transaction should be sent.                          |
+| gasPrice | String                              | (optional) The gas price in peb to use for this transaction. |
+| gas      | Number                              | The maximum gas provided for this transaction (gas limit).   |
+| value    | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb. |
 
-**Giá trị trả về**
+**Return Value**
 
-`callback` sẽ trả về hàm băm giao dịch 32 byte.
+`callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được giải quyết khi có biên lai giao dịch hoặc nếu `send()` này được gọi ra từ `someContract.deploy()`, thì promise sẽ được giải quyết với phiên bản hợp đồng mới. Ngoài ra, các sự kiện sau đây có sẵn:
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available, or if this `send()` is called from a `someContract.deploy()`, then the promise will be resolved with the new contract instance. Additionally, the following events are available:
 
-| Tên             | Loại     | Mô tả                                                                                                                                                                                                                                                                                                            |
-|:--------------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | Chuỗi     | Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.                                                                                                                                                                                                                                      |
-| biên lai        | Đối tượng | Được kích hoạt khi biên lai giao dịch có sẵn.  Biên lai từ hợp đồng sẽ không có thuộc tính `nhật ký` mà thay vào đó là thuộc tính `events` với tên sự kiện là khóa và sự kiện là thuộc tính. Xem [giá trị trả về của getPastEvents](#getpastevents) để biết thông tin chi tiết về đối tượng sự kiện được trả về. |
-| lỗi             | Lỗi       | Được kích hoạt nếu xảy ra lỗi trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.                                                                                                                                                                                                       |
+| Name            | Type   | Description                                                                                                                                                                                                                                                                                   |
+| :-------------- | :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | Is fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                             |
+| receipt         | Object | Is fired when the transaction receipt is available.  Receipts from contracts will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](#getpastevents) for details about the returned event object. |
+| error           | Error  | Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.                                                                                                                                                                                      |
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// sử dụng hàm callback
+// using the callback
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, transactionHash) {
     ...
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   });
 
 
-// sử dụng bộ phát sự kiện
+// using the event emitter
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .on('transactionHash', function(hash) {
     ...
@@ -469,9 +469,9 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
   .on('receipt', function(receipt) {
     console.log(receipt);
   })
-  .on('error', console.error); // Nếu bị lỗi hết gas thì thông số thứ 2 là hóa đơn.
+  .on('error', console.error); // If there is an out-of-gas error, the second parameter is the receipt.
 
-// mẫu hóa đơn
+// receipt example
 {
    "transactionHash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
    "transactionIndex": 0,
@@ -502,7 +502,7 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
     "MyOtherEvent": {
       ...
     },
-    "MyMultipleEvent":[{...}, {...}] // Nếu có nhiều sự kiện giống nhau, chúng sẽ nằm trong một mảng.
+    "MyMultipleEvent":[{...}, {...}] // If there are a multiple of the same events, they will be in an array.
   }
 }
 ```
@@ -513,37 +513,37 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụng khi được thực thi trong Máy ảo Klaytn. Ước tính có thể khác với gas thực tế được sử dụng khi gửi giao dịch sau này, vì trạng thái của hợp đồng thông minh có thể khác vào thời điểm đó.
+Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                                                                                                                         |
-|:-------- |:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt với kết quả ước tính gas làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Name     | Type     | Description                                                                                                                                                            |
+| :------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | Object   | (optional) The options used for calling.  See the table below for the details.                                                                      |
+| callback | Function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên     | type  | Mô tả                                                                                                                                                                              |
-|:------- |:----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ nơi lệnh gọi "giao dịch" sẽ được thực hiện.                                                                                                                 |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này \(hạn mức gas\). Đặt một giá trị cụ thể giúp phát hiện lỗi hết gas. Nếu dùng hết gas sẽ về số như cũ. |
-| giá trị | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển cho lệnh gọi "giao dịch" tính bằng peb.                                                                            |
+| Name  | Type                                | Description                                                                                                                                                                                                                        |
+| :---- | :---------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | String                              | (optional) The address from which the call "transaction" should be made.                                                                                                                                        |
+| gas   | Number                              | (optional) The maximum gas provided for this call "transaction" (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
+| value | Number \| String \| BN \| BigNumber | (optional) The value transferred for the call "transaction" in peb.                                                                                                                                             |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Number` - đơn vị gas đã sử dụng cho lệnh gọi/giao dịch mô phỏng.
+`Promise` returns `Number` - the used gas for the simulated call/transaction.
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// sử dụng promise
+// using the callback
 > myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gasAmount) {
     if(gasAmount == 5000000)
       console.log('Method ran out of gas');
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(gasAmount) {
     ...
@@ -559,60 +559,60 @@ Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụn
 myContract.methods.myMethod([param1 [, param2[, ...]]]).encodeABI()
 ```
 
-Mã hóa ABI cho phương pháp này. Điều này có thể được sử dụng để gửi một giao dịch, gọi ra một phương pháp hoặc chuyển nó vào một phương pháp hợp đồng thông minh khác làm đối số.
+Encodes the ABI for this method. This can be used to send a transaction, call a method, or pass it into another smart contract method as arguments.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                       |
-|:----- |:----------------------------------------------------------- |
-| Chuỗi | Mã byte ABI được mã hóa để gửi qua giao dịch hoặc cuộc gọi. |
+| Type   | Description                                                  |
+| :----- | :----------------------------------------------------------- |
+| String | The encoded ABI byte code to send via a transaction or call. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.methods.myMethod(123).encodeABI();
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
 
-## một lần <a id="once"></a>
+## once <a id="once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
 ```
 
-Đăng ký một sự kiện và hủy đăng ký ngay sau sự kiện hoặc lỗi đầu tiên. Sẽ chỉ kích hoạt cho một sự kiện duy nhất.
+Subscribes to an event and unsubscribes immediately after the first event or error. Will only fire for a single event.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                                                                                                                                                                                                       |
-|:-------- |:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sự kiện  | Chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                                                                                                               |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                                                                |
-| callback | Hàm       | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. Xem [giá trị trả về của getPastEvents](#getpastevents) để biết thông tin chi tiết về cấu trúc sự kiện được trả về. |
+| Name     | Type     | Description                                                                                                                                                                                         |
+| :------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                                                                                          |
+| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                                                                                |
+| callback | Function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [getPastEvents return values](#getpastevents) for details about the event structure. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên    | Loại     | Mô tả                                                                                                                                                                                  |
-|:------ |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| chủ đề | Mảng      | \(tùy chọn\) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
+| Name   | Type   | Description                                                                                                                                                                                |
+| :----- | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filter | Object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                         |
+| topics | Array  | (optional) This allows you to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Giá trị trả về**
+**Return Value**
 
-`không xác định`
+`undefined`
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.once('MyEvent', {
-    bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
   }, function(error, event) { console.log(event); });
 
-// ví dụ đầu ra sự kiện
+// event output example
 {
     returnValues: {
         myIndexedParam: 20,
@@ -634,60 +634,60 @@ myContract.once(event [, options], callback)
 }
 ```
 
-## sự kiện <a id="events"></a>
+## events <a id="events"></a>
 
 ```javascript
 myContract.events.MyEvent([options][, callback])
 ```
 
-Đăng ký một sự kiện.
+Subscribes to an event.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại     | Mô tả                                                                                                                   |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.            |
-| callback | Hàm       | \(tùy chọn\) Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. |
+| Name     | Type     | Description                                                                                                                         |
+| :------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                |
+| callback | Function | (optional) This callback will be fired for each event as the second argument, or an error as the first argument. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên       | Loại     | Mô tả                                                                                                                                                                                  |
-|:--------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc    | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| fromBlock | Số        | \(tùy chọn\) Số khối để bắt đầu sự kiện.                                                                                                                                             |
-| chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
+| Name      | Type   | Description                                                                                                                                                                            |
+| :-------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filter    | Object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                     |
+| fromBlock | Number | (optional) The block number from which to get events on.                                                                                                            |
+| topics    | Array  | (optional) This allows to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Giá trị trả về**
+**Return Value**
 
-`EventEmitter`: Trình phát sự kiện có các sự kiện sau:
+`EventEmitter`: The event emitter has the following events:
 
-| Tên  | Loại     | Mô tả                                                        |
-|:---- |:--------- |:------------------------------------------------------------ |
-| data | Đối tượng | Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số. |
-| lỗi  | Đối tượng | Kích hoạt khi xảy ra lỗi trong đăng ký.                      |
+| Name  | Type   | Description                                                     |
+| :---- | :----- | :-------------------------------------------------------------- |
+| data  | Object | Fires on each incoming event with the event object as argument. |
+| error | Object | Fires when an error in the subscription occurs.                 |
 
-Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như sau:
+The structure of the returned event `Object` looks as follows:
 
-| Tên              | type          | Mô tả                                                                                                                                                  |
-|:---------------- |:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sự kiện          | Chuỗi         | Tên sự kiện.                                                                                                                                           |
-| chữ ký           | Chuỗi \      | `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                             |
-| address          | Chuỗi         | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                                      |
-| returnValues     | Đối tượng     | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                                         |
-| logIndex         | Số            | Giá trị nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                                  |
-| transactionIndex | Số            | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                                        |
-| transactionHash  | Chuỗi 32 byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                         |
-| blockHash        | Chuỗi 32 byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                         |
-| blockNumber      | Số            | Số khối mà bản ghi này đã được tạo. Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                                                                  |
-| raw.data         | Chuỗi         | Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                                                                                                   |
-| raw.topics       | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                         |
-| id               | Chuỗi         | Mã số định danh bản ghi. Mã định danh được tạo thông qua việc nối chuỗi "log\_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Name             | Type             | Description                                                                                                                                                 |
+| :--------------- | :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | String           | The event name.                                                                                                                                             |
+| signature        | String \| `null` | The event signature, `null` if it is an anonymous event.                                                                                                    |
+| address          | String           | Address which from this event originated.                                                                                                                   |
+| returnValues     | Object           | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                                          |
+| logIndex         | Number           | Integer of the event index position in the block.                                                                                                           |
+| transactionIndex | Number           | Integer of the transaction's index position where the event was created.                                                                                    |
+| transactionHash  | 32-byte String   | Hash of the block this event was created in. `null` when it is still pending.                                                                               |
+| blockHash        | 32-byte String   | Hash of the block this event was created in. `null` when it is still pending.                                                                               |
+| blockNumber      | Number           | The block number this log was created in. `null` when still pending.                                                                                        |
+| raw\.data        | String           | The data containing non-indexed log parameter.                                                                                                              |
+| raw\.topics      | Array            | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the event.                                                                     |
+| id               | String           | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.events.MyEvent({
-    bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event); })
   .on('data', function(event){
@@ -695,7 +695,7 @@ Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như 
   })
   .on('error', console.error);
 
-// ví dụ đầu ra sự kiện
+// event output example
 {
     returnValues: {
         myIndexedParam: 20,
@@ -724,7 +724,7 @@ Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như 
 myContract.events.allEvents([options] [, callback])
 ```
 
-Tương tự như [sự kiện](#events) nhưng nhận tất cả các sự kiện từ hợp đồng thông minh này. Theo tùy chọn, thuộc tính bộ lọc có thể lọc các sự kiện đó.
+Same as [events](#events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
 
 ## getPastEvents <a id="getpastevents"></a>
 
@@ -732,34 +732,34 @@ Tương tự như [sự kiện](#events) nhưng nhận tất cả các sự ki�
 myContract.getPastEvents(event [, options] [, callback])
 ```
 
-Nhận các sự kiện trong quá khứ cho hợp đồng này.
+Gets past events for this contract.
 
-**Tham số**
+**Parameters**
 
-| Tên      | type      | Mô tả                                                                                                                               |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------- |
-| sự kiện  | Chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                       |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                        |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt với một mảng bản ghi sự kiện làm đối số thứ hai hoặc một lỗi làm đối số thứ nhất. |
+| Name     | Type     | Description                                                                                                                                      |
+| :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                                       |
+| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                             |
+| callback | Function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
-Đối tượng tùy chọn có thể chứa các thông tin sau:
+The options object can contain the following:
 
-| Tên       | Loại     | Mô tả                                                                                                                                                                                  |
-|:--------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc    | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| fromBlock | Số        | \(tùy chọn\) Số khối để bắt đầu sự kiện.                                                                                                                                             |
-| toBlock   | Số        | \(tùy chọn\) Số khối để nhận các sự kiện lên đến \(mặc định là `"latest"`\).                                                                                                       |
-| chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
+| Name      | Type   | Description                                                                                                                                                                             |
+| :-------- | :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filter    | Object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {myNumber: [12,13]}}` means all events where "myNumber" is 12 or 13.                      |
+| fromBlock | Number | (optional) The block number from which to get events on.                                                                                                             |
+| toBlock   | Number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                         |
+| topics    | Array  | (optional) This allows manually setting the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Mảng`: Một mảng chứa các đối tượng sự kiện trong quá khứ, khớp với tên sự kiện và bộ lọc đã cho.
+`Promise` returns `Array`: An array with the past event objects, matching the given event name and filter.
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > myContract.getPastEvents('MyEvent', {
-      bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+      filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
       fromBlock: 0,
       toBlock: 'latest'
   }, function(error, events) { console.log(events); })
@@ -789,4 +789,3 @@ Nhận các sự kiện trong quá khứ cho hợp đồng này.
       ...
 }]
 ```
-
