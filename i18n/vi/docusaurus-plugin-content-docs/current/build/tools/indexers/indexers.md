@@ -4,4 +4,4 @@ Blockchain indexers are tools used in the context of blockchain technology to im
 
 The following providers have integrated with Klaytn to deliver blockchain indexing services:
 
-* [SubQuery Network](https://academy.subquery.network/)
+- [SubQuery Network](https://academy.subquery.network/)
