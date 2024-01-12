@@ -2,7 +2,7 @@
 
 ## 소개 <a id="introduction"></a>
 
-이 튜토리얼은 [Klaytn 토큰 표준](../token-standard.md), 특히 [대체 가능한 토큰 표준 \(ERC-20\)](../token-standard.md#fungible-token-standard-kip-7)을 준수하는 ERC-20 호환 토큰 예제를 만들 수 있도록 도와줍니다.
+이 튜토리얼은 [Klaytn 토큰 표준](../token-standard.md), 특히 [대체 가능한 토큰 표준 (ERC-20)](../token-standard.md#fungible-token-standard-kip-7)을 준수하는 ERC-20 호환 토큰 예제를 만들 수 있도록 도와줍니다.
 
 [ERC-20 토큰 표준](https://eips.ethereum.org/EIPS/eip-20)은 아래와 같이 두 가지 이벤트와 9가지 메서드(3가지 옵션 메서드 포함)를 정의하고 있습니다. ERC-20 호환 토큰은 다음과 같은 인터페이스를 구현하는 토큰 컨트랙트입니다.
 
@@ -27,10 +27,10 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 `MyERC20.sol`은 OpenZeppelin의 ERC20 구현을 기반으로 합니다. 이 튜토리얼의 코드 대부분은 [OpenZeppelin 2.3](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)에서 포크되었으며, `MyERC20.sol`을 구현하기 위해 다음 Solidity 파일이 사용됩니다.
 
-* [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
-* [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
-* [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol)
-* [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol)
+- [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
+- [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
+- [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol)
+- [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol)
 
 ## 1. ERC-20 스마트 컨트랙트 작성하기 <a id="1-writing-erc-20-smart-contract"></a>
 
@@ -428,18 +428,18 @@ contract MyERC20 is IERC20 {
 
 `MyERC20.sol`은 하나의 인터페이스 `IERC20`, 하나의 라이브러리 `SafeMath`, 그리고 `IERC20` 인터페이스를 구현하는 하나의 컨트랙트 `MyERC20`으로 구성되어 있습니다.
 
-* `IERC20` 인터페이스는 [ERC-20 규격](https://eips.ethereum.org/EIPS/eip-20)에서 설명하는 필수 인터페이스를 정의합니다.
-* `SafeMath` 라이브러리는 Solidity의 산술 연산에 대한 래퍼를 정의하며, `uint256` 타입의 Solidity를 안전하게 계산하기 위해 오버플로우 검사를 추가했습니다.
-* `MyERC20`은 `IERC20` 인터페이스를 구현하며, [ERC-20 사양](https://eips.ethereum.org/EIPS/eip-20)에 설명된 세 가지 선택적 메서드도 정의합니다.
-  * ERC20 외에도 `constructor`가 정의되어 있으며, 이 생성자는 새로운 ERC20 토큰 이름과 심볼을 정의하고 미리 정의된 양의 토큰을 발행하는 데 사용됩니다. `constructor`는 처음 배포할 때 한 번 호출됩니다.
+- `IERC20` 인터페이스는 [ERC-20 규격](https://eips.ethereum.org/EIPS/eip-20)에서 설명하는 필수 인터페이스를 정의합니다.
+- `SafeMath` 라이브러리는 Solidity의 산술 연산에 대한 래퍼를 정의하며, `uint256` 타입의 Solidity를 안전하게 계산하기 위해 오버플로우 검사를 추가했습니다.
+- `MyERC20`은 `IERC20` 인터페이스를 구현하며, [ERC-20 사양](https://eips.ethereum.org/EIPS/eip-20)에 설명된 세 가지 선택적 메서드도 정의합니다.
+  - ERC20 외에도 `constructor`가 정의되어 있으며, 이 생성자는 새로운 ERC20 토큰 이름과 심볼을 정의하고 미리 정의된 양의 토큰을 발행하는 데 사용됩니다. `constructor`는 처음 배포할 때 한 번 호출됩니다.
 
 ### 1.2 중요한 방법 살펴보기 <a id="1-2-take-a-look-at-important-methods"></a>
 
 몇 가지 중요한 방법을 자세히 살펴보겠습니다.
 
-#### \(1\) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
+#### (1) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-`balanceOf`는 ERC-20의 필수 메서드입니다. balanceOf`는 주어진 주소의 잔액을 반환합니다.
+`balanceOf`는 ERC-20의 필수 메서드입니다. balanceOf\`는 주어진 주소의 잔액을 반환합니다.
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -455,7 +455,7 @@ contract MyERC20 is IERC20 {
 
 `balances`에 사용 가능한 키 `account`가 없으면 `0`을 반환합니다.
 
-#### \(2\) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
+#### (2) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
 
 `transfer`은 ERC-20의 필수 메서드입니다. `transfer`은 `recipient`에게 `amount`의 토큰을 전송하며, 반드시 `Transfer` 이벤트를 발생시켜야 합니다. 메시지 발신자의 계정 잔액에 사용할 토큰이 충분하지 않은 경우 이 함수가 발생해야 합니다.
 
@@ -483,11 +483,11 @@ contract MyERC20 is IERC20 {
     }
 ```
 
-#### \(3\) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
+#### (3) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
 
 `approve`은 ERC-20의 필수 방식입니다. `approve`을 사용하면 `spender`가 `amount`까지 계정에서 여러 번 인출할 수 있습니다. 이 함수가 여러 번 호출되면 단순히 허용량을 `amount`으로 재설정합니다.
 
-`approve`은 `approve.msg.sender`의 실제 동작을 구현하는 내부 메서드 `_approve`를 호출할 뿐이며 계정 `owner`로 전달됩니다.
+`approve`은 `approve.msg.sender`의 실제 동작을 구현하는 내부 메서드 `_approve`를 호출할 뿐이며 계정 `owner`로 전달됩니다. `msg.sender` is passed as the account `owner`.
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
@@ -510,7 +510,7 @@ contract MyERC20 is IERC20 {
     mapping (address => mapping (address => uint256)) private _allowances;
 ```
 
-#### \(4\) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
+#### (4) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
 `_mint`는 ERC-20의 일부가 아닙니다. 하지만 새로운 ERC-20 토큰을 생성하는 방법이 필요했고, 이번 구현에서는 아래와 같이 새로운 토큰을 생성하기 위해 `_mint`를 도입했습니다.
 
@@ -538,113 +538,17 @@ Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마�
 
 ### 2.1 Remix Online IDE를 사용하여 스마트 컨트랙트 배포하기 <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
 
-* [Remix용 클레이튼 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
-* 컨트랙트 배포에 사용할 계정을 준비합니다.
-  * 아직 계정이 없다면 [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) 또는 [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy)에서 계정을 생성합니다.
-  * [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받습니다.
-* 배포 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정하여 `MyERC20.sol`을 배포해 봅시다.
+- [Remix용 클레이튼 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
+- 컨트랙트 배포에 사용할 계정을 준비합니다.
+  - 아직 계정이 없다면 [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) 또는 [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy)에서 계정을 생성합니다.
+  - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받습니다.
+- 배포 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정하여 `MyERC20.sol`을 배포해 봅시다.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
 
 배포 후, 컨트랙트를 배포할 때 사용한 계정으로 `balanceOf`를 호출할 수 있습니다. 아래와 같이 계정에서 `10000000000000` 토큰을 사용할 수 있습니다. 위 컨트랙트를 배포할 때 `decimal`을 `8`로 설정했기 때문에 생성자에서 고정된 수의 `100000` 토큰을 발행했으며, 한 토큰의 소수점 값은 `10^8`입니다. `totalSupply` 메서드는 발행된 토큰의 총 공급량을 반환하며, 이 역시 `10000000000000`이어야 합니다.
 
 ![ERC20-2-owner-token](/img/build/smart-contracts/erc20-2-owner_token.png)
-
-`MyERC20`이 출시되었습니다!
-
-### 2.2 Truffle을 사용하여 스마트 컨트랙트 배포하기 <a id="2-2-deploying-smart-contract-using-truffle"></a>
-
-사용 중인 환경에 [node.js](https://nodejs.org/)가 설치되어 있을 것입니다. 다양한 환경에서 패키지 관리자를 사용하여 node.js를 설치하려면 [패키지 관리자를 통해 node.js 설치하기](https://nodejs.org/en/download/package-manager/)를 참고하시기 바랍니다.
-
-```
-$ mkdir klaytn
-$ cd klaytn
-$ npm init # initialize npm at the erc20token directory
-$ npm install truffle@4.1.15
-$ npm install caver-js@latest # installing caver-js
-$ ln -s node_modules/truffle/build/cli.bundled.js truffle
-$ export PATH=`pwd`:$PATH
-```
-
-이제 스마트 컨트랙트를 배포하는 데 필요한 Truffle과 caver-js를 설치했습니다.
-
-`Truffle`과 스마트 컨트랙트 `MyERC20.sol`을 준비해 보겠습니다.
-
-```
-$ mkdir myerc20
-$ cd myerc20
-$ truffle init
-```
-
-이제 다음과 같은 디렉터리 구조를 갖게 됩니다.
-
-```
-.
-├── contracts
-│   ├── Migrations.sol
-├── migrations
-│   └── 1_initial_migration.js
-└── truffle-config.js
-```
-
-이제 `MyERC20.sol`을 작성하여 `contacts` 디렉터리에 찾습니다.
-
-또한 `1_initial_migration.js`를 아래와 같이 수정하여 초기 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정한 `MyERC20` 컨트랙트를 배포합니다. 토큰 이름은 `BAOBABTOKEN`으로, 토큰 심볼은 `BAO`로 설정합니다. 토큰의 소수점 값은 `10^8`입니다. 예를 들어 `BAOBABTOKEN`의 `totalSupply`를 조회하면 `10^5`가 아닌 `10^13`이 반환되는데, 이는 Solidity가 부동 소수점을 지원하지 않아 토큰 수가 항상 가장 작은 단위의 자연수로 표현되기 때문입니다.
-
-```javascript
-const Migrations = artifacts.require("./Migrations.sol");
-const MyERC20 = artifacts.require("./MyERC20.sol");
-module.exports = function(deployer) {
-  deployer.deploy(Migrations);
-  deployer.deploy(MyERC20, 'BAOBABTOKEN', 'BAO', 8);
-};
-```
-
-스마트 컨트랙트를 Klaytn 네트워크에 배포하기 위해서는 아래와 같이 `truffle-config.js`를 수정해야 합니다. 이는 [Truffle을 이용한 스마트 컨트랙트 배포하기](../deploy/ken.md#deploying-a-smart-contract-using-truffle)에서 설명한 단계와 동일합니다.
-
-```
-// truffle-config.js
-module.exports = {
-    networks: {
-        baobab: {
-            host: '127.0.0.1',
-            port: 8551,
-            from: '0xabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd', // enter your account address
-            network_id: '1001', // Baobab network id
-            gas: 20000000, // transaction gas limit
-            gasPrice: 250000000000, // gasPrice of Baobab is 250 ston
-        },
-    },
-    compilers: {
-      solc: {
-        version: "0.5.12"    // Specify compiler's version to 0.5.12
-      }
-  }
-};
-```
-
-이제 모든 준비가 완료되었으며 아래와 같이 `MyERC20.sol`을 배포할 수 있습니다.
-
-```
-$ truffle deploy --network baobab --reset
-Compiling ./contracts/MyERC20.sol...
-Writing artifacts to ./build/contracts
-
-Using network 'baobab'.
-
-Running migration: 1_initial_migration.js
-  Replacing Migrations...
-  ... 0x5a947f076f4570dff8ff18b1ae3557e27dd69c92ce38a3c97fad8f5355914066
-  Migrations: 0x0d737e9865e5fc4c1ff53744fd2c13c52a44b9bc
-  Deploying MyERC20...
-  ... 0x1571e80552dab1d67260e8914e06d9b16ccae16fb698c750f6a09aab12517bc1
-  MyERC20: 0xc4c8257ED9B4eB6422fDe29B1eCe5Ce301e637e1
-Saving successful migration to network...
-  ... 0x5b984b3f79c425d80470a96d5badb857fc05e7f31d94423044ae3119c639aa77
-Saving artifacts...
-```
-
-`MyERC20`을 배포하기 위한 트랜잭션 해시는 `0x1571e80552dab1d67260e8914e06d9b16ccae16fb698c750f6a09aab12517bc1`이고, `MyERC20`의 주소는 `0xc4c8257ED9B4eB6422fDe29B1eCe5Ce301e637e1`임을 알 수 있습니다.
 
 이제 `MyERC20`이 출시되었습니다!
 
@@ -654,9 +558,8 @@ Saving artifacts...
 
 아래와 같이 배포된 `MyERC20` 컨트랙트의 주소로 지갑에 ERC-20 호환 토큰을 추가할 수 있습니다.
 
-![ERC20-3-Add_token](/img/build/smart-contracts/erc20-3-add_token.png)
+![ERC20-3-Add\_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
 지갑 앱에서 ERC-20 토큰을 추가하면 아래와 같이 KLAY의 잔액과 함께 `BAOBABTOKEN`의 잔액이 표시됩니다. 계정에 `100000` `BAO` 토큰이 있는 것을 확인할 수 있습니다.
 
 ![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)
-
