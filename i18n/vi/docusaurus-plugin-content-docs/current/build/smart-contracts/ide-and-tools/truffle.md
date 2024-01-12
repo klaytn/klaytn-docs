@@ -1,27 +1,27 @@
 # Truffle
 
-## Khả năng tương thích với Truffle <a id="compatibility-with-truffle"></a>
+## Compatibility with Truffle <a id="compatibility-with-truffle"></a>
 
-Trong Klaytn, một hợp đồng thông minh được viết bằng Solidity có thể được biên dịch và triển khai thông qua Truffle. Hiện tại, Klaytn hỗ trợ đến Truffle v5.0.26, phiên bản mới nhất vào thời điểm tạo bài viết này. Vui lòng tìm thông tin chi tiết về Truffle trên các trang web bên dưới.
+In Klaytn, a smart contract written in Solidity can be compiled and deployed via Truffle. At the moment, Klaytn supports up to Truffle v5.0.26, the latest version at the time of writing. Please find details about Truffle on the websites below.
 
-- [Tổng quan về Truffle](https://trufflesuite.com/docs/truffle/overview)
-- [Kho lưu trữ Truffle](https://github.com/trufflesuite/truffle)
+- [Truffle overview](https://trufflesuite.com/docs/truffle/overview)
+- [Truffle repository](https://github.com/trufflesuite/truffle)
 
-Bạn có thể cài đặt Truffle như sau:
+You can install Truffle as the following:
 
 ```text
 $ sudo npm install -g truffle
 ```
 
-Nếu bạn có EN cục bộ đang chạy, bạn có thể triển khai hợp đồng trực tiếp với khung truffle. Để biết thêm chi tiết, hãy tham khảo [liên kết](../deploy/ken.md#deploying-a-smart-contract-using-truffle) này.
+If you have a local EN running, you can deploy contracts directly with truffle framework. For more details, refer to this [link](../deploy/ken.md#deploying-a-smart-contract-using-truffle).
 
-Nếu bạn muốn triển khai với nút EN từ xa, bạn nên sử dụng [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
+If you want to deploy with a remote EN node, you should use [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
 
-## Định cấu hình truffle-hdwallet-provider-klaytn <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
+## Configuring truffle-hdwallet-provider-klaytn <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
 
-truffle-hdwallet-provider-klaytn là một nhà cung cấp ví JavaScript HD được rẽ nhánh từ truffle-hdwallet-provider.
+truffle-hdwallet-provider-klaytn is a JavaScript HD wallet provider forked from truffle-hdwallet-provider.
 
-Cài đặt như sau:
+Install as the following:
 
 ```text
 $ nvm use 10
@@ -33,9 +33,9 @@ $ nvm use 12 # for node v12 and higher
 $ yarn install truffle-hdwallet-provider-klaytn@1.4.1
 ```
 
-Thiết lập `truffle-config.js` như bên dưới.
+Set `truffle-config.js` as below.
 
-### Sử dụng thuật ghi nhớ <a id="using-a-mnemonic"></a>
+### Using a mnemonic <a id="using-a-mnemonic"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -142,7 +142,7 @@ module.exports = {
 };
 ```
 
-### Sử dụng khóa riêng tư <a id="using-a-private-key"></a>
+### Using a private key <a id="using-a-private-key"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -249,16 +249,17 @@ module.exports = {
 };
 ```
 
-**CẢNH BÁO: Đặc biệt cẩn trọng không để lộ mã ghi nhớ hoặc khóa riêng tư của bạn.**
+**WARNING: Be very careful not to expose your mneomonic or private key.**
 
-Triển khai trên Klaytn:
+Deploying on Klaytn :
 
 ```bash
 $ truffle deploy --network baobab  # testnet
 $ truffle deploy --network cypress # mainnet
 ```
 
-Thực hiện giao dịch trên Klaytn : (sử dụng ví dụ từ [Bắt đầu nhanh Tài liệu Truffle - Tạo dự án](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project))
+Making transaction on Klaytn :
+(using an example from [Truffle Docs quick start - Creating a project](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project))
 
 ```bash
 $ truffle console --network baobab
@@ -274,12 +275,12 @@ truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.
     gasPrice: '0x5d21dba00',
     gasUsed: 27001,
     input: '0xfdacd5760000000000000000000000000000000000000000000000000000000000000003',
-    nhật ký: [],
-    nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    logs: [],
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
     nonce: '0x1047',
     senderTxHash: '0x734676311194c1ab8e004e2990e414b7b47a9d0a8506682707f5db03fa6dcee0',
     signatures: [ [Object] ],
-    trạng thái: true,
+    status: true,
     to: '0x69527b5f0078ae1757b631af155fa9be21ef6a85',
     transactionHash: '0x734676311194c1ab8e004e2990e414b7b47a9d0a8506682707f5db03fa6dcee0',
     transactionIndex: 0,
@@ -289,7 +290,7 @@ truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.
     cumulativeGasUsed: undefined,
     rawLogs: []
   },
-  nhật ký: []
+  logs: []
 }
 
 truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.last_completed_migration.call()}) // read public variable
