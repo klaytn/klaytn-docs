@@ -13,7 +13,7 @@ Hash: Keccak256 - 32-byte Hash key
 ExtHash: Keccak256 - 32-byte Hash Key + 7-byte Serial index
 ```
 
-Furthermore, the StateRoot is not be changed in a block since we still calculate original hash value from extended hash. In order to obtain the State Root value, the 7-byte Serial index added to ExtHash is removed, and the Hash is recalculated to obtain the same State Root value as before, making it backward compatible. 
+Furthermore, the StateRoot is not be changed in a block since we still calculate original hash value from extended hash. In order to obtain the State Root value, the 7-byte Serial index added to ExtHash is removed, and the Hash is recalculated to obtain the same State Root value as before, making it backward compatible.
 
 For more information, see this [medium blog](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91).
 
