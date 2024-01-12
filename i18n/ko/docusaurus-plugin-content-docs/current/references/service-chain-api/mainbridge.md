@@ -1,29 +1,28 @@
 ---
-설명: >-
-  서비스 체인과 연결된 메인 체인 EN과 관련된 API입니다.
+description: APIs related to main chain ENs connected with a service chain.
 ---
 
 # mainbridge
 
-`mainbridge` 네임스페이스는 서비스체인과 관련된 함수를 제공합니다.
-이 네임스페이스의 함수를 사용하려면 메인 체인(메인넷 또는 Baobab 테스트넷)에 연결된 EN에서 `mainbridge` 옵션을 활성화해야 합니다.
+The namespace `mainbridge` provides functions related to Service Chain.
+To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
 
 ## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
-노드의 KNI(Klaytn 네트워크 식별자)를 포함한 브리지 노드 정보를 반환합니다.
-메인 브리지 노드는 KNI를 통해 서브 브리지 노드에 연결할 수 있습니다.
+Returns bridge node information including the KNI (Klaytn Network Identifier) of the node.
+A mainbridge node can connect to a subbrige node via the KNI.
 
-**매개변수**
+**Parameters**
 
-없음
+None
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| ------ | ------------------------------------ |
-| JSON string | 브리지 노드 정보입니다. |
+| Type        | Description                  |
+| ----------- | ---------------------------- |
+| JSON string | the bridge node information. |
 
-**예시**
+**Example**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -55,34 +54,36 @@
 }
 ```
 
-## mainbridge_addPeer <a id="mainbridge_addPeer"></a>
-서브브리지 피어 추가가 성공적으로 완료되면 `true`를 반환합니다.
+## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 
-피어 목록에 새 원격 노드를 추가합니다.
-노드는 이러한 노드에 대한 연결을 항상 유지하려고 시도하며, 원격 연결이 끊어질 때마다
-원격 연결이 끊어지면 한 번씩 재연결합니다.
-이 메서드는 추적을 시작할 원격 피어의 `kni` URL이라는 단일 인수를 받고, 피어가 추적에 허용되었는지 또는 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
+Returns `true` if adding a subbridge peer is done successfully.
 
-**매개변수**
+It Adds a new remote node to the peer list.
+The node will try to maintain connectivity to these nodes at all times, reconnecting every
+once in a while if the remote connection goes down.
+The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| url | String | 피어의 `kni` URL. |
+**Parameters**
 
-**리턴 값**
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| url  | string | Peer's  `kni` URL. |
 
-| 유형 | 설명 |
-| --- | --- |
-| bool | 피어가 수락된 경우 `true`, 그렇지 않으면 `false`. |
+**Return Value**
 
-**예시**
+| Type | Description                                         |
+| ---- | --------------------------------------------------- |
+| bool | `true` if the peer was accepted, `false` otherwise. |
 
-콘솔
+**Example**
+
+Console
 
 ```javascript
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
 true
 ```
+
 HTTP RPC
 
 ```shell
@@ -91,26 +92,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
-피어 제거가 성공적으로 완료되면 `true`를 반환합니다.
 
-`removePeer` 메서드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다.
-이 메서드는 추적을 시작할 원격 피어의 `kni` URL이라는 단일 인수를 받고, 피어가 추적에 허용되었는지 또는 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
+Returns `true` if removing the peer is done successfully.
 
-**매개변수**
+The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes.
+The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted
+for tracking or some error occurred.
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| url | String | 피어의 `kni` URL. |
+**Parameters**
 
-**리턴 값**
+| Name | Type   | Description        |
+| ---- | ------ | ------------------ |
+| url  | string | Peer's  `kni` URL. |
 
-| 유형 | 설명 |
-| --- | --- |
-| bool | 피어가 제거된 경우 `true`, 그렇지 않으면 `false`. |
+**Return Value**
 
-**예시**
+| Type | Description                                        |
+| ---- | -------------------------------------------------- |
+| bool | `true` if the peer was removed, `false` otherwise. |
 
-콘솔
+**Example**
+
+Console
 
 ```javascript
 > mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -126,19 +129,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-`mainbridge_getChildChainIndexingEnabled`는 앵커링 트랜잭션 인덱싱이 활성화되어 있는지 여부를 반환합니다.
+`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
 
-**매개변수**
+**Parameters**
 
-없음
+none
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| ------ | ------------------------------------ |
-| bool | 인덱싱이 활성화된 경우 `true`, 그렇지 않으면 `false`. |
+| Type | Description                                            |
+| ---- | ------------------------------------------------------ |
+| bool | `true` if the indexing was enabled, `false` otherwise. |
 
-**예시**
+**Example**
 
 ```javascript
 > mainbridge.getChildChainIndexingEnabled()
@@ -147,23 +150,23 @@ true
 
 ## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
-주어진 차일드 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
+Returns the anchoring transaction hash of the given child chain block hash.
 
-**매개변수**
+**Parameters**
 
-| 유형 | 설명 |
-| ------ | ------------------------------------ |
-| 32-byte DATA | 자식 체인 블록 해시입니다.  |
+| Type         | Description                 |
+| ------------ | --------------------------- |
+| 32-byte DATA | The child chain block hash. |
 
-**리턴 값**
+**Return Value**
 
-| 유형 | 설명 |
-| ------ | ------------------------------------ |
-| 32-byte DATA | 차일드 체인 블록 정보를 포함하는 앵커링 트랜잭션 해시입니다.
+| Type         | Description                                                                     |
+| ------------ | ------------------------------------------------------------------------------- |
+| 32-byte DATA | The anchoring transaction hash that includes the child chain block information. |
 
-**예시**
+**Example**
 
-콘솔
+Console
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
@@ -176,4 +179,3 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
-
