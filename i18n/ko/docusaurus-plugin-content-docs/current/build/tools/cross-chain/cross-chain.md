@@ -4,4 +4,4 @@
 
 클레이튼 네트워크와 호환되는 크로스체인 메시징 프로토콜은 아래와 같습니다.
 
-* [LayerZero](https://layerzero.gitbook.io/docs/)
+- [LayerZero](https://layerzero.gitbook.io/docs/)
