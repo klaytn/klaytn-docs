@@ -1,121 +1,125 @@
 ---
-description: >-
-  Các API liên quan đến Cơ chế quản trị của Klaytn.
-
+description: APIs related to the Klaytn Governance.
 ---
 
 # governance
 
-Để quản trị mạng, Klaytn cung cấp các API sau trong phần không gian tên `quản trị`.
+For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
 
-Có ba chế độ quản trị khác nhau tại Klaytn.
-* `Không có`: Tất cả các nút tham gia mạng đều có quyền thay đổi cấu hình.
-* `duy nhất`: Chỉ một nút được chỉ định có quyền thay đổi cấu hình.
-* `biểu quyết`: Tất cả các nút có quyền biểu quyết đều có thể biểu quyết cho một sự thay đổi. Khi tổng số quyền biểu quyết quá bán, một cuộc biểu quyết sẽ được thông qua.
+In Klaytn, there are three different governance modes.
 
-Dựa trên chế độ quản trị, người đề xuất có thể biểu quyết về các tham số mạng như đơn giá, số lượng ngăn xếp tối thiểu, v.v. Để trở thành người đề xuất, các nút ứng viên cần nạp một lượng KLAY tối thiểu. Tất cả các nút hợp cách có thể đề xuất một khối nhưng cơ hội sẽ phụ thuộc vào số lượng nắm giữ.
+- `none`: All nodes participating in the network have the right to change the configuration.
+- `single`: Only one designated node has the right to change the configuration.
+- `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
 
-Khi tính toán tỷ lệ nắm giữ để xác định số lượng vị trí (số lượng cơ hội) để trở thành người đề xuất trong một khoảng thời gian nhất định, Một nút có thể không được phân bổ bất kỳ vị trí nào do làm tròn số. Tuy nhiên, một nút hợp cách đã nạp một lượng KLAY tối thiểu sẽ luôn được đảm bảo một vị trí.
+Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc.
+In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY.
+All the qualified nodes are always eligible to propose a block, but the chance is propositional to the stake amount.
 
-Nghĩa là, nếu một nút không hợp cách - nút này không có đủ số lượng KLAY - thì sẽ không có cơ hội đề xuất cũng như xác thực một khối.
+When calculating the staking proportions to determine the number of slots(the number of chances) to become a proposer within a certain period,
+it is possible that a node may not be allocated any slots as a result of rounding numbers.
+However, a slot is guaranteed to a qualified node that has deposited a minimum amount of KLAY.
 
-**Cảnh báo**
-- Một nút quản trị luôn hợp cách ở chế độ `duy nhất` như một ngoại lệ.
-- Một cuộc biểu quyết sẽ được thực hiện khi một khối được đề xuất. Cuộc biểu quyết này được áp dụng sau hai giai đoạn bao gồm cả giai đoạn mà khối được đề xuất. Như một ngoại lệ, chỉ addValidator/removeValidator được áp dụng ngay lập tức.
+That is, if a node is not qualified - the node does not stake enough amount of KLAY - it won't be given a chance to propose nor validate a block.
+
+**Caveat**
+
+- A governing node is always qualified in `single` mode as an exception.
+- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed.
+  As an exception, only addValidator/removeValidator is applied immediately.
+
 ## governance_vote <a id="governance_vote"></a>
 
-Phương thức `biểu quyết` sẽ gửi một phiếu bầu mới. Nếu nút có quyền biểu quyết dựa trên chế độ quản trị thì có thể đặt phiếu bầu. Nếu không, một thông báo lỗi sẽ được trả về và phiếu bầu sẽ bị bỏ qua.
+The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
 
-**Tham số**
+**Parameters**
 
-- `Khóa` : Tên của tùy chọn cài đặt cấu hình sẽ được thay đổi. Khóa có dạng `domain.field`
-- `Giá trị` : Các loại giá trị khác nhau cho mỗi khóa.
+- `Key` : Name of the configuration setting to be changed. Key has the form of `domain.field`
+- `Value` : Various types of value for each key.
 
-| Khóa                                | Mô tả                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`       | `CHUỖI`. Một trong ba chế độ quản trị. `"không có"`, `"duy nhất"`, `"biểu quyết"`                                                                                                                                                                                                                                             |
-| `"governance.governingnode"`        | `ĐỊA CHỈ`. Địa chỉ của nút quản trị được chỉ định. Địa chỉ này chỉ hoạt động khi chế độ quản trị là `"duy nhất"` ví dụ:`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                                                                                         |
-| `"governance.unitprice"`            | `SỐ`. Giá đơn vị gas. vd: `25000000000`                                                                                                                                                                                                                                                                                       |
-| `"governance.addvalidator"`         | `ĐỊA CHỈ`. Địa chỉ của một ứng viên nút xác thực mới. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                        |
-| `"governance.removevalidator"`      | `ĐỊA CHỈ`. Địa chỉ của nút xác thực hiện tại cần được xóa. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                   |
-| `"governance.deriveshaimpl"`        | `SỐ`. Chính sách tạo hàm băm giao dịch và hàm băm biên lai trong tiêu đề khối. Xem [tại đây](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) để biết các tùy chọn khả dụng. vd: `2` (DeriveShaConcat)                                                                                       |
-| `"governance.govparamcontract"`     | `ĐỊA CHỈ`. Địa chỉ của hợp đồng GovParam. vd: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                                    |
-| `"istanbul.epoch"`                  | `SỐ`. Khoảng thời gian trong đó các phiếu bầu được thu thập theo khối. Khi khoảng thời gian này kết thúc, tất cả các phiếu bầu chưa được thông qua sẽ bị xóa. vd: `86400`                                                                                                                                                     |
-| `"istanbul.committeesize"`          | `SỐ`. Số lượng nút xác thực trong một ủy ban.(`sub` trong cấu hình chuỗi), ví dụ: `7`                                                                                                                                                                                                                                         |
-| `"reward.mintingamount"`            | `CHUỖI`. Số lượng Peb được tạo khi tạo ra một khối. Giá trị phải ở trong dấu ngoặc kép. vd: `"9600000000000000000"`                                                                                                                                                                                                           |
-| `"reward.ratio"`                    | `CHUỖI`. Tỷ lệ phân phối cho CN/KGF/KIR được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `100`. vd: `"50/40/10"` nghĩa là CN 50%, KGF 40%, KIR 10%                                                                                                                                                            |
-| `"reward.kip82ratio"`               | `CHUỖI`. Tỷ lệ phân phối của người đề xuất khối cho người nắm giữ được phân tách bằng `"/"`. Tổng của tất cả các giá trị phải bằng `"100"`. Xem [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) để biết thêm chi tiết. vd: `"20/80"` có nghĩa là người đề xuất nhận 20% trong khi người nắm giữ nhận 80%. |
-| `"reward.useginicoeff"`             | `BOOL`. Sử dụng hệ số Gini hoặc không. `true`, `false`                                                                                                                                                                                                                                                                        |
-| `"reward.deferredtxfee"`            | `BOOL`. Cách đưa ra phí giao dịch cho người đề xuất. Nếu true, điều đó có nghĩa là phí tx sẽ được tổng hợp bằng phần thưởng khối và được phân phối cho người đề xuất, KIR và KGF. Nếu false, thì tất cả phí tx sẽ được trao cho người đề xuất. `true`, `false`                                                                |
-| `"reward.minimumstake"`             | `CHUỖI`. Lượng Klay cần thiết để trở thành CN (Nút đồng thuận). Giá trị phải ở trong dấu ngoặc kép. ví dụ như `"5000000"`                                                                                                                                                                                                     |
-| `"kip71.lowerboundbasefee"`         | `SỐ`. Phí cơ sở thấp nhất được phép. Xem [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) để biết thêm chi tiết. vd: `25000000000`                                                                                                                                                                           |
-| `"kip71.upperboundbasefee"`         | `SỐ`. Phí cơ sở cao nhất được phép. vd: `750000000000`                                                                                                                                                                                                                                                                        |
-| `"kip71.gastarget"`                 | `SỐ`. Gas khối mà phí cơ sở muốn đạt được. Phí cơ sở tăng khi khối cha mẹ chứa nhiều hơn mục tiêu gas và giảm khi khối cha mẹ chứa ít hơn mục tiêu gas. vd: `30000000`                                                                                                                                                        |
-| `"kip71.basefeedenominator"`        | `SỐ`. Kiểm soát tốc độ thay đổi phí cơ sở. vd: `20`                                                                                                                                                                                                                                                                           |
-| `"kip71.maxblockgasusedforbasefee"` | `SỐ`. Gas khối tối đa nắm được trong tính toán phí cơ sở. vd: `60000000`                                                                                                                                                                                                                                                      |
+| Key                                 | Description                                                                                                                                                                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.governancemode"`       | `STRING`. One of the three governance modes. `"none"`, `"single"`, `"ballot"`                                                                                                                                                                                                                     |
+| `"governance.governingnode"`        | `ADDRESS`. Designated governing node's address. It only works if the governance mode is `"single"` e.g.,`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                                                                            |
+| `"governance.unitprice"`            | `NUMBER`. Price of unit gas. e.g., `25000000000`                                                                                                                                                                                                                                                  |
+| `"governance.addvalidator"`         | `ADDRESS`. Address of a new validator candidate. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                               |
+| `"governance.removevalidator"`      | `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                            |
+| `"governance.deriveshaimpl"`        | `NUMBER`. Policy to generate the transaction hash and receipt hash in a block header. See [here](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) for available options. e.g., `2` (DeriveShaConcat)                                          |
+| `"governance.govparamcontract"`     | `ADDRESS`. Address of the GovParam contract. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                   |
+| `"istanbul.epoch"`                  | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                                                                                   |
+| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                                                     |
+| `"reward.mintingamount"`            | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                                                                            |
+| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                                                                                       |
+| `"reward.kip82ratio"`               | `STRING`. Distribution ratio of the block proposer to stakers separated by `"/"`. The sum of all values has to be `"100"`. See [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) for further details. e.g., `"20/80"` means that the proposer takes 20% while stakers take 80%. |
+| `"reward.useginicoeff"`             | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                                                                          |
+| `"reward.deferredtxfee"`            | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`                                                         |
+| `"reward.minimumstake"`             | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                                                                |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. e.g., `25000000000`                                                                                                                                            |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                                                                                                     |
+| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000`                                                                                   |
+| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                                                                                                          |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                                                                                                               |
 
+**Return Value**
 
-**Giá trị trả về**
+| Type   | Description               |
+| ------ | ------------------------- |
+| String | Result of vote submission |
 
-| type  | Mô tả                 |
-| ----- | --------------------- |
-| Chuỗi | Kết quả gửi phiếu bầu |
-
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.vote ("governance.governancemode", "ballot")
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote ("governance.governingnode", "0x12345678990123456789901234567899012345678990")
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("istanbul.epoch", 604800)
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("governance.unitprice", 25000000000)
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("istanbul.committeesize", 7)
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("reward.mintingamount", "9600000000000000000")
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("reward.ratio", "40/30/30")
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.vote("reward.useginicoeff", false)
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
-// Nếu nhập sai dữ liệu
+// If wrong data are given
 > governance.vote("reward.ratio", 100)
-"Không thể đặt phiếu bầu của bạn. Vui lòng kiểm tra khóa và giá trị phiếu bầu của bạn"
+"Your vote couldn't be placed. Please check your vote's key and value"
 
 > governance.vote("governance.governingnode", 1234)
-"Không thể đặt phiếu bầu của bạn. Vui lòng kiểm tra khóa và giá trị phiếu bầu của bạn"
+"Your vote couldn't be placed. Please check your vote's key and value"
 
 // when `governancemode` is "single" and the node is not `governingnode`
 > governance.vote("governance.governancemode", "ballot")
-"Bạn không có quyền biểu quyết"
+"You don't have the right to vote"
 ```
-
 
 ## governance_showTally <a id="governance_showtally"></a>
 
-Thuộc tính `showTally` cung cấp số phiếu bầu quản trị hiện tại. Thuộc tính này sẽ hiển thị tỷ lệ phê duyệt tổng hợp theo tỷ lệ phần trăm. Khi vượt quá 50%, một cuộc biểu quyết sẽ được thông qua.
+The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                             |
-| ----- | ----------------------------------------------------------------- |
-| Tally | Giá trị của mỗi phiếu bầu và tỷ lệ tán thành theo tỷ lệ phần trăm |
+| Type  | Description                                       |
+| ----- | ------------------------------------------------- |
+| Tally | Each vote's value and approval rate in percentage |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.showTally
@@ -130,80 +134,79 @@ Không có
 }]
 ```
 
-
 ## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
-Thuộc tính `totalVotingPower` cung cấp tổng của tất cả quyền biểu quyết mà CN có. Mỗi CN có 1.0 ~ 2.0 quyền biểu quyết. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
+The `totalVotingPower` property provides the sum of all voting power that CNs have. Each CN has 1.0 \~ 2.0 voting power.
+In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại                 | Mô tả                                    |
-| --------------------- | ---------------------------------------- |
-| Số thực dấu phẩy động | Tổng quyền biểu quyết hoặc thông báo lỗi |
+| Type  | Description                         |
+| ----- | ----------------------------------- |
+| Float | Total Voting Power or error message |
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// Trong chế độ quản trị "biểu quyết"
+// In "ballot" governance mode
 > governance.totalVotingPower
 32.452
 
-// Trong chế độ quản trị "không có", "duy nhất"
+// In "none", "single" governance mode
 > governance.totalVotingPower
-"Chế độ quản trị hiện tại không có quyền biểu quyết"
+"In current governance mode, voting power is not available"
 ```
-
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-Thuộc tính `myVotingPower` cung cấp quyền biểu quyết của nút. Quyền biểu quyết có thể là 1.0 ~ 2.0. Trong chế độ quản trị `"không có"`, `"duy nhất"`, `totalVotingPower` không cung cấp bất kỳ thông tin nào.
+The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 \~ 2.0.
+In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại                 | Mô tả                                       |
-| --------------------- | ------------------------------------------- |
-| Số thực dấu phẩy động | Quyền biểu quyết của nút hoặc thông báo lỗi |
+| Type  | Description                          |
+| ----- | ------------------------------------ |
+| Float | Node's Voting Power or error message |
 
-**Ví dụ**
+**Example**
 
 ```javascript
-// Trong chế độ quản trị "biểu quyết"
+// In "ballot" governance mode
 > governance.myVotingPower
 1.323
 
-// Trong chế độ quản trị "không có", "duy nhất"
+// In "none", "single" governance mode
 > governance.myVotingPower
-"Chế độ quản trị hiện tại không có quyền biểu quyết"
+"In current governance mode, voting power is not available"
 ```
-
 
 ## governance_myVotes <a id="governance_myvotes"></a>
 
-Thuộc tính `myVotes` cung cấp thông tin phiếu bầu của tôi trong một giai đoạn. Mỗi phiếu bầu được lưu trữ trong một khối khi nút của người dùng tạo một khối mới. Sau khi giai đoạn hiện tại kết thúc, thông tin này sẽ bị xóa.
+The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại               | Mô tả                                                                                                                                                                                                                                     |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Danh sách phiếu bầu | Trạng thái biểu quyết của nút trong giai đoạn<br/>- `BlockNum`: Số khối mà phiếu bầu này được lưu trữ<br/>- `Bỏ phiếu`: Nếu phiếu bầu này được lưu trữ trong một khối hay không <br/>- `Khóa/Giá trị`: Nội dung biểu quyết |
+| Type      | Description                                                                                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vote List | Node's Voting status in the epoch.<br/>- `BlockNum`: The block number that this vote is stored.<br/>- `Casted`: If this vote is stored in a block or not.<br/>- `Key/Value`: The content of the vote. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.vote("governance.governancemode", "ballot")
-"Phiếu bầu của bạn đã được đặt thành công."
+"Your vote was successfully placed."
 
 > governance.myVotes
 [{
@@ -217,27 +220,28 @@ Không có
 
 ## governance_getChainConfig <a id="governance_getchainconfig"></a>
 
-`getChainConfig` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, phương pháp này sẽ trả về cấu hình chuỗi tại khối latest.
+The `getChainConfig` returns the chain configuration at a specific block.
+If the parameter is not set, it returns the chain configuration at the latest block.
 
-**Tham số**
+**Parameters**
 
-| type                | Mô tả                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Type            | Description                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
-LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
 
 :::
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                             |
-| ----- | --------------------------------- |
-| JSON  | Cấu hình chuỗi tại số khối đã cho |
+| Type | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.getChainConfig()
@@ -282,33 +286,38 @@ LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường h�
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-Thuộc tính `chainConfig` cung cấp cấu hình chuỗi latest. Nó tương đương với `chainConfigAt()` với tham số trống.
+The `chainConfig` property provides the latest chain configuration.
+This is equivalent to `chainConfigAt()` with an empty parameter.
 
 :::caution
 
-`governance_chainConfig` Không được dùng API kể từ Klaytn v1.11 (Xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getchainconfig">`governance_getChainConfig`</a>.
+`governance_chainConfig` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
 
-LƯU Ý: API RPC không còn được sử dụng kể từ v1.11. Tuy nhiên, thuộc tính `governance.chainConfig` trong bảng điều khiển Klaytn JavaScript đã bị xóa kể từ Klaytn v1.10.2.
+NOTE: the RPC API will be deprecated since v1.11. However, the `governance.chainConfig` property in the Klaytn JavaScript console
+is removed since Klaytn v1.10.2.
 
 :::
 
 :::note
 
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.10.0, API này trả về cấu hình chuỗi ban đầu. Tuy nhiên, do tên dễ gây nhầm lẫn nên nó được cập nhật kể từ phiên bản Klaytn v1.10.0. Để truy vấn cấu hình chuỗi ban đầu, hãy sử dụng `chainConfigAt(0)` thay thế.
+NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration.
+However, due to its confusing name, it is updated since Klaytn v1.10.0.
+To query the initial chain configuration, use `chainConfigAt(0)` instead.
 
 :::
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                   |
-| ----- | ----------------------- |
-| JSON  | Cấu hình chuỗi hiện tại |
+| Type | Description                 |
+| ---- | --------------------------- |
+| JSON | Current chain configuration |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.chainConfig
@@ -352,33 +361,35 @@ Không có
 
 ## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-`chainConfigAt` trả về cấu hình chuỗi tại một khối cụ thể. Nếu tham số không được đặt, phương pháp này sẽ trả về cấu hình chuỗi tại khối latest.
+The `chainConfigAt` returns the chain configuration at a specific block.
+If the parameter is not set, it returns the chain configuration at the latest block.
 
 :::caution
 
-`governance_chainConfigAt` Không được dùng API kể từ Klaytn v1.11 (xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getchainconfig">`governance_getChainConfig`</a>.
+`governance_chainConfigAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
 
 :::
 
-**Tham số**
+**Parameters**
 
-| Loại               | Mô tả                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Type            | Description                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
-LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
 
 :::
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                             |
-| ----- | --------------------------------- |
-| JSON  | Cấu hình chuỗi tại số khối đã cho |
+| Type | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.chainConfigAt()
@@ -422,19 +433,19 @@ LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường h�
 
 ## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
-Thuộc tính `nodeAddress` cung cấp địa chỉ của nút mà người dùng đang sử dụng. Nó được lấy từ nodekey và được sử dụng để ký các thông báo đồng thuận. Và giá trị `"governingnode"` phải là một trong những địa chỉ nút của nút xác thực.
+The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại   | Mô tả                       |
-| ------- | --------------------------- |
-| ĐỊA CHỈ | 20 địa chỉ BYTE của một nút |
+| Type    | Description               |
+| ------- | ------------------------- |
+| ADDRESS | 20 BYTE address of a node |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.nodeAddress
@@ -443,27 +454,27 @@ Không có
 
 ## governance_getParams <a id="governance_getparams"></a>
 
-`getParams` trả về các tham số quản trị tại một khối cụ thể.
+The `getParams` returns governance parameters at a specific block.
 
-**Tham số**
+**Parameters**
 
-| type                | Mô tả                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Type            | Description                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
-LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
 
 :::
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả            |
-| ----- | ---------------- |
-| JSON  | tham số quản trị |
+| Type | Description           |
+| ---- | --------------------- |
+| JSON | governance parameters |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.getParams(89)
@@ -494,39 +505,40 @@ LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường h�
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-`itemsAt` trả về các tham số quản trị tại một khối cụ thể.
+The `itemsAt` returns governance parameters at a specific block.
 
 :::caution
 
-API `governance_itemsAt` sẽ không còn được dùng kể từ Klaytn v1.11 (xem [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Thay vào đó, hãy sử dụng <a href="#governance_getparams">`governance_getParams`</a>.
+`governance_itemsAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)).
+Use <a href="#governance_getparams">`governance_getParams`</a> instead.
 
 :::
 
-**Tham số**
+**Parameters**
 
-| Loại               | Mô tả                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG \| THẺ | Số nguyên hoặc khối thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](klay/block.md#the-default-block-parameter). |
+| Type            | Description                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 :::note
 
-LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có số khối số nguyên, chuỗi `"earliest"` và `"latest"` khả dụng.
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 
 :::
 
 :::note
 
-LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường hợp đó API sẽ trả về giá trị dự kiến ​​dựa trên trạng thái chuỗi hiện tại. Các tham số quản trị trong tương lai có thể thay đổi thông qua các phiếu bầu quản trị bổ sung hoặc các thay đổi trạng thái hợp đồng GovParam.
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
 
 :::
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả        |
-| ----- | ------------ |
-| JSON  | mục quản trị |
+| Type | Description      |
+| ---- | ---------------- |
+| JSON | governance items |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > governance.itemsAt(89)
@@ -557,19 +569,20 @@ LƯU Ý: Số khối có thể lớn hơn số khối latest, trong trường h�
 
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
-`pendingChanges` trả về danh sách các mục đã nhận đủ số phiếu nhưng chưa hoàn tất. Vào cuối giai đoạn hiện tại, những thay đổi này sẽ được hoàn tất và kết quả sẽ có hiệu lực từ giai đoạn này đến giai đoạn tiếp theo.
+The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại               | Mô tả                                                        |
-| ------------------- | ------------------------------------------------------------ |
-| Danh sách phiếu bầu | Các thay đổi hiện đang chờ xử lý bao gồm các khóa và giá trị |
+| Type      | Description                                           |
+| --------- | ----------------------------------------------------- |
+| Vote List | Currently pending changes composed of keys and values |
 
-**Ví dụ**
+**Example**
+
 ```javascript
 > governance.pendingChanges
 {
@@ -580,19 +593,20 @@ Không có
 
 ## governance_votes <a id="governance_votes"></a>
 
-`phiếu bầu` trả về phiếu bầu từ tất cả các nút trong một giai đoạn. Những phiếu bầu này được thu thập từ tiêu đề của mỗi khối.
+The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại               | Mô tả                                                       |
-| ------------------- | ----------------------------------------------------------- |
-| Danh sách phiếu bầu | Phiếu bầu hiện tại bao gồm các khóa, giá trị và địa chỉ nút |
+| Type      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| Vote List | Current votes composed of keys, values and node addresses |
 
-**Ví dụ**
+**Example**
+
 ```javascript
 > governance.votes
 [{
@@ -607,59 +621,65 @@ Không có
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-Thuộc tính `idxCache` trả về một mảng idxCache hiện tại trong bộ nhớ đệm. idxCache chứa số khối nơi diễn ra thay đổi về quản trị. Theo mặc định, bộ đệm có thể có tối đa 1000 số khối trong bộ nhớ.
 
-**Tham số**
+The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
-Không có
+**Parameters**
 
-**Giá trị trả về**
+None
 
-| Loại       | Mô tả                                    |
-| ----------- | ---------------------------------------- |
-| mảng uint64 | Số khối nơi diễn ra thay đổi về quản trị |
+**Return Value**
 
-**Ví dụ**
+| Type         | Description                                    |
+| ------------ | ---------------------------------------------- |
+| uint64 array | Block numbers where governance change happened |
+
+**Example**
+
 ```javascript
 > governance.idxCache
 [0, 30]
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-`idxCacheFromDb` trả về một mảng chứa tất cả các số khối đã từng có thay đổi quản trị. Kết quả `idxCacheFromDb` giống hoặc dài hơn kết quả của `idxCache`
 
-**Tham số**
+The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
-Không có
+**Parameters**
 
-**Giá trị trả về**
+None
 
-| Loại       | Mô tả                                           |
-| ----------- | ----------------------------------------------- |
-| mảng uint64 | Tất cả số khối nơi diễn ra thay đổi về quản trị |
+**Return Value**
 
-**Ví dụ**
+| Type         | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| uint64 array | Every block numbers where governance change happened |
+
+**Example**
+
 ```javascript
 > governance.idxCacheFromDb
 [0, 30]
 ```
 
 ## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
-`itemCacheFromDb` trả về thông tin quản trị được lưu trữ trong khối đã cho. Nếu không có thay đổi nào được lưu trữ trong khối đã cho, hàm sẽ trả về `null`.
 
-**Tham số**
+The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
-| Loại  | Mô tả                                                            |
+**Parameters**
+
+| Type   | Description                                                      |
 | ------ | ---------------------------------------------------------------- |
-| uint64 | Số khối để truy vấn thay đổi quản trị được thực hiện trong khối. |
+| uint64 | A block number to query the governance change made in the block. |
 
-**Giá trị trả về**
+**Return Value**
 
-| type | Mô tả                                                  |
-| ---- | ------------------------------------------------------ |
-| JSON | Thông tin quản trị được lưu trữ tại một khối nhất định |
+| Type | Description                                    |
+| ---- | ---------------------------------------------- |
+| JSON | Stored governance information at a given block |
 
-**Ví dụ**
+**Example**
+
 ```javascript
 > governance.itemCacheFromDb(0)
 {
@@ -678,34 +698,36 @@ Không có
   reward.useginicoeff: false
 }
 ```
+
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-`getStakingInfo` trả về thông tin nắm giữ tại một khối cụ thể. Kết quả bao gồm các thông tin sau.
-- `BlockNum`: Số khối nơi cung cấp thông tin nắm giữ.
-- `CouncilNodeAddrs`: Địa chỉ của nút đồng thuận.
-- `CouncilRewardAddrs`: Các địa chỉ mà phần thưởng khối của các nút liên kết được gửi đến.
-- `CouncilStakingAddrs`: Địa chỉ hợp đồng mà các nút được liên kết triển khai để nắm giữ.
-- `CouncilStakingAmounts`: Số lượng KLAY mà các nút được liên kết nắm giữ.
-- `Gini`: Hệ số Gini.
-- `KIRAddr`: Địa chỉ hợp đồng của KIR.
-- `PoCAdr`: Địa chỉ hợp đồng của KGF. PoC là tên trước đây của KGF.
-- `UseGini`: Giá trị boolean dù hệ số Gini có được sử dụng hay không.
+The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
 
-Lưu ý rằng thứ tự của tất cả các địa chỉ và số lượng nắm giữ phải khớp với nhau.
+- `BlockNum`: The block number at which the staking information is given.
+- `CouncilNodeAddrs`: The addresses of the consensus node.
+- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
+- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
+- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
+- `Gini`: Gini coefficient.
+- `KIRAddr`: The contract address of KIR.
+- `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
+- `UseGini`: The boolean value whether or not the Gini coefficient is used.
 
-**Tham số**
+Note that the order of all addresses and the staking amounts are matched.
 
-| type                | Mô tả                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG \| THẺ | Số nguyên của số khối hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./klay/block.md#the-default-block-parameter). |
+**Parameters**
 
-**Giá trị trả về**
+| Type            | Description                                                                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
-| Loại | Mô tả             |
-| ----- | ----------------- |
-| JSON  | Thông tin nắm giữ |
+**Return Value**
 
-**Ví dụ**
+| Type | Description         |
+| ---- | ------------------- |
+| JSON | Staking information |
+
+**Example**
 
 ```javascript
 > governance.getStakingInfo("latest")
@@ -722,7 +744,8 @@ Lưu ý rằng thứ tự của tất cả các địa chỉ và số lượng n
 }
 ```
 
-## governance_ getRewardsAccumulated<a id="governance_getRewardsAccumulated"></a>
+## governance_getRewardsAccumulated<a id="governance_getRewardsAccumulated"></a>
+
 Returns the rewards information accumulated within the given block range `[first, last]`.
 
 :::note
@@ -733,8 +756,8 @@ NOTE: The block range should be less than 604800 (about 7 days) to protect endpo
 
 **Parameters**
 
-| Type                | Description                                                                                                                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type            | Description                                                                                                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY \| TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 | QUANTITY \| TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).    |
 
