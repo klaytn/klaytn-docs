@@ -251,7 +251,7 @@ module.exports = {
 
 **경고: 니모닉 또는 개인 키가 노출되지 않도록 각별히 주의하세요.**
 
-클레이튼에 배포하기 :
+Deploying on Klaytn :
 
 ```bash
 $ truffle deploy --network baobab  # testnet
