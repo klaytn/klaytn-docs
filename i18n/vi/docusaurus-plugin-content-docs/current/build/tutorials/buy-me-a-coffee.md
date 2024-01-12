@@ -2,15 +2,16 @@
 
 ## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. Project Setup](#1-project-setup)
-* [2. Creating a Buy Me A Coffee Smart Contract](#2-creating-a-buy-me-a-coffee-smart-contract)
-* [3. Testing the contract’s functionalities using scripts](#3-testing-the-contracts-functionalities-using-scripts)
-* [4. Deploying BMC Smart contract to Klaytn Testnet](#4-deploying-bmc-smart-contract)
-* [5. Building the BMC Frontend with React and Web3Onboard](#5-building-the-bmc-frontend-with-react-and-web3onboard)
-* [6. Deploying Frontend code on IPFS using Fleek](#6-deploying-frontend-code-on-ipfs-using-fleek)
-* [7. Conclusion](#7-conclusion)
+- [1. Project Setup](#1-project-setup)
+- [2. Creating a Buy Me A Coffee Smart Contract](#2-creating-a-buy-me-a-coffee-smart-contract)
+- [3. Testing the contract’s functionalities using scripts](#3-testing-the-contracts-functionalities-using-scripts)
+- [4. Deploying BMC Smart contract to Klaytn Testnet ](#4-deploying-bmc-smart-contract)
+- [5. Building the BMC Frontend with React and Web3Onboard](#5-building-the-bmc-frontend-with-react-and-web3onboard)
+- [6. Deploying Frontend code on IPFS using Fleek](#6-deploying-frontend-code-on-ipfs-using-fleek)
+- [7. Conclusion](#7-conclusion)
 
 ## Introduction <a href="#1-introduction" id="1-introduction"></a>
+
 Buy Me a Coffee (BMC) is a platform where creators get monetary support and donations from their fans or audience. These creators could be writers, artists, musicians, video creators, et al. With the help of this platform, fans may play a significant role in the success stories of creators, audiences can express their appreciation for the job that creators accomplish, and creators can monetize their work.
 
 On a high level, Buy-me-a-Coffee simplifies the process of accepting payments for creators and enhances interactions between creators and audiences. These and more are some of the exciting features on the BMC platform. On the bright side, imagine this platform on the blockchain. Creators will now get access to more benefits, such as:
@@ -20,17 +21,20 @@ On a high level, Buy-me-a-Coffee simplifies the process of accepting payments fo
 - Directly receive support fees from fans without any intermediary.
 - Decentralization, i.e., there is no central authority controlling the platform.
 
-In this tutorial. you will build a decentralized version of the Buy Me a Coffee (BMC) platform (frontend + smart contract). This platform will be a minimalistic implementation of the traditional BMC platform where supporters can tip you, and you will be able to withdraw any tips that are delivered to the BMC smart contract as the contract's owner. Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site. 
+In this tutorial. you will build a decentralized version of the Buy Me a Coffee (BMC) platform (frontend + smart contract). This platform will be a minimalistic implementation of the traditional BMC platform where supporters can tip you, and you will be able to withdraw any tips that are delivered to the BMC smart contract as the contract's owner. Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
 
-By the end of this guide, you will have used the following to create this dApp: 
+By the end of this guide, you will have used the following to create this dApp:
+
 - Solidity: to write the BMC smart contract
 - NextJs and Tailwind: for building a frontend website for our BMC dApp
 - Web3Onboard: to enable multiple wallet connections to Klaytn Testnet Baobab.
 - Fleek: with Fleek we can host our BMC dApp on IPFS.
 
 ## Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
+
 To complete this tutorial, you will need:
-- [Node.js](https://nodejs.org/en/download/package-manager) 
+
+- [Node.js](https://nodejs.org/en/download/package-manager)
 - Familiarity with Javascript and React basics such as hooks etc
 - Installation of  the necessary wallets, such as [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask Wallet](https://metamask.io/download/)
 - Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet).
@@ -105,21 +109,23 @@ We have successfully set up our frontend project folder. More will be discussed 
 This folder contains the smart contract for our BuyMeACoffee functionality. Follow the steps below to install the necessary dependencies and get our smart contract folder created:
 
 #### Step 1 - Creating the smart contract folder
+
 To create this folder, navigate to the project directory: BuyMeACoffee and create a smart-contract folder by running the command below:
 
 ```bash
 cd ..
 mkdir smart-contract
 cd smart-contract
-``` 
+```
 
-#### Step 2 - Generating a hardhat project template 
+#### Step 2 - Generating a hardhat project template
 
 This template is suitable for writing, testing and deploying smart contracts. Firstly, start a new npm project  by running the code below in your terminal:
 
 ```bash
 npm init -y
 ```
+
 This should create a package.json file for you that looks like this:
 
 ```json
@@ -136,7 +142,8 @@ This should create a package.json file for you that looks like this:
   "license": "ISC"
 }
 ```
-Then, install hardhat and other dependencies such as hardhat-toolbox and dotenv. To do so, replace your package.json file with the code below: 
+
+Then, install hardhat and other dependencies such as hardhat-toolbox and dotenv. To do so, replace your package.json file with the code below:
 
 ```json
 {
@@ -150,7 +157,8 @@ Then, install hardhat and other dependencies such as hardhat-toolbox and dotenv.
   }
 }
 ```
-Finally, run `npm install` in your terminal. 
+
+Finally, run `npm install` in your terminal.
 
 After successfully installing all the dependencies(hardhat, hardhat-toolbox, dotenv), you can confirm hardhat installation by:
 
@@ -159,7 +167,8 @@ a. Checking the current version:
 ```bash
  npx hardhat --version 
 ```
-Your console should print out the current version installed which in our case is **2.14.0.** 
+
+Your console should print out the current version installed which in our case is **2.14.0.**
 
 b. Viewing your project directory. Your current directory should include:
 
@@ -167,11 +176,11 @@ b. Viewing your project directory. Your current directory should include:
 - **scripts/** – this folder contains code that deploys your contracts on the blockchain network
 - **test/** – this folder contains all unit tests that test your smart contract
 - **hardhat.config.ts** – this file contains configurations important for the work of Hardhat and
-the deployment of smart contracts.
+  the deployment of smart contracts.
 
 ## 2. Creating a Buy Me A Coffee Smart Contract <a id="creating-a-buy-me-a-coffee-contract"></a>
 
-In this section we will be creating the smart contract that houses the BMC functionality. To get started, navigate to your **contracts** folder, create a new file named `BuyMeACoffee.sol` and paste this code below: 
+In this section we will be creating the smart contract that houses the BMC functionality. To get started, navigate to your **contracts** folder, create a new file named `BuyMeACoffee.sol` and paste this code below:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -233,22 +242,23 @@ contract BuyMeACoffee {
     }
 }
 ```
+
 Let's quickly go over what each line of code does:
 
-The **NewCoffee** event is emitted when a buyCoffee function is executed. It logs out the address of the sender, the name of the sender, the message sent, and the timestamp. 
+The **NewCoffee** event is emitted when a buyCoffee function is executed. It logs out the address of the sender, the name of the sender, the message sent, and the timestamp.
 
-Next is the **owner** variable, which represents the contract deployer. We then set the **msg.sender** to be the owner of the contract in our constructor. 
+Next is the **owner** variable, which represents the contract deployer. We then set the **msg.sender** to be the owner of the contract in our constructor.
 
-The **coffeeId** was created to keep track of the coffee transaction created. 
+The **coffeeId** was created to keep track of the coffee transaction created.
 
-Subsequently we declared a **buyMeACoffee struct**, which stores all the data related to a coffee transaction; address sender, string name, uint timestamp, string message. We then mapped this struct to an id using the **idToBuyCoffee** variable. 
+Subsequently we declared a **buyMeACoffee struct**, which stores all the data related to a coffee transaction; address sender, string name, uint timestamp, string message. We then mapped this struct to an id using the **idToBuyCoffee** variable.
 
-The buyCoffee function is the core implementation of BMC smart contract. It is a payable function which takes in two parameters, the name and address of the sender. It checks if the KLAY amount sent in is greater than zero. Next it increments the coffeeId, then  it adds the coffee tx or info to the blockchain. Finally it emits a NewCoffee event, which entails the details of the coffee tx. 
+The buyCoffee function is the core implementation of BMC smart contract. It is a payable function which takes in two parameters, the name and address of the sender. It checks if the KLAY amount sent in is greater than zero. Next it increments the coffeeId, then  it adds the coffee tx or info to the blockchain. Finally it emits a NewCoffee event, which entails the details of the coffee tx.
 
-We created a **withdraw()** function to withdraw the total balance of the contract (`address(this).balance`) to the owner. 
+We created a **withdraw()** function to withdraw the total balance of the contract (`address(this).balance`) to the owner.
 
 Finally, a **getAllCoffee()** function was created. It returns all the coffee transactions created overtime.
- 
+
 Now that we have completed writing our BMC smart contract, the next step is to test the functionalities of our smart contract, deploy and interact with the smart contract on **Klaytn Testnet Baobab**.
 
 ## 3. Testing the contract’s functionalities using scripts <a id="testing-bmc-contract-using-scripts"></a>
@@ -323,17 +333,17 @@ main().catch((error) => {
 });
 ```
 
-As always, lets go over what each line of code does: 
+As always, lets go over what each line of code does:
 
-You will notice that at the top of the code, there exist some helper functions for getting the balances of both a single address and multiple addresses. Also in the code exists the main function which houses the functionality of testing our smart contract. 
+You will notice that at the top of the code, there exist some helper functions for getting the balances of both a single address and multiple addresses. Also in the code exists the main function which houses the functionality of testing our smart contract.
 
-Let's do a walk through of the code in the **main()** function. 
+Let's do a walk through of the code in the **main()** function.
 
 First we set the list of accounts (owner, tipper1, tipper2, tipper3) for test purposes by calling `await hre.ethers.getSigners()`
 
-Next we created a contract instance and deployed it. In this case the BuyMeACoffee.sol contract. 
+Next we created a contract instance and deployed it. In this case the BuyMeACoffee.sol contract.
 
-Then, we set a list of addressees, checked their balances using the **getBalances()** function. We then called the **buyCoffee** function on three different instances. Next we checked each addresses balance after the coffee transaction. 
+Then, we set a list of addressees, checked their balances using the **getBalances()** function. We then called the **buyCoffee** function on three different instances. Next we checked each addresses balance after the coffee transaction.
 
 That said, we then called the **withdraw** function to withdraw all funds to the owner address. Next we checked the addresses balance after withdrawal.
 
@@ -342,6 +352,7 @@ Finally, we got all the coffee transactions in the smart contract by calling the
 ```bash
 npx hardhat run scripts/bmc-coffee.js
 ```
+
 You should have an output in your terminal that looks like this:
 
 ```bash
@@ -380,12 +391,14 @@ Paste this command in your terminal to create a .env file
 ```bash
 touch .env
 ```
+
 After creating your file, lets configure our .env file to look like this:
 
 ```bash
 BAOBAB_URL= "Your RPC URL"
 PRIVATE_KEY= "your private key copied from metamask wallet"
 ```
+
 #### Step 2 - Setting up Hardhat Configs
 
 Paste this configurations in your hardhat.config.js file
@@ -407,6 +420,7 @@ module.exports = {
   }
 };
 ```
+
 #### Step 3 - Creating deployment scripts
 
 To create a new deployment script that deploys this smart contract to a specified network, create a new file scripts/deploy.js and paste in the code below:
@@ -426,21 +440,24 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 ```
+
 Now that we have our configurations all set, let’s deploy to Klaytn Testnet Baobab by running the command below:
 
 ```bash
 npx hardhat run scripts/deploy.js --network baobab
 ```
+
 Once the contract deploys successfully, your terminal should look like this:
 
 ```bash
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
+
 Congratulations on deploying your BMC smart contract on Klaytn Baobab Network! You can verify this transaction on Klaytnscope  by pasting your address in the search field.
 
 ### 4.2 Interacting with BMC Smart Contract  <a id="interacting-with-bmc-contract"></a>
 
-In this section, you will learn how to use hardhat scripts to withdraw the coffee tips sent into the smart contract. To get started, create a new file `withdraw.js` in your scripts folder and paste the code below: 
+In this section, you will learn how to use hardhat scripts to withdraw the coffee tips sent into the smart contract. To get started, create a new file `withdraw.js` in your scripts folder and paste the code below:
 
 ```js
 const hre = require("hardhat");
@@ -491,16 +508,18 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 ```
-As you can see from the code above, having instantiated the BMC contract, the scripts will execute the withdrawCoffeTips function only when the contract balance is greater than zero.  Makes sense right?  
 
-Yes! In the event where the contract has no funds, it prints "No funds to withdraw" hence saving us some gas from contract invocation. 
+As you can see from the code above, having instantiated the BMC contract, the scripts will execute the withdrawCoffeTips function only when the contract balance is greater than zero.  Makes sense right?
 
-To see this in action, lets run the script below: 
+Yes! In the event where the contract has no funds, it prints "No funds to withdraw" hence saving us some gas from contract invocation.
+
+To see this in action, lets run the script below:
 
 ```bash
 npx hardhat run scripts/withdraw.js --network baobab
 ```
-On successful execution of the scripts, your terminal should look like this: 
+
+On successful execution of the scripts, your terminal should look like this:
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network baobab
@@ -509,26 +528,29 @@ Contract balance before withdrawing tips:  2.0 KLAY
 withdrawing funds..
 Owner balance after withdrawing tips 157.83298835 KLAY
 ```
-You can see from the output that the owner balance increased by 2 KLAY after withdrawing the coffee tips. 
 
-Now that we have our contract deployed and all functionalities tested, it is time to build out the frontend. 
+You can see from the output that the owner balance increased by 2 KLAY after withdrawing the coffee tips.
+
+Now that we have our contract deployed and all functionalities tested, it is time to build out the frontend.
 
 The frontend will bring the BMC functionality to live i.e we can now visualize how we interact with the BMC smart contract.
 
 ## 5. Building the BMC Frontend with React and Web3Onboard <a id="builidng-bmc-frontend-with-react-and-web3onboard"></a>
 
-In this section, we will be building our dApp frontend website with Next.js and Web3Onbaord. To get started, you have to navigate to the frontend folder previously created. 
+In this section, we will be building our dApp frontend website with Next.js and Web3Onbaord. To get started, you have to navigate to the frontend folder previously created.
 
 ```bash
 cd ..
 cd frontend 
 ```
-The next step is to install the necessary dependencies to get our BMC frontend website up and running.  The following are the packages to be installed: 
+
+The next step is to install the necessary dependencies to get our BMC frontend website up and running.  The following are the packages to be installed:
 
 1. Web3Onboard packages: Web3-Onboard is a chain-agnostic wallet library that supports multi-wallet compatibility in your dApp built on EVM-compatible networks like Klaytn Blockchain.
 2. ethers.js: Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
 
 Important Note: We need to edit 2 files in the  frontend/pages folder
+
 - **_app.js**
 - **index.js**
 
@@ -539,20 +561,23 @@ Important Note: We need to edit 2 files in the  frontend/pages folder
 ```bash
 npm install @web3-onboard/react
 ```
-In your `_app.js` file, import the web3OnboardProvider and init function. More to be discussed later. 
+
+In your `_app.js` file, import the web3OnboardProvider and init function. More to be discussed later.
 
 ```js
 import { Web3OnboardProvider, init } from '@web3-onboard/react'
 ```
 
 #### Step 2 - Installing and Instantiating Wallet Modules
-In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation. 
+
+In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation.
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
 npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
-```	
+```
+
 In your `_app.js` file, import and instantiate the wallet modules to integrate with your dApp. Note that each module has its own unique options parameters to pass in, such as a fallback JSON RPC URL or default chain ID.
 
 ```js
@@ -564,14 +589,16 @@ const walletConnect = walletConnectModule();
 const injected = injectedModule();
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
+
 #### Step 3 - Installing ethers
 
 ```bash
 npm install --save ethers
 ```
+
 #### Step 4 - Instantiating Web3Onboard using the Web3OnboardProvider
 
-Web3OnboardProvider provides a better way to manage global state. It simplifies wrapping the provider object around your App and the initialized Web3Onboard instance will be available in all children components. 
+Web3OnboardProvider provides a better way to manage global state. It simplifies wrapping the provider object around your App and the initialized Web3Onboard instance will be available in all children components.
 
 Init function initializes web3-Onboard and makes it available for all hooks to use.
 
@@ -629,7 +656,7 @@ export default function App({ Component, pageProps }) {
 
 Having set up our _app.js file which grants our  App a provider object  and  web3Onboard instance available in all children components, next is to build out front-end logic in our `index.js` file
 
-- Index.js 
+- Index.js
 
 This page handles wallet connection and sending of coffee to the BMC smart contract which is to be withdrawn by the contract deployer.
 
@@ -774,9 +801,10 @@ export default function Home() {
 ```
 
 ### Important notes from the code above
-1. Get your contract ABI:  The contract ABI specifies to the frontend code what functions are available to call on the smart contract. To get your contract abi, navigate to your smart-contract folder and copy the text  in this file following this path **artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json**.  Next we created a utils folder in the **frontend/src** folder. Then pasted it in a newly created file named BuyMeACoffee.json file. 
 
-2. Change BMC Contract address to the address of your BMC deployed contract. 
+1. Get your contract ABI:  The contract ABI specifies to the frontend code what functions are available to call on the smart contract. To get your contract abi, navigate to your smart-contract folder and copy the text  in this file following this path **artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json**.  Next we created a utils folder in the **frontend/src** folder. Then pasted it in a newly created file named BuyMeACoffee.json file.
+
+2. Change BMC Contract address to the address of your BMC deployed contract.
 
 Now if the app isn't already running, you can go to the shell and use `npm run dev` to start a local server to test out your changes. The website should load in a few seconds and UI should look like this:
 
@@ -786,43 +814,44 @@ Connect Wallet Page:
 
 ![](/img/build/tutorials/bmc-connect.png)
 
-
 Frontend website to send coffee:
 
 ![](/img/build/tutorials/bmc-frontend.png)
 
-Now let's explore through our website and the code. 
+Now let's explore through our website and the code.
 
 You can already see from the above screenshot that when you first visit the dApp, it will ask you to connect a wallet.  Next it pops up the list of available wallets initialized in the Web3Onboard instance.
 
-Then you select the wallet of your choice; from the image above, we selected MetaMask. Once you have connected your wallet, you get to see a UI component on the upper right of your website which contains the details of the connected wallet. Also on the page, you will  see the coffee transaction form which contains the name and message of the sender, as well as the previous coffee paid into the smart contract by other visitors. 
+Then you select the wallet of your choice; from the image above, we selected MetaMask. Once you have connected your wallet, you get to see a UI component on the upper right of your website which contains the details of the connected wallet. Also on the page, you will  see the coffee transaction form which contains the name and message of the sender, as well as the previous coffee paid into the smart contract by other visitors.
 
 ## 6. Deploying Frontend code on IPFS using Fleek <a id="deploying-bmc-frontend-to-ipfs-using-fleek"></a>
 
-Fleek is an infrastructure that enables us to build modern sites and apps on IPFS. With fleek your sites or app becomes permissionless, trustless, censorship resistant, and free of centralized gatekeepers. In this tutorial we will be deploying our Next js app to Fleek other than the traditional platforms like Vercel. 
-Yeah you got it! We are deploying a decentralized application to a decentralized hosting platform! 
+Fleek is an infrastructure that enables us to build modern sites and apps on IPFS. With fleek your sites or app becomes permissionless, trustless, censorship resistant, and free of centralized gatekeepers. In this tutorial we will be deploying our Next js app to Fleek other than the traditional platforms like Vercel.
+Yeah you got it! We are deploying a decentralized application to a decentralized hosting platform!
 
 The following are the steps to deploy your BMC dApp to Fleek:
 
-1. Make sure to confirm these configurations in your frontend code: 
+1. Make sure to confirm these configurations in your frontend code:
 
-    a. Open package.json and add in the following scripts:
+   a. Open package.json and add in the following scripts:
 
-    ```js
-		"scripts": {
-   		 "dev": "next",
-   		 "build": "next build",
-		  "start": "next start",
-    		  "export": "next export"  
-		}
-	```
-	b. Paste the code below in your next.config.js file in the root directory:
+   ```js
+   	"scripts": {
+   	 "dev": "next",
+   	 "build": "next build",
+   	  "start": "next start",
+   		  "export": "next export"  
+   	}
+   ```
 
-	```js
-		module.exports = {
-  			exportTrailingSlash: true,
-		};
-	```
+   b. Paste the code below in your next.config.js file in the root directory:
+
+   ```js
+   	module.exports = {
+   		exportTrailingSlash: true,
+   	};
+   ```
+
 For more information, visit this [guide](https://blog.fleek.co/posts/fleek-nextJS)
 
 2. Navigate to your dashboard on Fleek and click on **Add new Site**
@@ -835,19 +864,20 @@ For more information, visit this [guide](https://blog.fleek.co/posts/fleek-nextJ
 
 4. Select the repository you intend to deploy.
 
-5. On the next page,select the **Next Js** framework  in the **Basic build setting** tab, and Fleek will automatically populate the other fields. 
-6. Click deploy site 
+5. On the next page,select the **Next Js** framework  in the **Basic build setting** tab, and Fleek will automatically populate the other fields.
+
+6. Click deploy site
+
 7. In the event of an **npm WARN EBADENGINE Unsupported engine** as shown in the image below:
 
 ![](/img/build/tutorials/fleek-err.png)
-
 
 Head over to **Deploy setting** in the **Deploy** tab and change the **Docker image Name** to **node:latest** as shown in the image below:
 
 ![](/img/build/tutorials/fleek-err-fix.png)
 
 8. Now your site should build and deploy to IPFS easily.
-9. Click the link generated to view your website. 
+9. Click the link generated to view your website.
 
 ![](/img/build/tutorials/fleek-site-url.png)
 
@@ -855,7 +885,7 @@ Voila! We have our BMC dApp deployed and hosted on IPFS.
 
 ## 7. Conclusion <a id="conclusion"></a>
 
-If you’ve made it this far, congratulations! In this tutorial, you have learned how to create a full stack Buy Me A Coffee dApp using Solidity, NextJs, Web3Onboard and Fleek. This is the first step in creating a decentralized application hosted on a decentralized platform. 
+If you’ve made it this far, congratulations! In this tutorial, you have learned how to create a full stack Buy Me A Coffee dApp using Solidity, NextJs, Web3Onboard and Fleek. This is the first step in creating a decentralized application hosted on a decentralized platform.
 
 From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
 
