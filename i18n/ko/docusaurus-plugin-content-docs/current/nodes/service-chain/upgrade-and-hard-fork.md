@@ -12,8 +12,8 @@
 
 아래 링크 중 하나에서 최신 버전의 클레이튼과 서비스체인 바이너리를 받을 수 있습니다:
 
-* [클레이튼 문서](../downloads/downloads.md)
-* [클레이튼 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
+- [클레이튼 문서](../downloads/downloads.md)
+- [클레이튼 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
 
 서비스체인 바이너리를 업그레이드하려면 서비스체인 노드를 중지하고 바이너리를 교체합니다. 예를 들어, 아래 명령을 사용하여 SCN 노드를 중지하고 바이너리를 최신 버전으로 바꿀 수 있습니다.
 
@@ -39,7 +39,7 @@ $ kscnd start
 2. 서비스체인 바이너리를 하드포크를 지원하는 버전으로 업그레이드합니다.
 3. 서비스체인에서 하드포크 블록 번호를 설정합니다.
 
-### 1. 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 
@@ -166,7 +166,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 Magma 하드포크는 동적 가스 요금인 KIP-71을 도입합니다. 여기에는 가스 가격의 상한과 하한이 포함됩니다.
 
-기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../references/json-rpc/governance.md)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 바운드를 변경할 수 있습니다. 분명히 하한은 상한을 초과할 수 없습니다.
+기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../references/json-rpc/governance.md)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 바운드를 변경할 수 있습니다. Obviously, lower bound cannot exceed the upper bound.
 
 가스 가격을 정적 값으로 설정하려면 가스 가격의 상한과 하한을 같은 값으로 설정해야 합니다. 예를 들어, SCN 노드의 JavaScript 콘솔에서 `governance.vote` API를 사용하여 가스 가격을 `0`으로 설정할 수 있습니다.
 
