@@ -2,7 +2,7 @@
 
 ## Download the image
 
-Choose an image tag from https://hub.docker.com/r/klaytn/klaytn/tags. `klaytn/klaytn:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
+Choose an image tag from https\://hub.docker.com/r/klaytn/klaytn/tags. `klaytn/klaytn:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
 
 ```
 docker pull klaytn/klaytn:latest
