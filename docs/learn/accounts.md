@@ -186,16 +186,9 @@ In order for a transaction to be valid for an account associated with AccountKey
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 :::note
-
-NOTE: The following multiSig validation logic has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
+The following multiSig validation logic has been added with the [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) hardfork.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
-If you want the previous document, please refer to [previous document](./transaction-fees-previous.md).
-
-`IstanbulEVM` protocol upgrade block number is as follows.
-* Baobab Testnet: `#75373312`
-* Cypress Mainnet: `#86816005`
-
 :::
 
 #### Attributes <a id="attributes"></a>
