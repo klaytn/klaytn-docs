@@ -4,13 +4,13 @@
 
 시작하기 전에 몇 가지 클레이튼 관련 용어에 대해 알아봅시다.
 
-* **엔드포인트 노드 \(EN\)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.  
-* **KLAY**: 클레이튼 네이티브 코인.
-* **caver-js**: 클레이튼 JSON-RPC API의 JavaScript 구현.
-* **Baobab**: 클레이튼 테스트넷
-* **Cypress**: 클레이튼 메인넷
+- **엔드포인트 노드 (EN)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
+- **KLAY**: 클레이튼 네이티브 코인.
+- **caver-js**: 클레이튼 JSON-RPC API의 JavaScript 구현.
+- **Baobab**: 클레이튼 테스트넷
+- **Cypress**: 클레이튼 메인넷
 
-이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
+이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 (EN)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
 
 > 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KLAY에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Baobab** 테스트넷을 사용합니다. 개발 목적으로 테스트넷 KLAY는 [Baobab Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 받을 수 있습니다.
 
@@ -131,9 +131,9 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ### 클레이튼 계정 잠금 해제하기 <a id="unlocking-the-klaytn-account"></a>
 
-생성한 계정을 잠금 해제하려면 다음 명령을 실행합니다. 300초 동안 계정이 잠금 해제됩니다. 
+생성한 계정을 잠금 해제하려면 다음 명령을 실행합니다. 300초 동안 계정이 잠금 해제됩니다.
 
-**참고**: 잠금 해제 시간을 수동으로 설정하려면 이 [링크](../../../references/json-rpc/personal.md#personal_unlockaccount)를 참조하세요. 
+**참고**: 잠금 해제 시간을 수동으로 설정하려면 이 [링크](../../../references/json-rpc/personal.md#personal_unlockaccount)를 참조하세요.
 
 **`경고`**: 계정 잠금 해제는 신중하게 수행하지 않으면 매우 위험할 수 있습니다. 해커가 EN을 해킹하면 해커가 토큰을 탈취할 가능성이 있습니다. 더 안전한 방법을 사용하려면 [개인키를 사용한 배포 가이드](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)를 참조하세요.
 
@@ -146,20 +146,23 @@ true
 
 ### Baobab Faucet에서 테스트넷 KLAY 받기 <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
-* KlaytnWallet에서 Baobab Faucet 사용하기.
-* [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/)에 접속합니다.
-* 월렛에서 새 계정을 생성하거나 위의 EN JavaScript 콘솔에서 생성한 키스토어 파일을 사용하여 월렛에 로그인할 수 있습니다.
-* 왼쪽 창 메뉴에서 "KLAY Faucet"로 이동하여 "Run Faucet" 버튼을 클릭하고 150 KLAY를 받습니다.
+- KlaytnWallet에서 Baobab Faucet 사용하기.
+
+- [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/)에 접속합니다.
+
+- 월렛에서 새 계정을 생성하거나 위의 EN JavaScript 콘솔에서 생성한 키스토어 파일을 사용하여 월렛에 로그인할 수 있습니다.
+
+- 왼쪽 창 메뉴에서 "KLAY Faucet"로 이동하여 "Run Faucet" 버튼을 클릭하고 150 KLAY를 받습니다.
 
   KLAY Faucet은 24시간에 한 번씩 실행할 수 있습니다.
 
-* KLAY를 받기 위해 새 계정을 생성한 경우, EN에서 생성한 계정으로 KLAY를 보내세요.
+- KLAY를 받기 위해 새 계정을 생성한 경우, EN에서 생성한 계정으로 KLAY를 보내세요.
 
 ### 계정 잔액 확인하기 <a id="checking-the-balance-in-your-account"></a>
 
 계정 잔액을 확인하려면 다음 명령을 실행하세요.
 
-기본 단위는 peb \(1 KLAY = 10^18 peb\)입니다. KLAY 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
+기본 단위는 peb (1 KLAY = 10^18 peb)입니다. KLAY 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
@@ -219,20 +222,20 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 **참고:** web3.js에서 `web3.eth...`로 시작하는 모든 함수 호출의 경우 `caver.klay...`로 대체해야 합니다.
 
-`web3.eth.sendTransaction({ ... })` \(X\)
+`web3.eth.sendTransaction({ ... })` (X)
 
-`caver.klay.sendTransaction({ ... })` \(O\)
+`caver.klay.sendTransaction({ ... })` (O)
 
 ### Truffle 설치하기 <a id="installing-truffle"></a>
 
 이 튜토리얼에서는 Truffle을 사용하여 Solidity로 작성된 스마트 컨트랙트를 컴파일하고 배포합니다. 현재 Klaytn은 Truffle 버전 4.1.15를 지원합니다. Truffle에 대한 자세한 내용은 다음 사이트를 참고하세요:
 
-* Truffle 저장소 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
-* Truffle 문서 - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
+- Truffle 저장소 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
+- Truffle 문서 - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
 
 Truffle을 전역적 또는 지역적으로 설치할 수 있습니다.
 
-* 전역적으로 설치하려면 다음 명령을 실행합니다.
+- Globally using npm by executing the following commands:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -243,7 +246,7 @@ $ cd -
 
 또는
 
-* 지역적으로 설치하려면 다음 명령을 실행합니다.
+- 지역적으로 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 # Assuming you are in $HOME/klaytn/.
@@ -261,8 +264,8 @@ vvisp는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/
 
 여기서는 vvisp를 설치하고 이를 이용해 클레이튼 dApp 개발 환경을 설정하는 방법을 소개합니다.
 
-* vvisp 리포지토리 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
-* vvisp 문서 - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
+- vvisp 리포지토리 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+- vvisp 문서 - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
 다음 명령어를 실행하여 npm 또는 yarn이 있는 경우 vvisp를 쉽게 설치할 수 있습니다:
 
@@ -272,9 +275,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-설치가 완료되면 vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다.
-
-**참고**: **v2.1.0** 이상의 버전을 사용해야 합니다.
+설치가 완료되면 vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다. **참고**: **v2.1.0** 이상의 버전을 사용해야 합니다.
 
 ```bash
 $ vvisp
@@ -373,7 +374,7 @@ $ cd migrations
 $ vi 1_initial_migration.js
 ```
 
-1_initial_migration.js`를 다음과 같이 수정합니다.
+1_initial_migration.js\`를 다음과 같이 수정합니다.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
@@ -388,7 +389,7 @@ module.exports = function(deployer) {
 
 Truffle.js에 클레이튼의 네트워크 정보를 입력합니다.
 
-**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격은 25Gpeb \(**다른 숫자를 사용하려고 하면 오류를 반환합니다**\)로 고정되어 있습니다.
+**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격은 25Gpeb (**다른 숫자를 사용하려고 하면 오류를 반환합니다**)로 고정되어 있습니다.
 
 ```bash
 $ cd ..
@@ -460,7 +461,7 @@ Passphrase:
 true
 ```
 
-이제 준비가 완료되었습니다. 다시 배포해 보세요.
+And then you are ready to go. 다시 배포해 보세요.
 
 ## 배포 확인 <a id="check-the-deployment"></a>
 
@@ -475,7 +476,7 @@ $ touch test-klaytn.js
 $ open test-klaytn.js
 ```
 
-다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력해야 합니다.
+다음 테스트 코드를 작성합니다. Make sure you enter the contract address you just deployed.
 
 ```javascript
 // test-klaytn.js
@@ -497,7 +498,7 @@ $ node test-klaytn.js
 
 JavaScript를 사용하여 컨트랙트에서 `greet()`를 호출합니다.
 
-**참고**: 스마트 컨트랙트에서 특정 함수를 호출하기 위해서는 ABI \(Application Binary Interface\) 파일이 필요합니다. Truffle은 컨트랙트를 배포할 때 `./build/contracts/`에 `abi` 속성이 포함된 .json 파일을 자동으로 생성합니다.
+**참고**: 스마트 컨트랙트에서 특정 함수를 호출하기 위해서는 ABI (Application Binary Interface) 파일이 필요합니다. Truffle은 컨트랙트를 배포할 때 `./build/contracts/`에 `abi` 속성이 포함된 .json 파일을 자동으로 생성합니다.
 
 위에 작성한 테스트 코드에 다음 줄을 추가합니다.
 
