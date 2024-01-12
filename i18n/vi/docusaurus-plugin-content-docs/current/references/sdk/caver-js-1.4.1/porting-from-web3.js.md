@@ -1,6 +1,10 @@
-# Di chuyển từ web.3js
+---
+sidebar_label: Convert from web3.js
+---
 
-Vì caver-js được phát triển từ [web3.js](https://github.com/ethereum/web3.js/), mô thức sử dụng của caver-js khá tương đồng với web3.js. Điều này nghĩa là một phần mềm được phát triển bằng web3.js có thể dễ dàng được chuyển đổi sang caver-js. Các ví dụ sau lần lượt là các mô thức mã được dùng trong web3.js và caver-js.
+# Porting from web.3js
+
+Since caver-js has been evolved from [web3.js](https://github.com/ethereum/web3.js/), usage pattern of caver-js is very similar to that of web3.js. This means a software developed using web3.js can be easily converted to caver-js. The following examples are code patterns used in web3.js and caver-js, respectively.
 
 ```text
 const Web3 = require('web3');
