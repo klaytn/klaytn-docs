@@ -1,94 +1,95 @@
-# Cài đặt ServiceChain
+# Install Service Chain
 
-## Đối tượng mục tiêu <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
-- Các công ty muốn xây dựng blockchain cho Metaverse, GameFi và NFT
-- Nhà phát triển dApp cần TPS cao, phí giao dịch tối thiểu và quyền riêng tư dữ liệu.
-- Bất kỳ ai muốn xây dựng mạng lưới riêng tư cục bộ hoặc cơ sở dữ liệu sổ cái để thử nghiệm.
+- Companies that want to build blockchains for Metaverse, GameFi, and NFTs
+- dApp developers who need high TPS, minimal transaction fees, and data privacy.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
-## Tổng quan về ServiceChain <a id="service-chain-overview"></a>
+## ServiceChain Overview <a id="service-chain-overview"></a>
 
-ServiceChain là một blockchain cấp doanh nghiệp để đáp ứng các yêu cầu của công ty như chuyển giá trị, bảo mật, hiệu suất cao và tùy chỉnh. ServiceChain Klaytn cung cấp các tính năng sau:
+ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
 
-- Tính hoàn thiện tức thời
-- Chuyển token giữa các chuỗi Klaytin
-- Neo dữ liệu vào chuỗi chính để đảm bảo tính toàn vẹn của dữ liệu
-- Hợp đồng cầu nối đa chữ ký để đáp ứng các yêu cầu bảo mật cấp doanh nghiệp
+- Immediate finality
+- Token transfer between Klaytn chains
+- Data anchoring to the main chain for data integrity
+- Multi-sig bridge contract to meet enterprise-level security requirements
 
 ![](/img/nodes/sc-overview.png)
 
+Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
 
-Đọc [Giải pháp mở rộng Klaytn](../../learn/scaling-solutions.md) để biết thêm chi tiết về ServiceChain. Các video sau đây sẽ giúp bạn hiểu rõ hơn về ServiceChain Klaytn.
+- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
-- [Mở rộng quy mô theo chiều ngang thông qua Chuỗi dịch vụ trên Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [Kiến trúc có tính khả dụng cao của Chuỗi dịch vụ Klaytn | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+## Download <a id="download"></a>
 
-## Tải xuống <a id="download"></a>
+You can get packages for SCN, SPN, and SEN in the [download page](../downloads/downloads.md).
 
-Bạn có thể nhận các gói cho SCN, SPN và SEN tại [trang tải về](../downloads/downloads.md).
+## Installation <a id="installation-guide"></a>
 
-## Hướng dẫn cài đặt <a id="installation-guide"></a>
+This chapter explains the **Service Chain Consensus Node (SCN)** installation.
 
-Chương này giải thích về việc cài đặt **Nút đồng thuận chuỗi dịch vụ\(SCN\)**.
+### Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
-### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
+The archive file for Service Chain Consensus Node has the following directory layout.
 
-Tập tin lưu trữ cho nút đồng thuận chuỗi dịch vụ có bố cục thư mục như sau.
+| File Name       | File Description                  |
+| :-------------- | :-------------------------------- |
+| bin/kscn        | SCN executable file               |
+| bin/kscnd       | SCN start/termination script file |
+| conf/kscnd.conf | SCN configuration file            |
 
-| Tên tập tin     | Mô tả tập tin                     |
-|:--------------- |:--------------------------------- |
-| bin/kscn        | Tập tin thực thi SCN              |
-| bin/kscnd       | Tập tin lệnh bắt đầu/kết thúc SCN |
-| conf/kscnd.conf | Tập tin cấu hình SCN              |
+The archive file for homi binary has the following directory layout.
 
-Tập tin lưu trữ cho nhị phân homi có bố cục thư mục như sau.
+| File Name | File Description     |
+| :-------- | :------------------- |
+| bin/homi  | HOMI executable file |
 
-| Tên tập tin | Mô tả tập tin         |
-|:----------- |:--------------------- |
-| bin/homi    | Tập tin thực thi HOMI |
-
-Quá trình cài đặt chính là giải nén gói đã tải xuống.
+The installation is the uncompression of the downloaded package.
 
 ```text
 $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
 $ tar zxf homi-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-### Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
+You can install the downloaded RPM file with the following `yum` command.
 
 ```text
 $ yum install kscnd-vX.X.X.el7.x86_64.rpm
 $ yum install homi-vX.X.X.el7.x86_64.rpm
 ```
 
-### Vị trí đã cài đặt <a id="scn-configuration"></a>
+### Installed Location <a id="scn-configuration"></a>
 
-Gói Linux Klaytn bao gồm nhị phân thực thi và tập tin cấu hình có cấu trúc như sau.
+The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
 
-| Tên tập tin | Vị trí                     |
-|:----------- |:-------------------------- |
-| kscn        | /usr/bin/kscn              |
-| kscnd.conf  | /etc/kscnd/conf/kscnd.conf |
-| homi        | /usr/bin/homi              |
+| File Name  | Location                   |
+| :--------- | :------------------------- |
+| kscn       | /usr/bin/kscn              |
+| kscnd.conf | /etc/kscnd/conf/kscnd.conf |
+| homi       | /usr/bin/homi              |
 
-## Cấu hình <a id="configuration"></a>
+## Configuration <a id="configuration"></a>
 
-Trang này giải thích cấu hình của SCN để tạo mạng lưới đồng thuận.
+This page explains the configuration of SCNs to form a consensus network.
 
-Nếu đã cài đặt phân bổ lưu trữ, bạn có thể thấy nhị phân và tập tin cấu hình trong các thư mục mà bạn trích xuất từ kho lưu trữ. Dưới đây là một ví dụ về thực thi lệnh.
+If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
+
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-Trong hướng dẫn này, không phải lúc nào chúng ta cũng chỉ định đường dẫn đầy đủ đến lệnh.
+In this tutorial, we will not always specify the full path to the command.
 
-### Tạo một tập tin Genesis (Khởi nguyên) <a id="creation-of-a-genesis-file"></a>
+### Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-Trước tiên, bạn nên tạo tập tin khởi nguyên và tập tin khóa nút cho chuỗi dịch vụ của riêng mình. Bạn có thể tạo thêm bằng cách dùng homi như dưới đây.
+First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
+
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -100,7 +101,8 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Dưới đây là các ví dụ về tập tin khởi nguyên và khóa nút.
+Below are examples of genesis file and nodekey file.
+
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -130,25 +132,31 @@ $ cat homi-output/scripts/genesis.json
 }   
 ```
 
-```bash      
+```bash
 $ cat homi-output/keys/nodekey1                                                                                                                                 
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Hãy thay đổi chainID trong tập tin khởi nguyên. Dùng số của chính bạn để đề phòng tấn công phát lại. (Không sử dụng chainID giống nhau với Klaytn Cypress (8217) và Baobab (1001))
+Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
+(Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
 
-Nếu muốn, bạn có thể thay đổi địa chỉ được cấp từ trước bằng cách chỉnh sửa `"alloc"` trong tập tin khởi nguyên. (Bạn có thể xem thêm chi tiết trong [JSON KHỞI NGUYÊN](../service-chain/configure/genesis.md).)
+If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
+(You can find more details in [Genesis JSON](../service-chain/configure/genesis.md).)
 
-### Tạo thư mục dữ liệu SCN <a id="scn-data-directory-creation"></a>
+### SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể tạo thư mục dữ liệu trên đường dẫn bạn muốn. Trong văn bản này, chúng ta tạo `~/kscnd_home` như một thư mục dữ liệu.
+Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage.
+You can create the data directory on your desired path.
+In this document, we create `~/kscnd_home` as a data directory.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-#### Khởi chạy khối khởi nguyên <a id="initialization-of-a-genesis-block"></a>
-Sau đó, bạn có thể khởi tạo thư mục dữ liệu với tập tin khởi nguyên. Trước khi bắt đầu một nút chuỗi dịch vụ, cần sử dụng `kscn` và `genesis.json` để khởi chạy khối khởi nguyên của mạng lưới chuỗi dịch vụ.
+#### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
+
+After that, you can initialize the data directory with the genesis file.
+Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -172,20 +180,23 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-#### Cài đặt khóa nút <a id="install_nodekey"></a>
-Sao chép `homi-output/keys/khóa nút1` vào thư mục `klay` trong thư mục dữ liệu SCN như bên dưới.
+#### Install nodekey <a id="install_nodekey"></a>
+
+Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below.
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 ```
 
-### Cấu hình của SCN <a id="configuration-of-the-scn"></a>
+### Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf` là tập tin cấu hình cho SCN.
+`kscnd.conf` is the configuration file for the SCN.
 
-Giả định rằng SCN sử dụng cổng mặc định và liên kết một vùng có quy mô lớn vào `~/kscnd_home`. Trong tập tin `kscnd.conf` mặc định, tùy chọn `SC_SUB_BRIDGE` bị vô hiệu hóa và `DATA_DIR` đang trống.
+Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`.
+In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
+
 ```
-# Tập tin cấu hình cho kscnd
+# Configuration file for the kscnd
 ...
 SC_SUB_BRIDGE=0
 ...
@@ -193,10 +204,11 @@ DATA_DIR=
 ...
 ```
 
-Bạn có thể bật `SC_SUB_BRIDGE` để sử dụng tính năng Neo/ Chuyển giá trị. Bạn cũng nên đặt DATA_DIR như dưới đây.
+You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature.
+Also you should set the DATA_DIR like below.
 
 ```
-# Tập tin cấu hình cho kscnd
+# Configuration file for the kscnd
 ...
 SC_SUB_BRIDGE=1
 ...
@@ -204,62 +216,63 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-Nếu muốn, bạn có thể sửa đổi thêm các tùy chọn khác để tùy chỉnh ServiceChain của mình. Nếu không, bạn có thể hoàn tất cấu hình ngay bây giờ và dùng cấu hình mặc định để chạy chuỗi dịch vụ.
+If you want, you can further modify other options to customize your Service Chain.
+Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
 
-## Bắt đầu/dừng SCN <a id="starting-stopping-scn"></a>
+## Starting/Stopping SCN <a id="starting-stopping-scn"></a>
 
-Tùy thuộc vào loại cài đặt của bạn, bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` hoặc `kscnd` như sau.
+Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
 
-**bắt đầu**
+**start**
 
 ```bash
-## khi cài đặt từ phân bổ rpm 
+## when installed from rpm distribution 
 $ systemctl start kscnd.service
 
-## khi cài đặt bằng lưu trữ linux
+## when installed using linux archive
 $ kscnd start
 
 ```
 
-**dừng**
+**stop**
 
 ```bash
-## khi cài đặt từ phân bổ rpm 
+## when installed from rpm distribution 
 $ systemctl stop kscnd.service
 
-## khi cài đặt bằng lưu trữ linux
+## when installed using linux archive
 $ kscnd stop
 
 ```
 
-**trạng thái**
+**status**
 
 ```bash
-## khi cài đặt từ phân bổ rpm 
-$ systemctl trạng thái kscnd.service
+## when installed from rpm distribution 
+$ systemctl status kscnd.service
 
-## khi cài đặt bằng lưu trữ linux
-$ kscnd trạng thái
+## when installed using linux archive
+$ kscnd status
 
 ```
 
-## Kiểm tra trạng thái nút <a id="checking-node-status"></a>
+## Checking Node Status <a id="checking-node-status"></a>
 
-### Tình trạng xử lý <a id="process-status"></a>
+### Process Status <a id="process-status"></a>
 
-Có thể kiểm tra trạng thái quy trình của SCN bằng các lệnh trạng thái `systemctl` và `kscnd`.
+It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của SCN như sau.
+`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
 
 ```bash
-$ systemctl trạng thái kscnd.service
+$ systemctl status kscnd.service
 ● kscnd.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kscnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kscnd start (code=exited, trạng thái=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kscnd start (code=exited, status=0/SUCCESS)
  Main PID: 29641 (kscn)
    CGroup: /system.slice/kscnd.service
            └─29641 /usr/local/bin/kscn --networkid 1000 --datadir ~/kscnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -269,67 +282,67 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ bên dưới.
+You can check the current status such as `Active: active (running)` in the example above.
 
 #### kscnd <a id="kscnd"></a>
 
-`kscnd` được cài đặt cùng với gói; trạng thái của SCN có thể được kiểm tra như sau.
+`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
 
 ```bash
-$ kscnd trạng thái
-kscnd đang chạy
+$ kscnd status
+kscnd is running
 ```
 
-### Nhật ký <a id="logs"></a>
+### Logs <a id="logs"></a>
 
-Nhật ký được lưu trữ trong tập tin `kscnd.out` được đặt tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kscnd.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi khối được nhập theo từng giây như sau.
+The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
 
-Ví dụ:
+Example:
 
 ```bash
-$ tail -F ~/kscnd_home/nhật ký/kscnd.out
-  INFO[11/12,10:19:09 +09] [49] Khối đào đã được ghi thành công            num=11 hash=03da06…f194b0 txs=0
-  INFO[11/12,10:19:09 +09] [49] Cam kết công việc đào mới                    number=12 txs=0 elapsed=236.972µs
-  INFO[11/12,10:19:10 +09] [24] Đã cam kết                                 number=12 hash=470aca…be4fdf address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
-  INFO[11/12,10:19:10 +09] [49] Khối mới đã niêm phong thành công             number=12 hash=470aca…be4fdf
-  INFO[11/12,10:19:10 +09] [49] Khối đào đã được ghi thành công            num=12 hash=470aca…be4fdf txs=0
-  INFO[11/12,10:19:10 +09] [49] Cam kết công việc đào mới                    number=13 txs=0 elapsed=198.221µs
-  INFO[11/12,10:19:11 +09] [24] Đã cam kết                                 number=13 hash=95e4a3…14e50f address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
-  INFO[11/12,10:19:11 +09] [49] Khối mới đã niêm phong thành công             number=13 hash=95e4a3…14e50f
-  INFO[11/12,10:19:11 +09] [49] Khối đào đã được ghi thành công            num=13 hash=95e4a3…14e50f txs=0
-  INFO[11/12,10:19:11 +09] [49] Cam kết công việc đào mới                    number=14 txs=0 elapsed=220.004µs
-  INFO[11/12,10:19:12 +09] [24] Đã cam kết                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+$ tail -F ~/kscnd_home/logs/kscnd.out
+  INFO[11/12,10:19:09 +09] [49] Successfully wrote mined block            num=11 hash=03da06…f194b0 txs=0
+  INFO[11/12,10:19:09 +09] [49] Commit new mining work                    number=12 txs=0 elapsed=236.972µs
+  INFO[11/12,10:19:10 +09] [24] Committed                                 number=12 hash=470aca…be4fdf address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+  INFO[11/12,10:19:10 +09] [49] Successfully sealed new block             number=12 hash=470aca…be4fdf
+  INFO[11/12,10:19:10 +09] [49] Successfully wrote mined block            num=12 hash=470aca…be4fdf txs=0
+  INFO[11/12,10:19:10 +09] [49] Commit new mining work                    number=13 txs=0 elapsed=198.221µs
+  INFO[11/12,10:19:11 +09] [24] Committed                                 number=13 hash=95e4a3…14e50f address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
+  INFO[11/12,10:19:11 +09] [49] Successfully sealed new block             number=13 hash=95e4a3…14e50f
+  INFO[11/12,10:19:11 +09] [49] Successfully wrote mined block            num=13 hash=95e4a3…14e50f txs=0
+  INFO[11/12,10:19:11 +09] [49] Commit new mining work                    number=14 txs=0 elapsed=220.004µs
+  INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-### Truy vấn <a id="queries"></a>
+### Queries <a id="queries"></a>
 
 #### kscn console <a id="kscn-console"></a>
 
-Klaytn cung cấp một máy khách CLI: `kscn console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một SCN.
+Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
 
-Hãy thực hiện lệnh sau và kiểm tra kết quả.
+Please execute the following command and check out the result.
 
 ```text
 $ kscn attach ~/kscnd_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
-phiên bản: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
-tại khối: 11573551 (thứ Tư ngày 13/02/2019 lúc 07:12:52 UTC)
+instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
 ```
 
-Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../references/json-rpc/json-rpc.md)
+You can check the usable commands on [API Document](../../references/json-rpc/json-rpc.md)
 
-Các API hữu ích để kiểm tra trạng thái của SCN:
+The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` (để lấy số khối mới nhất)
-* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
+- `klay.blockNumber` (to get the latest block number)
+- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
-Bạn có thể lấy số khối mới nhất để xem các khối có được truyền đúng cách không.
+You can get the latest block number to see if blocks are propagated properly.
 
 ```text
 > klay.blockNumber
@@ -343,4 +356,4 @@ Bạn có thể lấy số khối mới nhất để xem các khối có đượ
 4
 ```
 
-Dòng lệnh trên trả lại số nút mà SCN kết nối, ngoại trừ EN trong chuỗi chính.
+The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
