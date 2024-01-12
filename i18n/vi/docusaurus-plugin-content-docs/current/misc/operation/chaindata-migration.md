@@ -1,30 +1,31 @@
-# Di chuyển dữ liệu chuỗi
+# Migrate Chaindata
 
 <aside>
-💡 Chỉ chạy lệnh di chuyển cho các nút PN và EN (không áp dụng với nút CN)
+💡 Run migration only for PN and EN nodes (not CN)
 
 </aside>
 
-## Lưu ý trước khi bắt đầu <a id="things-to-know-before-this-job"></a>
-- Thông số kỹ thuật yêu cầu là m6i.8xlarge (32 lõi với dung lượng bộ nhớ 128GB) hoặc cao hơn
-- 7 ngày để chạy toàn bộ quy trình (Quá trình di chuyển được chia làm 2 phần)
-    - Phần 1 - Di chuyển DB sang thư mục mới (Xuất hiện thông báo “Quá trình di chuyển trạng thái đã hoàn tất”)
-    - Phần 2 - Tạo khối mới trên thư mục mới (thư mục cũ sẽ bị xóa sau bước này)
-- Cần có 500GB dung lượng trống
+## Things to know before this job <a id="things-to-know-before-this-job"></a>
 
-## Chuyển đến Bảng điều khiển Klaytn
+- It needs m6i.8xlarge spec (32 cores and 128GB memory) or higher
+- 7 days for full progress (Migration is divided in 2 parts)
+  - Part 1 - Migrate DB to a new directory (The message “State migration is completed”  appears)
+  - Part 2 - New Block generation on new directory (old directory will be deleted after this)
+- 500GB free space should be available
+
+## Go to Klaytn Console
 
 ```bash
 $ kpn attach klay.ipc
 
-#bắt đầu di chuyển dữ liệu chuỗi
+#start chain data Migration
 > admin.startStateMigration()
 null
 
-# Kiểm tra trạng thái
+# Check Status
 > admin.stateMigrationStatus
 
-#ngừng di chuyển
+#stop Migration
 > admin.stopStateMigration()
 
 ```
