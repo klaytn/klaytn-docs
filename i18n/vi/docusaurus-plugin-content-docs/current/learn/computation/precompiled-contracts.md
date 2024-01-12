@@ -1,56 +1,61 @@
-# Hợp đồng đã lập trước
+# Precompiled Contracts
 
-Klaytn cung cấp một số hợp đồng đã lập trước hữu ích. Những hợp đồng này được thực hiện trực tiếp trong nền tảng dưới dạng triển khai gốc trong hệ thống. Các hợp đồng đã lập trước từ địa chỉ 0x01 đến 0x09 giống như các hợp đồng trong Ethereum. Ngoài ra, Klaytn cũng triển khai các hợp đồng đã lập trước từ 0x3fd đến 0x3ff để hỗ trợ các tính năng mới của Klaytn.
+Klaytn provides several useful precompiled contracts.
+These contracts are implemented in the platform itself as a native implementation.
+The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum.
+Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
 
 :::note
 
-LƯU Ý: Ba địa chỉ hợp đồng đã lập trước đã thay đổi và **blake2F** đã được thêm sau khi nâng cấp giao thức `IstanbulEVM`, hay còn gọi là "hard fork".
+NOTE: Three precompiled contract addresses have been changed, and **blake2F** was added after the `IstanbulEVM` protocol upgrade, or the "hard fork".
 
-Số khối nâng cấp giao thức `IstanbulEVM` như sau.
-* Mạng thử nghiệm Baobab: `#75373312`
-* Mạng chính thức Cypress: `#86816005`
+`IstanbulEVM` protocol upgrade block number is as follows.
 
-Các hợp đồng được triển khai trước khi nâng cấp giao thức nên sử dụng địa chỉ ban đầu.
-* trường hợp 1) Các hợp đồng được triển khai trên Baobab tại số khối `#75373310` nhận diện 0x09, 0x0a và 0x0b lần lượt là địa chỉ của vmLog, feePayer và validateSender, cũng như không thể sử dụng blake2f.
-* trường hợp 2) Các hợp đồng được triển khai trên Baobab tại số khối `#75373314` nhận diện 0x09 là địa chỉ của blake2f và nhận diện 0x3fd, 0x3fe và 0xff lần lượt là địa chỉ của vmLog, feePayer và validateSender.
+- Baobab Testnet: `#75373312`
+- Cypress Mainnet: `#86816005`
 
-Nếu bạn muốn đọc tài liệu trước đây, vui lòng tham khảo phần [tài liệu trước đây](precompiled-contracts-previous.md).
+Contracts deployed before the protocol upgrade should use the original addresses.
+
+- case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
+- case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
+
+If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md).
 
 :::
 
-| hợp đồng đã lập trước | các địa chỉ được sử dụng trong các hợp đồng được triển khai trước khi kích hoạt cập nhật giao thức v1.7.0 | các địa chỉ được sử dụng trong các hợp đồng được triển khai sau khi kích hoạt cập nhật giao thức v1.7.0 |
-|:--------------------- |:--------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------- |
-| vmLog                 | 0x09                                                                                                      | 0x3fd                                                                                                   |
-| feePayer              | 0x0a                                                                                                      | 0x3fe                                                                                                   |
-| validateSender        | 0x0b                                                                                                      | 0x3ff                                                                                                   |
+| precompiled contract | addresses used in the contracts deployed before v1.7.0 protocol update activation | address used in the contracts deployed after v1.7.0 protocol update activation |
+| :------------------- | :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| vmLog                | 0x09                                                                              | 0x3fd                                                                          |
+| feePayer             | 0x0a                                                                              | 0x3fe                                                                          |
+| validateSender       | 0x0b                                                                              | 0x3ff                                                                          |
 
-## Địa chỉ 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
+## Address 0x01: ecrecover(hash, v, r, s) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
-Địa chỉ 0x01 triển khai hàm ecrecover. Nó trả về địa chỉ từ chữ ký đã cho bằng cách tính toán một hàm phục hồi của ECDSA. Nguyên mẫu hàm như sau:
+The address 0x01 implements ecrecover. It returns the address from the given signature by calculating a recovery function of ECDSA. Its function prototype is as follows:
 
 ```text
 function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (address);
 ```
 
-## Địa chỉ 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
+## Address 0x02: sha256(data) <a id="address-0x-02-sha-256-data"></a>
 
-Địa chỉ 0x02 triển khai hàm băm SHA256. Nó trả về hàm băm SHA256 từ dữ liệu đã cho. Nguyên mẫu hàm như sau:
+The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given data. Its function prototype is as follows:
 
 ```text
 function sha256(bytes data) returns (bytes32);
 ```
 
-## Địa chỉ 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
+## Address 0x03: ripemd160(data) <a id="address-0x-03-ripemd-160-data"></a>
 
-Địa chỉ 0x03 triển khai hàm băm RIPEMD160. Nó trả về hàm băm RIPEMD160 từ dữ liệu đã cho. Nguyên mẫu hàm như sau:
+The address 0x03 implements RIPEMD160 hash. It returns a RIPEMD160 hash from the given data. Its function prototype is as follows:
 
 ```text
 function ripemd160(bytes data) returns (bytes32);
 ```
 
-## Địa chỉ 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
+## Address 0x04: datacopy(data) <a id="address-0x-04-datacopy-data"></a>
 
-Địa chỉ 0x04 triển khai hàm datacopy \(tức là hàm đồng nhất\). Nó trả về dữ liệu đầu vào trực tiếp mà không có bất kỳ sửa đổi nào. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau với assembly trực tiếp để gọi hợp đồng đã lập trước này.
+The address 0x04 implements datacopy (i.e., identity function). It returns the input data directly without any modification. This precompiled contract is not supported by the Solidity compiler. The following code with inline assembly can be used to call this precompiled contract.
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -66,9 +71,9 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 }     
 ```
 
-## Địa chỉ 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
+## Address 0x05: bigModExp(base, exp, mod) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-Địa chỉ 0x05 triển khai công thức `base**exp % mod`. Nó trả về kết quả từ dữ liệu đã cho. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này. Lưu ý rằng mặc dù hợp đồng đã lập trước này hỗ trợ độ dài đầu vào tùy ý, nhưng đoạn mã dưới đây sử dụng độ dài đầu vào cố định làm ví dụ.
+The address 0x05 implements the formula `base**exp % mod`. It returns the result from the given data. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract. Note that although this precompiled contract supports an arbitrary length of inputs, the below code uses a fixed length of inputs as an example.
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -98,9 +103,9 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 }
 ```
 
-## Địa chỉ 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
+## Address 0x06: bn256Add(ax, ay, bx, by) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-Địa chỉ 0x06 triển khai chức năng cộng điểm trên đường cong elliptic gốc. Nó trả về một điểm trên đường cong elliptic biểu diễn `(ax, ay) + (bx, by)`, trong đó \(ax, ay\) và \(bx, by\) là các điểm hợp lệ trên đường cong bn256. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+The address 0x06 implements a native elliptic curve point addition. It returns an elliptic curve point representing `(ax, ay) + (bx, by)` such that (ax, ay) and (bx, by) are valid points on the curve bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -119,9 +124,9 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 }
 ```
 
-## Địa chỉ 0x07: bn256ScalarMul\(x, y, scalar\) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
+## Address 0x07: bn256ScalarMul(x, y, scalar) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-Địa chỉ 0x07 triển khai phép nhân đường cong elip gốc với giá trị vô hướng. Nó trả về một điểm trên đường cong elliptic biểu diễn `scalar * (x, y)`, trong đó \(x, y\) là một điểm hợp lệ trên đường cong bn256. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+The address 0x07 implements a native elliptic curve multiplication with a scalar value. It returns an elliptic curve point representing `scalar * (x, y)` such that (x, y) is a valid curve point on the curve bn256. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -139,9 +144,9 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 }
 ```
 
-## Địa chỉ 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
+## Address 0x08: bn256Pairing(a1, b1, a2, b2, a3, b3, ..., ak, bk) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-Địa chỉ 0x08 triển khai chức năng ghép đôi trên đường cong elliptic để thực hiện xác minh zkSNARK. Để biết thêm thông tin, vui lòng tham khảo [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md). Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+The address 0x08 implements elliptic curve paring operation to perform zkSNARK verification. For more information, see [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -161,8 +166,9 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 }
 ```
 
-## Địa chỉ 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-3fc-vmlog-str"></a>
-Địa chỉ 0x09 triển khai hàm nén BLAKE2b F. Để biết thêm thông tin, vui lòng tham khảo [EIP-152](https://eips.ethereum.org/EIPS/eip-152). Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+## Address 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-3fc-vmlog-str"></a>
+
+The address 0x09 implements BLAKE2b F compression function. For more information, see [EIP-152](https://eips.ethereum.org/EIPS/eip-152). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -180,9 +186,9 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 }
 ```
 
-## Địa chỉ 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
+## Address 0x3fd: vmLog(str) <a id="address-0x-3fc-vmlog-str"></a>
 
-Địa chỉ 0x3FD được sử dụng để in chuỗi đã chỉ định `str` vào một tập tin cụ thể hoặc chuyển tiếp cho module ghi bản ghi. Để biết thêm thông tin, vui lòng tham khảo [debug\_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget). Lưu ý rằng chỉ nên sử dụng hợp đồng đã lập trước này cho mục đích gỡ lỗi và cần bật tùy chọn `--vmlog` khi khởi động nút Klaytn. Ngoài ra, cấp độ bản ghi của nút Klaytn phải là 4 hoặc cao hơn để xem đầu ra của vmLog. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -190,9 +196,9 @@ function callVmLog(bytes memory str) public {
 }
 ```
 
-## Địa chỉ 0x3fe: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
+## Address 0x3fe: feePayer() <a id="address-0x-3fd-feepayer"></a>
 
-Địa chỉ 0x3FE trả về người trả phí của giao dịch đang thực thi. Hợp đồng đã lập trước này không được hỗ trợ bởi trình biên dịch Solidity. Có thể sử dụng đoạn mã sau để gọi hợp đồng đã lập trước này.
+The address 0x3FE returns a fee payer of the executing transaction. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -207,15 +213,15 @@ function feePayer() internal returns (address addr) {
 }
 ```
 
-## Địa chỉ 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
+## Address 0x3ff: validateSender() <a id="address-0x-3fe-validatesender"></a>
 
-Địa chỉ 0x3FF xác minh chữ ký của người gửi với thông báo. Vì Klaytn [tách riêng cặp khóa khỏi địa chỉ](../accounts.md#decoupling-key-pairs-from-addresses), nên cần phải xác minh rằng một chữ ký được ký phù hợp bởi người gửi tương ứng. Để làm điều đó, hợp đồng đã lập trước này nhận ba tham số sau:
+The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
 
-* Địa chỉ của người gửi để lấy khóa công khai
-* Hàm băm thông báo được sử dụng để tạo chữ ký
-* Các chữ ký được ký bởi các khóa riêng tư của người gửi với hàm băm thông báo đã cho
+- The sender's address to get the public keys
+- The message hash that is used to generate the signature
+- The signatures that are signed by the sender's private keys with the given message hash
 
-Hợp đồng đã lập trước này xác minh rằng chữ ký đã cho được ký đúng bởi các khóa riêng tư của người gửi. Lưu ý rằng Klaytn hỗ trợ đa chữ ký một cách tự nhiên, điều đó có nghĩa là có thể có nhiều chữ ký. Mỗi chữ ký phải có độ dài là 65 byte.
+The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
@@ -242,5 +248,3 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
     }
 }
 ```
-
-
