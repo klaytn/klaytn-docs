@@ -17,12 +17,10 @@
 
 ![](/img/nodes/sc-overview.png)
 
-
 [클레이튼 스케일링 솔루션](../../learn/scaling-solutions.md)에서 서비스체인에 대한 자세한 내용을 확인할 수 있습니다. 그리고 다음 동영상은 클레이튼 서비스체인을 이해하는 데 도움이 될 것입니다.
 
 - [클레이튼 서비스체인을 통한 수평 확장 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
 - [클레이튼 서비스체인의 고가용성 아키텍처 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
-
 
 ## 다운로드 <a id="download"></a>
 
@@ -30,22 +28,22 @@
 
 ## 설치 <a id="installation-guide"></a>
 
-이 장에서는 **서비스 체인 컨센서스 노드 \(SCN\)** 설치에 대해 설명합니다.
+이 장에서는 **서비스 체인 컨센서스 노드 (SCN)** 설치에 대해 설명합니다.
 
 ### Linux 아카이브 배포 <a id="linux-archive-distribution"></a>
 
 서비스 체인 합의 노드의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
 
-| fileName | 파일 설명 |
-| :--- | :--- |
-| bin/kscn | SCN 실행 파일 |
-| bin/kscnd | SCN 시작/종료 스크립트 파일 |
-| conf/kscnd.conf | SCN 구성 파일 |
+| fileName        | 파일 설명             |
+| :-------------- | :---------------- |
+| bin/kscn        | SCN 실행 파일         |
+| bin/kscnd       | SCN 시작/종료 스크립트 파일 |
+| conf/kscnd.conf | SCN 구성 파일         |
 
 Homi 바이너리의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
 
-| fileName | 파일 설명 |
-| :--- | :--- |
+| fileName | 파일 설명      |
+| :------- | :--------- |
 | bin/homi | HOMI 실행 파일 |
 
 설치는 다운로드한 패키지의 압축을 푸는 것입니다.
@@ -55,7 +53,7 @@ $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
 $ tar zxf homi-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-### RPM 배포 \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 배포 (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
 다운로드한 RPM 파일을 다음 `yum` 명령으로 설치할 수 있습니다.
 
@@ -68,17 +66,18 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 클레이튼 리눅스 패키지는 실행 가능한 바이너리와 다음과 같은 구조의 설정 파일로 구성되어 있습니다.
 
-| fileName | location |
-| :--- | :--- |
-| kscn | /usr/bin/kscn |
+| fileName   | location                   |
+| :--------- | :------------------------- |
+| kscn       | /usr/bin/kscn              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
-| homi | /usr/bin/homi |
+| homi       | /usr/bin/homi              |
 
 ## 구성 <a id="configuration"></a>
 
 이 페이지에서는 합의 네트워크를 형성하기 위한 SCN 구성에 대해 설명합니다.
 
 아카이브 배포를 설치한 경우 아카이브를 추출한 디렉터리에서 바이너리와 구성 파일을 찾을 수 있습니다. 아래는 명령 실행 예제입니다.
+
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start
@@ -86,10 +85,11 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
 이 튜토리얼에서는 명령의 전체 경로를 항상 지정하지는 않습니다.
- 
+
 ### 제네시스 파일 생성 <a id="creation-of-a-genesis-file"></a>
 
 먼저 자체 서비스 체인을 위한 제네시스 파일과 노드키 파일을 생성해야 합니다. 아래와 같이 homi를 사용하여 생성할 수 있습니다.
+
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -100,8 +100,9 @@ Created :  homi-output/scripts/static-nodes.json
 Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
- 
+
 다음은 제네시스 파일과 노드키 파일의 예시입니다.
+
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -131,7 +132,7 @@ $ cat homi-output/scripts/genesis.json
 }   
 ```
 
-```bash      
+```bash
 $ cat homi-output/keys/nodekey1                                                                                                                                 
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
@@ -153,6 +154,7 @@ $ mkdir -p ~/kscnd_home
 ```
 
 #### 제네시스 블록 초기화 <a id="initialization-of-a-genesis-block"></a>
+
 그 후 제네시스 파일로 데이터 디렉터리를 초기화할 수 있습니다.
 서비스 체인 노드를 시작하기 전에 `kscn`과 `genesis.json`을 사용하여 서비스 체인 네트워크의 제네시스 블록을 초기화해야 합니다.
 
@@ -179,6 +181,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 ```
 
 #### 노드키 설치 <a id="install_nodekey"></a>
+
 아래와 같이 `homi-output/keys/nodekey1`을 SCN의 데이터 디렉터리 내 `klay` 디렉터리에 복사합니다.
 
 ```bash
@@ -191,6 +194,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 
 SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정합니다.
 기본 `kscnd.conf` 파일에서 `SC_SUB_BRIDGE` 옵션은 비활성화되어 있고 `DATA_DIR`은 비어 있습니다.
+
 ```
 # Configuration file for the kscnd
 ...
@@ -199,7 +203,7 @@ SC_SUB_BRIDGE=0
 DATA_DIR=
 ...
 ```
-  
+
 앵커링/값 전송 기능을 사용하려면 `SC_SUB_BRIDGE`를 활성화하면 됩니다.
 또한 아래와 같이 DATA_DIR을 설정해야 합니다.
 
@@ -333,8 +337,8 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 SCN의 상태를 확인하는 데 유용한 API입니다:
 
-* `klay.blockNumber` (최신 블록 번호 가져오기)
-* `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
+- `klay.blockNumber` (최신 블록 번호 가져오기)
+- `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
@@ -353,5 +357,3 @@ SCN의 상태를 확인하는 데 유용한 API입니다:
 ```
 
 위의 명령줄은 메인 체인에서 EN을 제외하고 SCN이 연결한 노드 수를 반환합니다.
-
-
