@@ -11,7 +11,6 @@
 - `String "latest"` - 가장 최근에 채굴된 블록입니다.
 - `String "pending"` - 보류 상태/트랜잭션의 경우
 
-
 ## eth_blockNumber <a id="eth_blocknumber"></a>
 
 가장 최근 블록의 번호를 반환합니다.
@@ -22,8 +21,8 @@
 
 **리턴 값**
 
-| 유형 | 설명
-| -------- | ----------------------------------------------------- |
+| 유형       | 설명                            |
+| -------- | ----------------------------- |
 | QUANTITY | 클라이언트가 현재 접속 중인 블록 번호의 정수입니다. |
 
 **예시**
@@ -40,7 +39,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getHeaderByNumber <a id="eth_getheaderbynumber"></a>
 
 헤더에 대한 정보를 번호별로 반환합니다.
@@ -49,8 +47,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
@@ -89,7 +87,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }   
 ```
 
-
 ## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
 
 헤더에 대한 정보를 해시로 반환합니다.
@@ -98,35 +95,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **매개변수**
 
-| 유형 | 설명
-|--------------|------------------|
+| 유형           | 설명      |
+| ------------ | ------- |
 | 32-byte DATA | 블록의 해시. |
 
 **리턴 값**
 
 `Object` - 헤더 객체, 헤더를 찾을 수 없는 경우 `null`을 반환합니다. 그렇지 않으면 오류를 반환합니다.
 
-| 이름 | 유형 | 설명
-|------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
-| baseFeePerGas | QUANTITY | 가스당 기본 수수료입니다.
-| difficulty | QUANTITY | 이 블록의 난이도 정수입니다.                                                                             |
-| extraData | DATA | 이 블록의 "추가 데이터" 필드입니다.                                                                                     |
-| gasLimit | QUANTITY | 이 블록에 허용되는 최대 가스입니다.                                                                                    |
-| gasUsed | QUANTITY | 이 블록의 모든 트랜잭션에서 사용한 총 가스 양입니다.                                                                     |
-| hash | 32-byte DATA | 블록의 해시. 보류 중인 블록인 경우 `null`.                                                                       |
-| logsBloom | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다.                                                                               |
-| miner | 20-byte DATA | 채굴 보상을 받은 수혜자의 주소입니다.                                                     |
-| mixHash | 32-byte DATA | 이 블록에서 충분한 양의 연산이 수행되었음을 nonce와 결합하여 증명하는 해시입니다. |
-| nonce | 8-byte DATA | 생성된 작업 증명의 해시입니다.                                                                                  |
-| number | QUANTITY | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                                                                        |
-| parentHash | 32-byte DATA | 부모 블록의 해시입니다.                                                                                                 |
-| receiptsRoot | 32-byte DATA | 블록의 영수증 트라이의 루트입니다.                                                                               |
-| sha3Uncles | 32-byte DATA | 블록에 있는 엉클 데이터의 SHA3입니다.                                                                                 |
-| size | QUANTITY | 이 블록의 크기(바이트)의 정수입니다.                                                                                  |
-| stateRoot | 32-byte DATA | 블록의 최종 상태 트라이의 루트입니다.                                                                            |
-| timestamp | QUANTITY | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                                                                       |
-| totalDifficulty | QUANTITY | 이 블록까지 체인의 총 블록 점수입니다.                                                                       |
-| transactionsRoot | 32-byte DATA | 블록의 트랜잭션 시도 루트입니다.                                                                            |
+| 이름               | 유형            | 설명                                               |
+| ---------------- | ------------- | ------------------------------------------------ |
+| baseFeePerGas    | QUANTITY      | 가스당 기본 수수료입니다.                                   |
+| difficulty       | QUANTITY      | 이 블록의 난이도 정수입니다.                                 |
+| extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                            |
+| gasLimit         | QUANTITY      | 이 블록에 허용되는 최대 가스입니다.                             |
+| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                  |
+| hash             | 32-byte DATA  | 블록의 해시. 보류 중인 블록인 경우 `null`.                     |
+| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다.                             |
+| miner            | 20-byte DATA  | 채굴 보상을 받은 수혜자의 주소입니다.                            |
+| mixHash          | 32-byte DATA  | 이 블록에서 충분한 양의 연산이 수행되었음을 nonce와 결합하여 증명하는 해시입니다. |
+| nonce            | 8-byte DATA   | 생성된 작업 증명의 해시입니다.                                |
+| number           | QUANTITY      | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                   |
+| parentHash       | 32-byte DATA  | 부모 블록의 해시입니다.                                    |
+| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                              |
+| sha3Uncles       | 32-byte DATA  | 블록에 있는 엉클 데이터의 SHA3입니다.                          |
+| size             | QUANTITY      | 이 블록의 크기(바이트)의 정수입니다.         |
+| stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                            |
+| timestamp        | QUANTITY      | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                      |
+| totalDifficulty  | QUANTITY      | 이 블록까지 체인의 총 블록 점수입니다.                           |
+| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 시도 루트입니다.                               |
 
 **예시**
 
@@ -161,7 +158,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }   
 ```
 
-
 ## eth_getBlockByNumber <a id="eth_getblockbynumber"></a>
 
 블록 번호별로 블록에 대한 정보를 반환합니다.
@@ -170,11 +166,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| bool | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다.                                                            |
-
+| bool            | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다.                                                                |
 
 **리턴 값**
 
@@ -220,7 +215,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
 
 블록에 대한 정보를 해시별로 반환합니다.
@@ -229,38 +223,38 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **매개변수**
 
-| 유형 | 설명
-|--------------|----------------------------------------------------------------------------------------------------|
-| 32-byte DATA | 블록의 해시.                                                                                   |
-| bool | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다. |
+| 유형           | 설명                                                    |
+| ------------ | ----------------------------------------------------- |
+| 32-byte DATA | 블록의 해시.                                               |
+| bool         | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다. |
 
 **리턴 값**
 
 `Object` - 블록 객체, 또는 블록을 찾을 수 없는 경우 `null`을 반환합니다. 그렇지 않으면 오류를 반환합니다.
 
-| 이름 | 유형 | 설명
-|-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
-| baseFeePerGas | QUANTITY | 가스당 기본 수수료입니다.
-| difficulty | QUANTITY | 이 블록의 난이도 정수입니다.
-| extraData | DATA | 이 블록의 "추가 데이터" 필드입니다.                                                                                     |
-| gasLimit | QUANTITY | 이 블록에 허용되는 최대 가스입니다.                                                                                    |
-| gasUsed | QUANTITY | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                                                                     |
-| hash | 32-byte DATA | 블록의 해시. 보류 중인 블록인 경우 `null`.                                                                       |
-| logsBloom | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`.                                              |
-| miner | 20-byte DATA | 채굴 보상을 받은 수혜자의 주소입니다.                                                     |
-| mixHash | 32-byte DATA | 이 블록에서 충분한 양의 연산이 수행되었음을 nonce와 결합하여 증명하는 해시입니다. |
-| nonce | 8-byte DATA | 생성된 작업 증명의 해시입니다.                                                                                  |
-| number | QUANTITY | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                                                                        |
-| parentHash | 32-byte DATA | 부모 블록의 해시입니다.                                                                                                 |
-| receiptsRoot | 32-byte DATA | 블록의 영수증 트라이의 루트입니다.                                                                               |
-| sha3Uncles | 32-byte DATA | 블록에 있는 엉클 데이터의 SHA3입니다.                                                                                 |
-| size | QUANTITY | 이 블록의 크기(바이트)의 정수입니다.                                                                                  |
-| stateRoot | 32-byte DATA | 블록의 최종 상태 트라이의 루트입니다.                                                                            |
-| timestamp | QUANTITY | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                                                                       |
-| totalDifficulty | QUANTITY | 이 블록이 콜레이트될 때까지 체인의 총 블록 점수입니다.
-| transactionsRoot | 32-byte DATA | 블록의 트랜잭션 시도 루트입니다.                                                                            |
-| transactions | Array | 트랜잭션 객체의 배열 또는 마지막 매개변수에 따라 32바이트 트랜잭션 해시입니다.
-| uncles | Array | 엉클 해시 배열입니다.                                                                                                    |
+| 이름               | 유형            | 설명                                               |
+| ---------------- | ------------- | ------------------------------------------------ |
+| baseFeePerGas    | QUANTITY      | 가스당 기본 수수료입니다.                                   |
+| difficulty       | QUANTITY      | 이 블록의 난이도 정수입니다.                                 |
+| extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                            |
+| gasLimit         | QUANTITY      | 이 블록에 허용되는 최대 가스입니다.                             |
+| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션에서 사용한 총 가스 양입니다.                   |
+| hash             | 32-byte DATA  | 블록의 해시. 보류 중인 블록인 경우 `null`.                     |
+| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`.        |
+| miner            | 20-byte DATA  | 채굴 보상을 받은 수혜자의 주소입니다.                            |
+| mixHash          | 32-byte DATA  | 이 블록에서 충분한 양의 연산이 수행되었음을 nonce와 결합하여 증명하는 해시입니다. |
+| nonce            | 8-byte DATA   | 생성된 작업 증명의 해시입니다.                                |
+| number           | QUANTITY      | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                   |
+| parentHash       | 32-byte DATA  | 부모 블록의 해시입니다.                                    |
+| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                              |
+| sha3Uncles       | 32-byte DATA  | 블록에 있는 엉클 데이터의 SHA3입니다.                          |
+| size             | QUANTITY      | 이 블록의 크기(바이트)의 정수입니다.         |
+| stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                            |
+| timestamp        | QUANTITY      | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                      |
+| totalDifficulty  | QUANTITY      | 이 블록이 콜레이트될 때까지 체인의 총 블록 점수입니다.                  |
+| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 시도 루트입니다.                               |
+| transactions     | Array         | 트랜잭션 객체의 배열 또는 마지막 매개변수에 따라 32바이트 트랜잭션 해시입니다.    |
+| uncles           | Array         | 엉클 해시 배열입니다.                                     |
 
 **예시**
 
@@ -299,45 +293,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
-## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
-
-블록의 엉클에 대한 정보를 해시와 엉클의 인덱스 위치로 반환합니다.
-클레이튼에는 엉클이 없으므로 항상 `null`을 반환합니다.
-
-**매개변수**
-
-| 유형 | 설명
-|--------------|-----------------------------|
-| 32-byte DATA | 블록의 해시입니다.        |
-| QUANTITY | 엉클의 인덱스 위치. |
-
-**리턴 값**
-`null`
-
-**예제**
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
-
-// Result
-{
-  "jsonrpc": "2.0",
-  "id":1,
-  "result": null
-}
-```
-
 ## eth_getBlockReceipts <a id="eth_getblockreceipts"></a>
 
 블록에 포함된 영수증을 반환합니다.
 
-**파라미터**
-| 유형 | 설명 |
-| --- | --- |
+**매개변수**
+
+| 유형                            | 설명                                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Number \| 32-byte DATA \| TAG | 블록 번호 또는 해시입니다. 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
-**반환 값**
+**리턴 값**
 
 블록에 포함된 영수증.  대상 블록에 트랜잭션이 없는 경우 빈 배열 `[]`가 반환됩니다.
 
@@ -373,23 +339,52 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
+## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
+
+블록의 엉클에 대한 정보를 해시와 엉클의 인덱스 위치로 반환합니다.
+클레이튼에는 엉클이 없으므로 항상 `null`을 반환합니다.
+
+**매개변수**
+
+| 유형           | 설명          |
+| ------------ | ----------- |
+| 32-byte DATA | 블록의 해시입니다.  |
+| QUANTITY     | 엉클의 인덱스 위치. |
+
+**리턴 값**
+`null`
+
+**예시**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": null
+}
+```
+
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
- <a id="eth_getunclebyblocknumberandindex"></a>
 
 블록의 엉클에 대한 정보를 번호와 엉클의 인덱스 위치로 반환합니다.
 클레이튼에는 엉클이 존재하지 않으므로 항상 `null`을 반환합니다.
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| QUANTITY | 엉클의 인덱스 위치.                                                                                                                                           |
+| QUANTITY        | 엉클의 인덱스 위치.                                                                                                          |
 
 **리턴 값**
 `null`
 
-**예제**
+**예시**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
@@ -402,24 +397,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
 
 주어진 블록 번호와 일치하는 블록의 트랜잭션 수를 반환합니다.
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
-| 유형 | 설명
-|------------|-------------------------------------------------------|
-| QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다.  |
+| 유형       | 설명                      |
+| -------- | ----------------------- |
+| QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. |
 
-**예시**
+**예제**
 
 ```shell
 // Request
@@ -433,24 +427,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
 주어진 해시와 일치하는 블록에서 블록의 트랜잭션 수를 반환합니다.
 
 **매개변수**
 
-| 유형 | 설명
-|--------------|---------------------|
+| 유형           | 설명     |
+| ------------ | ------ |
 | 32-byte DATA | 블록의 해시 |
 
 **리턴 값**
 
-| 유형 | 설명
-|------------|-------------------------------------------------------|
-| QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다.  |
+| 유형       | 설명                      |
+| -------- | ----------------------- |
+| QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. |
 
-**예시**
+**예제**
 
 ```shell
 // Request
@@ -464,7 +457,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
 주어진 블록 번호와 일치하는 블록에서 블록에 있는 엉클의 수를 반환합니다.
@@ -472,14 +464,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
-| 유형 | 설명
-|------------|--------------------------------------------------------------------------------------------|
+| 유형       | 설명                                                  |
+| -------- | --------------------------------------------------- |
 | QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. 일치하는 블록이 없으면 `null`을 반환합니다. |
 
 **예시**
@@ -496,22 +488,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
 주어진 블록 해시와 일치하는 블록에서 블록의 엉클 개수를 반환합니다.
 클레이튼에는 엉클이 없으므로 `0x0`을 반환합니다. 일치하는 블록이 없으면 `null`을 반환합니다.
 
-**매개변수**
+**파라미터**
 
-| 유형 | 설명
-|--------------|---------------------|
+| 유형           | 설명     |
+| ------------ | ------ |
 | 32-byte DATA | 블록의 해시 |
 
 **리턴 값**
 
-| 유형 | 설명
-|------------|--------------------------------------------------------------------------------------------|
+| 유형       | 설명                                                  |
+| -------- | --------------------------------------------------- |
 | QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. 일치하는 블록이 없으면 `null`을 반환합니다. |
 
 **예시**
@@ -528,26 +519,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
-
-
 ## eth_getStorageAt <a id="eth_getstorageat"></a>
 
 지정된 주소의 저장 위치에서 값을 반환합니다.
 
 **매개변수**
 
-| 유형 | 설명
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 20-byte DATA | 저장소 주소.                                                                                                                                                              |
-| QUANTITY | 스토리지 내 위치의 정수입니다.                                                                                                                                              |
+| 유형                      | 설명                                                                                                                          |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 20-byte DATA            | 저장소 주소.                                                                                                                     |
+| QUANTITY                | 스토리지 내 위치의 정수입니다.                                                                                                           |
 | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열 또는 블록 해시입니다. |
 
 **리턴 값**
 
-| 유형 | 설명
-|-------|--------------------------------------|
-| DATA | 이 저장 위치의 값입니다.  |
+| 유형   | 설명             |
+| ---- | -------------- |
+| DATA | 이 저장 위치의 값입니다. |
 
 **예시**
 
@@ -595,12 +583,12 @@ undefined
 ```
 
 이제 스토리지를 가져옵니다:
+
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 ```
-
 
 ## eth_mining <a id="eth_mining"></a>
 
@@ -614,9 +602,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 **리턴 값**
 
-| 유형 | 설명
-|----------|-----------------------------------------------------|
-| bool | 클라이언트가 마이닝 중이면 `true`, 그렇지 않으면 `false`.  |
+| 유형   | 설명                                      |
+| ---- | --------------------------------------- |
+| bool | 클라이언트가 마이닝 중이면 `true`, 그렇지 않으면 `false`. |
 
 **예시**
 
@@ -632,7 +620,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_syncing <a id="eth_syncing"></a>
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
@@ -641,17 +628,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 없음
 
-**리턴 값**
+**반환 값**
 
 동기화 상태 데이터가 있는 오브젝트 또는 동기화하지 않는 경우 `false`인 `Object|Boolean`입니다:
 
-| 이름 | 유형 | 설명
-|----------------|-----------|--------------------------------------------------------------------------------------------------------------------|
-| startingBlock | QUANTITY | 가져오기가 시작된 블록(동기화가 헤드에 도달한 후에만 재설정됨).                       |
-| currentBlock | QUANTITY | 현재 블록, `eth_blockNumber`와 동일합니다.                                                                      |
-| highestBlock | QUANTITY | 예상 최고 블록입니다.                                                                                       |
-| pulledStates | QUANTITY | 지금까지 처리된 상태 항목의 수입니다.  동기화 모드가 "fast"가 아닌 경우 0이 반환됩니다.                |
-| knownStates | QUANTITY | 아직 가져와야 하는 알려진 상태 항목의 수입니다.  동기화 모드가 "fast"가 아닌 경우 0이 반환됩니다. |
+| 이름            | 유형       | 설명                                                           |
+| ------------- | -------- | ------------------------------------------------------------ |
+| startingBlock | QUANTITY | 가져오기가 시작된 블록(동기화가 헤드에 도달한 후에만 재설정됨).      |
+| currentBlock  | QUANTITY | 현재 블록, `eth_blockNumber`와 동일합니다.                             |
+| highestBlock  | QUANTITY | 예상 최고 블록입니다.                                                 |
+| pulledStates  | QUANTITY | 지금까지 처리된 상태 항목의 수입니다.  동기화 모드가 "fast"가 아닌 경우 0이 반환됩니다.       |
+| knownStates   | QUANTITY | 아직 가져와야 하는 알려진 상태 항목의 수입니다.  동기화 모드가 "fast"가 아닌 경우 0이 반환됩니다. |
 
 **예시**
 
