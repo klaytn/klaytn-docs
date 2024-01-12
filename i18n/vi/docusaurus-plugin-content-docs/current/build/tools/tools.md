@@ -1,12 +1,13 @@
-# Dụng Cụ
+# Tools
 
-Trang này bao gồm danh sách những công cụ phát triển giúp bạn xây dựng các ứng dụng phi tập trung trên Klaytn.
+This page contains the list of development tools to help you build Decentralized Applications on Klaytn.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
 ```
+
 <!-- # Developer Tools <a id="developer-tools"></a>
 
 #### Kaikas <a id="kaikas"></a>
