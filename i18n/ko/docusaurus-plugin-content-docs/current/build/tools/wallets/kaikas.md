@@ -3,9 +3,8 @@
 ![](/img/build/tools/klaytnXkaikas.png)
 
 Kaikas는 클레이튼 네트워크를 위한 브라우저 확장 지갑입니다. 구글 크롬에서 사용할 수 있는 Kaikas는 웹 브라우저를 통해 클레이튼 네트워크와 상호작용할 수 있는 안전하고 사용하기 쉬운 수단을 제공합니다. Kaikas를 사용하면 KLAY와 클레이튼 기반 토큰을 저장하고 거래할 수 있습니다. 또한 웹 기반 dApp(탈중앙 애플리케이션)의 요청에 서명할 수 있습니다.
-실시간으로.
 
-* Chrome 웹 스토어에서 다운로드하세요: [링크](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
+- Chrome 웹 스토어에서 다운로드하세요: [링크](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
 개발자의 경우, [https://docs.kaikas.io](https://docs.kaikas.io)에서 Kaikas를 사용하여 dApp을 개발하는 방법을 알아보세요.
 
