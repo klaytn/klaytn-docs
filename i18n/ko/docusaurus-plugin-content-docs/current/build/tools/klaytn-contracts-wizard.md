@@ -104,7 +104,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-다음은 위의 코드를 에어드롭 구현에 맞게 다음과 같이 수정하는 것입니다:
+다음은 위의 코드를 에어드랍 구현에 맞게 다음과 같이 수정하는 것입니다:
 
 ```solidity
 //SPDX-License-Identifier: MIT
@@ -192,7 +192,7 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
 }
 ```
 
-다음은 위의 코드를 에어드랍 구현에 맞게 다음과 같이 수정하는 것입니다:
+다음은 위의 코드를 에어드롭 구현에 맞게 다음과 같이 수정하는 것입니다:
 
 ```solidity
 // SPDX-License-Identifier: MIT
