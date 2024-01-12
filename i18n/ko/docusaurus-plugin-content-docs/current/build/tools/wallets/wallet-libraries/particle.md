@@ -16,9 +16,9 @@ sidebar_label: Particle Network
 
 ## 전제 조건
 
-* 실행 중인 리액트 프로젝트(`npx create-react-app project-name`을 실행하여).
-* [Particle 대시보드](https://dashboard.particle.network)의 프로젝트 ID, 클라이언트 키, 앱 ID.
-* [WalletConnect 대시보드](https://cloud.walletconnect.com/)의 WalletConnect 프로젝트 ID.
+- 실행 중인 리액트 프로젝트(`npx create-react-app project-name`을 실행하여).
+- [Particle 대시보드](https://dashboard.particle.network)의 프로젝트 ID, 클라이언트 키, 앱 ID.
+- [WalletConnect 대시보드](https://cloud.walletconnect.com/)의 WalletConnect 프로젝트 ID.
 
 ## 설치
 
@@ -91,7 +91,6 @@ export const App = () => {
 	return <ConnectButton />;
 };
 ```
-
 
 ## 계정 및 잔액 가져오기
 
