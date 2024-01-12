@@ -4,15 +4,16 @@
 
 ![](/img/nodes/sc-4scn-arch.png)
 
-
 ## 전제 조건 <a id="prerequisites"></a>
- - [다운로드 페이지](../../downloads/downloads.md)에서 `kscn`, `homi` 바이너리용 패키지를 다운로드합니다.
- - Linux 또는 MacOS 서버 4대
- - 최소 하드웨어 요구 사항
-   - CPU: 4코어(인텔 제온 또는 동급), RAM: 16GB, HDD: 50GB
-   - 자세한 설명은 [시스템 요구 사항](../system-requirements.md)을 참조하세요.
+
+- [다운로드 페이지](../../downloads/downloads.md)에서 `kscn`, `homi` 바이너리용 패키지를 다운로드합니다.
+- Linux 또는 MacOS 서버 4대
+- 최소 하드웨어 요구 사항
+  - CPU: 4코어(인텔 제온 또는 동급), RAM: 16GB, HDD: 50GB
+  - 자세한 설명은 [시스템 요구 사항](../system-requirements.md)을 참조하세요.
 
 ## 0단계: 모든 노드에 SCN 설치 <a id="install-scn"></a>
+
 설치는 다운로드한 패키지의 압축을 푸는 것입니다. 각 서버에서 SCN 아카이브를 추출합니다.
 
 ```console
@@ -73,7 +74,7 @@ x homi-XXXXX-amd64/bin/homi
 
 `bin` 폴더로 이동하여 다음 옵션으로 `homi`를 실행하여 파일을 생성합니다.
 `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output`
-Baobab의 `chainID`는 1001이므로 편의상 이 예제에서 구성한 서비스체인의 `chainID`는 1002로 설정합니다. 실제 서비스를 런칭하여 블록체인을 운영할 때는 다른 서비스체인과 체인아이디가 겹치지 않도록 https://chainlist.defillama.com/ 에서 새로운 체인아이디 값을 등록한 후 사용하는 것을 권장합니다. 서비스체인 포트는 기본 포트인 22323으로 설정되어 있습니다.
+Baobab의 `chainID`는 1001이므로 편의상 이 예제에서 구성한 서비스체인의 `chainID`는 1002로 설정합니다. 실제 서비스를 런칭하여 블록체인을 운영할 때는 다른 서비스체인과 체인아이디가 겹치지 않도록 https\://chainlist.defillama.com/ 에서 새로운 체인아이디 값을 등록한 후 사용하는 것을 권장합니다. 서비스체인 포트는 기본 포트인 22323으로 설정되어 있습니다.
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -99,7 +100,6 @@ Created :  homi-output/Klaytn_txpool.json
 
 다음 단계에서는 출력 중 `nodekey*`, `genesis.json`, `static-nodes.json`을 사용하겠습니다.
 
-
 ## 2단계: static-nodes.json 사용자 지정 <a id="step-1-create-genesis-json-and-a-key"></a>
 
 텍스트 편집기에서 `homi-output/scripts/static-nodes.json`을 열고 IP 주소와 포트를 노드의 실제 값으로 업데이트합니다.
@@ -116,7 +116,7 @@ Created :  homi-output/Klaytn_txpool.json
 ]
 ```
 
-`static-nodes.json`를 업데이트한 후 출력 폴더(`homi-output`)를 모든 SCN, 즉 이 예제에서는 SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 노드에 업로드합니다.
+`static-nodes.json`를 업데이트한 후 출력 폴더(`homi-output`)를 모든 SCN, 즉 이 예제에서는 SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 노드에 업로드합니다. SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 nodes in this example.
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/
@@ -126,6 +126,7 @@ $ scp -r path/to/homi-output/ user@192.168.0.4:~/
 ```
 
 ## 3단계: 노드 초기화 <a id="step-2-customize-static-nodes-json"></a>
+
 이제 제네시스 파일을 사용하여 각 노드를 초기화하겠습니다. 각 노드에서 다음 명령을 실행합니다.
 홈 디렉터리에 체인 데이터와 로그를 저장하는 데이터 폴더가 생성됩니다.
 데이터 폴더는 `--datadir` 지시어를 사용하여 변경할 수 있습니다.
@@ -137,7 +138,6 @@ $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
 $ ls ~/data
 keystore	klay		kscn
 ```
-
 
 ## 4단계: `nodekey` 및 `static-nodes.json` 설치 <a id="step-3-node-initialization"></a>
 
@@ -172,6 +172,7 @@ DATA_DIR=~/data
 ```
 
 ## 6단계: 노드 시작 <a id="step-6-start-nodes"></a>
+
 모든 SCN 노드에서 다음 명령을 실행합니다.
 
 ```console
@@ -190,11 +191,13 @@ $ kscn attach --datadir ~/data
 노드를 중지하려면 `kscnd stop` 명령을 사용하면 됩니다.
 
 ## (예시) 밸류 전송 트랜잭션 생성 및 확인 <a id="step-4-install-nodekey"></a>
+
 이제 4노드 서비스체인이 실행 중입니다. 서비스체인에서 밸류 전송 트랜잭션을 실행하여 설치를 확인하겠습니다.
 
-![](/img/nodes/sc-4scn-ip.png)
+![](/img/nodes/sc-4scn-test.png)
 
 ### 1단계: 테스트 계정 가져오기 <a id="step-5-configure-nodes"></a>
+
 `testkey1`은 1단계에서 `homi`에 의해 자동으로 생성되었습니다. `homi`가 생성한 `genesis.json`에 설명된 대로 테스트 계정에 KLAY가 할당됩니다.
 
 ```console
@@ -206,6 +209,7 @@ Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
 ```
 
 ### 2단계: 계정 잠금 해제 <a id="step-6-start-nodes"></a>
+
 계정 잠금 해제는 `testkey1`을 가져온 SCN 노드의 콘솔을 통해서만 가능합니다.
 
 ```console
