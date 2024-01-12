@@ -1,4 +1,4 @@
-# 사전 컴파일된 컨트랙트
+# Precompiled Contracts
 
 클레이튼은 몇 가지 유용한 사전 컴파일된 컨트랙트를 제공합니다.
 이러한 컨트랙트는 플랫폼 자체에서 네이티브 구현으로 구현됩니다.
@@ -10,24 +10,26 @@
 3개의 사전 컴파일된 컨트랙트 주소가 변경되었으며, **blake2F**는 `IstanbulEVM` 프로토콜 업그레이드, 즉 "하드포크" 이후에 추가되었습니다.
 
 `IstanbulEVM` 프로토콜 업그레이드 블록 번호는 다음과 같습니다.
-* Baobab 테스트넷: `#75373312`
-* Cypress 메인넷: `#86816005`
+
+- Baobab 테스트넷: `#75373312`
+- Cypress 메인넷: `#86816005`
 
 프로토콜 업그레이드 전에 배포된 컨트랙트는 기존 주소를 사용해야 합니다.
-* 사례 1) 블록 번호 `#75373310`의 Baobab에 배포된 컨트랙트는 0x09, 0x0a, 0x0b를 각각 vmLog, feePayer, validateSender의 주소로 인식하며, blake2f는 사용할 수 없습니다.
-* 사례 2) 블록 번호 `#75373314`의 Baobab에 배포된 컨트랙트는 0x09를 blake2f의 주소로 인식하고 0x3fd, 0x3fe, 0xff를 vmLog, feePayer, validateSender의 주소로 인식합니다.
+
+- 사례 1) 블록 번호 `#75373310`의 Baobab에 배포된 컨트랙트는 0x09, 0x0a, 0x0b를 각각 vmLog, feePayer, validateSender의 주소로 인식하며, blake2f는 사용할 수 없습니다.
+- 사례 2) 블록 번호 `#75373314`의 Baobab에 배포된 컨트랙트는 0x09를 blake2f의 주소로 인식하고 0x3fd, 0x3fe, 0xff를 vmLog, feePayer, validateSender의 주소로 인식합니다.
 
 이전 문서가 필요하신 경우 [이전 문서](precompiled-contracts-previous.md)를 참조하세요.
 
 :::
 
-| 사전 컴파일된 컨트랙트 | v1.7.0 프로토콜 업데이트 활성화 이전에 배포된 컨트랙트에 사용된 주소 | v1.7.0 프로토콜 업데이트 활성화 이후에 배포된 컨트랙트에 사용된 주소 |
-| :--- | :--- | :--- |
-| vmLog | 0x09 | 0x3fd |
-| feePayer | 0x0a | 0x3fe |
-| 유효성 검사 발신자 | 0x0b | 0x3ff |
+| precompiled contract | v1.7.0 프로토콜 업데이트 활성화 이전에 배포된 컨트랙트에 사용된 주소 | v1.7.0 프로토콜 업데이트 활성화 이후에 배포된 컨트랙트에 사용된 주소 |
+| :------------------- | :---------------------------------------- | :---------------------------------------- |
+| vmLog                | 0x09                                      | 0x3fd                                     |
+| feePayer             | 0x0a                                      | 0x3fe                                     |
+| 유효성 검사 발신자           | 0x0b                                      | 0x3ff                                     |
 
-## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
+## 주소 0x01: ecrecover(hash, v, r, s) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
 0x01 주소는 ecrecover를 구현합니다. 이 함수는 ECDSA의 복구 함수를 계산하여 주어진 서명에서 주소를 반환합니다. 함수 프로토타입은 다음과 같습니다:
 
@@ -35,7 +37,7 @@
 function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (address);
 ```
 
-## 주소 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
+## 주소 0x02: sha256(data) <a id="address-0x-02-sha-256-data"></a>
 
 0x02 주소는 SHA256 해시를 구현합니다. 이 함수는 주어진 데이터에서 SHA256 해시를 반환합니다. 함수 프로토타입은 다음과 같습니다:
 
@@ -43,7 +45,7 @@ function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (addres
 function sha256(bytes data) returns (bytes32);
 ```
 
-## 주소 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
+## 주소 0x03: ripemd160(data) <a id="address-0x-03-ripemd-160-data"></a>
 
 0x03 주소는 RIPEMD160 해시를 구현합니다. 이 함수는 주어진 데이터에서 RIPEMD160 해시를 반환합니다. 함수 프로토타입은 다음과 같습니다:
 
@@ -51,9 +53,9 @@ function sha256(bytes data) returns (bytes32);
 function ripemd160(bytes data) returns (bytes32);
 ```
 
-## 주소 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
+## 주소 0x04: datacopy(data) <a id="address-0x-04-datacopy-data"></a>
 
-0x04 주소는 datacopy \(즉, 신원 함수\)를 구현합니다. 이 함수는 수정 없이 입력 데이터를 직접 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 인라인 어셈블리가 포함된 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x04 주소는 datacopy (즉, 신원 함수)를 구현합니다. 이 함수는 수정 없이 입력 데이터를 직접 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 인라인 어셈블리가 포함된 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -69,7 +71,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 }     
 ```
 
-## 주소 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
+## 주소 0x05: bigModExp(base, exp, mod) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
 0x05 주소는 `base**exp % mod` 공식을 구현합니다. 주어진 데이터의 결과를 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다. 이 사전 컴파일된 컨트랙트는 임의의 길이의 입력을 지원하지만, 아래 코드에서는 고정된 길이의 입력을 예로 사용합니다.
 
@@ -101,9 +103,9 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 }
 ```
 
-## 주소 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
+## 주소 0x06: bn256Add(ax, ay, bx, by) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-주소 0x06은 네이티브 타원 커브 점 덧셈을 구현합니다. 이 주소는 커브 bn256에서 \(ax, ay\) 및 \(bx, by\)가 유효한 점인 `(ax, ay) + (bx, by)`를 나타내는 타원 커브 점을 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+주소 0x06은 네이티브 타원 커브 점 덧셈을 구현합니다. 이 주소는 커브 bn256에서 (ax, ay) 및 (bx, by)가 유효한 점인 `(ax, ay) + (bx, by)`를 나타내는 타원 커브 점을 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -122,9 +124,9 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 }
 ```
 
-## 주소 0x07: bn256ScalarMul\(x, y, scalar\) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
+## 주소 0x07: bn256ScalarMul(x, y, scalar) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-주소 0x07은 scalar 값으로 네이티브 타원 곡선 곱셈을 구현합니다. 이 주소는 `scalar * (x, y)`를 나타내는 타원 커브 포인트를 반환하며, \(x, y\)는 커브 bn256에서 유효한 커브 포인트입니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+주소 0x07은 scalar 값으로 네이티브 타원 곡선 곱셈을 구현합니다. 이 주소는 `scalar * (x, y)`를 나타내는 타원 커브 포인트를 반환하며, (x, y)는 커브 bn256에서 유효한 커브 포인트입니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -142,7 +144,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 }
 ```
 
-## 주소 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
+## 주소 0x08: bn256Pairing(a1, b1, a2, b2, a3, b3, ..., ak, bk) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
 0x08 주소는 타원 곡선 파싱 연산을 구현하여 zkSNARK 검증을 수행합니다. 자세한 내용은 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)을 참조하세요. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
@@ -164,7 +166,8 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 }
 ```
 
-## 주소 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-3fc-vmlog-str"></a>
+## 주소 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-3fc-vmlog-str"></a>
+
 0x09 주소는 BLAKE2b F 압축 기능을 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고하세요. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
@@ -183,7 +186,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 }
 ```
 
-## 주소 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
+## 주소 0x3fd: vmLog(str) <a id="address-0x-3fc-vmlog-str"></a>
 
 0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. 자세한 내용은 [debug_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget)을 참조하세요. 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
 
@@ -193,9 +196,9 @@ function callVmLog(bytes memory str) public {
 }
 ```
 
-## 주소 0x3fe: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
+## 주소 0x3fe: feePayer() <a id="address-0x-3fd-feepayer"></a>
 
-0x3FE 주소는 실행 중인 트랜잭션의 수수료 납부자를 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x3FE 주소는 실행 중인 트랜잭션의 수수료 납부자를 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -210,13 +213,13 @@ function feePayer() internal returns (address addr) {
 }
 ```
 
-## 주소 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
+## 주소 0x3ff: validateSender() <a id="address-0x-3fe-validatesender"></a>
 
 0x3FF 주소는 메시지로 발신자의 서명을 검증합니다. Klaytn은 [주소에서 키 쌍을 분리](../accounts.md#decoupling-key-pairs-from-addresses)하기 때문에, 서명이 해당 발신자가 제대로 서명했는지 검증해야 합니다. 이를 위해 이 사전 컴파일된 컨트랙트는 세 가지 매개변수를 받습니다:
 
-* 공개키를 받기 위한 발신자 주소
-* 서명을 생성하는 데 사용되는 메시지 해시
-* 발신자의 개인 키가 주어진 메시지 해시를 사용하여 서명한 서명
+- 공개키를 받기 위한 발신자 주소
+- 서명을 생성하는 데 사용되는 메시지 해시
+- 발신자의 개인 키가 주어진 메시지 해시를 사용하여 서명한 서명
 
 미리 컴파일된 컨트랙트는 주어진 서명이 발신자의 개인키에 의해 올바르게 서명되었는지 검증합니다. 클레이튼은 기본적으로 다중 서명을 지원하므로 여러 개의 서명이 있을 수 있다는 점에 유의하세요. 서명은 65바이트 길이여야 합니다.
 
@@ -245,5 +248,3 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
     }
 }
 ```
-
-
