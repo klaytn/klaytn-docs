@@ -7,9 +7,10 @@
 Klaytn prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Klaytn Contracts Wizard (KCW). KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Klaytn contracts. It's worth noting that the Klaytn contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development.
 
 In this guide you will:
-* Understand the basic functionality of Klaytn Contracts Wizard.
-* Generate and customize smart contract code using Klaytn Contracts Wizard.
-* Deploy Klaytn contracts to the Klaytn Network (Baobab) using Foundry Scripting System.
+
+- Understand the basic functionality of Klaytn Contracts Wizard.
+- Generate and customize smart contract code using Klaytn Contracts Wizard.
+- Deploy Klaytn contracts to the Klaytn Network (Baobab) using Foundry Scripting System.
 
 ## Exploring Klaytn Contracts Wizard
 
@@ -17,27 +18,27 @@ Klaytn Contracts Wizard posits itself as the fastest and easiest way to write yo
 
 As it is, the Klaytn contracts wizard supports the following token standards:
 
-* [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) — This is a fungible token standard for Klaytn. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
-* [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) — This is a non-fungible token standard for Klaytn. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
-* [KIP-37](https://kips.klaytn.foundation/KIPs/kip-37) — This is known as the multi-token standard for Klaytn, because it can represent both fungible and non-fungible tokens in a single smart contract.
+- [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) — This is a fungible token standard for Klaytn. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
+- [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) — This is a non-fungible token standard for Klaytn. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
+- [KIP-37](https://kips.klaytn.foundation/KIPs/kip-37) — This is known as the multi-token standard for Klaytn, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Klaytn contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/).
 
 Klaytn Contracts Wizard is comprised of the following sections:
 
-* **Token standard section**: This tab comprises all the different token standards supported by the Klaytn contracts wizard.
+- **Token standard section**: This tab comprises all the different token standards supported by the Klaytn contracts wizard.
 
-* **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
+- **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
 
-* **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
+- **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
 
-    * [KIP7](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-    * [KIP17](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-    * [KIP37](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+  - [KIP7](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+  - [KIP17](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+  - [KIP37](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
-* **Access Control section**: comprises all the available access control mechanisms for each token standard.
+- **Access Control section**: comprises all the available access control mechanisms for each token standard.
 
-* **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
+- **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
 
 ![](/img/build/tools/kcw-image.png)
 
@@ -52,18 +53,22 @@ Let’s get started!
 ### Prerequisites
 
 To follow along in this tutorial, the prerequisites are highlighted below:
-* Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
-* Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
-* [MetaMask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+
+- Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
+- Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
+- [MetaMask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/service-providers/public-en.md).
+- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
 
 ### Getting Started
+
 This guide walks you through a simple implementation of an airdrop contract for KIP7 and KIP17 token standard. In the airdrop contract, the creator of the project mints each respective tokens directly to a certain selection of wallets. In the next sections, we will be looking at how to customize and deploy each token airdrop contract respectively.
 
 ### Customizing Token contracts
 
-**Customizing KIP7 contract to KIP7 Airdrop contract.** You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below:
+**Customizing KIP7 contract to KIP7 Airdrop contract.**
+
+You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below:
 
 1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
 2. On the **Contracts** tab select **KIP7**
@@ -73,7 +78,6 @@ This guide walks you through a simple implementation of an airdrop contract for 
 This is how Klaytn contracts wizard would look like after making these configurations:
 
 ![](/img/build/tools/kip7-kcw.png)
-
 
 Here is the generated code:
 
@@ -99,6 +103,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
     }
 }
 ```
+
 The next thing is to modify the code above to suit our airdrop implementation which looks like this:
 
 ```solidity
@@ -132,9 +137,9 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-From the code modified above, you can see that we added a new function called airdropTokens(). This function mints tokens to certain selected addresses and can only be called by the creator of the contract - onlyOwner.
+From the code modified above, you can see that we added a new function called `airdropTokens()`. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - `onlyOwner`.
 
-Subsequently, we modified the *public* **mint()** *onlyOwner* function to **_mintSingleTokens()** private.
+Subsequently, we modified the _public_ **mint()** _onlyOwner_ function to **_mintSingleTokens()** private.
 
 Now that we have our KIP7 airdrop contract code ready, the next step is to create a new file named airdropKIP7.sol in the src folder of your project directory and paste the modified code in the file.
 
@@ -153,7 +158,7 @@ This is how Klaytn contracts wizard would look like after making these configura
 
 Here is the generated code:
 
-```solidity 
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
@@ -232,7 +237,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 
 From the code modified above, you can see that we added a new function called **airdropNfts()**. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - onlyOwner.
 
-Subsequently, we modified the **safeMint()** *public onlyOwner* function to **_mintSingleTokens()** **private**.
+Subsequently, we modified the **safeMint()** _public onlyOwner_ function to **_mintSingleTokens()** **private**.
 
 Now that we have our KIP17 airdrop contract code ready, the next step is to create a new file named airdropKIP17.sol in the src folder of your project directory and paste the modified code in the file.
 
@@ -275,6 +280,7 @@ contract KIP37MultiToken is KIP37, Ownable {
     }
 }
 ```
+
 Now that we have our KIP37 contract code ready, the next step is to create a new file named KIP37MultiToken.sol in the src folder of your project directory and paste the generated code in it.
 
 Having generated the contract code for all our Klaytn contracts, the next step is to deploy to the Klaytn Testnet Baobab using Foundry solidity scripts.
@@ -303,6 +309,7 @@ BAOBAB_RPC_URL=
 CYPRESS_RPC_URL=
 PRIVATE_KEY=
 ```
+
 We now need to edit the `foundry.toml` file. There should already be one in the root of the project. Paste the following lines to the end of the file
 
 ```code
@@ -311,9 +318,14 @@ baobab = "${BAOBAB_RPC_URL}"
 // if you want to deploy to mainnet cypress
 cypress = "${CYPRESS_RPC_URL}"
 ```
+
 ### Writing the Script
 
-Next, we have to create a folder and name it script  if it doesn’t already exist. We then need to create a script file for our contracts namely: airdropKIP7.s.sol airdropKIP17.s.sol KIP37MultiToken.s.sol This is where we will write the deployment script itself.  The contents of each file should look like this:
+Next, we have to create a folder and name it script  if it doesn’t already exist. We then need to create a script file for our contracts namely:
+airdropKIP7.s.sol
+airdropKIP17.s.sol
+KIP37MultiToken.s.sol
+This is where we will write the deployment script itself.  The contents of each file should look like this:
 
 1. airdropKIP7.s.sol
 
@@ -394,9 +406,10 @@ First we declared the SPDX-license and pragma version for each script file. Note
 
 Next we imported [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol) which provides some scripting utilities to use for deploying our contracts. Subsequently, we imported the contract to be deployed. In this case **airdropKIP7**, **airdropKIP17**, **KIP37MultiToken** for each script.
 
-We then created a contract called **KIP7AirdropDeployScript**, **KIP17AirdropDeployScript**, **KIP37MultiTokenDeployScript**  for each script file which inherits Script from Forge Std library.
+We then created a contract called **KIP7AirdropDeployScript**, **KIP17AirdropDeployScript**, **KIP37MultiTokenDeployScript** for each script file which inherits Script from Forge Std library.
 
-Next we declared the **run()** function. The function run() is the entry point for scripts to be executed. We then declared a **deployerPrivateKey** variable that loads in the private key from our .env file.
+Next we declared the **run()** function. The function run() is the entry point for scripts to be executed. We
+then declared a **deployerPrivateKey** variable that loads in the private key from our .env file.
 
 Subsequently, we called the **vm.startBroadcast(deployerPrivateKey)** special cheat code that records calls and contract creations made by our main script contract, having passed the deployerPrivateKey for signing the transactions.
 
@@ -410,6 +423,7 @@ At the root of the project run
 // To load the variables in the .env file
 source .env
 ```
+
 To deploy the each contract run the command below:
 
 1. airdropKIP7
@@ -417,11 +431,13 @@ To deploy the each contract run the command below:
 ```bash
 forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
 ```
+
 2. airdropKIP17
 
 ```bash
 forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
 ```
+
 3. KIP37MultiToken
 
 ```bash
@@ -440,6 +456,6 @@ In this tutorial, you learned about the Klaytn contracts wizard, its functionali
 
 Further, we deployed the generated contracts to Klaytn Baobab Testnet using Foundry solidity scripting. You can make use of Remix IDE or any smart contract development environment to deploy smart contract derived or customized using from Klaytn Contracts Wizard. You can find corresponding tutorials in the following links:
 
-* [Connecting to Remix](../tutorials/connecting-remix.md#connecting-klaytn-remix-using-metamask)
-* [Deploying smart contract using Hardhat](../get-started/hardhat.md)
-* [Deploying smart contract using Truffle](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [Connecting to Remix](../tutorials/connecting-remix.md#connecting-klaytn-remix-using-metamask)
+- [Deploying smart contract using Hardhat](../get-started/hardhat.md)
+- [Deploying smart contract using Truffle](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
