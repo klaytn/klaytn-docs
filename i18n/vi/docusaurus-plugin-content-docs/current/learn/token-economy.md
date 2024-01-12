@@ -1,51 +1,51 @@
-# Nền kinh tế token
+# Token Economy
 
-## Tổng quan <a id="overview"></a>
+## Overview <a id="overview"></a>
 
-Nền kinh tế token của Klaytn được thiết kế để tạo ra các cấu trúc cấp vốn bền vững để trao quyền cho hệ sinh thái của mình, các sáng kiến tăng trường và các khoản đầu tư chiến lược. Nhiều dự án chuỗi khối công khai có hệ thống tiền tệ chỉ khuyến khích riêng những người vận hành nút của họ \(thợ đào hoặc người tạo khối\), chỉ tập trung vào khía cạnh kỹ thuật hoặc bảo trì mạng lưới. Tuy nhiên, những thiết kế như vậy lại bỏ qua tầm quan trọng của việc khuyến khích những nhóm người tham gia khác cũng đóng góp cho sự tăng trưởng của nền kinh tế token của mạng lưới, hoặc đầu tư vào các triển vọng tăng trưởng dài hạn. Ngược lại, nền kinh tế token của Klaytn lại được thiết kế để bù đắp cho các hình thức đóng góp đa dạng đến từ nhiều người tham gia và ngoài việc duy trì các nút chuỗi khối của mình, chúng tôi còn có một cấu trúc tài trợ được tích hợp sẵn để tận dụng các nguồn lực bền vững, nhằm thúc đẩy các sáng kiến về tăng trưởng trong tương lai và các dự án đầu tư được lấy nguồn một cách chiến lược.
+Klaytn’s token economy is designed to create sustainable funding structures for empowering its ecosystem, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators (miners or block producers), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
 
-## Cấu trúc cấp vốn <a id="funding-structure"></a>
+## Funding Structure <a id="funding-structure"></a>
 
-Cấu trúc cấp vốn của Klaytn chạy liên tục với việc tạo khối của mạng lưới Klaytn. Với mỗi khối mới, KLAY mới được phát hành và tổng phí giao dịch được dùng trong khối \(được gọi chung là “phần thưởng khối”\) được tổng hợp và phân phối cho ba toài khoản đích sau theo tỷ lệ được xác định trước:
+Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block (collectively called “block reward”) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
-* Klaytn Governance Council (GC) Reward:
-    * GC Block Proposer Reward: 10%
-    * GC Staking Award: 40%
-* Klaytn Community Fund \(KCF\): 30%
-* Klaytn Foundation Fund \(KFF\): 20%
+- Klaytn Governance Council (GC) Reward:
+  - GC Block Proposer Reward: 10%
+  - GC Staking Award: 40%
+- Klaytn Community Fund (KCF): 30%
+- Klaytn Foundation Fund (KFF): 20%
 
-6,4 KLAY sẽ được tạo cho mỗi khối mới. Điều này ngụ ý rằng khoảng 200 triệu KLAY sẽ được tạo mỗi năm, tương đương với 2% lạm phát hàng năm so với 10 tỷ KLAY được phát hành vào thời điểm khởi nguyên \(tỷ lệ lạm phát hàng năm có thể thay đổi thông qua Quy trình quản trị của Klaytn\). Phí giao dịch được tính theo mỗi OPCODE và được tính theo biểu phí giao dịch. Để biết thông tin chi tiết về biểu phí giao dịch, vui lòng tham khảo phần [Phí giao dịch](./transaction-fees.md).
+6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis (the annual inflation rate is subject to change through the Klaytn Governance Process). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](./transaction-fees.md).
 
-## Phần thưởng cho Hội đồng quản trị của Klaytn <a id="klaytn-governance-council-reward"></a>
+## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
 
-Hội đồng quản trị của Klaytn là nhóm tập thể các Người vận hành Core Cell \(CCO\). Các thành viên hội đồng có trách nhiệm duy trì Core Cell \(CC\), việc này giúp Hội đồng trở thành cơ quan thiết yếu trong hệ sinh thái Klaytn chịu trách nhiệm cung cấp cơ sở hạ tầng cơ sở. Để trở thành thành viên Hội đồng, ứng viên phải trải qua quá trình đánh giá trình độ theo Quy trình quản trị của Klaytn và phải nắm giữ ít nhất 5 triệu KLAY. Phần thưởng của Hội đồng quản trị của Klaytn là một cấu trúc dùng để khuyến khích các thành viên Hội đồng tiếp tục cung cấp nền tảng ổn định cho hệ sinh thái Klaytn.
+Klaytn Governance Council is the collective group of Core Cell Operators (CCOs). Council members are responsible for maintaining Core Cells (CCs), which makes the Council an essential body in the Klaytn ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Klaytn Governance Process and must stake at least 5 million KLAY. The Klaytn Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Klaytn ecosystem.
 
-### Cơ chế phần thưởng cho Hội đồng quản trị của Klaytn <a id="klaytn-governance-council-reward-mechanism"></a>
+### Klaytn Governance Council Reward Mechanism <a id="klaytn-governance-council-reward-mechanism"></a>
 
-Đối với mỗi khối, một Ủy ban sẽ được thành lập, bao gồm các thành viên Hội đồng được lựa chọn ngẫu nhiên. Mỗi Ủy ban có một thành viên được giao vai trò là Người đề xuất; tất cả các thành viên khác của Ủy ban sẽ đảm nhận vai trò là Người xác thực. Khi một khối được tạo thành công và được thêm vào chuỗi khối Klaytn, Người đề xuất của khối đó sẽ được thưởng 100% phần thưởng khối. Xác suất thành viên hội đồng được chọn là Người đề xuất tỷ lệ thuận với số lượng KLAY mà thành viên đó nắm giữ; nghĩa là một thành viên nắm giữ càng nhiều KLAY thì càng có nhiều khả năng người đó sẽ được chọn làm Người đề xuất và có khả năng nhận được phần thưởng khối.
+For every block, a Committee composed of randomly selected Council members is formed. Each Committee has one member assigned the role of Proposer; all other Committee members assume the role of Validators. When a block is successfully created and added to the Klaytn blockchain, the Proposer of the said block is rewarded with 100% of the block reward. The probability of a Council member being selected a Proposer is proportional to the amount of KLAY staked by the member; that is, the more KLAY a member stakes, the more likely that the member will be selected as a Proposer and potentially claim the block reward.
 
-Miễn đáp ứng được yêu cầu về mức nắm giữ tối thiểu là 5 triệu KLAY, các thành viên Hội đồng quản trị KLAY có thể tự do nắm giữ hoặc hủy nắm giữ KLAY của mình. Thông tin nắm giữ sẽ được cập nhật sau mỗi 86.400 khối và KLAY mới được nắm giữ sẽ có hiệu lực sau hai chu kỳ cập nhật kể từ thời điểm hoàn tất quá trình nắm giữ. Việc rút phần KLAY đã nắm giữ cần đến một tuần chờ đợi để ngăn chặn việc các thành viên ác ý rút lui ngay lập tức.
+As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
 
-Để ngăn chặn tình trạng các nhóm nhỏ gồm các thành viên Hội đồng có mức đầu tư cao độc quyền nhận phần thưởng cho Hội đồng quản trị của Klaytn, hệ số Gini có thể được sử dụng để điều chỉnh số tiền KLAY thực tế được nắm giữ. Công thức áp dụng như sau, trong đó G là viết tắt của hệ số Gini trong việc phân phối phần KLAY được nắm giữ của Hội đồng quản trị:
+To prevent monopolized claiming of Klaytn Governance Council Reward by small groups of highly invested Council members, Gini coefficient may be used to adjust the effective amount of staked KLAY. The application formula is as follows, where G stands for gini coefficient of Governance Council's KLAY staking distribution:
 
-* _Số lượng nắm giữ đã điều chỉnh = \(Số lượng nắm giữ của thành viên hội đồng quản trị\)^\(1/1+G\)_
+- _Adjusted staking amount = (Council member's staking amount)^(1/1+G)_
 
+### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>
 
-### Hình phạt cho các Thành viên hội đồng có hành vi sai trái <a id="penalty-for-misbehaving-council-members"></a>
+A Council member may be subject to penalties for conducting misbehaviors defined below. In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
 
-Thành viên hội đồng có thể bị phạt nếu thực hiện các hành vi sai trái theo định nghĩa dưới đây. Trong tương lai, nhiều quy tắc phạt hơn có thể sẽ được thiết lập và hoàn thiện thông qua Quy trình quản trị của Klaytn.
+Causing Safety Failure:
 
-Gây ra lỗi về an toàn:
+- A Council member selected as Proposer may not create more than one block in the same height
+- A Council member selected as Proposer may not intentionally omit certain transactions
 
-* Một thành viên hội đồng được chọn làm Người đề xuất không được tạo ra nhiều hơn một khối với cùng một số khối
-* Một thành viên hội đồng được chọn làm Người đề xuất không được bỏ qua các giao dịch nhất định một cách có chủ ý
+Causing Liveness Failure:
 
-Gây ra lỗi về xác định thực thể sống:
-
-* Một thành viên hội đồng được chọn làm Người đề xuất phải tạo ra một khối hợp lệ
-* Một thành viên hội đồng được chọn làm Người xác thực phải xác thực nút được đề xuất bởi Người đề xuất
+- A Council member selected as Proposer must create a valid block
+- A Council member selected as Validator must validate the block proposed by the Proposer
 
 ## Klaytn Community Fund <a id="klaytn-community-fund"></a>
+
 The Klaytn Community Fund (KCF) was established to support Klaytn's mission of enabling greater transparency and verifiability. It's important to keep in mind that the former Klaytn Growth Fund (KGF) and Klaytn Improvement Reserve (KIR) have merged to become the new Klaytn Community Fund (KCF).
 
 The Klaytn Community Fund will be used to fund activities that improves the Klaytn ecosystem, such as:
