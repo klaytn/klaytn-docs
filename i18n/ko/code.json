@@ -1,43 +1,49 @@
 {
+  "{title}": {
+    "message": "클레이튼 문서"
+  },
+  "{tagline}": {
+    "message": "클레이튼 문서에 오신 걸 환영합니다"
+  },
+  "Klaytn Overview": {
+    "message": "클레이튼 개요"
+  },
+  "Want to know about Klaytn?": {
+    "message": "클레이튼에 대해 알아보시겠습니까?"
+  },
+  "Getting Started": {
+    "message": "시작하기"
+  },
+  "Want to start building on Klaytn?": {
+    "message": "클레이튼으로 뭔가를 만들어 보고 싶은가요?"
+  },
+  "Node Operators": {
+    "message": "노드 운영하기"
+  },
+  "Instructions on running Klaytn's nodes": {
+    "message": "클레이튼 노드를 운영해보고 싶은가요?"
+  },
+  "API references": {
+    "message": "API 레퍼런스"
+  },
+  "APIs and libraries": {
+    "message": "API와 라이브러리"
+  },
+  "Klaytn Developer Hub": {
+    "message": "클레이튼 개발자 허브"
+  },
+  "Klaytn's Developer portal": {
+    "message": "클레이튼 개발자 포털 사이트"
+  },
+  "Klaytn Developer Forum": {
+    "message": "클레이튼 개발자 포럼"
+  },
+  "Got a question? Visit our forum!": {
+    "message": "질문이 생겼나요? 포럼을 방문하세요!"
+  },
   "theme.ErrorPageContent.title": {
     "message": "페이지에 오류가 발생하였습니다.",
     "description": "The title of the fallback page when the page crashed"
-  },
-  "theme.ErrorPageContent.tryAgain": {
-    "message": "다시 시도해 보세요",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
-  },
-  "theme.NotFound.title": {
-    "message": "페이지를 찾을 수 없습니다.",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "원하는 페이지를 찾을 수 없습니다.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "사이트 관리자에게 링크가 깨진 것을 알려주세요.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.admonition.note": {
-    "message": "노트",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "팁",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.danger": {
-    "message": "위험",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "정보",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "주의",
-    "description": "The default label used for the Caution admonition (:::caution)"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "맨 위로 스크롤하기",
@@ -63,18 +69,6 @@
     "message": "다음 페이지",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
-  "theme.blog.post.paginator.navAriaLabel": {
-    "message": "블로그 게시물 탐색",
-    "description": "The ARIA label for the blog posts pagination"
-  },
-  "theme.blog.post.paginator.newerPost": {
-    "message": "이전 게시물",
-    "description": "The blog post button label to navigate to the newer/previous post"
-  },
-  "theme.blog.post.paginator.olderPost": {
-    "message": "다음 게시물",
-    "description": "The blog post button label to navigate to the older/next post"
-  },
   "theme.blog.post.plurals": {
     "message": "{count}개 게시물",
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -87,14 +81,6 @@
     "message": "모든 태그 보기",
     "description": "The label of the link targeting the tag list page"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "홈",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
-    "description": "The ARIA label for the breadcrumbs"
-  },
   "theme.colorToggle.ariaLabel": {
     "message": "어두운 모드와 밝은 모드 전환하기 (현재 {mode})",
     "description": "The ARIA label for the navbar color mode toggle"
@@ -106,6 +92,22 @@
   "theme.colorToggle.ariaLabel.mode.light": {
     "message": "밝은 모드",
     "description": "The name for the light color mode"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "블로그 게시물 탐색",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "이전 게시물",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "다음 게시물",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Breadcrumbs",
+    "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
     "message": "{count} 항목",
@@ -174,9 +176,37 @@
     "message": "버전",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
+  "theme.NotFound.title": {
+    "message": "페이지를 찾을 수 없습니다.",
+    "description": "The title of the 404 page"
+  },
   "theme.tags.tagsListLabel": {
     "message": "태그:",
     "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "주의",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "위험",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "정보",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "노트",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "팁",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "warning",
+    "description": "The default label used for the Warning admonition (:::warning)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "닫기",
@@ -196,15 +226,23 @@
   },
   "theme.CodeBlock.copy": {
     "message": "복사",
-    "description": "The copy button label on code blocks"
+    "description": "The exit button label on code blocks"
   },
   "theme.CodeBlock.wordWrapToggle": {
     "message": "줄 바꿈 전환",
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
-  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
-    "message": "접을 수 있는 사이드바 분류 '{label}' 접기(펼치기)",
-    "description": "The ARIA label to toggle the collapsible sidebar category"
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expand sidebar category '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Collapse sidebar category '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "메인",
+    "description": "The ARIA label for the main navigation"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "언어",
@@ -222,9 +260,17 @@
     "message": "{title} 에 대해 더 읽어보기",
     "description": "The ARIA label for the link to full blog posts from excerpts"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "약 {readingTime}분",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  "theme.NotFound.p1": {
+    "message": "원하는 페이지를 찾을 수 없습니다.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "사이트 관리자에게 링크가 깨진 것을 알려주세요.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "홈",
+    "description": "The ARIA label for the home page in the breadcrumbs"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "사이드바 숨기기",
@@ -237,6 +283,14 @@
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
     "message": "네비게이션바 닫기",
     "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "약 {readingTime}분",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Docs 사이드바",
+    "description": "The ARIA label for the sidebar navigation"
   },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
     "message": "← 메인 메뉴로 돌아가기",
@@ -385,6 +439,26 @@
     "message": "문서 검색",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
+  "theme.CodeBlock.expanded": {
+    "message": "Expanded",
+    "description": "The expanded button label on code blocks"
+  },
+  "theme.CodeBlock.expandButtonAriaLabel": {
+    "message": "Expand code to fullscreen",
+    "description": "The ARIA label for expand code blocks button"
+  },
+  "theme.CodeBlock.expand": {
+    "message": "Expand",
+    "description": "The expand button label on code blocks"
+  },
+  "theme.CodeBlock.exitButtonAriaLabel": {
+    "message": "Exit expanded view",
+    "description": "The ARIA label for exit expanded view button"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "다시 시도해 보세요",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
   "theme.common.skipToMainContent": {
     "message": "본문으로 건너뛰기",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -393,60 +467,12 @@
     "message": "태그",
     "description": "The title of the tag list page"
   },
-  "Want to know about Klaytn?": {
-    "message": "클레이튼에 대해 알아보시겠습니까?"
+  "theme.unlistedContent.title": {
+    "message": "Unlisted page",
+    "description": "The unlisted content banner title"
   },
-  "Want to start building on Klaytn?": {
-    "message": "클레이튼으로 뭔가를 만들어 보고 싶은가요?"
-  },
-  "Instructions on running Klaytn's nodes": {
-    "message": "클레이튼 노드를 운영해보고 싶은가요?"
-  },
-  "Klaytn's vast ecosystem": {
-    "message": "클레이튼의 방대한 생태계에 관련된 모든 것!"
-  },
-  "Klaytn's Developer portal": {
-    "message": "클레이튼 개발자 포털 사이트"
-  },
-  "Got a question? Visit our forum!": {
-    "message": "질문이 생겼나요? 포럼을 방문하세요!"
-  },
-  "{title}": {
-    "message": "클레이튼 문서"
-  },
-  "{tagline}": {
-    "message": "클레이튼 문서에 오신 걸 환영합니다"
-  },
-  "Klaytn Overview": {
-    "message": "클레이튼 개요"
-  },
-  "Getting Started": {
-    "message": "시작하기"
-  },
-  "Node Operators": {
-    "message": "노드 운영하기"
-  },
-  "Awesome Klaytn": {
-    "message": "활발한 클레이튼"
-  },
-  "Klaytn Developer Hub": {
-    "message": "클레이튼 개발자 허브"
-  },
-  "Klaytn Developer Forum": {
-    "message": "클레이튼 개발자 포럼"
-  },
-  "API references": {
-    "message": "API 레퍼런스"
-  },
-  "APIs and libraries": {
-    "message": "API와 라이브러리"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "메인",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs 사이드바",
-    "description": "The ARIA label for the sidebar navigation"
+  "theme.unlistedContent.message": {
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "description": "The unlisted content banner message"
   }
 }
