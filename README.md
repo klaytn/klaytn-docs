@@ -1,4 +1,7 @@
-This website is built using Docusaurus.
+> [!IMPORTANT]  
+> Attention content contributors! Klaytn docs has shifted platforms, migrating from Gitbook to **Docusaurus**. For key information about this transition and its impact on your contributions, please refer to [the Klaytn docs 2.0 announcement](https://klaytn.foundation/announcing-klaytn-docs-2-0-streamlined-searchable-and-community-powered/).
+
+This website is built using Docusaurus v3.
 
 ### Installation
 
