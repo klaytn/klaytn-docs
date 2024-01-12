@@ -1,62 +1,63 @@
-# Giao dịch hủy
+# Cancel
 
 ## sendTransaction (CANCEL) <a id="sendtransaction-cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi giao dịch [Hủy](../../../../../../learn/transactions/basic.md#txtypecancel) đến mạng.
 
-**Tham số**
+Sends a [Cancel](../../../../../../learn/transactions/basic.md#txtypecancel) transaction to the network.
 
-Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
+**Parameters**
 
-| Tên               | type      | Mô tả                                                                                                           |
-| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+The parameters of sendTransaction are a transaction object and a callback function.
 
-Một đối tượng giao dịch thuộc loại `CANCEL` có cấu trúc như sau:
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| Tên     | Loại | Mô tả                                                                                                                                                                                                                                               |
-| ------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type    | Chuỗi | Loại giao dịch. "HỦY"                                                                                                                                                                                                                               |
-| từ      | Chuỗi | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                                                                |
-| gas     | Số    | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                |
-| giá gas | Số    | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                      |
-| nonce   | Số    | (tùy chọn) Giá trị nguyên của số dùng một lần. Điều này cho phép thay thế giao dịch đang chờ xử lý của bạn có cùng số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`. |
+A transaction object of type `CANCEL` has the following structure:
 
-**Giá trị trả về**
+| Name     | Type   | Description                                                                                                                                                                                                        |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type     | String | Transaction Type. "CANCEL"                                                                                                                                                                                         |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
-Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
+**Return Value**
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
+The `callback` will return the 32-byte transaction hash.
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-**Ví dụ**
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
 
 ```javascript
-const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const account = caver.klay.accounts.wallet.add('0x{private key}')
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
     type: 'CANCEL',
-    from: tài khoản.address,
-    nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+    from: account.address,
+    nonce: 7, // It specifies target transaction having the same nonce to cancel.
     gas: '300000',
 })
 .then(function(receipt){
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
     type: 'CANCEL',
-    from: tài khoản.address,
-    nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+    from: account.address,
+    nonce: 7, // It specifies target transaction having the same nonce to cancel.
     gas: '300000',
 })
 .on('transactionHash', function(hash){
@@ -65,66 +66,66 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
 
 ## sendTransaction (FEE_DELEGATED_CANCEL) <a id="sendtransaction-fee_delegated_cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi giao dịch [Hủy có ủy thác phí](../../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel) đến mạng.
 
-**Tham số**
+Sends a [Fee Delegated Cancel](../../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel) transaction to the network.
 
-Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
+**Parameters**
 
-| Tên               | type      | Mô tả                                                                                                           |
-| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+The parameters of sendTransaction are a transaction object and a callback function.
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_CANCEL` có cấu trúc như sau:
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| Tên     | Loại | Mô tả                                                                                                                                                                                                                                               |
-| ------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type    | Chuỗi | Loại giao dịch. "FEE_DELEGATED_CANCEL"                                                                                                                                                                                                            |
-| từ      | Chuỗi | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                                                                |
-| gas     | Số    | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                |
-| giá gas | Số    | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                      |
-| nonce   | Số    | (tùy chọn) Giá trị nguyên của số dùng một lần. Điều này cho phép thay thế giao dịch đang chờ xử lý của bạn có cùng số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`. |
+A transaction object of type `FEE_DELEGATED_CANCEL` has the following structure:
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_CANCEL` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_CANCEL` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../../caver.klay.accounts.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) đối với người trả phí.
+| Name     | Type   | Description                                                                                                                                                                                                        |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type     | String | Transaction Type. "FEE_DELEGATED_CANCEL"                                                                                                                                 |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
-Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
+A transaction object of type `FEE_DELEGATED_CANCEL` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_CANCEL` can be used as a parameters in [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
-| Tên                  | Loại | Mô tả                                    |
-| -------------------- | ----- | ---------------------------------------- |
-| feePayer             | Chuỗi | Địa chỉ người trả phí của giao dịch.     |
-| senderRawTransaction | Chuỗi | Giao dịch mã hóa RLP mà người gửi đã ký. |
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-**Giá trị trả về**
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
+**Return Value**
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
+The `callback` will return the 32-byte transaction hash.
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-**Ví dụ**
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
 
 ```javascript
-const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
-const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const sender = caver.klay.accounts.wallet.add('0x{private key}')
+const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
 
-// sử dụng promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
+// using the promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_CANCEL',
   from: sender.address,
-  nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+  nonce: 7, // It specifies target transaction having the same nonce to cancel.
   gas: '300000',
 }, sender.privateKey)
 
@@ -136,11 +137,11 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
-const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
+// using the event emitter
+const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_CANCEL',
   from: sender.address,
-  nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+  nonce: 7, // It specifies target transaction having the same nonce to cancel.
   gas: '300000',
 }, sender.privateKey)
 
@@ -154,67 +155,67 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
 
 ## sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO) <a id="sendtransaction-fee_delegated_cancel_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Gửi giao dịch [Hủy có ủy thác phí theo tỷ lệ](../../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) đến mạng.
 
-**Tham số**
+Sends a [Fee Delegated Cancel With Ratio](../../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) transaction to the network.
 
-Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
+**Parameters**
 
-| Tên               | type      | Mô tả                                                                                                           |
-| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                    |
-| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+The parameters of sendTransaction are a transaction object and a callback function.
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_CANCEL_WITH_RATIO` có cấu trúc như sau:
+| Name              | Type     | Description                                                                                                                   |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction object to send.                                                                                               |
+| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-| Tên      | Loại | Mô tả                                                                                                                                                                                                                                               |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | Chuỗi | Loại giao dịch. "FEE_DELEGATED_CANCEL_WITH_RATIO"                                                                                                                                                                                               |
-| từ       | Chuỗi | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                                                                |
-| gas      | Số    | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                |
-| giá gas  | Số    | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                      |
-| nonce    | Số    | (tùy chọn) Giá trị nguyên của số dùng một lần. Điều này cho phép thay thế giao dịch đang chờ xử lý của bạn có cùng số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`. |
-| feeRatio | Số    | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                  |
+A transaction object of type `FEE_DELEGATED_CANCEL_WITH_RATIO` has the following structure:
 
-Một đối tượng giao dịch thuộc loại `FEE_DELEGATED_CANCEL_WITH_RATIO` với cấu trúc như trên hoặc giao dịch `RLP-encoded transaction` thuộc loại `FEE_DELEGATED_CANCEL_WITH_RATIO` có thể được sử dụng làm tham số trong [caver.klay.tài khoảns.signTransaction](../../caver.klay.accounts.md#signtransaction) đối với người gửi hoặc trong [caver.klay.tài khoảns.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) đối với người trả phí.
+| Name     | Type   | Description                                                                                                                                                                                                            |
+| -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | String | Transaction Type. "FEE_DELEGATED_CANCEL_WITH_RATIO"                                                                                |
+| from     | String | Address of this transaction sender.                                                                                                                                                                                    |
+| gas      | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                              |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
+| nonce    | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.     |
+| feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 \~ 99, if it is out of range, the transaction will not be accepted. |
 
-Để người trả phí ký một giao dịch mã hóa RLP mà người gửi đã ký và gửi đến mạng, hãy xác định một đối tượng có cấu trúc như sau và gọi ra hàm `caver.klay.sendTransaction`.
+A transaction object of type `FEE_DELEGATED_CANCEL_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_CANCEL_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
-| Tên                  | Loại | Mô tả                                    |
-| -------------------- | ----- | ---------------------------------------- |
-| feePayer             | Chuỗi | Địa chỉ người trả phí của giao dịch.     |
-| senderRawTransaction | Chuỗi | Giao dịch mã hóa RLP mà người gửi đã ký. |
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-**Giá trị trả về**
+| Name                 | Type   | Description                                   |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
-Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
+**Return Value**
 
-`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
+The `callback` will return the 32-byte transaction hash.
 
-- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
-- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
-**Ví dụ**
+- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
+- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
 
 ```javascript
-const sender = caver.klay.tài khoảns.wallet.add('0x{private key}')
-const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
+const sender = caver.klay.accounts.wallet.add('0x{private key}')
+const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
 
-// sử dụng promise
-const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
+// using the promise
+const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_CANCEL_WITH_RATIO',
   from: sender.address,
-  nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+  nonce: 7, // It specifies target transaction having the same nonce to cancel.
   gas: '300000',
   feeRatio: 30,
 }, sender.privateKey)
@@ -227,11 +228,11 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
-const { rawTransaction: senderRawTransaction } = await caver.klay.tài khoảns.signTransaction({
+// using the event emitter
+const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_CANCEL_WITH_RATIO',
   from: sender.address,
-  nonce: 7, // Hàm này nêu rõ giao dịch đích có cùng số dùng một lần cần hủy.
+  nonce: 7, // It specifies target transaction having the same nonce to cancel.
   gas: '300000',
   feeRatio: 30,
 }, sender.privateKey)
@@ -246,7 +247,5 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
-
-
