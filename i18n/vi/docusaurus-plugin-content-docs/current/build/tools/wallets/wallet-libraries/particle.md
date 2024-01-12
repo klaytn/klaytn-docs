@@ -16,9 +16,9 @@ To leverage Particle Network on alternative platforms, such as Android, iOS, Rea
 
 ## Prerequisites
 
-* A working react project (by executing `npx create-react-app project-name`)
-* A project ID, client key, and app ID from the [Particle dashboard](https://dashboard.particle.network).
-* A WalletConnect project ID from the [WalletConnect dashboard](https://cloud.walletconnect.com/).
+- A working react project (by executing `npx create-react-app project-name`)
+- A project ID, client key, and app ID from the [Particle dashboard](https://dashboard.particle.network).
+- A WalletConnect project ID from the [WalletConnect dashboard](https://cloud.walletconnect.com/).
 
 ## Installation
 
@@ -91,7 +91,6 @@ export const App = () => {
 	return <ConnectButton />;
 };
 ```
-
 
 ## Getting Account and Balance
 
@@ -524,6 +523,6 @@ Without using the wallet itself, purely the provider, read-only methods can be c
   )
 ```
 
-
 ## Next Steps
+
 For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://docs.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample).
