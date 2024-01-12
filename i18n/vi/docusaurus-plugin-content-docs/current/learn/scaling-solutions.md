@@ -1,29 +1,47 @@
-# Giải pháp mở rộng
+# Scaling Solutions
 
-## Chuỗi dịch vụ <a id="service-chain"></a>
-Chuỗi dịch vụ trong Klaytn là các chuỗi khối phụ trợ độc lập với chuỗi chính Klaytn, được điều chỉnh cho từng dApp cần đến cấu hình nút đặc biệt, mức độ bảo mật tùy chỉnh hoặc thông lượng cao đặc biệt khiến việc triển khai dApp đó trên chuỗi chính trở nên bất tiện hoặc không khả thi về mặt kinh tế.
+## Service Chain <a id="service-chain"></a>
 
-Mặc dù có các giải pháp mở rộng quy mô phi tập trung hoàn toàn, do các giao diện khó dùng, ví dụ như phát sinh thách thức hoặc thoát và hoàn thiện không tức thời, chúng tôi có hướng tiếp cận khác đối với Chuỗi dịch vụ của Klaytn bằng cách đánh đổi khả năng phi tập trung hoàn toàn để nâng cao khả năng sử dụng, hoàn thiện tức thời, hiệu suất cao và tính sẵn có cao.
+Service chains in Klaytn are auxiliary blockchains independent from the Klaytn main chain,
+tailored for individual dApp requiring special node configurations, customized security levels,
+or exceptionally high throughput that makes deploying the dApp on the main chain inconvenient or economically infeasible.
 
-Chuỗi dịch vụ của Klaytn có thể được sử dụng cho các mục tiêu dịch vụ cụ thể khác nhau và có thể kết nối với chuỗi chính vì nhiều lý do, bao gồm neo dữ liệu (lưu trữ định kỳ các hàm băm khối từ chuỗi dịch vụ lên chuỗi chính để bù cho tính bảo mật của chuỗi dịch vụ bị giảm do số lượng nút ít đi) hoặc chuyển giá trị (chuyển KLAY liên chuỗi, đơn vị giá trị gốc của Klaytn và token do các dApp phát hành).
+While there are fully-decentralized scaling solutions, due to their difficult interfaces such as challenge or exit and non-immediate finality,
+we take a different approach in Klaytn’s Service Chain by sacrificing the full decentralization for better usability,
+instant finality, high performance, and high availability.
 
-## Mạng <a id="network"></a>
-Các chuỗi dịch vụ kết nối với chuỗi chính của Klaytn đều cùng được gọi là Mạng chuỗi dịch vụ. Lưu ý rằng phương pháp kết nối giữa các chuỗi dịch vụ và chuỗi chính có thể thay đổi trong các lần lặp lại trong tương lai của Klaytn.
+Klaytn service chains may be used for various service-specific goals,
+and can connect to the main chain for multiple reasons including data anchoring (periodic storing of block hashes
+from the service chain onto the main chain to compensate for the decreased security of the service chain due to the smaller number of nodes) or
+value transfer (interchain transfer of KLAY, Klaytn’s native unit of value, and the tokens
+issued by dApps).
 
-![Hình 1. Chuỗi chính và Chuỗi dịch vụ của Klaytn](/img/learn/mainchain_servicechain.png)
+## Network <a id="network"></a>
 
-Hình 1 minh họa mô hình cấu trúc liên kết mạng của các chuỗi dịch vụ đang được sử dụng để đáp ứng nhiều nhu cầu hoạt động kinh doanh khác nhau, được kết nối với chuỗi chính của Klaytn để mở rộng mạng của Klaytn.
+Service chains connected to Klaytn main chain are collectively called Service Chain Network.
+Note that the method of connection between service chains and the main chain may change in Klaytn’s future iterations.
 
-![Hình 2. Kết nối giữa Chuỗi chính và Chuỗi dịch vụ sử dụng Mô hình cầu nối chính/cầu nối con](/img/learn/sc_connection.png)
+![Figure 1. Klaytn Main Chain and Service Chain](/img/learn/mainchain_servicechain.png)
 
-Hình 2 minh họa một ví dụ về SCN (Nút đồng thuận chuỗi dịch vụ) được kết nối trực tiếp với EN (Nút điểm cuối) của chuỗi chính của Klaytn bằng mô hình cầu nối con/cầu nối chính trong việc sử dụng các tính năng của chuỗi dịch vụ.
+Figure 1 shows the network topology of service chains being used to meet various business needs, connected
+with Klaytn main chain to expand the Klaytn network.
 
-## Tính năng <a id="features"></a>
-Chuỗi dịch vụ mở rộng và tăng cường Klaytn bằng cách cung cấp một cơ chế toàn vẹn dữ liệu và hỗ trợ chuyển token giữa các chuỗi khác nhau.
+![Figure 2. Main Chain and Service Chain Connection using Main/Sub-Bridge Model](/img/learn/sc_connection.png)
 
-### Neo dữ liệu <a id="data-anchoring"></a>
-Đối với tính toàn vẹn của dữ liệu, Chuỗi dịch vụ có thể tự động neo từng hàm băm của khối chuỗi dịch vụ vào chuỗi chính như một giao dịch đặc biệt. Việc neo dữ liệu này có thể đảm bảo với người dùng dịch vụ rằng dữ liệu trong chuỗi dịch vụ không thể bị thay đổi sau khi được tạo.
+Figure 2 shows an example of SCN (Service Chain Consensus Node) connected directly with Klaytn main chain’s EN (Endpoint Node)
+using a main/sub-bridge model in using the service chain’s features.
 
-### Chuyển giá trị <a id="value-transfer"></a>
-Để giúp các nhà cung cấp dịch vụ (SP) dễ dàng di chuyển người dùng dịch vụ và giá trị trên khắp chuỗi, có thể kích hoạt hoạt động chuyển các token như KLAY (đơn vị giá trị mặc định của Klaytn) và các token Klaytn do các dApp phát hành giữa nhiều chuỗi khác nhau. Người dùng có thể dễ dàng yêu cầu chuyển token đến các chuỗi khác bằng cách gửi một giao dịch đến một hợp đồng đặc biệt, được gọi là hợp đồng bắc cầu.
+## Features <a id="features"></a>
 
+Service Chain expands and augments Klaytn by providing a data integrity mechanism and supporting token transfers between different chains.
+
+### Data Anchoring <a id="data-anchoring"></a>
+
+For data integrity, Service Chain can automatically anchor every service chain block hash as a special transaction to the main chain.
+This data anchoring can ensure to the service users that the data in the service chain cannot be altered once it is created.
+
+### Value Transfer <a id="value-transfer"></a>
+
+To help the service providers (SPs) to easily migrate service users and values across chains,
+transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tokens issued by dApps, between different chains can be enabled.
+Users can easily request to transfer tokens to other chains by sending a transaction to a special contract, called bridge contract.
