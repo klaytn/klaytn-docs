@@ -1,29 +1,26 @@
 ---
-description: >-
-  API được sử dụng để truy vấn cấu hình mạng.
-
+description: APIs used to query network configuration.
 ---
 
 # net
 
-Không gian tên `net` cung cấp các hàm liên quan đến mạng lưới Klaytn.
-
+The namespace `net` provides functions related to the Klaytn networks.
 
 ## net_networkID <a id="net_networkid"></a>
 
-Trả về mã định danh mạng (ID mạng).
+Returns the network identifier (network ID).
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại    | Mô tả                                                                                                                                  |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số định danh mạng.<br/> - `"1001"`: Mạng thử nghiệm Klaytn Baobab.<br/> - `"8217"`: Mạng chính Klaytn Cypress. |
+| Type     | Description                                                                                                             |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the network identifier. <br/>- `"1001"`: Klaytn Baobab testnet. <br/>- `"8217"`: Klaytn Cypress mainnet. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -37,22 +34,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-
 ## net_listening <a id="net_listening"></a>
 
-Trả về `true` nếu máy khách đang chủ động lắng nghe các kết nối mạng.
+Returns `true` if the client is actively listening for network connections.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| type    | Mô tả                                                    |
-| ------- | -------------------------------------------------------- |
-| Boolean | `true` khi máy khách đang nghe, ngược lại sẽ là `false`. |
+| Type    | Description                               |
+| ------- | ----------------------------------------- |
+| Boolean | `true` when listening, otherwise `false`. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -66,22 +62,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-
 ## net_peerCount <a id="net_peercount"></a>
 
-Trả về số lượng máy ngang hàng hiện đang kết nối với máy khách.
+Returns the number of peers currently connected to the client.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại    | Mô tả                                               |
-| -------- | --------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số lượng máy ngang hàng được kết nối. |
+| Type     | Description                               |
+| -------- | ----------------------------------------- |
+| QUANTITY | Integer of the number of connected peers. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -97,19 +92,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCountByType <a id="net_peercountbytype"></a>
 
-Trả về số nút được kết nối theo loại và tổng số nút được kết nối với các cặp khóa/giá trị.
+Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại      | Mô tả                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------- |
-| Chuỗi JSON | Số lượng máy ngang hàng được kết nối theo loại cũng như tổng số máy ngang hàng được kết nối. |
+| Type        | Description                                                                           |
+| ----------- | ------------------------------------------------------------------------------------- |
+| JSON string | The number of connected peers by type as well as the total number of connected peers. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
@@ -125,19 +120,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_version <a id="net_version"></a>
 
-Trả về phiên bản giao thức klaytn hiện tại.
+Return the current klaytn protocol version.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại    | Mô tả                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của phiên bản giao thức klaytn.<br/> - `"1001"`: Mạng thử nghiệm Klaytn Baobab.<br/> - `"8217"`: Mạng chính Klaytn Cypress. |
+| Type     | Description                                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the klaytn protocol version. <br/>- `"1001"`: Klaytn Baobab testnet. <br/>- `"8217"`: Klaytn Cypress mainnet. |
 
-**Ví dụ**
+**Example**
 
 ```shell
 // Request
