@@ -1,35 +1,35 @@
-# caver-js (1.4.1 hoặc sớm hơn)
+# caver-js (1.4.1 or earlier)
 
-`caver-js` là một thư viện API JavaScript cho phép các nhà phát triển tương tác với nút Klaytn bằng kết nối HTTP hoặc Websocket. Nó có sẵn trên [npm](https://www.npmjs.com/package/caver-js).
+`caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
-## Tính năng <a id="features"></a>
+## Features <a id="features"></a>
 
-* Hoàn tất việc triển khai API máy khách JSON-RPC của Klaytn qua HTTP và Websocket
-* Hỗ trợ giao dịch, tài khoản và các loại khóa tài khoản của Klaytn
-* Gói hợp đồng thông minh JavaScript để triển khai và thực thi hợp đồng thông minh trên mạng lưới Klaytn
-* Ví trong bộ nhớ để quản lý các tài khoản Klaytn
-* Hỗ trợ ủy thác phí
-* Hỗ trợ định dạng khóa ví Klaytn
-* Mã hóa/giải mã một đối tượng giao dịch trong RLP
-* Ký một đối tượng giao dịch
-* Dễ dàng chuyển ứng dụng web3-js sang caver-js
+- Complete implementation of Klaytn’s JSON-RPC client API over HTTP and Websocket
+- Support of Klaytn transaction, account, and account key types
+- JavaScript smart contract package to deploy and execute a smart contract on the Klaytn network
+- In-memory wallet for managing Klaytn accounts
+- Support of fee-delegation
+- Support of the Klaytn wallet key format
+- Encoding/decoding of a transaction object in RLP
+- Signing of a transaction object
+- Easy to port web3-js application to caver-js
 
-## Các gói trong caver-js <a id="packages-in-caver-js"></a>
+## Packages in caver-js <a id="packages-in-caver-js"></a>
 
-Dưới đây là các gói được cung cấp trong `caver-js`.
+Below are packages provided in `caver-js`.
 
-* [caver.klay](./api/caver.klay/caver.klay.md)
-* [caver.klay.tài khoảns](./api/caver.klay.accounts.md)
-* [caver.klay.Contract](./api/caver.klay.Contract.md)
-* [caver.klay.net](./api/caver.klay.net.md)
-* [caver.klay.abi](./api/caver.klay.abi.md)
-* [caver.utils](./api/caver.utils_1.4.1.md)
+- [caver.klay](./api/caver.klay/caver.klay.md)
+- [caver.klay.accounts](./api/caver.klay.accounts.md)
+- [caver.klay.Contract](./api/caver.klay.Contract.md)
+- [caver.klay.net](./api/caver.klay.net.md)
+- [caver.klay.abi](./api/caver.klay.abi.md)
+- [caver.utils](./api/caver.utils_1.4.1.md)
 
-## Cải thiện mã lỗi <a id="error-code-improvement"></a>
+## Error Code Improvement <a id="error-code-improvement"></a>
 
-Các thông báo lỗi từ Ethereum qua web3.js thường không chỉ ra lỗi phát sinh ở đâu. `caver-js` cải thiện giao diện để nhận các thông báo lỗi từ Klaytn.
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Klaytn.
 
-Bạn có thể tìm hiểu thêm thông tin trong giá trị của `txError` của biên lai giao dịch như dưới đây:
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```text
 Error: runtime error occurred in interpreter
@@ -39,8 +39,8 @@ Error: runtime error occurred in interpreter
   "contractAddress": null,
   "from": "0xa8a2d37727197cc0eb827f8c5a3a3aceb26cf59e",
   "gasUsed": 9900000000,
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  "trạng thái": false,
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "status": false,
   "to": "0xf8425b0f65147969621f9390ca06139c7b439497",
   "transactionHash": "0x85ce2b307899c90144442d9b3236827ac57375c522be2435093aebfd920b8c58",
   "transactionIndex": 0,
@@ -49,15 +49,13 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## Thận trọng khi gửi giao dịch đến Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn sử dụng giá gas cố định \(25 ston = 25 \* 10^9\). Một giao dịch có giá khác được gửi lên mạng lưới Klaytn sẽ bị từ chối. Để biết thêm thông tin về giá gas, hãy xem [Tổng quan về đơn giá và giá gas](../../../learn/transaction-fees.md#gas-and-unit-price-overview) Bạn có thể lấy giá gas được dùng trong mạng lưới bằng cách sử dụng [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice).
+Klaytn uses a fixed gas price (25 ston = 25 \* 10^9). A transaction with a different price submitted to the Klaytn network will be rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../learn/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice).
 
-Nếu `gasPrice` không được xác định khi bạn ký hoặc gửi một giao dịch, caver-js sẽ gọi RPC [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice) để đặt giá gas của giao dịch.
+If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice) RPC call to set the gas price of the transaction.
 
-## Liên kết <a id="links"></a>
+## Links <a id="links"></a>
 
-* caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-* caver-js trên [npm](https://www.npmjs.com/package/caver-js)
-
-
+- caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+- caver-js on [npm](https://www.npmjs.com/package/caver-js)
