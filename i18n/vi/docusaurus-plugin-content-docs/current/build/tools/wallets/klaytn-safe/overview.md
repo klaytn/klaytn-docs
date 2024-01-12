@@ -1,15 +1,15 @@
-# Thiết kế két Klaytn
+# Klaytn Safe Design
 
-Hiện tại, Klaytn Safe là tập hợp các công cụ để tạo và quản lý ví đa chữ ký, cụ thể là:
+Currently, Klaytn Safe is a collection of tools to create and manage multi-signature wallets, viz:
 
-* **Safe React:** Đây là ứng dụng web phản ứng để tạo và tương tác với ví đa chữ ký.
+- **Safe React:** This is a react web app to create and interact with a multi-sig wallet.
 
-* **Dịch vụ giao dịch Safe:** Dịch vụ này theo dõi các giao dịch được gửi qua các hợp đồng an toàn và lắng nghe các sự kiện từ các khối gần đây trong Cypress và Baobab. Các giao dịch cũng có thể được gửi đến dịch vụ để cho phép thu thập chữ ký ngoài chuỗi hoặc để thông báo cho chủ sở hữu về một giao dịch đang chờ gửi đến chuỗi khối.
+- **Safe Transaction Service:** This keeps track of transactions sent via safe contracts and listens to events from recent blocks in Cypress and Baobab. Transactions can also be sent to the service to allow off-chain collecting of signatures or to inform the owners about a transaction that is pending to be sent to the blockchain.
 
-* **Dịch vụ cấu hình Safe:** Dịch vụ này cung cấp thông tin cấu hình của môi trường máy khách Klaytn Safe, ví dụ như cấu hình tất cả chi tiết chuỗi và API.
+- **Safe Config Service:** This provides configuration information of the Klaytn Safe clients environment, e.g configs of all chain details and APIs.
 
-* **Cổng máy khách Safe:** Đây là cổng kết nối giữa máy khách Klaytn Safe và các dịch vụ phụ trợ (dịch vụ giao dịch và Nút Klaytn)
+- **Safe Client Gateway:** This is a gateway between the Klaytn Safe client and the backend services (transaction service and Klaytn Nodes)
 
-* **Cơ sở hạ tầng Safe:** Đây là thiết lập cụm để triển khai các dịch vụ phụ trợ (Giao dịch Safe, Cấu hình Safe, Cổng máy khách Safe).
+- **Safe Infrastructure:** This is a  cluster setup to deploy the backend services (Safe-Transaction, Safe-Config, Safe-Client gateway).
 
-Vui lòng tham khảo [liên kết](https://github.com/klaytn/klaytn-safe-react) này để biết thêm thông tin.
+Please refer to this [link](https://github.com/klaytn/klaytn-safe-react) to get more information.
