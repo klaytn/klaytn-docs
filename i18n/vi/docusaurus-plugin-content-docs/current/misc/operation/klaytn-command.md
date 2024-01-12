@@ -1,22 +1,24 @@
-# Lệnh Klaytn thường dùng
+# Frequently Used Commands
 
-## Cách tìm Thư mục Klaytn (Thường gọi là “Klaytn DIR”)
+## How to find the Klaytn Directory (Normally “Klaytn DIR”)
 
----
-Bạn có thể kiểm tra thư mục Klaytn tại cấu hình `kcn` hoặc `kpn`. Tập tin cấu hình nằm tại `/etc/kcnd/conf` hoặc `/etc/kpnd/conf`.
+***
+
+You can check Klaytn directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
 
 # Find DATA_DIR and LOG_DIR path as below example
 DATA_DIR=/var/kcnd/data/
-LOG_DIR=/var/kcnd/nhật ký/
+LOG_DIR=/var/kcnd/logs/
 ```
 
-## Cách kết nối đến Bảng điều khiển Klaytn
+## How to connect to Klaytn Console
 
----
-Kết nối đến API Klaytn để kiểm tra trạng thái nút và mạng.
+***
+
+Connect to Klaytn API to check node and network status.
 
 ```bash
 # execute the command below in the Klaytn DATA_DIR Path
@@ -24,7 +26,7 @@ $ sudo kcn attach klay.ipc
 > 
 ```
 
-## Các API hữu ích
+## Useful APIs
 
 ```bash
 # Check current block Number
@@ -44,7 +46,7 @@ $ sudo kcn attach klay.ipc
   > admin.removePeer("kni")
 ```
 
-## Cách để chỉ lấy Kết quả API
+## How to get the API Result only
 
 ```jsx
 # execute the command below in the Klaytn DATA_DIR Path
