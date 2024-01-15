@@ -36,6 +36,7 @@ const commonSidebar = [
       'misc/operation/troubleshooting',
       'misc/operation/chaindata-change',
       'misc/operation/chaindata-migration',
+      'misc/operation/upstream-en',
     ],
   },
   'misc/klaytn-history',
