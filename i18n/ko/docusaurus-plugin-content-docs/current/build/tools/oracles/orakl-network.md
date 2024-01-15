@@ -128,7 +128,7 @@ function fulfillRandomWords(
 - 플러그인을 설치한 후 왼쪽의 클레이튼 탭을 클릭합니다.
 - **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
 - Contract에서 컨트랙트를 선택합니다. (예: VRFConsumer)
-- Pass in the coordinator contract address `0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f`.
+- 코디네이터 컨트랙트 주소 `0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f`를 전달합니다.
 - **Deploy**를 클릭합니다..
 
 **샘플 코드**
@@ -200,7 +200,7 @@ function fulfillRandomWords(
 
 ![](/img/build/tools/orakl-vrf-response.png)
 
-Tada 🎉! You just requested for a random number in your smart contract.
+축하합니다! 방금 스마트 컨트랙트에 난수를 요청하셨습니다.
 
 ## 결론
 
