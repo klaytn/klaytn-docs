@@ -1,4 +1,4 @@
-# Migrate Ethereum App to Klaytn
+# 이더리움 앱을 클레이튼으로 마이그레이션하기
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
@@ -13,7 +13,7 @@
 
 ## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
 
-이 튜토리얼은 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 안내하기 위한 것입니다. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.
+이 튜토리얼은 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 안내하기 위한 것입니다. 클레이튼에 대한 사전 경험이 없어도 됩니다. 간단한 블록체인 앱을 샘플로 사용하여 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 보여드리겠습니다.
 
 여기서는 이더리움 앱을 클레이튼으로 마이그레이션하는 데 필요한 코드 수정에만 집중하겠습니다. 클레이튼 dApp 생성에 대한 자세한 내용은 [CountdApp 튜토리얼](./count-dapp/count-dapp.md)을 참고하시기 바랍니다.
 
@@ -104,22 +104,22 @@ export default BlockNumber
 
 ![컴포넌트 카운트](/img/build/tutorials/count-component.gif)
 
-컨트랙트와 상호작용하려면 배포된 컨트랙트의 인스턴스를 만들어야 합니다. With the instance, we can read and write the contract's data.
+컨트랙트와 상호작용하려면 배포된 컨트랙트의 인스턴스를 만들어야 합니다. 인스턴스를 사용하면 컨트랙트의 데이터를 읽고 쓸 수 있습니다.
 
 CountDapp을 이더리움에서 클레이튼으로 마이그레이션하는 방법을 단계별로 알아봅시다!
 
-- 5-1. Deploy `Count` contract on Klaytn
+- 5-1. 클레이튼에 `Count` 컨트랙트 배포하기
 - 5-2. 컨트랙트 인스턴스 생성하기
 - 5-3. 컨트랙트와 상호작용하기
 
 ### 5-1. 클레이튼에 `Count` 컨트랙트 배포 <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
 
-첫 번째 단계는 클레이튼에 카운트 컨트랙트를 배포하고 컨트랙트 주소를 받는 것입니다. Most of the cases, you can use Etherem contracts on Klaytn without modification. [이더리움 컨트랙트 이식하기](../../build/smart-contracts/porting-ethereum-contract.md)를 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
+첫 번째 단계는 클레이튼에 카운트 컨트랙트를 배포하고 컨트랙트 주소를 받는 것입니다. 대부분의 경우 클레이튼에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다. [이더리움 컨트랙트 이식하기](../../build/smart-contracts/porting-ethereum-contract.md)를 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
 
 1. `Truffle-config.js`에서 네트워크 속성을 변경하여 클레이튼에 컨트랙트를 배포합니다.
 2. KLAY [Faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet)를 사용하여 계정을 충전합니다.
 3. `$ truffle deploy --network baobab --reset`을 입력합니다.
-4. `Count` contract will be deployed on Baobab testnet, Klaytn.
+4. `count` 컨트랙트가 클레이튼 Baobab 테스트넷에 배포됩니다.
 
 `Truffle-config.js`
 
