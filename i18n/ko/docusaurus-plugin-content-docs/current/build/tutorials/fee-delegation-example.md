@@ -21,7 +21,7 @@
 
 ## 2. 수수료 위임의 작동 방식 <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-Let's skim through how fee delegation works.
+수수료 위임이 어떻게 작동하는지 간략히 살펴보겠습니다.
 
 ### 2.1 발신자가 트랜잭션 서명 <a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
@@ -40,7 +40,7 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
   from: senderAddress,
   to: toAddress,
   gas: '300000',
-  value: caver.utils.toPeb('1', `klay`),
+  value: caver.utils.toPeb('1', 'KLAY'),
 }, senderPrivateKey)
 ```
 
@@ -111,7 +111,7 @@ sendFeeDelegateTx = async() => {
       from: senderAddress,
       to: toAddress,
       gas: '300000',
-      value: caver.utils.toPeb('0.00001', `klay`),
+      value: caver.utils.toPeb('0.00001', 'KLAY'),
     }, senderPrivateKey)
 
     // send signed raw transaction to fee payer's server
