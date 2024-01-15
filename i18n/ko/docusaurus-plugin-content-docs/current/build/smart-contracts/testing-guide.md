@@ -216,7 +216,7 @@ contract("KlaytnGreeter", async(accounts) => {
   구조적으로, Truffle 테스트 코드는 Mocha의 일반적인 테스트 코드와 크게 다르지 않아야 합니다. 테스트에는 Mocha가 자동화된 테스트로 인식할 수 있는 코드가 포함되어야 합니다. Mocha와 Truffle 테스트의 차이점은 `contract()` 함수입니다.
 
   **참고** `contract()` 함수와 사용 가능한 클레이튼 계정을 지정하기 위한 `accounts` 배열을 사용한다는 점에 유의하세요.
-- Contract abstractions within your tests
+- 테스트 내 컨트랙트 추상화
 
   Truffle은 테스트 중에 어떤 컨트랙트와 상호작용해야 하는지 감지할 방법이 없으므로, 컨트랙트를 명시적으로 지정해야 합니다. 이를 위한 한 가지 방법은 `artifacts.require()` 메서드를 사용하는 것입니다.
 - `it` 구문
