@@ -12,10 +12,11 @@
 
 ### 1. 배경 <a href="#1-background" id="1-background"></a>
 
-In a blockchain-based app, we usually interact with smart contracts.\
-There are 2 types of interactions with a contract.\
-`1) Read data from a contract.` `2) Write data to a contract.`
+블록체인 기반 앱에서는 일반적으로 스마트 컨트랙트와 상호작용합니다.\
+컨트랙트와의 상호작용에는 두 가지 유형이 있습니다.\
+`1) 컨트랙트에서 데이터 읽기` `2) 컨트랙트에 데이터 쓰기`
 
+컨트랙트에서 데이터를 읽는 데는 비용이 들지 않습니다.\
 반면에 컨트랙트에 데이터를 쓰는 데는 비용이 발생합니다.
 
 참고) `트랜잭션 보내기`\
