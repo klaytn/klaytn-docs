@@ -5,7 +5,6 @@
 ## 메타버스의 신뢰 레이어로서의 클레이튼 <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
 
 클레이튼은 메타버스의 기본 신뢰 레이어가 되어 모든 커뮤니티의 참여와 기여를 존중하고, 새로운 세상에서 힘을 실어주고 하나로 모으기 위해 만들어졌습니다.
-가장 중요한 설계 원칙은 다음과 같습니다;
 
 :::note
 
@@ -21,15 +20,13 @@
 
 - 메인체인은 최소 4,000 TPS를 처리해야 합니다.
 - 메인체인은 1초의 블록 생성 시간으로 즉각적인 트랜잭션 완결성을 보장해야 합니다.
-- [합의 메커니즘](./consensus-mechanism.md)을 참조하세요.
-  ​
+- 가장 중요한 설계 원칙은 다음과 같습니다;
 
 #### 확장성 <a id="scalability"></a>
 
 - 서비스체인은 사용자 정의가 가능하고 쉽게 배포할 수 있는 Klaytn 2.0의 기본 L2 솔루션입니다. 서비스체인은 자체 거버넌스를 가질 수 있으며, 클레이튼 메인체인에 연결하여 데이터를 앵커링하거나 자산을 전송할 수 있습니다.
 - [서비스 체인](./scaling-solutions.md#service-chain)을 참고하세요. 기업이나 대규모 네트워크는 종종 자체 전용 실행 환경을 갖고 싶어합니다. 서비스체인을 사용하면 다른 블록체인 애플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지할 수 있습니다.
 - 샤딩이나 롤업과 같은 다른 확장성 솔루션도 가까운 시일 내에 제공될 예정입니다.
-  ​
 
 ### 저렴한 비용 <a id="low-cost"></a>
 
@@ -41,16 +38,16 @@
 
 #### 이더리움 호환성 <a id="ethereum-compatibility"></a>
 
-- 개발 도구: 이더리움에서 실행할 수 있는 모든 툴은 인터페이스와 실행 관점에서 기존 이더리움의 기술 스택과 클레이튼의 기술 스택을 동등하게 만들어 클레이튼 생태계 내에서 원활하게 실행됩니다. 클레이튼 생태계에서 만들어진 새로운 툴링은 이더리움 생태계 내에서 상호적으로 채택될 수 있습니다.
+- Development Tools: Any tooling that can run on Ethereum will run seamlessly within the Klaytn ecosystem by making Klaytn’s technical stack equivalent, from an interfacing and execution
+  perspective, to the existing Ethereum stack. New tooling created in the Klaytn ecosystem could be reciprocally adopted within the Ethereum ecosystem.
 - EVM과 API: 기존 이더리움 스택을 기반으로 구축함으로써 EVM과 지원 라이브러리의 오픈소스 코드베이스에 대한 모든 개선 사항을 계승합니다. Klaytn EVM 환경에서 이와 동등한 Opcode와 스택 로직을 지원하면 실행 동작이 동등하게 보장되며, 동등한 엔드포인트 페이로드 구문을 가진 JSON-RPC API 세트를 지원하면 완전한 이더리움 인터페이스 동등성이 보장됩니다. [Solidity-스마트 컨트랙트 언어](../build/smart-contracts/solidity-smart-contract-language.md), [이더리움 앱을 클레이튼으로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-klaytn.md)를 참고하세요.
-- 핵심 개발 기여: 이더리움 동등성을 지원하는 것은 클레이튼과 이더리움 생태계 모두에 상호 이익을 가져다줍니다. 이더리움 개선 제안(EIP)의 대부분은 클레이튼 핵심 개발 아젠다로 마이그레이션되어 채택될 수 있으며, 결과적으로 클레이튼 개선 제안(KIP)은 이더리움과 EVM의 발전에 기여할 수 있습니다. 개발 커뮤니티가 한 생태계에 기여하면 실제로 두 생태계 모두에 기여하는 것입니다.
+- Core Development Contribution: Supporting Ethereum equivalence translates most to the mutual benefit to both the Klaytn and Ethereum ecosystems. The majority of Ethereum Improvement Proposals (EIPs) could be migrated and adopted to the Klaytn core development agenda, and in turn Klaytn Improvement Proposals (KIPs) could contribute to the advancement of Ethereum and EVM. When the development community contributes to one ecosystem, they are indeed contributing to both.
   ​
 
 #### 오픈 소스 인프라 및 패키지 <a id="open-source-infrastructure-and-package"></a>
 
 - 기본 인프라: 엔드투엔드 블록체인 통합 및 구축을 위한 도구 세트입니다. 여기에는 SDK와 스마트 컨트랙트 라이브러리, 지갑과 체인 탐색기, 분산 스토리지 솔루션, 오라클 지원 및 브릿지가 포함됩니다.
 - 보조 인프라: 제품 및 서비스 지원을 위한 에코시스템입니다. 여기에는 통합/추상화 서비스, 스테이블코인 통합, DAO, NFT 마켓플레이스, DEX 및 DeFi, 전통 금융 인터페이스가 포함됩니다.
-  ​
 
 ### 향상된 사용자 경험 <a id="enhanced-user-experience"></a>
 
@@ -58,19 +55,15 @@
 
 - 사용자의 트랜잭션 수수료를 애플리케이션으로 이체하는 기능
 - [수수료 위임](./transactions/transactions.md#fee-delegation)을 참조하십시오. 애플리케이션 운영자는 각 트랜잭션에 대한 보조금 금액을 조정하고 부분 유료화 또는 구독과 같은 보다 유연한 비즈니스 모델을 구현할 수 있습니다. 수수료 위임은 사용자 확보 장벽을 효과적으로 낮출 수 있습니다.
-  ​
-  ​
 
 ### 풀-스위트, 프로토콜 수준의 에코 펀드 <a id="contribution-reward"></a>
 
 - 클레이튼은 생태계를 지원하는 인센티브가 온체인 프로토콜 토큰노믹스로 인코딩된 최초이자 최대 규모의 사례입니다. 새로 발행되는 토큰의 50%는 생태계에 재투자됩니다.
 - [클레이튼 커뮤니티 기금](token-economy.md#klaytn-community-fund) 및 [클레이튼 재단 기금](token-economy.md#klaytn-foundation-fund)을 참고하세요.
-  ​
-  ​
 
 ### 커뮤니티 공동 구축 <a id="community-co-building"></a>
 
-- 클레이튼은 프로토콜 설계 외에도 커뮤니티 공동 구축을 통해 영역을 확장할 것이며, 여기에는 게임 길드, 투자 DAO, 커뮤니티 DAO, 글로벌 플레이어와의 제휴 등과 같은 다양한 종류의 커뮤니티가 포함됩니다.마지막으로 기본 규칙입니다::::note
+- 클레이튼은 프로토콜 설계 외에도 커뮤니티 공동 구축을 통해 영역을 확장할 것이며, 여기에는 게임 길드, 투자 DAO, 커뮤니티 DAO, 글로벌 플레이어와의 제휴 등과 같은 다양한 종류의 커뮤니티가 포함됩니다.note
 
 클레이튼은 위에서 언급한 개선점을 달성하기 위해 블록체인의 핵심 특성을 희생하지 않으며, 강력한 이해관계자들과 함께 프로토콜을 안정적으로 유지합니다.
 
@@ -80,7 +73,6 @@
 
 - 누구나 블록체인 상에서 트랜잭션을 요청하고, 트랜잭션 결과를 조회하고 확인할 수 있습니다.
 - 클레이튼은 탈중앙화된 네트워크이기 때문에 어떤 악의적인 노드도 데이터 무결성을 깨뜨릴 수 없습니다.
-  ​
 
 ### 안정성을 갖춘 탈중앙화를 실현하는 DAO, 빌더, 기업의 거버넌스 <a id="governance-by-trusted-entities"></a>
 
@@ -92,7 +84,7 @@
 
 [Human-Readable Address]: ./accounts.md#human-readable-address-hra
 
-[Consensus Mechanism]: ./consensus-mechanism.md
+[Consensus Mechanism]: <[합의 메커니즘](./consensus-mechanism.md)을 참조하세요.>
 
 [Affordable Smart Contract Execution Cost]: <[합리적인 스마트 컨트랙트 실행 비용](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](./transaction-fees.md)를 참조하세요.>
 
@@ -106,7 +98,7 @@
 
 [Truffle]: ../build/smart-contracts/ide-and-tools/truffle.md
 
-[Migrating Ethereum App to Klaytn]: <[Solidity-스마트 컨트랙트 언어](../build/smart-contracts/solidity-smart-contract-language.md), [이더리움 앱을 클레이튼으로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-klaytn.md)를 참고하세요.>
+[Migrating Ethereum App to Klaytn]: ../build/tutorials/migrating-ethereum-app-to-klaytn.md
 
 [Incentive Program]: ./token-economy.md
 
