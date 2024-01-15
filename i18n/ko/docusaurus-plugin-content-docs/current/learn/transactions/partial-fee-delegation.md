@@ -2,10 +2,10 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KLAY를 전송하고자 할 때 사용됩니다. 클레이튼은 여러 트랜잭션 유형을 제공하여 각 트랜잭션 유형이 하나의 용도로만 사용되도록 하기 때문에, TxTypeFeeDelegatedValueTransferWithRatio는 외부 소유 계정으로 KLAY를 전송하는 데 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KLAY를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)를 사용하세요. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
+TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KLAY를 전송하고자 할 때 사용됩니다. 클레이튼은 여러 트랜잭션 유형을 제공하여 각 트랜잭션 유형이 하나의 용도로만 사용되도록 하기 때문에, TxTypeFeeDelegatedValueTransferWithRatio는 외부 소유 계정으로 KLAY를 전송하는 데 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KLAY를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)를 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
 
 1. 수수료 납부자의 잔액이 트랜잭션 수수료의 지정된 비율만큼 감소합니다.
-2. `spender`의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 납부자가 부담하고, 나머지 70%는 발신자가 부담합니다.
+2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 `spender`가 지불합니다.
 3. 발신자의 nonce가 1 증가합니다.
 4. 발신자에서 수신자에게 `value` KLAY가 전송됩니다.
 
@@ -18,10 +18,10 @@ TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KLAY를 전송하고자
 | gasPrice           | \*big.Int (Go)                                                                               | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. ../klaytn-native-coin-klay.md#units-of-klay |
 | gas                | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 최대 가스 양입니다.                                                                                                                                                                    |
 | to                 | common.Address (Go)                                                                          | 이체된 값을 받을 계정 주소입니다.                                                                                                                                                                           |
-| value              | \*big.Int (Go)                                                                               | 이체할 `peb`의 KLAY 금액입니다.                                                                                                                                                                        |
+| value              | \*big.Int (Go)                                                                               | 전송할 `peb`의 KLAY 금액입니다.                                                                                                                                                                        |
 | from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                              |
 | feeRatio           | uint8 (Go)                                                                                   | 수수료 납부자의 수수료 비율. 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                 |
-| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                              |
+| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                                          |
 | feePayer           | common.Address (Go)                                                                          | 수수료 납부자의 주소입니다.                                                                                                                                                                               |
 | feePayerSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 수수료 납부자의 서명입니다.                                                                                                                                                                               |
 
@@ -109,7 +109,7 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 
 ### RPC 출력 예시 <a id="rpc-output-example"></a>
 
-다음은 JSON RPC를 통해 반환된 트랜잭션 객체를 보여줍니다.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -152,7 +152,7 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-사용자가 특정 메시지와 함께 KLAY를 전송하고자 할 때 TxTypeFeeDelegatedValueTransferMemoWithRatio를 사용합니다. TxTypeFeeDelegatedValueTransferMemoWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KLAY를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)를 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
+사용자가 특정 메시지와 함께 KLAY를 전송하고자 할 때 TxTypeFeeDelegatedValueTransferMemoWithRatio를 사용합니다. TxTypeFeeDelegatedValueTransferMemoWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KLAY를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)를 사용하세요. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
 1. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
 2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 발신자가 지불합니다.k
@@ -168,11 +168,11 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 | gasPrice           | \*big.Int (Go)                                                                               | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위]를 참고하세요. |
 | gas                | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 최대 가스 양입니다.                                                                                                                                                                                              |
 | to                 | common.Address (Go)                                                                          | 이체된 값을 받을 계정 주소입니다.                                                                                                                                                                                                     |
-| value              | \*big.Int (Go)                                                                               | 전송할 `peb`의 KLAY 금액입니다.                                                                                                                                                                                                  |
+| value              | \*big.Int (Go)                                                                               | 이체할 `peb`의 KLAY 금액입니다.                                                                                                                                                                                                  |
 | from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
 | input              | []byte (Go)                              | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                |
 | feeRatio           | uint8 (Go)                                                                                   | 수수료 지불자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                        |
-| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
+| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                                                                       |
 | feePayer           | common.Address (Go)                                                                          | 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
 | feePayerSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                         |
 
@@ -469,7 +469,7 @@ TxTypeFeeDelegatedSmartContractExecution은 `input`에 지정된 데이터로 �
 
 1. `to`가 스마트 컨트랙트 계정인 경우, `input`에 따라 코드가 실행됩니다. 그렇지 않으면 트랜잭션이 거부됩니다.
 2. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
-3. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 납부자가 부담하고, 나머지 70%는 발신자가 부담합니다.
+3. `spender`의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 납부자가 부담하고, 나머지 70%는 발신자가 부담합니다.
 4. 발신자의 nonce가 1 증가합니다.
 5. `value`가 제공된 경우, `value` KLAY가 발신자로부터 `to` 스마트 컨트랙트로 전송됩니다. 컨트랙트에는 KLAY를 받기 위한 지불 가능한 폴백 기능이 있어야 합니다.
 
@@ -571,7 +571,7 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
 
 ### RPC 출력 예시 <a id="rpc-output-example"></a>
 
-다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
+다음은 JSON RPC를 통해 반환된 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -618,7 +618,7 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
 TxTypeFeeDelegatedAccountUpdateWithRatio는 지정된 계정의 키를 업데이트합니다. 트랜잭션 수수료의 지정된 비율은 수수료 지불자가 지불합니다. 이 거래 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
 1. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
-2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 `spender`가 지불합니다.
+2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: `feeRatio`가 30이면 수수료의 30%는 수수료 납부자가 부담하고, 나머지 70%는 발신자가 부담합니다.
 3. 발신자의 nonce가 1 증가합니다.
 4. 계정의 키가 `key`로 업데이트됩니다.
 5. 이 트랜잭션이 실행되면 이후 계정에서 전송된 트랜잭션은 이 `key`로 유효성을 검사합니다.
@@ -634,7 +634,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio는 지정된 계정의 키를 업데이
 | from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                      |
 | key                | AccountKey (Go)                                                                              | 계정에 업데이트할 [계정 키]입니다.                                                                                                                                              |
 | feeRatio           | uint8 (Go)                                                                                   | 수수료 납부자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                      |
-| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                         |
+| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]을 참고하세요.                                                                                                                      |
 | feePayer           | common.Address (Go)                                                                          | 수수료 납부자의 주소입니다.                                                                                                                                                                                                       |
 | feePayerSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                       |
 
@@ -775,9 +775,9 @@ TxTypeFeeDelegatedCancelWithRatio는 트랜잭션 풀에서 동일한 nonce를 �
 | nonce              | uint64 (Go)                                                                                  | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                       |
 | gasPrice           | \*big.Int (Go)                                                                               | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. [KLAY 단위]를 참고하세요. |
 | gas                | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다.                                                                                                                                                                                      |
-| from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]을 참고하세요.                                                                                                                        |
+| from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
 | feeRatio           | uint8 (Go)                                                                                   | 수수료 납부자의 수수료 비율. 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                           |
-| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                                                                    |
+| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
 | feePayer           | common.Address (Go)                                                                          | 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
 | feePayerSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                         |
 
@@ -923,7 +923,7 @@ TxTypeFeeDelegatedChainDataAnchoringWithRatio는 서비스 체인 데이터를 �
 | from               | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
 | feeRatio           | uint8 (Go)                                                                                   | 수수료 납부자의 수수료 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                        |
 | input              | []byte (Go)                              | 서비스 체인의 데이터.                                                                                                                                                                                                            |
-| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                                                                    |
+| txSignatures       | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사]를 참고하세요.                                                                                                                        |
 | feePayer           | common.Address (Go)                                                                          | 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
 | feePayerSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                         |
 
