@@ -1,4 +1,4 @@
-# Massive Eco Fund
+# 대규모 에코 펀드
 
 ## 프로토콜 수준의 종합 $10억+ 에코 펀드 <a id="our-full-suite-protocol-level-eco-fund"></a>
 
@@ -8,7 +8,7 @@
 
 ## 개발 장려금 <a id="grant"></a>
 
-Klaytn currently runs two major grant programs which are:
+클레이튼은 현재 두 가지 주요 보조금 프로그램을 운영 중입니다:
 
 - [Klaytn Community Fund (KCF)](../token-economy.md#klaytn-community-fund)
 - [Klaytn Foundation Fund (KFF)](../token-economy.md#klaytn-foundation-fund).
