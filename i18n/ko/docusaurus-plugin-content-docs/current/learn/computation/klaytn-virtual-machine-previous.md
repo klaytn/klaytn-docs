@@ -23,7 +23,7 @@ KLVM은 일련의 KLVM 명령어로 구성된 Klaytn 가상 머신 코드 (또�
 
 - `A := B`
   - `:=`는 `A`를 `B`로 정의하는 데 사용됩니다.
-- We use the terms "smart contract" and "contract" interchangeably.
+- "스마트 컨트랙트"와 "컨트랙트"라는 용어를 혼용하여 사용합니다.
 - "opcode"라는 용어를 "연산 코드/연산"으로 사용합니다.
 
 ### 심볼 <a id="symbols"></a>
@@ -34,7 +34,7 @@ KLVM은 일련의 KLVM 명령어로 구성된 Klaytn 가상 머신 코드 (또�
 
 | 기호         | 설명           |
 | :--------- | :----------- |
-| `BC`       | Blockchain   |
+| `BC`       | 블록 체인        |
 | `B`        | 블록           |
 | `B_header` | 현재 블록의 블록 헤더 |
 
@@ -164,19 +164,19 @@ Gas = XXXBaseGas + (number of words * XXXPerWordGas)
 Gas = number of signatures * ValidateSenderGas
 ```
 
-| 주소   | Precompiled contracts | 항목                                           | 값            |   |
-| :--- | :-------------------- | :------------------------------------------- | :----------- | - |
-| 0x01 | ecrecover             | EcrecoverGas                                 | 3000         |   |
-| 0x02 | sha256hash            | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |   |
-| 0x03 | ripemd160hash         | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |   |
-| 0x04 | dataCopy              | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |   |
-| 0x05 | bigModExp             | ModExpQuadCoeffDiv                           | 20           | ​ |
-| 0x06 | bn256Add              | Bn256AddGas                                  | 150          |   |
-| 0x07 | bn256ScalarMul        | Bn256ScalarMulGas                            | 6000         |   |
-| 0x08 | bn256Pairing          | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |   |
-| 0x09 | vmLog                 | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |   |
-| 0x10 | feePayer              | FeePayerGas                                  | 300          |   |
-| 0x11 | validateSender        | ValidateSenderGas                            | 5000         |   |
+| 주소   | 미리 컴파일된 컨트랙트   | 항목                                           | 값            |   |
+| :--- | :------------- | :------------------------------------------- | :----------- | - |
+| 0x01 | ecrecover      | EcrecoverGas                                 | 3000         |   |
+| 0x02 | sha256hash     | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |   |
+| 0x03 | ripemd160hash  | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |   |
+| 0x04 | dataCopy       | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |   |
+| 0x05 | bigModExp      | ModExpQuadCoeffDiv                           | 20           | ​ |
+| 0x06 | bn256Add       | Bn256AddGas                                  | 150          |   |
+| 0x07 | bn256ScalarMul | Bn256ScalarMulGas                            | 6000         |   |
+| 0x08 | bn256Pairing   | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |   |
+| 0x09 | vmLog          | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |   |
+| 0x10 | feePayer       | FeePayerGas                                  | 300          |   |
+| 0x11 | validateSender | ValidateSenderGas                            | 5000         |   |
 
 #### 계약 실행 중 가스 계산 <a id="gas-calculation-duration-contract-execution"></a>
 
@@ -203,7 +203,7 @@ Gas = number of signatures * ValidateSenderGas
   - `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`의 경우,
     - `CALL`, `CALLCODE`이고 값을 전송하는 경우, `G_callvalue`를 가스에 추가합니다.
     - `CALL`이고 값을 전송하는 경우, 그리고 신규 계정인 경우 `G_newaccount`를 가스에 추가합니다.
-    - if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    - 호출자가 미리 컴파일된 컨트랙트인 경우, 미리 컴파일된 컨트랙트 가스비를 계산하여 가스에 추가합니다.
     - 가스에 `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas`를 추가합니다.
   - `SELFDESTRUCT`의 경우,
     - 가치를 이전하고 새 계정인 경우, `G_newaccount`를 가스에 추가합니다.
@@ -252,11 +252,11 @@ where
 
   `S_machine,g' := S_machine,g - C(S_system, S_machine, I)`
 
-  - This means that when we evaluate `F_apply`, we
+  - 이는 `F_apply`를 평가할 때
 
-    호출자가 미리 컴파일된 컨트랙트인 경우, 미리 컴파일된 컨트랙트 가스비를 계산하여 가스에 추가합니다.
+    남은 가스 `S_machine,g'`를
 
-    이는 `F_apply`를 평가할 때 결과 머신 상태 `S_machine'`에서 남은 가스 `S_machine,g'`를 추출한다는 것을 의미합니다.
+    결과 머신 상태 `S_machine'`로부터 추출한다는 것을 의미합니다.
 
 따라서 `X`는 현재 상태가 예외적이며 머신을 중지하고 모든 변경 사항을 폐기해야 함을 나타내는 `Z`가 참이 될 때까지 또는 머신이 제어된 정지에 도달했음을 나타내는 `H`가 (빈 집합이 아닌) 계열이 될 때까지 (여기서는 재귀적으로 순환하지만 구현은 일반적으로 간단한 반복 루프를 사용할 것으로 예상됩니다) 순환됩니다.
 
