@@ -1,4 +1,4 @@
-# Precompiled Contracts
+# 사전 컴파일된 컨트랙트
 
 Klaytn은 몇 가지 유용한 사전 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트는 플랫폼 자체에서 네이티브 구현으로 구현됩니다. 주소 0x01부터 0x08까지의 사전 컴파일된 컨트랙트는 이더리움의 컨트랙트와 동일합니다. Klaytn은 추가로 0x09부터 0x0B까지 사전 컴파일된 컨트랙트를 구현하여 새로운 Klaytn 기능을 지원합니다.
 
@@ -178,7 +178,7 @@ function feePayer() internal returns (address addr) {
 0x0B 주소는 메시지와 함께 발신자의 서명을 검증합니다. Klaytn은 [주소에서 키 쌍을 분리](../accounts.md#decoupling-key-pairs-from-addresses)하기 때문에, 서명이 해당 발신자가 제대로 서명했는지 검증해야 합니다. 이를 위해 이 사전 컴파일된 계약은 세 가지 매개변수를 받습니다:
 
 - 공개 키를 받기 위한 발신자의 주소
-- The message hash that is used to generate the signature
+- 서명을 생성하는 데 사용되는 메시지 해시
 - 서명을 생성하는 데 사용되는 메시지 해시
   발신자의 개인 키가 주어진 메시지 해시로 서명한 서명 \* 발신자의 개인 키가 서명한 서명
 
