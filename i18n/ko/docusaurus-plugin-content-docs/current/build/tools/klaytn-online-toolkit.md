@@ -10,7 +10,7 @@
 
 ## 링크 <a id="links"></a>
 
-Here are the links for `Klaytn Online Toolkit`. 자유롭게 사용해보세요.
+'클레이튼 온라인 툴킷'의 링크입니다. 자유롭게 사용해보세요.
 
 - [GitHub 리포지토리](https://github.com/klaytn/klaytn-online-toolkit)
 - [툴킷 페이지](https://toolkit.klaytn.foundation)
