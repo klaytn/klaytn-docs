@@ -119,49 +119,17 @@ render() {
 브라우저의 URL 경로가 `/`인 경우 `<Count />` 컴포넌트를 렌더링합니다.
 
 ```javascript
-// redux/actions/auth.js
-
-// 1. Inject wallet
-export const integrateWallet = (privateKey) => (dispatch) => {
-  // Make wallet instance with caver's privateKeyToAccount API
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
-
-  // To send a transaction, add wallet instance to caver
-  cav.klay.accounts.wallet.add(walletInstance)
-
-  // To maintain logged-in status, store walletInstance at sessionStorage
-  sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
-
-  // To access walletInstance information throughout the whole application, save it to redux store
-  return dispatch({
-    type: INTEGRATE_WALLET,
-    payload: {
-      privateKey,
-      address: walletInstance.address,
-    },
-  })
-}
-
-// 2. Remove wallet
-export const removeWallet = () => (dispatch) => {
-  cav.klay.accounts.wallet.clear()
-  sessionStorage.removeItem('walletInstance')
-  return dispatch({
-    type: REMOVE_WALLET,
-  })
-}
 ```
 
 컴포넌트가 마운트되기 전에 브라우저의 세션스토리지에 `walletInstance` 세션이 있는지 확인합니다.\
-지갑 삽입/제거\*\*\
-한 번도 로그인한 적이 없다면 `walletInstance` 세션이 존재하지 않을 수 있습니다.\
-그렇지 않은 경우, 세션스토리지에 `walletInstance` 세션이 JSON string로 존재할 수 있습니다.\
-삽입 - 세션스토리지에 지갑 인스턴스가 존재한다면, caver와 리덕스 스토어에 지갑 인스턴스를 추가해 보세요.\
-참고) caver의 `privateKeyToAccount` API에 대한 자세한 내용은 [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)를 참고하세요.
+튜토리얼 앱에 로그인한 적이 없는 경우 `walletInstance` 세션이 존재하지 않을 수 있습니다.\
+그렇지 않은 경우, `walletInstance` 세션이 JSON string로 존재할 것이며, 존재한다면 지갑 인스턴스를 caver의 지갑에 추가하려고 시도합니다.\
+caver에 지갑 인스턴스를 추가하려면 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`를 통해 지갑 인스턴스를 추가할 수 있습니다.\
+`caver.klay.accounts.wallet.add`와 관련된 자세한 내용은 [caver.klay.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-add)를 참고하시기 바랍니다.
 
 참고) `walletInstance` 세션이 JSON string로 저장되므로 `JSON.parse`가 필요합니다.
 
-## `src/klaytn/caver.js`: 설정된 설정 내에서 caver를 인스턴스화합니다.
+## `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**
