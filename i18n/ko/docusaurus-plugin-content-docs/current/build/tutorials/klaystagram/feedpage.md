@@ -133,7 +133,7 @@ export default KlaystagramContract
 - `contractInstance.methods.methodName().call()`
 - `contractInstance.methods.methodName().send({ ... })`
 
-**Now we are ready to interact with contract in the application.**\
+**이제 애플리케이션에서 컨트랙트와 상호작용할 준비가 되었습니다.**\
 _cf. **이제 애플리케이션에서 컨트랙트와 상호작용할 준비가 되었습니다.**
 _자세한 내용은 [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)를 참조하세요._
 
@@ -201,7 +201,7 @@ Redux 스토어는 프론트엔드에서 모든 데이터 흐름을 제어합니
 - 문자열 데이터 크기는 `2KB`로 제한됩니다.
 - [`imageCompression()`](https://github.com/klaytn/klaystagram/blob/main/src/utils/imageCompression.js) 함수를 사용하여 사진을 `28KB` 미만으로 압축합니다.
 
-### 2. 컴포넌트 코드 <a href="#2-component-code" id="2-component-code"></a>
+### 2. 컴포넌트 코드 <a id="klaystagramcontract-js"></a>
 
 ```javascript
 // src/components/UploadPhoto.js
@@ -643,7 +643,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Feed)
 
 사진 소유자는 사진의 소유권을 다른 사용자에게 양도할 수 있습니다. 트랜스퍼오너십\` 트랜잭션을 전송하면 새로운 소유자의 주소가 소유권 기록에 저장되어 과거 소유자 주소를 추적할 수 있습니다.
 
-### 2. 컴포넌트 코드 <a id="klaystagramcontract-js"></a>
+### 2. 컴포넌트 코드 <a href="#2-component-code" id="2-component-code"></a>
 
 #### 2-1) `TransferOwnership` 버튼 렌더링 <a href="#2-1-rendering-transferownership-button" id="2-1-rendering-transferownership-button"></a>
 
