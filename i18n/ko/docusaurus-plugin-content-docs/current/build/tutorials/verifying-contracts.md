@@ -140,7 +140,7 @@ Remix IDE:
 
 :::
 
-## Verifying the Contract
+## 컨트랙트 검증
 
 모든 검증 매개변수를 얻었으면, 이 섹션에서는 블록 탐색기에서 단일 스마트 컨트랙트(Counter.sol)와 여러 부분으로 구성된 스마트 컨트랙트(airdropTokens.sol)를 검증하는 단계를 살펴보겠습니다.
 
