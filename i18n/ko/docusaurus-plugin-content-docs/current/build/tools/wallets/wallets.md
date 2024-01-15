@@ -29,6 +29,6 @@
 | [NOW Wallet](https://walletnow.app/)               | Non-custodial | EOA      | 모바일, 데스크톱          | 아니오      | 아니요      | 지원 없음 | 아니요    |
 | [OKX Wallet](https://www.okx.com/web3)             | Non-custodial | EOA      | 모바일, 브라우저          | 아니요      | 예        | 지원    | 예      |
 | [Rabby Wallet](https://rabby.io/)                  | Non-custodial | EOA      | 브라우저, 데스크톱         | 아니요      | 예        | 지원    | 아니오    |
-| [Token Pocket](https://www.tokenpocket.pro/en)     | 비수탁형 아니요      | EOA      | 브라우저, 모바일, API-SDK | 아니오      | 예        | 지원    | 예      |
-| [TrustKeys](https://trustkeys.network/)            | 비수탁형 아니요      | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
-| [Welldone Wallet](https://welldonestudio.io/)      | 비수탁형 아니요      | EOA      | 브라우저               | 아니요      | 예        | 아니요   | 예      |
+| [Token Pocket](https://www.tokenpocket.pro/en)     |               | EOA      | 브라우저, 모바일, API-SDK | 아니오      | 예        | 지원    | 예      |
+| [TrustKeys](https://trustkeys.network/)            |               | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
+| [Welldone Wallet](https://welldonestudio.io/)      |               | EOA      | 브라우저               | 아니요      | 예        | 아니요   | 예      |
