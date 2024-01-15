@@ -1,4 +1,4 @@
-# Deploy smart contracts
+# 스마트 컨트랙트 배포
 
 ## 1. Klaystagram dApp 클론하기 <a id="2-clone-klaystagram-dapp"></a>
 
@@ -32,7 +32,7 @@ $ npm run local
 ## 2. Klaystagram 스마트 컨트랙트 작성하기 <a id="4-write-klaystagram-smart-contract"></a>
 
 1. 배경
-2. Contract setup
+2. 컨트랙트 설정
 3. 이벤트 및 데이터 구조 설정
 4. 함수 쓰기\
    4.1. `uploadPhoto`\
@@ -46,7 +46,7 @@ $ npm run local
 - 다양한 사진 데이터를 저장하기 위해 정의된 `PhotoData` 구조체입니다.
 - 사용자는 `uploadPhoto`, `transferOwnership` 함수를 통해 사진을 업로드하고 소유권 사진을 전송할 수 있습니다.
 
-### 2) Contract setup <a id="2-contract-setup"></a>
+### 2) 컨트랙트 설정 <a id="2-contract-setup"></a>
 
 - Solidity 버전을 지정합니다. 0.5.6 안정 버전 사용을 권장합니다.
 - 대체 불가능한 토큰을 만들기 위해 ERC721 표준을 사용할 것입니다.
@@ -175,7 +175,7 @@ returns(uint256, address[] memory, bytes memory, string memory, string memory, s
 }
 ```
 
-This is it, now we can deploy this contract!
+이제 이 컨트랙트를 배포할 수 있습니다!
 
 ## 3. 컨트랙트 배포 <a href="#3.-deploy-contract" id="3.-deploy-contract"></a>
 
@@ -217,7 +217,7 @@ const NETWORK_ID = '1001'
  */
 const URL = 'https://public-en-baobab.klaytn.net'
 
-// Paste your `Private `key` that has enough KLAY to truffle.js
+// Paste your `Private key` that has enough KLAY to truffle.js
 const PRIVATE_KEY = 'your_private_key'
 
 module.exports = {
@@ -255,7 +255,7 @@ Solidity 컨트랙트의 경우 0.5.6 버전을 사용했으므로 여기에 컴
 
 ### 3. 배포 설정 <a href="#3-deploy-setup" id="3-deploy-setup"></a>
 
-`migrations/2_deploy_contacts.js`:
+`migrations/2_deploy_contracts.js`:
 
 ```javascript
 const Klaystagram = artifacts.require('./Klaystagram.sol')
@@ -298,7 +298,7 @@ module.exports = function (deployer) {
 
    `fs.writeFile(filename, content, callback)` (선택 사항)
 
-참고: `artifacts.require()`에 대한 자세한 내용은 트러플 공식 문서 [트러플 문서](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)를 참고하세요.
+참고: `artifacts.require()`에 대한 자세한 내용은 Truffle 공식 문서 [Truffle 문서](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)를 참고하세요.
 
 ### 4. 배포 <a href="#4-deploy" id="4-deploy"></a>
 
