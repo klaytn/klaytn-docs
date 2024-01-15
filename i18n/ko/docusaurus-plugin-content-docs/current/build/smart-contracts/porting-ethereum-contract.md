@@ -1,6 +1,6 @@
-# Import Ethereum Contracts
+# 이더리움 컨트랙트 가져오기
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification.
+대부분의 경우 클레이튼에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다.
 하지만 다음 두 가지 문제에 유의하세요.
 
 ## Solidity 지원 <a id="solidity-support"></a>
