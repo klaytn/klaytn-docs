@@ -12,7 +12,7 @@ Klaytn Contracts Wizard는 스마트 컨트랙트를 부트스트랩하고 클�
 
 #### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
-Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
+Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필요한 모든 것을 제공하는 완전한 웹 3.0 개발 프레임워크입니다.
 
 #### [Kaikas](../../tools/wallets/kaikas.md) <a href="#kaikas" id="kaikas"></a>
 
