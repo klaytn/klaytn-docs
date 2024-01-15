@@ -214,8 +214,11 @@ Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작
 
 컨트랙트 인스턴스는 caver-js의 `caver.klay.Contract(ABI, contractAddress)` API를 통해 만들 수 있습니다. 자세한 내용은 [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#new-contract)를 참고하세요.
 
-`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다. })`\
-`contractInstance.methods.minus().send({ ... })\`
+`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다.
+예를 들어,\
+`contractInstance.methods.count().call()`\
+`contractInstance.methods.plus().send({ ... })`\
+`contractInstance.methods.minus().send({ ... })`
 
 `Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 클레이튼 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
@@ -259,7 +262,7 @@ getCount = async () => {
 }
 ```
 
-Since we have a contract instance, we can call contract methods. 여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
+컨트랙트 인스턴스가 있으므로 컨트랙트 메서드를 호출할 수 있습니다. 여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
 
 위 코드에서 `getCount` 함수는 컨트랙트 함수 호출이 프로미스 객체를 반환하기 때문에 `async`로 선언되어 있습니다. `this.countContract.methods.count().call()`를 호출하여 `count`를 가져올 수 있습니다.
 
