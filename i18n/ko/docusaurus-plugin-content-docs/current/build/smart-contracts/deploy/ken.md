@@ -235,7 +235,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 Truffle을 전역적 또는 지역적으로 설치할 수 있습니다.
 
-- Globally using npm by executing the following commands:
+- 전역적으로 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -461,7 +461,7 @@ Passphrase:
 true
 ```
 
-And then you are ready to go. 다시 배포해 보세요.
+이제 준비가 완료되었습니다. 다시 배포해 보세요.
 
 ## 배포 확인 <a id="check-the-deployment"></a>
 
@@ -476,7 +476,7 @@ $ touch test-klaytn.js
 $ open test-klaytn.js
 ```
 
-다음 테스트 코드를 작성합니다. Make sure you enter the contract address you just deployed.
+다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력해야 합니다.
 
 ```javascript
 // test-klaytn.js
