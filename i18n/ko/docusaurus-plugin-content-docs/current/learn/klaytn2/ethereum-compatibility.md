@@ -1,12 +1,12 @@
 # 이더리움 호환성
 
-## We Support Ethereum Equivalence
+## 이더리움 동등성을 지원합니다.
 
 ![](/img/learn/triangle.png)
 
 ### 1. 개발 도구 <a href="#finality-and-improvements" id="finality-and-improvements"></a>
 
-Any tooling that can run on Ethereum will run seamlessly within the Klaytn ecosystem by making Klaytn’s technical stack equivalent, from an interfacing and execution perspective, to the existing Ethereum stack. 클레이튼 생태계에서 만들어진 새로운 툴링은 이더리움 생태계 내에서 상호적으로 채택될 수 있습니다.
+이더리움에서 실행할 수 있는 모든 툴링은 클레이튼의 기술 스택을 인터페이스 및 실행 관점에서 기존 이더리움 스택과 동등하게 만들어 클레이튼 생태계 내에서 원활하게 실행될 것입니다. 클레이튼 생태계에서 만들어진 새로운 툴링은 이더리움 생태계 내에서 상호적으로 채택될 수 있습니다.
 
 ### 2. EVM 및 API <a href="#evm-and-api" id="evm-and-api"></a>
 
