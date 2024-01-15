@@ -30,7 +30,7 @@ Remix를 사용하여 Klaytn 네트워크에 연결하려면 로컬 플러그인
 
 ## 배포 환경 설정하기 <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
 
-- Click on the [Klaytn] tab.
+- [Klaytn] 탭을 클릭합니다.
 - 해당 Environment을 선택합니다.
 - **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** 또는 **Injected Web3**를 선택할 수 있습니다.
   - **[Baobab]**: Baobab 네트워크에 연결합니다.
@@ -100,6 +100,6 @@ Remix를 사용하여 Klaytn 네트워크에 연결하려면 로컬 플러그인
 
 ![컨트랙트 배포](/img/build/tutorials/remix-deploy-run-tx.png)
 
-- You can view the deployed contract. 테스트하거나 디버깅할 수 있습니다.
+- 배포된 컨트랙트를 볼 수 있습니다. 테스트하거나 디버깅할 수 있습니다.
 
 ![컨트랙트 확인](/img/build/tutorials/remix-test-or-debug.png)
