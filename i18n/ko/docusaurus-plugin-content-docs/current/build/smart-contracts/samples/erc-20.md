@@ -487,7 +487,7 @@ contract MyERC20 is IERC20 {
 
 `approve`은 ERC-20의 필수 방식입니다. `approve`을 사용하면 `spender`가 `amount`까지 계정에서 여러 번 인출할 수 있습니다. 이 함수가 여러 번 호출되면 단순히 허용량을 `amount`으로 재설정합니다.
 
-`approve`은 `approve.msg.sender`의 실제 동작을 구현하는 내부 메서드 `_approve`를 호출할 뿐이며 계정 `owner`로 전달됩니다. `msg.sender` is passed as the account `owner`.
+`approve`은 `approve`의 실제 동작을 구현하는 내부 메서드 `_approve`를 호출할 뿐입니다. `msg.sender`는 계정 `owner`로서 전달됩니다.
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
