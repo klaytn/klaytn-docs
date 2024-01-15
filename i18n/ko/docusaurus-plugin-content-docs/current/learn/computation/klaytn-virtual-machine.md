@@ -27,7 +27,7 @@ KLVM은 일련의 KLVM 명령어로 구성된 클레이튼 가상머신 코드 (
 
 - `A := B`
   - `:=`는 `A`를 `B`로 정의하는 데 사용됩니다.
-- We use the terms "smart contract" and "contract" interchangeably.
+- "스마트 컨트랙트"와 "컨트랙트"라는 용어를 혼용하여 사용합니다.
 - "연산 코드/연산"으로 "opcode"라는 용어를 사용합니다.
 
 ### 심볼 <a id="symbols"></a>
@@ -38,7 +38,7 @@ KLVM은 일련의 KLVM 명령어로 구성된 클레이튼 가상머신 코드 (
 
 | 기호         | 설명           |
 | :--------- | :----------- |
-| `BC`       | Blockchain   |
+| `BC`       | 블록 체인        |
 | `B`        | 블록           |
 | `B_header` | 현재 블록의 블록 헤더 |
 
@@ -136,7 +136,7 @@ KLVM은 단순한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 ##### 특정 Opcode의 가스를 계산하는 데 사용되는 scalar 값
 
-| 이름                | value | 코드 내 이름                           | 설명                                                                                 |
+| 이름                |     값 | 코드 내 이름                           | 설명                                                                                 |
 | :---------------- | ----: | --------------------------------- | :--------------------------------------------------------------------------------- |
 | `G_sset`          | 20000 | SstoreSetGas                      | 저장소 설정 시 저장소 값에 따라 지불되는 가스 양                                                       |
 | `G_sreset`        |  5000 | SstoreResetGas                    | 저장 값이 0으로 변경되지 않거나 0으로 설정될 때 지불되는 가스 양                                             |
@@ -165,20 +165,20 @@ Gas = XXXBaseGas + (number of words * XXXPerWordGas)
 Gas = number of signatures * ValidateSenderGas
 ```
 
-| 주소   | Precompiled contracts | 항목                                           | 값            |   |
-| :--- | :-------------------- | :------------------------------------------- | :----------- | - |
-| 0x01 | ecrecover             | EcrecoverGas                                 | 3000         |   |
-| 0x02 | sha256hash            | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |   |
-| 0x03 | ripemd160hash         | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |   |
-| 0x04 | dataCopy              | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |   |
-| 0x05 | bigModExp             | ModExpQuadCoeffDiv                           | 20           | ​ |
-| 0x06 | bn256Add              | Bn256AddGas                                  | 150          |   |
-| 0x07 | bn256ScalarMul        | Bn256ScalarMulGas                            | 6000         |   |
-| 0x08 | bn256Pairing          | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |   |
-| 0x09 | blake2f               | -                                            | *            |   |
-| 0xFD | vmLog                 | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |   |
-| 0xFE | feePayer              | feePayer 가스                                  | 300          |   |
-| 0xFF | validateSender        | 유효성 검사 발신자 가스                                | 5000         |   |
+| 주소   | 미리 컴파일된 컨트랙트   | 항목                                           | value        |   |
+| :--- | :------------- | :------------------------------------------- | :----------- | - |
+| 0x01 | ecrecover      | EcrecoverGas                                 | 3000         |   |
+| 0x02 | sha256hash     | Sha256BaseGas, Sha256PerWordGas              | 60, 12       |   |
+| 0x03 | ripemd160hash  | Ripemd160BaseGas, Ripemd160PerWordGas        | 600, 120     |   |
+| 0x04 | dataCopy       | IdentityBaseGas, IdentityPerWordGas          | 15, 3        |   |
+| 0x05 | bigModExp      | ModExpQuadCoeffDiv                           | 20           | ​ |
+| 0x06 | bn256Add       | Bn256AddGas                                  | 150          |   |
+| 0x07 | bn256ScalarMul | Bn256ScalarMulGas                            | 6000         |   |
+| 0x08 | bn256Pairing   | Bn256PairingBaseGas, Bn256PairingPerPointGas | 45000, 34000 |   |
+| 0x09 | blake2f        | -                                            | *            |   |
+| 0xFD | vmLog          | VMLogBaseGas, VMLogPerByteGas                | 100, 20      |   |
+| 0xFE | feePayer       | feePayer 가스                                  | 300          |   |
+| 0xFF | validateSender | 유효성 검사 발신자 가스                                | 5000         |   |
 
 #### 컨트랙트 실행 중 가스 계산 <a id="gas-calculation-during-contract-execution"></a>
 
@@ -195,9 +195,9 @@ Gas = number of signatures * ValidateSenderGas
   - `CALLDATACOPY`, `CODECOPY`, 또는 `RETURNDATACOPY`의 경우, `wordSize(stack.back(2)) x G_copy`를 가스에 추가합니다.
   - `EXTCODECOPY`의 경우,
     - 가스에 `wordSize(stack.back(3)) x G_copy`를 추가합니다.
-    - [**_eip2929_**] AccessList에 없는 주소는 accessList에 추가하고 `G_coldSloadCost - G_warmStorageReadCost`를 gas에 추가합니다.
-  - `EXTCODESIZE` 또는 `EXTCODEHASH` 또는 `BALANCE`의 경우,
     - [**_eip2929_**] AccessList에 없는 주소의 경우, accessList에 추가하고 `G_coldSloadCost - G_warmStorageReadCost`를 가스(gas)에 추가합니다.
+  - `EXTCODESIZE` 또는 `EXTCODEHASH` 또는 `BALANCE`의 경우,
+    - [**_eip2929_**] AccessList에 없는 주소는 accessList에 추가하고 `G_coldSloadCost - G_warmStorageReadCost`를 gas에 추가합니다.
   - 'SHA3'의 경우, `G_sha3 + wordSize(stack.back(1)) x G_sha3word`를 가스값에 추가합니다.
   - `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`의 경우, `memoryGasCost`를 가스 값에 추가합니다.
   - 'CREATE'의 경우, 가스값에 '메모리가스비용 + 크기(컨트랙트 코드) x G_codedeposit'을 추가합니다.
@@ -215,13 +215,13 @@ Gas = number of signatures * ValidateSenderGas
     - [**_eip2929_**] 슬롯(컨트랙트주소, 슬롯)이 AccessList에 없는 경우, accessList에 추가하고 `G_coldSloadCost`를 가스값에 추가합니다.
     - [**_eip2929_**] 슬롯(컨트랙트주소, 슬롯)이 AccessList에 있으면 `G_warmStorageReadCost`를 가스값에 추가합니다.
   - `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`의 경우,
-    - [**_eip2929_**] 주소가 AccessList에 없는 경우, 해당 주소를 accessList에 추가하고 `G_coldSloadCost`를 gas에 추가합니다.
+    - [**_eip2929_**] AccessList에 없는 주소일 경우, accessList에 추가하고 `G_coldSloadCost`를 가스에 추가합니다.
     - `CALL`, `CALLCODE`이고 값을 전송하는 경우 `G_callvalue`를 가스에 추가합니다.
     - `CALL`이고 값을 전송하는 경우, 그리고 신규 계정인 경우 `G_newaccount`를 가스에 추가합니다.
-    - if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    - 호출자가 미리 컴파일된 컨트랙트인 경우, 미리 컴파일된 컨트랙트 가스비를 계산하여 가스에 추가합니다.
     - 가스에 `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas`를 추가합니다.
   - `SELFDESTRUCT`의 경우,
-    - [**_eip2929_**] AccessList에 없는 주소일 경우, accessList에 추가하고 `G_coldSloadCost`를 가스에 추가합니다.
+    - [**_eip2929_**] 주소가 AccessList에 없는 경우, 해당 주소를 accessList에 추가하고 `G_coldSloadCost`를 gas에 추가합니다.
     - 값을 전송하고 새 계정인 경우 `G_newaccount`를 가스에 추가합니다.
 
 ### 실행 환경 <a id="execution-environment"></a>
@@ -267,11 +267,11 @@ where
 
   `S_machine,g' := S_machine,g - C(S_system, S_machine, I)`
 
-  - This means that when we evaluate `F_apply`, we
+  - 이는 `F_apply`를 평가할 때
 
-    `()`로 표시되는 빈 시퀀스는 `Set_empty`로 표시되는 빈 집합과 같지 않습니다.
+    남은 가스 `S_machine,g'`를
 
-    이는 `F_apply`를 평가할 때 결과 머신 상태 `S_machine'`에서 남은 가스 `S_machine,g'`를 추출한다는 것을 의미합니다.
+    결과 머신 상태 `S_machine'`로부터 추출한다는 것을 의미합니다.
 
 따라서 `X`는 `Z`가 true이 되어 현재 상태가 예외적이며 머신을 중지하고 모든 변경 사항을 폐기해야 함을 나타내거나, `H`가 (빈 집합이 아닌) 계열이 되어 머신이 제어된 정지에 도달했음을 나타낼 때까지 (여기서는 재귀적으로) 순환합니다(일반적으로 구현은 단순한 반복 루프를 사용해야 합니다).
 
