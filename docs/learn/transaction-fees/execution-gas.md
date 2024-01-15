@@ -1,7 +1,10 @@
 # Execution Gas
 
+Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `ExecutionGas` is calculated.
+:::note
+Execution gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+:::
 ## Overview <a id="overview"></a>
-Gas is a sum of `IntrinsicGas` and `ContractExecutionGas`. In here, we would focus on how `ContractExecutionGas` is calculated.
 Execution gas is charged during executing a contract under three distinct circumstances. Sometimes, some policies may be omitted.
 
 * The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
@@ -12,9 +15,6 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 
 Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
-:::note
-Execution gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
-:::
 ## Opcode Gas Schedule <a id="opcode-gas-schedule"></a>
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes.
 

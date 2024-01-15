@@ -114,7 +114,7 @@ Related APIs: [eth_getTransactionByHash](./transaction.md#eth_getTransactionByHa
 
 | Field    | Description                                                                                                                                                                                                                          |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gasPrice | Also known as [Unit Price](../../../learn/transaction-fees/transaction-fees.md#gasprice-overview) in Klaytn's context, this value is determined in the system via the governance processes.                                          |
+| gasPrice | Also known as [Unit Price](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) in Klaytn's context, this value is determined in the system via the governance processes.                                         |
 | type     | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
 
 Klaytn transactions can have more than one signature because Klaytn supports MultiSig (Ethereum transactions only have one signature field (= v, r, s)) even on protocol-level.

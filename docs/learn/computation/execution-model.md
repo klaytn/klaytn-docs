@@ -16,7 +16,7 @@ When block generation is complete, the block is propagated to all the other CNs.
 
 Klaytn's Baobab and Cypress networks currently have the following restrictions on the transaction execution:
 
-* You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../../learn/transaction-fees/transaction-fees.md#gasprice-overview-a-idgas-price-overviewa)
+* You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
 * A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](./computation-cost.md)
 
 ## Data Structures <a id="data-structures"></a>

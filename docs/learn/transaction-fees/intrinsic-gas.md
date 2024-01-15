@@ -1,6 +1,6 @@
 # Intrinsic Gas
 
-Gas is a sum of `IntrinsicGas` and `ContractExecutionGas`. In here, we would focus on how `IntrinsicGas` is organized.
+Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `IntrinsicGas` is organized.
 
 :::note
 Intrinsic gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
