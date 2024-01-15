@@ -64,7 +64,7 @@ Klaytn Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨
 
 이 가이드는 KIP7 및 KIP17 토큰 표준에 대한 에어드랍 컨트랙트를 간단하게 구현하는 방법을 안내합니다. 에어드랍 콘트랙트에서 프로젝트 생성자는 각각의 토큰을 특정 지갑에 직접 채굴합니다. 다음 섹션에서는 각 토큰 에어드랍 컨트랙트를 각각 커스터마이즈하고 배포하는 방법을 살펴보겠습니다.
 
-### Customizing Token contracts
+### 토큰 컨트랙트 커스터마이징
 
 **KIP7 컨트랙트를 KIP7 에어드랍 컨트랙트로 커스터마이징하기.**
 
@@ -72,7 +72,7 @@ Klaytn Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨
 
 1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)으로 이동합니다.
 2. **Contracts** 탭에서 **KIP7**을 선택합니다.
-3. 다음으로 **SETTINGS** 탭에서 이름(KIP7 토큰 에어드랍)과 심볼(KTA)을 입력합니다. The pre-mint field is left empty
+3. 다음으로 **SETTINGS** 탭에서 이름(KIP7 토큰 에어드랍)과 심볼(KTA)을 입력합니다. pre-mint 필드는 비워둡니다.
 4. 그 후 **FEATURES** 탭에서 **Mintable** 기능 상자를 선택하면 **ACCESS CONTROL** 탭에서 자동으로 소유 가능 기능을 선택합니다.
 
 이렇게 구성한 후 Klaytn Contracts Wizard의 모습은 다음과 같습니다:
@@ -291,7 +291,7 @@ contract KIP37MultiToken is KIP37, Ownable {
 
 ### 시작하기
 
-While getting started with foundry, you must have been exposed to the preliminary way of delaying contracts using [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html). 최근 Foundry 팀은 [Solidity 스크립팅](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting), 즉 JavaScript 대신 Solidity로 배포 스크립트를 작성하여 Solidity를 사용하여 컨트랙트를 선언적으로 배포하는 보다 사용자 친화적인 방법을 고안해냈습니다.
+Foundry를 시작하면서 [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html)를 사용하여 컨트랙트를 지연시키는 예비적인 방법을 접해 보셨을 것입니다. 최근 Foundry 팀은 [Solidity 스크립팅](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting), 즉 JavaScript 대신 Solidity로 배포 스크립트를 작성하여 Solidity를 사용하여 컨트랙트를 선언적으로 배포하는 보다 사용자 친화적인 방법을 고안해냈습니다.
 
 이 섹션에서는 Foundry에서 Solidity 스크립팅을 사용하여 컨트랙트를 배포하겠습니다.
 
@@ -404,7 +404,7 @@ contract KIP37MultiTokenDeployScript is Script {
 
 먼저 각 스크립트 파일에 대해 SPDX-라이선스 및 프라그마 버전을 선언했습니다. 각 스크립트 파일은 Solidity 프로그램이기 때문에 스마트 컨트랙트처럼 작동하지만 배포되지는 않는 SPDX-라이선스 및 프라그마 버전을 선언해야 한다는 점에 유의하세요.
 
-다음으로 컨트랙트 배포에 사용할 몇 가지 스크립팅 유틸리티를 제공하는 [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)을 가져왔습니다. Subsequently, we imported the contract to be deployed. 이 경우 각 스크립트에 대해 **airdropKIP7**, **airdropKIP17**, **KIP37MultiToken**을 가져왔습니다.
+다음으로 컨트랙트 배포에 사용할 몇 가지 스크립팅 유틸리티를 제공하는 [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)을 가져왔습니다. 그 후 배포할 컨트랙트를 가져왔습니다. 이 경우 각 스크립트에 대해 **airdropKIP7**, **airdropKIP17**, **KIP37MultiToken**을 가져왔습니다.
 
 그런 다음 각 스크립트 파일에 대해 Forge Std 라이브러리에서 스크립트를 상속하는 **KIP7AirdropDeployScript**, **KIP17AirdropDeployScript**, **KIP37MultiTokenDeployScript**라는 컨트랙트를 생성했습니다.
 
@@ -413,7 +413,7 @@ contract KIP37MultiTokenDeployScript is Script {
 
 그 후, 트랜잭션 서명을 위해 배포자 프라이빗 키를 전달한 후 메인 스크립트 컨트랙트에서 호출과 컨트랙트 생성을 기록하는 **vm.startBroadcast(deployerPrivateKey)** 특수 치트 코드를 호출했습니다.
 
-We then created the respective contract. 이 컨트랙트 생성은 이전에 vm.startBroadcast() 치트 코드를 호출했기 때문에 위조로 기록됩니다.
+그런 다음 각 컨트랙트를 생성했습니다. 이 컨트랙트 생성은 이전에 vm.startBroadcast() 치트 코드를 호출했기 때문에 위조로 기록됩니다.
 
 이제 각 라인이 무엇을 수반하는지에 대한 개요를 살펴보았으니 이제 컨트랙트 배포로 넘어가도 됩니다.  이 [링크](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script)를 클릭하여 스크립트 작성 및 기타 세부 사항에 대해 자세히 알아보세요.
 
