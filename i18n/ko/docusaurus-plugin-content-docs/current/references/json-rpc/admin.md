@@ -166,7 +166,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |   콘솔  | `admin.peers`               |
 |  RPC  | `{"method": "admin_peers"}` |
 
-**매개변수**
+**매개 변수**
 
 None
 
@@ -724,7 +724,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |   콘솔  | `admin.saveTrieNodeCacheToDisk()`             |
 |  RPC  | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
-**매개 변수**
+**매개변수**
 
 None
 
