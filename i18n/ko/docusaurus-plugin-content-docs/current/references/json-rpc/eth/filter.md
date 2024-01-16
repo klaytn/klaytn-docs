@@ -291,8 +291,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 이름        | 유형                    | 설명                                                                                                                                                                      |
 | --------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.  |
+| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.  |
+| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 | address   | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.                                                                                                                 |
 | topics    | DATA Array            | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                    |
 
