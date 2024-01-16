@@ -109,7 +109,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | difficulty       | QUANTITY      | 이 블록의 난이도 정수입니다.                                 |
 | extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                            |
 | gasLimit         | QUANTITY      | 이 블록에 허용되는 최대 가스입니다.                             |
-| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                  |
+| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션에서 사용한 총 가스 양입니다.                   |
 | hash             | 32-byte DATA  | 블록의 해시. 보류 중인 블록인 경우 `null`.                     |
 | logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다.                             |
 | miner            | 20-byte DATA  | 채굴 보상을 받은 수혜자의 주소입니다.                            |
@@ -221,7 +221,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 이 API를 사용하기 전에 [Caution-블록](./caution.md#block)을 확인해 주세요.
 
-**매개변수**
+**파라미터**
 
 | 유형           | 설명                                                    |
 | ------------ | ----------------------------------------------------- |
@@ -238,7 +238,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | difficulty       | QUANTITY      | 이 블록의 난이도 정수입니다.                                 |
 | extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                            |
 | gasLimit         | QUANTITY      | 이 블록에 허용되는 최대 가스입니다.                             |
-| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션에서 사용한 총 가스 양입니다.                   |
+| gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                  |
 | hash             | 32-byte DATA  | 블록의 해시. 보류 중인 블록인 경우 `null`.                     |
 | logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`.        |
 | miner            | 20-byte DATA  | 채굴 보상을 받은 수혜자의 주소입니다.                            |
@@ -413,7 +413,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | -------- | ----------------------- |
 | QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. |
 
-**예제**
+**예시**
 
 ```shell
 // Request
@@ -493,19 +493,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 주어진 블록 해시와 일치하는 블록에서 블록의 엉클 개수를 반환합니다.
 클레이튼에는 엉클이 없으므로 `0x0`을 반환합니다. 일치하는 블록이 없으면 `null`을 반환합니다.
 
-**파라미터**
+**매개변수**
 
 | 유형           | 설명     |
 | ------------ | ------ |
 | 32-byte DATA | 블록의 해시 |
 
-**리턴 값**
+**반환 값**
 
 | 유형       | 설명                                                  |
 | -------- | --------------------------------------------------- |
 | QUANTITY | 이 블록에 있는 트랜잭션 수의 정수입니다. 일치하는 블록이 없으면 `null`을 반환합니다. |
 
-**예시**
+**예제**
 
 ```shell
 // Request
@@ -628,7 +628,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 없음
 
-**반환 값**
+**리턴 값**
 
 동기화 상태 데이터가 있는 오브젝트 또는 동기화하지 않는 경우 `false`인 `Object|Boolean`입니다:
 
