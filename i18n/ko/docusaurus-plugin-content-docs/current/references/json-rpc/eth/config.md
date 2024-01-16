@@ -1,4 +1,4 @@
-# 구성
+# Configuration
 
 ## eth_coinbase <a id="eth_coinbase"></a>
 
@@ -66,7 +66,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_chainID <a id="klay_chainid"></a>
+## getChainId <a id="getchainid"></a>
 
 요청된 노드에 설정된 현재 체인아이디를 반환합니다.
 
@@ -76,9 +76,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴 값**
 
-| 유형       | 설명            |
-| -------- | ------------- |
-| QUANTITY | 체인 ID의 정수입니다. |
+| 유형       | 설명                |
+| -------- | ----------------- |
+| QUANTITY | 체인의 체인 ID를 반환합니다. |
 
 **예시**
 
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_gasPriceAt <a id="klay_gaspriceat"></a>
+## gasPriceAt <a id="gaspriceat"></a>
 
 가스 가격 제안을 peb 단위로 반환합니다.
 
