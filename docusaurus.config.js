@@ -64,9 +64,9 @@ const config = {
           showReadingTime: true,
         },
         docs: {
-          beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: "nord" }],
-          ],
+          // beforeDefaultRemarkPlugins: [
+          //  [remarkCodeHike, { theme: "nord" }],
+          // ],
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: true,
           showLastUpdateTime: true,
@@ -86,7 +86,7 @@ const config = {
         theme: {
           customCss: [
             require.resolve('./src/css/custom.css'),
-            require.resolve("@code-hike/mdx/styles.css"),
+            require.resolve("@code-hike/mdx/dist/index.css"),
           ]
         },
       }),
