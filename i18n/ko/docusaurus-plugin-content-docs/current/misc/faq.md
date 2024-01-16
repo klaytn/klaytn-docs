@@ -48,7 +48,7 @@ Klaytn은 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합
 
 ## 클레이튼은 오픈소스인가요? <a id="is-klaytn-open-source"></a>
 
-Klaytn is most certainly open source! [GitHub 조직](https://github.com/klaytn)을 살펴보고 클레이튼 문서에 [기여](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md)를 시작할 수 있습니다. 오픈소스 정책에 대한 자세한 내용은 [여기](opensource)에서 확인하세요.
+클레이튼은 확실히 오픈소스입니다! [GitHub 조직](https://github.com/klaytn)을 살펴보고 클레이튼 문서에 [기여](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md)를 시작할 수 있습니다. 오픈소스 정책에 대한 자세한 내용은 [여기](opensource)에서 확인하세요.
 
 ## 내 계정에 처음 펀딩하려면 어떻게 해야 하나요? <a id="fund-my-acconut"></a>
 
