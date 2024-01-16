@@ -1,41 +1,39 @@
 ---
-description: APIs to inspect transaction pools in the node.
+description: 노드에서 트랜잭션 풀을 검사하는 API입니다.
 ---
 
 # txpool
 
-The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the
-transaction pool containing all the currently pending transactions as well as the ones queued for
-future processing.
+네임스페이스 `txpool` API를 사용하면 현재 보류 중인 트랜잭션이 포함된 트랜잭션 풀의 내용을 검사할 수 있는 여러 비표준 RPC 메서드에 액세스할 수 있습니다.
 
 ## txpool_content <a id="txpool_content"></a>
 
-The `content` inspection property can be queried to list the exact details of all the transactions
-currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
-for future execution only.
+`content` 검사 속성을 쿼리하여 현재 다음 블록에 포함될 예정인 트랜잭션뿐만 아니라
+현재 다음 블록에 포함되기 위해 보류 중인 트랜잭션과 향후 실행을 위해
+향후 실행을 위해서만.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative
-arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches
-themselves are maps associating nonces with actual transactions.
+그 결과 `pending` 및 `queued` 필드가 두 개 있는 객체가 생성됩니다. 이러한 각 필드는 연관
+배열로, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
+자체는 nonce를 실제 트랜잭션과 연결하는 맵입니다.
 
-|  Client | Method invocation              |
-| :-----: | ------------------------------ |
-| Console | `txpool.content`               |
-|   RPC   | `{"method": "txpool_content"}` |
+| 클라이언트 | 메서드 호출                         |
+| :---: | ------------------------------ |
+|   콘솔  | `txpool.content`               |
+|  RPC  | `{"method": "txpool_content"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴 값**
 
-| Type        | Description                          |
-| ----------- | ------------------------------------ |
-| JSON string | The content of the transaction pool. |
+| 유형          | 설명             |
+| ----------- | -------------- |
+| JSON string | 트랜잭션 풀의 내용입니다. |
 
-**Example**
+**예시**
 
-Console
+콘솔
 
 ```javascript
 > txpool.content
@@ -140,33 +138,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 ## txpool_inspect <a id="txpool_inspect"></a>
 
-The `inspect` inspection property can be queried to list a textual summary of all the transactions
-currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
-for future execution only. This is a method specifically tailored to developers to quickly see the
-transactions in the pool and find any potential issues.
+`inspect` 검사 속성을 쿼리하여 현재 다음 블록에 포함되도록 보류 중인 모든 트랜잭션과
+현재 다음 블록에 포함되기 위해 보류 중인 트랜잭션과 향후 실행을 위해 예약된
+트랜잭션을 나열할 수 있습니다. 이는 개발자가 풀의 트랜잭션을 빠르게 확인하고
+트랜잭션을 빠르게 확인하고 잠재적인 문제를 찾을 수 있도록 개발자에게 특별히 맞춤화된 방법입니다.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative
-arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches
-themselves are maps associating nonces with transactions summary strings.
+그 결과 `pending` 및 `queued` 필드가 두 개 있는 객체가 생성됩니다. 이러한 각 필드는 연관
+배열이며, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
+자체는 nonce를 트랜잭션 요약 문자열과 연결하는 맵입니다.
 
-|  Client | Method invocation              |
-| :-----: | ------------------------------ |
-| Console | `txpool.inspect`               |
-|   RPC   | `{"method": "txpool_inspect"}` |
+| 클라이언트 | 메서드 호출                         |
+| :---: | ------------------------------ |
+|   콘솔  | `txpool.inspect`               |
+|  RPC  | `{"method": "txpool_inspect"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴 값**
 
-| Type        | Description                                |
-| ----------- | ------------------------------------------ |
-| JSON string | A list of pending and queued transactions. |
+| 유형          | 설명                       |
+| ----------- | ------------------------ |
+| JSON string | 보류 중 및 대기 중인 트랜잭션 목록입니다. |
 
-**Example**
+**예시**
 
-Console
+콘솔
 
 ```javascript
 > txpool.inspect
@@ -227,31 +225,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 ## txpool_status <a id="txpool_status"></a>
 
-The `status` inspection property can be queried for the number of transactions currently pending for
-inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+다음 블록에 포함하기 위해 보류 중인 트랜잭션과 향후 실행을 위해 예약된 트랜잭션만 조회할 수 있습니다.
 
-The result is an object with two fields `pending` and `queued`, each of which is a counter representing
-the number of transactions in that particular state.
+결과는 두 개의 필드 `pending`과 `queued`이 있는 객체이며, 각 필드는 특정 상태의 트랜잭션 수를 나타내는 카운터입니다.
 
-|  Client | Method invocation             |
-| :-----: | ----------------------------- |
-| Console | `txpool.status`               |
-|   RPC   | `{"method": "txpool_status"}` |
+| 클라이언트 | 메서드 호출                        |
+| :---: | ----------------------------- |
+|   콘솔  | `txpool.status`               |
+|  RPC  | `{"method": "txpool_status"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴 값**
 
-| Name    | Type | Description                         |
-| ------- | ---- | ----------------------------------- |
-| pending | int  | The number of pending transactions. |
-| queued  | int  | The number of queued transactions.  |
+| 이름      | 유형  | 설명                |
+| ------- | --- | ----------------- |
+| pending | int | 대기 중인 트랜잭션의 수입니다. |
+| queued  | int | 보류 중인 트랜잭션의 수입니다. |
 
-**Example**
+**예시**
 
-Console
+콘솔
 
 ```javascript
 > txpool.status
