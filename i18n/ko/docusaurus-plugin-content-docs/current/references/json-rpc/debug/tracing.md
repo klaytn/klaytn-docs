@@ -171,10 +171,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름      | 유형     | 설명                                |
-| ------- | ------ | --------------------------------- |
-| number  | int    | 블록 번호입니다.                         |
-| options | object | [추적 옵션](#tracing-options)을 참조하세요. |
+| 이름      | 유형     | 설명                            |
+| ------- | ------ | ----------------------------- |
+| number  | int    | 블록 번호입니다.                     |
+| options | object | [추적 옵션](#tracing-options) 참조. |
 
 **리턴 값**
 
@@ -221,13 +221,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름      | 유형     | 설명                            |
-| ------- | ------ | ----------------------------- |
-| number  | int    | 추적 시작 블록 번호.                  |
-| number  | int    | 추적 종료 블록 번호입니다.               |
-| options | object | [추적 옵션](#tracing-options) 참조. |
+| 이름      | 유형     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| number  | int    | 추적 시작 블록 번호.                      |
+| number  | int    | 추적 종료 블록 번호입니다.                   |
+| options | object | [추적 옵션](#tracing-options)을 참조하세요. |
 
-**반환 값**
+**리턴 값**
 
 | 유형                                               | 설명                                 |
 | ------------------------------------------------ | ---------------------------------- |
@@ -283,10 +283,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름       | 유형     | 설명                                |
-| -------- | ------ | --------------------------------- |
-| fileName | string | 블록의 RLP가 포함된 파일 이름입니다.            |
-| options  | object | [추적 옵션](#tracing-options)을 참조하세요. |
+| 이름       | 유형     | 설명                            |
+| -------- | ------ | ----------------------------- |
+| fileName | string | 블록의 RLP가 포함된 파일 이름입니다.        |
+| options  | object | [추적 옵션](#tracing-options) 참조. |
 
 **리턴 값**
 
@@ -345,7 +345,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | txHash  | string | 트랜잭션의 해시입니다.                      |
 | options | object | [추적 옵션](#tracing-options)을 참조하세요. |
 
-**리턴 값**
+**반환 값**
 
 | 유형          | 설명                         |
 | ----------- | -------------------------- |
@@ -446,7 +446,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | callObject        | Object                  | 트랜잭션 호출 객체.  객체의 속성은 다음 표를 참조하세요.                                                                                                          |
 | blockNumberOrHash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](../eth/block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열, 또는 블록 해시. |
-| options           | object                  | [추적 옵션](#tracing-options) 참조.                                                                                                              |
+| options           | object                  | [추적 옵션](#tracing-options)을 참조하세요.                                                                                                          |
 
 **리턴 값**
 
