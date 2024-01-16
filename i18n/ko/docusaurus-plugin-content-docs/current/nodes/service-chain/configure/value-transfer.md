@@ -5,8 +5,8 @@
 
 EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음 절차가 필요합니다.
 
-1. 브리지 오퍼레이터 계정의 주소를 확인하고 브리지 오퍼레이터 계정에 KLAY를 추가합니다.
-2. 브리지 컨트랙트를 부모/자식 체인에 배포합니다.
+1. SCN에 접속하여 `subbridge.parentOperator`와 `subbridge.childOperator`를 실행하여 계정 주소를 확인합니다.
+2. `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
 3. 토큰(ERC-20 또는 721) 컨트랙트를 부모/자식 체인에 배포합니다. (KLAY 전송만 필요한 경우, 3단계와 4단계를 건너뛸 수 있습니다.)
 4. 토큰 컨트랙트를 부모/자식 체인의 브리지 컨트랙트에 등록합니다.
 5. 부모/자식 체인에 있는 브리지 컨트랙트를 구독합니다.
@@ -25,12 +25,12 @@ EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음
 
 ![그림 1. 서비스 체인 아키텍처](/img/nodes/sc_arch.png)
 
-## 브리지 오퍼레이터 계정 <a id="bridge-operator-account"></a>
+## <a id="step-1-add-klay-to-the-operator-accounts"></a>
 
 서비스체인에는 부모 체인 브리지 오퍼레이터 계정과 서비스 체인 브리지 오퍼레이터 계정의 두 가지 오퍼레이터 계정이 있습니다. 각 오퍼레이터 계정은 트랜잭션에 서명하는 데 사용됩니다.
 트랜잭션이 부모 체인으로 값을 이동하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인에는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다.
 사용자가 '값 전송 요청' 트랜잭션을 제출하면 하위 브리지는 브리지 오퍼레이터 계정이 서명한 '값 전송 처리' 트랜잭션을 생성합니다.
-따라서 부모 체인 브리지 오퍼레이터는 부모 체인에 트랜잭션 수수료를 지불하기 위해 충분한 KLAY를 잔고에 보유해야 합니다.
+그런 다음 `parentOperator`에게 KLAY를 전송합니다.
 서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
 
 ### 키 저장소 및 비밀번호 파일 <a id="keystore-and-password-file"></a>
@@ -51,18 +51,21 @@ SCN이 부팅될 때 부모/자식 운영자의 키가 없는 경우 키스토�
 - 자식 체인 브리지 오퍼레이터 : $datadir/child_bridge_account
 
 ```javascript
-> pwd
-/$dataDIR/child_bridge_account
-
-> ls
-0x2eD72a9D7fe5da7672fD21567e07302431649B0B
-UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
-
-> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B
-%S~f5qqM38cB47jL%
-
-> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
-{"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x10221f7f9355017cd0c11444e7eecb99621bacce"
+> subbridge.parentOperator
+"0x3ce216beeafc62d20547376396e89528e1d778ca" ![](/img/nodes/sc-vt-add-klay.png) `subbridge.parentOperator`는 Baobab 네트워크의 계정이고, `subbridge.childOperator`는 서비스체인 네트워크의 계정이라는 점에 유의하세요. [Baobab 월렛](https://baobab.wallet.klaytn.foundation/)에서 테스트 계정을 생성하고 Faucet에서 테스트 KLAY를 받습니다. childOperator`는 `homi`가 생성한 테스트 계정에서 KLAY를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조). $ kscn account import ~/homi-output/keys_test/testkey1
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase:
+Repeat passphrase:
+Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4} $ kscn attach --datadir ~/data
+> personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
+Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
+Passphrase:
+True
+> klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
+"0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
 ```
 
 ### 브리지 오퍼레이터 주소 확인 <a id="check-bridge-operator-addresses"></a>
@@ -88,7 +91,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
 ### 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
 
-앵커링과 마찬가지로, 부모 체인 브리지 오퍼레이터는 밸류 전송 트랜잭션을 만들기 위해 KLAY가 필요합니다.
+`subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KLAY를 가지고 있어야 합니다.
 서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
 
 운영자 계정을 충전한 후 아래와 같이 잔액을 확인할 수 있습니다.
@@ -123,9 +126,9 @@ Welcome to the Klaytn JavaScript console!
 
 ## 브리지 컨트랙트 <a id="bridge-contract"></a>
 
-체인 간 밸류 전송을 위해서는 부모/자식 체인에 브리지 컨트랙트를 배포해야 합니다.
+토큰 컨트랙트는 발행/전송 테스트를 위한 것이고, 브리지 컨트랙트는 밸류 전송 요청을 수신/처리하는 데 사용됩니다.
 사용자는 브리지 컨트랙트에 KLAY 전송을 요청하여 자신의 KLAY를 다른 체인으로 전송할 수 있습니다.
-또한 토큰 컨트랙트가 브리지 컨트랙트에 등록되어 있다면, 브리지 컨트랙트는 부모 체인과 자식 체인 간의 토큰 전송을 처리할 수 있습니다.
+KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부모 체인과 자식 체인 간에 KIP-7 토큰을 전송할 수 있습니다.
 
 ### 배포 <a id="deployment"></a>
 
@@ -173,7 +176,7 @@ null
 }]
 ```
 
-### 상태 확인 <a id="checking-status"></a>
+### 전제 조건 <a id="prerequisites"></a>
 
 구독이 완료되면 SCN은 사용자의 "밸류 전송 요청" 트랜잭션을 자동으로 처리합니다.
 이 섹션에서는 브리지 컨트랙트 상태를 확인하는 방법을 설명합니다.
@@ -229,7 +232,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 }
 ```
 
-## 토큰 컨트랙트 (ERC-20/721) <a id="token-contract-erc-20-721"></a>
+## ERC-20 토큰 전송(2단계) <a id="erc-20-token-transfer-twostep"></a>
 
 서비스체인은 ERC-20/721 밸류 전송도 지원합니다.
 이를 지원하려면 서비스 체인과 호환되는 ERC-20/721 토큰 컨트랙트를 부모 체인 및 자식 체인 모두에 배포해야 합니다.
@@ -251,7 +254,7 @@ ERC-20/721 컨트랙트를 배포할 때는 올바른 브리지 오퍼레이터 
 null
 ```
 
-이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 그리고 부모 체인 토큰("0x53160735f7cc6ff75e48619f368bb94daff66a1b")과 부모 체인 브리지 컨트랙트("0x22c41ae528627b790233d2e59ea520be12350eb5")를 포함합니다.
+이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 이 단계에서는 부모 체인뿐만 아니라 자식 체인에 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포합니다.
 
 자세한 내용은 [서비스 체인 API](../../../references/service-chain-api/subbridge.md#subbridge_registerToken)를 참조하시기 바랍니다.
 
@@ -280,17 +283,17 @@ function () external payable;
 function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
-### ERC-20 전송 <a id="erc-20-transfer"></a>
+### ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
 
-#### 브리지 컨트랙트를 통한 2단계 요청 <a id="2-step-request-via-bridge-contract"></a>
+#### 2단계 전송은 (1) 브리지 컨트랙트를 먼저 승인한 다음, (2) 컨트랙트 함수 `requestERC20Transfer()`를 호출하는 두 번의 함수 호출로 구성됩니다.
 
 사용자는 브리지 컨트랙트에 토큰을 [승인](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)한 후 아래 방법을 사용하여 브리지 컨트랙트에 "밸류 전송 요청" 트랜잭션을 할 수 있습니다.
 
 ```solidity
-function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
+그런 다음 `requestERC20Transfer()` 함수를 호출합니다.
 ```
 
-#### ERC-20 컨트랙트를 통한 1단계 요청 <a id="1-step-request-via-erc-20-contract"></a>
+#### 이 1단계 토큰 전송을 수행하려면 ERC-20 토큰 구현을 수정해야 합니다.
 
 사용자는 승인 없이 아래 방법을 사용하여 **ERC-20 컨트랙트**에 직접 "요청값 전송" 트랜잭션을 생성할 수 있습니다.
 그러면 ERC-20 컨트랙트가 해당 기능을 구현해야 합니다.
@@ -299,9 +302,9 @@ function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-### ERC-721 전송 <a id="erc-721-transfer"></a>
+### ERC-721, KIP-17, KLAY용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
-#### 브리지 컨트랙트를 통한 2단계 요청 <a id="2-step-request-via-bridge-contract"></a>
+#### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
 사용자는 브리지 컨트랙트에 토큰을 [승인](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)한 후 아래 방법을 사용하여 브리지 컨트랙트에 "밸류 전송 요청" 트랜잭션을 할 수 있습니다.
 
@@ -321,7 +324,7 @@ function requestValueTransfer(uint256 _uid, address _to) external
 ### onERC721Received() <a id="unsupported-onERC721Received"></a>
 
 ERC-721 표준에는 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 콜백 함수가 있습니다.
-`onERC721Received()`는 `safeTransferFrom()` 함수와 함께 작동하지만, 현재 브리지 컨트랙트 구현은 `transferFrom()`을 사용하므로 `onERC721Recieved()`는 호출되지 않을 것으로 예상됩니다.
+현재 클레이튼 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
 
 아니면 `onERC721Recieved()`와 같은 추가 작업은 이벤트 수신과 같은 다른 방식으로 구현해야 합니다(예: `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
 
@@ -340,7 +343,7 @@ SC_VTRECOVERY_INTERVAL=5
 
 `SC_VTRECOVERY=1`을 설정하면 값 전송 복구가 자동으로 실행됩니다. `SC_VTRECOVERY_INTERVAL`은 밸류 전송 복구가 실행되는 간격을 의미합니다.
 
-## KLAY/ERC-20 전송 수수료 징수 <a id="collecting-fee-for-klay-erc-20-transfer"></a>
+## ERC-20 인터페이스를 통한 KIP-7 토큰 전송(2단계) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
 
 서비스체인에는 KLAY/ERC-20 전송에 대한 수수료 징수 기능이 있습니다.
 
