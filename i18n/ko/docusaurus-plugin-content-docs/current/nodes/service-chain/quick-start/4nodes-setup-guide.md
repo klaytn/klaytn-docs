@@ -116,7 +116,7 @@ Created :  homi-output/Klaytn_txpool.json
 ]
 ```
 
-`static-nodes.json`를 업데이트한 후 출력 폴더(`homi-output`)를 모든 SCN, 즉 이 예제에서는 SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 노드에 업로드합니다. SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 nodes in this example.
+`static-nodes.json`를 업데이트한 후 출력 폴더(`homi-output`)를 모든 SCN에 업로드합니다. 즉 이 예제에서는 SCN-L2-01, SCN-L2-02, SCN-L2-03, SCN-L2-04 노드에 업로드합니다.
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/
