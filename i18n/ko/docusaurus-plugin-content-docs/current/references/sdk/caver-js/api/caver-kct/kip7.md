@@ -1,14 +1,14 @@
 # caver.kct.kip7
 
-The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain platform (Klaytn).
+`caver.kct.kip7`은 클레이튼 블록체인 플랫폼(Klaytn)에서 KIP-7을 JavaScript 객체로 구현하는 스마트 컨트랙트를 쉽게 처리할 수 있도록 도와줍니다.
 
-The `caver.kct.kip7` inherits [caver.contract](../caver.contract.md) to implement the KIP-7 token contract. The `caver.kct.kip7` holds the same properties of `caver.contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip7`.
+`caver.kct.kip7`은 [caver.contract](../caver.contract.md)를 상속하여 KIP-7 토큰 컨트랙트를 구현합니다. `caver.kct.kip7`은 `caver.contract`과 동일한 속성을 가지며, 추가 기능을 구현하기 위한 메서드가 추가되었습니다. 여기서는 `caver.kct.kip7`에 새로 추가된 바인딩 메서드만 소개합니다.
 
-The abi and bytecode used in the caver.kct.kip7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
+caver.kct.kip7에 사용된 abi와 바이트코드는 [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20)의 예제를 사용하여 구현했습니다.
 
-The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/KIP/token/KIP7).
+caver-js용 KIP-7을 구현하는 코드는 [Klaytn 컨트랙트 GitHub 리포지토리](https://github.com/klaytn/klaytn-contracts/tree/main/contracts/KIP/token/KIP7)에서 확인할 수 있습니다.
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
+KIP-7에 대한 자세한 내용은 [클레이튼 개선 제안](https://kips.klaytn.foundation/KIPs/kip-7)을 참고하세요.
 
 ## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
 
@@ -16,37 +16,37 @@ For more information about KIP-7, see [Klaytn Improvement Proposals](https://kip
 caver.kct.kip7.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip7.deploy is a fungible token that follows the KIP-7 standard.
+KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.kip7.deploy를 사용하여 배포된 컨트랙트는 KIP-7 표준을 따르는 대체 가능한 토큰입니다.
 
-After successful deployment, the promise will be resolved with a new KIP7 instance.
+배포가 성공적으로 완료되면 새로운 KIP7 인스턴스로 프로미스가 해결됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object           | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                   |
-| deployer  | string \| object | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형               | 설명                                                                                                                                                                                                                                                                 |
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tokenInfo | object           | 클레이튼 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                   |
+| deployer  | String \| Object | KIP-7 토큰 컨트랙트를 배포할 Keyring의 주소입니다. 이 Keyring에는 배포하기에 충분한 KLAY가 있어야 합니다. 트랜잭션을 전송할 때 사용할 고유한 필드를 정의하려면 객체 유형을 파라미터로 전달할 수 있습니다. 또한 KIP-7 컨트랙트를 배포할 때 수수료 위임을 사용하려면 오브젝트에서 수수료 위임과 관련된 필드를 정의할 수 있습니다. 오브젝트에서 정의할 수 있는 필드는 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
 
-The tokenInfo object must contain the following:
+토큰 정보 객체에는 다음이 포함되어야 합니다:
 
-| Name          | Type                          | Description                                         |
-| ------------- | ----------------------------- | --------------------------------------------------- |
-| name          | string                        | The name of the token.                              |
-| symbol        | string                        | The symbol of the token.                            |
-| decimals      | number                        | The number of decimal places the token uses.        |
-| initialSupply | BigNumber \| string \| number | The total amount of token to be supplied initially. |
+| 이름            | 유형                            | 설명                      |
+| ------------- | ----------------------------- | ----------------------- |
+| name          | String                        | 토큰의 이름입니다.              |
+| symbol        | String                        | 토큰의 기호입니다.              |
+| decimals      | Number                        | 토큰이 사용하는 소수점 이하 자릿수입니다. |
+| initialSupply | BigNumber \| string \| number | 처음에 공급할 토큰의 총 금액입니다.    |
 
-**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `initialSupply` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-**Return Value**
+**리턴 값**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events can occur:
+`PromiEvent`: 새로운 KIP7 인스턴스로 해결되는 프로미스 결합 이벤트 이미터입니다. 또한 다음과 같은 이벤트가 발생할 수 있습니다:
 
-| Name            | Type   | Description                                                                                                                                                                                                                                             |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                          |
-| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                |
+| 이름              | 유형     | 설명                                                                                                                                                  |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 실행됩니다.                                                                                                             |
+| receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 내부의 프로퍼티에 대해 알고 싶다면 [getTransactionReceipt]을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 abi를 통해 파싱된 'events' 속성이 있습니다. |
+| error           | Error  | 전송 중 오류가 발생하면 발생합니다.                                                                                                                                |
 
 **Example**
 
@@ -113,19 +113,19 @@ KIP7 {
 caver.kct.kip7.detectInterface(contractAddress)
 ```
 
-Returns the information of the interface implemented by the token contract. This static function will use [kip7.detectInterface](#kip7-detectinterface).
+토큰 컨트랙트에 의해 구현된 인터페이스의 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip7-detectinterface)를 사용합니다.
 
-**Parameters**
+**매개변수**
 
-| Name            | Type   | Description                             |
-| --------------- | ------ | --------------------------------------- |
-| contractAddress | string | The address of the KIP-7 token contract |
+| 이름              | 유형     | 설명                |
+| --------------- | ------ | ----------------- |
+| contractAddress | String | KIP-7 토큰 컨트랙트의 주소 |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-7 인터페이스](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers)의 구현 여부가 포함된 결과를 부울 값으로 반환하는 `object`를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.kct.kip7.detectInterface('0x{address in hex}').then(console.log)
@@ -144,19 +144,19 @@ Returns the information of the interface implemented by the token contract. This
 caver.kct.kip7.create([tokenAddress])
 ```
 
-Creates a new KIP7 instance with its bound methods and events. This function works the same as [new KIP7](#new-kip7).
+바인딩된 메서드와 이벤트가 있는 새 KIP7 인스턴스를 생성합니다. 이 함수는 [new KIP7](#new-kip7)과 동일하게 작동합니다.
 
-**NOTE** `caver.kct.kip7.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `caver.kct.kip7.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
 
-**Parameters**
+**매개변수**
 
-See the [new KIP7](#new-kip7).
+[new KIP7](#new-kip7)을 참조하세요.
 
-**Return Value**
+**리턴 값**
 
-See the [new KIP7](#new-kip7).
+[new KIP7](#new-kip7)을 참조하세요.
 
-**Example**
+**예시**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -172,21 +172,21 @@ See the [new KIP7](#new-kip7).
 new caver.kct.kip7([tokenAddress])
 ```
 
-Creates a new KIP7 instance with its bound methods and events.
+바인딩된 메서드와 이벤트가 있는 새 KIP7 인스턴스를 생성합니다.
 
-**Parameters**
+**매개변수**
 
-| Name         | Type   | Description                                                                                                                                    |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
+| 이름           | Type   | Description                                                                                            |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------ |
+| tokenAddress | String | (선택 사항) KIP-7 토큰 컨트랙트의 주소로, 나중에 `kip7.options.address = '0x1234..'`를 통해 할당할 수 있습니다. |
 
 **Return Value**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| object | The KIP7 instance with its bound methods and events. |
+| 유형     | 설명                               |
+| ------ | -------------------------------- |
+| object | 바인딩된 메서드 및 이벤트가 있는 KIP7 인스턴스입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -202,21 +202,21 @@ Creates a new KIP7 instance with its bound methods and events.
 kip7.clone([tokenAddress])
 ```
 
-Clones the current KIP7 instance.
+현재 KIP7 인스턴스를 복제합니다.
 
 **Parameters**
 
-| Name         | Type   | Description                                                                                                                                                                    |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
+| 이름           | 유형     | 설명                                                                                        |
+| ------------ | ------ | ----------------------------------------------------------------------------------------- |
+| tokenAddress | String | (선택 사항) 다른 KIP7 토큰을 배포한 스마트 컨트랙트의 주소입니다. 생략하면 원래 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
-**Return Value**
+**리턴 값**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| object | The clone of the original KIP7 instance. |
+| 유형     | 설명                    |
+| ------ | --------------------- |
+| object | 원본 KIP7 인스턴스의 복제본입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > const kip7 = new caver.kct.kip7(address)
@@ -234,15 +234,15 @@ Clones the current KIP7 instance.
 kip7.detectInterface()
 ```
 
-Returns the information of the interface implemented by the token contract.
+토큰 컨트랙트가 구현한 인터페이스의 정보를 반환합니다.
 
 **Parameters**
 
 None
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-7 인터페이스](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers)의 구현 여부를 부울 값과 함께 결과를 포함하는 `object`를 반환합니다.
 
 **Example**
 
@@ -263,19 +263,19 @@ None
 kip7.supportsInterface(interfaceId)
 ```
 
-Return `true` if this contract implements the interface defined by `interfaceId`.
+이 컨트랙트가 `interfaceId`로 정의된 인터페이스를 구현하면 `true`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name        | Type   | Description                    |
-| ----------- | ------ | ------------------------------ |
-| interfaceId | string | The interfaceId to be checked. |
+| Object      | Type   | 설명               |
+| ----------- | ------ | ---------------- |
+| interfaceId | String | 검사할 인터페이스아이디입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+이 컨트랙트가 `interfaceId`로 정의된 인터페이스를 구현하는 경우 `Promise`는 `Boolean`: `true`를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > kip7.supportsInterface('0x65787371').then(console.log)
@@ -291,15 +291,15 @@ false
 kip7.name()
 ```
 
-Return the name of the token.
+토큰의 이름을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
 **Return Value**
 
-`Promise` returns `string`: The name of the token.
+`Promise`는 `string`을 반환합니다: 토큰의 이름입니다.
 
 **Example**
 
@@ -314,17 +314,17 @@ Jasmine
 kip7.symbol()
 ```
 
-Return the symbol of the token.
+토큰의 심볼을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `string`: The symbol of the token.
+`Promise`는 `string`을 반환합니다: 토큰의 심볼입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > kip7.symbol().then(console.log)
@@ -337,17 +337,17 @@ JAS
 kip7.decimals()
 ```
 
-Return the number of decimal places the token uses.
+토큰이 사용하는 소수점 이하 자릿수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `number`: The number of decimal places the token uses.
+`Promise`는 `number`를 반환합니다: 토큰이 사용하는 소수점 이하 자릿수입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > kip7.decimals().then(console.log)
@@ -360,17 +360,17 @@ None
 kip7.totalSupply()
 ```
 
-Return the total token supply.
+총 토큰 공급량을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise`는 `BigNumber`를 반환합니다: 총 토큰 수입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > kip7.totalSupply().then(console.log)
@@ -383,17 +383,17 @@ None
 kip7.balanceOf(address)
 ```
 
-Return the balance of the given account address.
+지정된 계좌 주소의 잔액을 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name    | Type   | Description                                               |
-| ------- | ------ | --------------------------------------------------------- |
-| address | string | The address of the account to be checked for its balance. |
+| 이름      | 유형     | 설명                 |
+| ------- | ------ | ------------------ |
+| address | string | 잔액을 확인할 계정의 주소입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `BigNumber`: The account balance.
+`Promise`는 `BigNumber`를 반환합니다: 계정 잔액입니다.
 
 **Example**
 
@@ -408,18 +408,18 @@ Return the balance of the given account address.
 kip7.allowance(owner, spender)
 ```
 
-Return the amount of token that `spender` is allowed to withdraw from `owner`.
+`spender`가 `owner`로부터 인출할 수 있는 토큰의 양을 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name    | Type   | Description                                                          |
-| ------- | ------ | -------------------------------------------------------------------- |
-| owner   | string | The address of the token owner's account.                            |
-| spender | string | The address of the account that spends tokens in place of the owner. |
+| 이름      | Type   | 설명                         |
+| ------- | ------ | -------------------------- |
+| owner   | String | 토큰 소유자의 계정 주소입니다.          |
+| spender | String | 소유자 대신 토큰을 소비하는 계정의 주소입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `BigNumber`: The remaining number of tokens that spender is allowed to spend in place of the owner.
+`Promise`는 `BigNumber`를 반환합니다: spender가 소유자 대신 사용할 수 있는 남은 토큰 수입니다.
 
 **Example**
 
@@ -437,17 +437,17 @@ Return the amount of token that `spender` is allowed to withdraw from `owner`.
 kip7.isMinter(address)
 ```
 
-Return `true` if the given account is a minter who can issue new KIP7 tokens.
+주어진 계정이 새로운 KIP7 토큰을 발행할 수 있는 채굴자라면 `true`를 반환합니다.
 
 **Parameters**
 
-| Name    | Type   | Description                                                            |
-| ------- | ------ | ---------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the minting right. |
+| 이름      | Type   | 설명                        |
+| ------- | ------ | ------------------------- |
+| address | String | 채굴 권한이 있는지 확인할 계정의 주소입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Boolean`: `true` if the account is a minter.
+`Promise`는 해당 계정이 채굴자인 경우 `Boolean`: `true`를 반환합니다.
 
 **Example**
 
@@ -465,17 +465,17 @@ false
 kip7.isPauser(address)
 ```
 
-Return `true` if the given account is a pauser who can suspend transferring tokens.
+주어진 계정이 토큰 전송을 일시 중지할 수 있는 일시 중지자(pauser)라면 `true`를 반환합니다.
 
-**Parameters**
+**파라미터**
 
-| Name    | Type   | Description                                                                                   |
-| ------- | ------ | --------------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
+| 이름      | 유형     | 설명                           |
+| ------- | ------ | ---------------------------- |
+| address | String | 컨트랙트를 일시 중지할 수 있는 권한을 포기합니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Boolean`: `true` if the account is a pauser.
+`Promise`는 해당 계정이 일시 정지 상태인 경우 `Boolean`: `true`를 반환합니다.
 
 **Example**
 
@@ -493,15 +493,15 @@ false
 kip7.paused()
 ```
 
-Return `true` if the contract is paused, and `false` otherwise.
+컨트랙트가 일시 중지되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Boolean`: `true` if the contract is paused.
+`Promise`는 컨트랙트가 일시 중지되면 `boolean`: `true`를 반환합니다.
 
 **Example**
 
@@ -519,39 +519,39 @@ false
 kip7.approve(spender, amount [, sendParam])
 ```
 
-Set the `amount` of the tokens of the token owner to be spent by the `spender`.
+토큰 소유자의 토큰 중 `amount`을 `spender`가 사용할 수 있도록 설정합니다.
 
-Note that this method will submit a transaction from the owner to the Klaytn network, which will charge the transaction fee to the owner.
+이 메서드는 소유자로부터 트랜잭션을 클레이튼 네트워크에 전송하며, 트랜잭션 수수료는 소유자에게 부과됩니다.
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                             |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| spender   | string                        | The address of the account who spends tokens in place of the owner.                                     |
-| amount    | BigNumber \| string \| number | The amount of token the spender is allowed to use.                                                      |
-| sendParam | object                        | (optional) An object holding parameters that are required for sending a transaction. |
+| 이름        | 유형                            | 설명                                                           |
+| --------- | ----------------------------- | ------------------------------------------------------------ |
+| spender   | String                        | 소유자 대신 토큰을 소비하는 계정의 주소입니다.                                   |
+| amount    | BigNumber \| string \| number | 발행할 토큰의 금액입니다.                                               |
+| sendParam | object                        | (선택 사항) 트랜잭션을 전송하는 데 필요한 매개변수가 포함된 객체입니다. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-The `sendParam` object contains the following:
+`sendParam` 객체에는 다음이 포함됩니다:
 
-| Name          | Type                                | Description                                                                                                                                                                                                                                                                                                                                                             |
-| ------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                              | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip7.options.from`. If neither of `from` in the `sendParam` object nor `kip7.options.from` were not provided, an error would occur.                                                                                                                 |
-| gas           | number \| string                    | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip7.methods.approve(spender, amount).estimateGas({from})`.                                                                                                                                   |
-| gasPrice      | number \| string                    | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                   |
-| value         | number \| string \| BN \| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                       |
-| feeDelegation | boolean                             | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip7.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                           |
-| feePayer      | string                              | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip7.options.feePayer` will be used. If both omitted, throws an error.                                                                                                 |
-| feeRatio      | string                              | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip7.options.feeRatio` will be used. |
+| 이름            | 유형                                  | 설명                                                                                                                                                                                                                                                                       |
+| ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from          | String                              | (선택 사항) 트랜잭션을 전송할 주소입니다. 생략하면 `kip7.options.from`으로 설정됩니다. `sendParam` 객체의 `from`이나 `kip7.options.from` 중 어느 것도 제공되지 않으면 오류가 발생합니다.                                                                                                                   |
+| gas           | Number \| String                    | (선택 사항) 이 트랜잭션에 제공되는 최대 가스 개수(가스 한도). 생략할 경우, `kip7.methods.approve(spender, amount).estimateGas({from})`를 호출하여 caver-js에서 설정합니다.                                                                                                  |
+| gasPrice      | Number \| String                    | (선택 사항) 이 트랜잭션의 가스 가격(peb 단위)입니다. 생략할 경우, `caver.klay.getGasPrice` 호출을 통해 caver-js에서 설정합니다.                                                                                                                                        |
+| value         | number \| string \| BN \| BigNumber | (선택 사항) peb 단위로 전송할 값입니다.                                                                                                                                                                                                                             |
+| feeDelegation | boolean                             | (선택 사항, 기본값 `false`) 수수료 대납 트랜잭션 사용 여부. 생략하면 `kip7.options.feeDelegation`이 사용됩니다. 둘 다 생략하면 수수료 위임이 사용되지 않습니다.                                                                                                                                         |
+| feePayer      | string                              | (선택 사항) 트랜잭션 수수료를 지불하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`인 경우, 이 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 생략하면 `kip7.options.feePayer`가 사용됩니다. 둘 다 생략하면 오류가 발생합니다.                                                                                         |
+| feeRatio      | String                              | (선택 사항) 수수료 납부자가 부담하게 될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이고 `feeRatio`가 유효한 값으로 설정되면 부분 수수료 위임 트랜잭션이 사용됩니다. The valid range of this is between 1 and 99. 유효한 범위는 1에서 99 사이이며, 0 또는 100 이상의 비율은 허용되지 않습니다. 생략하면 `kip7.options.feeRatio`가 사용됩니다. |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `feeDelegation`, `feePayer` 및 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -612,25 +612,25 @@ The `sendParam` object contains the following:
 kip7.transfer(recipient, amount [, sendParam])
 ```
 
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+토큰 소유자의 잔고에서 주어진 토큰의 `amount`을 `recipient`에게 전송합니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션의 발신자이어야 하며, 주소는 `sendParam.from` 또는 `kip7.options.from`에 지정해야 합니다. `sendParam.from` 또는 `kip7.options.from`이 제공되지 않으면 오류가 발생합니다.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| recipient | string                        | The address of the account to receive the token.                                                                                                                                                 |
-| amount    | BigNumber \| string \| number | The amount of token to be transferred.                                                                                                                                                           |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | Type                          | 설명                                                                                                                                                         |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | String                        | 토큰을 받을 계정의 주소입니다.                                                                                                                                          |
+| amount    | BigNumber \| string \| number | 송금할 토큰 금액입니다.                                                                                                                                              |
+| sendParam | Object                        | (optional) An object with defined parameters for sending a transaction. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -691,28 +691,28 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+토큰 소유자의 잔고에서 주어진 토큰의 `amount`을 `recipient`에게 안전하게 전송합니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션의 발신자이어야 하며, 주소는 `sendParam.from` 또는 `kip7.options.from`에 지정해야 합니다. `sendParam.from` 또는 `kip7.options.from`이 제공되지 않으면 오류가 발생합니다.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+수신자가 컨트랙트 주소인 경우, [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface)를 구현해야 합니다. 일시정지된 컨트랙트를 재개합니다.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+이 트랜잭션을 보내면 트랜잭션 발신자에게 트랜잭션 수수료가 청구된다는 점에 유의하세요.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| recipient | string                        | The address of the account to receive the token.                                                                                                                                                 |
-| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                                                                                        |
-| data      | Buffer \| string \| number    | (optional) The optional data to send along with the call.                                                                                                                     |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Name      | Type                          | 설명                                                                                                                         |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| recipient | String                        | 토큰을 받을 계정의 주소입니다.                                                                                                          |
+| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                  |
+| data      | Buffer \| string \| number    | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다.                                                                          |
+| sendParam | Object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 파라미터가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. KIP17 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -776,24 +776,24 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
 
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+토큰 소유자의 잔액에서 주어진 토큰의 `amount`을 `recipient`에게 전송합니다. 토큰 소유자의 토큰을 전송하도록 승인된 주소가 이 토큰 전송 트랜잭션을 실행할 것으로 예상됩니다. 따라서 승인된 주소가 이 트랜잭션의 발신자이어야 하며, 그 주소는 `sendParam.from` 또는 `kip7.options.from`에 제공되어야 합니다. `sendParam.from` 또는 `kip7.options.from`이 제공되지 않으면 오류가 발생합니다.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+이 트랜잭션을 보내면 트랜잭션 발신자에게 트랜잭션 수수료가 청구된다는 점에 유의하세요.
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sender    | string                        | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                              |
-| recipient | string                        | The address of the account to receive the token.                                                                                                                                                 |
-| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                                                                                        |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형                            | 설명                                                                                                                         |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| sender    | String                        | 허용 메커니즘으로 전송할 토큰을 소유한 계정의 주소입니다.                                                                                           |
+| recipient | String                        | 토큰을 받을 계정의 주소입니다.                                                                                                          |
+| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                  |
+| sendParam | Object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
 **Example**
 
@@ -879,29 +879,29 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+토큰 소유자의 잔고에서 주어진 토큰의 `amount`을 `recipient`에게 안전하게 전송합니다. 토큰 소유자의 토큰을 전송하도록 승인된 주소가 이 토큰 전송 트랜잭션을 실행할 것으로 예상됩니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. `sendParam.from` 또는 `kip7.options.from`이 제공되지 않으면 오류가 발생합니다.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). 그렇지 않으면 전송이 되돌려집니다.
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+이 트랜잭션을 보내면 트랜잭션 발신자에게 트랜잭션 수수료가 청구된다는 점에 유의하세요.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sender    | string                        | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                              |
-| recipient | string                        | The address of the account to receive the token.                                                                                                                                                 |
-| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                                                                                        |
-| data      | Buffer \| string \| number    | (optional) The optional data to send along with the call.                                                                                                                     |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Object    | 유형                            | Description                                                                                                                                                      |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | String                        | 허용 메커니즘으로 전송할 토큰을 소유한 계정의 주소입니다.                                                                                                                                 |
+| recipient | string                        | 토큰을 받을 계정의 주소입니다.                                                                                                                                                |
+| amount    | BigNumber \| string \| number | 송금하려는 토큰의 금액입니다.                                                                                                                                                 |
+| data      | Buffer \| string \| number    | (선택 사항) 호출과 함께 전송할 선택적 데이터입니다.                                                                                                                |
+| sendParam | Object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP17 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -988,27 +988,27 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7.mint(account, amount [, sendParam])
 ```
 
-Creates the `amount` of token and issues it to the `account`, increasing the total supply of token.
+토큰의 `amount`을 생성하고 `account`에 발행하여 토큰의 총 공급량을 늘립니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| account   | string                        | The address of the account to which the minted token will be issued.                                                                                                                             |
-| amount    | BigNumber \| string \| number | The amount of token to be minted.                                                                                                                                                                |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형                            | 설명                                                                                                                         |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| account   | String                        | 발행된 토큰이 발급될 계정의 주소입니다.                                                                                                     |
+| amount    | BigNumber \| string \| number | 소각할 토큰의 금액입니다.                                                                                                             |
+| sendParam | Object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 주어진 경우, MinterRole이 있는 miner이어야 합니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1069,24 +1069,24 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+토큰을 발행할 수 있는 채굴자로 계정을 추가합니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| account   | string | The address of the account to be added as a minter.                                                                                                                                              |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형     | Description                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| account   | String | 채굴자로 추가할 계정의 주소입니다.                                                                                                        |
+| sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 주어진 경우, miner이어야 합니다.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1143,23 +1143,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+토큰을 발행할 권리를 포기합니다. 채굴자 주소만 발행권을 포기할 수 있습니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
 **Parameters**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형     | 설명                                                                                                                         |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 정의된 파라미터가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 주어진 경우, MinterRole이 있는 miner이어야 합니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1216,24 +1216,24 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.burn(amount [, sendParam])
 ```
 
-Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+발신자의 잔고에 있는 토큰의 `amount`을 소각합니다. `sendParam.from` 또는 `kip7.options.from`이 제공되지 않으면 오류가 발생합니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| amount    | BigNumber \| string \| number | The amount of token to be destroyed.                                                                                                                                                             |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형                            | 설명                                                                                                                         |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| amount    | BigNumber \| string \| number | The amount of token to be destroyed.                                                                                       |
+| sendParam | Object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 파라미터가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1294,25 +1294,25 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.burnFrom(account, amount [, sendParam])
 ```
 
-Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7.options.from` is reduced alongside the balance of `account`.
+`account`에서 주어진 토큰 개수를 소각합니다. `sendParam.from` 또는 `kip7.options.from`에 지정된 발신자의 허용량은 `account`의 잔액과 함께 감소합니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type                          | Description                                                                                                                                                                                      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| account   | string                        | The address of the account that owns tokens to be burned with allowance mechanism.                                                                                                               |
-| amount    | BigNumber \| string \| number | The amount of token to be destroyed.                                                                                                                                                             |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | Type                          | Description                                                                                                                |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| account   | String                        | 허용 메커니즘으로 소각할 토큰을 소유한 계정의 주소입니다.                                                                                           |
+| amount    | BigNumber \| string \| number | 소멸할 토큰의 양입니다.                                                                                                              |
+| sendParam | object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 파라미터가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 파라미터 설명을 참조하세요. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `amount` 파라미터는 `number` 타입을 허용하지만, 입력된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1396,24 +1396,24 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+컨트랙트를 일시 정지할 권한이 있는 계정을 일시 정지자로 추가합니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| account   | string | The address of the account to be a new pauser.                                                                                                                                                   |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형     | Description                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 새 일시 중지할 계정의 주소입니다.                                                                                                        |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 제공된 경우, PauserRole이 있는 일시 중지여야 합니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1470,23 +1470,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+Renounces the right to pause the contract. 일시 중지 주소만 일시 중지 권한을 포기할 수 있습니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
 **Parameters**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 이름        | 유형     | Description                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 제공된 경우, PauserRole이 있는 일시 중지여야 합니다.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1543,23 +1543,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip7.pause([sendParam])
 ```
 
-Suspends functions related to sending tokens.
+토큰 전송과 관련된 함수를 일시 중단합니다.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Object    | 유형     | Description                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [approve](#kip7-approve)의 매개변수 설명을 참조하세요. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 제공된 경우, PauserRole이 있는 일시 중지여야 합니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1618,21 +1618,21 @@ kip7.unpause([sendParam])
 
 Resumes the paused contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
-**Parameters**
+**매개변수**
 
-| Name      | Type   | Description                                                                                                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 없음        | 유형     | 설명                                                                                                                                                               |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | Object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** `sendParam.from` 또는 `kip7.options.from`이 제공된 경우, PauserRole이 있는 일시 중지여야 합니다.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 객체 내부의 속성에 대해 알고 싶으시면 [getTransactionReceipt]의 설명을 참조하세요. KIP7 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send via a sendParam object with the from field given 
