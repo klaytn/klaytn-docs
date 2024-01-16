@@ -5,7 +5,7 @@ USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## Commands
+## 명령어
 
 `ken`에는 다음과 같은 명령이 있습니다.
 
