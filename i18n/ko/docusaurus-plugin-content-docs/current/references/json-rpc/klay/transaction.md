@@ -2,46 +2,46 @@
 
 ## klay_call <a id="klay_call"></a>
 
-Executes a new message call immediately without creating a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
+블록체인에 트랜잭션을 생성하지 않고 즉시 새 메시지 호출을 실행합니다. 에러가 발생하면 데이터 또는 JSON RPC의 에러 객체를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name              | Type                    | Description                                                                                                                                                                            |
-| ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject        | Object                  | The transaction call object.  See the next table for the object's properties.                                                                                                          |
-| blockNumberOrHash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | Type                    | 설명                                                                                                                             |
+| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| callObject           | Object                  | 트랜잭션 호출 개체입니다.  객체의 속성은 다음 표를 참조하세요.                                                                                           |
+| block number 또는 hash | QUANTITY \| TAG \| HASH | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 :::note
 
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+참고: Klaytn v1.7.0 이전 버전에서는 정수 블록 번호, 문자열 `"earliest"` 및 `"latest"`만 사용할 수 있습니다.
 
 :::
 
-`callObject` has the following properties:
+`callObject`에는 다음과 같은 속성이 있습니다:
 
-| Name     | Type         | Description                                                                                                                                                                  |
-| -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20-byte DATA | (optional) The address the transaction is sent from.                                                                                                      |
-| to       | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                      |
-| gas      | QUANTITY     | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
-| gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                |
-| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                               |
-| input    | DATA         | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but `data` field is still supported for backward compatibility. |
+| 이름       | Type         | 설명                                                                                                                |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| from     | 20-byte DATA | (선택 사항) 트랜잭션이 전송되는 주소입니다.                                                                      |
+| to       | 20-byte DATA | (새 컨트랙트 배포 테스트 시 선택 사항) 트랜잭션이 전송되는 주소입니다.                                                      |
+| gas      | QUANTITY     | (선택 사항) 트랜잭션 실행을 위해 제공되는 가스의 정수입니다. `klay_call`은 가스를 전혀 소비하지 않지만, 일부 실행에서는 이 매개변수가 필요할 수 있습니다. |
+| gasPrice | QUANTITY     | (선택 사항) 각 유료 가스에 사용되는 가스 가격의 정수입니다.                                                            |
+| value    | QUANTITY     | (선택 사항) 이 트랜잭션과 함께 전송된 값의 정수입니다.                                                               |
+| input    | DATA         | (선택 사항) 메서드 서명 및 인코딩된 매개변수의 해시입니다. `data` 필드를 대체하지만, 이전 버전과의 호환성을 위해 `data` 필드는 계속 지원됩니다.      |
 
-**Return Value**
+**리턴 값**
 
-| Type | Description                            |
-| ---- | -------------------------------------- |
-| DATA | The return value of executed contract. |
+| Type | 설명                |
+| ---- | ----------------- |
+| DATA | 실행된 컨트랙트의 반환값입니다. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
-**Error**
+**오류**
 
-It returns an error object of JSON RPC if anything goes wrong.
-For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+문제가 발생하면 JSON RPC의 에러 객체를 반환합니다.
+예를 들어, `REVERT` 연산코드로 메시지 호출이 종료되면 "evm: 실행이 되돌려졌습니다"라는 메시지가 포함된 오류 객체가 생성됩니다.
 
-**Example**
+**예제**
 
 ```shell
 // Request
@@ -53,32 +53,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_estimateGas <a id="klay_estimategas"></a>
 
-Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
+트랜잭션을 완료하는 데 필요한 가스 양에 대한 추정치를 생성하고 반환합니다. 트랜잭션은 블록체인에 추가되지 않습니다. 클레이튼 가상머신 메커니즘과 노드 성능 등 다양한 이유로 인해 이 추정치는 트랜잭션이 실제로 사용하는 가스 양보다 훨씬 많을 수 있다는 점에 유의하세요.
 
-**Parameters**
+**매개변수**
 
-| Name       | Type   | Description                                                                   |
-| ---------- | ------ | ----------------------------------------------------------------------------- |
-| callObject | Object | The transaction call object.  See the next table for the object's properties. |
+| 이름         | Type   | 설명                                   |
+| ---------- | ------ | ------------------------------------ |
+| callObject | Object | 트랜잭션 호출 개체입니다.  객체의 속성은 다음 표를 참조하세요. |
 
-`callObject` has the following properties:
+`callObject`에는 다음과 같은 속성이 있습니다:
 
-| Name     | Type         | Description                                                                                                                                                                                  |
-| -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20-byte DATA | (optional) The address the transaction is sent from.                                                                                                                      |
-| to       | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                                      |
-| gas      | QUANTITY     | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound. |
-| gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                                |
-| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                                               |
-| input    | DATA         | (optional) Hash of the method signature and encoded parameters. It replaces `data` field, but `data` field is still supported for backward compatibility.                 |
+| 이름       | Type         | 설명                                                                                                           |
+| -------- | ------------ | ------------------------------------------------------------------------------------------------------------ |
+| from     | 20-byte DATA | (선택 사항) 트랜잭션이 전송되는 주소입니다.                                                                 |
+| to       | 20-byte DATA | (새 컨트랙트 배포 테스트 시 선택 사항) 트랜잭션이 전송되는 주소입니다.                                                 |
+| gas      | QUANTITY     | (선택 사항) 가스 추정을 위해 제공된 가스 상한선의 정수입니다. 가스 상한을 지정하지 않으면 Klaytn 노드는 지정된 가스 상한을 상한으로 사용합니다.    |
+| gasPrice | QUANTITY     | (선택 사항) 각 유료 가스에 사용된 가스 가격의 정수입니다.                                                        |
+| value    | QUANTITY     | (선택 사항) 트랜잭션과 함께 전송된 값의 정수입니다.                                                            |
+| input    | DATA         | (선택 사항) 메서드 서명 및 인코딩된 매개변수의 해시입니다. `data` 필드를 대체하지만, 이전 버전과의 호환성을 위해 `data` 필드는 계속 지원됩니다. |
 
-**Return Value**
+**리턴 값**
 
-| Type     | Description             |
-| -------- | ----------------------- |
-| QUANTITY | The amount of gas used. |
+| Type     | 설명           |
+| -------- | ------------ |
+| QUANTITY | 사용한 가스 양입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -93,22 +93,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
 
-Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
-Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
-The transaction will not be added to the blockchain like [klay_estimateGas](#klay_estimategas).
+트랜잭션을 실행하는 데 얼마나 많은 연산 비용이 소요될지 예상치를 생성하여 반환합니다.
+클레이튼은 한 트랜잭션에 너무 많은 시간이 걸리지 않도록 현재 트랜잭션의 계산 비용을 `100000000`로 제한하고 있습니다.
+해당 트랜잭션은 [klay_estimateGas](#klay_estimategas)처럼 블록체인에 추가되지 않습니다.
 
-**Parameters**
+**매개변수**
 
-See [klay_call](#klay_call) parameters, except that all properties are optional.
-If no gas limit is specified, the Klaytn node uses the default gas limit (uint64 / 2) as an upper bound.
+모든 프로퍼티는 선택 사항이라는 점을 제외하고는 [klay_call](#klay_call) 파라미터를 참조하세요.
+가스 제한을 지정하지 않으면 Klaytn 노드는 기본 가스 제한(uint64 / 2)을 상한값으로 사용합니다.
 
-**Return Value**
+**리턴 값**
 
-| Type     | Description                          |
-| -------- | ------------------------------------ |
-| QUANTITY | The amount of computation cost used. |
+| Type     | 설명               |
+| -------- | ---------------- |
+| QUANTITY | 사용된 계산 비용의 양입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -123,21 +123,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
-Returns information about a transaction by block hash and transaction index position.
-This API works only on RPC call, not on JavaScript console.
+블록 해시 및 트랜잭션 인덱스 위치별로 트랜잭션에 대한 정보를 반환합니다.
+이 API는 JavaScript 콘솔이 아닌 RPC 호출에서만 작동합니다.
 
-**Parameters**
+**매개변수**
 
-| Type         | Description                                |
-| ------------ | ------------------------------------------ |
-| 32-byte DATA | Hash of a block.                           |
-| QUANTITY     | Integer of the transaction index position. |
+| Type         | 설명                  |
+| ------------ | ------------------- |
+| 32-byte DATA | 블록의 해시.             |
+| QUANTITY     | 트랜잭션 인덱스 위치의 정수입니다. |
 
-**Return Value**
+**리턴 값**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+[klay_getTransactionByHash](#klay_gettransactionbyhash)를 참조하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -175,27 +175,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
-Returns information about a transaction by block number and transaction index position.
-This API works only on RPC call, not on JavaScript console.
+블록 번호와 트랜잭션 인덱스 위치별로 트랜잭션에 대한 정보를 반환합니다.
+이 API는 JavaScript 콘솔이 아닌 RPC 호출에서만 작동합니다.
 
-**Parameters**
+**매개변수**
 
-| Type            | Description                                                                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY        | The transaction index position.                                                                                                                                          |
+| Type            | 설명                                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에 있는 `earliest`, `latest` 또는 `pending` 문자열 또는 블록 해시입니다. |
+| QUANTITY        | 트랜잭션 인덱스 위치입니다.                                                                                                                 |
 
 :::note
 
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+참고: Klaytn v1.7.0 이전 버전에서는 정수 블록 번호, 문자열 `"earliest"` 및 `"latest"`만 사용할 수 있습니다.
 
 :::
 
-**Return Value**
+**리턴 값**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+[klay_getTransactionByHash](#klay_gettransactionbyhash)를 참조하세요.
 
-**Example**
+**예제**
 
 ```shell
 // Request
@@ -233,44 +233,44 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
-Returns the information about a transaction requested by transaction hash.
-This API works only on RPC call, not on JavaScript console.
+트랜잭션 해시로 요청된 트랜잭션에 대한 정보를 반환합니다.
+이 API는 JavaScript 콘솔이 아닌 RPC 호출에서만 작동합니다.
 
-**Parameters**
+**매개변수**
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| 32-byte DATA | Hash of a transaction. |
+| Type         | 설명           |
+| ------------ | ------------ |
+| 32-byte DATA | 트랜잭션의 해시입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Object` - A transaction object, or `null` when no transaction was found:
+`Object` - 트랜잭션 오브젝트, 또는 트랜잭션을 찾을 수 없는 경우 `null`입니다:
 
-| Name               | Type         | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                                        |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                                             |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                                              |
-| feePayer           | 20-byte DATA | (optional) Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                               |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                                             |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                                        |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                                           |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                                           |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                 |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                                    |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                            |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                                                   |
-| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions.                                 |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                        |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                                                 |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                                                                 |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                                               |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                                          |
+| 이름                 | Type         | 설명                                                                                                                                                                                |
+| ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte DATA | 이 트랜잭션이 있었던 블록의 해시입니다. 보류 중인 경우 `null`.                                                                                                                                           |
+| blockNumber        | QUANTITY     | 이 트랜잭션이 있던 블록 번호. 보류 중인 경우 `null`.                                                                                                                                                |
+| codeFormat         | String       | (선택 사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                 |
+| feePayer           | 20-byte DATA | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                                        |
+| feePayerSignatures | Array        | (선택 사항) 수수료 납부자의 서명 객체 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.          |
+| feeRatio           | QUANTITY     | (선택 사항) 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%를 수수료 납부자가 지불합니다. 70%는 발신자가 지불합니다.                                                                                    |
+| from               | 20-byte DATA | 수신자의 주소.                                                                                                                                                                          |
+| gas                | QUANTITY     | 발신자가 제공한 가스.                                                                                                                                                                      |
+| gasPrice           | QUANTITY     | 발신자가 제공한 가스 가격(단위: peb).                                                                                                                                       |
+| hash               | 32-byte DATA | 트랜잭션의 해시입니다.                                                                                                                                                                      |
+| humanReadable      | Boolean      | (선택 사항) 주소가 사람이 읽을 수 있는 경우 `true`, 주소가 사람이 읽을 수 없는 경우 `false`.                                                                                                 |
+| key                | String       | (선택 사항) 새로 만든 계정의 키입니다.                                                                                                                                        |
+| input              | DATA         | (선택 사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                   |
+| nonce              | QUANTITY     | 이 트랜잭션 이전에 발신자가 수행한 트랜잭션의 수입니다.                                                                                                                                                   |
+| senderTxHash       | 32-byte DATA | 보낸 사람만 서명한 트랜잭션의 해시(32-byte DATA). [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash)를 참조하세요. 이 값은 수수료 위임이 아닌 트랜잭션의 경우 항상 `hash`와 동일합니다. |
+| signatures         | Array        | 서명 객체의 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.                                             |
+| to                 | 20-byte DATA | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                                                                                                                                                 |
+| transactionIndex   | QUANTITY     | 블록에서 트랜잭션 인덱스 위치의 정수입니다. 보류 중일 때는 `null`입니다.                                                                                                                                      |
+| type               | String       | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                            |
+| typeInt            | QUANTITY     | 트랜잭션 유형을 나타내는 정수입니다.                                                                                                                                                              |
+| value              | QUANTITY     | 전송된 값입니다(단위: peb).                                                                                                                                             |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -315,46 +315,46 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
-Returns the information about a transaction requested by sender transaction hash.
-This API works only on RPC call, not on JavaScript console.
-Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+발신자 트랜잭션 해시로 요청된 트랜잭션에 대한 정보를 반환합니다.
+이 API는 JavaScript 콘솔이 아닌 RPC 호출에서만 작동합니다.
+이 API는 `--sendertxhashindexing`으로 인덱싱 기능이 활성화된 경우에만 올바른 결과를 반환합니다.
+이는 [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled) 호출을 통해 확인할 수 있습니다.
 
-**Parameters**
+**매개변수**
 
-| Type         | Description                                                                                                                            |
+| Type         | 설명                                                                                                                                     |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash). |
+| 32-byte DATA | 보낸 사람만 서명한 트랜잭션의 해시(32-byte DATA). [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash)를 참조하세요. |
 
-**Return Value**
+**리턴 값**
 
-`Object` - A transaction object, or `null` when no transaction was found:
+`Object` - 트랜잭션 오브젝트, 또는 트랜잭션을 찾을 수 없는 경우 `null`입니다:
 
-| Name               | Type         | Description                                                                                                                                                                                                          |
-| ------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                          |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                               |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                |
-| feePayer           | 20-byte DATA | Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                 |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                               |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                          |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                             |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                             |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                   |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                      |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                              |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                     |
-| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions.   |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.             |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                          |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                   |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                                   |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                 |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                            |
+| 이름                 | Type         | 설명                                                                                                                                                |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte DATA | 이 트랜잭션이 있었던 블록의 해시입니다. 보류 중인 경우 `null`.                                                                                                           |
+| blockNumber        | QUANTITY     | 이 트랜잭션이 있던 블록 번호. 보류 중인 경우 `null`.                                                                                                                |
+| codeFormat         | String       | (선택 사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                 |
+| feePayer           | 20-byte DATA | 수수료 납부자의 주소입니다.                                                                                                                                   |
+| feePayerSignatures | Array        | 수수료 납부자의 서명 객체 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.     |
+| feeRatio           | QUANTITY     | (선택 사항) 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%를 수수료 납부자가 지불합니다. 70이면 발신자가 70%를 지불합니다.                                               |
+| from               | 20-byte DATA | 수신자의 주소.                                                                                                                                          |
+| gas                | QUANTITY     | 발신자가 제공한 가스.                                                                                                                                      |
+| gasPrice           | QUANTITY     | 발신자가 제공한 가스 가격(단위: peb).                                                                                                       |
+| hash               | 32-byte DATA | 트랜잭션의 해시.                                                                                                                                         |
+| humanReadable      | Boolean      | (선택 사항) 주소가 사람이 읽을 수 있는 주소인 경우 `true`, 사람이 읽을 수 없는 주소인 경우 `false`.                                                             |
+| key                | String       | (선택 사항) 새로 만든 계정의 키입니다.                                                                                                        |
+| input              | DATA         | (선택 사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                   |
+| nonce              | QUANTITY     | 이 트랜잭션 이전에 발신자가 만든 트랜잭션의 수입니다.                                                                                                                    |
+| senderTxHash       | 32-byte DATA | 발신자만 서명한 트랜잭션의 해시입니다. [SenderTxHash](../../../learn/transactions/transactions.md#sendertxhash)를 참조하세요. 이 값은 수수료 위임이 아닌 트랜잭션의 경우 항상 `hash`와 동일합니다. |
+| signatures         | Array        | 서명 개체의 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.             |
+| to                 | 20-byte DATA | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                                                                                                                 |
+| transactionIndex   | QUANTITY     | 블록에서 트랜잭션 인덱스 위치의 정수입니다. 보류 중일 때는 `null`입니다.                                                                                                      |
+| type               | String       | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                            |
+| typeInt            | QUANTITY     | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                             |
+| value              | QUANTITY     | 전송된 값입니다(단위: peb).                                                                                                             |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -399,52 +399,52 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
 
-Returns the receipt of a transaction by transaction hash.
+트랜잭션 해시별로 트랜잭션 영수증을 반환합니다.
 
-**NOTE**: The receipt is not available for pending transactions.
+**참고**: 보류 중인 거래에는 영수증을 사용할 수 없습니다.
 
-**Parameters**
+**매개변수**
 
-| Name | Type         | Description            |
-| ---- | ------------ | ---------------------- |
-| Hash | 32-byte DATA | Hash of a transaction. |
+| 이름 | Type         | 설명           |
+| -- | ------------ | ------------ |
+| .  | 32-byte DATA | 트랜잭션의 해시입니다. |
 
-**Return Value**
+**리턴 값**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found
+`Object` - 트랜잭션 영수증 객체, 영수증을 찾을 수 없는 경우 `null`입니다.
 
-| Name               | Type                                       | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA                               | Hash of the block where this transaction was in.                                                                                                                                                                                                   |
-| blockNumber        | QUANTITY                                   | The block number where this transaction was in.                                                                                                                                                                                                    |
-| codeFormat         | String                                     | (optional) The code format of smart contract code.                                                                                                                                                                              |
-| contractAddress    | DATA                                       | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                        |
-| feePayer           | 20-byte DATA                               | (optional) Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array                                      | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY                                   | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                               |
-| from               | 20-byte DATA                               | Address of the sender.                                                                                                                                                                                                                             |
-| gas                | QUANTITY                                   | Gas provided by the sender.                                                                                                                                                                                                                        |
-| effectiveGasPrice  | QUANTITY                                   | The actual value per gas deducted from the senders account.                                                                                                                                                                                        |
-| gasPrice           | QUANTITY                                   | Gas price provided by the sender in peb.                                                                                                                                                                                                           |
-| gasUsed            | QUANTITY                                   | The amount of gas used by this specific transaction alone.                                                                                                                                                                                         |
-| humanReadable      | Boolean                                    | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                 |
-| key                | String                                     | (optional) Key of the newly created account.                                                                                                                                                                                    |
-| input              | DATA                                       | (optional) The data sent along with the transaction.                                                                                                                                                                            |
-| logs               | Array                                      | Array of log objects, which this transaction generated.                                                                                                                                                                                            |
-| logsBloom          | 256-byte DATA                              | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                   |
-| nonce              | QUANTITY                                   | The number of transactions made by the sender prior to this one.                                                                                                                                                                                   |
-| senderTxHash       | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions.                                                                                    |
-| signature          | Array                                      | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| status             | QUANTITY                                   | Either `1` (success) or `0` (failure).                                                                                                                                                                       |
-| txError            | QUANTITY                                   | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                                    |
-| to                 | 20-byte DATA                               | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                        |
-| transactionHash    | 32-byte DATA                               | Hash of the transaction.                                                                                                                                                                                                                           |
-| transactionIndex   | QUANTITY                                   | Integer of the transaction index position in the block.                                                                                                                                                                                            |
-| type               | String                                     | A string representing the type of the transaction.                                                                                                                                                                                                 |
-| typeInt            | QUANTITY                                   | An integer representing the type of the transaction.                                                                                                                                                                                               |
-| value              | QUANTITY                                   | Value transferred in peb.                                                                                                                                                                                                                          |
+| 이름                 | Type                                    | 설명                                                                                                                                                                       |
+| ------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | 32-byte DATA                            | 이 트랜잭션이 있던 블록의 해시입니다.                                                                                                                                                    |
+| blockNumber        | QUANTITY                                | 이 트랜잭션이 있던 블록 번호입니다.                                                                                                                                                     |
+| codeFormat         | String                                  | (선택 사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                        |
+| contractAddress    | DATA                                    | 트랜잭션이 컨트랙트 생성인 경우 생성된 컨트랙트 주소, 그렇지 않으면 `null`입니다.                                                                                                                        |
+| feePayer           | 20-byte DATA                            | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                               |
+| feePayerSignatures | Array                                   | (선택 사항) 수수료 납부자의 서명 객체 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다. |
+| feeRatio           | QUANTITY                                | (선택 사항) 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%를 수수료 납부자가 지불합니다. 70%는 발신자가 지불합니다.                                                                           |
+| from               | 20-byte DATA                            | 수신자의 주소.                                                                                                                                                                 |
+| gas                | QUANTITY                                | 발신자가 제공한 가스.                                                                                                                                                             |
+| effectiveGasPrice  | QUANTITY                                | 발신자 계정에서 공제된 가스당 실제 값입니다.                                                                                                                                                |
+| gasPrice           | QUANTITY                                | 발신자가 제공한 가스 가격(단위: peb).                                                                                                                              |
+| gasUsed            | QUANTITY                                | 이 특정 트랜잭션에서만 사용한 가스 양입니다.                                                                                                                                                |
+| humanReadable      | Boolean                                 | (선택 사항) 주소가 사람이 읽을 수 있는 경우 `true`, 주소가 사람이 읽을 수 없는 경우 `false`.                                                                                        |
+| key                | String                                  | (선택 사항) 새로 만든 계정의 키입니다.                                                                                                                               |
+| input              | DATA                                    | (선택 사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                          |
+| logs               | Array                                   | 이 트랜잭션이 생성한 로그 개체의 배열입니다.                                                                                                                                                |
+| logsBloom          | 256-byte DATA                           | 라이트 클라이언트가 관련 로그를 빠르게 검색할 수 있는 블룸 필터입니다.                                                                                                                                 |
+| nonce              | QUANTITY                                | 이 트랜잭션 이전에 발신자가 만든 트랜잭션의 수입니다.                                                                                                                                           |
+| senderTxHash       | (선택 사항) 32-byte DATA | 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 이 값은 수수료 위임이 아닌 트랜잭션의 경우 트랜잭션 해시 값과 항상 동일합니다.                                                                                           |
+| signature          | Array                                   | 서명 개체의 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.                                    |
+| state              | QUANTITY                                | `1`(성공) 또는 `0`(실패) 중 하나입니다.                                                                                                        |
+| txError            | QUANTITY                                | (선택 사항) `status`가 0인 경우 상세 오류 코드.                                                                                                                     |
+| to                 | 20-byte DATA                            | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                                                                                                                                        |
+| transactionHash    | 32-byte DATA                            | 트랜잭션의 해시입니다.                                                                                                                                                             |
+| transactionIndex   | QUANTITY                                | 블록에서 트랜잭션 인덱스 위치의 정수입니다.                                                                                                                                                 |
+| type               | String                                  | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                   |
+| typeInt            | QUANTITY                                | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                    |
+| value              | QUANTITY                                | 전송된 값입니다(단위: peb).                                                                                                                                    |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -495,53 +495,53 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
 
-Returns the receipt of a transaction by sender transaction hash.
+발신자 트랜잭션 해시별로 트랜잭션 영수증을 반환합니다.
 
-**NOTE**: The receipt is not available for pending transactions.
-Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+**참고**: 보류 중인 트랜잭션에는 영수증을 사용할 수 없습니다.
+이 API는 인덱싱 기능이 `--sendertxhashindexing`으로 활성화된 경우에만 올바른 결과를 반환합니다.
+이는 [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 확인할 수 있습니다.
 
-**Parameters**
+**매개변수**
 
-| Name | Type         | Description                                                                                 |
-| ---- | ------------ | ------------------------------------------------------------------------------------------- |
-| Hash | 32-byte DATA | Hash of a transaction before signing of feePayer(senderTransactionHash). |
+| 이름 | Type         | 설명                                                               |
+| -- | ------------ | ---------------------------------------------------------------- |
+| .  | 32-byte DATA | 수수료 지불자 서명 전 트랜잭션의 해시(senderTransactionHash). |
 
-**Return Value**
+**리턴 값**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found
+`Object` - 트랜잭션 영수증 객체, 영수증을 찾을 수 없는 경우 `null`입니다.
 
-| Name               | Type                                       | Description                                                                                                                                                                                                          |
-| ------------------ | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA                               | Hash of the block where this transaction was in.                                                                                                                                                                     |
-| blockNumber        | QUANTITY                                   | The block number where this transaction was in.                                                                                                                                                                      |
-| codeFormat         | String                                     | (optional) The code format of smart contract code.                                                                                                                                                |
-| contractAddress    | DATA                                       | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                          |
-| feePayer           | 20-byte DATA                               | Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array                                      | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY                                   | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                 |
-| from               | 20-byte DATA                               | Address of the sender.                                                                                                                                                                                               |
-| gas                | QUANTITY                                   | Gas provided by the sender.                                                                                                                                                                                          |
-| gasPrice           | QUANTITY                                   | Gas price provided by the sender in peb.                                                                                                                                                                             |
-| gasUsed            | QUANTITY                                   | The amount of gas used by this specific transaction alone.                                                                                                                                                           |
-| humanReadable      | Boolean                                    | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                   |
-| key                | String                                     | (optional) Key of the newly created account.                                                                                                                                                      |
-| input              | DATA                                       | (optional) The data sent along with the transaction.                                                                                                                                              |
-| logs               | Array                                      | Array of log objects, which this transaction generated.                                                                                                                                                              |
-| logsBloom          | 256-byte DATA                              | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                     |
-| nonce              | QUANTITY                                   | The number of transactions made by the sender prior to this one.                                                                                                                                                     |
-| senderTxHash       | (optional) 32-byte DATA | Hash of the tx without the fee payer's address and signature. This value is always the same as the value of transactionHash for non fee-delegated transactions.                                                      |
-| signature          | Array                                      | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.             |
-| status             | QUANTITY                                   | Either `1` (success) or `0` (failure).                                                                                                                                         |
-| txError            | QUANTITY                                   | (optional) detailed error code if `status` is equal to zero.                                                                                                                                      |
-| to                 | 20-byte DATA                               | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                          |
-| transactionHash    | 32-byte DATA                               | Hash of the transaction.                                                                                                                                                                                             |
-| transactionIndex   | QUANTITY                                   | Integer of the transaction index position in the block.                                                                                                                                                              |
-| type               | String                                     | A string representing the type of the transaction.                                                                                                                                                                   |
-| typeInt            | QUANTITY                                   | An integer representing the type of the transaction.                                                                                                                                                                 |
-| value              | QUANTITY                                   | Value transferred in peb.                                                                                                                                                                                            |
+| 이름                 | Type                                    | 설명                                                                                                                                            |
+| ------------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32-byte DATA                            | 이 트랜잭션이 있던 블록의 해시입니다.                                                                                                                         |
+| blockNumber        | QUANTITY                                | 이 트랜잭션이 있던 블록 번호입니다.                                                                                                                          |
+| codeFormat         | String                                  | (선택 사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                             |
+| contractAddress    | DATA                                    | 트랜잭션이 컨트랙트 생성인 경우 생성된 컨트랙트 주소, 그렇지 않으면 `null`입니다.                                                                                             |
+| feePayer           | 20-byte DATA                            | 수수료 납부자의 주소입니다.                                                                                                                               |
+| feePayerSignatures | Array                                   | 수수료 납부자의 서명 객체 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다. |
+| feeRatio           | QUANTITY                                | (선택 사항) 수수료 납부자의 수수료 비율입니다. 30이면 수수료의 30%를 수수료 납부자가 지불합니다. 70%는 발신자가 지불합니다.                                                |
+| from               | 20-byte DATA                            | 수신자의 주소.                                                                                                                                      |
+| gas                | QUANTITY                                | 발신자가 제공한 가스.                                                                                                                                  |
+| gasPrice           | QUANTITY                                | 발신자가 제공한 가스 가격(단위: peb).                                                                                                   |
+| gasUsed            | QUANTITY                                | 이 특정 트랜잭션에서만 사용한 가스 양입니다.                                                                                                                     |
+| humanReadable      | Boolean                                 | (선택 사항) 주소가 사람이 읽을 수 있는 주소인 경우 `true`, 사람이 읽을 수 없는 주소인 경우 `false`.                                                         |
+| key                | String                                  | (선택 사항) 새로 만든 계정의 키입니다.                                                                                                    |
+| input              | DATA                                    | (선택 사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                               |
+| logs               | Array                                   | 이 트랜잭션이 생성한 로그 객체의 배열입니다.                                                                                                                     |
+| logsBloom          | 256-byte DATA                           | 라이트 클라이언트가 관련 로그를 빠르게 검색할 수 있는 블룸 필터입니다.                                                                                                      |
+| nonce              | QUANTITY                                | 이 트랜잭션 이전에 발신자가 수행한 트랜잭션의 수입니다.                                                                                                               |
+| senderTxHash       | (선택 사항) 32-byte DATA | 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 이 값은 수수료 위임이 아닌 트랜잭션의 경우 트랜잭션 해시 값과 항상 동일합니다.                                                                |
+| signature          | Array                                   | 서명 객체의 배열입니다. 서명 객체에는 세 개의 필드(V, R, S)가 포함됩니다. V에는 ECDSA 복구 ID가 포함됩니다. R에는 ECDSA 서명 r이 포함되고 S에는 ECDSA 서명 s가 포함됩니다.         |
+| state              | QUANTITY                                | `1`(성공) 또는 `0`(실패) 중 하나입니다.                                                                             |
+| txError            | QUANTITY                                | (선택 사항) `status`가 0인 경우 상세 오류 코드.                                                                                          |
+| to                 | 20-byte DATA                            | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                                                                                                             |
+| transactionHash    | 32-byte DATA                            | 트랜잭션의 해시.                                                                                                                                     |
+| transactionIndex   | QUANTITY                                | 블록에서 트랜잭션 인덱스 위치의 정수입니다.                                                                                                                      |
+| type               | String                                  | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                        |
+| typeInt            | QUANTITY                                | 트랜잭션 유형을 나타내는 정수입니다.                                                                                                                          |
+| value              | QUANTITY                                | 전송된 값입니다(단위: peb).                                                                                                         |
 
-**Example**
+**예제**
 
 ```shell
 // Request
@@ -591,23 +591,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
 
-Creates a new message call transaction or a contract creation for signed transactions.
+새 메시지 호출 트랜잭션 또는 서명된 트랜잭션에 대한 컨트랙트 생성을 생성합니다.
 
-**Parameters**
+**매개변수**
 
-| Type | Description                  |
-| ---- | ---------------------------- |
-| DATA | The signed transaction data. |
+| Type | 설명               |
+| ---- | ---------------- |
+| DATA | 서명된 트랜잭션 데이터입니다. |
 
-**Return Value**
+**반환 값**
 
-| Type         | Description                                                                    |
-| ------------ | ------------------------------------------------------------------------------ |
-| 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
+| Type         | 설명                                       |
+| ------------ | ---------------------------------------- |
+| 32-byte DATA | 트랜잭션 해시 또는 트랜잭션을 아직 사용할 수 없는 경우 0 해시입니다. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
-**Example**
+**예시**
 
 ```shell
 params: ["0x08f888820228850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0abaaeef1ccaead65c63885b1ad35410442e4e070aff67a0c00ac73576dd958cda06b49e555f2ac5c7cff9e70b59a564214db8fafb92b131afcd5fc5aebbe257681"]
@@ -627,24 +627,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성하고, 발신자의 개인키로 트랜잭션에 서명하고, 트랜잭션을 Klaytn 네트워크에 전파합니다.
 
-**NOTE**: The address to sign with must be unlocked.
+**참고**: 서명할 주소는 잠금 해제되어 있어야 합니다.
 
-**Parameters**
+**매개변수**
 
-The required parameters depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction-type-support.md).
+트랜잭션 유형에 따라 필요한 파라미터가 달라집니다.
+[클레이튼 트랜잭션 유형 작업하기](./transaction-type-support.md)에서 적절한 파라미터를 확인하세요.
 
-**Return Value**
+**리턴 값**
 
-| Type         | Description          |
+| Type         | 설명                   |
 | ------------ | -------------------- |
 | 32-byte DATA | The transaction hash |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
-**Example**
+**예제**
 
 ```shell
 params: [{
@@ -670,25 +670,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network.
-This API supports only fee delegated type (including partial fee delegated type) transactions.
+주어진 파라미터로 트랜잭션을 구성하고, 수수료 납부자의 개인키로 트랜잭션에 서명하고, 트랜잭션을 Klaytn 네트워크에 전파합니다.
+이 API는 수수료 위임형(부분 수수료 위임형 포함) 트랜잭션만 지원합니다.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명할 요금 납부자 주소는 잠금 해제되어 있어야 합니다.
 
-**Parameters**
+**매개변수**
 
-The required parameters depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction-type-support.md).
+트랜잭션 유형에 따라 필요한 파라미터가 달라집니다.
+[클레이튼 트랜잭션 유형 작업하기](./transaction-type-support.md)에서 적절한 파라미터를 확인하세요.
 
-**Return Value**
+**리턴 값**
 
-| Type         | Description          |
+| Type         | 설명                   |
 | ------------ | -------------------- |
 | 32-byte DATA | The transaction hash |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
-**Example**
+**예시**
 
 ```shell
 params: [{
@@ -723,24 +723,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_signTransaction <a id="klay_signtransaction"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a sender's private key.
-This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성하고 발신자의 개인키를 사용해 트랜잭션에 서명합니다.
+이 메서드는 발신자 서명을 생성하거나 클레이튼 네트워크에 제출할 준비가 된 최종 Raw 트랜잭션을 만드는 데 사용할 수 있습니다.
 
-**NOTE**: The address to sign with must be unlocked.
+**참고**: 서명할 주소는 잠금 해제되어 있어야 합니다.
 
-**Parameters**
+**매개변수**
 
-The required parameters depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction-type-support.md).
+트랜잭션 유형에 따라 필요한 파라미터가 달라집니다.
+[클레이튼 트랜잭션 유형 작업하기](./transaction-type-support.md)에서 적절한 파라미터를 확인하세요.
 
-**Return Value**
+**리턴 값**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| raw  | Signed raw transaction                              |
-| tx   | Transaction object including the sender's signature |
+| Type | 설명                   |
+| ---- | -------------------- |
+| raw  | 서명된 Raw 트랜잭션         |
+| tx   | 발신자의 서명을 포함한 트랜잭션 객체 |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -770,26 +770,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a fee payer's private key.
-This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network.
-In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result.
-Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+주어진 매개변수로 트랜잭션을 구성하고 수수료 납부자의 개인키를 사용해 트랜잭션에 서명합니다.
+이 메서드는 수수료 납부자 서명을 생성하거나 클레이튼 네트워크에 제출할 준비가 된 최종 Raw 트랜잭션을 만드는 데 사용할 수 있습니다.
+수수료 납부자 서명만 추출하고 싶다면, 결과에서 `feePayerSignatures`를 가져가면 됩니다.
+발신자의 서명이 첨부되지 않은 경우(즉, `tx`의 `signatures`가 비어있는 경우) `raw` 트랜잭션은 최종 트랜잭션이 아니라는 점에 유의하세요.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명할 요금 납부자 주소는 잠금 해제되어 있어야 합니다.
 
-**Parameters**
+**매개변수**
 
-The required parameters depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction-type-support.md).
+트랜잭션 유형에 따라 필요한 파라미터가 달라집니다.
+[클레이튼 트랜잭션 유형으로 작업하기](./transaction-type-support.md)에서 적절한 파라미터를 확인하세요.
 
-**Return Value**
+**리턴 값**
 
-| Type | Description                                            |
-| ---- | ------------------------------------------------------ |
-| raw  | Signed raw transaction                                 |
-| tx   | Transaction object including the fee payer's signature |
+| Type | 설명                       |
+| ---- | ------------------------ |
+| raw  | 서명된 Raw 트랜잭션             |
+| tx   | 수수료 납부자의 서명을 포함한 트랜잭션 객체 |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -826,70 +826,70 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-## txError: Detailed Information of Transaction Failures <a id="txerror-detailed-information-of-transaction-failures"></a>
+## txError: 트랜잭션 실패에 대한 상세 정보 <a id="txerror-detailed-information-of-transaction-failures"></a>
 
-Klaytn provides a field `txError` in the transaction receipt
-to give developers more information about the reason for the failed transaction execution.
-This field exists only if the transaction execution is failed.
-To save storage and network bandwidth, `txError` contains an integer value.
-The below table shows the meaning of the value in `txError`.
+클레이튼은 트랜잭션 영수증에 `txError` 필드를 제공하여
+필드를 제공하여 개발자에게 트랜잭션 실행 실패 이유에 대한 자세한 정보를 제공합니다.
+이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다.
+저장 공간과 네트워크 대역폭을 절약하기 위해 `txError`는 정수 값을 포함합니다.
+아래 표는 `txError`에 포함된 값의 의미를 보여줍니다.
 
-| Error Code | Description                                                                           |
-| ---------- | ------------------------------------------------------------------------------------- |
-| 0x02       | VM error occurs while running smart contract                                          |
-| 0x03       | max call depth exceeded                                                               |
-| 0x04       | contract address collision                                                            |
-| 0x05       | contract creation code storage out of gas                                             |
-| 0x06       | evm: max code size exceeded                                                           |
-| 0x07       | out of gas                                                                            |
-| 0x08       | evm: write protection                                                                 |
-| 0x09       | evm: execution reverted                                                               |
-| 0x0a       | reached the opcode computation cost limit (100000000) for tx       |
-| 0x0b       | account already exists                                                                |
-| 0x0c       | not a program account (e.g., an account having code and storage)   |
-| 0x0d       | Human-readable address is not supported now                                           |
-| 0x0e       | fee ratio is out of range [1, 99] |
-| 0x0f       | AccountKeyFail is not updatable                                                       |
-| 0x10       | different account key type                                                            |
-| 0x11       | AccountKeyNil cannot be initialized to an account                                     |
-| 0x12       | public key is not on curve                                                            |
-| 0x13       | key weight is zero                                                                    |
-| 0x14       | key is not serializable                                                               |
-| 0x15       | duplicated key                                                                        |
-| 0x16       | weighted sum overflow                                                                 |
-| 0x17       | unsatisfiable threshold. Weighted sum of keys is less than the threshold.             |
-| 0x18       | length is zero                                                                        |
-| 0x19       | length too long                                                                       |
-| 0x1a       | nested composite type                                                                 |
-| 0x1b       | a legacy transaction must be with a legacy account key                                |
-| 0x1c       | deprecated feature                                                                    |
-| 0x1d       | not supported                                                                         |
-| 0x1e       | smart contract code format is invalid                                                 |
+| 오류 코드 | 설명                                                                              |
+| ----- | ------------------------------------------------------------------------------- |
+| 0x02  | 스마트 컨트랙트 실행 중 VM 오류 발생                                                          |
+| 0x03  | 최대 호출 깊이 초과                                                                     |
+| 0x04  | 컨트랙트 주소 충돌                                                                      |
+| 0x05  | 컨트랙트 생성 코드 저장 공간 부족                                                             |
+| 0x06  | EVM: 최대 코드 크기 초과                                                                |
+| 0x07  | 가스 부족                                                                           |
+| 0x08  | EVM: 쓰기 보호                                                                      |
+| 0x09  | EVM: 실행 되돌리기                                                                    |
+| 0x0a  | tx에 대한 연산 코드 계산 비용 제한(100000000)에 도달했습니다.                    |
+| 0x0b  | 계정이 이미 존재합니다                                                                    |
+| 0x0c  | 프로그램 계정이 아닙니다(예: 코드와 저장소가 있는 계정)                             |
+| 0x0d  | 사람이 읽을 수 있는 주소는 현재 지원되지 않습니다                                                    |
+| 0x0e  | 수수료 비율이 [1, 99] 범위를 벗어났습니다. |
+| 0x0f  | AccountKeyFail을 업데이트할 수 없습니다                                                    |
+| 0x10  | 다른 계정 키 유형입니다                                                                   |
+| 0x11  | 계정에 계정 키가 초기화될 수 없습니다                                                           |
+| 0x12  | 공개 키가 커브에 없습니다                                                                  |
+| 0x13  | 키 가중치가 0입니다                                                                     |
+| 0x14  | 키가 직렬화할 수 없습니다                                                                  |
+| 0x15  | 중복된 키                                                                           |
+| 0x16  | 가중 합계 오버플로                                                                      |
+| 0x17  | 만족할 수 없는 임계값. 키의 가중 합이 임계값보다 작습니다.                                              |
+| 0x18  | 길이 0입니다                                                                         |
+| 0x19  | 길이 너무 깁니다                                                                       |
+| 0x1a  | 중첩된 복합 유형입니다                                                                    |
+| 0x1b  | 레거시 트랜잭션은 레거시 계정 키를 사용해야 합니다                                                    |
+| 0x1c  | 사용되지 않는 기능                                                                      |
+| 0x1d  | 지원되지 않음                                                                         |
+| 0x1e  | 스마트 컨트랙트 코드 형식이 유효하지 않습니다                                                       |
 
 ## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
 
-Returns the decoded anchored data in the transaction for the given transaction hash.
+주어진 트랜잭션 해시에 대해 트랜잭션에서 디코딩된 앵커 데이터를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| 32-byte DATA | Hash of a transaction. |
+| Type         | 설명           |
+| ------------ | ------------ |
+| 32-byte DATA | 트랜잭션의 해시입니다. |
 
-**Return Value**
+**반환 값**
 
-| Name          | Type         | Description                                                                                                                                                                                                                                           |
-| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                          |
-| BlockNumber   | QUANTITY     | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                           |
-| ParentHash    | 32-byte DATA | Hash of the parent block.                                                                                                                                                                                                                             |
-| TxHash        | 32-byte DATA | The root of the transaction trie of the block.                                                                                                                                                                                                        |
-| StateRootHash | 32-byte DATA | The root of the final state trie of the block.                                                                                                                                                                                                        |
-| ReceiptHash   | 32-byte DATA | The root of the receipts trie of the block.                                                                                                                                                                                                           |
-| BlockCount    | QUANTITY     | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | QUANTITY     | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                 |
+| 이름            | Type         | 설명                                                                                                              |
+| ------------- | ------------ | --------------------------------------------------------------------------------------------------------------- |
+| data          | 32-byte DATA | 이 앵커링 트랜잭션이 수행된 차일드 체인 블록의 해시입니다.                                                                               |
+| data          | QUANTITY     | 앵커링 트랜잭션이 수행된 차일드 체인 블록 번호입니다.                                                                                  |
+| parentHash    | 32-byte DATA | 부모 블록의 해시입니다.                                                                                                   |
+| TxHash        | 32-byte DATA | 블록의 트랜잭션 시도 루트입니다.                                                                                              |
+| StateRootHash | 32-byte DATA | 블록의 최종 상태 시도 루트의 해시입니다.                                                                                         |
+| ReceiptHash   | 32-byte DATA | 블록의 영수증 트라이의 루트입니다.                                                                                             |
+| BlockCount    | QUANTITY     | 이 앵커링 기간 동안 생성된 블록의 수입니다. 이 트랜잭션이 앵커링을 켠 후 첫 번째 앵커링 트랜잭션인 경우를 제외하고 대부분의 경우 이 숫자는 차일드 체인의 `SC_TX_PERIOD`와 동일합니다. |
+| TxCount       | QUANTITY     | 이 앵커링 기간 동안 자식 체인에서 생성된 트랜잭션의 수입니다.                                                                             |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -928,30 +928,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_resend <a id="klay_resend"></a>
 
-Resends a transaction.
+트랜잭션을 다시 보냅니다.
 
-It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+지정된 트랜잭션을 풀에서 제거하고 새로운 가스 가격과 한도로 다시 삽입합니다.
 
-**NOTE**: The address to sign with must be unlocked.
+**참고**: 서명할 주소는 잠금 해제되어 있어야 합니다.
 
-**Parameters**:
+**매개변수**:
 
-| Name            | Type     | Description                                                                          |
-| --------------- | -------- | ------------------------------------------------------------------------------------ |
-| transactionArgs | Object   | An object of transaction arguments. See the table below for the object's properties. |
-| gas price       | QUANTITY | Integer of the gasPrice to change                                                    |
-| gas             | QUANTITY | (optional) Integer of the gas to change                           |
+| 이름              | Type     | 설명                                        |
+| --------------- | -------- | ----------------------------------------- |
+| transactionArgs | Object   | 트랜잭션 인수의 객체입니다. 객체의 속성은 아래 표를 참조하세요.      |
+| 가스              | QUANTITY | 변경할 가스 가격의 정수                             |
+| gas             | QUANTITY | (선택 사항) 변경할 가스의 정수입니다. |
 
-The required parameters for transactionArgs depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./transaction-type-support.md).
+트랜잭션 유형에 따라 트랜잭션Args에 필요한 파라미터가 달라집니다.
+[클레이튼 트랜잭션 유형 작업하기](./transaction-type-support.md)에서 적절한 파라미터를 확인하세요.
 
-**Return Value**
+**리턴 값**
 
-| Type         | Description          |
+| Type         | 설명                   |
 | ------------ | -------------------- |
 | 32-byte DATA | The transaction hash |
 
-**Example**
+**예시**
 
 ```shell
 > var tx = klay.pendingTransactions()[0]
