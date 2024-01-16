@@ -365,11 +365,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | gasPrice         | QUANTITY     | 발신자가 제공한 가스 가격(peb 단위).                 |
 | hash             | 32-byte DATA | 트랜잭션의 해시.                                                  |
 | input            | DATA         | 트랜잭션과 함께 전송된 데이터입니다.                                       |
-| nonce            | QUANTITY     | 이 트랜잭션 이전에 발신자가 수행한 트랜잭션 수입니다.                             |
+| nonce            | QUANTITY     | 발신자가 이 트랜잭션 이전에 수행한 트랜잭션 수입니다.                             |
 | to               | 20-byte DATA | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                          |
 | value            | QUANTITY     | 이 트랜잭션과 함께 전송된 값의 정수입니다.                                   |
 | transactionIndex | QUANTITY     | 블록에서 트랜잭션 인덱스 위치의 정수입니다. 보류 중일 때는 `null`입니다.               |
-| type             | QUANTITY     | 트랜잭션의 유형을 나타내는 정수입니다.                                      |
+| type             | QUANTITY     | 트랜잭션 유형을 나타내는 정수입니다.                                       |
 | accessList       | Array        | [accessList](https://eips.ethereum.org/EIPS/eip-2930)의 배열. |
 | chainId          | QUANTITY     | 요청된 노드에 설정된 체인 아이디입니다.                                     |
 | v                | QUANTITY     | ECDSA 복구 ID.                                               |
@@ -419,22 +419,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 이름                   | Type         | 설명                                                            |
 | -------------------- | ------------ | ------------------------------------------------------------- |
-| blockHash            | 32-byte DATA | 이 트랜잭션이 있던 블록의 해시입니다. 보류 중일 때는 `null`입니다.                     |
+| blockHash            | 32-byte DATA | 이 트랜잭션이 있었던 블록의 해시입니다. 보류 중일 때는 `null`입니다.                    |
 | blockNumber          | QUANTITY     | 트랜잭션이 있었던 블록 번호입니다. 보류 중일 때는 `null`입니다.                       |
 | from                 | 20-byte DATA | 수신자의 주소.                                                      |
 | gas                  | QUANTITY     | 발신자가 제공한 가스.                                                  |
 | gasPrice             | QUANTITY     | 발신자가 제공한 가스 가격(단위: peb).                   |
 | maxFeePerGas         | QUANTITY     | 트랜잭션을 실행하기 위해 지불할 최대 금액입니다.                                   |
-| maxPriorityFeePerGas | QUANTITY     | 동적 수수료 트랜잭션에 대한 가스 팁 상한(단위: peb).          |
+| maxPriorityFeePerGas | QUANTITY     | 동적 수수료 트랜잭션에 대한 가스 팁 상한(peb 단위)입니다.        |
 | hash                 | 32-byte DATA | 트랜잭션의 해시입니다.                                                  |
 | input                | DATA         | 트랜잭션과 함께 전송된 데이터입니다.                                          |
-| nonce                | QUANTITY     | 발신자가 이 트랜잭션 이전에 수행한 트랜잭션 수입니다.                                |
+| nonce                | QUANTITY     | 이 트랜잭션 이전에 발신자가 수행한 트랜잭션 수입니다.                                |
 | to                   | 20-byte DATA | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                             |
 | value                | QUANTITY     | 이 트랜잭션과 함께 전송된 값의 정수입니다.                                      |
 | transactionIndex     | QUANTITY     | 블록에서 트랜잭션 인덱스 위치의 정수입니다. 보류 중일 때는 `null`입니다.                  |
 | type                 | QUANTITY     | 트랜잭션의 유형을 나타내는 정수입니다.                                         |
 | accessList           | Array        | [accessList](https://eips.ethereum.org/EIPS/eip-2930)의 배열입니다. |
-| chainId              | QUANTITY     | 요청 노드에 설정된 체인 아이디입니다.                                         |
+| chainId              | QUANTITY     | 요청된 노드에 설정된 체인 아이디입니다.                                        |
 | v                    | QUANTITY     | ECDSA 복구 ID.                                                  |
 | r                    | 32-byte DATA | ECDSA 서명 r.                                                   |
 | s                    | 32-byte DATA | ECDSA 서명 s.                                                   |
@@ -500,7 +500,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 | 이름                | Type          | 설명                                                                                                                                                                |
 | ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash         | 32-byte DATA  | 이 트랜잭션이 있었던 블록의 해시입니다.                                                                                                                                            |
+| blockHash         | 32-byte DATA  | 이 트랜잭션이 있던 블록의 해시입니다.                                                                                                                                             |
 | blockNumber       | QUANTITY      | 이 트랜잭션이 있던 블록 번호입니다.                                                                                                                                              |
 | contractAddress   | DATA          | 트랜잭션이 컨트랙트 생성인 경우 생성된 컨트랙트 주소, 그렇지 않으면 `null`입니다.                                                                                                                 |
 | cumulativeGasUsed | QUANTITY      | 이 트랜잭션이 블록에서 실행되었을 때 사용된 총 가스 양입니다.                                                                                                                               |
@@ -512,7 +512,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | to                | 20-byte DATA  | 발신자의 주소. 컨트랙트 생성 트랜잭션인 경우 `null`.                                                                                                                                 |
 | transactionHash   | 32-byte DATA  | 트랜잭션의 해시.                                                                                                                                                         |
 | transactionIndex  | QUANTITY      | 블록에서 트랜잭션 인덱스 위치의 정수입니다.                                                                                                                                          |
-| type              | QUANTITY      | 트랜잭션 유형을 나타내는 정수입니다.                                                                                                                                              |
+| type              | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                             |
 
 **예시**
 
@@ -679,21 +679,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 tx\`에는 다음과 같은 속성이 있습니다:
 
-| 이름                   | Type         | 설명                                                                          |
-| -------------------- | ------------ | --------------------------------------------------------------------------- |
-| type                 | QUANTITY     | 트랜잭션의 유형을 나타내는 정수입니다.                                                       |
-| nonce                | QUANTITY     | 이 트랜잭션이 있던 블록 번호입니다.                                                        |
-| gasPrice             | QUANTITY     | 발신자가 제공한 가스 가격(단위: peb). 레거시 트랜잭션이 아닌 경우 `null`.         |
-| maxFeePerGas         | QUANTITY     | 트랜잭션을 실행하기 위해 지불할 최대 금액입니다. 레거시 트랜잭션인 경우 `null`.                            |
-| maxPriorityFeePerGas | QUANTITY     | 동적 수수료 트랜잭션에 대한 가스 팁 상한(peb 단위)입니다. 레거시 트랜잭션인 경우 `null`. |
-| gas                  | QUANTITY     | 발신자가 제공한 가스.                                                                |
-| value                | QUANTITY     | 이 트랜잭션과 함께 전송된 값의 정수입니다.                                                    |
-| v                    | QUANTITY     | ECDSA 복구 ID.                                                                |
-| r                    | 32-byte DATA | ECDSA 서명 r.                                                                 |
-| s                    | 32-byte DATA | ECDSA 서명 s.                                                                 |
-| chainId              | QUANTITY     | 요청된 노드에 설정된 체인 아이디입니다.                                                      |
-| accessList           | Array        | [accessList](https://eips.ethereum.org/EIPS/eip-2930)의 배열입니다.               |
-| hash                 | 32-byte DATA | 트랜잭션의 해시입니다.                                                                |
+| 이름                   | Type         | 설명                                                                        |
+| -------------------- | ------------ | ------------------------------------------------------------------------- |
+| type                 | QUANTITY     | 트랜잭션의 유형을 나타내는 정수입니다.                                                     |
+| nonce                | QUANTITY     | 이 트랜잭션이 있던 블록 번호입니다.                                                      |
+| gasPrice             | QUANTITY     | 발신자가 제공한 가스 가격(단위: peb). 레거시 트랜잭션이 아닌 경우 `null`.       |
+| maxFeePerGas         | QUANTITY     | 트랜잭션을 실행하기 위해 지불할 최대 금액입니다. 레거시 트랜잭션인 경우 `null`.                          |
+| maxPriorityFeePerGas | QUANTITY     | 동적 수수료 트랜잭션에 대한 가스 팁 상한(단위: peb). 레거시 트랜잭션인 경우 `null`. |
+| gas                  | QUANTITY     | 발신자가 제공한 가스.                                                              |
+| value                | QUANTITY     | 이 트랜잭션과 함께 전송된 값의 정수입니다.                                                  |
+| v                    | QUANTITY     | ECDSA 복구 ID.                                                              |
+| r                    | 32-byte DATA | ECDSA 서명 r.                                                               |
+| s                    | 32-byte DATA | ECDSA 서명 s.                                                               |
+| chainId              | QUANTITY     | 요청 노드에 설정된 체인 아이디입니다.                                                     |
+| accessList           | Array        | [accessList](https://eips.ethereum.org/EIPS/eip-2930)의 배열입니다.             |
+| hash                 | 32-byte DATA | 트랜잭션의 해시입니다.                                                              |
 
 **예시**
 
