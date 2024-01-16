@@ -136,7 +136,7 @@ alice balance: 100
 
 2단계 토큰 전송 예제를 위해 erc20-transfer-2step.js를 실행합니다. 이 2단계 토큰 전송 예제에서는 수정하지 않은 ERC-20 토큰 컨트랙트를 사용할 수 있습니다.
 2단계 전송은 (1) 브리지 컨트랙트를 먼저 승인한 다음, (2) 컨트랙트 함수 `requestERC20Transfer()`를 호출하는 두 번의 함수 호출로 구성됩니다.
-We do not deploy contracts in this section since we already deployed both bridge and token contracts. 배포하지 않았다면 먼저 배포해야 합니다. `node erc20-deploy.js`를 사용하여 컨트랙트를 배포할 수 있습니다.
+이미 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포했기 때문에 이 섹션에서는 컨트랙트를 배포하지 않습니다. 배포하지 않았다면 먼저 배포해야 합니다. `node erc20-deploy.js`를 사용하여 컨트랙트를 배포할 수 있습니다.
 
 ```
 $ node erc20-transfer-2step.js
