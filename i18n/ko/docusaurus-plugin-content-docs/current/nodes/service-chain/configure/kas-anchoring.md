@@ -75,7 +75,7 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypres
 
 ## 서비스 체인 노드 실행 <a id="run-service-chain-node"></a>
 
-Now you are good to go. 서비스 체인 노드를 실행할 수 있습니다.
+이제 준비가 완료되었습니다. 서비스 체인 노드를 실행할 수 있습니다.
 아래와 같이 KAS 앵커 API와 관련된 로그 메시지를 확인할 수 있습니다.
 
 ```bash
