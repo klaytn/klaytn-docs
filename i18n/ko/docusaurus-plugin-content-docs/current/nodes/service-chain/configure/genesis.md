@@ -30,7 +30,7 @@
 | chainId                 | 현재 체인을 식별하며 리플레이 공격을 방지하는 데 사용됩니다.          |
 | istanbulCompatibleBlock | Istanbul 변경이 적용되는 블록 번호입니다.                 |
 | istanbul, clique        | 합의 엔진의 유형입니다.                               |
-| unitPrice               | Unit price.                                 |
+| unitPrice               | 단가                                          |
 | deriveShaImpl           | 트랜잭션 해시 및 영수증 해시를 생성하는 메서드를 정의합니다.          |
 | governance              | 네트워크의 거버넌스 정보입니다. [governance](#governance) |
 
@@ -94,7 +94,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 | -------------- | ------------------------------------------------------------------------------------------------------ |
 | governanceMode | 세 가지 거버넌스 모드 중 하나입니다. [`none`, `single`, `ballot`] |
 | governingNode  | 지정된 거버넌스 노드의 주소입니다. 거버넌스 모드가 `single`인 경우에만 작동합니다.                                                     |
-| reward         | It stores the reward configuration. [Reward](#reward) 섹션을 참고하세요.                                       |
+| reward         | 리워드 설정을 저장합니다. [Reward](#reward) 섹션을 참고하세요.                                                            |
 
 ### Reward <a id="reward"></a>
 
