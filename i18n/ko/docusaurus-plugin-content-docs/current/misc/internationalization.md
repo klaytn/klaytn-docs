@@ -1,4 +1,4 @@
-# Internationalization
+# 다국어 지원
 
 KlaytnDocs는 다음 언어를 지원합니다:
 
