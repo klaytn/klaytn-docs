@@ -1,11 +1,11 @@
 ---
-description: A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+description: 네임스페이스 'net'을 둘러싼 Klaytn API에 대한 JavaScript 래퍼입니다.
 ---
 
 # caver.klay.net
 
-The `caver-klay-net` package allows you to interact with the Klaytn nodes'
-network properties.
+`caver-klay-net` 패키지를 사용하면 클레이튼 노드의
+네트워크 속성과 상호작용할 수 있습니다.
 
 ```javascript
 var Net = require('caver-klay-net');
@@ -25,19 +25,19 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 caver.klay.net.getId([callback])
 ```
 
-Gets the current network ID.
+현재 네트워크 ID를 가져옵니다.
 
-**Parameters**
+**매개변수**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Number` - The network ID.
+`Promise`는 `Number`를 반환합니다 - 네트워크 ID를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -50,70 +50,69 @@ Gets the current network ID.
 caver.klay.net.isListening([callback])
 ```
 
-Checks if the node is listening for peers.
+노드가 피어를 수신 대기 중인지 확인합니다.
 
-**Parameters**
+**파라미터**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Boolean` - `true` if the node is listening for peers,
-`false` otherwise.
+`Promise`는 노드가 피어를 수신 중이면 `boolean` - `true`을 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
 true
 ```
 
-## getPeerCount <a id="getpeercount"></a>
+## getPeerCount <a id="islistening"></a>
 
 ```javascript
 caver.klay.net.getPeerCount([callback])
 ```
 
-Gets the number of peers connected to.
+연결된 피어 수를 가져옵니다.
 
-**Parameters**
+**파라미터**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Number` - The number of peers connected to.
+`Promise`는 `number`를 반환합니다 - 연결된 피어의 수입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
 10
 ```
 
-## peerCountByType <a id="peercountbytype"></a>
+## peerCountByType <a id="getpeercount"></a>
 
 ```javascript
 caver.klay.net.peerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+유형별로 연결된 노드 수와 키/값 쌍으로 연결된 노드의 총 수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
-**Return Value**
+**리턴 값**
 
-`Promise` returns `Object` - The number of connected peers by type as well as the total number of connected peers.
+`Promise`는 `Object`를 반환합니다 - 유형별 연결된 피어 수와 연결된 총 피어 수를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
