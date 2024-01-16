@@ -4,9 +4,9 @@
 
 FeedPage는 'Klaystagram' 컨트랙트와 상호작용하는 3가지 주요 구성 요소로 이루어져 있습니다.
 
-[`UploadPhoto` 컴포넌트](#2-uploadphoto-component)\
-[`Feed` 컴포넌트](#3-feed-component)\
-[`TransferOwnership` 컴포넌트](#4-transferownership-component)
+[`UploadPhoto` component](#2-uploadphoto-component)\
+[`Feed` component](#3-feed-component)\
+[`TransferOwnership` component](#4-transferownership-component)
 
 ```javascript
 // src/pages/FeedPage.js
@@ -52,17 +52,20 @@ const FeedPage = () => (
 
 컴포넌트가 컨트랙트와 상호작용하도록 만들려면 3단계가 있습니다.
 
-**첫번째**, 컨트랙트와 프론트엔드를 연결하기 위해 `KlaystagramContract` 인스턴스를 생성합니다.\
-**두번째**, `KlaystagramContract` 인스턴스를 사용하여 `redux/actions`에서 컨트랙트와 상호작용하는 API 함수를 만듭니다.\
+**첫번째**, 컨트랙트와 프론트엔드를 연결하기 위해 `KlaystagramContract` 인스턴스를 생성합니다.
+
+**두번째**, `KlaystagramContract` 인스턴스를 사용하여 `redux/actions`에서 컨트랙트와 상호작용하는 API 함수를 만듭니다.
+
 **세번째**, 각 컴포넌트에서 함수를 호출합니다.
 
 빌드해 봅시다!
 
-## 1. 프런트엔드에 컨트랙트 연결하기 <a id="7-1-connect-contract-to-frontend"></a>
+## 1. Connect Contract to Frontend <a id="7-1-connect-contract-to-frontend"></a>
 
 1. `src/klaytn`
    - caver.js
    - KlaystagramContract.js
+
 2. `src/redux`
 
 ### 1) `src/klaytn` <a id="1-src-klaytn"></a>
@@ -125,29 +128,30 @@ export default KlaystagramContract
 그리고 웹팩의 설정 덕분에 변수(`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)로 액세스할 수 있습니다.
 
 - `DEPLOYED_ADDRESS`는 배포된 주소를 반환합니다.
+
 - `DEPLOYED_ABI`는 Klaystagram contract ABI를 반환합니다.
 
-**참고) `contract ABI`(애플리케이션 바이너리 인터페이스)**
-`contract ABI`는 컨트랙트 메서드를 호출하기 위한 인터페이스입니다. 이 인터페이스를 사용하면 다음과 같이 컨트랙트 메서드를 호출할 수 있습니다.
+**cf) `contract ABI`(Application Binary Interface)**\
+`contract ABI` is the interface for calling contract methods. With this interface, we can call contract methods as below
 
 - `contractInstance.methods.methodName().call()`
+
 - `contractInstance.methods.methodName().send({ ... })`
 
-**이제 애플리케이션에서 컨트랙트와 상호작용할 준비가 되었습니다.**\
-_cf. **이제 애플리케이션에서 컨트랙트와 상호작용할 준비가 되었습니다.**
-_자세한 내용은 [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)를 참조하세요._
+**Now we are ready to interact with contract in the application.**\
+_cf. For more information, refer to_ [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)_._
 
-### 2) `src/redux` <a id="7-1-connect-contract-to-frontend"></a>
+### 2) `src/redux` <a id="2-src-redux"></a>
 
 Klaystagram 인스턴스로 API 함수를 만들어 보겠습니다. API 함수를 호출한 후, 리덕스 스토어를 사용하여 모든 데이터 흐름을 제어합니다.
 
-1. 컨트랙트 인스턴스 가져오기
+1. 컨트랙트 인스턴스 가져오기.
 
    `KlaystagramContract` 인스턴스를 사용하면 컴포넌트가 컨트랙트와 상호작용해야 할 때 컨트랙트의 메서드를 호출할 수 있습니다.
 
-2. 통화 컨트랙트 방법
+2. 컨트랙트 메서드 호출하기
 
-3. 컨트랙트에서 데이터 저장
+3. 컨트랙트에서 데이터 저장.
 
    트랜잭션이 성공하면 리덕스 작업을 호출하여 컨트랙트에서 리덕스 스토어에 정보를 저장합니다.
 
@@ -178,16 +182,16 @@ const updateFeed = (tokenId) => (dispatch, getState) => {
 
 Redux 스토어는 프론트엔드에서 모든 데이터 흐름을 제어합니다.
 
-## 2. UploadPhoto 컴포넌트 <a id="1-src-klaytn"></a>
+## 2. UploadPhoto Component <a href="#2.-uploadphoto-component" id="2.-uploadphoto-component"></a>
 
 ![사진 업로드](/img/build/tutorials/klaystagram-uploadphoto.png)
 
-1. `UploadPhoto` 컴포넌트의 역할
-2. 컴포넌트 코드
-3. 컨트랙트와의 상호작용
-4. 저장할 데이터를 업데이트합니다: `updateFeed` 함수
+1. `UploadPhoto` 컴포넌트의 역할.
+2. 컴포넌트 코드.
+3. 컨트랙트와의 상호작용.
+4. 저장할 데이터를 업데이트합니다: `updateFeed` 함수.
 
-### 1) `UploadPhoto` 컴포넌트의 역할 <a id="caver-js"></a>
+### 1) `UploadPhoto` 컴포넌트의 역할 <a href="#1-uploadphoto-component-s-role" id="1-uploadphoto-component-s-role"></a>
 
 `UploadPhoto` 컴포넌트는 클레이튼 블록체인에 사진 업로드 요청을 처리합니다. 그 과정은 다음과 같습니다:
 
@@ -195,13 +199,15 @@ Redux 스토어는 프론트엔드에서 모든 데이터 흐름을 제어합니
 2. 트랜잭션을 전송한 후 `Toast` 컴포넌트를 사용하여 트랜잭션 라이프사이클에 따른 진행 상황을 표시합니다.
 3. 트랜잭션이 블록에 들어가면 로컬 리덕스 저장소에 새로운 `PhotoData`를 업데이트합니다.
 
-**콘텐츠 크기 제한**\
+**콘텐츠 크기 제한**
+
 단일 트랜잭션의 최대 크기는 `32KB`입니다. 따라서 안전하게 전송하기 위해 입력 데이터(사진 및 설명)가 `30KB`를 초과하지 않도록 제한합니다.
 
 - 문자열 데이터 크기는 `2KB`로 제한됩니다.
+
 - [`imageCompression()`](https://github.com/klaytn/klaystagram/blob/main/src/utils/imageCompression.js) 함수를 사용하여 사진을 `28KB` 미만으로 압축합니다.
 
-### 2. 컴포넌트 코드 <a id="klaystagramcontract-js"></a>
+### 2. 컴포넌트 코드 <a href="#2-component-code" id="2-component-code"></a>
 
 ```javascript
 // src/components/UploadPhoto.js
@@ -335,19 +341,20 @@ export default connect(null, mapDispatchToProps)(UploadPhoto)
 
 ### 3. 컨트랙트와 상호작용하기 <a href="#3-interact-with-contract" id="3-interact-with-contract"></a>
 
-클레이튼에 사진 데이터를 쓰는 함수를 만들어 봅시다. **컨트랙트에 트랜잭션 보내기: `uploadPhoto`**\
-읽기 전용 함수 호출과 달리 데이터를 쓰면 트랜잭션 수수료가 발생합니다. 트랜잭션 수수료는 사용한 `gas`의 양에 따라 결정됩니다. `gas`는 트랜잭션을 처리하는 데 얼마나 많은 계산이 필요한지를 나타내는 측정 단위입니다.
+클레이튼에 사진 데이터를 쓰는 함수를 만들어 봅시다. **Send transaction to contract: `uploadPhoto`**.
+
+Unlike read-only function calls, writing data incurs a transaction fee. 트랜잭션 수수료는 사용한 `gas`의 양에 따라 결정됩니다. `gas`는 트랜잭션을 처리하는 데 얼마나 많은 계산이 필요한지를 나타내는 측정 단위입니다.
 
 이러한 이유로 트랜잭션을 전송하기 위해서는 두 개의 속성 `from`와 `gas`가 필요합니다.
 
 1. 트랜잭션에 로드할 사진 파일을 바이트 문자열로 변환합니다.
 
-   ([Klaystagram 컨트랙트](./deploy-contracts.md#4-write-klaystagram-smart-contract)에서는 `PhotoData` 구조체에서 사진 fotmat을 바이트열로 정의했습니다.)
+   (In [Klaystagram contract](./deploy-contracts.md#4-write-klaystagram-smart-contract), we defined photo fotmat as bytes in `PhotoData` struct).
 
-   - `FileReader`를 사용하여 사진 데이터를 ArrayBuffer로 읽기
-   - ArrayBuffer를 16진수 문자열로 변환합니다.
-   - 바이트 형식을 만족시키기 위해 접두사 `0x`를 추가합니다.
-2. 컨트랙트 메서드 호출: `uploadPhoto`
+   - Read photo data as an ArrayBuffer using `FileReader`.
+   - Convert ArrayBuffer to hex string.
+   - Add Prefix `0x` to satisfy bytes format.
+2. Invoke the contract method: `uploadPhoto`.
    - `from`: 이 트랜잭션을 전송하고 트랜잭션 수수료를 지불하는 계정입니다.
    - `gas`: 발신자\` 계정이 이 트랜잭션에 대해 지불할 수 있는 최대 가스 금액입니다.
 3. 트랜잭션 전송 후, 트랜잭션 라이프사이클에 따른 진행 상황을 `Toast` 컴포넌트를 사용하여 표시합니다.
@@ -418,12 +425,16 @@ export const uploadPhoto = (
 트랜잭션을 전송한 후 트랜잭션 라이프사이클(`transactionHash`, `receipt`, `error`)을 얻을 수 있습니다.
 
 - 서명된 트랜잭션 인스턴스가 제대로 구성되면 `transactionHash` 이벤트가 발생합니다. 네트워크를 통해 트랜잭션을 전송하기 전에 트랜잭션 해시를 얻을 수 있습니다.
+
 - 트랜잭션 영수증을 받으면 `receipt` 이벤트가 발생합니다. 트랜잭션이 블록에 포함되었다는 의미입니다. 블록 번호는 `receipt.blockNumber`로 확인할 수 있습니다.
+
 - 문제가 발생하면 `error` 이벤트가 발생합니다.
 
-### 4. 피드 페이지에서 사진 업데이트: `updateFeed` <a href="#4-update-photo-in-the-feed-page-updatefeed" id="4-update-photo-in-the-feed-page-updatefeed"></a>
+### 4. Update photo in the feed page: `updateFeed` <a href="#4-update-photo-in-the-feed-page-updatefeed" id="4-update-photo-in-the-feed-page-updatefeed"></a>
 
-트랜잭션을 컨트랙트에 성공적으로 전송한 후 FeedPage를 업데이트해야 합니다. `tokenId`로 `getPhoto()`를 호출해 보겠습니다. `tokenId`는 트랜잭션 영수증에서 검색할 수 있습니다. 그런 다음 로컬 리덕스 저장소에 새 사진 데이터를 추가합니다.
+After successfully sending the transaction to the contract, FeedPage needs to be updated.
+
+In order to update the photo feed, we need to get the new photo data we've just uploaded. `tokenId`로 `getPhoto()`를 호출해 보겠습니다. `tokenId`는 트랜잭션 영수증에서 검색할 수 있습니다. 그런 다음 로컬 리덕스 저장소에 새 사진 데이터를 추가합니다.
 
 ```javascript
 // src/redux/actions/photo.js
@@ -445,31 +456,31 @@ const updateFeed = (tokenId) => (dispatch, getState) => {
 }
 ```
 
-## 3. Feed 컴포넌트 <a href="#3.-feed-component" id="3.-feed-component"></a>
+## 3. Feed Component <a href="#3.-feed-component" id="3.-feed-component"></a>
 
 ![klaystagram-feed](/img/build/tutorials/klaystagram-feed.png)
 
-1. `Feed` 컴포넌트의 역할
-2. 컨트랙트에서 데이터 읽기: `getFeed` 메서드
-3. 저장할 데이터 저장: `setFeed` 액션
-4. 컴포넌트에 데이터 표시: `Feed` 컴포넌트
+1. 컨트랙트 메서드 호출: `getTotalPhotoCount()`
+2. 컨트랙트 메서드 호출: `getPhoto(id)`
+3. 리덕스 액션 호출: `setFeed(feed)`
+4. Show data in component: `Feed` component.
 
 ### 1) `Feed` 컴포넌트의 역할 <a href="#1-feed-component-s-role" id="1-feed-component-s-role"></a>
 
 [4. Klaystagram 스마트 컨트랙트 작성하기](./deploy-contracts.md#4-write-klaystagram-smart-contract)에서 `PhotoData` 구조체를 작성하여 `_photoList` 매핑 안에 위치시켰습니다. 피드 컴포넌트의 역할은 다음과 같습니다:
 
-1. 클레이스타그램 컨트랙트 메서드 호출을 통해 `PhotoData`를 읽습니다(`redux/actions/photos.js`)
-2. 소유자 정보와 함께 `PhotoData`(피드)를 표시합니다(`components/Feed.js`).
+1. Read `PhotoData` via calling Klaystagram contract method (`redux/actions/photos.js`).
+2. Show `PhotoData`(feed) with its owner information (`components/Feed.js`).
 
 ### 2) 컨트랙트에서 데이터 읽기: `getPhoto` 메서드 <a href="#2-read-data-from-contract-getphoto-method" id="2-read-data-from-contract-getphoto-method"></a>
 
-1. 컨트랙트 메서드 호출: `getTotalPhotoCount()`
+1. Call contract method: `getTotalPhotoCount()`.
 
    사진이 0장이면 빈 배열로 `setFeed` 액션을 호출합니다.
-2. 컨트랙트 메서드 호출: `getPhoto(id)`
+2. Call contract method:`getPhoto(id)`.
 
    사진이 있으면 각 사진 데이터를 프로미스로 가져와서 피드 배열에 푸시합니다. 모든 프로미스가 해결되면 피드 배열을 반환합니다.
-3. 리덕스 액션 호출: `setFeed(feed)`
+3. Call redux action: `setFeed(feed)`.
 
    해결된 피드 배열을 가져와 리덕스 저장소에 저장합니다.
 
@@ -624,20 +635,22 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Feed)
 ```
 
-처음엔 아직 컨트랙트에 사진 데이터가 없기 때문에 "사진 없음 :D"라는 텍스트만 보입니다.
+At the first time, you can only see the text "No photo :D" because there is no photo data in contract yet.
 
-## 4. TransferOwnership 컴포넌트 <a href="#4.-transferownership-component" id="4.-transferownership-component"></a>
+Let's make a UploadPhoto component to send photo data to contract!
+
+## 4. TransferOwnership Component <a href="#4.-transferownership-component" id="4.-transferownership-component"></a>
 
 ![소유권 이전](/img/build/tutorials/klaystagram-transferownership.png)
 
-1. `TransferOwnership` 컴포넌트의 역할
+1. `TransferOwnership` component's role.
 2. 컴포넌트 코드
 
    2-1. `TransferOwnership` 버튼 렌더링하기
 
    2-2. `TransferOwnership` 컴포넌트
-3. 컨트랙트와 상호작용: `transferOwnership` 메서드
-4. 저장할 데이터를 업데이트합니다: `updateOwnerAddress` 액션
+3. Interact with contract: `transferOwnership` method.
+4. Update data to store: `updateOwnerAddress` action.
 
 ### 1) `TransferOwnership` 컴포넌트의 역할 <a href="#1-transferownership-component-s-role" id="1-transferownership-component-s-role"></a>
 
@@ -753,10 +766,10 @@ export default connect(null, mapDispatchToProps)(TransferOwnership)
 
 이미 [4. Klaystagram 스마트 컨트랙트 작성하기](./deploy-contracts.md#4-write-klaystagram-smart-contract)에서 Klaystagram 컨트랙트에 `transferOwnership` 함수를 만들었습니다. 애플리케이션에서 호출해 봅시다.
 
-1. 컨트랙트 메서드 호출: `transferOwnership`
+1. Invoke the contract method: `transferOwnership`.
    - `id:` 사진의 토큰아이디
    - `to:` 사진의 소유권을 이전할 주소
-2. 트랜잭션 옵션 설정
+2. Set transaction options.
    - `from`: 트랜잭션을 전송하고 트랜잭션 수수료를 지불할 계정입니다.
    - `gas`: \`from' 계정이 이 트랜잭션에 대해 지불하고자 하는 최대 가스 금액입니다.
 3. 트랜잭션 전송 후, 트랜잭션 라이프사이클에 따른 진행 상황을 `Toast` 컴포넌트를 사용하여 표시합니다.
@@ -807,7 +820,9 @@ export const transferOwnership = (tokenId, to) => (dispatch) => {
 
 ### 4. 리덕스 스토어에서 정보 업데이트: `updateOwnerAddress` 액션 <a href="#4-update-information-in-redux-store-updateowneraddress-action" id="4-update-information-in-redux-store-updateowneraddress-action"></a>
 
-새 소유자의 주소를 업데이트하려면 스토어에서 `feed` 데이터를 호출하여 영수증에서 토큰아이디가 있는 사진을 찾습니다. 그런 다음 새 소유자의 주소를 사진의 `ownerHistory`에 푸시하고 setFeed를 호출합니다.
+After transferring ownership, FeedPhoto needs to be rerendered with new owner's address.
+
+To update new owner's address, let's call `feed` data from store and find the photo that has the tokenId from the receipt. 그런 다음 새 소유자의 주소를 사진의 `ownerHistory`에 푸시하고 setFeed를 호출합니다.
 
 ```javascript
 const updateOwnerAddress = (tokenId, to) => (dispatch, getState) => {
