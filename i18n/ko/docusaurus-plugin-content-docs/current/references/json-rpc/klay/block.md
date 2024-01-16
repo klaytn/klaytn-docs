@@ -49,9 +49,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 유형              | 설명                                                                                                                   |
-| --------------- | -------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| 유형              | 설명                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
 
@@ -108,7 +108,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---------------- | ------------- | --------------------------------------------------------------------- |
 | number           | QUANTITY      | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                                        |
 | parentHash       | 32-byte DATA  | 부모 블록의 해시입니다.                                                         |
-| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`입니다.                          |
+| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터. 보류 중인 블록인 경우 `null`입니다.                             |
 | transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 시도 루트입니다.                                                    |
 | stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                                                 |
 | receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                                                   |
@@ -159,10 +159,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 유형              | 설명                                                                                                                    |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY \| TAG | 정수 또는 16진수 블록 번호, 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| bool            | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다.                                                                 |
+| 유형              | 설명                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| bool            | `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션의 해시만 반환합니다.                                                                |
 
 :::note
 
@@ -229,7 +229,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | number           | QUANTITY      | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                                                    |
 | hash             | 32-byte DATA  | 블록의 해시. 보류 중인 블록인 경우 `null`.                                                      |
 | parentHash       | 32-byte DATA  | 부모 블록의 해시.                                                                        |
-| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터. 보류 중인 블록인 경우 `null`.                                            |
+| logsBloom        | 256-byte DATA | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`.                                         |
 | transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 시도 루트입니다.                                                                |
 | stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                                                             |
 | receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                                                               |
@@ -237,10 +237,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | blockScore       | QUANTITY      | Former difficulty. BFT 합의 엔진에서는 항상 1                                              |
 | totalBlockScore  | QUANTITY      | 이 블록까지 체인의 총 블록스코어의 정수입니다.                                                        |
 | extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                                                             |
-| size             | QUANTITY      | 이 블록의 크기(바이트)를 정수로 입력합니다.                                      |
+| size             | QUANTITY      | 이 블록의 크기(바이트)를 정수로 나타냅니다.                                      |
 | gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                                                   |
 | timestamp        | QUANTITY      | 블록이 콜레이트된 시점의 유닉스 타임스탬프입니다.                                                       |
-| timestampFoS     | QUANTITY      | 블록이 콜레이트된 시점에 대한 타임스탬프의 초 단위입니다.                                                  |
+| timestampFoS     | QUANTITY      | 블록이 콜레이트된 시점의 타임스탬프의 1초 단위입니다.                                                    |
 | transactions     | Array         | 트랜잭션 객체의 배열 또는 마지막 매개변수에 따라 32바이트 트랜잭션 해시입니다.                                     |
 | governanceData   | DATA          | RLP로 인코딩된 거버넌스 구성                                                                 |
 | voteData         | DATA          | 제안자의 RLP 인코딩된 거버넌스 투표                                                             |
@@ -512,10 +512,10 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | parentHash       | 32-byte DATA | 부모 블록의 해시.                                                            |
 | proposer         | 20-byte DATA | 블록 제안자의 주소입니다.                                                        |
 | receiptsRoot     | 32-byte DATA | 블록의 영수증 트라이의 루트입니다.                                                   |
-| size             | QUANTITY     | 이 블록의 크기(바이트)를 정수로 나타냅니다.                          |
+| size             | QUANTITY     | 이 블록의 크기(바이트)를 정수로 입력합니다.                          |
 | stateRoot        | 32-byte DATA | 블록의 최종 상태 트라이의 루트입니다.                                                 |
 | timestamp        | QUANTITY     | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                                           |
-| timestampFoS     | QUANTITY     | 블록이 콜레이트된 시점의 타임스탬프의 1초 단위입니다.                                        |
+| timestampFoS     | QUANTITY     | 블록이 콜레이트된 시점에 대한 타임스탬프의 초 단위입니다.                                      |
 | transactions     | Array        | 트랜잭션 개체의 배열입니다.                                                       |
 | transactionsRoot | 32-byte DATA | 블록의 트랜잭션 시도 루트입니다.                                                    |
 | baseFeePerGas    | QUANTITY     | 가스당 기본 수수료. EthTxTypeCompatible 및 Magma 하드포크가 활성화되었을 때 의미 있는 값을 갖습니다. |
