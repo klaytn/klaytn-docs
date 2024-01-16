@@ -83,7 +83,7 @@ await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR
 await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-여러 개의 브리지가 있는 경우 임계값을 설정하면 보다 안전하게 값 전송을 제공할 수 있습니다. 임계값을 초과하는 오퍼레이터가 정상적으로 값 전송을 요청하는 경우에만 값 전송을 활성화할 수 있습니다. 예를 들어, 현재 예시와 같이 브리지 쌍이 2개이고 임계값을 2로 설정하면 두 개 모두 정상적으로 요청이 들어올 때만 값 전송을 제공할 수 있습니다. 즉, 하나의 브리지가 공격을 받아 비정상적인 요청을 보내더라도 이를 방지할 수 있습니다. The default value of threshold is 1. 임계값의 기본값은 1이며, [서비스체인-가치전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에서 아래 코드를 주석 처리하고 임계값을 설정한 후 실행하여 브리지 컨트랙트에 대한 임계값을 변경합니다.
+여러 개의 브리지가 있는 경우 임계값을 설정하면 보다 안전하게 값 전송을 제공할 수 있습니다. 임계값을 초과하는 오퍼레이터가 정상적으로 값 전송을 요청하는 경우에만 값 전송을 활성화할 수 있습니다. 예를 들어, 현재 예시와 같이 브리지 쌍이 2개이고 임계값을 2로 설정하면 두 개 모두 정상적으로 요청이 들어올 때만 값 전송을 제공할 수 있습니다. 즉, 하나의 브리지가 공격을 받아 비정상적인 요청을 보내더라도 이를 방지할 수 있습니다. 임계값의 기본값은 1입니다. [서비스체인-가치전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에서 아래 코드를 주석 처리하고 임계값을 설정한 후 실행하여 브리지 컨트랙트에 대한 임계값을 변경합니다.
 
 ```
 // // set threshold
