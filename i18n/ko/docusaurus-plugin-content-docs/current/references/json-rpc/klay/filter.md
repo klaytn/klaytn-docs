@@ -24,9 +24,9 @@
 | removed          | TAG          | `true` 체인 재구성으로 인해 로그가 제거된 경우. 유효한 로그인 경우 `false`.                                                                                                  |
 | logIndex         | QUANTITY     | 블록에서 로그 인덱스 위치의 정수입니다. 보류 중인 로그인 경우 `null`.                                                                                                         |
 | transactionIndex | QUANTITY     | 로그가 생성된 트랜잭션 인덱스 위치의 정수입니다. 보류 중일 때는 `null`.                                                                                                        |
-| transactionHash  | 32-byte DATA | 이 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`.                                                                                                             |
+| transactionHash  | 32-byte DATA | 이 로그가 생성된 트랜잭션의 해시입니다. 보류 중일 때는 `null`입니다.                                                                                                          |
 | blockHash        | 32-byte DATA | 이 로그가 들어있는 블록의 해시입니다. 보류 중일 때는 `null`입니다.                                                                                                           |
-| blockNumber      | QUANTITY     | 이 로그가 있던 블록 번호입니다. 보류 중일 때는 `null`입니다.                                                                                                              |
+| blockNumber      | QUANTITY     | 이 로그가 있던 블록 번호입니다. 보류 중인 경우 `null`.                                                                                                                 |
 | address          | 20-byte DATA | 이 로그가 발생한 주소입니다.                                                                                                                                    |
 | data             | DATA         | 로그의 인덱싱되지 않은 인수를 포함합니다.                                                                                                                             |
 | topics           | DATA Array   | 인덱싱된 로그 인수의 0\~4개 32-byte DATA 배열입니다. (Solidity에서: 첫 번째 토픽은 이벤트 서명의 해시입니다(_예:_ `Deposit(주소,byte32,uint256)`). |
@@ -114,8 +114,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 이름        | 유형                    | 설명                                                                                                                                                                                                             |
 | --------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.                                         |
-| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 `earliest`, `latest` 또는 `pending` 문자열입니다.                                               |
+| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 `earliest`, `latest` 또는 `pending` 문자열입니다.                                               |
+| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다.                                        |
 | address   | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.                                                                                                                                                        |
 | topics    | DATA Array            | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                                                           |
 | blockHash | 32-byte DATA          | (선택 사항) 반환되는 로그를 32바이트 해시 블록Hash를 사용하여 단일 블록으로 제한하는 필터 옵션입니다. 블록해시를 사용하는 것은 블록해시가 블록해시인 블록 번호를 fromBlock = toBlock으로 사용하는 것과 동일합니다. 필터 조건에 blockHash가 있으면 fromBlock이나 toBlock 모두 허용되지 않습니다. |
@@ -257,9 +257,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 **리턴 값**
 
-| 유형       | 설명        |
-| -------- | --------- |
-| QUANTITY | 필터 ID입니다. |
+| 유형       | 설명     |
+| -------- | ------ |
+| QUANTITY | 필터 ID. |
 
 **예시**
 
@@ -295,12 +295,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object` - 필터 옵션입니다:
 
-| 이름        | 유형                    | 설명                                                                                                                                                                      |
-| --------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.  |
-| address   | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.                                                                                                                 |
-| topics    | DATA Array            | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                    |
+| 이름        | 유형                    | 설명                                                                                                                                                                     |
+| --------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다. |
+| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다. |
+| address   | 20-byte DATA \| Array | (선택 사항) 컨트랙트 주소 또는 로그가 시작될 주소 목록입니다.                                                                                                                |
+| topics    | DATA Array            | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                   |
 
 :::note
 
@@ -335,9 +335,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 **리턴 값**
 
-| 유형       | 설명     |
-| -------- | ------ |
-| QUANTITY | 필터 ID. |
+| 유형       | 설명        |
+| -------- | --------- |
+| QUANTITY | 필터 ID입니다. |
 
 **예시**
 
