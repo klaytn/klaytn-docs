@@ -1,4 +1,4 @@
-# Migrate Chaindata
+# 체인데이터 마이그레이션
 
 <aside>
 💡 PN 및 EN 노드(CN 제외)에 대해서만 마이그레이션 실행
