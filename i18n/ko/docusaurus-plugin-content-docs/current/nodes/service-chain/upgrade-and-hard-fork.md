@@ -166,7 +166,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 Magma 하드포크는 동적 가스 요금인 KIP-71을 도입합니다. 여기에는 가스 가격의 상한과 하한이 포함됩니다.
 
-기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../references/json-rpc/governance.md)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 바운드를 변경할 수 있습니다. Obviously, lower bound cannot exceed the upper bound.
+기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../references/json-rpc/governance.md)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 바운드를 변경할 수 있습니다. 분명히 하한은 상한을 초과할 수 없습니다.
 
 가스 가격을 정적 값으로 설정하려면 가스 가격의 상한과 하한을 같은 값으로 설정해야 합니다. 예를 들어, SCN 노드의 JavaScript 콘솔에서 `governance.vote` API를 사용하여 가스 가격을 `0`으로 설정할 수 있습니다.
 
