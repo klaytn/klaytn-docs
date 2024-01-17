@@ -80,7 +80,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------------ | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | address      | String          | 서명자 계정의 주소입니다.                                                                                                       |
 | message      | DATA            | 메시지 바이트                                                                                                              |
-| signature    | 65바이트           | Signature bytes                                                                                                      |
+| signature    | 65바이트 데이터       | 서명 바이트                                                                                                               |
 | block number | QUANTITY \| TAG | 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
 
 **리턴 값**
