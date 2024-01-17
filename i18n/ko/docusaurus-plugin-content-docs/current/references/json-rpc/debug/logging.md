@@ -1,4 +1,4 @@
-# Logging
+# 로깅
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
@@ -93,7 +93,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosity <a id="debug_verbosity"></a>
 
-Sets the logging verbosity ceiling. 지정된 수준까지의 로그 메시지는
+로깅 상세도 상한을 설정합니다. 지정된 수준까지의 로그 메시지는
 까지의 로그 메시지는 지정된 수준까지만 인쇄됩니다.
 
 (레벨: 0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
@@ -108,9 +108,9 @@ Sets the logging verbosity ceiling. 지정된 수준까지의 로그 메시지�
 
 **매개변수**
 
-| 이름    | 유형  | 설명                           |
-| ----- | --- | ---------------------------- |
-| level | int | The logging verbosity level. |
+| 이름    | 유형  | 설명            |
+| ----- | --- | ------------- |
+| level | int | 로깅 상세도 수준입니다. |
 
 **리턴 값**
 
@@ -149,10 +149,10 @@ VerbosityByName은 zapLogger에서만 작동한다는 점에 유의하세요.
 
 **매개변수**
 
-| 이름    | 유형     | 설명                           |
-| ----- | ------ | ---------------------------- |
-| name  | string | 모듈 이름입니다.                    |
-| level | int    | The logging verbosity level. |
+| 이름    | 유형     | 설명            |
+| ----- | ------ | ------------- |
+| name  | string | 모듈 이름입니다.     |
+| level | int    | 로깅 상세도 수준입니다. |
 
 **리턴 값**
 
@@ -193,10 +193,10 @@ VerbosityByID는 zapLogger에서만 작동한다는 점에 유의하세요.
 
 **매개변수**
 
-| 이름    | 유형  | 설명                           |
-| ----- | --- | ---------------------------- |
-| id    | int | 모듈 ID입니다.                    |
-| level | int | The logging verbosity level. |
+| 이름    | 유형  | 설명            |
+| ----- | --- | ------------- |
+| id    | int | 모듈 ID입니다.     |
+| level | int | 로깅 상세도 수준입니다. |
 
 **리턴 값**
 
