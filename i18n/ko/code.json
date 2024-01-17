@@ -106,7 +106,7 @@
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
+    "message": "사이트 경로",
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
@@ -205,7 +205,7 @@
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {
-    "message": "warning",
+    "message": "경고",
     "description": "The default label used for the Warning admonition (:::warning)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
@@ -233,11 +233,11 @@
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "message": "Expand sidebar category '{label}'",
+    "message": "'{label}' 사이드바 카테고리 펼치기",
     "description": "The ARIA label to expand the sidebar category"
   },
   "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "message": "Collapse sidebar category '{label}'",
+    "message": "'{label}' 사이드 카테고리 접기",
     "description": "The ARIA label to collapse the sidebar category"
   },
   "theme.NavBar.navAriaLabel": {
@@ -440,19 +440,19 @@
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "theme.CodeBlock.expanded": {
-    "message": "Expanded",
+    "message": "펼침",
     "description": "The expanded button label on code blocks"
   },
   "theme.CodeBlock.expandButtonAriaLabel": {
-    "message": "Expand code to fullscreen",
+    "message": "코드 전체화면 보기",
     "description": "The ARIA label for expand code blocks button"
   },
   "theme.CodeBlock.expand": {
-    "message": "Expand",
+    "message": "펼치기",
     "description": "The expand button label on code blocks"
   },
   "theme.CodeBlock.exitButtonAriaLabel": {
-    "message": "Exit expanded view",
+    "message": "전체보기 닫기",
     "description": "The ARIA label for exit expanded view button"
   },
   "theme.ErrorPageContent.tryAgain": {
@@ -468,11 +468,11 @@
     "description": "The title of the tag list page"
   },
   "theme.unlistedContent.title": {
-    "message": "Unlisted page",
+    "message": "목록에 없는 페이지",
     "description": "The unlisted content banner title"
   },
   "theme.unlistedContent.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "message": "이 페이지는 목록에 없습니다. 검색 엔진에서 인덱싱하지 않으며 링크 정보를 가지고 있는 사용자만 접근할 수 있습니다.",
     "description": "The unlisted content banner message"
   }
 }
