@@ -1,10 +1,10 @@
 ---
-description: 모든 필수 파라미터가 올바르게 설정되었는지 확인하세요.
+description: caver-js 유틸리티 API.
 ---
 
 # caver.utils
 
-즉, 인수가 해시되기 전에 ABI로 변환되고 단단히 패킹됩니다.
+`caver.utils`는 유틸리티 함수를 제공합니다.
 
 ## randomHex <a href="#randomhex" id="randomhex"></a>
 
