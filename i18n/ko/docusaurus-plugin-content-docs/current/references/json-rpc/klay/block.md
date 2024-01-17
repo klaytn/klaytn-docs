@@ -113,7 +113,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                                                 |
 | receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                                                   |
 | reward           | 20-byte DATA  | 블록 보상을 받은 수혜자의 주소입니다.                                                 |
-| blockScore       | QUANTITY      | Former difficulty. BFT 합의 엔진에서는 항상 1입니다.                              |
+| blockScore       | QUANTITY      | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                          |
 | extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                                                 |
 | gasUsed          | QUANTITY      | 이 블록의 모든 트랜잭션이 사용한 총 가스 양입니다.                                         |
 | timestamp        | QUANTITY      | 블록이 콜레이트된 시점의 유닉스 타임스탬프입니다.                                           |
@@ -234,7 +234,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | stateRoot        | 32-byte DATA  | 블록의 최종 상태 트라이의 루트입니다.                                                             |
 | receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트입니다.                                                               |
 | reward           | 20-byte DATA  | 블록 보상을 받은 수혜자의 주소입니다.                                                             |
-| blockScore       | QUANTITY      | Former difficulty. BFT 합의 엔진에서는 항상 1                                              |
+| blockScore       | QUANTITY      | 이전 난이도 BFT 합의 엔진에서는 항상 1                                                          |
 | totalBlockScore  | QUANTITY      | 이 블록까지 체인의 총 블록스코어의 정수입니다.                                                        |
 | extraData        | DATA          | 이 블록의 "추가 데이터" 필드입니다.                                                             |
 | size             | QUANTITY      | 이 블록의 크기(바이트)를 정수로 나타냅니다.                                      |
@@ -503,7 +503,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 | 이름               | 유형           | 설명                                                                    |
 | ---------------- | ------------ | --------------------------------------------------------------------- |
-| blockScore       | QUANTITY     | Former difficulty. BFT 합의 엔진에서는 항상 1입니다.                              |
+| blockScore       | QUANTITY     | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                          |
 | totalBlockScore  | QUANTITY     | 이 블록까지 체인의 총 블록스코어의 정수입니다.                                            |
 | committee        | Array        | 이 블록의 위원회 멤버 주소 배열입니다. 위원회는 이 블록의 합의 프로토콜에 참여한 검증자의 하위 집합입니다.         |
 | gasUsed          | QUANTITY     | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                                       |
@@ -655,9 +655,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `Integer` - 위원회의 크기, 위원회를 찾을 수 없는 경우 '-1'입니다:
 
-| 유형       | 설명                      |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| 유형       | 설명      |
+| -------- | ------- |
+| QUANTITY | 카운슬의 규모 |
 
 **예시**
 
@@ -736,9 +736,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `Integer` - 카운슬의 크기, 카운슬을 찾을 수 없는 경우 `-1`입니다:
 
-| 유형       | 설명                      |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| 유형       | 설명      |
+| -------- | ------- |
+| QUANTITY | 카운슬의 규모 |
 
 **예시**
 
