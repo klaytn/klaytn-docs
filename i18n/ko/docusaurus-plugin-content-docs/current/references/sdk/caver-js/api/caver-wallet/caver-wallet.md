@@ -305,7 +305,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 | 이름          | 유형     | 설명                                                  |
 | ----------- | ------ | --------------------------------------------------- |
-| messageHash | String | The hash of message with Klaytn-specific prefix.    |
+| messageHash | String | 클레이튼 전용 접두사가 있는 메시지의 해시입니다.                         |
 | signatures  | Array  | [SignatureData](./keyring.md#signaturedata)의 배열입니다. |
 | message     | String | 서명할 메시지입니다.                                         |
 
