@@ -42,9 +42,9 @@ description: 클레이튼 거버넌스와 관련된 API입니다.
 | `"governance.governancemode"`       | `STRING`. 세 가지 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"`                                                                                                                                                |
 | `"governance.governingnode"`        | `ADDRESS`. 지정된 거버넌스 노드의 주소. 거버넌스 모드가 `"single"`인 경우에만 작동합니다(예: `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                |
 | `"governance.unitprice"`            | `NUMBER`. 단위 가스 가격. 예: `25000000000`                                                                                                                                                                            |
-| `"governance.addvalidator"`         | `ADDRESS`. 새 검증자 후보의 주소. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                     |
-| `"governance.removevalidator"`      | `ADDRESS`. 제거해야 하는 현재 유효성 검사기의 주소. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                           |
-| `"governance.deriveshaimpl"`        | `NUMBER`. 블록 헤더에 트랜잭션 해시 및 영수증 해시를 생성하는 정책입니다. 사용 가능한 옵션은 [여기](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34)를 참조하세요. e.g., `2` (DeriveShaConcat)         |
+| `"governance.addvalidator"`         | `ADDRESS`. 새 검증자 후보의 주소. 예: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                        |
+| `"governance.removevalidator"`      | `ADDRESS`. 제거해야 하는 현재 유효성 검사기의 주소. 예: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                              |
+| `"governance.deriveshaimpl"`        | `NUMBER`. 블록 헤더에 트랜잭션 해시 및 영수증 해시를 생성하는 정책입니다. 사용 가능한 옵션은 [여기](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34)를 참조하세요. 예: `2` (DeriveShaConcat)            |
 | `"governance.govparamcontract"`     | `ADDRESS`. GovParam 컨트랙트의 주소. ). 예: `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                |
 | `"istanbul.epoch"`                  | `NUMBER`. 투표가 블록 단위로 수집되는 기간입니다. epoch가 종료되면 통과되지 않은 모든 투표가 지워집니다. 예: `86400`                                                                                                                                   |
 | `"istanbul.committeesize"`          | `NUMBER`. 위원회의 검증자 수.(체인 구성에서 `sub`) 예: `7`                                                                                                                                                  |
@@ -470,9 +470,9 @@ description: 클레이튼 거버넌스와 관련된 API입니다.
 
 **리턴 값**
 
-| 유형   | 설명                    |
-| ---- | --------------------- |
-| JSON | governance parameters |
+| 유형   | 설명        |
+| ---- | --------- |
+| JSON | 거버넌스 매개변수 |
 
 **예시**
 
