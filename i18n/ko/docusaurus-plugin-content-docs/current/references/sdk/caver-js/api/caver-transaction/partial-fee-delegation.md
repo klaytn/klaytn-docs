@@ -1,5 +1,5 @@
 ---
-sidebar_label: Partial Fee Delegation
+sidebar_label: 부분 수수료 위임
 ---
 
 # 부분 수수료 위임 유형 트랜잭션 클래스
