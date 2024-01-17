@@ -850,9 +850,9 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
 
 **리턴 값**
 
-| Type         | 설명                   |
-| ------------ | -------------------- |
-| 32-byte DATA | The transaction hash |
+| Type         | 설명              |
+| ------------ | --------------- |
+| 32-byte DATA | transactionHash |
 
 **예시**
 
