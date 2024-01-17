@@ -638,9 +638,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴 값**
 
-| Type         | 설명                   |
-| ------------ | -------------------- |
-| 32-byte DATA | The transaction hash |
+| Type         | 설명         |
+| ------------ | ---------- |
+| 32-byte DATA | 트랜잭션 해시입니다 |
 
 컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
@@ -682,9 +682,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴 값**
 
-| Type         | 설명                   |
-| ------------ | -------------------- |
-| 32-byte DATA | The transaction hash |
+| Type         | 설명         |
+| ------------ | ---------- |
+| 32-byte DATA | 트랜잭션 해시입니다 |
 
 컨트랙트를 배포한 경우, [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용하여 컨트랙트 주소를 가져옵니다.
 
@@ -947,9 +947,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴 값**
 
-| Type         | 설명                   |
-| ------------ | -------------------- |
-| 32-byte DATA | The transaction hash |
+| Type         | 설명         |
+| ------------ | ---------- |
+| 32-byte DATA | 트랜잭션 해시입니다 |
 
 **예시**
 
