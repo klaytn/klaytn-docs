@@ -69,9 +69,9 @@ caver.transaction.getTransactionByHash('0x{transaction hash}')
 
 **매개변수**
 
-| 이름              | 유형     | 설명                                                |
-| --------------- | ------ | ------------------------------------------------- |
-| transactionHash | string | The transaction hash string to query from Klaytn. |
+| 이름              | 유형     | 설명                         |
+| --------------- | ------ | -------------------------- |
+| transactionHash | string | 클레이튼에서 쿼리할 트랜잭션 해시 문자열입니다. |
 
 **리턴 값**
 
