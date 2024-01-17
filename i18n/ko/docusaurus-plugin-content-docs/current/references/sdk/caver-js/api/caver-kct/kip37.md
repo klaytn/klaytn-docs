@@ -1280,24 +1280,24 @@ kip37.burn(account, id, value [, sendParam])
 
 특정 KIP-37 토큰을 소각합니다.
 
-The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. `sendParam.from`과 `kip37.options.from`이 모두 제공되지 않으면 오류가 발생합니다.
+토큰 소유자의 토큰을 운영하도록 승인된 주소(운영자) 또는 토큰 소유자 본인이 이 토큰 전송 트랜잭션을 실행할 것으로 예상됩니다. 따라서 승인된 주소 또는 토큰 소유자가 이 트랜잭션의 발신자이어야 하며, 발신자 주소는 `sendParam.from` 또는 `kip37.options.from`에 입력해야 합니다. `sendParam.from`과 `kip37.options.from`이 모두 제공되지 않으면 오류가 발생합니다.
 
 이 메서드는 트랜잭션을 Klaytn 네트워크에 제출하며, 트랜잭션 발신자에게 트랜잭션 수수료가 부과됩니다.
 
 **파라미터**
 
-| Object    | Type                          | Description                                                                                                                                                     |
-| --------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | String                        | 소멸할 토큰을 소유한 계정의 주소입니다.                                                                                                                                          |
-| id        | BigNumber \| string \| number | The id of token to be destroyed.                                                                                                                                |
-| value     | BigNumber \| string \| number | The amount of token to be destroyed.                                                                                                                            |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. sendParam에 대한 자세한 내용은 [kip37.create](#kip37-create)의 파라미터 설명을 참조하세요. |
+| Object    | 유형                            | 설명                                                                                                                              |
+| --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String                        | 소멸할 토큰을 소유한 계정의 주소입니다.                                                                                                          |
+| id        | BigNumber \| string \| number | 소각할 토큰의 아이디입니다.                                                                                                                 |
+| value     | BigNumber \| string \| number | 소각할 토큰의 양입니다.                                                                                                                   |
+| sendParam | object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 파라미터가 있는 객체입니다. sendParam에 대한 자세한 내용은 [kip37.create](#kip37-create)의 파라미터 설명을 참조하세요. |
 
 **참고** `id`와 `amount` 파라미터는 `number` 타입을 허용하지만, 전달된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력값의 경우 `BigNumber` 타입을 사용하는 것을 권장합니다.
 
-**Return Value**
+**리턴 값**
 
-`Promise`는 트랜잭션 실행 결과가 포함된 영수증인 `object`를 반환합니다. 영수증 객체 내부의 속성을 알고 싶다면 [getTransactionReceipt] 설명을 참고하세요. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise`는 트랜잭션 실행 결과가 포함된 영수증인 `object`를 반환합니다. 영수증 객체 내부의 속성을 알고 싶다면 [getTransactionReceipt] 설명을 참고하세요. KIP37 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
 **예시**
 
@@ -1366,22 +1366,22 @@ kip37.burnBatch(account, ids, values [, sendParam])
 
 여러 개의 KIP-37 토큰을 소각합니다.
 
-이를 사용하여 컨트랙트를 배포할 때 컨트랙트 소유자를 지정할 수 있습니다. 따라서 권한이 있는 사람 또는 토큰 소유자가 이 트랜잭션의 발신자이어야 하며, 발신자 주소는 `sendParam.from` 또는 `kip37.options.from`으로 지정해야 합니다. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+이를 사용하여 컨트랙트를 배포할 때 컨트랙트 소유자를 지정할 수 있습니다. 따라서 권한이 있는 사람 또는 토큰 소유자가 이 트랜잭션의 발신자이어야 하며, 발신자 주소는 `sendParam.from` 또는 `kip37.options.from`으로 지정해야 합니다. `sendParam.from`과 `kip37.options.from`이 모두 제공되지 않으면 오류가 발생합니다.
 
 이 메서드는 트랜잭션을 클레이튼 네트워크에 전송하며, 트랜잭션 발신자에게 트랜잭션 수수료가 부과된다는 점에 유의하세요.
 
 **파라미터**
 
-| Name      | 유형     | 설명                                                                                                                           |
+| 이름        | 유형     | 설명                                                                                                                           |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
 | account   | string | 소멸할 토큰을 소유한 계정의 주소입니다.                                                                                                       |
 | ids       | Array  | 발행할 토큰 아이디의 배열입니다.                                                                                                           |
 | values    | Array  | 발행할 토큰 금액의 배열입니다.                                                                                                            |
 | sendParam | object | (선택 사항) 트랜잭션 전송을 위한 파라미터가 정의된 객체입니다. sendParam에 대한 자세한 내용은 [kip37.create](#kip37-create)의 파라미터 설명을 참조하세요. |
 
-**참고** `ids` 및 `values` 배열 매개변수는 배열의 요소로 `number` 타입을 허용하지만, 전달된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**참고** `ids` 및 `values` 배열 매개변수는 배열의 요소로 `number` 타입을 허용하지만, 전달된 값이 number.MAX_SAFE_INTEGER로 제한되는 범위를 벗어날 경우 예기치 않은 결과나 오류가 발생할 수 있습니다. 이 경우, 특히 `uint256` 크기의 숫자 입력 값의 경우 `BigNumber` 타입을 사용하는 것이 좋습니다.
 
-**Return Value**
+**리턴 값**
 
 `Promise`는 `object`를 반환합니다 - 트랜잭션 실행 결과가 포함된 영수증입니다. 영수증 오브젝트 내부의 속성에 대해 알고 싶으시다면, [getTransactionReceipt] 설명을 참고하세요. KIP37 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
@@ -1456,14 +1456,14 @@ kip37.addPauser(account [, sendParam])
 
 **매개변수**
 
-| 이름        | 유형     | 설명                                                                                                                                                                    |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | String | 새로운 일시정지자가 될 계정의 주소입니다.                                                                                                                                               |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 이름        | 유형     | 설명                                                                                                                              |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String | 새로운 일시정지자가 될 계정의 주소입니다.                                                                                                         |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [kip37.create](#kip37-create)의 파라미터 설명을 참조하세요. |
 
 **참고** `sendParam.from` 또는 `kip37.options.from`이 전달된 경우, PauserRole이 있는 일시정지자이어야 합니다.
 
-**Return Value**
+**리턴 값**
 
 `Promise`는 트랜잭션 실행 결과가 포함된 영수증인 `object`를 반환합니다. 영수증 객체 내부의 속성을 알고 싶다면, [getTransactionReceipt] 설명을 참고하세요. KIP37 인스턴스의 영수증에는 'logs' 속성 대신 ABI를 통해 파싱된 'events' 속성이 있습니다.
 
@@ -1524,7 +1524,7 @@ kip37.addPauser(account [, sendParam])
 kip37.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. 일시 중지 주소만 일시 중지 권한을 포기할 수 있습니다.
+컨트랙트를 일시 중지할 수 있는 권한을 포기합니다. 일시 중지 주소만 일시 중지 권한을 포기할 수 있습니다.
 
 이 메서드는 트랜잭션을 Klaytn 네트워크에 제출하며, 트랜잭션 발신자에게 트랜잭션 수수료가 부과됩니다.
 
@@ -1603,7 +1603,7 @@ kip37.pause([id] [, sendParam])
 
 **파라미터**
 
-| Name      | 유형                            | Description                                                                                                                     |
+| 이름        | 유형                            | 설명                                                                                                                              |
 | --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | id        | BigNumber \| string \| number | (선택 사항) 일시 중지할 토큰 아이디입니다. 이 매개변수를 생략하면 `pause` 함수가 토큰 컨트랙트를 일시 중지합니다.                                        |
 | sendParam | object                        | (선택 사항) 트랜잭션 전송을 위해 정의된 매개변수가 있는 객체입니다. sendParam에 대한 자세한 내용은 [kip37.create](#kip37-create)의 매개변수 설명을 참조하세요. |
@@ -1713,9 +1713,9 @@ kip37.unpause([id] [, sendParam])
 
 **매개변수**
 
-| Object | 유형                            | Description                                                                                      |
-| ------ | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| id     | BigNumber \| string \| number | (선택 사항) 일시정지를 해제할 토큰 아이디입니다. 이 매개변수를 생략하면 `unpause` 함수가 토큰 컨트랙트의 일시정지를 해제합니다. |
+| 이름 | 유형                            | 설명                                                                                               |
+| -- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| id | BigNumber \| string \| number | (선택 사항) 일시정지를 해제할 토큰 아이디입니다. 이 매개변수를 생략하면 `unpause` 함수가 토큰 컨트랙트의 일시정지를 해제합니다. |
 
 **참고** `sendParam.from` 또는 `kip37.options.from`이 전달된 경우, PauserRole이 있는 일시정지자이어야 합니다.
 
