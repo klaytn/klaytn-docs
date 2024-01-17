@@ -138,7 +138,7 @@ accountKey가 공개 키 문자열인 경우, [AccountKeyPublic](#accountkeypubl
 | --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
@@ -293,7 +293,7 @@ AccountKeyLegacy를 계정 키로 가진 계정 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 이름      | Type   | 설명               |
+| 이름      | 유형     | 설명               |
 | ------- | ------ | ---------------- |
 | address | String | 업데이트할 계정의 주소입니다. |
 
@@ -354,7 +354,7 @@ AccountKeyFail을 계정 키로 가진 계정 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 이름      | 유형     | Description      |
+| 이름      | 유형     | 설명               |
 | ------- | ------ | ---------------- |
 | address | String | 업데이트할 계정의 주소입니다. |
 
@@ -445,7 +445,7 @@ AccountKeyRoleBased를 계정 키로 가진 계정 인스턴스를 만듭니다.
 | roledBasedPublicKeyArray | Array  | 각 역할에 대한 공개 키 문자열 배열이 포함된 2차원 배열입니다.                         |
 | options                  | Array  | (선택 사항) 각 역할에 대한 [WeightedMultiSigOptions] 인스턴스를 포함하는 배열입니다. |
 
-**Return Value**
+**리턴 값**
 
 | 유형        | 설명              |
 | --------- | --------------- |
@@ -556,13 +556,13 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 account.getRLPEncodingAccountKey()
 ```
 
-Return RLP-encoded string of AccountKey.
+계정 키의 RLP 인코딩된 문자열을 반환합니다.
 
 **리턴 값**
 
-| 유형     | 설명                                   |
-| ------ | ------------------------------------ |
-| String | A RLP-encoded string of AccountKey . |
+| 유형     | 설명                      |
+| ------ | ----------------------- |
+| String | 계정 키의 RLP 인코딩된 문자열입니다 . |
 
 **예시**
 
