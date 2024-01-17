@@ -252,7 +252,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다.
 
 ```bash
 $ node ./test.js
@@ -412,7 +412,7 @@ RoleBasedKeyring {
 
 테스트를 위해 KLAY가 필요한 경우, [Klaytn 지갑](api/caver-wallet/caver-wallet.md)에서 Baobab 테스트넷 KLAY를 받을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 클레이튼 지갑에 로그인하고 테스트용 Faucet를 통해 Baobab 테스트넷 KLAY를 받습니다.
 
-### 영수증 확인 <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
+### 밸류 전송 트랜잭션 보내기 <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
 caver-js 지갑을 사용하여 트랜잭션의 서명을 생성할 수 있습니다. 트랜잭션을 네트워크에 전송하려면 아래의 두 단계를 거쳐야 합니다.
 
@@ -459,7 +459,7 @@ testFunction()
 
 위 코드는 `caver.wallet`에 Keyring을 추가하고 트랜잭션을 생성한 후 `caver.wallet.sign`을 통해 트랜잭션에 서명합니다.
 
-Running the above code gives you the following result. 위 코드가 실행되면 트랜잭션의 RLP 인코딩된 문자열이 아래와 같이 출력됩니다. (출력되는 RLP 인코딩된 문자열은 아래 표시된 문자열 출력과 다를 수 있습니다).
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다. 위 코드가 실행되면 트랜잭션의 RLP 인코딩된 문자열이 아래와 같이 출력됩니다. (출력되는 RLP 인코딩된 문자열은 아래 표시된 문자열 출력과 다를 수 있습니다).
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
@@ -485,7 +485,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. 위 코드가 실행되면 트랜잭션 영수증은 아래와 같이 표시됩니다.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다. 위 코드가 실행되면 트랜잭션 영수증은 아래와 같이 표시됩니다.
 
 ```bash
 $ node ./test.js
@@ -543,7 +543,7 @@ testFunction()
 
 위의 코드를 실행하면 이전 예제처럼 트랜잭션 영수증이 인쇄됩니다.
 
-### 다른 트랜잭션 유형 실행하기 <a href="#checking-receipts" id="checking-receipts"></a>
+### 영수증 확인 <a href="#checking-receipts" id="checking-receipts"></a>
 
 [caver.rpc.klay.sendRawTransaction](api/caver-wallet/caver-wallet.md)을 통해 트랜잭션을 클레이튼에 전송할 때 프로미스나 이벤트 이미터를 사용하여 트랜잭션 영수증을 받을 수 있습니다.
 
@@ -606,11 +606,11 @@ $ node ./test.js
 
 트랜잭션의 결과는 영수증의 `status`를 통해 확인할 수 있습니다. 반환 값에 대한 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction)를 참고하세요. 트랜잭션이 실패한 경우, 영수증의 `txError`에서 오류에 대한 자세한 내용을 확인할 수 있습니다. 자세한 내용은 [Transaction](../../transaction-error-codes.md)을 참고하세요.
 
-## 수수료 위임 <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
+## 다른 트랜잭션 유형 실행하기 <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-클레이튼은 확장성과 성능을 위해 다양한 트랜잭션 유형을 제공합니다. For more information, see [Transactions](../../../learn/transactions/). 이 섹션에서는 caver-js와 함께 사용할 수 있는 몇 가지 예제를 설명합니다.
+클레이튼은 확장성과 성능을 위해 다양한 트랜잭션 유형을 제공합니다. 자세한 내용은 [Transaction](../../../learn/transactions.md)을 참고하세요. 이 섹션에서는 caver-js와 함께 사용할 수 있는 몇 가지 예제를 설명합니다.
 
-### 계정 업데이트 <a href="#fee-delegation" id="fee-delegation"></a>
+### 수수료 위임 <a href="#fee-delegation" id="fee-delegation"></a>
 
 클레이튼은 [수수료 위임](../../../learn/transactions/) 기능을 제공합니다. 다음은 이러한 트랜잭션의 발신자가 RLP로 인코딩된 트랜잭션을 만드는 예시입니다:
 
@@ -694,7 +694,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. 위 코드의 실행 결과를 통해 수수료 위임 밸류 전송 트랜잭션 결과를 확인할 수 있습니다.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다. 위 코드의 실행 결과를 통해 수수료 위임 밸류 전송 트랜잭션 결과를 확인할 수 있습니다.
 
 ```bash
 $ node ./test.js
@@ -730,7 +730,7 @@ $ node ./test.js
 }
 ```
 
-### 스마트 컨트랙트 <a href="#account-update" id="account-update"></a>
+### 계정 업데이트 <a href="#account-update" id="account-update"></a>
 
 클레이튼 계정의 개인키를 변경하려면 3가지 중요한 사항을 기억해야 합니다:
 
@@ -870,7 +870,7 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### 서명자가 여러 명인 트랜잭션 보내기 <a href="#smart-contract" id="smart-contract"></a>
+### 스마트 컨트랙트 <a href="#smart-contract" id="smart-contract"></a>
 
 [caver.contract](../../../learn/accounts.md#accountkeyfail) 패키지는 클레이튼에서 스마트 컨트랙트와 쉽게 상호작용할 수 있게 해줍니다. 이 패키지는 스마트 컨트랙트의 로우레벨 ABI(애플리케이션 바이너리 인터페이스)가 주어지면 스마트 컨트랙트의 모든 메서드를 JavaScript 호출로 자동 변환합니다. 이를 통해 스마트 컨트랙트를 마치 JavaScript 객체처럼 상호작용할 수 있습니다.
 
@@ -1004,7 +1004,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다.
 
 ```bash
 $ node ./test.js
@@ -1416,7 +1416,7 @@ testValue
 
 자세한 내용은 [caver.contract](../../../learn/accounts.md#accountkeyfail)를 참조하세요.
 
-## 순차적으로 서명하기 <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
+## 서명자가 여러 명인 트랜잭션 보내기<a id="sending-a-transaction-with-multiple-signer"></a>
 
 클레이튼 계정의 계정키가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 경우, 각 키를 관리하는 사람은 다를 수 있습니다.
 
@@ -1424,7 +1424,7 @@ testValue
 
 이 예제를 실행하기 위해서는 테스트에 사용하는 클레이튼 계정의 AccountKey를 [AccountKeyWeightedMultisig](api/caver.account.md#caver-account-create)로 업데이트해야 합니다. 클레이튼 계정을 업데이트하는 방법은 [AccountUpdate](../../../learn/accounts.md#accountkeyweightedmultisig)를 참고하세요.
 
-### 서명된 Raw 트랜잭션 결합하기 <a href="#signing-sequentially" id="signing-sequentially"></a>
+### 순차적으로 서명하기 <a href="#signing-sequentially" id="signing-sequentially"></a>
 
 `caver.wallet` 또는 트랜잭션의 `sign` 함수를 사용하여 트랜잭션에 서명하면 트랜잭션 내부에 서명(또는 수수료 지불자 서명)이 정의(또는 추가)됩니다. 서명된 트랜잭션 인스턴스의 `transaction.getRLPEncoding()` 함수를 호출하면 서명(및 feePayerSignatures)이 포함된 RLP 인코딩된 문자열(`rawTransaction`)을 얻을 수 있습니다.
 
@@ -1509,7 +1509,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다.
 
 ```bash
 $ node ./test.js
@@ -1525,7 +1525,7 @@ $ node ./test.js
 
 수수료 위임 트랜잭션을 전송하고 수수료 납부자가 여러 키를 사용하는 경우, `caver.wallet.signAsFeePayer`를 사용하여 위의 로직을 진행할 수 있습니다.
 
-### KCT 인터페이스 구현 감지하기 <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
+### 서명된 Raw 트랜잭션 결합하기 <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
 
 여러 사람으로부터 여러 개의 서명된 RLP 인코딩된 Raw 트랜잭션 문자열을 받는 경우, 모든 서명이 포함된 단일 RLP 인코딩된 Raw 트랜잭션 문자열로 결합할 수 있습니다.
 
@@ -1568,11 +1568,11 @@ $ node ./test.js
 
 결합 서명된 Raw 트랜잭션은 결과적으로 모든 서명(트랜잭션이 수수료 위임 트랜잭션인 경우 수수료 납부자 서명)을 포함하는 RLP 인코딩된 문자열을 반환합니다. 이 문자열을 사용하여 `await caver.rpc.klay.sendRawTransaction(combined)`을 통해 트랜잭션을 네트워크에 전송합니다.
 
-## KIP-7 인터페이스 감지하기 <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
+## KCT 인터페이스 구현 감지하기 <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
 `caver.kct`는 주어진 KCT 토큰 컨트랙트가 어떤 인터페이스를 구현하는지에 대한 정보를 반환하는 함수를 제공합니다. 이 함수를 사용하면 클레이튼에 배포된 KCT 토큰 컨트랙트가 어떤 인터페이스를 구현하는지 확인할 수 있습니다.
 
-### KIP-17 인터페이스 감지하기 <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
+### KIP-7 인터페이스 감지하기 <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
 KIP-7 토큰 컨트랙트가 구현한 인터페이스를 감지하려면 `caver.kct.kip7.detectInterface(contractAddress)` 또는 `kip7.detectInterface()`를 사용하면 됩니다.
 
@@ -1633,7 +1633,7 @@ $ node ./test.js
 }
 ```
 
-### KIP-37 인터페이스 감지하기 <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
+### KIP-17 인터페이스 감지하기 <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
 
 KIP-17 토큰 컨트랙트가 구현한 인터페이스를 감지하려면 `caver.kct.kip17.detectInterface(contractAddress)` 또는 `kip17.detectInterface()`를 사용하면 됩니다.
 
@@ -1683,7 +1683,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위의 코드를 실행하면 다음과 같은 결과가 표시됩니다.
 
 ```bash
 $ node ./test.js
@@ -1698,7 +1698,7 @@ $ node ./test.js
 }
 ```
 
-### 샘플 프로젝트 <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
+### KIP-37 인터페이스 감지하기 <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
 KIP-37 토큰 컨트랙트가 구현한 인터페이스를 감지하려면 `caver.kct.kip37.detectInterface(contractAddress)` 또는 `kip37.detectInterface()`를 사용하면 됩니다.
 
@@ -1759,14 +1759,14 @@ $ node ./test.js
 }
 ```
 
-## 문제 해결 <a href="#sample-projects" id="sample-projects"></a>
+## 샘플 프로젝트 <a href="#sample-projects" id="sample-projects"></a>
 
 caver-js를 사용한 dApp(블록체인 애플리케이션) 개발 샘플 프로젝트는 다음과 같습니다:
 
 - [Count dApp](api/caver-wallet/keyring.md#signaturedata)
 - [Klaystagram](../../../build/tutorials/count-dapp/count-dapp.md)
 
-## 링크 <a href="#troubleshooting" id="troubleshooting"></a>
+## 문제 해결 <a href="#troubleshooting" id="troubleshooting"></a>
 
 - 웹 브라우저에서 caver-js를 사용하여 빌드하는 동안 **Error: Can't resolve 'fs'** 라는 오류가 발생합니다.
 
@@ -1797,7 +1797,7 @@ caver-js를 사용한 dApp(블록체인 애플리케이션) 개발 샘플 프로
    }
   ```
 
-## Links <a href="#links" id="links"></a>
+## 링크 <a href="#links" id="links"></a>
 
 - caver-js [GitHub 리포지토리](../../../build/tutorials/klaystagram/klaystagram.md)
 - caver-js [npm](https://github.com/klaytn/caver-js)
