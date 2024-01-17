@@ -930,11 +930,11 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 반환된 객체에는 다음이 포함됩니다:
 
-| 이름          | 유형     | 설명                                               |
-| ----------- | ------ | ------------------------------------------------ |
-| messageHash | string | The hash of message with Klaytn-specific prefix. |
-| signatures  | Array  | [SignatureData](#signaturedata)의 배열입니다.          |
-| message     | string | 서명할 메시지입니다.                                      |
+| 이름          | 유형     | 설명                                      |
+| ----------- | ------ | --------------------------------------- |
+| messageHash | string | 클레이튼 전용 접두사가 있는 메시지의 해시입니다.             |
+| signatures  | Array  | [SignatureData](#signaturedata)의 배열입니다. |
+| message     | string | 서명할 메시지입니다.                             |
 
 **예시**
 
