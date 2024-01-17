@@ -266,9 +266,9 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 
 `promise`는 `object`를 반환합니다.
 
-| 유형     | 설명                    |
-| ------ | --------------------- |
-| object | The governance items. |
+| 유형     | 설명       |
+| ------ | -------- |
+| object | 거버넌스 항목. |
 
 **예시**
 
