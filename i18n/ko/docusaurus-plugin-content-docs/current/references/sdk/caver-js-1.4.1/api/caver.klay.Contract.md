@@ -180,7 +180,7 @@ true
 myContract.deploy(options)
 ```
 
-Deploys the contract to the Klaytn blockchain. After successful deployment, the promise will be resolved with a new contract instance.
+컨트랙트를 클레이튼 블록체인에 배포합니다. 배포가 성공하면 새로운 컨트랙트 인스턴스로 프로미스가 해결됩니다.
 
 **매개변수**
 
