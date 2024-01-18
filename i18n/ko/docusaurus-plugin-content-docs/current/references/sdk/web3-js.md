@@ -64,7 +64,7 @@ const privateKey = "Paste private key";
 touch read.js
 ```
 
-이 파일을 생성한 후 '초기화' 섹션에서 설명한 대로 `web3`를 초기화합니다. In this section, you'll learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
+이 파일을 생성한 후 '초기화' 섹션에서 설명한 대로 `web3`를 초기화합니다. 이 섹션에서는 블록체인에서 데이터(예: blockNumber, KLAY 잔액)를 읽는 방법을 배웁니다.
 
 실제로 작동하는 모습을 보려면 `read.js`에 다음 코드를 붙여넣으세요.
 
