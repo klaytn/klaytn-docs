@@ -1,4 +1,4 @@
-# Value Transfer
+# 밸류 전송
 
 ## sendTransaction (VALUE_TRANSFER)
 
@@ -194,7 +194,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체와 콜백 함수입니�
 | gas      | Number                              | 트랜잭션에 대해 지불할 최대 가스 금액(미사용 가스는 환불됨).                                                                                                      |
 | gasPrice | Number                              | (선택 사항) 발신자가 제공한 가스 가격(단위: peb). 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다.                                                |
 | nonce    | Number                              | (선택 사항) nonce의 정수입니다. 생략하면 caver-js가 `caver.klay.getTransactionCount`를 호출하여 설정합니다.                                                       |
-| feeRatio | Number                              | Fee ratio of the fee payer. 수수료 지불자의 수수료 비율. 30이면 수수료의 30%는 수수료 지불자가 부담합니다. 70%는 발신자가 부담합니다. 수수료 비율의 범위는 1\~99이며, 범위를 벗어나면 트랜잭션이 승인되지 않습니다.                 |
+| feeRatio | Number                              | 수수료 납부자의 수수료 비율입니다. 수수료 지불자의 수수료 비율. 30이면 수수료의 30%는 수수료 지불자가 부담합니다. 70%는 발신자가 부담합니다. 수수료 비율의 범위는 1\~99이며, 범위를 벗어나면 트랜잭션이 승인되지 않습니다.                         |
 
 위와 같은 구조의 `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` 타입의 트랜잭션 객체 또는 `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` 타입의 `RLP 인코딩된 트랜잭션`을 발신자의 경우 [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction)에서, 수수료 납부자의 경우 [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction)에서 매개변수로 사용할 수 있습니다.
 
