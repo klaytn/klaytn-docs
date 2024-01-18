@@ -277,7 +277,7 @@ caver-js 지갑 없이 개인 키에서 직접 서명을 생성하려면 다음 
 
 ### 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature. 다음은 코드 예시입니다.
+클레이튼은 [수수료 위임](../../../learn/transactions/transactions.md#fee-delegation) 기능을 제공합니다. 다음은 코드 예시입니다.
 
 발신자인 경우 아래 코드를 사용하여 RLP로 인코딩된 트랜잭션 객체를 만드세요:
 
