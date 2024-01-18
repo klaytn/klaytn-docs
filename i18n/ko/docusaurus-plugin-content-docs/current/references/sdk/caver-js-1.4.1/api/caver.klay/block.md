@@ -83,7 +83,7 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 
 | 이름               | 유형              | 설명                                                                    |
 | ---------------- | --------------- | --------------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. BFT 합의 엔진에서는 항상 1입니다.                              |
+| blockScore       | QUANTITY        | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                          |
 | extraData        | String          | 이 블록의 "추가 데이터" 필드입니다.                                                 |
 | gasUsed          | Number          | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                                       |
 | governanceData   | DATA            | RLP로 인코딩된 거버넌스 구성                                                     |
@@ -232,7 +232,7 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 | 이름               | 유형              | 설명                                                            |
 | ---------------- | --------------- | ------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. BFT 합의 엔진에서는 항상 1입니다.                      |
+| blockScore       | QUANTITY        | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                  |
 | committee        | Array           | 이 블록의 위원회 멤버 주소 배열입니다. 위원회는 이 블록의 합의 프로토콜에 참여한 검증자의 하위 집합입니다. |
 | extraData        | String          | 이 블록의 "추가 데이터" 필드입니다.                                         |
 | gasUsed          | QUANTITY        | 이 블록의 모든 트랜잭션에서 사용한 총 가스 사용량입니다.                              |
