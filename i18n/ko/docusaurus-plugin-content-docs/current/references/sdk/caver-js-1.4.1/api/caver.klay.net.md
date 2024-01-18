@@ -69,7 +69,7 @@ caver.klay.net.isListening([callback])
 true
 ```
 
-## getPeerCount <a id="islistening"></a>
+## getPeerCount <a id="getpeercount"></a>
 
 ```javascript
 caver.klay.net.getPeerCount([callback])
@@ -94,7 +94,7 @@ caver.klay.net.getPeerCount([callback])
 10
 ```
 
-## peerCountByType <a id="getpeercount"></a>
+## peerCountByType <a id="peercountbytype"></a>
 
 ```javascript
 caver.klay.net.peerCountByType([callback])
