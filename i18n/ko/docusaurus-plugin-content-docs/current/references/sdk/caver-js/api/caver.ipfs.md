@@ -103,13 +103,13 @@ caver.ipfs.get(hash)
 caver.ipfs.toHex(hash)
 ```
 
-[CID(콘텐츠 식별자)](https://multiformats.io/multihash)를 [Multihash](https://multiformats.io/multihash)로 변환합니다.
+[CID(콘텐츠 식별자)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 [Multihash](https://multiformats.io/multihash)로 변환합니다.
 
 **매개변수**
 
-| 이름   | 유형     | 설명                                                                                                                                        |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| 이름   | 유형     | 설명                                                                                                                       |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| hash | string | 변환할 [CID(콘텐츠 식별자)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
 **리턴 값**
 
@@ -140,9 +140,9 @@ caver.ipfs.fromHex(hash)
 
 **리턴 값**
 
-| 유형     | 설명                                                                                                                               |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| 유형     | 설명                                                                                                               |
+| ------ | ---------------------------------------------------------------------------------------------------------------- |
+| string | [CID(콘텐츠 식별자)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) |
 
 **예시**
 
