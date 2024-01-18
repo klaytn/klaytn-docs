@@ -991,7 +991,7 @@ kip7Instance.addMinter(account [, sendParam])
 kip7Instance.renounceMinter([sendParam])
 ```
 
-토큰을 발행할 권리를 포기합니다. Only a minter address can renounce the minting right.
+토큰을 발행할 권리를 포기합니다. 발행자 주소만 발행 권한을 포기할 수 있습니다.
 
 이 메서드를 사용하면 트랜잭션이 클레이튼 네트워크에 전송되며, 트랜잭션 수수료가 발신자에게 부과됩니다.
 
