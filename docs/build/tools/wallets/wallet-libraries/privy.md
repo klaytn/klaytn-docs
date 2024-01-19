@@ -8,23 +8,23 @@ sidebar_label: Privy
 
 ## Introduction
 
- [Privy](https://docs.privy.io/) is a simple wallet toolkit for progressive authentication in web3. With Privy, developers can onboard users using traditional and web3 authentication methods, enabling progressive onboarding to boost user conversion. 
+[Privy](https://docs.privy.io/) is a simple wallet toolkit for progressive authentication in web3. With Privy, developers can onboard users using traditional and web3 authentication methods, enabling progressive onboarding to boost user conversion. 
 
 In this guide, you will use Privy wallet toolkit to integrate external wallets such as Metamask, Coinbase Wallet, and social logins such as Google, Twitter, Email  into your dApp built on the Klaytn Network.
 
 
 ## Prerequisite
 
-* A working Next.js project (by executing npx create-next-app@latest)
-* An [appID](https://docs.privy.io/guide/console/api-keys#app-id) from the [Privy develoer console](https://console.privy.io/)
+* A working Next.js project. You can clone this [create-next-app](https://github.com/privy-io/create-next-app) template provided by Privy to follow along in this tutorial. 
+* An [appID](https://docs.privy.io/guide/console/api-keys#app-id) from the [Privy developer console](https://console.privy.io/)
 
 ## Getting Started
 
-In this tutorial, we will build a simple Privy Auth Starter template using Next.js. This template has three main core files: 
+The cloned template is a simple Next.js Privy Auth Starter template with three main core files: 
 
 * **index.tsx**: this file handles the login authentication of users.
 * **app.tsx**: this file handles the initialization of Privy SDK and wraps our components with a PrivyProvider.
-*  **dashboard.tsx**: this is the page users are redirected to after logging in. It handles everything around testing each login method (Google, Twitter, Email, Wallets) and also performing certain functionalities when connected using external wallets like MetaMask. These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract (both read and write functions).
+*  **dashboard.tsx**: this is the page users are redirected to after logging in. It handles everything around testing each login method (Google, Twitter, Email, Wallets). More importantly for this guide, we will perform certain functionalities when connected using external wallets like MetaMask. These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract.
 
 ## Installation
 
@@ -73,7 +73,7 @@ It’s important to note that the Privy provider takes the following properties:
 * Your `appID`, which needs to be updated in your .env file. You can get started with the following `test App ID: clpispdty00ycl80fpueukbhl` as provided by Privy for test purposes.
 * An optional `onSuccess` callback which will execute once a user successfully logs in.
 * An optional `createPrivyWalletOnLogin` boolean to configure whether you'd like your users to create embedded wallets when logging in.
-d. an optional config property to customize your onboarding experience.
+* An optional config property to customize your onboarding experience.
 
 
 ## Connecting Wallet
@@ -127,7 +127,7 @@ async function getBalance() {
   const address =   await signer.getAddress();
   console.log(address);
   
-  // // Get user's balance in ether
+  // Get user's balance in ether
   const balance = ethers.formatEther(
     (await provider.getBalance(address)).toString() // balance is in wei
   );
