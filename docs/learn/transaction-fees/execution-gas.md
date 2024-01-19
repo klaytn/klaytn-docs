@@ -1,9 +1,13 @@
 # Execution Gas
 
 Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `ExecutionGas` is calculated.
+
 :::note
+
 Execution gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+
 :::
+
 ## Overview <a id="overview"></a>
 Execution gas is charged during executing a contract under three distinct circumstances. Sometimes, some policies may be omitted.
 

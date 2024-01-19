@@ -3,8 +3,11 @@
 Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `IntrinsicGas` is organized.
 
 :::note
+
 Intrinsic gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+
 :::
+
 ## Overview
 A transaction's `intrinsicGas` can be calculated by adding up the next four factors.
 

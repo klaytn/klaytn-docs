@@ -15,8 +15,11 @@ The last approach is to limit the computation cost of a transaction. We modelled
 Therefore, we chose the third option for Klaytn. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../references/json-rpc/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../references/json-rpc/klay/transaction.md#klay_estimategas).
 
 :::note
+
 Computation cost related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+
 :::
+
 ## Computation Cost Limit <a id="coputation-cost-limit"></a>
 A series of opcodes or precompiled contracts are executed sequentially when executing a transaction. To limit the execution time of a transaction, we have made a deterministic execution time calculation model for opcodes and precompiled contracts based on real execution time.
 
