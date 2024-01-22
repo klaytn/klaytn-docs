@@ -238,6 +238,7 @@ const sidebars = {
                 'build/tools/wallets/wallet-libraries/web3Modal',
                 'build/tools/wallets/wallet-libraries/web3Onboard',
                 'build/tools/wallets/wallet-libraries/particle',
+                'build/tools/wallets/wallet-libraries/privy',
               ],
             },
           ],
