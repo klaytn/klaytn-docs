@@ -340,7 +340,7 @@ return (
 
 ## 스마트 컨트랙트로 작업하기
 
-1. **컨트랙트 작성하기**
+### 1. Deploying a Contract
 
 애플리케이션 바이너리 인터페이스(ABI)와 컨트랙트 바이트 코드가 주어지면 스마트 컨트랙트를 배포할 수 있습니다.
 
@@ -423,7 +423,7 @@ return (
 
 Web3Auth 공급자 및 서명자 개체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
-2. **컨트랙트 배포하기**
+### 2. Writing to a Contract
 
 ```js
   // add to existing useState hook
@@ -512,7 +512,7 @@ return (
 );
 ```
 
-3. **컨트랙트에서 읽기**
+### 3. Reading from a Contract
 
 ```js
 // add to existing useState hook
