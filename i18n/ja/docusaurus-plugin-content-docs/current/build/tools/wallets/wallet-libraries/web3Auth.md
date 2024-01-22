@@ -340,7 +340,7 @@ return (
 
 ## Working with a Smart Contract
 
-1. **Deploying a Contract**
+### 1. Deploying a Contract
 
 You can deploy a smart contract given its Application Binary Interface(ABI) and its contract byte code.
 
@@ -423,7 +423,7 @@ return (
 
 With the Web3Auth provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed on the blockchain.
 
-2. **Writing to a Contract**
+### 2. Writing to a Contract
 
 ```js
   // add to existing useState hook
@@ -512,7 +512,7 @@ return (
 );
 ```
 
-3. **Reading from a Contract**
+### 3. Reading from a Contract
 
 ```js
 // add to existing useState hook
