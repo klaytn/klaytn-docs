@@ -379,7 +379,7 @@ return (
 
 Web3Modal 공급자 및 서명자 개체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
-1. **컨트랙트 작성하기**
+### 1. Writing to a Contract
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-2. **컨트랙트에서 읽기**
+### 2. Reading from a contract
 
 ```js
 // add to existing useState hook
