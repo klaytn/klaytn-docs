@@ -14,7 +14,7 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 - Klaytn Community Fund (KCF): 30%
 - Klaytn Foundation Fund (KFF): 20%
 
-6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis (the annual inflation rate is subject to change through the Klaytn Governance Process). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](./transaction-fees.md).
+6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis (the annual inflation rate is subject to change through the Klaytn Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
 
