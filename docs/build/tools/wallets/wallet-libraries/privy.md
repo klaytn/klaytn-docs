@@ -4,7 +4,7 @@ sidebar_label: Privy
 
 # Integrate Privy into a dApp
 
-![](/img/build/tools/klaytnXPrivy.png)
+![](/img/build/tools/klaytnXprivy.png)
 
 ## Introduction
 
