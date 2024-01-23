@@ -12,22 +12,26 @@
 
 마지막 접근 방식은 트랜잭션의 계산 비용을 제한하는 것입니다. 실제 실행 시간을 기준으로 각 EVM 연산 코드의 계산 비용을 모델링하고 트랜잭션의 계산 비용 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소를 제거하고 정규화된 실행 시간 단위만 계산하므로 노드들도 합의에 도달할 수 있습니다.
 
-따라서 저희는 클레이튼에 세 번째 옵션을 선택했습니다. 현재 실행 비용의 한도는 100,000,000으로 설정되어 있습니다. 한도는 플랫폼에 의해 결정되므로 개발자는 트랜잭션의 계산 비용을 알고 있어야 합니다. 트랜잭션의 계산 비용을 계산하기 위해 Klaytn은 [klay_estimateComputationCost](../../references/json-rpc/klay/transaction.md#klay_estimatecomputationcost) 함수를 제공합니다. 사용법은 [klay_estimateGas](../../references/json-rpc/klay/transaction.md#klay_estimategas)와 거의 동일합니다.
+따라서 저희는 클레이튼에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. 트랜잭션의 계산 비용을 계산하기 위해 Klaytn은 [klay_estimateComputationCost](../../references/json-rpc/klay/transaction.md#klay_estimatecomputationcost) 함수를 제공합니다. 사용법은 [klay_estimateGas](../../references/json-rpc/klay/transaction.md#klay_estimategas)와 거의 동일합니다.
+
+:::note
+
+Computation cost related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+
+:::
+
+## Computation Cost Limit <a id="coputation-cost-limit"></a>
+
+A series of opcodes or precompiled contracts are executed sequentially when executing a transaction. To limit the execution time of a transaction, we have made a deterministic execution time calculation model for opcodes and precompiled contracts based on real execution time.
+
+Based on this model, predetermined computation cost values for opcodes and precompiled contracts are added to the total computation cost. If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) error.
+
+When setting the computation cost limit value, we set `--opcode-computation-cost-limit` flag value as a limit if it is set as a non-zero value. If it's zero, the limit is set to the default computation cost limit defined for each specific hardfork.
+Exceptionally, the limit for call/estimateGas/estimateComputationCost is always set to unlimited and is not influenced by flag or hardfork values. However, execution still can be aborted due to other limits such as gas cap.
 
 ## 연산 코드 계산 비용 <a id="computation-cost-of-opcodes"></a>
 
 아래 표는 EVM 연산 코드의 계산 비용을 보여줍니다. 계산 비용은 실험을 기반으로 결정되었습니다.
-
-:::note
-
-`Kore` 하드포크로 인해 계산 비용이 변경되었습니다. 이전 문서를 원하시면 [이전 문서](computation-cost-previous.md)를 참고하시기 바랍니다.
-
-\`Kore\`\` 하드포크 블록 번호는 다음과 같습니다.
-
-- Baobab 테스트넷: `#111736800`
-- Cypress 메인넷: `#119750400`
-
-:::
 
 | 연산 코드          | 계산 비용 |
 | :------------- | ----: |
@@ -36,12 +40,12 @@
 | MUL            |   200 |
 | SUB            |   219 |
 | DIV            |   404 |
-| SDIV           |   739 |
-| MOD            |   812 |
+| SDIV           |   360 |
+| MOD            |   320 |
 | SMOD           |   560 |
-| ADDMOD         |  1410 |
-| MULMOD         |  1760 |
-| EXP            |  5000 |
+| ADDMOD         |   360 |
+| MULMOD         |   700 |
+| EXP            |   720 |
 | SIGNEXTEND     |   481 |
 | LT             |   201 |
 | GT             |   264 |
@@ -57,7 +61,7 @@
 | SHL            |   478 |
 | SHR            |   498 |
 | SAR            |   834 |
-| SHA3           |  2465 |
+| SHA3           |   560 |
 | ADDRESS        |   284 |
 | BALANCE        |  1407 |
 | ORIGIN         |   210 |
@@ -85,9 +89,9 @@
 | POP            |   140 |
 | MLOAD          |   376 |
 | MSTORE         |   288 |
-| MSTORE8        |  5142 |
-| SLOAD          |   835 |
-| SSTORE         |  1548 |
+| MSTORE8        |   230 |
+| SLOAD          |  2550 |
+| SSTORE         |  2510 |
 | JUMP           |   253 |
 | JUMPI          |   176 |
 | PC             |   147 |
@@ -160,10 +164,10 @@
 | SWAP15         |   197 |
 | SWAP16         |   128 |
 | LOG0           |   100 |
-| LOG1           |  1000 |
-| LOG2           |  1000 |
-| LOG3           |  1000 |
-| LOG4           |  1000 |
+| LOG1           |   500 |
+| LOG2           |   500 |
+| LOG3           |   500 |
+| LOG4           |   500 |
 | PUSH           |     0 |
 | DUP            |     0 |
 | SWAP           |     0 |
@@ -177,3 +181,38 @@
 | REVERT         |     0 |
 | SELFDESTRUCT   |     0 |
 | BASEFEE        |   198 |
+| BLOBBASEFEE    |   120 |
+| BLOBHASH       |   165 |
+| TSTORE         |   280 |
+| TLOAD          |   220 |
+| MCOPY          |   250 |
+
+## Precompiled contracts computation cost table <a id="precompiled-contracts-computation-cost-table"></a>
+
+`Input` is a byte array input of a precompiled contract.
+
+| Address | Precompiled contracts | Computation Cost                                                                                                                          |
+| :------ | :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x01    | ecrecover             | 113,150                                                                                                                                   |
+| 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                  |
+| 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                     |
+| 0x04    | dataCopy              | 0                                                                                                                                         |
+| 0x05    | bigModExp             | see the code [here](https://github.com/klaytn/klaytn/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)       |
+| 0x06    | bn256Add              | 8,000                                                                                                                                     |
+| 0x07    | bn256ScalarMul        | 100,000                                                                                                                                   |
+| 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                          |
+| 0x09    | blake2f               | bigEndian(getRounds(input[0:4])) \* 10 + 10,000 |
+| 0x0A    | kzg                   | 2,200,000                                                                                                                                 |
+| 0x3FD   | vmLog                 | 10                                                                                                                                        |
+| 0x3FE   | feePayer              | 10                                                                                                                                        |
+| 0x3FF   | validateSender        | numOfSigs(input) \* 180,000 + 10,000                                                                                   |
+
+## Hardfork Changes <a id="hardfork-changes"></a>
+
+| Hardfork     | New items                                                                                                                                                                                                                                               | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
+| ------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| Cancun EVM   | BLOBBASEFEE (0x49)<br/>BLOBHASH (0x50)<br/>TSTORE (0x5c) opcode<br/>TLOAD (0x5d)<br/>MCOPY (0x5e)<br/>kzg (0x0a) precompiled contract | increase the computation cost limit <br/>from 100,000,000 to 150,000,000<br/><br/>reduce the computation cost of some opcodes <br/>due to cpu performance increase<br/>-Sdiv (0x05): 739 -> 360<br/>-Mod (0x06): 812 -> 320<br/>-Addmod (0x08): 1410 -> 360<br/>-Mulmod (0x09): 1760 -> 700<br/>-Exp (0x0A): 5000 -> 720<br/>-Sha3 (0x20): 2465 -> 560<br/>-Mstore8 (0x53): 5142 -> 230<br/>-Log1, Log2, Log3, Log4 (0xA1-0xA4): 1000 -> 500<br/><br/>increase the computation cost of some opcodes <br/>due to increased database size<br/>-SLOAD (0x54): 835 -> 2550<br/>-SSTORE (0x55): 1548 -> 2510 |   |   |
+| Shanghai EVM | PUSH0 (0x5f) opcode                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Kore         |                                                                                                                                                                                                                                                         | modExp (0x05) precompiled contract <br/>use new gas calculation logic. <br/>Computation cost also affected. <br/>Become more accurate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |   |   |
+| London EVM   | BaseFee (0x48) opcode                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Istanbul EVM | CHAINID (0x46) opcode<br/>SELFBALANCE (0x47) opcode<br/>blake2f (0x09) precompiled contract                                                                                                    | reduce the computation cost of over-priced opcodes<br/>- ADDMOD (0x08): 3349 -> 1410<br/>- MULMOD (0x09): 4757 -> 1760<br/>- XOR (0x18): 657 -> 454<br/>- NOT (0x19): 1289 -> 364<br/>- SHL (0x1B): 1603 -> 478<br/>- SHR (0x1C): 1815 -> 834                                                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
