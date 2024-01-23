@@ -2,32 +2,19 @@
 
 클레이튼은 몇 가지 유용한 사전 컴파일된 컨트랙트를 제공합니다.
 이러한 컨트랙트는 플랫폼 자체에서 네이티브 구현으로 구현됩니다.
-0x01부터 0x09 주소의 사전 컴파일된 컨트랙트는 이더리움의 그것과 동일합니다.
-클레이튼은 새로운 클레이튼 기능을 지원하기 위해 0x3fd부터 0x3ff까지 사전 컴파일된 컨트랙트를 추가적으로 구현합니다.
+The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum.
+Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
 
 :::note
 
-3개의 사전 컴파일된 컨트랙트 주소가 변경되었으며, **blake2F**는 `IstanbulEVM` 프로토콜 업그레이드, 즉 "하드포크" 이후에 추가되었습니다.
-
-`IstanbulEVM` 프로토콜 업그레이드 블록 번호는 다음과 같습니다.
-
-- Baobab 테스트넷: `#75373312`
-- Cypress 메인넷: `#86816005`
-
-프로토콜 업그레이드 전에 배포된 컨트랙트는 기존 주소를 사용해야 합니다.
+Contracts deployed before the istanbul EVM hardfork should use the original addresses.
 
 - 사례 1) 블록 번호 `#75373310`의 Baobab에 배포된 컨트랙트는 0x09, 0x0a, 0x0b를 각각 vmLog, feePayer, validateSender의 주소로 인식하며, blake2f는 사용할 수 없습니다.
 - 사례 2) 블록 번호 `#75373314`의 Baobab에 배포된 컨트랙트는 0x09를 blake2f의 주소로 인식하고 0x3fd, 0x3fe, 0xff를 vmLog, feePayer, validateSender의 주소로 인식합니다.
 
-이전 문서가 필요하신 경우 [이전 문서](precompiled-contracts-previous.md)를 참조하세요.
+Precompiled contracts related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
 
 :::
-
-| 사전 컴파일된 컨트랙트 | v1.7.0 프로토콜 업데이트 활성화 이전에 배포된 컨트랙트에 사용된 주소 | v1.7.0 프로토콜 업데이트 활성화 이후에 배포된 컨트랙트에 사용된 주소 |
-| :----------- | :---------------------------------------- | :---------------------------------------- |
-| vmLog        | 0x09                                      | 0x3fd                                     |
-| feePayer     | 0x0a                                      | 0x3fe                                     |
-| 유효성 검사 발신자   | 0x0b                                      | 0x3ff                                     |
 
 ## 주소 0x01: ecrecover(hash, v, r, s) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
@@ -166,7 +153,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 }
 ```
 
-## 주소 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-3fc-vmlog-str"></a>
+## Address 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-09-blake2F-rounds-h-m-t-f"></a>
 
 0x09 주소는 BLAKE2b F 압축 기능을 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고하세요. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
@@ -186,6 +173,23 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 }
 ```
 
+## Address 0x0A: kzg(data) <a id="address-0x-0a-kzg-data"></a>
+
+The address 0x0A implements the KZG proof verification to a given value at a given point. For more information, see [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+
+```text
+function callKzg(bytes memory data) public returns (bytes memory) {
+    bytes memory ret;
+    assembly {
+        let len := mload(data)
+        if iszero(call(gas(), 0x0a, 0, add(data, 0x20), len, 0, 0)) {
+            revert (0,0)
+        }
+    }
+    return ret;
+}
+```
+
 ## 주소 0x3fd: vmLog(str) <a id="address-0x-3fc-vmlog-str"></a>
 
 0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. 자세한 내용은 [debug_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget)을 참조하세요. 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
@@ -198,7 +202,7 @@ function callVmLog(bytes memory str) public {
 
 ## 주소 0x3fe: feePayer() <a id="address-0x-3fd-feepayer"></a>
 
-0x3FE 주소는 실행 중인 트랜잭션의 수수료 납부자를 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x3FE 주소는 실행 중인 트랜잭션의 수수료 납부자를 반환합니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -248,3 +252,19 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
     }
 }
 ```
+
+## Hardfork Changes <a id="hardfork-changes"></a>
+
+| Hardfork     | New items                                              | Changes                                                                                                                                                                                                             |
+| ------------ | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cancun EVM   | kzg (0x0a) precompiled contract     |                                                                                                                                                                                                                     |
+| Kore         |                                                        | modExp (0x05) precompiled contract use new gas <br/>calculation logic. Computation cost also affected. <br/>Become more accurate.                                                                |
+| Istanbul EVM | blake2f (0x09) precompiled contract | klaytn precompiled contract addresses has been moved <br/>from 0x09,0x0A,0x0B to 0x3FD,0x3FE,0x3FF.<br/>see the below [precompiled contract address change table](#precompiled-contract-address-change) for detail. |
+
+### Precompiled contract address change <a id="precompiled-contract-address-change"></a>
+
+| Precompiled Contract | address **BEFORE** istanbul EVM hardfork | address **AFTER** istanbul EVM hardfork |
+| :------------------- | :--------------------------------------- | :-------------------------------------- |
+| vmLog                | 0x09                                     | 0x3fd                                   |
+| feePayer             | 0x0a                                     | 0x3fe                                   |
+| 유효성 검사 발신자           | 0x0b                                     | 0x3ff                                   |
