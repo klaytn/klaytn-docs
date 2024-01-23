@@ -65,6 +65,15 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Transaction Fees',
+      link: {type: 'doc', id: 'learn/transaction-fees/transaction-fees'},
+      items: [
+        'learn/transaction-fees/intrinsic-gas',
+        'learn/transaction-fees/execution-gas',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Computation',
       link: {type: 'doc', id: 'learn/computation/computation'},
       items: [
@@ -88,7 +97,6 @@ const sidebars = {
     'learn/kni',
     'learn/scaling-solutions',
     'learn/klaytn-native-coin-klay',
-    'learn/transaction-fees',
     'learn/token-economy',
     'learn/governance',
     {
@@ -319,7 +327,7 @@ const sidebars = {
           ],
         },
         'nodes/core-cell/monitoring-setup',
-        'nodes/core-cell/h-a-setup',            
+        'nodes/core-cell/h-a-setup',
       ],
     },
     {
@@ -338,10 +346,10 @@ const sidebars = {
             'nodes/service-chain/quick-start/value-transfer',
             'nodes/service-chain/quick-start/ha-for-sc',
             'nodes/service-chain/quick-start/nested-sc',
-            'nodes/service-chain/quick-start/value-transfer-between-sibling',            
+            'nodes/service-chain/quick-start/value-transfer-between-sibling',
           ],
         },
-        'nodes/service-chain/install-service-chain',        
+        'nodes/service-chain/install-service-chain',
         {
           type: 'category',
           label: 'Configure Service Chain',
@@ -466,7 +474,7 @@ const sidebars = {
       link: {type: 'doc', id: 'references/service-chain-api/service-chain-api'},
       items: [
         'references/service-chain-api/mainbridge',
-        'references/service-chain-api/subbridge',          
+        'references/service-chain-api/subbridge',
       ],
     },
     'references/transaction-error-codes',
@@ -475,7 +483,7 @@ const sidebars = {
       label: 'RPC Service Providers',
       link: {type: 'doc', id: 'references/service-providers/service-providers'},
       items: [
-        'references/service-providers/public-en',       
+        'references/service-providers/public-en',
       ],
     },
     {
