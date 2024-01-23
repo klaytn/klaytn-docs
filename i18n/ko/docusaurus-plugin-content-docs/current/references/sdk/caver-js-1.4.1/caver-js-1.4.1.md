@@ -51,7 +51,7 @@ Error: runtime error occurred in interpreter
 
 ## 클레이튼에 트랜잭션을 보낼 때 주의 사항 <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-클레이튼은 고정 가스 가격 (25 ston = 25 \* 10^9)을 사용합니다. 클레이튼 네트워크에 제출된 다른 가격의 트랜잭션은 거부됩니다. 네트워크에서 사용되는 가스 가격은 [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice)를 통해 얻을 수 있습니다.
+클레이튼은 고정 가스 가격 (25 ston = 25 \* 10^9)을 사용합니다. 클레이튼 네트워크에 제출된 다른 가격의 트랜잭션은 거부됩니다. For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice).
 
 트랜잭션에 서명하거나 제출할 때 `gasPrice`이 정의되지 않은 경우, caver-js는 [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice) RPC 호출을 사용하여 트랜잭션의 가스 가격을 설정합니다.
 
