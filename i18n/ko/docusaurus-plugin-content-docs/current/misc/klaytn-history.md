@@ -2,7 +2,7 @@
 
 이 페이지는 클레이튼 블록체인의 모든 하드포크를 보여줍니다.
 
-## KIP-103
+## KIP-103 <a id="kip-103"></a>
 
 | ` `                                     | Baobab                        | Cypress                       |
 | --------------------------------------- | ----------------------------- | ----------------------------- |
@@ -13,7 +13,7 @@
 
 KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)와 함께 도입되었습니다. 여기에는 Treasury 리밸런싱의 기술 사양인 [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103)의 구현이 포함되어 있습니다([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
-### Treasury Rebalance
+### Treasury Rebalance <a id="treasury-rebalance"></a>
 
 | ` `                       | Baobab                                     | Cypress                                    |
 | ------------------------- | ------------------------------------------ | ------------------------------------------ |
@@ -22,7 +22,7 @@ KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/rel
 | KFF 주소                    | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
 | KCF 주소                    | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 
-## Kore
+## Kore <a id="kore"></a>
 
 | ` `         | Baobab                        | Cypress                       |
 | ----------- | ----------------------------- | ----------------------------- |
@@ -33,7 +33,7 @@ KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/rel
 
 Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)와 함께 도입되었습니다. 온체인 거버넌스 투표 방식([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), 새로운 GC 보상 구조([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)) 및 EVM 변경 사항을 구현한 것입니다.
 
-## Magma
+## Magma <a id="magma"></a>
 
 | ` `         | Baobab                        | Cypress                       |
 | ----------- | ----------------------------- | ----------------------------- |
@@ -44,7 +44,7 @@ Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releas
 
 Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)와 함께 도입되었습니다. 여기에는 동적 가스비 가격 책정 메커니즘인 [#1493](https://github.com/klaytn/klaytn/pull/1493)이 포함되어 있으며, [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)의 구현입니다.)
 
-## EthTxType
+## EthTxType <a id="eth-tx-type"></a>
 
 | ` `         | Baobab                        | Cypress                       |
 | ----------- | ----------------------------- | ----------------------------- |
@@ -55,7 +55,7 @@ Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releas
 
 이더리움의 EthereumTransactionType 변경은 [v1.8.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.8.0)에서 도입되었습니다. 여기에는 EthereumTransactionType을 지원하기 위한 새로운 트랜잭션 유형이 포함됩니다: TxTypeEthereumAccessList와 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
-## London EVM
+## London EVM <a id="london-evm"></a>
 
 | ` `         | Baobab                        | Cypress                       |
 | ----------- | ----------------------------- | ----------------------------- |
@@ -66,7 +66,7 @@ Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releas
 
 이더리움의 London 하드포크 항목은 [v1.7.3 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.7.3)와 함께 도입되었으며, 여기에는 이더리움 London EVM 호환을 위한 BaseFee EVM Opcode([#1065](https://github.com/klaytn/klaytn/pull/1065), [#1066](https://github.com/klaytn/klaytn/pull/1066), [#1096](https://github.com/klaytn/klaytn/pull/1096)가 포함되어 있습니다.)
 
-## Istanbul EVM
+## Istanbul EVM <a id="istanbul-evm"></a>
 
 | ` `         | Baobab                            | Cypress                       |
 | ----------- | --------------------------------- | ----------------------------- |
