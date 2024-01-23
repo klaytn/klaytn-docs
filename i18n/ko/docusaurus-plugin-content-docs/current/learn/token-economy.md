@@ -14,7 +14,7 @@
 - 클레이튼 커뮤니티 펀드 (KCF): 30%
 - 클레이튼 재단 기금 (KFF): 20%
 
-새로운 블록이 생성될 때마다 6.4 KLAY가 발행됩니다. 이는 연간 약 2억 KLAY가 발행된다는 것을 의미하며, 이는 제네시스에서 발행된 100억 KLAY 대비 연간 2%의 인플레이션에 해당합니다(연간 인플레이션율은 Klaytn 거버넌스 프로세스를 통해 변경될 수 있습니다). 트랜잭션 수수료는 OPCODE당 부과되며, 트랜잭션 수수료 표에 따라 계산됩니다. 트랜잭션 수수료 표에 대한 자세한 내용은 [트랜잭션 수수료](./transaction-fees.md)를 참고하시기 바랍니다.
+새로운 블록이 생성될 때마다 6.4 KLAY가 발행됩니다. 이는 연간 약 2억 KLAY가 발행된다는 것을 의미하며, 이는 제네시스에서 발행된 100억 KLAY 대비 연간 2%의 인플레이션에 해당합니다(연간 인플레이션율은 Klaytn 거버넌스 프로세스를 통해 변경될 수 있습니다). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## 클레이튼 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
