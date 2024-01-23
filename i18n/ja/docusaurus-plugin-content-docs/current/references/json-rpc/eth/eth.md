@@ -118,7 +118,7 @@ Related APIs: [eth_getTransactionByHash](./transaction.md#eth_getTransactionByHa
 
 | Field    | Description                                                                                                                                                                                                                                                                |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gasPrice | Also known as [Unit Price](../../../learn/transaction-fees.md#unit-price) in Klaytn's context, this value is determined in the system via the governance processes.                                                                                                        |
+| gasPrice | Also known as [Unit Price](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) in Klaytn's context, this value is determined in the system via the governance processes.                                                                               |
 | type     | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
 
 Klaytn transactions can have more than one signature because Klaytn supports MultiSig (Ethereum transactions only have one signature field (= v, r, s)) even on protocol-level.
@@ -133,9 +133,9 @@ Related APIs: [eth_getTransactionReceipt](./transaction.md#eth_getTransactionRec
 > Due to the fundamental design differences existing between Klaytn and Ethereum,
 > Klaytn transaction receipt cannot be fully supported when served via Ethereum namespace APIs.
 
-| Field             | Description                                                                                                                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| effectiveGasPrice | Since Klaytn uses a fixed gas price policy, the gasPrice value is returned. gasPrice(also called [Unit Price](../../../learn/transaction-fees.md#unit-price)) is set in the system by the governance. |
-| transactionIndex  | Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                         |
+| Field             | Description                                                                                                                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| effectiveGasPrice | Since Klaytn uses a fixed gas price policy, the gasPrice value is returned. gasPrice(also called [Unit Price](../../../learn/transaction-fees/transaction-fees.md#gasprice-overview)) is set in the system by the governance. |
+| transactionIndex  | Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                                                 |
 
 Fields not covered here will stick to Ethereum's suggested fields of transaction_receipt.
