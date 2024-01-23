@@ -12,7 +12,7 @@ Klaytn provides a field `txError` in the transaction receipt to give developers 
 | 0x07       | out of gas                                                                            |
 | 0x08       | evm: write protection                                                                 |
 | 0x09       | evm: execution reverted                                                               |
-| 0x0a       | reached the opcode computation cost limit (100000000) for tx       |
+| 0x0a       | reached the opcode computation cost limit for tx                                      |
 | 0x0b       | account already exists                                                                |
 | 0x0c       | not a program account (e.g., an account having code and storage)   |
 | 0x0d       | Human-readable address is not supported now                                           |
