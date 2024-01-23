@@ -6,7 +6,7 @@
 
 트랜잭션은 [플랫폼 API 사양](../../references/json-rpc/json-rpc.md)에 설명된 대로 플랫폼 API를 통해 생성할 수 있습니다. 이러한 트랜잭션은 _컨센서스 노드(CN)_ 로 전송되어 블록에 저장됩니다. CN은 수신된 각 트랜잭션이 유효한지 확인합니다. 유효한 트랜잭션은 트랜잭션 풀에 저장되며, 그렇지 않은 트랜잭션은 폐기됩니다. CN은 트랜잭션 풀에서 현재 블록에 있는 실행 가능한 트랜잭션을 선택하고 하나씩 실행합니다.
 
-트랜잭션을 실행하려면 발신자는 트랜잭션 수수료로 일정 금액의 KLAY를 지불해야 합니다. KLAY의 트랜잭션 수수료는 가스와 승수, 즉 단가를 기준으로 계산됩니다. 가스는 계산의 기본 단위입니다. Klaytn 노드에서 실행되는 모든 작업은 미리 정의된 양의 가스를 소비합니다. 트랜잭션에 필요한 정확한 KLAY의 양은 [트랜잭션 수수료](../transaction-fees.md)에 설명된 공식에 따라 계산됩니다. 발신자가 가스 부족과 함께 트랜잭션을 제출하면 트랜잭션이 실패할 수 있습니다. 또한 발신자 계정의 잔액이 부족한 경우에도 트랜잭션이 실패할 수 있습니다.
+트랜잭션을 실행하려면 발신자는 트랜잭션 수수료로 일정 금액의 KLAY를 지불해야 합니다. KLAY의 트랜잭션 수수료는 가스와 승수, 즉 단가를 기준으로 계산됩니다. 가스는 계산의 기본 단위입니다. Klaytn 노드에서 실행되는 모든 작업은 미리 정의된 양의 가스를 소비합니다. The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 발신자가 가스 부족과 함께 트랜잭션을 제출하면 트랜잭션이 실패할 수 있습니다. 또한 발신자 계정의 잔액이 부족한 경우에도 트랜잭션이 실패할 수 있습니다.
 
 트랜잭션이 성공적으로 실행되면 해당 트랜잭션은 현재 블록에 포함됩니다. CN은 블록 가스 한도 또는 블록 시간 제한에 도달할 때까지 트랜잭션을 수집합니다. 그런 다음 CN은 트랜잭션으로 블록을 생성합니다. 이 단계에서는 블록의 여러 필드를 채워야 합니다. 예를 들어 트랜잭션, 영수증, 상태 등의 해시값을 계산해야 합니다. 모든 필수 필드가 완료되면 CN은 블록 해시를 생성합니다.
 
@@ -16,7 +16,7 @@
 
 현재 클레이튼의 Baobab과 Cypress 네트워크에는 다음과 같은 트랜잭션 실행 제한이 있습니다:
 
-- 트랜잭션의 가스 가격은 클레이튼의 [단위 가격](../klaytn-native-coin-klay.md#units-of-klay), _i.e._, 250 ston으로 설정해야 합니다.
+- You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
 - 계산 비용 한도보다 실행 비용이 큰 트랜잭션은 버려집니다. [계산 비용](./computation-cost.md)을 참조하세요.
 
 ## 데이터 구조 <a id="data-structures"></a>
@@ -74,7 +74,11 @@
 
 ### 스마트 컨트랙트 만들기 <a id="creating-smart-contracts"></a>
 
-스마트 컨트랙트는 바이너리를 데이터로 빈 주소로 트랜잭션을 전송하여 Klaytn 블록체인에서 생성할 수 있습니다. 바이너리는 다양한 형식이 있을 수 있지만, 현재 클레이튼은 EVM 바이트코드라는 한 가지 바이너리 형식을 지원합니다. 이 트랜잭션은 실행을 위해 지불이 필요하다는 점을 지적할 필요가 있습니다. 트랜잭션이 블록에 저장된 후 트랜잭션 수수료 모델에 따라 발신자 계정의 계정 잔액이 감소합니다. 일정 시간이 지나면 트랜잭션이 블록에 표시되며, 이는 트랜잭션이 수반하는 상태가 합의에 도달했음을 확인합니다. 이 시점에서 스마트 컨트랙트는 이제 클레이튼 블록체인에 존재합니다. Kore 하드포크에서 [eip-3541](https://eips.ethereum.org/EIPS/eip-3541)을 가져왔기 때문에 0xEF 바이트로 시작하는 새로운 코드의 배포는 허용되지 않습니다.
+스마트 컨트랙트는 바이너리를 데이터로 빈 주소로 트랜잭션을 전송하여 Klaytn 블록체인에서 생성할 수 있습니다. 바이너리는 다양한 형식이 있을 수 있지만, 현재 클레이튼은 EVM 바이트코드라는 한 가지 바이너리 형식을 지원합니다. 이 트랜잭션은 실행을 위해 지불이 필요하다는 점을 지적할 필요가 있습니다. 트랜잭션이 블록에 저장된 후 트랜잭션 수수료 모델에 따라 발신자 계정의 계정 잔액이 감소합니다. 일정 시간이 지나면 트랜잭션이 블록에 표시되며, 이는 트랜잭션이 수반하는 상태가 합의에 도달했음을 확인합니다. 이 시점에서 스마트 컨트랙트는 이제 클레이튼 블록체인에 존재합니다.
+
+- Kore 하드포크에서 [eip-3541](https://eips.ethereum.org/EIPS/eip-3541)을 가져왔기 때문에 0xEF 바이트로 시작하는 새로운 코드의 배포는 허용되지 않습니다.
+- As [eip-3860](https://eips.ethereum.org/EIPS/eip-3860) is brought at the Shanghai hardfork, deployment of a new code is rejected if the initcode length exceeds 49152 bytes and the length of the new contract code cannot exceed 24576 bytes.
+- SCA overwriting over EOA is enabled after Shanghai hardfork.
 
 ### 스마트 컨트랙트 실행하기 <a id="executing-smart-contracts"></a>
 
