@@ -2,32 +2,19 @@
 
 Klaytn provides several useful precompiled contracts.
 These contracts are implemented in the platform itself as a native implementation.
-The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum.
-Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
+The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum.
+Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
 
 :::note
 
-NOTE: Three precompiled contract addresses have been changed, and **blake2F** was added after the `IstanbulEVM` protocol upgrade, or the "hard fork".
-
-`IstanbulEVM` protocol upgrade block number is as follows.
-
-- Baobab Testnet: `#75373312`
-- Cypress Mainnet: `#86816005`
-
-Contracts deployed before the protocol upgrade should use the original addresses.
+Contracts deployed before the istanbul EVM hardfork should use the original addresses.
 
 - case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
 - case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
 
-If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md).
+Precompiled contracts related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
 
 :::
-
-| precompiled contract | addresses used in the contracts deployed before v1.7.0 protocol update activation | address used in the contracts deployed after v1.7.0 protocol update activation |
-| :------------------- | :-------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
-| vmLog                | 0x09                                                                              | 0x3fd                                                                          |
-| feePayer             | 0x0a                                                                              | 0x3fe                                                                          |
-| validateSender       | 0x0b                                                                              | 0x3ff                                                                          |
 
 ## Address 0x01: ecrecover(hash, v, r, s) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
@@ -166,7 +153,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 }
 ```
 
-## Address 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-3fc-vmlog-str"></a>
+## Address 0x09: blake2F(rounds, h, m, t, f) <a id="address-0x-09-blake2F-rounds-h-m-t-f"></a>
 
 The address 0x09 implements BLAKE2b F compression function. For more information, see [EIP-152](https://eips.ethereum.org/EIPS/eip-152). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
@@ -183,6 +170,23 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
     }
 
     return output;
+}
+```
+
+## Address 0x0A: kzg(data) <a id="address-0x-0a-kzg-data"></a>
+
+The address 0x0A implements the KZG proof verification to a given value at a given point. For more information, see [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+
+```text
+function callKzg(bytes memory data) public returns (bytes memory) {
+    bytes memory ret;
+    assembly {
+        let len := mload(data)
+        if iszero(call(gas(), 0x0a, 0, add(data, 0x20), len, 0, 0)) {
+            revert (0,0)
+        }
+    }
+    return ret;
 }
 ```
 
@@ -248,3 +252,19 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
     }
 }
 ```
+
+## Hardfork Changes <a id="hardfork-changes"></a>
+
+| Hardfork     | New items                                              | Changes                                                                                                                                                                                                             |
+| ------------ | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cancun EVM   | kzg (0x0a) precompiled contract     |                                                                                                                                                                                                                     |
+| Kore         |                                                        | modExp (0x05) precompiled contract use new gas <br/>calculation logic. Computation cost also affected. <br/>Become more accurate.                                                                |
+| Istanbul EVM | blake2f (0x09) precompiled contract | klaytn precompiled contract addresses has been moved <br/>from 0x09,0x0A,0x0B to 0x3FD,0x3FE,0x3FF.<br/>see the below [precompiled contract address change table](#precompiled-contract-address-change) for detail. |
+
+### Precompiled contract address change <a id="precompiled-contract-address-change"></a>
+
+| Precompiled Contract | address **BEFORE** istanbul EVM hardfork | address **AFTER** istanbul EVM hardfork |
+| :------------------- | :--------------------------------------- | :-------------------------------------- |
+| vmLog                | 0x09                                     | 0x3fd                                   |
+| feePayer             | 0x0a                                     | 0x3fe                                   |
+| validateSender       | 0x0b                                     | 0x3ff                                   |
