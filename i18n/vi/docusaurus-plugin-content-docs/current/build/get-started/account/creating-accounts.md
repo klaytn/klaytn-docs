@@ -1,12 +1,12 @@
-# Create Accounts
+# Tạo tài khoản
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## Tạo tài khoản mới <a id="creating-a-new-account"></a>
 
-This will create a new account and print the address on the screen. A keystore file is created under the data directory.
+Quy trình này sẽ tạo một tài khoản mới và in địa chỉ lên màn hình. Một tập tin lưu trữ khóa sẽ được bảo trong thư mục dữ liệu.
 
-**Klaytn Keystore File**
+**Tập tin lưu trữ khóa Klaytn**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+Khi bạn tạo một tài khoản, một tập tin lưu trữ khóa sẽ được tạo ra. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
 
 - `UTC--<created_at UTC ISO8601>-<address hex>`
 
