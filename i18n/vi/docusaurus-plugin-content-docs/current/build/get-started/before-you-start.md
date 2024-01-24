@@ -1,14 +1,14 @@
-# Before You Start
+# Môi trường phát triển
 
-**Klaytn Networks**
+**Mạng Klaytn**
 
-- Baobab testnet
-- Cypress mainnet
+- Mạng thử nghiệm Baobab
+- Mạng chính thức Cypress
 
-**Endpoint Node**
+**Nút điểm cuối**
 
-- Your [Endpoint Node](../../nodes/endpoint-node/endpoint-node.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
-- `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../references/json-rpc/json-rpc.md). `ken` runs on Linux and MacOS.
+- Bạn cần có [Nút điểm cuối](../../nodes/endpoint-node/endpoint-node.md) để kết nối với mạng lưới Klaytn và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
+- `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` hiển thị hai giao diện, [giao diện dòng lệnh](../../nodes/endpoint-node/ken-cli-commands.md) và [JSON-RPC API](../../references/json-rpc/json-rpc.md). `ken` chạy trên Linux và MacOS. `ken` runs on Linux and MacOS.
 - `ken` CLI comes with several utility and node management functions.
 
 **Smart Contract Development**
