@@ -150,7 +150,7 @@ To run the script and send data to the blockchain, run the following command in 
 node send.js
 ```
 
-If the transaction was succesful, you'll see the transaction receipt logged in your terminal.
+If the transaction was successful, you'll see the transaction receipt logged in your terminal.
 
 ![](/img/references/send-ethers.png)
 

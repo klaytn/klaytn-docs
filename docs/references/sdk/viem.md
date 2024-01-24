@@ -185,7 +185,7 @@ touch interact.ts
 
 After creating this file, set up your public and wallet client as done in the **set up section** above. In this section, you will use viem to both:
 
-* read from the contract; and
+* Read from the contract; and
 * Write to a contract.
 
 For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://remix.ethereum.org/). For that reason, we will read from this contract by calling the `retrieve` function, and also send a transaction to this contract by calling the `store` function.

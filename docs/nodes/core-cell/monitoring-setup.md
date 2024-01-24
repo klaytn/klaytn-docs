@@ -21,11 +21,11 @@ To install Telegraph on Amazon Linux 2, you may use InfluxData's RHEL 7 yum repo
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
 [influxdb]
-name = InfluxDB Repository - RHEL 7
-baseurl = https://repos.influxdata.com/rhel/7/\$basearch/stable
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/\$basearch/main
 enabled = 1
 gpgcheck = 1
-gpgkey = https://repos.influxdata.com/influxdb.key
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 ```
 
