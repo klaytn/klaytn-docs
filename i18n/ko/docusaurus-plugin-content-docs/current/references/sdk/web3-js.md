@@ -6,7 +6,7 @@
 
 따라서 개발자는 이 호환성을 활용하고 web3.js 라이브러리를 사용하여 Klaytn 노드와 상호작용할 수 있습니다.
 
-이 가이드에서는 web3.js 라이브러리를 사용하여 트랜잭션을 전송하고, 블록체인에서 데이터를 읽고, 클레이튼 네트워크의 기존 컨트랙트와 상호작용하는 방법을 배워보겠습니다.
+In this guide, you'll learn how to use the web3.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Klaytn Network.
 
 ## 전제 조건
 
@@ -35,7 +35,7 @@ npm install web3
 
 ### Web3.js 초기화하기
 
-이 튜토리얼에서는 트랜잭션을 전송하고, 블록체인에서 데이터를 읽고, 기존 스마트 컨트랙트와 상호작용하기 위해 여러 스크립트 파일을 만들 것입니다. 시작하려면 각 스크립트 파일에 대해 web3.js를 초기화하는 방법을 알아야 합니다.
+In this tutorial, we will create a bunch of scripts file to read data from the blockchain, send transactions, and also interact with existing smart contract. 시작하려면 각 스크립트 파일에 대해 web3.js를 초기화하는 방법을 알아야 합니다.
 
 `web3`를 스크립트 파일로 가져옵니다.
 
@@ -93,13 +93,13 @@ getKlayBalance();
 
 **출력**
 
-스크립트를 실행하고 블록체인에서 데이터를 읽으려면 터미널에서 다음 명령을 실행하면 됩니다:
+To run the script and read data from the blockchain, run the following command in your terminal:
 
 ```bash
 node read.js
 ```
 
-트랜잭션이 성공했다면, 블록 번호와 사용자의 KLAY 잔액이 터미널에 기록된 것을 확인할 수 있습니다.
+If the transaction was successful, you'll see the block number and user’s KLAY balance logged in your terminal.
 
 ## 블록체인으로 트랜잭션 보내기
 
@@ -143,17 +143,17 @@ sendTx();
 
 **출력**
 
-스크립트를 실행하고 블록체인으로 데이터를 전송하려면 터미널에서 다음 명령을 실행하면 됩니다:
+To run the script and send data to the blockchain, run the following command in your terminal:
 
 ```js
 node send.js
 ```
 
-거래가 성공하면 터미널에 거래 영수증이 기록된 것을 확인할 수 있습니다.
+If the transaction was succesful, you'll see the transaction receipt logged in your terminal.
 
 ![](/img/references/send-web3.png)
 
-## 스마트 컨트랙트와 상호작용하기
+## Interacting with smart contracts
 
 클레이튼의 기존 스마트 컨트랙트와 상호작용하려면 다음 명령을 실행하여 프로젝트 폴더에 `interact.js` 파일을 새로 생성합니다:
 
@@ -250,12 +250,12 @@ const abi = [
 
 **출력**
 
-스크립트를 실행하고 스마트 컨트랙트와 상호작용하려면 터미널에서 다음 명령을 실행하면 됩니다:
+To run the script and interact with smart contracts, run the following command in your terminal:
 
 ```bash
 node interact.js
 ```
 
-트랜잭션이 성공하면 터미널에서 트랜잭션 해시 및 저장된 값을 확인할 수 있습니다.
+If the transaction was succesful, you'll see the transaction hash and the value stored in your terminal.
 
 web3.js에 대한 자세한 가이드는 [web3.js docs](https://web3js.readthedocs.io/)를 참조하세요. 또한 이 가이드에 대한 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)에서 확인할 수 있습니다.
