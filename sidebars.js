@@ -638,6 +638,7 @@ const sidebars = {
           ],
         },
         'references/sdk/ether-js',
+        'references/sdk/viem',
         'references/sdk/web3-js',
       ],
     },
