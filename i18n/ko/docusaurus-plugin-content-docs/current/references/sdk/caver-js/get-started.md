@@ -608,7 +608,7 @@ $ node ./test.js
 
 ## 다른 트랜잭션 유형 실행하기 <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-클레이튼은 확장성과 성능을 위해 다양한 트랜잭션 유형을 제공합니다. 자세한 내용은 [Transaction](../../../learn/transactions.md)을 참고하세요. 이 섹션에서는 caver-js와 함께 사용할 수 있는 몇 가지 예제를 설명합니다.
+클레이튼은 확장성과 성능을 위해 다양한 트랜잭션 유형을 제공합니다. For more information, see [Transactions](../../../learn/transactions/transactions.md). 이 섹션에서는 caver-js와 함께 사용할 수 있는 몇 가지 예제를 설명합니다.
 
 ### 수수료 위임 <a href="#fee-delegation" id="fee-delegation"></a>
 
