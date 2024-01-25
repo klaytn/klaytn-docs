@@ -126,40 +126,117 @@ caver.klay.getFilterChanges(filterId [, callback])
 Object
 
 ```shell
-"log_" 문자열에 `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`를 연결하여 만듭니다. > caver.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log);
-[ 
-    { 
-        address: '0x71e503935b7816757AA0314d4E7354dab9D39162',
-        topics: [ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
-        data: '0x0000000000000000000000000000000000000000000000000000000000000001',
-        blockNumber: 3525,
-        transactionHash: '0x1b28e2c723e45a0d8978890598903f36a74397c9cea8531dc9762c39483e417f',
-        transactionIndex: 0,
-        blockHash: '0xb7f0bdaba93d3baaa01a5c24517da443207f774e0202f02c298e8e997a540b3d',
-        logIndex: 0,
-        id: 'log_c1ea867d'
-    } 
-] caver.klay.getFilterLogs(filterId [, callback]) 필터 객체는 [newFilter](#newfilter)를 사용하여 가져와야 합니다. callback Function (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. caver.klay.getPastLogs(options [, callback]) 주어진 옵션과 일치하는 과거 로그를 가져옵니다. options Object Number \| String (선택 사항) 로그를 가져올 가장 빠른 블록의 번호입니다. (``latest``은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. (옵션) 로그를 가져올 마지막 블록의 번호입니다. (`latest`은 가장 최근 블록을 의미합니다.) 기본값은 ``latest``입니다. options.address 특정 계정과 관련된 로그만 반환됩니다. options.topics (선택 사항) 로그 항목에 표시되어야 하는 값의 배열입니다. 순서가 중요합니다. 토픽을 생략하려면 `null`, *예:*, `[null, '0x12...']`을 사용하세요. 각 주제에 대한 옵션이 포함된 배열을 전달할 수도 있습니다(예:,* `[null, ['option1', 'option2']]`). callback Function (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 개체를 반환하고 두 번째 매개 변수로 결과를 반환합니다. ``Array``에서에서 반환된 이벤트 ``Object``의 구조는 다음과 같습니다: String 이 이벤트가 발생한 곳입니다. String 인덱싱되지 않은 로그 매개변수가 포함된 데이터입니다. 최대 4개의 32바이트 주제가 있는 배열로, 주제 1~3에는 인덱싱된 로그 매개 변수가 포함되어 있습니다. Number 블록에서 이벤트 인덱스 위치의 정수입니다. Number 32-byte String 이 이벤트가 생성된 트랜잭션의 해시입니다. 32-byte String 이 이벤트가 생성된 블록의 해시입니다. Number 이 로그가 생성된 블록 번호입니다. 아직 보류 중이면 ``null``입니다. "log_" 문자열에 `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`를 연결하여 만듭니다.
+// Request
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc":"2.0",
+  "id":1,
+  "result":[
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xfa9b2165fc71c1d6ffa03291c7f5d223ea363ec063d747eec9ce2d30d24855ef"],
+      "data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b481000000000000000000000000000000000000000000000000000000000000001341646472657373426f6f6b436f6e747261637400000000000000000000000000",
+      "blockNumber":"0xd3b5",
+      "transactionHash":"0x57ca8ff0a0d454d4c5418694c21bc4ef3de26cf7cd18dd404d6a7189a826bfe0",
+      "transactionIndex":"0x0",
+      "blockHash":"0x279251a907c6ab1fb723595511ff401432e7c2437d54189298f53a7d33ce3a60",
+      "logIndex":"0x0",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xfa3e1e272694072320aad73a3fadd8876c4bf8f40899c6c7ce2fda9f4e652cfa"],
+      "data":"0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000300000000000000000000000041383b6ee0ea5108d6b139165a9c85351aacd39800000000000000000000000057f7439898e652fa9b5654022297588532e5e0370000000000000000000000005b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc",
+      "blockNumber":"0xd3b5",
+      "transactionHash":"0x57ca8ff0a0d454d4c5418694c21bc4ef3de26cf7cd18dd404d6a7189a826bfe0",
+      "transactionIndex":"0x0",
+      "blockHash":"0x279251a907c6ab1fb723595511ff401432e7c2437d54189298f53a7d33ce3a60",
+      "logIndex":"0x1",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b481000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003000000000000000000000000286d09b578d6126e09296dfe6c775ea7d0cf06e9000000000000000000000000860350f6d774efd16046335c388b832b910d3f8c00000000000000000000000061a7cbdd597848494fa85cbb76f9c63ad9c06cad",
+      "blockNumber":"0x14d96",
+      "transactionHash":"0x73282602d2f908180f47e3c8673f41c0899cbbb2d606976c2f77188ffa57d6e7",
+      "transactionIndex":"0x0",
+      "blockHash":"0xa5268a093cd5df7eccde18217a7019a35ab761088312027af16682aafa704ee3",
+      "logIndex":"0x1",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b4810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002f91d1b79dd06da1b622122d61e05e64562de61e0000000000000000000000006e76e0ce76dfba55060400144318d4821a58510600000000000000000000000031b93ca83b5ad17582e886c400667c6f698b8ccd",
+      "blockNumber":"0x14e4e",
+      "transactionHash":"0xf9d86ed451d67abc68c517f7fa0e0a7a8e3dedec23f56febda2b7f52d35185b6",
+      "transactionIndex":"0x0",
+      "blockHash":"0x7ddf4a0a203d40afc1706aa24b787da601e1bce326319349d0eeef6c41656fa5",
+      "logIndex":"0x1",
+      "removed":false
+    }
+  ]
+}
 ```
 
 ```shell
-> caver.klay.getPastLogs({
-    address: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
-    topics: ["0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"]
-})
-.then(console.log);
+// Request
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' http://localhost:8551
 
-[{
-    data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    topics: ['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
-    logIndex: 0,
-    transactionIndex: 0,
-    transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
-    blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    id: 'log_124d61bc',
-},{...}]
+// Result
+{
+  "jsonrpc":"2.0",
+  "id":2,
+  "result":[
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b481000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003000000000000000000000000286d09b578d6126e09296dfe6c775ea7d0cf06e9000000000000000000000000860350f6d774efd16046335c388b832b910d3f8c00000000000000000000000061a7cbdd597848494fa85cbb76f9c63ad9c06cad",
+      "blockNumber":"0x14d96",
+      "transactionHash":"0x73282602d2f908180f47e3c8673f41c0899cbbb2d606976c2f77188ffa57d6e7",
+      "transactionIndex":"0x0",
+      "blockHash":"0xa5268a093cd5df7eccde18217a7019a35ab761088312027af16682aafa704ee3",
+      "logIndex":"0x1",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b4810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002f91d1b79dd06da1b622122d61e05e64562de61e0000000000000000000000006e76e0ce76dfba55060400144318d4821a58510600000000000000000000000031b93ca83b5ad17582e886c400667c6f698b8ccd",
+      "blockNumber":"0x14e4e",
+      "transactionHash":"0xf9d86ed451d67abc68c517f7fa0e0a7a8e3dedec23f56febda2b7f52d35185b6",
+      "transactionIndex":"0x0",
+      "blockHash":"0x7ddf4a0a203d40afc1706aa24b787da601e1bce326319349d0eeef6c41656fa5",
+      "logIndex":"0x1",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b481000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003000000000000000000000000a2b1264624c92257dd8e7f0cac42d451061d1510000000000000000000000000b381ee81e319e5ec48f42d0b47b5e4361c9a6f740000000000000000000000003855407fa65c4c5104648b3a9e495072df62b585",
+      "blockNumber":"0x14f38",
+      "transactionHash":"0xc8f8c637ea9fcbe71e23fe0779b59fb10173e8c4fd7e49bce3cce76ff67d353d",
+      "transactionIndex":"0x0",
+      "blockHash":"0xb1717038e443f517bd7a8c37b66fb731fed573f5fa5486ebbbb5e4c9060be50b",
+      "logIndex":"0x1",
+      "removed":false
+    },
+    {
+      "address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b",
+      "topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"],
+      "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b4810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000030000000000000000000000009dd579f23912665b956b0cd50387b29a62052732000000000000000000000000c98a86af2eca2989c0cb2a2b8d4bb841f11e94ab000000000000000000000000f65e07b6626ab43ecea744803fa46bd4a89bfdb6",
+      "blockNumber":"0x14fe7",
+      "transactionHash":"0x14da1883bb2aae487ce1cb93cd39bc9bb802adbba083f337051877358150ab3f",
+      "transactionIndex":"0x0",
+      "blockHash":"0xcd820189f00e9a6faaea7313437b92114e69bd32e18b4a28e7763117716c6fa9",
+      "logIndex":"0x1",
+      "removed":false
+    }
+  ]
+}
 ```
 
 ## newBlockFilter <a id="newblockfilter"></a>
@@ -234,7 +311,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' https://public-en-baobab.klaytn.net
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' http://localhost:8551
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
