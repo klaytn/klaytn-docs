@@ -51,21 +51,18 @@ SCN이 부팅될 때 부모/자식 운영자의 키가 없는 경우 키스토�
 - 자식 체인 브리지 오퍼레이터 : $datadir/child_bridge_account
 
 ```javascript
-$ kscn attach --datadir ~/data
-> subbridge.childOperator
-"0x10221f7f9355017cd0c11444e7eecb99621bacce"
-> subbridge.parentOperator
-"0x3ce216beeafc62d20547376396e89528e1d778ca" ![](/img/nodes/sc-vt-add-klay.png) `subbridge.parentOperator`는 Baobab 네트워크의 계정이고, `subbridge.childOperator`는 서비스체인 네트워크의 계정이라는 점에 유의하세요. [Baobab 월렛](https://baobab.wallet.klaytn.foundation/)에서 테스트 계정을 생성하고 Faucet에서 테스트 KLAY를 받습니다. childOperator`는 `homi`가 생성한 테스트 계정에서 KLAY를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조). $ kscn account import ~/homi-output/keys_test/testkey1
-Your new account is locked with a password. Please give a password. Do not forget this password.
-Passphrase:
-Repeat passphrase:
-Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4} $ kscn attach --datadir ~/data
-> personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
-Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
-Passphrase:
-True
-> klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
-"0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
+> pwd
+/$dataDIR/child_bridge_account
+
+> ls
+0x2eD72a9D7fe5da7672fD21567e07302431649B0B
+UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
+
+> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B
+%S~f5qqM38cB47jL%
+
+> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
+{"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
 
 ### 브리지 오퍼레이터 주소 확인 <a id="check-bridge-operator-addresses"></a>
