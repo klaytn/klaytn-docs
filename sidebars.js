@@ -466,22 +466,22 @@ const sidebars = {
       ],
     },
     // TODO-Klaytn : It will be activated after dacusaurus-openapi-docs plugin bug fix
-    {
-      type:"category",
-      label:"New RPC API Reference",
-      items: [
-        require("./web3rpc/web3rpc-sidebar").klaySidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").ethSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").governanceSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").adminSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").netSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").txpoolSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").personalSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").debugSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").mainbridgeSidebarFormatted,
-        require("./web3rpc/web3rpc-sidebar").subbridgeSidebarFormatted,
-      ],
-    },
+    // {
+    //   type:"category",
+    //   label:"New RPC API Reference",
+    //   items: [
+    //     require("./web3rpc/web3rpc-sidebar").klaySidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").ethSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").governanceSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").adminSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").netSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").txpoolSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").personalSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").debugSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").mainbridgeSidebarFormatted,
+    //     require("./web3rpc/web3rpc-sidebar").subbridgeSidebarFormatted,
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Service Chain API Reference',
