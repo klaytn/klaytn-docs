@@ -85,7 +85,7 @@ caver.klay.getGasPrice([callback])
 caver.klay.getNodeInfo([callback])
 ```
 
-클레이튼 노드의 현재 클라이언트 버전을 반환합니다.
+Returns the current client version of a Klaytn node.
 
 **매개변수**
 
