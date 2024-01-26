@@ -1,6 +1,6 @@
 # Gas
 
-## klay_feeHistory<a id="klay_feehistory"></a>
+## eth_feeHistory<a id="eth_feehistory"></a>
 
 가스당 기본 수수료와 요청된 블록 범위에 대한 가스 내역당 거래 유효 우선순위 수수료를 반환합니다(가능한 경우).
 
@@ -25,7 +25,8 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_feeHistory","params":["0x10", "latest", [0.1, 0.2, 0.3]],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x10", "latest", [0.1, 0.2, 0.3]],"id":1}' http://localhost:8551
+
 // Result
 {
   "jsonrpc": "2.0",
@@ -33,17 +34,129 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": {
     "oldestBlock": "0xa5b",
     "reward": [
-      [ "0x0", "0x0", "0x0" ],
-      ...
-      [ "0x5d21dba00", "0x5d21dba00", "0x5d21dba00" ]
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x5d21dba00",
+        "0x5d21dba00",
+        "0x5d21dba00"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x5d21dba00",
+        "0x5d21dba00",
+        "0x5d21dba00"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x5d21dba00",
+        "0x5d21dba00",
+        "0x5d21dba00"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
     ],
-    "baseFeePerGas": [ "0x0", ..., "0x0" ],
-    "gasUsedRatio": [ 0, ..., 0.0002963777000002964 ]
+    "baseFeePerGas": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ],
+    "gasUsedRatio": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.0002952004000002952,
+      0,
+      0,
+      0.00029504250000029504,
+      0,
+      0,
+      0.0002963777000002964,
+      0,
+      0,
+      0,
+      0
+    ]
   }
 }
 ```
 
-## klay_maxPriorityFeePerGas <a id="klay_maxpriorityfeepergas"></a>
+## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
 
 동적 수수료 트랜잭션에 대한 가스 팁 상한에 대한 제안을 peb으로 반환합니다.
 
@@ -65,11 +178,12 @@ Magma 하드포크 이후에는 그냥 0을 반환합니다.
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
+
 // Result
 {
   "jsonrpc": "2.0",
-  "id":1,
-  "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 Ston
+  "id": 1,
+  "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```
