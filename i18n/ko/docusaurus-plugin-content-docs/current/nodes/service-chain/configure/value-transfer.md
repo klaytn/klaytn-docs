@@ -287,7 +287,7 @@ function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraD
 사용자는 브리지 컨트랙트에 토큰을 [승인](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)한 후 아래 방법을 사용하여 브리지 컨트랙트에 "밸류 전송 요청" 트랜잭션을 할 수 있습니다.
 
 ```solidity
-그런 다음 `requestERC20Transfer()` 함수를 호출합니다.
+function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
 #### 이 1단계 토큰 전송을 수행하려면 ERC-20 토큰 구현을 수정해야 합니다.
