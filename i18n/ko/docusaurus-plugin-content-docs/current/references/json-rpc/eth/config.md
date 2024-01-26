@@ -18,23 +18,13 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":1}' http://localhost:8551
 
-// Result - If requested from non-CN nodes
+// Result
 {
-    "jsonrpc":"2.0",
-    "id":1,
-    "error":{
-        "code":-32000,
-        "message":"rewardbase must be explicitly specified"
-        }
-}
-
-// Result - If requested from CN nodes
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":"0x96Fd91f34Cc8da9f6338C106Ba37aA8B48FB4Fa5"
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
 
@@ -56,17 +46,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_etherbase","params":[],"id":1}' http://localhost:8551
 
 // Result
 {
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":"Klaytn/v0.9.1+3518232250/linux-amd64/go1.11.2"
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
 
-## getChainId <a id="getchainid"></a>
+## eth_chainId <a id="eth_chainid"></a>
 
 요청된 노드에 설정된 현재 체인아이디를 반환합니다.
 
@@ -84,17 +74,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' http://localhost:8551
 
 // Result
 {
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":"0x7e2"
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x2019"
 }
 ```
 
-## gasPriceAt <a id="gaspriceat"></a>
+## eth_gasPrice <a id="eth_gasprice"></a>
 
 가스 가격 제안을 peb 단위로 반환합니다.
 
@@ -114,12 +104,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPriceAt","params":["0x64"],"id":1}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":1}' http://localhost:8551
 
 // Result
 {
   "jsonrpc": "2.0",
   "id":1,
-  "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston
+  "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```
