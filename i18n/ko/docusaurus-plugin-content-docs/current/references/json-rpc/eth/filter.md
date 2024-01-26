@@ -1,6 +1,6 @@
 # Filter
 
-## getFilterChanges <a id="getfilterchanges"></a>
+## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
 필터에 대한 폴링 메서드로, 마지막 폴링 이후의 로그 배열을 반환합니다.
 
@@ -34,7 +34,7 @@ _예:,_ `[null, ['option1', 'option2']]`.
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}' http://localhost:8551
 
 // Result
 {
@@ -55,7 +55,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## getFilterLogs <a id="getfilterlogs"></a>
+## eth_getFilterLogs <a id="eth_getfilterlogs"></a>
 
 주어진 아이디로 필터와 일치하는 모든 로그의 배열을 반환합니다.  [newBlockFilter](#newblockfilter) 또는 [newPendingTransactionFilter](#newpendingtransactionfilter)와 같은 다른 필터 생성 함수가 반환하는 필터 ID는 이 함수와 함께 사용할 수 없습니다.
 
@@ -78,7 +78,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' http://localhost:8551
 
 // Result
 {
@@ -98,7 +98,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## getPastLogs <a id="getpastlogs"></a>
+## eth_getLogs <a id="eth_getlogs"></a>
 
 `Promise`는 `Array` - 로그 객체의 배열을 반환합니다.
 
@@ -111,13 +111,13 @@ Number | String
 
 필터 옵션입니다.
 
-| 이름                | 유형              | 설명                                                                                                                                                                                                             |
-| ----------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options.fromBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.                                         |
-| options.toBlock   | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 `earliest`, `latest` 또는 `pending` 문자열입니다.                                               |
-| address           | String \| Array | (선택 사항) 지정된 컨트랙트 내에서 생성된 로그를 가져올 주소 또는 주소 목록입니다.                                                                                                                                            |
-| topics            | Array           | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                                                           |
-| blockHash         | 32-byte DATA    | (선택 사항) 반환되는 로그를 32바이트 해시 블록Hash를 사용하여 단일 블록으로 제한하는 필터 옵션입니다. 블록해시를 사용하는 것은 블록해시가 블록해시인 블록 번호를 fromBlock = toBlock으로 사용하는 것과 동일합니다. 필터 조건에 blockHash가 있으면 fromBlock이나 toBlock 모두 허용되지 않습니다. |
+| 이름        | 유형                    | 설명                                                                                                                                                                                                             |
+| --------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.                                         |
+| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에 있는 `earliest`, `latest` 또는 `pending` 문자열입니다.                                               |
+| address   | 20-byte DATA \| Array | (선택 사항) 지정된 컨트랙트 내에서 생성된 로그를 가져올 주소 또는 주소 목록입니다.                                                                                                                                            |
+| topics    | Array                 | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                                                           |
+| blockHash | 32-byte DATA          | (선택 사항) 반환되는 로그를 32바이트 해시 블록Hash를 사용하여 단일 블록으로 제한하는 필터 옵션입니다. 블록해시를 사용하는 것은 블록해시가 블록해시인 블록 번호를 fromBlock = toBlock으로 사용하는 것과 동일합니다. 필터 조건에 blockHash가 있으면 fromBlock이나 toBlock 모두 허용되지 않습니다. |
 
 callback
 
@@ -239,7 +239,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 }
 ```
 
-## newBlockFilter <a id="newblockfilter"></a>
+## eth_newBlockFilter <a id="eth_newblockfilter"></a>
 
 노드에 필터를 생성하여 새로운 블록 도착에 대한 정보를 수신합니다.
 상태가 변경되었는지 확인하려면 [getFilterChanges](#getfilterchanges)를 호출하세요.
@@ -258,7 +258,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}' http://localhost:8551
 
 // Result
 {
@@ -268,7 +268,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## newFilter <a id="newfilter"></a>
+## eth_newFilter <a id="eth_newfilter"></a>
 
 주어진 필터 옵션을 사용하여 특정 상태 변경(로그)을 수신하는 필터 객체를 생성합니다.
 
@@ -288,12 +288,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 필터 옵션입니다.
 
-| 이름                | 유형              | 설명                                                                                                                                                                      |
-| ----------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options.fromBlock | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.  |
-| options.toBlock   | QUANTITY \| TAG | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
-| address           | String \| Array | (선택 사항) 주소 또는 주소 목록입니다.                                                                                                                              |
-| topics            | DATA Array      | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                    |
+| 이름        | 유형                    | 설명                                                                                                                                                                      |
+| --------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"` 또는 `pending` 문자열입니다.  |
+| toBlock   | QUANTITY \| TAG       | (선택 사항, 기본값: `"latest"`) 정수 또는 16진수 블록 번호 또는 [기본 블록 매개 변수](block.md#the-default-block-parameter)에 있는 `"earliest"`, `"latest"` 또는 `"pending"` 문자열입니다. |
+| address   | 20-byte DATA \| Array | (선택 사항) 주소 또는 주소 목록입니다.                                                                                                                              |
+| topics    | DATA Array            | (선택 사항) 32바이트 데이터 토픽 배열입니다. 토픽은 순서에 따라 달라집니다. 각 토픽은 "또는" 옵션이 있는 DATA 배열일 수도 있습니다.                                                                    |
 
 :::note
 
@@ -317,7 +317,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"et
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
 ```
 
-## 새로운 보류 중인 트랜잭션 필터 <a id="newpendingtransactionfilter"></a>
+## eth_newPendingTransactionFilter <a id="eth_newpendingtransactionfilter"></a>
 
 노드에 필터를 생성하여 새로운 보류 중인 트랜잭션 도착에 대한 정보를 수신합니다.
 상태가 변경되었는지 확인하려면 [getFilterChanges](#getfilterchanges)를 호출합니다.
@@ -336,7 +336,7 @@ callback
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}' http://localhost:8551
 
 // Result
 {
@@ -346,7 +346,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_subscribe <a id="klay_subscribe"></a>
+## eth_subscribe <a id="eth_subscribe"></a>
 
 웹소켓을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 사용하여 특정 이벤트에 대한 새 구독을 생성합니다.
 이를 통해 클라이언트는 이벤트를 폴링하는 대신 이벤트를 기다릴 수 있습니다.
@@ -374,41 +374,34 @@ Number | String
 
 ```shell
 // Request
-wscat -c http://localhost:8552
-> {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["newHeads"]}
+wscat -c http://localhost:8551
+> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newHeads"]}
 
 // Result
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
-< {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
+< {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
 
 ```shell
-> caver.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
-[
-    {
-        address: '0x55384B52a9E5091B6012717197887dd3B5779Df3',
-        topics: [ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
-        data: '0x0000000000000000000000000000000000000000000000000000000000000001',
-        blockNumber: 7217,
-        transactionHash: '0xa7436c54e47dafbce696de65f6e890c96ac22c236f50ca1be28b9b568034c3b3',
-        transactionIndex: 0,
-        blockHash: '0xe4f27c524dacfaaccb36735deccee69b3d6c315e969779784c36bb8e14b89e01',
-        logIndex: 0,
-        id: 'log_2dd695a8' 
-    }
-]
+// Request
+wscat -c http://localhost:8551
+> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
+
+// Result
+< {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
+< {"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0xbdab16c8e4ae1b9e6930c78359de3e0e","result":{"address":"0x2e4bb340e26caffb4073d7f1151f37d17524cdbc","topics":["0xb1a7310b1a46c788fcf30784cad70442d5232acaef480b0c094c76bee8d9c77d"],"data":"0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000d2588fe96a34c56a5d0a484cb603bc16fc5cdbbc","blockNumber":"0x3041201","transactionHash":"0xdacdebc77006fc566f65448524a0bc770056d8c7a05244bc7bfb2123b1bd398c","transactionIndex":"0x0","blockHash":"0x899b2dbfe96a34ce5d965dbcfcf39d072b4ce1097d479923e6b6355f3e2609ec","logIndex":"0x0","removed":false}}}
 ```
 
-## uninstallFilter <a id="uninstallfilter"></a>
+## eth_uninstallFilter <a id="eth_uninstallfilter"></a>
 
 주어진 아이디로 필터를 제거합니다. 감시가 더 이상 필요하지 않을 때 항상 호출해야 합니다.
 노드에 설정된 시간 제한 값보다 더 오랫동안 [getFilterChanges](#getfilterchanges)를 통해 필터가 호출되지 않으면 필터가 제거됩니다.
 
 **매개변수**
 
-| 이름       | 유형       | 이름         |
-| -------- | -------- | ---------- |
-| filterId | QUANTITY | 필터 아이디입니다. |
+| 이름     | 유형       | 이름         |
+| ------ | -------- | ---------- |
+| filter | QUANTITY | 필터 아이디입니다. |
 
 **리턴 값**
 
@@ -420,7 +413,7 @@ wscat -c http://localhost:8552
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' https://public-en-baobab.klaytn.net
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}' http://localhost:8551
 
 // Result
 {
@@ -430,7 +423,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_unsubscribe <a id="klay_unsubscribe"></a>
+## eth_unsubscribe <a id="eth_unsubscribe"></a>
 
 웹소켓을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 사용하여 특정 구독 ID로 구독을 취소합니다.
 구독을 생성한 연결만 구독을 취소할 수 있습니다.
@@ -453,7 +446,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-> {"jsonrpc":"2.0", "id": 1, "method": "klay_unsubscribe", "params": ["0xab8ac7a4045025d0c2807d63060eea6d"]}
+> {"jsonrpc":"2.0", "id": 1, "method": "eth_unsubscribe", "params": ["0xab8ac7a4045025d0c2807d63060eea6d"]}
 
 // Result
 < {"jsonrpc":"2.0","id":1,"result":true}
