@@ -486,6 +486,7 @@ the options for this specific call. The possible options are:
 - `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
 - `timeout`: `STRING`. Overrides the default timeout of 5 seconds for JavaScript-based tracing calls. Valid values are described [here](https://golang.org/pkg/time/#ParseDuration).
 - `tracer`: `STRING`. Setting this will enable JavaScript-based transaction tracing, described in the [next section](#javascript-based-tracing). If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.
+- `reexec`: `INT`. Overrides the default reexec value (default = 128). Reexec value is the maximum number of blocks to reprocess trying to obtain the desired state.
 
 Tracer Name | Description
 -- | --
