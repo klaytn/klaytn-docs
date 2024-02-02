@@ -504,6 +504,7 @@ wscat -c ws://localhost:8552
 - `disableStack`: `BOOL`. true로 설정하면 스택 캡처가 비활성화됩니다(기본값 = false).
 - `timeout`: `STRING`. JavaScript 기반 추적 호출에 대한 기본 시간 제한인 5초를 재정의합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)에 설명되어 있습니다.
 - `tracer`: `STRING`. 이 값을 설정하면 [다음 섹션](#javascript-based-tracing)에 설명된 JavaScript 기반 트랜잭션 추적이 활성화됩니다. 이 값을 설정하면 이전 4개의 인수가 무시됩니다. 사전 정의된 tracer는 다음 표와 같이 사용할 수도 있습니다.
+- `reexec`: `INT`. Overrides the default reexec value (default = 128). Reexec value is the maximum number of blocks to reprocess trying to obtain the desired state.
 
 | Tracer 이름      | 설명                                                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
