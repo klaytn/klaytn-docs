@@ -1,6 +1,6 @@
 # caver.rpc.net
 
-`caver.rpc.net` provides JSON-RPC call with `net` name space.
+`caver.rpc.net` cung cấp lệnh gọi JSON-RPC với không gian tên `net`.
 
 ## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
@@ -8,23 +8,23 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Returns the network identifier (network ID) of the Klaytn Node.
+Trả về mã định danh mạng (ID mạng) của Nút Klaytn.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `number`
+`Promise` trả về `số`
 
-| Type   | Description     |
-| ------ | --------------- |
-| number | The network id. |
+| type | Mô tả    |
+| ---- | -------- |
+| số   | Id mạng. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
@@ -37,23 +37,23 @@ Returns the network identifier (network ID) of the Klaytn Node.
 caver.rpc.net.isListening([callback])
 ```
 
-Returns `true` if the Klaytn Node is actively listening for network connections.
+Trả về `true` nếu Nút Klaytn đang lắng nghe các kết nối mạng.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `boolean`
+`Promise` trả về `boolean`
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| boolean | `true` when listening, otherwise `false`. |
+| Loại   | Mô tả                                                    |
+| ------- | -------------------------------------------------------- |
+| boolean | `true` khi máy khách đang nghe, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
@@ -66,23 +66,23 @@ true
 caver.rpc.net.getPeerCount([callback])
 ```
 
-Returns the number of peers currently connected to the Klaytn Node.
+Trả về số lượng máy ngang hàng hiện đang kết nối với Nút Klaytn.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                           |
-| ------ | ------------------------------------- |
-| string | The number of connected peers in hex. |
+| Loại | Mô tả                                          |
+| ----- | ---------------------------------------------- |
+| chuỗi | Số lượng máy ngang hàng được kết nối dạng hex. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
@@ -95,23 +95,23 @@ Returns the number of peers currently connected to the Klaytn Node.
 caver.rpc.net.getPeerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+Trả về số nút được kết nối theo loại và tổng số nút được kết nối với các cặp khóa/giá trị.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
-| object | The number of connected peers by type as well as the total number of connected peers. |
+| Loại     | Mô tả                                                                                        |
+| --------- | -------------------------------------------------------------------------------------------- |
+| đối tượng | Số lượng máy ngang hàng được kết nối theo loại cũng như tổng số máy ngang hàng được kết nối. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)
