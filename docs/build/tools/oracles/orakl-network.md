@@ -185,7 +185,7 @@ To request for random words in your smart contract, you have to first execute th
 * Baobab (`0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`)
 * Cypress (`0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`)
 For the rest of the parameters, you can them as follows:
-* `callbackGasLimit` as `500_000`,
+* `callbackGasLimit` as `500000`,
 * `numWords` ad `1`, and
 * set `refundRecipient` to your EOA address.
 Afterwards, once the request has been fulfilled, the `sRandomWord()` function can be executed. This `sRandomWord()` function returns the random word.
