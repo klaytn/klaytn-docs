@@ -1,6 +1,6 @@
-# Tools
+# Dụng Cụ
 
-This page contains the list of development tools to help you build Decentralized Applications on Klaytn.
+Trang này bao gồm danh sách những công cụ phát triển giúp bạn xây dựng các ứng dụng phi tập trung trên Klaytn.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
