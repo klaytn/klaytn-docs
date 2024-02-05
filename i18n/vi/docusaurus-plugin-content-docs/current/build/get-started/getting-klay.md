@@ -1,15 +1,15 @@
-# Get KLAY
+# Nhận KLAY
 
-## Baobab Testnet and Faucet <a id="baobab-testnet-and-faucet"></a>
+## Mạng thử nghiệm và Vòi Baobab <a id="baobab-testnet-and-faucet"></a>
 
-The **testnet KLAY** faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation). To receive testnet KLAY, you should have a valid Klaytn account.
+Vòi **KLAY dùng cho mạng thử nghiệm** chạy trên mạng Baobab. Vòi này có thể được truy cập từ [Ví Klaytn trên Baobab](https://baobab.wallet.klaytn.foundation). Để nhận được KLAY dùng cho mạng thử nghiệm, bạn cần phải có tài khoản Klaytn hợp lệ.
 
-- Load your account into the wallet using your private key or keystore file. Testnet KLAY will be sent to the loaded account.
-- Clicking `Run Faucet` button will send you 5 testnet KLAY and update your balance. Note that you can run the faucet for each account once every 24 hours.
+- Tải tài khoản của bạn vào ví bằng mã khóa riêng tư hoặc tập tin lưu trữ khóa. Đồng Đồng KLAY dùng cho mạng thử nghiệm sẽ được gửi đến tài khoản được tải.
+- Nhấp vào nút `Run Faucet`, bạn sẽ nhận được 5 KLAY dùng cho mạng thử nghiệm và cập nhật số dư của mình. Xin lưu ý rằng bạn có thể mở vòi cho mỗi tài khoản 24 giờ một lần.
 
-## KLAY Exchange List <a id="klay-exchange-list"></a>
+## Danh sách sàn giao dịch KLAY <a id="klay-exchange-list"></a>
 
-KLAY is listed on various exchanges.  Please find the list of KLAY exchanges through the following links.
+KLAY được niêm yết trên nhiều sàn giao dịch.  Vui lòng xem danh sách các sàn giao dịch KLAY qua các liên kết sau.
 
-- [KLAY exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
-- [KLAY exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
+- [Các sàn giao dịch KLAY được niêm yết tại CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
+- [Các sàn giao dịch KLAY được niêm yết tại CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
