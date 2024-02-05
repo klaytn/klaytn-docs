@@ -1,47 +1,47 @@
-# Use Transaction Builder
+# Trình tạo giao dịch
 
-This is a custom app in Klaytn Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+Đây là một ứng dụng tùy chỉnh trong Klaytn Safe đảm nhận việc thực hiện các giao dịch theo lô. Điều này có nghĩa là bạn có thể gộp nhiều giao dịch lại với nhau, thay vì phải xác nhận lần lượt các giao dịch này. Bạn chỉ cần xác nhận và thực hiện một lần.
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+Với trình tạo giao dịch, bạn có thể soạn các giao dịch từ chuyển token đến các tương tác hợp đồng phức tạp và nhóm chúng thành một giao dịch duy nhất.
 
-**Illustration**
+**Hình minh họa**
 
-Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+Giả sử bạn muốn airdrop token đến một danh sách dài các địa chỉ, chẳng hạn như 100 token DRIP đến 10 địa chỉ. Thay vì phải tạo 10 giao dịch mà chủ sở hữu Safe của bạn phải xác nhận và thực hiện lần lượt từng giao dịch, trình tạo giao dịch đặt tất cả các giao dịch này vào một giao dịch duy nhất.
 
-In this guide, we have minted DRIP tokens to the Safe address for illustrative purpose.
+Trong hướng dẫn này, chúng tôi đã tạo token DRIP đến địa chỉ Safe để phục vụ cho mục đích minh họa.
 
-Let’s get started with this example using Transaction Builder!
+Hãy bắt đầu với ví dụ này bằng Trình tạo giao dịch!
 
-**Step 1:** Open Safe Apps.
+**Bước 1:** Mở Ứng dụng Safe.
 
 ![](/img/build/tools/15_safeApps.png)
 
-**Step 2:** Open the Transaction Builder Safe app
+**Bước 2:** Mở ứng dụng Safe Trình tạo giao dịch
 
 ![](/img/build/tools/16_safeTxBuilder.png)
 
-**Step 3:** Enter your token contract address and ABI. In this example, DRIP contract address and ABI will be used. You can copy and paste your ABI into the “Enter ABI” field.
+**Bước 3:** Nhập địa chỉ hợp đồng token và ABI của bạn. Trong ví dụ này, địa chỉ hợp đồng DRIP và ABI sẽ được sử dụng. Bạn có thể sao chép và dán ABI của mình vào trường “Enter ABI”.
 
 ![](/img/build/tools/17_safeTxBatchAddrAbi.gif)
 
-**Step 4:** Select a method and fill the transaction information
+**Bước 4:** Chọn phương pháp và điền thông tin giao dịch
 
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
+Từ danh sách thả xuống, bạn có thể chọn một phương pháp. Trong trường hợp này, chúng tôi chọn phương pháp **chuyển**. Để hoàn thành bước này, bạn phải điền thông tin giao dịch, chẳng hạn như **đến(địa chỉ)** và **số lượng(uint256)**.
 
-Note: The value is an unsigned integer without any decimals. In this example, the DRIP token has 18 decimals. So if you want to send 1 DRIP, you have to enter 1000000000000000000.
+Lưu ý: Giá trị là một số nguyên không dấu không có bất kỳ số thập phân nào. Trong ví dụ này, token DRIP có 18 số thập phân. Vì vậy, nếu muốn gửi 1 DRIP, bạn phải nhập 1000000000000000000.
 
 ![](/img/build/tools/18_safeTxBatchTxInfo.gif)
 
-**Step 5:** Click **Add transaction**
+**Bước 5:** Nhấp vào **Add transaction**
 
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
+**Bước 6:** Lặp lại các bước **4**, **5** và **6** cho mọi địa chỉ người nhận.
 
-**Step 7:** Once you added all operations to the batch click **Create Batch**
+**Bước 7:** Khi bạn đã thêm tất cả các thao tác vào lô, hãy nhấp vào **Create Batch**
 
 ![](/img/build/tools/19_safeTxBatch.gif)
 
-**Step 8:** Review and submit transaction
+**Bước 8:** Xem lại và gửi giao dịch
 
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+Bạn sẽ có thể xem lại toàn bộ lô. Khi đã sẵn sàng, hãy nhấp vào **Send Batch** để gửi và thực hiện giao dịch giống như bất kỳ giao dịch Safe nào khác.
 
 ![](/img/build/tools/20_safeTxBuildExec.gif)
