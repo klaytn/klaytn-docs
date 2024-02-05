@@ -1,21 +1,21 @@
-# Upgrade Service Chain
+# Nâng cấp & Nâng cấp căn bản
 
-Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
+Klaytn và ServiceChain của nền tảng đã liên tục phát hành các phiên bản mới để phát triển các tính năng mới và sửa lỗi. Trang này là hướng dẫn nâng cấp nhị phân ServiceChain và đặt số khối hard fork cho ServiceChain của bạn.
 
-## Upgrade <a href="#upgrade" id="upgrade"></a>
+## Nâng cấp <a href="#upgrade" id="upgrade"></a>
 
-This section shows how to upgrade the ServiceChain binary.
+Phần này cho biết cách nâng cấp nhị phân ServiceChain.
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details. For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+**LƯU Ý** Việc nâng cấp nhị phân ServiceChain có thể không thể đảo ngược và không tương thích ngược, nghĩa là bạn không thể hạ về phiên bản cũ hơn. Tham khảo lưu ý cho bản phát hành để biết thêm chi tiết. Ví dụ: [lưu ý cho bản phát hành Klaytn v1.9.0](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) cho biết:
 
-> NOTE: This version updates the version of the database to support snapshot sync. You cannot downgrade to the older versions with existing data after updating to v1.9.0.
+> LƯU Ý: Phiên bản này cập nhật phiên bản cơ sở dữ liệu để hỗ trợ việc đồng bộ thu thập dữ liệu. Bạn không thể quay lại các phiên bản cũ hơn với dữ liệu hiện có sau khi cập nhật lên v1.9.0.
 
-You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
+Bạn có thể tải phiên bản mới nhất của nhị phân Klaytn và ServiceChain bằng một trong các liên kết bên dưới:
 
-- [Klaytn Docs](../downloads/downloads.md)
-- [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
+- [Tài liệu của Klaytn](../downloads/downloads.md)
+- [Kho lưu trữ Github Klaytn](https://github.com/klaytn/klaytn/releases)
 
-To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
+Để nâng cấp nhị phân ServiceChain, hãy dừng nút ServiceChain và thay thế nhị phân. Ví dụ: bạn có thể sử dụng các lệnh bên dưới để dừng nút SCN và thay thế bằng nhị phân mới hơn.
 
 ```bash
 $ kscnd stop
@@ -23,7 +23,7 @@ Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-You may restart the ServiceChain node after the upgrade. However, if you are planning to activate hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](#hard-fork) for instructions of ServiceChain hard fork.
+Bạn có thể khởi động lại nút ServiceChain sau khi nâng cấp. Tuy nhiên, nếu bạn dự định kích hoạt hard fork trong ServiceChain, bạn phải giữ các nút ServiceChain ở trạng thái ngừng hoạt động. Tham khảo [Hard Fork](#hard-fork) để tìm hiểu hướng dẫn về Hard Fork ServiceChain.
 
 ```bash
 $ kscnd start
@@ -31,17 +31,17 @@ $ kscnd start
 
 ## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../misc/klaytn-history.md) to ServiceChain.
+Phần này mô tả các bước áp dụng [hard fork](../../misc/klaytn-history.md) Klaytn cho ServiceChain.
 
-To apply the hard fork to the ServiceChain, you need to:
+Để áp dụng Hard Fork cho ServiceChain, bạn cần:
 
-1. Pick an appropriate block number for the hard fork
-2. Upgrade the ServiceChain binary to a version that supports the hard fork
-3. Set the hard fork block number in the ServiceChain
+1. Chọn một số khối thích hợp cho hard fork
+2. Nâng cấp nhị phân ServiceChain lên phiên bản hỗ trợ hard fork
+3. Đặt số khối Hard Fork trong ServiceChain
 
-### 1) Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) Chọn một số khối thích hợp cho hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
-In the Javascript console of the ServiceChain, you can check the current block number as shown below.
+Trong bảng điều khiển Javascript của ServiceChain, bạn có thể kiểm tra số khối hiện tại như ở bên dưới.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -55,19 +55,19 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 1234
 ```
 
-Now, you have to choose an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
+Bây giờ, bạn phải chọn một số khối thích hợp để kích hoạt hard fork. Đảm bảo có đủ số khối (được tạo ra mỗi giây) giữa khối hiện tại và khối hard fork.
 
-### 2. Upgrade the ServiceChain binary <a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
+### 2. Nâng cấp nhị phân ServiceChain <a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
 
-Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
+Tham khảo phần [Nâng cấp](#upgrade) trong trang này để xem hướng dẫn nâng cấp nhị phân ServiceChain. Đảm bảo giữ cho các nút ServiceChain tạm ngừng hoạt động (hoặc tắt) vào thời điểm này. Bạn sẽ khởi động lại chúng sau khi đã đặt số khối hard fork.
 
-### 3. Set the Hard Fork Block Number <a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
+### 3. Đặt số khối hard fork <a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
 
-If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can set the hard fork block number in the ServiceChain by re-initializing the chain config with updated genesis.
+Nếu bạn đã nâng cấp nhị phân ServiceChain với phiên bản hỗ trợ hard fork mà bạn muốn, bạn có thể đặt số khối hard fork trong ServiceChain bằng cách khởi tạo lại cấu hình chuỗi với khởi nguyên được cập nhật.
 
-#### Update genesis and re-initialize chain config for all ServiceChain nodes <a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
+#### Cập nhật khởi nguyên và khởi tạo lại cấu hình chuỗi cho tất cả các nút ServiceChain <a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
-First, specify the hard fork number in the `config` field of `genesis.json`. For example, if you are trying to activate the Magma hard fork in your ServiceChain, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
+Đầu tiên, chỉ định số hard fork trong trường `config` của `genesis.json`. Ví dụ: nếu bạn đang cố gắng kích hoạt hard fork Magma trong ServiceChain của mình, bạn nên chỉ định trường `magmaCompatibleBlock` trong `config` của khởi nguyên, như bên dưới.
 
 ```json
 {
@@ -82,9 +82,9 @@ First, specify the hard fork number in the `config` field of `genesis.json`. For
 }
 ```
 
-To enable a hard fork in the chain config, previous hard forks should be enabled. That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled. If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
+Để kích hoạt hard fork trong cấu hình chuỗi, các hard fork trước đó phải được kích hoạt. Nghĩa là, để kích hoạt hard fork Magma, bạn phải kích hoạt hard fork EthTxType từ trước đó. Nếu các trường cho số khối tương thích của các hard fork trước đó trong cấu hình chuỗi bị thiếu, bạn cũng phải thêm vào.
 
-For example, if you want to set Magma hard fork block number and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
+Ví dụ: nếu bạn muốn đặt số khối hard fork Magma và nếu `genesis.json` của bạn không có `ethTxTypeCompatibleBlock` trong trường `config` như bên dưới:
 
 ```json
 {
@@ -102,7 +102,7 @@ For example, if you want to set Magma hard fork block number and if your `genesi
 }
 ```
 
-You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlock` in the `config` field, like below.
+Bạn cũng phải thêm cả `ethTxTypeCompatibleBlock` khi thêm `magmaCompatibleBlock` vào trường `config`, như bên dưới.
 
 ```json
 {
@@ -122,29 +122,29 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../misc/klaytn-history.md).
+Bạn có thể tìm thấy lịch sử hard fork của Klaytn trong [Tài liệu Klaytn](../../misc/klaytn-history.md).
 
-If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
+Nếu bạn đã cập nhật `genesis.json` với các hard fork mà bạn muốn, hãy khởi tạo lại cấu hình chuỗi và áp dụng thay đổi.
 
 ```bash
 $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
 ```
 
-**NOTE** It is normal that the following error log is printed when you re-initialize the chain config.
+**LƯU Ý** Nhật ký lỗi sau được in khi bạn khởi tạo lại cấu hình chuỗi là điều bình thường.
 
 ```
 ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Skip writing governance index  newIdx=0 govIdxes=[0]
 ```
 
-#### Confirm the updated chain config <a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
+#### Xác nhận cấu hình chuỗi đã cập nhật <a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
 
-Now, restart the ServiceChain node. For example, you can restart a SCN node with the following command.
+Bây giờ, hãy khởi động lại nút ServiceChain. Ví dụ: bạn có thể khởi động lại nút SCN bằng lệnh sau.
 
 ```bash
 $ kscnd start
 ```
 
-Then, in the Javascript console of SCN, you can check the updated chain config.
+Sau đó, trong bảng điều khiển Javascript của SCN, bạn có thể kiểm tra cấu hình chuỗi đã cập nhật.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -158,17 +158,17 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 1500
 ```
 
-## Some Hard Fork specifics <a href="#some-hard-fork-specifics" id="some-hard-fork-specifics"></a>
+## Một số thông số về hard fork <a href="#some-hard-fork-specifics" id="some-hard-fork-specifics"></a>
 
-This section describes some details for a specific hard fork.
+Phần này mô tả một số thông số cho một hard fork cụ thể.
 
 ### Magma <a href="#magma" id="magma"></a>
 
-The Magma hard fork introduces the KIP-71, dynamic gas fee. It includes the upper and lower bound of the gas price.
+Hard fork Magma giới thiệu KIP-71, phí gas linh động. Bao gồm giới hạn trên và dưới của giá gas.
 
-By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../references/json-rpc/governance.md). Obviously, lower bound cannot exceed the upper bound.
+Theo mặc định, giới hạn trên được đặt là `750000000000` và giới hạn dưới là `25000000000`. Bạn có thể thay đổi các giới hạn đó trong bảng điều khiển Javascript của các nút SCN bằng cách sử dụng [API quản trị](../../references/json-rpc/governance.md). Hiển nhiên, giới hạn dưới không thể vượt quá giới hạn trên.
 
-To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
+Để đặt giá gas thành một giá trị tĩnh, bạn phải đặt giới hạn trên và dưới của giá gas thành cùng một giá trị. Ví dụ: bạn có thể đặt giá gas thành `0` bằng cách sử dụng API `governance.vote` trong bảng điều khiển Javascript của các nút SCN.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -184,13 +184,13 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 "Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
 
-**NOTE** The governance voting and its update are available regardless of the activation of the Magma hard fork. That is, the governance voting can be also done prior to the Magma hard fork activation.
+**LƯU Ý** Biểu quyết quản trị và bản cập nhật của nó sẽ có sẵn bất kể có kích hoạt hard fork Magma hay không. Nghĩa là việc biểu quyết quản trị cũng có thể được thực hiện trước khi kích hoạt hard fork Magma.
 
-If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
+Nếu các phiếu bầu để cập nhật giới hạn trên và dưới của giá gas thành công, những thay đổi đó sẽ có hiệu lực sau 2 epoch istanbul (Một epoch có giá trị bằng số khối).
 
-For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800. In detail, the votes will be finalized when their first epoch was reached at the block #7200, and the changes are applied at the second epoch (block #10800).
+Ví dụ: nếu epoch là 3600 và các phiếu bầu để cập nhật giới hạn trên và dưới của giá gas đã được đặt trong khối #4000, những thay đổi đó sẽ có hiệu lực bắt đầu từ khối #10800. Cụ thể, các phiếu bầu sẽ được hoàn tất khi epoch đầu tiên đạt đến khối #7200 và các thay đổi được áp dụng ở epoch thứ hai (khối #10800).
 
-To check the epoch, you can use the `governanace.itemsAt` API, like below.
+Để kiểm tra epoch, bạn có thể sử dụng API `governanace.itemsAt` như bên dưới.
 
 ```javascript
 > governance.itemsAt(klay.blockNumber)
@@ -214,9 +214,9 @@ To check the epoch, you can use the `governanace.itemsAt` API, like below.
 }
 ```
 
-You can see that the `istanbul.epoch` has a value of 3600 blocks, which would normally take an hour to pass.
+Bạn có thể thấy rằng `istanbul.epoch` có giá trị là 3600 khối, thường mất một giờ để vượt qua.
 
-You can change the epoch too, using the `governance.vote` API.
+Bạn cũng có thể thay đổi giai đoạn bằng cách sử dụng API `governance.vote`.
 
 ```javascript
 > governance.vote("istanbul.epoch", 60)
