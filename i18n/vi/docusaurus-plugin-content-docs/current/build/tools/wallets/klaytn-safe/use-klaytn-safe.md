@@ -1,167 +1,167 @@
-# Use Klaytn Safe
+# Sử dụng Klaytn Safe
 
-## Create a Safe
+## Tạo két an toàn
 
-Here you will see how to create a Safe and evaluate its benefits on the Klaytn Network.
+Tại đây, bạn sẽ thấy cách tạo Safe và đánh giá lợi ích của nó trên Mạng Klaytn.
 
-**Step 1:** Navigate to [Klaytn Safe App](https://safe.klaytn.foundation/). By navigating to the application on your web browser, you can explore the functionality of Klaytn Safe.
+**Bước 1:** Điều hướng đến [Ứng dụng Klaytn Safe](https://safe.klaytn.foundation/). Bằng cách điều hướng đến ứng dụng trên trình duyệt web của mình, bạn có thể khám phá chức năng của Klaytn Safe.
 
-**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Klaytn Safe has support for [MetaMask](../../../tutorials/connecting-metamask) wallet. Make sure you have Klaytn networks([Cypress](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Baobab](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
+**Bước 2:** Kết nối [ví](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/) của bạn. Hiện tại, Klaytn Safe có hỗ trợ ví [MetaMask](../../../tutorials/connecting-metamask). Đảm bảo bạn đã thêm mạng lưới Klaytn([Cypress](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) hoặc [Baobab](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) vào ví MetaMask để có thể kết nối thành công.
 
 ![](/img/build/tools/1_safeConnect.gif)
 
-**Step 3:**  Once your wallet is connected, click **"Create New Safe"** and give your new Safe a **name**. This name is linked to your safe account, which is a multi-signature wallet that holds and stores all of your funds.
+**Bước 3:** Sau khi ví của bạn được kết nối, hãy nhấp vào **“Create New Safe”** và đặt **tên** cho Safe mới của bạn. Tên này được liên kết với tài khoản Safe của bạn, đây là ví đa chữ ký cho phép giữ và lưu trữ tất cả tiền của bạn.
 
 ![](/img/build/tools/2_safeName.gif)
 
-**Step 4:** Add owners/signers by inputting the addresses that have permission to submit and approve transactions. You can add as many signers as you want and remove or replace any of them at any time.
+**Bước 4:** Thêm chủ sở hữu/người ký bằng cách nhập địa chỉ có quyền gửi và phê duyệt giao dịch. Bạn có thể thêm bao nhiêu người ký tùy thích và xóa hoặc thay thế bất kỳ người nào trong số họ bất kỳ lúc nào.
 
-**Step 5:** Choose how many signer confirmations a transaction in your Safe account needs to be approved. It is important to note that by default our app allows one signer confirmation. But it is advisable to use a threshold higher than 1 to ensure a secured safe account. Good practice is to use a threshold of 51% of the total owners e.g, 2 out of 3, 3 out of 5 etc as shown below:
+**Bước 5:** Chọn số lượng người ký xác nhận giao dịch trong tài khoản Safe của bạn cần được phê duyệt. Điều quan trọng cần lưu ý là, theo mặc định, ứng dụng của chúng tôi cho phép một người ký xác nhận. Tuy nhiên, bạn nên sử dụng ngưỡng cao hơn 1 để đảm bảo tính an toàn cho tài khoản Safe. Tốt nhất nên sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ như 2 trên 3, 3 trên 5, v.v. như minh họa bên dưới:
 
 ![](/img/build/tools/3_safeOwners.png)
 
-**Step 6:** Review and deploy Safe: Once you are completely satisfied with all of your Safe parameters, you can submit the creation of your Safe account and proceed with the on-screen instructions to complete the account creation.
+**Bước 6:** Xem xét và triển khai Safe: Sau khi hoàn toàn hài lòng với tất cả các tham số Safe, bạn có thể gửi yêu cầu tạo tài khoản Safe và tiếp tục với các hướng dẫn trên màn hình để hoàn tất quá trình tạo tài khoản.
 
 ![](/img/build/tools/4_deploySafe.gif)
 
-Congratulations on successfully creating your Klaytn Safe account!
+Chúc mừng bạn đã tạo thành công tài khoản Klaytn Safe!
 
-## Add assets
+## Thêm tài sản
 
-In this section, we will see how to add your assets (KLAY, FT, NFT)  to your safe account and keep your funds safe.
+Trong phần này, chúng ta sẽ xem cách thêm tài sản (KLAY, FT, NFT) vào tài khoản Safe của bạn và bảo đảm an toàn cho tiền của bạn.
 
-### KLAY Deposits
+### Nạp KLAY
 
-Below are the steps to add **‘KLAY’** to your safe account
+Dưới đây là các bước để thêm **‘KLAY’** vào tài khoản Safe của bạn
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Bước 1:** Sao chép địa chỉ Safe từ bảng điều khiển tài khoản của bạn.
 
 ![](/img/build/tools/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask wallet and click **"send”** to send asset to your safe account. Note that there are different ways to send assets to your Safe account. You can send from your [hardware wallet](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [web wallet](https://docs.ethhub.io/using-ethereum/wallets/web/), or even a smart contract. In this case, we're making use of a web wallet called MetaMask.
+**Bước 2:** Mở ví Metamask của bạn và nhấp vào **“send”** để gửi tài sản vào tài khoản Safe của bạn. Lưu ý rằng có nhiều cách khác nhau để gửi tài sản vào tài khoản Safe của bạn. Bạn có thể gửi từ [ví phần cứng](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [ví web](https://docs.ethhub.io/using-ethereum/wallets/web/) hoặc thậm chí là hợp đồng thông minh. Trong trường hợp này, chúng tôi đang sử dụng ví web có tên là MetaMask.
 
 ![](/img/build/tools/f2_sendBtn.png)
 
-**Step 3:** Paste your safe address in the search field as seen below.
+**Bước 3:** Dán địa chỉ Safe của bạn vào trường tìm kiếm như bên dưới.
 
 ![](/img/build/tools/f3_searchAddr.png)
 
-**Step 4:** Input **amount** and click **next**.
+**Bước 4:** Nhập **số tiền** và nhấp vào **next**.
 
 ![](/img/build/tools/f4_amountNext.png)
 
-**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Klaytn Safe account.
+**Bước 5:** Xác nhận giao dịch và kiểm tra trang tổng quan nội dung của bạn. Bạn có thể thấy số tiền được từ tài khoản metamask sang tài khoản Klaytn Safe của mình.
 
 ![](/img/build/tools/f5_sendDone.png)
 
-### KIP-7 Deposits
+### Nạp KIP-7
 
-Now we will see how to deposit KIP7 (fungible tokens) to our safe by following the below steps.
+Đến đây, chúng ta sẽ xem cách gửi KIP7 (token có thể thay thế) vào Safe bằng cách thực hiện theo các bước bên dưới.
 
-**Step 1:** Copy your Safe address from your account dashboard.
+**Bước 1:** Sao chép địa chỉ Safe từ bảng điều khiển tài khoản của bạn.
 
 ![](/img/build/tools/f1_copyAddr.png)
 
-**Step 2:** Open your Metamask Wallet and navigate to **“assets”** tab.
+**Bước 2:** Mở Ví Metamask của bạn và điều hướng đến tab **“asset”**.
 
 ![](/img/build/tools/ft2_assetTst.png)
 
-**Step 3:** Select the token you will love to send and click **“send”**.
+**Bước 3:** Chọn token mà bạn muốn gửi và nhấp vào **“send”**.
 
-Step 4: Repeat step **3**, **4**, **5** of **KLAY** Deposits.
+Bước 4: Lặp lại bước **3**, **4**, **5** của quy trình Nạp **KLAY**.
 
-Step 5: View your assets dashboard, you can see the KIP7 tokens being transferred to your safe account. Similarly you can transfer any Fungible token to your safe account.
+Bước 5: Xem bảng điều khiển tài sản của bạn, bạn có thể thấy token KIP7 được chuyển vào tài khoản Safe của mình. Tương tự, bạn có thể chuyển token Fungible bất kỳ vào tài khoản Safe.
 
 ![](/img/build/tools/ft3_tstDone.png)
 
-### KIP-17 Tokens (NFTs)
+### Token KIP-17 (NFT)
 
-Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by following the below steps.
+Bây giờ chúng ta sẽ xem cách nạp KIP17 (token Non Fungible) vào safe của mình bằng cách làm theo các bước dưới đây.
 
-You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
+Bạn có thể chuyển NFT vào tài khoản Safe theo nhiều cách khác nhau. Dưới đây là ví dụ về cách chuyển NFT sang tài khoản Safe bằng [OpenSea](https://opensea.io/about).
 
-1. Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
-3. On the next page, click on the transfer button.
-4. Paste the safe address in the text box and transfer to safe
-5. Under Assets section in Klaytn Safe you can find NFT’s from OpenSea.
+1. Điều hướng đến trang hồ sơ [Tài khoản OpenSea](https://testnets.opensea.io/account) của bạn
+2. Điều hướng đến một NFT mà bạn muốn chuyển. Đảm bảo chọn một NFT trên Mạng Klaytn (Cypress hoặc Baobab)
+3. Trên trang tiếp theo, nhấp vào nút Transfer.
+4. Dán địa chỉ Safe vào hộp văn bản và chuyển đến safe
+5. Trong phần Tài sản trong Klaytn Safe, bạn có thể tìm thấy NFT từ OpenSea.
 
 ![](/img/build/tools/sendNFTOpensea.gif)
 
-Please refer to this [guide](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee) from OpenSea for more details on transferring NFTs.
+Vui lòng tham khảo [hướng dẫn](https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-#:~:text=Go%20to%20the%20MetaMask%20app,see%20the%20Estimated%20gas%20fee) này từ OpenSea để biết thêm thông tin chi tiết về cách chuyển NFT.
 
-## Send assets
+## Gửi tài sản
 
-In this section, you'll learn how to send KLAY and KIP-7 tokens from your Klaytn Safe account.
+Trong phần này, bạn sẽ tìm hiểu cách gửi token KLAY và KIP-7 từ tài khoản Klaytn Safe.
 
-### Send KLAY <a id="Send KLAY from Safe"></a>
+### Gửi KLAY <a id="Send KLAY from Safe"></a>
 
-**Step 1:** Click the **"New Transaction"** button in the side menu and select **"Send funds"** to begin a new asset transfer.
+**Bước 1:** Nhấp vào nút **“New Transaction”** trong menu bên và chọn **“Send funds”** để bắt đầu chuyển tài sản mới.
 
 ![](/img/build/tools/5_safeSendInit.gif)
 
-**Step 2:** Choose assets to transfer.
+**Bước 2:** Chọn tài sản cần chuyển.
 
-- **KLAY**
+- **KLAY** Lưu ý: Thêm **địa chỉ người nhận** và **số lượng** KLAY để gửi chuyển KLAY.
   Note: Add the **recipient address** and the **amount** of KLAY to send the transfer KLAY.
 
 ![](/img/build/tools/6_safeSendKlay.gif)
 
-- **KIP-7 Tokens**
+- **Token KIP-7** Lưu ý: Thêm địa chỉ người nhận và số lượng token để chuyển token KIP7.
   Note: Add the recipient address and the number of tokens to transfer KIP7 tokens.
 
 ![](/img/build/tools/7_safeSendKIP7.gif)
 
-**Step 3:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+**Bước 3:** Xem lại và gửi giao dịch. Bạn sẽ cần ký giao dịch bằng ví người ký của mình và sẽ được thực hiện sau khi đạt đến ngưỡng xác nhận.
 
 ![](/img/build/tools/8_safeExecKlay.gif)
 
-### Send NFTs <a id="Send NFTs from Safe"></a>
+### Gửi NFT <a id="Send NFTs from Safe"></a>
 
-In this section, you'll learn how to send your non-fungible tokens from your Klaytn Safe account.
+Trong phần này, bạn sẽ tìm hiểu cách gửi token non-fungible từ tài khoản Klaytn Safe.
 
-**Step 1:** Click the **"New Transaction"** button in the side menu and select **"Send NFT"** to begin a new asset transfer.
+**Bước 1:** Nhấp vào nút **“New Transaction”** trong menu bên và chọn **“Send NFT”** để bắt đầu chuyển tài sản mới.
 
 ![](/img/build/tools/9_safeNFTInit.gif)
 
-**Step 2:** Choose assets to transfer.
+**Bước 2:** Chọn tài sản cần chuyển.
 
 ![](/img/build/tools/10_safeChooseNFT.gif)
 
-**Step 3:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+**Bước 3:** Xem lại và gửi giao dịch. Bạn sẽ cần ký giao dịch bằng ví người ký của mình và sẽ được thực hiện sau khi đạt đến ngưỡng xác nhận.
 
 ![](/img/build/tools/11_safeNftExec.gif)
 
-## Further Notes <a id="Points to Note"></a>
+## Ghi chú thêm <a id="Points to Note"></a>
 
-The following are things you will want to keep in mind while using Klaytn Safe:
+Sau đây là những điều bạn cần lưu ý khi sử dụng Klaytn Safe:
 
-### Transaction Fees <a id="Transaction Fees"></a>
+### Phí giao dịch <a id="Transaction Fees"></a>
 
-Klaytn Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
+Các giao dịch Klaytn Safe, dù là chuyển giao tài sản hay tương tác hợp đồng, đều phát sinh một khoản phí do người ký thực hiện giao dịch thanh toán (thường là người ký cuối cùng đạt đến ngưỡng chữ ký bắt buộc).
 
-### Safe Nonce <a id="Safe Nonce"></a>
+### Số dùng một lần của Safe <a id="Safe Nonce"></a>
 
 ![](/img/build/tools/21_safeNounce.png)
 
-For security reasons, transactions made with Safe need to be executed in order. To achieve this, a number called **nonce** is assigned to a transaction to ensure that each transaction can be executed once.
+Vì lý do bảo mật, các giao dịch được thực hiện với Safe cần được thực hiện theo thứ tự. Để đạt được điều này, một số được gọi là **số dùng một lần** được chỉ định cho một giao dịch để đảm bảo rằng mỗi giao dịch chỉ có thể được thực hiện một lần.
 
-At any given time, only transactions with a nonce _last executed transaction +1_ can be executed. Transactions with a higher nonce are queued for execution. So, whenever a transaction is completed, the next transaction in the queue is made available for execution, provided it has accumulated enough signatures.
+Tại bất kỳ thời điểm nào, chỉ các giao dịch có _giao dịch được thực hiện lần cuối +1_ mới có thể được thực hiện. Các giao dịch có số dùng một lần cao hơn được xếp vào hàng đợi để thực hiện. Vì vậy, bất cứ khi nào một giao dịch được hoàn thành, giao dịch tiếp theo trong hàng đợi sẽ sẵn sàng để thực hiện, miễn là nó đã thu thập đủ chữ ký.
 
-### Chain-specific addresses <a id="Chain-specific addresses"></a>
+### Địa chỉ dành riêng cho chuỗi <a id="Chain-specific addresses"></a>
 
 ![](/img/build/tools/22_chainSpec.png)
 
-You can choose whether to prepend short chain names across Safes.
+Bạn có thể chọn có thêm tên chuỗi rút gọn vào trước các Safe hay không.
 
-- Prepend addresses with chain prefix: You can prepend the chain name “baobab” to the address by clicking the first check box or otherwise.
+- Thêm trước địa chỉ với tiền tố chuỗi: Bạn có thể thêm tên chuỗi “baobab” vào trước địa chỉ bằng cách nhấp vào hộp kiểm đầu tiên hoặc dùng cách khác.
 
 ![](/img/build/tools/23_acctPrepend.png)
 
-- Copy addresses with chain prefix:
+- Sao chép địa chỉ với tiền tố chuỗi:
 
 ![](/img/build/tools/24_chainAddrError.png)
 
-When copying your safe address from your dashboard to paste in your wallet as seen above, you can either choose to add the chain name or not by clicking the checkbox. It is suggested that you leave it unchecked to avoid the error above.
+Khi sao chép địa chỉ Safe từ bảng điều khiển để dán vào ví như trên, bạn có thể chọn thêm tên chuỗi hoặc bằng cách nhấp vào hộp kiểm. Bạn cần bỏ chọn để tránh lỗi trên.
 
 ![](/img/build/tools/25_copyAcctPrepend.png)
