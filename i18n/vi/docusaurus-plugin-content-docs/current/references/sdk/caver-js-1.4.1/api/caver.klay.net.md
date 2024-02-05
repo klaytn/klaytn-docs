@@ -1,10 +1,12 @@
 ---
-description: A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+description: |-
+  description: >-
+    Trình bao JavaScript cho API Klaytn xung quanh không gian tên 'net'.
 ---
 
 # caver.klay.net
 
-The `caver-klay-net` package allows you to interact with the Klaytn nodes'
+Gói `caver-klay-net` cho phép bạn tương tác với thuộc tính mạng của các nút Klaytn.
 network properties.
 
 ```javascript
@@ -25,19 +27,19 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 caver.klay.net.getId([callback])
 ```
 
-Gets the current network ID.
+Nhận ID mạng hiện tại.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The network ID.
+`Promise` trả về `Số` - ID mạng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -50,20 +52,20 @@ Gets the current network ID.
 caver.klay.net.isListening([callback])
 ```
 
-Checks if the node is listening for peers.
+Kiểm tra xem nút có đang nghe các nút ngang hàng hay không.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` if the node is listening for peers,
+`Promise` trả về `Boolean` - `true` nếu nút đang lắng nghe nút ngang hàng, ngược lại sẽ là `false`.
 `false` otherwise.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
@@ -76,19 +78,19 @@ true
 caver.klay.net.getPeerCount([callback])
 ```
 
-Gets the number of peers connected to.
+Nhận số lượng các nút ngang hàng được kết nối đến.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The number of peers connected to.
+`Promise` trả về `Số` - Số lượng nút ngang hàng được kết nối đến.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
@@ -101,19 +103,19 @@ Gets the number of peers connected to.
 caver.klay.net.peerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+Trả về số nút được kết nối theo loại và tổng số nút được kết nối với các cặp khóa/giá trị.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The number of connected peers by type as well as the total number of connected peers.
+`Promise` trả về `Đối tượng` - Số lượng nút ngang hàng được kết nối theo loại cũng như tổng số nút ngang hàng được kết nối.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
