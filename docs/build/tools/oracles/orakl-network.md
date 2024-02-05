@@ -8,7 +8,7 @@
 
 With Orakl Network, users can  source for randomness that is unpredictable and unbiased in their smart contracts. Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function) allows smart contracts to generate verifiably random values, which can be used in various dApps that require randomness. Orakl Network provides developers access to the VRF services through two different account types, namely: [Permanent Account](https://docs.orakl.network/developers-guide/readme#permanent-account) or [Temporary Account](https://docs.orakl.network/developers-guide/readme#temporary-account).
 
-In this tutorial, you will utilize the VRF functionality from Orakl Network to request for random numbers from inside of your smart contract.
+In this tutorial, you will utilize the VRF functionality from Orakl Network to request for random words from inside of your smart contract.
 
 
 ## Prerequisites
@@ -20,11 +20,11 @@ In this tutorial, you will utilize the VRF functionality from Orakl Network to r
 
 ## Getting Started
 
-In the following steps, you will request for a random number in your smart contract using Orakl Network. Let's get started!
+In the following steps, you will request for a random word in your smart contract using Orakl Network. Let's get started!
 
 ### Step 1: Initialize Contract State Variables
 
-In this step, we will define the cosumer contract and initialize the state variables needed for our contract functionality. Our consumer contract is dependent on `VRFConsumerBase` contract from which we inherit, and `IVRFCoordinator` interface that is used for calls to `VRFCoordinator` contract. Next, we define `sRandomWord` variable which we use to store the random number result and the `sOwner` variable which is used inside of `onlyOwner` modifier.
+In this step, we will define the cosumer contract and initialize the state variables needed for our contract functionality. Our consumer contract is dependent on `VRFConsumerBase` contract from which we inherit, and `IVRFCoordinator` interface that is used for calls to `VRFCoordinator` contract. Next, we define `sRandomWord` variable which we use to store the random word result and the `sOwner` variable which is used inside of `onlyOwner` modifier.
 
 ```solidity
 pragma solidity ^0.8.16;
@@ -47,7 +47,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### Step 2: Initialize VRF Coordinator
 
-To request for random numbers in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The VRFCoordinator contract is deployed both on Klaytn Baobab [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Klaytn Cypress [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
+To request for random words in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The VRFCoordinator contract is deployed both on Klaytn Baobab [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Klaytn Cypress [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
 
 ```solidity
   VRFCoordinatorInterface COORDINATOR;
@@ -107,7 +107,7 @@ Now that we have the Orakl VRF solution code, let’s get to see it in action.
 
 ## Practical Implementation
 
-In the example below, the contract provides us the access to request for random numbers and fulfill the request.
+In the example below, the contract provides us the access to request for random words and fulfill the request.
 
 ### Create and Deploy Sample Code
 
@@ -152,18 +152,6 @@ contract VRFConsumer is VRFConsumerBase {
         COORDINATOR = IVRFCoordinator(coordinator);
     }
 
-    // Receive remaining payment from requestRandomWordsPayment
-    receive() external payable {}
-
-    function requestRandomWords(
-        bytes32 keyHash,
-        uint64 accId,
-        uint32 callbackGasLimit,
-        uint32 numWords
-    ) public onlyOwner returns (uint256 requestId) {
-        requestId = COORDINATOR.requestRandomWords(keyHash, accId, callbackGasLimit, numWords);
-    }
-
     function requestRandomWordsDirect(
         bytes32 keyHash,
         uint32 callbackGasLimit,
@@ -193,8 +181,13 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### Interact with Smart Contract
 
-To request for random numbers in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously.
-
+To request for random words in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. `keyHash` parameter uniquely defines who can fulfill the request. Orakl Network VRF provides one key hash for each Klaytn chain:
+* Baobab (`0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`)
+* Cypress (`0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`)
+For the rest of the parameters, you can them as follows:
+* `callbackGasLimit` as `500_000`,
+* `numWords` ad `1`, and
+* set `refundRecipient` to your EOA address.
 Afterwards, once the request has been fulfilled, the `sRandomWord()` function can be executed. This `sRandomWord()` function returns the random word.
 
 * **requestRandomWordsDirect()**: Will be sending 1 KLAY to execute this function. The image below illustrate this:
