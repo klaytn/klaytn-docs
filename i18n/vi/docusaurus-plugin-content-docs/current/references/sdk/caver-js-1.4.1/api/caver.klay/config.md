@@ -1,4 +1,4 @@
-# Configuration
+# Config
 
 ## gasPriceAt <a id="gaspriceat"></a>
 
@@ -6,20 +6,20 @@
 caver.klay.gasPriceAt([defaultBlock] [, callback])
 ```
 
-Returns the unit price of gas in peb that was effective at the given block height.
+Trả về đơn giá của gas theo peb có hiệu lực tại chiều cao khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                               |
-| ------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number \| String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                             |
+| Tên                                                                                                                                                                 | type     | Mô tả |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----- |
+| defaultBlock                                                                                                                                                        | Số \\    | Chuỗi |
+| (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock) sẽ được sử dụng. | callback | Hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `String` - A numeric string of the gas price in peb.
+**Giá trị trả về**
 
-**Example**
+`Promise` trả về `String` - Chuỗi số biểu diễn giá gas theo peb.
 
 ```javascript
 > caver.klay.gasPriceAt().then(console.log);
@@ -29,126 +29,126 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 0x5d21dba00
 ```
 
-## getChainId <a id="getchainid"></a>
+## **Ví dụ**
 
 ```javascript
 caver.klay.getChainId([callback])
 ```
 
-Returns the chain ID of the chain.
+getChainId <a id="getchainid"></a>
 
-**Parameters**
+Trả về mã chuỗi của chuỗi.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số** | Tên      | Loại |
+| ----------- | -------- | ----- |
+| Mô tả       | callback | Hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `Number` - Integer of the chain ID of the chain.
+**Giá trị trả về**
 
-**Example**
+`Promise` trả về `Number` - Giá trị nguyên biểu thị mã chuỗi của chuỗi.
 
 ```javascript
 > caver.klay.getChainId().then(console.log);
 1001
 ```
 
-## getGasPrice <a id="getgasprice"></a>
+## **Ví dụ**
 
 ```javascript
 caver.klay.getGasPrice([callback])
 ```
 
-Returns the unit price defined in the Klaytn network.
+getGasPrice <a id="getgasprice"></a>
 
-**Parameters**
+Trả về đơn giá được xác định trong mạng lưới Klaytn.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số** | Tên      | type |
+| ----------- | -------- | ---- |
+| Mô tả       | callback | Hàm  |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `String` - Number string of the current unit price in peb.
+**Giá trị trả về**
 
-**Example**
+`Promise` trả về `String` - Chuỗi số biểu thị đơn giá hiện tại theo peb.
 
 ```javascript
 > caver.klay.getGasPrice().then(console.log);
 "25000000000"
 ```
 
-## getNodeInfo <a id="getnodeinfo"></a>
+## **Ví dụ**
 
 ```javascript
 caver.klay.getNodeInfo([callback])
 ```
 
-Returns the current client version of a Klaytn node.
+getNodeInfo <a id="getnodeinfo"></a>
 
-**Parameters**
+Trả về phiên bản máy khách hiện tại của nút Klaytn.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số** | Tên      | Loại |
+| ----------- | -------- | ----- |
+| Mô tả       | callback | Hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `String` - The current client version of a Klaytn node.
+**Giá trị trả về**
 
-**Example**
+`Promise` trả về `String` - Phiên bản máy khách hiện tại của nút Klaytn.
 
 ```javascript
 > caver.klay.getNodeInfo().then(console.log);
 Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 ```
 
-## getProtocolVersion <a id="getprotocolversion"></a>
+## **Ví dụ**
 
 ```javascript
 caver.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
-The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+getProtocolVersion <a id="getprotocolversion"></a>
+Trả về phiên bản giao thức Klaytn của nút.
 
-**Parameters**
+Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số** | Tên      | Loại |
+| ----------- | -------- | ----- |
+| Mô tả       | callback | Hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `String` - The Klaytn protocol version of the node.
+**Giá trị trả về**
 
-**Example**
+`Promise` trả về `String` - Phiên bản giao thức Klaytn của nút.
 
 ```javascript
 > caver.klay.getProtocolVersion().then(console.log);
 0x40
 ```
 
-## isSenderTxHashIndexingEnabled <a id="issendertxhashindexingenabled"></a>
+## **Ví dụ**
 
 ```javascript
 caver.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
+isSenderTxHashIndexingEnabled <a id="issendertxhashindexingenabled"></a>
 
-**Parameters**
+Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch.
 
-| Name     | Type     | Description                                                                                                                                               |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
+| **Tham số** | Tên      | type                                                                                                                                                  |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mô tả       | callback | Hàm (tùy chọn) Hàm callback tùy chọn. Hàm callback được gọi với đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../json-rpc/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
+`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi để tìm kiếm giao dịch người trả phí đã ký. Để biết thông tin chi tiết, hãy tham khảo [API Nền tảng Klaytn - klay_getTransactionBySenderTxHash](../../../../json-rpc/klay/transaction.md#klay_gettransactionbysendertxhash) và [Giao dịch Klaytn - Ủy thác phí và SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.isSenderTxHashIndexingEnabled().then(console.log);
@@ -161,19 +161,19 @@ true
 caver.klay.isParallelDBWrite([callback])
 ```
 
-Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
+Trả về giá trị `true` nếu nút đang ghi dữ liệu chuỗi khối theo phương pháp song song. Nút được kích hoạt theo mặc định.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                              |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. Returns `false` if the node is writing the data in a serial manner.
+`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang ghi dữ liệu chuỗi khối theo phương pháp song song. Hàm sẽ trả về giá trị `false` nếu nút đang ghi dữ liệu theo phương pháp nối tiếp.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.isParallelDBWrite().then(console.log);
@@ -186,19 +186,19 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../misc/operation/configuration.md).
+Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là địa chỉ của tài khoản mà các phần thưởng khối được chuyển đến. Chỉ có các nút đồng thuận (CN) Klaytn mới có địa chỉ ví rewardbase trong cấu hình của nút. Xem [Tập tin cấu hình](../../../../../misc/operation/configuration.md).
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                              |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - The rewardbase of the current node.
+`Promise` trả về `String` - Rewardbase của nút hiện tại.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.rewardbase().then(console.log);
