@@ -1,6 +1,6 @@
-# Porting from web3j
+# Di chuyển từ web3j
 
-We made caver-java as similar as possible to [web3j](https://github.com/web3j/web3j) for portability. The below code snippets show how to port an application written in web3j to caver-java.
+Chúng tôi đã tạo ra caver-java sao cho tương đồng với [web3j](https://github.com/web3j/web3j) nhất có thể để tạo điều kiện cho tính khả chuyển. Đoạn mã dưới đây cho thấy cách chuyển một ứng dụng được viết bằng web3j sang caver-java.
 
 ```java
 /* start a client */
