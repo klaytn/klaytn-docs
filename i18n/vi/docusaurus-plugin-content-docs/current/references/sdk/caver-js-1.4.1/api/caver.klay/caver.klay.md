@@ -1,16 +1,18 @@
 ---
-description: A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
+description: |-
+  description: >-
+    Trình bao JavaScript cho API Klaytn xung quanh không gian tên 'klay'.
 ---
 
 # caver.klay
 
-The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below
+Gói `caver-klay` cho phép bạn tương tác với các nút Klaytn.  Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong `caver-js`.
 enumerates the API functions that are currently supported in `caver-js`.
 
-## [Account](./account.md) <a id="account"></a>
+## [Tài khoản](./account.md) <a id="account"></a>
 
 - [defaultAccount](./account.md#defaultaccount)
-- [accountCreated](./account.md#accountcreated)
+- [tài khoảnCreated](./account.md#accountcreated)
 - [getAccount](./account.md#getaccount)
 - [getAccounts](./account.md#getaccounts)
 - [getAccountKey](./account.md#getaccountkey)
@@ -18,9 +20,9 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [getCode](./account.md#getcode)
 - [getTransactionCount](./account.md#gettransactioncount)
 - [isContractAccount](./account.md#iscontractaccount)
-- [sign](./account.md#sign)
+- [ký](./account.md#sign)
 
-## [Block](./block.md) <a id="block"></a>
+## [Khối](./block.md) <a id="block"></a>
 
 - [defaultBlock](./block.md#defaultblock)
 - [getBlockNumber](./block.md#getblocknumber)
@@ -36,9 +38,9 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [isMining](./block.md#ismining)
 - [isSyncing](./block.md#issyncing)
 
-## [Transaction](./transaction/transaction.md) <a id="transaction"></a>
+## [Giao dịch](./transaction/transaction.md) <a id="transaction"></a>
 
-- [call](./transaction/transaction.md#call)
+- [lệnh gọi](./transaction/transaction.md#call)
 - [estimateGas](./transaction/transaction.md#estimategas)
 - [estimateComputationCost](./transaction/transaction.md#estimatecomputationcost)
 - [decodeTransaction](./transaction/transaction.md#decodetransaction)
@@ -69,7 +71,7 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO)](./transaction/sendtx-cancel.md#sendtransaction-fee_delegated_cancel_with_ratio)
 - [signTransaction](./transaction/transaction.md#signtransaction)
 
-## [Configuration](./config.md) <a id="configuration"></a>
+## [Cấu hình](./config.md) <a id="configuration"></a>
 
 - [gasPriceAt](./config.md#gaspriceat)
 - [getChainId](./config.md#getchainid)
@@ -80,7 +82,7 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [isParallelDBWrite](./config.md#isparalleldbwrite)
 - [rewardbase](./config.md#rewardbase)
 
-## [Filter](./filter.md) <a id="filter"></a>
+## [Bộ lọc](./filter.md) <a id="filter"></a>
 
 - [getFilterChanges](./filter.md#getfilterchanges)
 - [getFilterLogs](./filter.md#getfilterlogs)
@@ -90,6 +92,6 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [newPendingTransactionFilter](./filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./filter.md#uninstallfilter)
 
-## [Miscellaneous](./misc.md) <a id="miscellaneous"></a>
+## [Khác](./misc.md) <a id="miscellaneous"></a>
 
 - [sha3](./misc.md#sha3)
