@@ -1,17 +1,19 @@
 ---
-description: APIs related to accounts, blocks, transactions, and nodes.
+description: |-
+  description: >-
+    API liên quan đến tài khoản, khối, giao dịch và nút.
 ---
 
-# klay
+# Không gian tên klay
 
-The namespace `klay` provides functions related to accounts, blocks, transactions,
+Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v.v.
 configurations of networks or nodes, filters, and so on.
-The list below enumerates the API functions that are currently supported in Klaytn.
+Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
 
-### [Account](./account.md) <a id="account"></a>
+### [Tài khoản](./account.md) <a id="account"></a>
 
-- [klay_accountCreated](./account.md#klay_accountcreated)
-- [klay_accounts](./account.md#klay_accounts)
+- [klay_tài khoảnCreated](./account.md#klay_accountcreated)
+- [klay_tài khoảns](./account.md#klay_accounts)
 - [klay_encodeAccountKey](./account.md#klay_encodeaccountkey)
 - [klay_decodeAccountKey](./account.md#klay_decodeaccountkey)
 - [klay_getAccount](./account.md#klay_getaccount)
@@ -22,7 +24,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_isContractAccount](./account.md#klay_iscontractaccount)
 - [klay_sign](./account.md#klay_sign)
 
-### [Block](./block.md) <a id="block"></a>
+### [Khối](./block.md) <a id="block"></a>
 
 - [klay_blockNumber](./block.md#klay_blocknumber)
 - [klay_getHeaderByNumber](./block.md#klay_getheaderbynumber)
@@ -42,7 +44,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_syncing](./block.md#klay_syncing)
 - [klay_getRewards](./block.md#klay_getrewards)
 
-### [Transaction](./transaction.md) <a id="transaction"></a>
+### [Giao dịch](./transaction.md) <a id="transaction"></a>
 
 - [klay_call](./transaction.md#klay_call)
 - [klay_estimateGas](./transaction.md#klay_estimategas)
@@ -61,7 +63,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_getDecodedAnchoringTransactionByHash](./transaction.md#klay_getDecodedAnchoringTransactionByHash)
 - [klay_resend](../eth/transaction.md#klay_resend)
 
-### [Configuration](./config.md) <a id="configuration"></a>
+### [Cấu hình](./config.md) <a id="configuration"></a>
 
 - [klay_chainID](./config.md#klay_chainid)
 - [klay_clientVersion](./config.md#klay_clientversion)
@@ -77,7 +79,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_feeHistory](./gas.md#klay_feehistory)
 - [klay_maxPriorityFeePerGas](./gas.md#klay_maxpriorityfeepergas)
 
-### [Filter](./filter.md) <a id="filter"></a>
+### [Bộ lọc](./filter.md) <a id="filter"></a>
 
 - [klay_getFilterChanges](./filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./filter.md#klay_getfilterlogs)
@@ -89,7 +91,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_uninstallFilter](./filter.md#klay_uninstallfilter)
 - [klay_unsubscribe](./filter.md#klay_unsubscribe)
 
-### [Miscellaneous](./misc.md) <a id="miscellaneous"></a>
+### [Khác](./misc.md) <a id="miscellaneous"></a>
 
 - [klay_sha3](./misc.md#klay_sha3)
 - [klay_recoverFromTransaction](./misc.md#klay_recoverFromTransaction)
