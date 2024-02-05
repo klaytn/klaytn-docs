@@ -371,6 +371,7 @@ const sidebars = {
       label: 'Node Package Downloads',
       link: {type: 'doc', id: 'nodes/downloads/downloads'},
       items: [
+        'nodes/downloads/v1.12.1',
         'nodes/downloads/v1.12.0',
         'nodes/downloads/v1.11.1',
         'nodes/downloads/v1.11.0',
