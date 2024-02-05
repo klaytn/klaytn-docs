@@ -4,12 +4,11 @@
 
 ![](/img/build/tools/klaytnXorakl.png)
 
-[Orakl Network](https://docs.orakl.network/docs/developers-guide/readme) is a decentralized oracle network that allows smart contracts to securely access off-chain data and other resources. It prides itself in being a Klaytn native oracle that provides Data Feed, VRF and Request-Response solutions. 
+[Orakl Network](https://docs.orakl.network) is a decentralized oracle network that allows smart contracts to securely access off-chain data and other resources. It prides itself in being a native token oracle that provides [Data Feed](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [Request-Response](https://docs.orakl.network/developers-guide/request-response) and [Proof of Reserve](https://docs.orakl.network/developers-guide/proof-of-reserve) solutions.
 
-With Orakl Network, users can  source for randomness that is unpredictable and unbiased in their smart contracts. Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/docs/developers-guide/verifiable-random-function-vrf#what-is-verifiable-random-function) allows smart contracts to use VRF to generate verifiably random values, which can be used in various dApps that require randomness. 
+With Orakl Network, users can  source for randomness that is unpredictable and unbiased in their smart contracts. Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function) allows smart contracts to generate verifiably random values, which can be used in various dApps that require randomness. Orakl Network provides developers access to the VRF services through two different account types, namely: [Permanent Account](https://docs.orakl.network/developers-guide/readme#permanent-account) or [Temporary Account](https://docs.orakl.network/developers-guide/readme#temporary-account).
 
-
-Orakl Network provides developers access to the VRF services with two different payment methods, namely: [Prepayment](https://docs.orakl.network/docs/developers-guide/readme#prepayment) or [Direct Method](https://docs.orakl.network/docs/developers-guide/readme#direct-payment). In this tutorial, you will utilize the VRF functionality from Orakl Network to request for random numbers in your smart contract.
+In this tutorial, you will utilize the VRF functionality from Orakl Network to request for random numbers from inside of your smart contract.
 
 
 ## Prerequisites
@@ -23,37 +22,19 @@ Orakl Network provides developers access to the VRF services with two different 
 
 In the following steps, you will request for a random number in your smart contract using Orakl Network. Let's get started!
 
-### Step 1: Initialization for direct payment
+### Step 1: Initialize Contract State Variables
 
-To request for random numbers in your smart contract, you need to initialize the [VRFCoordinator](https://github.com/Bisonai-CIC/orakl/blob/master/contracts/src/v0.1/VRFCoordinator.sol) smart contract.  It is recommended to bond VRFCoordinator interface with VRFCoordinator address supplied through a constructor parameter, and use it for random word requests (requestRandomWordsPayment). The VRFCoordinator contract is currently deployed on Klaytn Testnet Baobab with the contract address [0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f](https://baobab.scope.klaytn.com/account/0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f)
-
+In this step, we will define the cosumer contract and initialize the state variables needed for our contract functionality. Our consumer contract is dependent on `VRFConsumerBase` contract from which we inherit, and `IVRFCoordinator` interface that is used for calls to `VRFCoordinator` contract. Next, we define `sRandomWord` variable which we use to store the random number result and the `sOwner` variable which is used inside of `onlyOwner` modifier.
 
 ```solidity
-import "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
-import "@bisonai/orakl-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol";
+pragma solidity ^0.8.16;
+
+import { VRFConsumerBase } from "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
+import { IVRFCoordinator } from "@bisonai/orakl-contracts/src/v0.1/interfaces/IVRFCoordinator.sol";
 
 contract VRFConsumer is VRFConsumerBase {
-  VRFCoordinatorInterface COORDINATOR;
-  constructor(address coordinator) VRFConsumerBase(coordinator) {
-      COORDINATOR = VRFCoordinatorInterface(coordinator);
-  }
-}
-```
-
-### Step 2: Initialize contract state variable
-
-In this step, we will initialize the state variables needed for our contract functionality. This includes the s_randomResult variable which stores the random number result, the s_owner variable which is used for the onlyOwner modifier, the callbackGasLimit variable, the keyHash variable and numWord variable for the amount of random numbers to be returned. 
-
-```solidity
-  uint256 public s_randomResult;
-
+  uint256 public sRandomWord;
   address private sOwner;
-
-   bytes32 keyHash = 0x47ede773ef09e40658e643fe79f8d1a27c0aa6eb7251749b268f829ea49f2024;
-
-   uint32 callbackGasLimit = 500000;
-
-   uint32 numWords = 1;
 
   error OnlyOwner(address notOwner);
   modifier onlyOwner() {
@@ -62,44 +43,51 @@ In this step, we will initialize the state variables needed for our contract fun
       }
       _;
   }
+```
+
+### Step 2: Initialize VRF Coordinator
+
+To request for random numbers in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The VRFCoordinator contract is deployed both on Klaytn Baobab [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Klaytn Cypress [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
+
+```solidity
+  VRFCoordinatorInterface COORDINATOR;
+
   constructor(address coordinator) VRFConsumerBase(coordinator) {
       COORDINATOR = VRFCoordinatorInterface(coordinator);
       sOwner = msg.sender;
   }
 ```
 
-### Step 3: Request random words with direct payment (consumer)
+### Step 3: Request Random Words With Temporary Account
 
-To request random numbers using the direct method, users need to send $KLAY together with a call using value property. 
+To request random words with temporary account, users need to send $KLAY together with a call using value property.
 
 ```solidity
-
-receive() external payable {}
-
-function requestRandomWordsDirect(
-    bytes32 keyHash,
-    uint32 callbackGasLimit,
-    uint32 numWords
-)
-    public
-    payable
-    onlyOwner
-    returns (uint256 requestId)
-{
-  requestId = COORDINATOR.requestRandomWordsPayment{value: msg.value}(
-    keyHash,
-    callbackGasLimit,
-    numWords
-  );
-}
+  function requestRandomWordsDirect(
+      bytes32 keyHash,
+      uint32 callbackGasLimit,
+      uint32 numWords,
+      address refundRecipient
+  )
+      public
+      payable
+      onlyOwner
+      returns (uint256 requestId)
+  {
+    requestId = COORDINATOR.requestRandomWords{value: msg.value}(
+      keyHash,
+      callbackGasLimit,
+      numWords,
+      refundRecipient
+    );
+  }
 ```
 
-The code above explains a function that calls the `requestRandomWordsPayment()` function defined in COORDINATOR contract, and passes keyHash, callbackGasLimit, and numWords as arguments. The payment for service is sent through msg.value to the requestRandomWordsPayment() in COORDINATOR contract. If the payment is larger than expected payment, exceeding payment is returned to the caller of requestRandomWordsPayment function, therefore it requires the user contract to define the [receive()](https://docs.soliditylang.org/en/v0.8.16/contracts.html#receive-ether-function) function as shown in the top of the code.  
+This function calls the `requestRandomWords()` function defined in `COORDINATOR` contract, and passes `keyHash`, `callbackGasLimit`, `numWords` and `refundRecipient` as arguments. The payment for service is sent through `msg.value` to the `requestRandomWords()` in `COORDINATOR` contract. If the payment is larger than expected payment, exceeding payment is returned to the `refundRecipient` address. Eventually, it generates a request for random words. To accurately specify `msg.value` for the `requestRandomWords` function, please refer to the explanation on [how to estimate the service fee](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee).
 
+### Step 4: Fulfill Random Words
 
-### Step 4: Fulfill random words
-
-This function is called by VRFCoordinator contract when fulfilling the random number request.
+The `fulfillRandomWords` function is called by `VRFCoordinator` contract when fulfilling the random words request.
 
 ```solidity
 function fulfillRandomWords(
@@ -111,82 +99,93 @@ function fulfillRandomWords(
 {
     // requestId should be checked if it matches the expected request
     // Generate random value between 1 and 50.
-    s_randomResult = (randomWords[0] % 50) + 1;
+    sRandomWord = (randomWords[0] % 50) + 1;
 }
 ```
 
 Now that we have the Orakl VRF solution code, let’s get to see it in action.
 
-## Practical implementation 
+## Practical Implementation
 
-In the example below, the contract provides us the access to request for random numbers and fulfill the request. 
- 
-### Create and Deploy Sample Code 
+In the example below, the contract provides us the access to request for random numbers and fulfill the request.
+
+### Create and Deploy Sample Code
 
 **Remix IDE**
 
 * Navigate to [Remix IDE](https://remix.ethereum.org/).
-* Click on the File Explorer tab, create a new file named demoOraklDirectVRF.sol in the contracts folder.
+* Click on the **File Explorer** tab, create a new file named `consumer-vrf.sol` in the contracts folder.
 * Paste the code below in your newly created file.
 * In Remix, click **Compile contract**.
 * Click the Klaytn tab on your left having installed the plugin.
 * Select **Environment** > **Injected Caver** - **Kaikas**.
-* In Contract, select your contract. For example, VRFConsumer.
-* Pass in the coordinator contract address `0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f`.
+* In **Contract, select your contract. For example, `VRFConsumer`.
+* Pass in the coordinator contract address `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Baobab), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Cypress).
 * Click **Deploy**.
 
 **Sample Code**
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.2 <0.9.0;
-import "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
-import "@bisonai/orakl-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol";
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.16;
+
+import {VRFConsumerBase} from "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
+import {IVRFCoordinator} from "@bisonai/orakl-contracts/src/v0.1/interfaces/IVRFCoordinator.sol";
+
 contract VRFConsumer is VRFConsumerBase {
-  VRFCoordinatorInterface COORDINATOR;
-  // stores random number after request;
-  uint256 public s_randomResult;
-  // stores owner
-  address private sOwner;
-   bytes32 keyHash = 0x47ede773ef09e40658e643fe79f8d1a27c0aa6eb7251749b268f829ea49f2024;
-   uint32 callbackGasLimit = 500000;
-   uint32 numWords = 1;
-  error OnlyOwner(address notOwner);
-  modifier onlyOwner() {
-      if (msg.sender != sOwner) {
-          revert OnlyOwner(msg.sender);
-      }
-      _;
-  }
-  constructor(address coordinator) VRFConsumerBase(coordinator) {
-      COORDINATOR = VRFCoordinatorInterface(coordinator);
-      sOwner = msg.sender;
-  }
-  // https://baobab.scope.klaytn.com/account/0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f
-  receive() external payable {}
-function requestRandomWordsDirect()
-    public
-    payable
-    onlyOwner
-    returns (uint256 requestId)
-{
-  requestId = COORDINATOR.requestRandomWordsPayment{value: msg.value}(
-    keyHash,
-    callbackGasLimit,
-    numWords
-  );
-}
-function fulfillRandomWords(
-    uint256 /* requestId */,
-    uint256[] memory randomWords
-)
-    internal
-    override
-{
-    // requestId should be checked if it matches the expected request
-    // Generate random value between 1 and 50.
-    s_randomResult = (randomWords[0] % 50) + 1;
-}
+    uint256 public sRandomWord;
+    address private sOwner;
+
+    IVRFCoordinator COORDINATOR;
+
+    error OnlyOwner(address notOwner);
+
+    modifier onlyOwner() {
+        if (msg.sender != sOwner) {
+            revert OnlyOwner(msg.sender);
+        }
+        _;
+    }
+
+    constructor(address coordinator) VRFConsumerBase(coordinator) {
+        sOwner = msg.sender;
+        COORDINATOR = IVRFCoordinator(coordinator);
+    }
+
+    // Receive remaining payment from requestRandomWordsPayment
+    receive() external payable {}
+
+    function requestRandomWords(
+        bytes32 keyHash,
+        uint64 accId,
+        uint32 callbackGasLimit,
+        uint32 numWords
+    ) public onlyOwner returns (uint256 requestId) {
+        requestId = COORDINATOR.requestRandomWords(keyHash, accId, callbackGasLimit, numWords);
+    }
+
+    function requestRandomWordsDirect(
+        bytes32 keyHash,
+        uint32 callbackGasLimit,
+        uint32 numWords,
+        address refundRecipient
+    ) public payable onlyOwner returns (uint256 requestId) {
+        requestId = COORDINATOR.requestRandomWords{value: msg.value}(
+            keyHash,
+            callbackGasLimit,
+            numWords,
+            refundRecipient
+        );
+    }
+
+    function fulfillRandomWords(
+        uint256 /* requestId */,
+        uint256[] memory randomWords
+    ) internal override {
+        // requestId should be checked if it matches the expected request
+        // Generate random value between 1 and 50.
+        sRandomWord = (randomWords[0] % 50) + 1;
+    }
 }
 ```
 
@@ -194,20 +193,22 @@ function fulfillRandomWords(
 
 ### Interact with Smart Contract
 
-To request for random numbers in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously. Afterwards, once the request has been fulfilled, the `s_randomResult()` function can be executed. This s_randomResult() function returns the random number.
+To request for random numbers in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously.
+
+Afterwards, once the request has been fulfilled, the `sRandomWord()` function can be executed. This `sRandomWord()` function returns the random word.
 
 * **requestRandomWordsDirect()**: Will be sending 1 KLAY to execute this function. The image below illustrate this:
 
 ![](/img/build/tools/orakl-vrf-request.png)
 
-* **s_randomResult()**: After the VRFCoordinator has fulfilled the random number request, the response is stored in the s_randomResult variable. To get the response, call the `s_response()` function.
+* **sRandomWord()**: After the `VRFCoordinator` has fulfilled the random word request, the response is stored in the `sRandomWord` variable. To get the response, call the `sRandomWord()` function.
 
 
 ![](/img/build/tools/orakl-vrf-response.png)
 
 
-Tada 🎉! You just requested for a random number in your smart contract.
+Tada 🎉! You just requested for a random word and received one in your smart contract.
 
 ## Conclusion
 
-In this tutorial, you learnt how to generate a random number in your smart contract using the Orakl Network VRF solution. The Orakl Network provides more oracle services such as Price-feeds, Data Request-Response and much more. For more in-depth guides on Orakl Network and how it works, please refer to the [Orakl Network Docs](https://docs.orakl.network/docs/developers-guide/readme). 
+In this tutorial, you learnt how to generate a random word in your smart contract using the Orakl Network VRF solution. The Orakl Network provides more oracle services such as Data Feed, Request-Response, Proof of Reserve. For more in-depth guides on Orakl Network and how it works, please refer to the [Orakl Network documentation](https://docs.orakl.network).
