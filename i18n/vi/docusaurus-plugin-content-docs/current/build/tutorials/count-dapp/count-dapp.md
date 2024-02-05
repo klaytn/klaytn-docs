@@ -1,16 +1,16 @@
-# Build Count DApp
+# Count DApp
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
 
-- [Set up environment](./setup-environment.md)
-- [Deploy smart contracts](./deploy-contracts.md)
-- [Directory structure](./directory-structure.md)
-- [Frontend Code Overview](./code-overview/code-overview.md)
-  - [BlockNumber Component](./code-overview/blocknumber-component.md)
-  - [Auth Component](./code-overview/auth-component.md)
-  - [Count Component](./code-overview/count-component.md)
+- [Thiết lập môi trường](./setup-environment.md)
+- [Triển khai hợp đồng](./deploy-contracts.md)
+- [Cấu trúc thư mục](./directory-structure.md)
+- [Tổng quan về mã Frontend](./code-overview/blocknumber-component.md)
+  - [Thành phần số khối](./code-overview/blocknumber-component.md)
+  - [Thành phần xác thực](./code-overview/auth-component.md)
+  - [Thành phần Count](./code-overview/count-component.md)
 
-## Testing Environment <a href="#testing-environment" id="testing-environment"></a>
+## Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
 
 Count DApp is tested in the following environment.
 
