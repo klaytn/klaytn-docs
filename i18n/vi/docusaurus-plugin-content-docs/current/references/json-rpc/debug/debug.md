@@ -1,14 +1,16 @@
 ---
-description: APIs used to inspect and debug node state and blockchain data at run time.
+description: |-
+  description: >-
+    API được sử dụng để kiểm tra và gỡ lỗi trạng thái nút và dữ liệu chuỗi khối trong thời gian chạy.
 ---
 
 # debug
 
-The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
+Không gian tên `debug` cung cấp cho bạn quyền truy cập vào một số phương pháp RPC phi tiêu chuẩn, cho phép bạn kiểm tra, gỡ lỗi và đặt các cờ gỡ lỗi nhất định trong thời gian chạy.
 
 **NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public.
 We recommend you to provide the debug namespace APIs to authorized users only.
-However, if you want to maintain a public EN and provide debug namespace APIs to the public,
+However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
 we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
 that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
 The enabled APIs are as follows:
@@ -17,7 +19,7 @@ The enabled APIs are as follows:
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
-## [Logging](./logging.md) <a id="logging"></a>
+## [Ghi bản ghi](./logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./logging.md#debug_setvmlogtarget)
@@ -26,7 +28,7 @@ The enabled APIs are as follows:
 - [debug_verbosityByID](./logging.md#debug_verbositybyid)
 - [debug_vmodule](./logging.md#debug_vmodule)
 
-## [Profiling](./profile.md) <a id="profiling"></a>
+## [Tạo hồ sơ](./profile.md) <a id="profiling"></a>
 
 - [debug_blockProfile](./profile.md#debug_blockprofile)
 - [debug_cpuProfile](./profile.md#debug_cpuprofile)
@@ -41,13 +43,13 @@ The enabled APIs are as follows:
 - [debug_writeMemProfile](./profile.md#debug_writememprofile)
 - [debug_writeMutexProfile](./profile.md#debug_writemutexprofile)
 
-## [Runtime Tracing](./go_trace.md) <a id="runtime-tracing"></a>
+## [Theo dõi thời gian chạy](./go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./go_trace.md#debug_stopgotrace)
 
-## [Runtime Debugging](./runtime.md) <a id="runtime-debugging"></a>
+## [Gỡ lỗi thời gian chạy](./runtime.md) <a id="runtime-debugging"></a>
 
 - [debug_freeOSMemory](./runtime.md#debug_freeosmemory)
 - [debug_gcStats](./runtime.md#debug_gcstats)
@@ -56,7 +58,7 @@ The enabled APIs are as follows:
 - [debug_setGCPercent](./runtime.md#debug_setgcpercent)
 - [debug_stacks](./runtime.md#debug_stacks)
 
-## [VM Tracing](./tracing.md) <a id="vm-tracing"></a>
+## [Theo dõi VM](./tracing.md) <a id="vm-tracing"></a>
 
 - [debug_traceBadBlock](./tracing.md#debug_tracebadblock)
 - [debug_traceBlock](./tracing.md#debug_traceblock)
@@ -70,13 +72,13 @@ The enabled APIs are as follows:
 - [Tracing Options](./tracing.md#tracing-options)
 - [JavaScript-based Tracing](./tracing.md#javascript-based-tracing)
 
-## [VM Standard Tracing](./standard_tracing.md) <a id="vm-standard-tracing"></a>
+## [Theo dõi tiêu chuẩn VM](./standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./standard_tracing.md#debug_standardtraceblocktofile)
 - [Standard Tracing Options](./standard_tracing.md#standard-tracing-options)
 
-## [Blockchain Inspection](./blockchain.md) <a id="blockchain-inspection"></a>
+## [Kiểm soát chuỗi khối](./blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./blockchain.md#debug_dumpblock)
 - [debug_dumpStateTrie](./blockchain.md#debug_dumpstatetrie)
