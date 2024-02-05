@@ -1,28 +1,30 @@
 ---
-description: APIs related to main chain ENs connected with a service chain.
+description: |-
+  description: >-
+    API liên quan đến EN chuỗi chính được kết nối với chuỗi dịch vụ.
 ---
 
-# mainbridge
+# Không gian tên mainbridge
 
-The namespace `mainbridge` provides functions related to Service Chain.
-To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
+Không gian tên `mainbridge` cung cấp các hàm liên quan đến Chuỗi Dịch vụ.
+Để sử dụng các hàm trong không gian tên này, tùy chọn `cầu nối chính` phải được kích hoạt trong EN được kết nối với chuỗi chính (Mạng chính hoặc mạng thử nghiệm Baobab).
 
 ## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node.
-A mainbridge node can connect to a subbrige node via the KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút.
+Một nút cầu nối chính có thể kết nối với một nút cầu nối con thông qua KNI.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type        | Description                  |
-| ----------- | ---------------------------- |
-| JSON string | the bridge node information. |
+| Loại      | Mô tả                  |
+| ---------- | ---------------------- |
+| Chuỗi JSON | thông tin nút cầu nối. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -56,28 +58,28 @@ None
 
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 
-Returns `true` if adding a subbridge peer is done successfully.
+Trả về `true` nếu thêm thành công một máy ngang hàng cầu nối con.
 
-It Adds a new remote node to the peer list.
-The node will try to maintain connectivity to these nodes at all times, reconnecting every
+Nó sẽ thêm một nút từ xa mới vào danh sách máy ngang hàng.
+Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
 once in a while if the remote connection goes down.
-The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| Tên | Loại | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| Loại | Mô tả                                                              |
+| ----- | ------------------------------------------------------------------ |
+| bool  | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
@@ -93,27 +95,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
 
-Returns `true` if removing the peer is done successfully.
+Trả về `true` khi máy ngang hàng được xóa thành công.
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes.
-The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 for tracking or some error occurred.
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description        |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| Tên | Loại | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the peer was removed, `false` otherwise. |
+| Loại | Mô tả                                                         |
+| ----- | ------------------------------------------------------------- |
+| bool  | `true` nếu máy ngang hàng đã bị xóa, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -129,19 +131,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+`mainbridge_getChildChainIndexingEnabled` trả về nếu giao dịch neo chỉ mục được kích hoạt hay không.
 
-**Parameters**
+**Tham số**
 
-none
+không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                            |
-| ---- | ------------------------------------------------------ |
-| bool | `true` if the indexing was enabled, `false` otherwise. |
+| Loại | Mô tả                                                                     |
+| ----- | ------------------------------------------------------------------------- |
+| bool  | `true` nếu tính năng lập chỉ mục được kích hoạt, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > mainbridge.getChildChainIndexingEnabled()
@@ -150,23 +152,23 @@ true
 
 ## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
-Returns the anchoring transaction hash of the given child chain block hash.
+Trả về hàm băm giao dịch neo của hàm băm khối chuỗi con đã cho.
 
-**Parameters**
+**Tham số**
 
-| Type         | Description                 |
-| ------------ | --------------------------- |
-| 32-byte DATA | The child chain block hash. |
+| type            | Mô tả                   |
+| --------------- | ----------------------- |
+| DỮ LIỆU 32 byte | Hàm băm khối chuỗi con. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type         | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| 32-byte DATA | The anchoring transaction hash that includes the child chain block information. |
+| Loại           | Mô tả                                                   |
+| --------------- | ------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm giao dịch neo bao gồm thông tin khối chuỗi con. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
