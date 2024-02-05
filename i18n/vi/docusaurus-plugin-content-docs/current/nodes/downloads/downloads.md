@@ -1,13 +1,14 @@
 ---
-sidebar_label: Node Package Downloads
+sidebar_label: "sidebar_label: Tải xuống gói nút"
 ---
 
-# Download
+# Tải xuống
 
-## Get the Packages <a id="get-the-packages"></a>
+## Tải xuống các gói <a id="get-the-packages"></a>
 
-You can get the packages for CN, PN, EN, SCN, SPN and SEN.
+Bạn có thể tải về các gói cho CN, PN, EN, SCN, SPN và SEN.
 
+- [v1.12.1](./v1.12.1.md)
 - [v1.12.0](./v1.12.0.md)
 - [v1.11.1](./v1.11.1.md)
 - [v1.11.0](./v1.11.0.md)
@@ -44,9 +45,9 @@ You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 - [v0.9.6](./v0.9.6.md)
 - [v0.8.2](./v0.8.2.md)
 
-## Get the Sources <a id="get-the-sources"></a>
+## Tải xuống các nguồn <a id="get-the-sources"></a>
 
-You can retrieve the source code through Git. Documentation is hosted on GoDoc.
+Bạn có thể truy xuất mã nguồn thông qua Git. Tài liệu được lưu trữ trên GoDoc.
 
 - [github/klaytn](https://github.com/klaytn/klaytn)
 - [godoc/klaytn](https://godoc.org/github.com/klaytn/klaytn)
