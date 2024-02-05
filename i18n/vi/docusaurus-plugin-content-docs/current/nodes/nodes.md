@@ -1,13 +1,13 @@
-# About Klaytn Nodes
+# Giới thiệu về nút Klaytn
 
-The Klaytn network is comprised of three types of nodes:
+Mạng Klaytn bao gồm ba loại nút:
 
-- Consensus Node (CN): CNs are responsible for validating transactions and producing new blocks.
-- Proxy Node (PN): PNs relay transactions between CNs and ENs.
-- Endpoint Node (EN): ENs provide public access to the Klaytn network.
+- Nút đồng thuận (CN): CN chịu trách nhiệm xác thực giao dịch và tạo khối mới.
+- Nút ủy nhiệm (PN): PN chuyển tiếp giao dịch giữa CN và EN.
+- Nút điểm cuối (EN): EN cung cấp quyền truy cập công cộng vào mạng Klaytn.
 
-To participate in consensus and governance, you are required to run a CN. CNs must meet certain hardware and software requirements, and they must stake KLAY tokens.
+Để tham gia đồng thuận và quản trị, bạn được yêu cầu chạy CN. CN phải đáp ứng một số yêu cầu phần cứng và phần mềm nhất định và họ phải đặt cược mã thông báo KLAY.
 
-You can also run a PN or EN to support the Klaytn network. PNs and ENs do not require staking, but they do require some technical expertise and resources.
+Bạn cũng có thể chạy PN hoặc EN để hỗ trợ mạng Klaytn. PN và EN không yêu cầu đặt cọc, nhưng chúng yêu cầu một số chuyên môn kỹ thuật và tài nguyên.
 
-This section provides all the necessary information to set up and operate an Endpoint Node, and contribute to the Klaytn network or configure and run a Consensus Node to participation in Klaytn's network governance.
+Phần này cung cấp tất cả thông tin cần thiết để thiết lập và vận hành Nút Điểm cuối và đóng góp cho mạng Klaytn hoặc định cấu hình và chạy Nút Đồng thuận để tham gia quản trị mạng của Klaytn.
