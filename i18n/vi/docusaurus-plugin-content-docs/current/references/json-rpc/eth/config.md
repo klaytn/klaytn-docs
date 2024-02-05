@@ -2,19 +2,19 @@
 
 ## eth_coinbase <a id="eth_coinbase"></a>
 
-Returns the client coinbase address.
+Trả về địa chỉ coinbase của khách hàng.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type         | Description                   |
-| ------------ | ----------------------------- |
-| 20-byte DATA | The current coinbase address. |
+| type            | Mô tả                            |
+| --------------- | -------------------------------- |
+| DỮ LIỆU 20 byte | Địa chỉ coinbase của khách hàng. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -30,19 +30,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
-Returns the client etherbase address.
+Trả về địa chỉ etherbase của khách hàng.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type         | Description                    |
-| ------------ | ------------------------------ |
-| 20-byte DATA | The current etherbase address. |
+| Loại           | Mô tả                             |
+| --------------- | --------------------------------- |
+| DỮ LIỆU 20 byte | Địa chỉ etherbase của khách hàng. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -58,19 +58,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_chainId <a id="eth_chainid"></a>
 
-Return current chainId set on the requested node.
+Trả về chainId hiện tại được đặt trên nút yêu cầu.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                         |
+| type     | Mô tả                               |
 | -------- | ----------------------------------- |
-| QUANTITY | Chain id set on the requested node. |
+| SỐ LƯỢNG | Mã chuỗi được đặt trên nút yêu cầu. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -86,22 +86,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_gasPrice <a id="eth_gasprice"></a>
 
-Returns the current price per gas in peb.
+Trả về mức giá hiện tại cho mỗi gas tính bằng peb.
 
-**NOTE**: This API has different behavior from Ethereum's and
+**LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
 returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| type     | Mô tả                                              |
+| -------- | -------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ giá gas hiện tại tính bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
