@@ -1,99 +1,101 @@
-# Why Klaytn
+# Tại sao nên chọn Klaytn
 
-This document explains how Klaytn is different based on its the key design principles.
+Tài liệu này giải thích về sự khác biệt của Klaytn dựa trên các nguyên tắc thiết kế chủ đạo của nó.
 
-## Klaytn as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
+## Klaytn với vai trò là lớp tin cậy của vũ trụ ảo <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
 
-​
+Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho vũ trụ ảo, hoạt động tham gia và đóng góp đến từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới.
 Klaytn is built to be the fundamental trust layer for the metaverse, respecting the participation and contribution from all communities, empowering and bringing them together in the new world.
-​
+Nguyên tắc thiết kế ưu tiên hàng đầu là:
 The foremost design principle is;
 
 :::note
 
-Helping the pioneers to easily build the applications and organize the community in scalable way.
+Giúp những người tiên phong dễ dàng xây dựng ứng dụng và tổ chức cộng đồng theo cách có thể mở rộng.
 
 :::
 
-As per this principle, Klaytn has been designed to meet the following requirements:
+Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng những yêu cầu sau:
 ​
 
-### High Performance <a id="high-performance"></a>
+### Hiệu suất cao <a id="high-performance"></a>
 
-#### Throughput(TPS) and Finality <a id="throughput-and-finality"></a>
+#### Thông lượng (TPS) và Tính hoàn thiện <a id="throughput-and-finality"></a>
 
-- Main chain should handle at least 4,000 TPS.
-- Main chain should guarantee immediate transaction finality with one-second block generation time.
-- See [Consensus Mechanism].
+- Chuỗi chính cần xử lý tối thiểu 4.000 TPS.
+- Chuỗi chính cần đảm bảo tính hoàn thiện giao dịch tức thời với thời gian tạo khối là một giây.
+- Xem phần [Cơ chế đồng thuận](./consensus-mechanism.md).
   ​
 
-#### Scalability <a id="scalability"></a>
+#### Khả năng mở rộng <a id="scalability"></a>
 
-- Service chain is the default L2 solution for Klaytn 2.0 that is customizable and easily deployable. The service chain can have its own governance and connect to the Klaytn main chain to anchor data or transfer assets.
-- See [Service Chain]. Enterprises or large networks often want to have their own dedicated execution environment. With the service chain, they can maintain an isolated high-performing execution environment that is not affected by other blockchain applications.
-- Other scalability solutions will be available in the near future, such as sharding or rollups.
+- Chuỗi dịch vụ là giải pháp L2 mặc định dành cho Klaytn 2.0, có thể tùy chỉnh và dễ dàng triển khai. Chuỗi dịch vụ có thể được quản trị riêng và kết nối với chuỗi chính của Klaytn để neo dữ liệu hoặc chuyển giao tài sản.
+- Xem phần [Chuỗi dịch vụ](./scaling-solutions.md#service-chain). Các doanh nghiệp hoặc mạng lưới quy mô lớn thường muốn có môi trường thực thi của riêng họ. Với chuỗi dịch vụ, họ có thể duy trì một môi trường thực thi hiệu suất cao và biệt lập, không bị ảnh hưởng bởi các ứng dụng chuỗi khối khác.
+- Các giải pháp khác về khả năng mở rộng sẽ được ra mắt trong tương lai gần, chẳng hạn như sharding (phân đoạn) hoặc rollup (cuộn).
   ​
 
-### Low Cost  <a id="low-cost"></a>
+### Chi phí thấp  <a id="low-cost"></a>
 
-- End-users should not be burdened with any higher transaction fee beyond what the traditional systems require.
-- Transaction fee should be stable and be determined by the transaction complexity itself, and not the surrounding factors.
-- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 250 ston, a KLAY transfer would incur a fixed cost of 0.00525 KLAY. (21,000 Gas for KLAY transfer x (250 x 10^-9) == 0.00525 KLAY)
+- Người dùng cuối không cần phải gánh bất kỳ khoản phí giao dịch nào cao hơn những gì hệ thống truyền thống yêu cầu.
+- Phí giao dịch phải ổn định và được xác định bởi chính độ phức tạp của giao dịch, không phải bởi các yếu tố xung quanh.
+- Xem phần [Chi phí thực thi hợp đồng thông minh hợp lý](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) và [Phí giao dịch](transaction-fees/transaction-fees.md). Đối với giá gas ở mức 250 ston, một giao dịch chuyển KLAY sẽ phát sinh chi phí cố định là 0,00525 KLAY. (21.000 gas cho giao dịch chuyển KLAY x (250 x 10^-9) == 0.00525 KLAY)
   ​
 
-### Rapid Development <a id="rapid-development"></a>
+### Phát triển nhanh chóng <a id="rapid-development"></a>
 
-#### Ethereum Compatibility <a id="ethereum-compatibility"></a>
+#### Tương thích với Ethereum <a id="ethereum-compatibility"></a>
 
-- Development Tools: Any tooling that can run on Ethereum will run seamlessly within the Klaytn ecosystem by making Klaytn’s technical stack equivalent, from an interfacing and execution
-  perspective, to the existing Ethereum stack. New tooling created in the Klaytn ecosystem could be reciprocally adopted within the Ethereum ecosystem.
-- EVM and API: By building on top of existing Ethereum stacks we inherit any improvements made to the open-source codebases of EVM and supporting libraries. Supporting such equivalent Opcodes and stack logic in the Klaytn EVM environment would see execution behaviour is guaranteed equivalent; and supporting a set of JSON-RPC APIs with equivalent endpoint payload syntax guarantees full Ethereum interfacing equivalence. See [Solidity-Smart Contract Language], and [Migrating Ethereum App to Klaytn].
-- Core Development Contribution: Supporting Ethereum equivalence translates most to the mutual benefit to both the Klaytn and Ethereum ecosystems. The majority of Ethereum Improvement Proposals (EIPs) could be migrated and adopted to the Klaytn core development agenda, and in turn Klaytn Improvement Proposals (KIPs) could contribute to the advancement of Ethereum and EVM. When the development community contributes to one ecosystem, they are indeed contributing to both.
+- Các công cụ phát triển: Bất kỳ công cụ nào có thể chạy trên Ethereum cũng sẽ chạy trơn thu trong hệ sinh thái Klaytn bằng cách làm cho tập hợp kỹ thuật của Klaytn trở nên tương đương với tập hợp kỹ thuật hiện có của Ethereum, từ góc độ giao dịch cho đến thực thi.
+  perspective, to the existing Ethereum stack. Công cụ mới được tạo ra trong hệ sinh thái Klaytn có thể được áp dụng đối ứng trong hệ sinh thái Ethereum.
+- EVM và API: Bằng cách xây dựng trên các tập hợp kỹ thuật có sẵn của Etherum, chúng tôi được thừa hưởng các cải tiến được thực hiện đối với cơ sở mã nguồn mở của EVM và các thư viện hỗ trợ. Bằng việc hỗ trợ các Mã vận hành và logic tập hợp kỹ thuật tương đương như vậy trong môi trường EVM Klaytn, ta sẽ thấy hoạt động thực thi cũng được đảm bảo tương đương; và bằng việc hỗ trợ một tập hợp API JSON-RPC với cú pháp vận chuyển điểm cuối tương đương cũng sẽ đảm bảo tính tương đương của giao diện Ethereum đầy đủ. Xem phần [Solidity-Ngôn ngữ hợp đồng thông minh](../build/smart-contracts/solidity-smart-contract-language.md) và [Chuyển ứng dụng Ethereum sang Klaytn](../build/tutorials/migrating-ethereum-app-to-klaytn.md).
+- Đóng góp phát triển cốt lõi: Việc hỗ trợ tính tương đương với Ethereum sẽ chuyển đồi hầu hết các giao dịch chung đến cả hai hệ sinh thái Klaytn và Ethereum. Hầu hết các Đề xuất cải tiến Ethereum (EIP) đều có thể được chuyển và áp dụng vào chương trình phát triển cốt lõi của Klaytn, ngược lại, các Đề xuất cải tiến Klaytn (KIP) cũng có thể đóng góp vào sự tiến bộ của Ethereum và EVM. Khi cộng đồng phát triển đóng góp cho một hệ sinh thái, họ thực sự đang đóng góp cho cả hai.
   ​
 
-#### Open Source Infrastructure and Package <a id="open-source-infrastructure-and-package"></a>
+#### Cơ sở hạ tầng nguồn mở và gói <a id="open-source-infrastructure-and-package"></a>
 
-- Primary Infrastructure: tool sets for end-to-end blockchain integration and building. It includes SDKs and smart contract libraries, Wallets and chain explorers, distributed storage solutions, Oracle support and Bridges.
-- Secondary Infrastructure: ecosystem for supporting products and services. It includes Integration/abstraction services, Stablecoin integrations, DAOs, NFT Marketplaces, DEX and DeFi and Traditional finance interfaces.
+- Cơ sở hạ tầng chính: bộ công cụ để tích hợp và xây dựng chuỗi khối toàn diện. Cơ sở hạ tầng này bao gồm SDK và thư viện hợp đồng thông minh, Ví và trình khám phá chuỗi, các giải pháp lưu trữ phân tán, hỗ trợ Oracle và Cầu nối.
+- Cơ sở hạ tầng phụ: hệ sinh thái hỗ trợ các sản phẩm và dịch vụ. Cơ sở hạ tầng này bao gồm các dịch vụ Tích hợp/trừu tượng, tích hợp Stablecoin, DAO, Thị trường NFT, DEX và DeFi, cũng như các giao dịch tài chính truyền thống.
   ​
 
-### Enhanced User Experience <a id="enhanced-user-experience"></a>
+### Trải nghiềm người dùng nâng cao <a id="enhanced-user-experience"></a>
 
-#### Usability in Transaction <a id="usability-in-transaction"></a>
+#### Khả năng sử dụng trong giao dịch <a id="usability-in-transaction"></a>
 
-- Ability to transfer user's transaction fee to the application
-- See [Fee Delegation]. Application operator can adjust the amount of subsidy for each transaction and implement more flexible business models such as freemium or subscription. Fee delegation will effectively lower user acquisition barriers.
+- Khả năng chuyển phí giao dịch của người dùng vào ứng dụng
+- Xem phần [Ủy thác phí](./transactions/transactions.md#fee-delegation). Người vận hành ứng dụng có thể điều chỉnh số tiền tài trợ cho mỗi giao dịch và triển khai các mô hình kinh doanh linh hoạt hơn, ví dụ như freemium (chỉ miễn phí các tính năng cơ bản) hoặc đăng ký trả phí định kỳ. Việc ủy thác phí sẽ gỡ bỏ bớt các rào cản thu hút người dùng một cách hiệu quả.
   ​
-  ​
-
-### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
-
-- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 50% of the newly minted tokens are reinvested in the ecosystem.
-- See [Klaytn Community Fund](token-economy.md#klaytn-community-fund) and [Klaytn Foundation Fund](token-economy.md#klaytn-foundation-fund).
   ​
   ​
 
-### Community Co-Building <a id="community-co-building"></a>
+### Quỹ sinh thái cấp giao thức trọn bộ <a id="contribution-reward"></a>
 
-- In addition to the protocol design, Klaytn will expand its territory through community co-building; it includes kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc.
+- Klaytn là ví dụ đầu tiên và lớn nhất trong đó các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một tokenomics giao thức trên chuỗi. 50% các mã thông báo mới được đúc được tái đầu tư vào hệ sinh thái.
+- Xem [Quỹ cộng đồng Klaytn](token-economy.md#klaytn-community-fund) và [Quỹ Quỹ Klaytn](token-economy.md#klaytn-foundation-fund).
+  ​
+  ​
+  ​
+
+### Cùng xây dựng cộng đồng <a id="community-co-building"></a>
+
+- Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lĩnh vực của mình thông việc cùng xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, v.v.
   ​
   Lastly, the ground rules:
   ​
   :::note
 
-Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancements, and the protocol stays stable with strongly committed stakeholders.
+Cuối cùng là các quy tắc cơ bản:
 
 :::
 
-### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
+### Klaytn không đánh đổi các đặc tính cốt lõi của chuỗi khối để đạt được những điểm cải tiến nêu trên và giao thức vẫn sẽ ổn định với các bên liên quan có cam kết bền chặt.
 
-- Anyone can request transactions as well as retrieve and confirm transactions results on the blockchain.
-- Klaytn is a decentralized network where no single malicious node can break the data integrity.
-  ​
+- Minh bạch, bảo mật và phi tập trung <a id="transparency-security-and-decentralization"></a>
+- Ai cũng có thể yêu cầu giao dịch, cũng như truy xuất và xác nhận kết quả giao dịch trên chuỗi khối.
+  Klaytn là một mạng phi tập trung, tại đó không có bất kỳ nút độc hại nào có thể phá vỡ tính toàn vẹn của dữ liệu.
 
-### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
+### Quản trị bởi DAO, các nhà xây dựng và doanh nghiệp thực hiện phi tập trung với khả năng ổn định <a id="governance-by-trusted-entities"></a>
 
-- In addition to the current traditional enterprises as Klaytn Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
+- Ngoài các doanh nghiệp truyền thống hiện tại đang đóng vai trò Hội đồng quản trị của Klaytn (GC), nhờ việc đưa nhiều thực thể phi tập trung hơn như DAO và các nhà xây dựng vào GC, chúng tôi đang mở ra tiềm năng xây dựng lại toàn bộ cấu trúc quản trị của Klaytn một cách chưa từng có tiền lệ với hàng trăm người tham gia vào hoạt động quản trị.
 
 [Decoupling of Key Pairs from Addresses]: ./accounts.md#decoupling-key-pairs-from-addresses
 
