@@ -12,26 +12,26 @@
 
 ## Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
 
-Count DApp is tested in the following environment.
+Count DApp được thử nghiệm trong môi trường sau đây.
 
 - MacOS Mojave 10.14.5
 - Node 10.16.0 (LTS)
 - npm 6.9.0
 - Python 2.7.10
 
-## Introduction <a href="#introduction" id="introduction"></a>
+## Giới thiệu <a href="#introduction" id="introduction"></a>
 
 ![intro](/img/build/tutorials/tutorial-1intro.gif)
 
-This tutorial is intended to give a step by step guide to build a Klaytn dApp. No previous Klaytn experience is needed. We will make a simple web app interacting with a basic smart contract, `Count`.\
-Any user who has a Klaytn account can increase and decrease the current value as shown in the above gif.
+Hướng dẫn này cung cấp chỉ dẫn từng bước để xây dựng ứng dụng Klaytn. Với Klaytn, bạn không cần có kinh nghiệm từ trước. Chúng ta sẽ tạo một ứng dụng web đơn giản tương tác với hợp đồng thông minh cơ bản `Count`.\
+Bất kỳ người dùng nào có tài khoản Klaytn đều có thể tăng và giảm giá trị hiện tại như trong gif trên.
 
 > **Source Code**\
-> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> Mã nguồn hoàn chỉnh có ở GitHub, tại đây [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
-## Intended Audience <a href="#intended-audience" id="intended-audience"></a>
+## Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
 
-Anyone who wants to learn how to build a Blockchain Application on Klaytn. We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
+Bất kỳ ai muốn tìm hiểu cách xây dựng ứng dụng chuỗi khối trên Klaytn. Chúng ta sẽ xây dựng một ứng dụng web tương tác với các hợp đồng thông minh. Để hiểu trọn vẹn hướng dẫn này, người xem phải làm quen với các khái niệm sau.
 
-- We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
-- Basic knowledge and experience in Solidity development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
+- Chúng tôi sẽ xem như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/) và [Redux](https://redux.js.org/).x. Khóa học này không dành cho những người mới bắt đầu.
+- Bạn nên có kiến thức và kinh nghiệm cơ bản về phát triển Solidity. Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
