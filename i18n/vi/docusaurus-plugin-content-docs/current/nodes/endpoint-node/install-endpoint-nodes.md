@@ -1,16 +1,16 @@
-# Install Endpoint Nodes
+# Cài đặt nút Endpoint
 
-## Download <a id="download"></a>
+## Tải xuống <a id="download"></a>
 
-You can download the latest version of the EN on [Download](../downloads/downloads.md) page.
+Bạn có thể tải về các gói cho EN tại [trang tải về](../downloads/downloads.md).
 
-## Installation
+## Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình có cấu trúc như sau.
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**Lưu ý**: KHÔNG thay đổi cấu trúc hoặc tên tập tin. Nếu bạn thay đổi điều đó, nút có thể sẽ không hoạt động đúng.
 
 ```text
 - bin
@@ -20,153 +20,153 @@ The archive file consists of the executable binary and the configuration file st
   |- kend.conf
 ```
 
-| File Name      | File Description                 |
+| Tên tập tin    | Mô tả tập tin                    |
 | :------------- | :------------------------------- |
-| bin/ken        | EN executable file               |
-| bin/kend       | EN start/termination script file |
-| conf/kend.conf | EN configuration file            |
+| bin/ken        | Tập tin thực thi EN              |
+| bin/kend       | Tập tin lệnh bắt đầu/kết thúc EN |
+| conf/kend.conf | Tập tin cấu hình EN              |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+Quá trình cài đặt chính là giải nén gói đã tải về tại nơi bạn muốn cài đặt gói.
 
 ```text
 $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```text
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `ken-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `ken` and `kend` globally. As an example,
+**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `ken-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `ken` và `kend` trên toàn hệ thống. Ví dụ,
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
 ```text
 $ yum install kend-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+Hoặc,
 
 ```text
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Cài đặt từ Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kend` from the Klaytn Yum repo, run:
+Ngoài ra, bạn có thể cài đặt `kend` từ Klaytn Yum repo, chạy:
 
 ```text
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
 ```
 
-### Installed Location <a id="installed-location"></a>
+### Vị trí đã cài đặt <a id="installed-location"></a>
 
-The installed files are located as follows.
+Tập tin đã cài đặt nằm ở vị trí như sau.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| ken       | /usr/bin/ken             |
-| kend.conf | /etc/kend/conf/kend.conf |
+| Tên tập tin | Vị trí                   |
+| :---------- | :----------------------- |
+| ken         | /usr/bin/ken             |
+| kend.conf   | /etc/kend/conf/kend.conf |
 
-## Configuration <a id="configuration"></a>
+## Cấu hình <a id="configuration"></a>
 
-The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
+Cấu hình EN dùng để tạo thư mục dữ liệu và thiết lập các biến môi trường trong tập tin cấu hình `kend.conf`.
 
-1. Create the EN data directory.
-2. Configure the EN with `kend.conf`.
+1. Tạo thư mục dữ liệu EN.
+2. Định cấu hình EN với `kend.conf`.
 
-### EN Data Directory Creation <a id="en-data-directory-creation"></a>
+### Tạo thư mục dữ liệu EN <a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```text
 $ sudo mkdir -p /var/kend/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/ken-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kend.conf`.
 
 ```text
 DATA_DIR=/var/kend/data
 ```
 
-### Fast Sync (Optional) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
-Each EN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new EN is first started, it must download the entire chain data from the network.
+Mỗi EN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một EN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu EN. Điều này giúp giảm đáng kể thời gian EN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kend`, extract the snapshot inside the DATA_DIR you configured in `kend.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kend.conf`.
 
-For example:
+Ví dụ:
 
 ```bash
 $ tar -C ~/kend_home -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the EN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu EN như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../misc/operation/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../misc/operation/chaindata-change.md)
 
-## Startup the EN <a id="startup-the-en"></a>
+## Khởi động EN <a id="startup-the-en"></a>
 
-You can start or stop the Endpoint Node using the following commands.
+Bạn có thể bắt đầu hoặc dừng Nút điểm cuối bằng các lệnh sau.
 
-**start**
+**bắt đầu**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**dừng**
 
 ```bash
 $ kend stop
 Shutting down kend: Killed
 ```
 
-**status**
+**trạng thái**
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Testing the Installation <a id="testing-the-installation"></a>
+## Thử việc cài đặt <a id="testing-the-installation"></a>
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Nút điểm cuối đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-### Process Status <a id="process-status"></a>
+### Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+Có thể kiểm tra trạng thái quy trình của EN bằng các lệnh trạng thái `systemctl` và `kend`.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của EN như sau.
 
 ```bash
 $ systemctl status kend.service
@@ -184,22 +184,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ bên dưới.
 
 #### kend <a id="kend"></a>
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+`kend` được cài đặt cùng với gói; trạng thái của EN có thể được kiểm tra như sau.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-### Logs <a id="logs"></a>
+### Nhật ký <a id="logs"></a>
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+Nhật ký được lưu trữ trong tập tin `kend.out` được đặt tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kend.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi khối được nhập theo từng giây như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail kend.out
@@ -215,13 +215,13 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-### Queries <a id="queries"></a>
+### Truy vấn <a id="queries"></a>
 
 #### ken console <a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Klaytn cung cấp một máy khách CLI: `ken console`. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục `data` trên một EN.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
@@ -233,16 +233,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../references/json-rpc/json-rpc.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../references/json-rpc/json-rpc.md)
 
-The useful APIs to check the status of EN:
+Các API hữu ích để kiểm tra trạng thái của EN:
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+Bạn có thể lấy số khối mới nhất để xem các khối có được truyền đúng cách không.
 
 ```text
 > klay.blockNumber
@@ -256,4 +256,4 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+Dòng lệnh trên trả về số nút mà EN kết nối đến.
