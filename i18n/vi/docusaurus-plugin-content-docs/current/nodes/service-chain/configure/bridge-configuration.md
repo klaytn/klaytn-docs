@@ -1,26 +1,26 @@
-# Connect to main chain
+# Cấu hình cầu nối
 
-In this page, we will describe the steps of connecting a Service Chain to the Main Chain.
+Trong trang này, chúng ta sẽ mô tả các bước để kết nối Chuỗi dịch vụ với Chuỗi chính.
 
-## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
+## Cấu hình EN - Kích hoạt Cầu nối chính <a id="en-configuration-enable-main-bridge"></a>
 
-You should enable main-bridge by configuring `kend.conf`.
+Bạn nên kích hoạt cầu nối chính bằng cách định cấu hình `kend.conf`.
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-The `kend.conf` contains the following main-bridge properties.
+`kend.conf` có các thuộc tính cầu nối chính sau đây.
 
-| Name                                                           | Description                                                                                               |
-| :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| MAIN_BRIDGE                               | Enable bridge service as main bridge for service chain. 1 to enable.                                      |
-| MAIN_BRIDGE_PORT     | Bridge listen port. Default: 50505                                                                        |
-| MAIN_BRIDGE_INDEXING | Enable indexing of service chain transaction hash for fast access to the service chain data. 1 to enable. |
+| Tên                                                            | Mô tả                                                                                                             |
+| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| MAIN_BRIDGE                               | Kích hoạt dịch vụ cầu nối làm cầu nối chính cho chuỗi dịch vụ. 1 để kích hoạt.                                    |
+| MAIN_BRIDGE_PORT     | Cổng nghe cầu nối. Mặc định: 50505                                                                                |
+| MAIN_BRIDGE_INDEXING | Cho phép lập chỉ mục hàm băm giao dịch chuỗi dịch vụ để truy cập nhanh vào dữ liệu chuỗi dịch vụ. 1 để kích hoạt. |
 
-To enable main-bridge on EN, you should do like below.
+Để kích hoạt cầu nối chính trên EN, bạn hãy thực hiện như bên dưới.
 
-- define `MAIN_BRIDGE`
-- enable RPC/WS.
-- add `mainbridge` API for RPC like the below example.
+- xác định `MAIN_BRIDGE`
+- bật RPC/WS.
+- thêm API `mainbridge` cho RPC như ví dụ bên dưới.
 
 ```text
 # Configuration file for the kend
@@ -52,17 +52,17 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
+## Kết nối SCN với Chuỗi chính <a id="connect-scn-to-the-main-chain"></a>
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
+Bạn cần chạy EN của chuỗi chính như cầu nối chính. Đồng thời, bạn cũng nên xác định SCN (Nút đồng thuận chuỗi dịch vụ) nào sẽ được dùng làm cầu nối con để kết nối với EN.
 
-### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
+### Kiểm tra thông tin EN (Cầu nối chính) <a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console <a id="open-en-console"></a>
+#### Mở Bảng điều khiển EN <a id="open-en-console"></a>
 
-There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
+Có nhiều cách khác nhau để gắn vào quy trình EN. Bạn có thể kiểm tra các lệnh có thể sử dụng trên [lệnh ken CLI](../../../nodes/endpoint-node/ken-cli-commands.md). Trang này giải thích cách gắn vào quy trình thông qua IPC (giao tiếp giữa các quy trình). Tập tin IPC `klay.ipc` được đặt tại thư mục dữ liệu trên nút.
 
-Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
+Hãy thực hiện lệnh sau và kiểm tra kết quả. (Nếu bạn đã thêm API `mainbridge` cho RPC, bạn có thể kiểm tra API cầu nối như bên dưới. Nếu không có API `mainbridge`, bạn nên kiểm tra lại [Cấu hình EN - Kích hoạt cầu nối chính](#en-configuration-enable-main-bridge). )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -75,9 +75,9 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-#### Get the EN's KNI <a id="get-the-ens-kni"></a>
+#### Lấy KNI của EN <a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../references/service-chain-api/subbridge.md).
+Sau khi gắn với quy trình qua IPC, bạn có thể kiểm tra KNI cầu nối chính của EN như bên dưới. Bạn có thể tham khảo [API Chuỗi dịch vụ](../../../references/service-chain-api/subbridge.md).
 
 ```javascript
 > mainbridge.nodeInfo
@@ -109,13 +109,13 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 }
 ```
 
-You should take note of the main-bridge `kni`.
+Bạn nên ghi lại `kni` cầu nối chính.
 
-### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
+### Kết nối với Chuỗi chính <a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console <a id="open-scn-console"></a>
+#### Mở Bảng điều khiển SCN <a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](../install-service-chain.md#configuration-of-the-scn) again.
+Gắn với quy trình SCN như bên dưới. Bạn nên bật sẵn API `subbridge` cho RPC, bạn có thể tìm thấy mô-đun cầu nối con trong đầu ra. Nếu không có API `subbridge`, bạn nên kiểm tra lại [Cấu hình SCN](../install-service-chain.md#configuration-of-the-scn).
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -128,16 +128,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-#### Connect SCN with EN <a id="connect-scn-with-en"></a>
+#### Kết nối SCN với EN <a id="connect-scn-with-en"></a>
 
-You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
+Bạn có thể thêm EN ngang hàng trên SCN thông qua IPC như bên dưới. kni là KNI của EN mà bạn đã ghi lại trước đó.
 
 ```javascript
  > subbridge.addPeer("kni://08b99d2297e0a27ddeb33f3a81b59ea1c065b9adbaff9fefab0d16f65b1a8db22939a104c24447e9aca521c158922ca912476b544baf48995a382d88886e0a37@[::]:50505?discport=0")
  true
 ```
 
-And then you can check the connected peers like below.
+Sau đó, bạn có thể kiểm tra các nút ngang hàng được kết nối như bên dưới.
 
 ```javascript
  > subbridge.peers
