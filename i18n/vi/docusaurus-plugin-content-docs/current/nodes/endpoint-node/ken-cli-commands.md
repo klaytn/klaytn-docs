@@ -1,13 +1,13 @@
-# ken CLI Commands
+# các lệnh CLI ken
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## Commands
+## Lệnh <a id="commands"></a>
 
-`ken`has the following commands.
+`ken` có các lệnh sau.
 
 ```bash
 COMMANDS:
@@ -22,7 +22,7 @@ COMMANDS:
    help, h     Shows a list of commands or help for one command
 ```
 
-To get a detailed usage guideline for each command, give -h option.
+Để xem hướng dẫn sử dụng chi tiết cho từng lệnh, hãy chọn tùy chọn `-h`.
 
 ```bash
 $ ken account -h
@@ -55,9 +55,9 @@ participating.
  ...
 ```
 
-## JavaScript Console
+## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh của bảng điều khiển, bạn có thể khởi tạo một phần của các lệnh gọi ra API Klaytn đến EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -70,16 +70,16 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-attach command connects to the running node, while console command launches a node and connects to it.
+Lệnh `attach` kết nối với nút đang chạy, trong khi lệnh `console` khởi chạy một nút và kết nối với nút đó.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
 ```
 
-### Module APIs
+### API mô-đun <a id="module-apis"></a>
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../references/json-rpc/json-rpc.md).
+Nếu bạn nhập tên mô-đun trên dấu nhắc bảng điều khiển, bạn sẽ thấy các thuộc tính và chức năng có sẵn của mô-đun. Để biết chi tiết các chức năng, vui lòng tham khảo [API Klaytn](../../references/json-rpc/json-rpc.md).
 
 ```javascript
 > personal
